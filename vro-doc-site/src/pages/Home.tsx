@@ -49,13 +49,13 @@ const Home: React.FC = () => {
                         <Link
                             to={`/plugin/${plugin.name}`}
                             key={plugin.name}
-                            className="group bg-white dark:bg-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-indigo-500/50 rounded-2xl p-6 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-indigo-500/10"
+                            className="group bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/80 border border-slate-200 dark:border-slate-800 hover:border-indigo-500/50 rounded-2xl p-6 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-indigo-500/10"
                         >
                             <div className="flex items-center justify-between mb-4">
-                                <div className="p-2.5 rounded-xl bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform">
+                                <div className="p-2.5 rounded-xl bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform border border-indigo-100 dark:border-indigo-500/20">
                                     <Package size={24} />
                                 </div>
-                                <div className="text-slate-300 dark:text-slate-600 group-hover:text-indigo-500 transition-colors">
+                                <div className="text-slate-300 dark:text-slate-700 group-hover:text-indigo-500 transition-colors">
                                     <ArrowRight size={20} />
                                 </div>
                             </div>
@@ -63,20 +63,20 @@ const Home: React.FC = () => {
                             <h2 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                                 {plugin.name}
                             </h2>
-                            <p className="mt-2 text-slate-500 dark:text-slate-400 text-sm line-clamp-2 leading-relaxed">
+                            <p className="mt-2 text-slate-500 dark:text-slate-400 text-base line-clamp-2 leading-relaxed">
                                 Complete API reference for {plugin.name}.
                             </p>
                         </Link>
                     ))}
                 </div>
             ) : (
-                <div className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden shadow-sm">
-                    <div className="divide-y divide-slate-100 dark:divide-slate-700/50">
+                <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm">
+                    <div className="divide-y divide-slate-100 dark:divide-slate-800/50">
                         {filteredPlugins.map((plugin) => (
                             <Link
                                 to={`/plugin/${plugin.name}`}
                                 key={plugin.name}
-                                className="flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group"
+                                className="flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group"
                             >
                                 <div className="flex items-center gap-4">
                                     <ListIcon className="text-slate-400 dark:text-slate-600" size={18} />

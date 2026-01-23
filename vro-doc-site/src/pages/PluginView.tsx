@@ -103,7 +103,7 @@ const PluginView: React.FC = () => {
                         <Link
                             to={`/plugin/${pluginName}/class/${cls.name}`}
                             key={cls.name}
-                            className="group block bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 hover:border-indigo-500/50 hover:bg-slate-50 dark:hover:bg-slate-800/80 rounded-2xl p-5 transition-all shadow-sm hover:shadow-lg"
+                            className="group block bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-500/50 hover:bg-slate-50 dark:hover:bg-slate-800/80 rounded-2xl p-5 transition-all shadow-sm hover:shadow-lg"
                         >
                             <div className="flex items-start justify-between">
                                 <FileCode className="text-indigo-500/50 group-hover:text-indigo-500 transition-colors" size={24} />
@@ -114,10 +114,10 @@ const PluginView: React.FC = () => {
                             <h3 className="mt-3 text-lg font-mono font-bold text-slate-900 dark:text-indigo-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-200 truncate transition-colors">
                                 {cls.name}
                             </h3>
-                            <p className="mt-2 text-sm text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed h-10">
+                            <p className="mt-2 text-base text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed h-12">
                                 {cls.description || 'API component for plugin integration.'}
                             </p>
-                            <div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-700/50 flex gap-4 text-[11px] uppercase tracking-wider text-slate-400 dark:text-slate-500 font-bold font-mono">
+                            <div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800/50 flex gap-4 text-[11px] uppercase tracking-wider text-slate-400 dark:text-slate-500 font-bold font-mono">
                                 <span>{cls.methods.length} Met</span>
                                 <span>{cls.attributes.length} Attr</span>
                             </div>
@@ -125,13 +125,13 @@ const PluginView: React.FC = () => {
                     ))}
                 </div>
             ) : (
-                <div className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden shadow-sm">
-                    <div className="divide-y divide-slate-100 dark:divide-slate-700/50 font-mono text-sm leading-none">
+                <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm">
+                    <div className="divide-y divide-slate-100 dark:divide-slate-800/50 font-mono text-sm leading-none">
                         {filteredClasses.map((cls) => (
                             <Link
                                 to={`/plugin/${pluginName}/class/${cls.name}`}
                                 key={cls.name}
-                                className="flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group"
+                                className="flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group"
                             >
                                 <div className="flex items-center gap-4">
                                     <ListIcon className="text-slate-300 dark:text-slate-700" size={18} />

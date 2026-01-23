@@ -8,14 +8,14 @@ const Layout: React.FC = () => {
     const { theme, toggleTheme } = useTheme();
 
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 font-sans selection:bg-indigo-500 selection:text-white transition-colors duration-200">
-            <header className="sticky top-0 z-50 w-full backdrop-blur-lg border-b border-slate-200 dark:border-slate-700/50 bg-white/80 dark:bg-slate-900/80">
+        <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans selection:bg-indigo-500 selection:text-white transition-colors duration-300">
+            <header className="sticky top-0 z-50 w-full backdrop-blur-md border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95">
                 <div className="container mx-auto px-4 h-16 flex items-center justify-between">
                     <Link to="/" className="flex items-center gap-2">
                         <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center font-bold text-white shadow-lg shadow-indigo-500/20">
                             V
                         </div>
-                        <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400">
+                        <span className="text-xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-white dark:to-slate-400">
                             vRO API Docs
                         </span>
                     </Link>
@@ -48,7 +48,7 @@ const Layout: React.FC = () => {
                 <Outlet />
             </main>
 
-            <footer className="border-t border-slate-200 dark:border-slate-800 py-12 mt-12 bg-white dark:bg-slate-900/50">
+            <footer className="border-t border-slate-200 dark:border-slate-800 py-12 mt-12 bg-slate-100 dark:bg-black/20">
                 <div className="container mx-auto px-4 text-center">
                     <p className="text-slate-500 dark:text-slate-400 text-sm mb-4">
                         Generated Documentation for vRealize Orchestrator Plugins
