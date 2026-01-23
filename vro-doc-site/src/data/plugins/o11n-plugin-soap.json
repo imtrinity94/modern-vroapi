@@ -1,0 +1,400 @@
+{
+  "name": "o11n-plugin-soap",
+  "classes": [
+    {
+      "name": "SOAPHostManager",
+      "description": "Provides CRUD operations for SOAP hosts.",
+      "methods": [
+        {
+          "name": "addHost",
+          "parameters": "host: SOAPHost",
+          "returnType": "SOAPHost",
+          "description": "Adds a SOAP host to the plug-in's inventory."
+        },
+        {
+          "name": "updateHost",
+          "parameters": "host: SOAPHost",
+          "returnType": "SOAPHost",
+          "description": "Updates the specified SOAP host in the plug-in's inventory."
+        },
+        {
+          "name": "removeHost",
+          "parameters": "id: string",
+          "returnType": "SOAPHost",
+          "description": "Removes a SOAP host from the plug-in's inventory."
+        },
+        {
+          "name": "getHosts",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "Returns the list of SOAP host ids from the plug-in's inventory."
+        },
+        {
+          "name": "getHost",
+          "parameters": "id: string",
+          "returnType": "SOAPHost",
+          "description": "Returns the SOAP host with the specified name from the plug-in's inventory."
+        },
+        {
+          "name": "reloadConfiguration",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Reloads the plug-in configuration."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "SOAPHost",
+      "description": "Represents an external system as its Web Service interface.",
+      "methods": [
+        {
+          "name": "getOperation",
+          "parameters": "operationName: string",
+          "returnType": "SOAPOperation",
+          "description": "Gets a SOAP operation by name."
+        },
+        {
+          "name": "getOperations",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "Gets all the SOAP operation names."
+        },
+        {
+          "name": "createWorkflow",
+          "parameters": "operationName: string, workflowName: string, category: WorkflowCategory, options: Properties",
+          "returnType": "Workflow",
+          "description": "Creates a new workflow for a SOAP operation."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "preferredEndpointURL",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "wsdlUri",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "wsdlFileContent",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "wsdlLocal",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "connectionTimeout",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "requestTimeout",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "authentication",
+          "type": "SOAPAuthentication",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "proxyHost",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "keyId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "proxyPort",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "SOAPOperation",
+      "description": "Represents a SOAP operation template generated from WSDL definition.",
+      "methods": [
+        {
+          "name": "getHost",
+          "parameters": "",
+          "returnType": "SOAPHost",
+          "description": "Gets the parent SOAP host of the SOAP operation."
+        },
+        {
+          "name": "getInHeaders",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "Gets a flat representation of the SOAP operation's input headers."
+        },
+        {
+          "name": "getInParameters",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "Gets a flat representation of the SOAP operation's input parameters."
+        },
+        {
+          "name": "getOutParameters",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "Gets a flat representation of the SOAP operation's output parameters."
+        },
+        {
+          "name": "createSOAPRequest",
+          "parameters": "",
+          "returnType": "SOAPRequest",
+          "description": "Creates a new SOAP request for the SOAP operation."
+        },
+        {
+          "name": "invoke",
+          "parameters": "request: SOAPRequest",
+          "returnType": "SOAPResponse",
+          "description": "Invokes the SOAP operation."
+        },
+        {
+          "name": "invokeWithInterceptor",
+          "parameters": "request: SOAPRequest, interceptor: SOAPInterceptor",
+          "returnType": "SOAPResponse",
+          "description": "Invokes the SOAP operation with message interceptor."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "SOAPRequest",
+      "description": "Represents a SOAP request to pass when a SOAP operation is invoked.",
+      "methods": [
+        {
+          "name": "setInParameter",
+          "parameters": "name: string, value: any",
+          "returnType": "void",
+          "description": "Sets an input parameter in the request."
+        },
+        {
+          "name": "addInParameterAttribute",
+          "parameters": "parameterName: string, attributeName: string, attributeValue: any",
+          "returnType": "void",
+          "description": "Adds an attribute to the input parameter in the request."
+        },
+        {
+          "name": "addRawHeader",
+          "parameters": "rawHeader: string",
+          "returnType": "void",
+          "description": "Adds an raw XML header to the request."
+        },
+        {
+          "name": "setInHeader",
+          "parameters": "headerName: string, headerValue: any",
+          "returnType": "void",
+          "description": "Sets an input header in the request."
+        },
+        {
+          "name": "addInHeaderAttribute",
+          "parameters": "headerName: string, attributeName: string, attributeValue: any",
+          "returnType": "void",
+          "description": "Adds an attribute to the input header."
+        },
+        {
+          "name": "setHttpHeader",
+          "parameters": "key: string, value: string",
+          "returnType": "void",
+          "description": "Adds a single HTTP header to the SOAP request. Any already existing HTTP header that has the same key will be overwritten."
+        },
+        {
+          "name": "setHttpHeaders",
+          "parameters": "httpHeaders: Properties",
+          "returnType": "void",
+          "description": "Adds HTTP headers to the SOAP request. All already existing HTTP headers that have the same keys will be overwritten."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "SOAPResponse",
+      "description": "Represents a SOAP response received when a SOAP operation is invoked.",
+      "methods": [
+        {
+          "name": "getOutParameters",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "Gets the full names of all output parameters."
+        },
+        {
+          "name": "getOutParameter",
+          "parameters": "parameterName: string",
+          "returnType": "any",
+          "description": "Gets an output parameter value from the response."
+        },
+        {
+          "name": "getOutParameterAttributes",
+          "parameters": "parameterName: string",
+          "returnType": "string[]",
+          "description": "Gets the attribute names from the given output parameter."
+        },
+        {
+          "name": "getOutParameterAttribute",
+          "parameters": "parameterName: string, attributeName: string",
+          "returnType": "any",
+          "description": "Gets the attribute value from the given output parameter and attribute name."
+        },
+        {
+          "name": "getOutHeaders",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "Gets the full names of all output headers."
+        },
+        {
+          "name": "getOutHeader",
+          "parameters": "headerName: string",
+          "returnType": "any",
+          "description": "Gets an output header value from the response."
+        },
+        {
+          "name": "getOutHeaderAttributes",
+          "parameters": "headerName: string",
+          "returnType": "string[]",
+          "description": "Gets the attribute names from the given output header."
+        },
+        {
+          "name": "getOutHeaderAttribute",
+          "parameters": "headerName: string, attributeName: string",
+          "returnType": "any",
+          "description": "Gets the attribute value from the given output header and attribute name."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "SOAPDynamicInParameter",
+      "description": "Represents a dynamic input parameter object to be used from scripting.",
+      "methods": [],
+      "attributes": []
+    },
+    {
+      "name": "SOAPDynamicOutParameter",
+      "description": "Represents a dynamic output parameter object to be used from scripting.",
+      "methods": [],
+      "attributes": []
+    },
+    {
+      "name": "SOAPAuthenticationManager",
+      "description": "Manages SOAP host authentication objects.",
+      "methods": [
+        {
+          "name": "getSOAPAuthentications",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "Returns all the available authentication types."
+        },
+        {
+          "name": "getSessionModes",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "Returns the supported session modes."
+        },
+        {
+          "name": "createAuthentication",
+          "parameters": "type: string, params: string[]",
+          "returnType": "SOAPAuthentication",
+          "description": "Creates an authentication instance."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "SOAPAuthentication",
+      "description": "Represents authentication information for a SOAP host.",
+      "methods": [
+        {
+          "name": "getRawAuthProperty",
+          "parameters": "index: number",
+          "returnType": "string",
+          "description": "Gets the specified authentication attribute."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "type",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "rawAuthProperties",
+          "type": "string[]",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "SOAPInterceptor",
+      "description": "Holds javascript handler functions that intercept the SOAP requests and SOAP responses.",
+      "methods": [
+        {
+          "name": "setRequestHeaderInterceptor",
+          "parameters": "requestHeaderInterceptor: any",
+          "returnType": "void",
+          "description": "Sets a handler function to intercept the SOAP request header."
+        },
+        {
+          "name": "setRequestBodyInterceptor",
+          "parameters": "requestBodyInterceptor: any",
+          "returnType": "void",
+          "description": "Sets a handler function to intercept the SOAP request body."
+        },
+        {
+          "name": "setResponseHeaderInterceptor",
+          "parameters": "responseHeaderInterceptor: any",
+          "returnType": "void",
+          "description": "Sets a handler function to intercept the SOAP response header."
+        },
+        {
+          "name": "setResponseBodyInterceptor",
+          "parameters": "responseBodyInterceptor: any",
+          "returnType": "void",
+          "description": "Sets a handler function to intercept the SOAP response body."
+        }
+      ],
+      "attributes": []
+    }
+  ]
+}

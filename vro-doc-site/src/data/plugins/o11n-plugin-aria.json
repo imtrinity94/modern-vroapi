@@ -1,0 +1,5763 @@
+{
+  "name": "o11n-plugin-aria",
+  "classes": [
+    {
+      "name": "VraHost",
+      "description": "VMware Aria Automation Host provides access to connection host properties & validation access.",
+      "methods": [
+        {
+          "name": "createInfrastructureClient",
+          "parameters": "",
+          "returnType": "VraInfrastructureClient",
+          "description": ""
+        },
+        {
+          "name": "validate",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": "Validates the Host Connection."
+        },
+        {
+          "name": "destroy",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Destroys the connection object"
+        },
+        {
+          "name": "createRestClient",
+          "parameters": "",
+          "returnType": "VraGenericRestClient",
+          "description": "Creates a generic REST client for Automation Host"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "displayName",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "cloudHost",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "vraHost",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "sessionMode",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "connectionType",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "user",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VraInfrastructureClient",
+      "description": "",
+      "methods": [
+        {
+          "name": "createDataCollectorService",
+          "parameters": "",
+          "returnType": "VraDataCollectorService",
+          "description": "Create Data Collector service to invoke APIs."
+        },
+        {
+          "name": "createRequestService",
+          "parameters": "",
+          "returnType": "VraRequestService",
+          "description": "Create a Request service to invoke APIs."
+        },
+        {
+          "name": "createCloudZoneService",
+          "parameters": "",
+          "returnType": "VraCloudZoneService",
+          "description": "Create Cloud Zone service to invoke APIs."
+        },
+        {
+          "name": "createCloudAccountService",
+          "parameters": "",
+          "returnType": "VraCloudAccountService",
+          "description": "Create a Cloud Account service to invoke APIs."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "VraCloudAccountService",
+      "description": "",
+      "methods": [
+        {
+          "name": "setGenericRestClient",
+          "parameters": "genericRestClient: VraGenericRestClient",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "deleteVSphereCloudAccountById",
+          "parameters": "cloudAccountVsphereId: string",
+          "returnType": "void",
+          "description": "Delete a vSphere Cloud Account with a given id"
+        },
+        {
+          "name": "deleteVSphereCloudAccount",
+          "parameters": "cloudAccountVsphere: VraCloudAccountVsphere",
+          "returnType": "void",
+          "description": "Delete a vSphere Cloud Account with a given cloudAccountVsphere object"
+        },
+        {
+          "name": "createVSphereCloudAccount",
+          "parameters": "body: VraCloudAccountVsphereSpecification",
+          "returnType": "VraCloudAccountVsphere",
+          "description": "Create a vSphere cloud account"
+        },
+        {
+          "name": "createVSphereCloudAccountAsync",
+          "parameters": "body: VraCloudAccountVsphereSpecification",
+          "returnType": "VraRequestTracker",
+          "description": "Create a vSphere cloud account in an asynchronous manner"
+        },
+        {
+          "name": "updateVSphereCloudAccountAsync",
+          "parameters": "cloudAccountVsphere: VraCloudAccountVsphere, body: VraUpdateCloudAccountVsphereSpecification",
+          "returnType": "VraRequestTracker",
+          "description": "Update vSphere cloud account in an asynchronous manner"
+        },
+        {
+          "name": "updateVSphereCloudAccount",
+          "parameters": "cloudAccountVsphere: VraCloudAccountVsphere, body: VraUpdateCloudAccountVsphereSpecification",
+          "returnType": "VraCloudAccountVsphere",
+          "description": "Update vSphere cloud account"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "VraUpdateCloudAccountVsphereSpecification",
+      "description": "",
+      "methods": [
+        {
+          "name": "addAssociatedCloudAccountIdsItem",
+          "parameters": "associatedCloudAccountIdsItem: string",
+          "returnType": "VraUpdateCloudAccountVsphereSpecification",
+          "description": ""
+        },
+        {
+          "name": "addTagsItem",
+          "parameters": "tagsItem: VraTag",
+          "returnType": "VraUpdateCloudAccountVsphereSpecification",
+          "description": ""
+        },
+        {
+          "name": "addRegionsItem",
+          "parameters": "regionsItem: VraRegionSpecification",
+          "returnType": "VraUpdateCloudAccountVsphereSpecification",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "hostName",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "acceptSelfSignedCertificate",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "createDefaultZones",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "password",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "associatedCloudAccountIds",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "regions",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dcid",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "username",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tags",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraCloudAccountVsphereSpecification",
+      "description": "Specification for a vSphere cloud account.<br><br>A cloud account identifies a cloud account type and an account-specific deployment region or data center where the associated cloud account resources are hosted.",
+      "methods": [
+        {
+          "name": "addRegionsItem",
+          "parameters": "regionsItem: VraRegionSpecification",
+          "returnType": "VraCloudAccountVsphereSpecification",
+          "description": ""
+        },
+        {
+          "name": "addAssociatedCloudAccountIdsItem",
+          "parameters": "associatedCloudAccountIdsItem: string",
+          "returnType": "VraCloudAccountVsphereSpecification",
+          "description": ""
+        },
+        {
+          "name": "addTagsItem",
+          "parameters": "tagsItem: VraTag",
+          "returnType": "VraCloudAccountVsphereSpecification",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "hostName",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "acceptSelfSignedCertificate",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "createDefaultZones",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "password",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "associatedCloudAccountIds",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "regions",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dcid",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "username",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tags",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraRegionSpecification",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "externalRegionId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraCloudAccountVsphere",
+      "description": "",
+      "methods": [
+        {
+          "name": "putLinksItem",
+          "parameters": "key: string, linksItem: VraHref",
+          "returnType": "VraCloudAccountVsphere",
+          "description": ""
+        },
+        {
+          "name": "putCustomPropertiesItem",
+          "parameters": "key: string, customPropertiesItem: string",
+          "returnType": "VraCloudAccountVsphere",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "owner",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "hostName",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "linksExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "enabledRegionIdsExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "orgId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tags",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "createdAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "enabledRegions",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dcid",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "host",
+          "type": "VraHost",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tagsExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "username",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "customPropertiesExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraCloudZoneService",
+      "description": "",
+      "methods": [
+        {
+          "name": "setGenericRestClient",
+          "parameters": "genericRestClient: VraGenericRestClient",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "deleteZoneById",
+          "parameters": "zoneId: string",
+          "returnType": "void",
+          "description": "This method deletes Zone based on given zoneId"
+        },
+        {
+          "name": "deleteZone",
+          "parameters": "zone: VraZone",
+          "returnType": "void",
+          "description": "This method deletes Zone based on given zone."
+        },
+        {
+          "name": "updateZone",
+          "parameters": "id: string, body: VraZoneSpecification",
+          "returnType": "VraZone",
+          "description": "This method updates the Zone based on zoneId & ZoneSpecification."
+        },
+        {
+          "name": "createZone",
+          "parameters": "body: VraZoneSpecification",
+          "returnType": "VraZone",
+          "description": "This method creates Zone based on ZoneSpecification details."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "VraZone",
+      "description": "",
+      "methods": [
+        {
+          "name": "addTagsToMatchItem",
+          "parameters": "tagsToMatchItem: VraTag",
+          "returnType": "VraZone",
+          "description": ""
+        },
+        {
+          "name": "putLinksItem",
+          "parameters": "key: string, linksItem: VraHref",
+          "returnType": "VraZone",
+          "description": ""
+        },
+        {
+          "name": "addTagsItem",
+          "parameters": "tagsItem: VraTag",
+          "returnType": "VraZone",
+          "description": ""
+        },
+        {
+          "name": "putCustomPropertiesItem",
+          "parameters": "key: string, customPropertiesItem: string",
+          "returnType": "VraZone",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "owner",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "linksExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "externalRegionId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "cloudAccountId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "orgId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tags",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "createdAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "folder",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tagsToMatch",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "host",
+          "type": "VraHost",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "placementPolicy",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tagsExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tagsToMatchExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "customPropertiesExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraHref",
+      "description": "",
+      "methods": [
+        {
+          "name": "addHrefsItem",
+          "parameters": "hrefsItem: string",
+          "returnType": "VraHref",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "hrefs",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraZoneSpecification",
+      "description": "Specification for a zone.",
+      "methods": [
+        {
+          "name": "addTagsToMatchItem",
+          "parameters": "tagsToMatchItem: VraTag",
+          "returnType": "VraZoneSpecification",
+          "description": ""
+        },
+        {
+          "name": "putCustomPropertiesItem",
+          "parameters": "key: string, customPropertiesItem: string",
+          "returnType": "VraZoneSpecification",
+          "description": ""
+        },
+        {
+          "name": "addComputeIdsItem",
+          "parameters": "computeIdsItem: string",
+          "returnType": "VraZoneSpecification",
+          "description": ""
+        },
+        {
+          "name": "addTagsItem",
+          "parameters": "tagsItem: VraTag",
+          "returnType": "VraZoneSpecification",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "folder",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "computeIds",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tagsToMatch",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "regionId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "placementPolicy",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tags",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraTag",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "displayName",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "internalIdString",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "host",
+          "type": "VraHost",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "key",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraDataCollectorService",
+      "description": "",
+      "methods": [
+        {
+          "name": "setGenericRestClient",
+          "parameters": "genericRestClient: VraGenericRestClient",
+          "returnType": "void",
+          "description": ""
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "VraRequestService",
+      "description": "",
+      "methods": [
+        {
+          "name": "setGenericRestClient",
+          "parameters": "genericRestClient: VraGenericRestClient",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "awaitRequestTrackerResponse",
+          "parameters": "requestTracker: VraRequestTracker",
+          "returnType": "VraRequestTracker",
+          "description": "Awaits successfully completed RequestTracker Response."
+        },
+        {
+          "name": "deleteRequestTracker",
+          "parameters": "requestTrackerId: string",
+          "returnType": "void",
+          "description": "Delete a request tracker object for a given request id."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "VraRequestTracker",
+      "description": "",
+      "methods": [
+        {
+          "name": "addResourcesItem",
+          "parameters": "resourcesItem: string",
+          "returnType": "VraRequestTracker",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "deploymentId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "host",
+          "type": "VraHost",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "resources",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "progress",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "requestTrackerStatus",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "selfLink",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraGenericRestClient",
+      "description": "A generic VMware Aria Automation Rest client for executing REST operations",
+      "methods": [
+        {
+          "name": "get",
+          "parameters": "request: VraRestRequest",
+          "returnType": "VraRestResponse",
+          "description": "Get Method to execute rest operation by setting Request object. Request object can hold information (http method, resource url, request payload)"
+        },
+        {
+          "name": "execute",
+          "parameters": "restRequest: VraRestRequest",
+          "returnType": "VraRestResponse",
+          "description": "Method to execute rest operation by setting Request object. Request object can hold information (http method, resource url, request payload)"
+        },
+        {
+          "name": "put",
+          "parameters": "request: VraRestRequest",
+          "returnType": "VraRestResponse",
+          "description": "Put Method to execute rest operation by setting Request object. Request object can hold information (http method, resource url, request payload)"
+        },
+        {
+          "name": "delete",
+          "parameters": "request: VraRestRequest",
+          "returnType": "VraRestResponse",
+          "description": "Delete Method (Http Delete) to execute rest operation by setting Request object. Request object can hold information (http method, resource url, request payload)"
+        },
+        {
+          "name": "post",
+          "parameters": "request: VraRestRequest",
+          "returnType": "VraRestResponse",
+          "description": "Post Method to execute rest operation by setting Request object. Request object can hold information (http method, resource url, request payload)"
+        },
+        {
+          "name": "createRequest",
+          "parameters": "method: string, path: string, requestPayload: string",
+          "returnType": "VraRestRequest",
+          "description": "Method to create HTTP rest Request. It holds parameter (HTTP Method (GET/PUT/POST/DELETE/PATCH), Resource Path URI, Request Payload (Stringified JSON))."
+        },
+        {
+          "name": "patch",
+          "parameters": "request: VraRestRequest",
+          "returnType": "VraRestResponse",
+          "description": "Patch Method (Http Patch) to execute rest operation by setting Request object. Request object can hold information (http method, resource url, request payload)"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "host",
+          "type": "VraHost",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraRestRequest",
+      "description": "",
+      "methods": [
+        {
+          "name": "setHeader",
+          "parameters": "key: string, value: string",
+          "returnType": "void",
+          "description": "Sets Headers to the Http Request Object."
+        },
+        {
+          "name": "getHeader",
+          "parameters": "header: string",
+          "returnType": "string",
+          "description": "Gets Http Header value for the key from the Http Request."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "path",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "method",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "payload",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VraRestResponse",
+      "description": "",
+      "methods": [
+        {
+          "name": "getHeaderValues",
+          "parameters": "headerName: string",
+          "returnType": "string",
+          "description": "Retrieves the server's response header values per header with specific name."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "contentAsString",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "allHeaders",
+          "type": "{ [key: string]: string }",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "contentLength",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "statusMessage",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "statusCode",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VraBlockDevice",
+      "description": "",
+      "methods": [
+        {
+          "name": "putCustomPropertiesItem",
+          "parameters": "key: string, customPropertiesItem: string",
+          "returnType": "VraBlockDevice",
+          "description": ""
+        },
+        {
+          "name": "addTagsItem",
+          "parameters": "tagsItem: VraTag",
+          "returnType": "VraBlockDevice",
+          "description": ""
+        },
+        {
+          "name": "addCloudAccountIdsItem",
+          "parameters": "cloudAccountIdsItem: string",
+          "returnType": "VraBlockDevice",
+          "description": ""
+        },
+        {
+          "name": "putLinksItem",
+          "parameters": "key: string, linksItem: VraHref",
+          "returnType": "VraBlockDevice",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "owner",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "cloudAccountIdsExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "linksExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "externalZoneId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "externalRegionId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "externalId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "orgId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tags",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "capacityInGB",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "cloudAccountIds",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "createdAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "provisioningStatus",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "deploymentId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "host",
+          "type": "VraHost",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tagsExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "blockDeviceStatus",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "persistent",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "projectId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "customPropertiesExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraBlockDeviceResult",
+      "description": "State object representing a query result of block device.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "numberOfElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "content",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "totalElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VraBlockDeviceSpecification",
+      "description": "BlockDeviceSpecification",
+      "methods": [
+        {
+          "name": "addConstraintsItem",
+          "parameters": "constraintsItem: VraConstraint",
+          "returnType": "VraBlockDeviceSpecification",
+          "description": ""
+        },
+        {
+          "name": "addTagsItem",
+          "parameters": "tagsItem: VraTag",
+          "returnType": "VraBlockDeviceSpecification",
+          "description": ""
+        },
+        {
+          "name": "putCustomPropertiesItem",
+          "parameters": "key: string, customPropertiesItem: string",
+          "returnType": "VraBlockDeviceSpecification",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "capacityInGB",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "sourceReference",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "encrypted",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "deploymentId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "diskContentBase64",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "persistent",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "constraints",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "projectId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tags",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraConstraint",
+      "description": "A constraint that is conveyed to the policy engine.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "expression",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "mandatory",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraChangeSecurityGroupSpecification",
+      "description": "Specification for a second day change security groups operation for a vsphere machine",
+      "methods": [
+        {
+          "name": "addNetworkInterfaceSpecificationsItem",
+          "parameters": "networkInterfaceSpecificationsItem: VraNetworkInterfaceSpecification",
+          "returnType": "VraChangeSecurityGroupSpecification",
+          "description": ""
+        },
+        {
+          "name": "putLinksItem",
+          "parameters": "key: string, linksItem: VraHref",
+          "returnType": "VraChangeSecurityGroupSpecification",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "owner",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "createdAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "networkInterfaceSpecifications",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "orgId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraNetworkInterfaceSpecification",
+      "description": "",
+      "methods": [
+        {
+          "name": "putCustomPropertiesItem",
+          "parameters": "key: string, customPropertiesItem: string",
+          "returnType": "VraNetworkInterfaceSpecification",
+          "description": ""
+        },
+        {
+          "name": "addSecurityGroupIdsItem",
+          "parameters": "securityGroupIdsItem: string",
+          "returnType": "VraNetworkInterfaceSpecification",
+          "description": ""
+        },
+        {
+          "name": "addAddressesItem",
+          "parameters": "addressesItem: string",
+          "returnType": "VraNetworkInterfaceSpecification",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "addresses",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "macAddress",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "securityGroupIds",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "fabricNetworkId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "networkId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "deviceIndex",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraCloudAccount",
+      "description": "",
+      "methods": [
+        {
+          "name": "addEnabledRegionsItem",
+          "parameters": "enabledRegionsItem: VraRegion",
+          "returnType": "VraCloudAccount",
+          "description": ""
+        },
+        {
+          "name": "putCloudAccountPropertiesItem",
+          "parameters": "key: string, cloudAccountProperties: string",
+          "returnType": "VraCloudAccount",
+          "description": ""
+        },
+        {
+          "name": "putLinksItem",
+          "parameters": "key: string, linksItem: VraHref",
+          "returnType": "VraCloudAccount",
+          "description": ""
+        },
+        {
+          "name": "addTagsItem",
+          "parameters": "tagsItem: VraTag",
+          "returnType": "VraCloudAccount",
+          "description": ""
+        },
+        {
+          "name": "putCustomPropertiesItem",
+          "parameters": "key: string, customPropertiesItem: string",
+          "returnType": "VraCloudAccount",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "owner",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "linksExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "cloudAccountType",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "enabledRegionIdsExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "orgId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tags",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "createdAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "enabledRegions",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "host",
+          "type": "VraHost",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tagsExtention",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "customPropertiesExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraCloudAccountNsxT",
+      "description": "",
+      "methods": [
+        {
+          "name": "putLinksItem",
+          "parameters": "key: string, linksItem: VraHref",
+          "returnType": "VraCloudAccountNsxT",
+          "description": ""
+        },
+        {
+          "name": "putCustomPropertiesItem",
+          "parameters": "key: string, customPropertiesItem: string",
+          "returnType": "VraCloudAccountNsxT",
+          "description": ""
+        },
+        {
+          "name": "addTagsItem",
+          "parameters": "tagsItem: VraTag",
+          "returnType": "VraCloudAccountNsxT",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "owner",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "hostName",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "managerMode",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "orgId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tags",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "createdAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dcid",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "host",
+          "type": "VraHost",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "isGlobalManager",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "username",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraCloudAccountNsxTResult",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "numberOfElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "content",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "totalElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VraCloudAccountNsxV",
+      "description": "State object representing an Nsx-V cloud account.<br><br>A cloud account identifies a cloud account type and an account-specific deployment region or data center where the associated cloud account resources are hosted.<br>**HATEOAS** links:<br>**self** - CloudAccountNsxV - Self link to this cloud account",
+      "methods": [
+        {
+          "name": "addTagsItem",
+          "parameters": "tagsItem: VraTag",
+          "returnType": "VraCloudAccountNsxV",
+          "description": ""
+        },
+        {
+          "name": "putCustomPropertiesItem",
+          "parameters": "key: string, customPropertiesItem: string",
+          "returnType": "VraCloudAccountNsxV",
+          "description": ""
+        },
+        {
+          "name": "putLinksItem",
+          "parameters": "key: string, linksItem: VraHref",
+          "returnType": "VraCloudAccountNsxV",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "owner",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "hostName",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "orgId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tags",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "createdAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dcid",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "host",
+          "type": "VraHost",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "username",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraCloudAccountNsxVResult",
+      "description": "State object representing a query result of Nsx-V cloud accounts.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "numberOfElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "content",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "totalElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VraCloudAccountRegions",
+      "description": "State object representing cloud account region.<br><br>**externalRegions** - array[RegionSpecification] - Set of regions that can be enabled for this cloud account.<br>**externalRegionIds** - array[String] - Set of ids of regions that can be enabled for this cloud account.<br>",
+      "methods": [
+        {
+          "name": "addExternalRegionsItem",
+          "parameters": "externalRegionsItem: VraRegionSpecification",
+          "returnType": "VraCloudAccountRegions",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "externalRegions",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraRegion",
+      "description": "",
+      "methods": [
+        {
+          "name": "putLinksItem",
+          "parameters": "key: string, linksItem: VraHref",
+          "returnType": "VraRegion",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "owner",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "createdAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "externalRegionId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "cloudAccountId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "host",
+          "type": "VraHost",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "orgId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraCloudAccountResult",
+      "description": "State object representing a query result of cloud accounts.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "numberOfElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "content",
+          "type": "VraCloudAccount[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "totalElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VraCloudAccountVsphereRegionEnumerationSpecification",
+      "description": "Specification for a region enumeration of vshpere cloud account.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "acceptSelfSignedCertificate",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "hostName",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "password",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dcid",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "cloudAccountId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "username",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraCloudAccountVsphereResult",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "numberOfElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "content",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "totalElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VraDataCollector",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "hostName",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dcid",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "ipAddress",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "host",
+          "type": "VraHost",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraDataCollectorResult",
+      "description": "State object representing a query result of data collectors.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "numberOfElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "content",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "totalElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VraDiskAttachmentSpecification",
+      "description": "",
+      "methods": [
+        {
+          "name": "putDiskAttachmentPropertiesItem",
+          "parameters": "key: string, diskAttachmentPropertiesItem: string",
+          "returnType": "VraDiskAttachmentSpecification",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "blockDeviceId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "scsiController",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "unitNumber",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraDiskService",
+      "description": "",
+      "methods": [
+        {
+          "name": "setGenericRestClient",
+          "parameters": "genericRestClient: VraGenericRestClient",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "createBlockDevice",
+          "parameters": "blockDeviceSpecification: VraBlockDeviceSpecification",
+          "returnType": "VraBlockDevice",
+          "description": "Create a BlockDevice in Synchronous manner"
+        },
+        {
+          "name": "resizeBlockDevice",
+          "parameters": "diskId: string, capacityInGB: number",
+          "returnType": "VraRequestTracker",
+          "description": "Resize a BlockDevice in an asynchronous manner."
+        },
+        {
+          "name": "deleteBlockDevice",
+          "parameters": "diskId: string, purge: boolean, forceDelete: boolean",
+          "returnType": "VraRequestTracker",
+          "description": "Delete a BlockDevice in an asynchronous manner."
+        },
+        {
+          "name": "createBlockDeviceAsync",
+          "parameters": "blockDeviceSpecification: VraBlockDeviceSpecification",
+          "returnType": "VraRequestTracker",
+          "description": "Create a BlockDevice in an asynchronous manner"
+        },
+        {
+          "name": "createBlockDeviceSnapshot",
+          "parameters": "diskId: string, diskSnapshotSpecification: VraDiskSnapshotSpecification",
+          "returnType": "VraRequestTracker",
+          "description": "Create a BlockDevice Snapshot in an asynchronous manner."
+        },
+        {
+          "name": "revertBlockDeviceSnapshot",
+          "parameters": "diskId: string, snapshotId: string",
+          "returnType": "VraRequestTracker",
+          "description": "Revert a BlockDevice Snapshot in an asynchronous manner."
+        },
+        {
+          "name": "promoteBlockDevice",
+          "parameters": "diskId: string",
+          "returnType": "VraRequestTracker",
+          "description": "Promote a BlockDevice in an asynchronous manner. Second day promote operation on disk. Applicable for vSphere Block Devices only"
+        },
+        {
+          "name": "deleteBlockDeviceSnapshot",
+          "parameters": "diskId: string, snapshotId: string",
+          "returnType": "VraRequestTracker",
+          "description": "Delete a BlockDevice Snapshot in an asynchronous manner."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "VraDiskSnapshotSpecification",
+      "description": "Specification for Disk Snapshot creation request.",
+      "methods": [
+        {
+          "name": "putSnapshotPropertiesItem",
+          "parameters": "key: string, customPropertiesItem: string",
+          "returnType": "VraDiskSnapshotSpecification",
+          "description": ""
+        },
+        {
+          "name": "addTagsItem",
+          "parameters": "tagsItem: VraTag",
+          "returnType": "VraDiskSnapshotSpecification",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tags",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraEntitiesFinder",
+      "description": "VMware Aria Automation Entity finder to search for an entity",
+      "methods": [
+        {
+          "name": "getTags",
+          "parameters": "vRAHost: VraHost, filter: string",
+          "returnType": "VraTag[]",
+          "description": "Get all tags."
+        },
+        {
+          "name": "getCloudZone",
+          "parameters": "vRAHost: VraHost, zoneId: string",
+          "returnType": "VraZone",
+          "description": "Get CloudZone for a given zone id."
+        },
+        {
+          "name": "getFabricNetworks",
+          "parameters": "vRAHost: VraHost, filter: string",
+          "returnType": "VraFabricNetwork[]",
+          "description": "Get all FabricNetwork for a given Host."
+        },
+        {
+          "name": "getCloudZones",
+          "parameters": "vRAHost: VraHost, filter: string",
+          "returnType": "VraZone[]",
+          "description": "Get all CloudZones for the given Host."
+        },
+        {
+          "name": "getFlavorProfiles",
+          "parameters": "vRAHost: VraHost",
+          "returnType": "VraFlavorProfile[]",
+          "description": "Get all FlavorProfile objects for a given Host."
+        },
+        {
+          "name": "getStorageProfile",
+          "parameters": "vRAHost: VraHost, id: string",
+          "returnType": "VraStorageProfile",
+          "description": "Get StorageProfile by ID."
+        },
+        {
+          "name": "getVsphereCloudAccount",
+          "parameters": "vRAHost: VraHost, vsphereCloudAccountId: string",
+          "returnType": "VraCloudAccountVsphere",
+          "description": "Get vSphere Cloud Account By Id."
+        },
+        {
+          "name": "getProject",
+          "parameters": "vRAHost: VraHost, id: string",
+          "returnType": "VraProject",
+          "description": "Retrieves a project by id for the given Host."
+        },
+        {
+          "name": "getFabricNetwork",
+          "parameters": "vRAHost: VraHost, id: string, select: string",
+          "returnType": "VraFabricNetwork",
+          "description": "Get FabricNetwork by ID."
+        },
+        {
+          "name": "getProjectResourceMetadata",
+          "parameters": "vRAHost: VraHost, id: string",
+          "returnType": "VraProjectResourceMetadata",
+          "description": "Get project resource metadata by a given project id."
+        },
+        {
+          "name": "getDataCollectors",
+          "parameters": "vRAHost: VraHost, isDisabledDataCollector: boolean",
+          "returnType": "VraDataCollector[]",
+          "description": "Get all Data Collectors/Cloud Proxies."
+        },
+        {
+          "name": "getAllImageMapping",
+          "parameters": "vRAHost: VraHost",
+          "returnType": "string[]",
+          "description": "Get all image mapping keys for a given Host."
+        },
+        {
+          "name": "getNsxVCloudAccount",
+          "parameters": "vRAHost: VraHost, id: string",
+          "returnType": "VraCloudAccountNsxV",
+          "description": "Get NSX-V Cloud Account by Id."
+        },
+        {
+          "name": "getImageProfile",
+          "parameters": "vRAHost: VraHost, id: string",
+          "returnType": "VraImageProfile",
+          "description": "Get ImageProfile by ID."
+        },
+        {
+          "name": "getAllImageReferencesByImage",
+          "parameters": "vRAHost: VraHost, image: string",
+          "returnType": "string[]",
+          "description": "Get all image reference keys for a given Host and Image."
+        },
+        {
+          "name": "getRequestTrackers",
+          "parameters": "vRAHost: VraHost",
+          "returnType": "VraRequestTracker[]",
+          "description": "Get all RequestTracker objects."
+        },
+        {
+          "name": "getNsxVCloudAccounts",
+          "parameters": "vRAHost: VraHost",
+          "returnType": "VraCloudAccountNsxV[]",
+          "description": "Get all NSX-V Cloud Account."
+        },
+        {
+          "name": "getVsphereCloudAccountRegions",
+          "parameters": "vRAHost: VraHost, cloudAccountVsphereSpecification: VraCloudAccountVsphereSpecification",
+          "returnType": "VraCloudAccountRegions",
+          "description": "Get vSphere Cloud Account Regions/DataCenter."
+        },
+        {
+          "name": "getBlockDeviceSnapshots",
+          "parameters": "vRAHost: VraHost, blockDeviceId: string",
+          "returnType": "VraDiskSnapshot[]",
+          "description": "Get all BlockDevice/Disk snapshots for a given BlockDevice/Disk Id."
+        },
+        {
+          "name": "getImageProfiles",
+          "parameters": "vRAHost: VraHost",
+          "returnType": "VraImageProfile[]",
+          "description": "Get all ImageProfile objects for a given Host."
+        },
+        {
+          "name": "getBlockDeviceSnapshot",
+          "parameters": "vRAHost: VraHost, blockDeviceId: string, snapshotId: string",
+          "returnType": "VraDiskSnapshot",
+          "description": "Get Block Device/Disk Snapshot details for given Block Device Id."
+        },
+        {
+          "name": "getMachineSnapshot",
+          "parameters": "vRAHost: VraHost, machineId: string, snapshotId: string",
+          "returnType": "VraSnapshot",
+          "description": "Get Machine Snapshot details for given Machine ID and Snapshot ID."
+        },
+        {
+          "name": "getNetworkProfile",
+          "parameters": "vRAHost: VraHost, id: string",
+          "returnType": "VraNetworkProfile",
+          "description": "Get NetworkProfile by ID."
+        },
+        {
+          "name": "getMachineDisksByMachineId",
+          "parameters": "vRAHost: VraHost, machineId: string",
+          "returnType": "VraBlockDevice[]",
+          "description": "Get all Machine objects for a given Host."
+        },
+        {
+          "name": "getAvailableBlockDevices",
+          "parameters": "vRAHost: VraHost, filter: string",
+          "returnType": "VraBlockDevice[]",
+          "description": "Get Available BlockDevices for a given Host."
+        },
+        {
+          "name": "getNetworks",
+          "parameters": "vRAHost: VraHost",
+          "returnType": "VraNetwork[]",
+          "description": "Get all Networks."
+        },
+        {
+          "name": "getMachineDisk",
+          "parameters": "vRAHost: VraHost, machineId: string, diskId: string",
+          "returnType": "VraBlockDevice",
+          "description": "Get Machine Disk by ID for a specific machine."
+        },
+        {
+          "name": "getTagsByKey",
+          "parameters": "vRAHost: VraHost, key: string, filter: string",
+          "returnType": "VraTag[]",
+          "description": "Get tags by key."
+        },
+        {
+          "name": "getVsphereCloudAccounts",
+          "parameters": "vRAHost: VraHost",
+          "returnType": "VraCloudAccountVsphere[]",
+          "description": "Get all vSphere Cloud Accounts."
+        },
+        {
+          "name": "getAllFlavorMapping",
+          "parameters": "vRAHost: VraHost",
+          "returnType": "string[]",
+          "description": "Get all flavor mapping keys for a given Host."
+        },
+        {
+          "name": "getMachineNetworkInterface",
+          "parameters": "vRAHost: VraHost, machineId: string, networkInterfaceId: string",
+          "returnType": "VraNetworkInterface",
+          "description": "Get Machine Network Interface details for given Machine ID and Network Interface ID."
+        },
+        {
+          "name": "getMachine",
+          "parameters": "vRAHost: VraHost, id: string, select: string",
+          "returnType": "VraMachine",
+          "description": "Get machine by ID."
+        },
+        {
+          "name": "getMachineSnapshots",
+          "parameters": "vRAHost: VraHost, machineId: string",
+          "returnType": "VraSnapshot[]",
+          "description": "Get all Snapshots for a given Machine"
+        },
+        {
+          "name": "getCloudAccount",
+          "parameters": "vRAHost: VraHost, id: string, select: string",
+          "returnType": "VraCloudAccount",
+          "description": "Get Cloud Account - Vsphere, NSXT, NXTV, AWS, Azure, GCP etc by ID."
+        },
+        {
+          "name": "getMachines",
+          "parameters": "vRAHost: VraHost, filter: string",
+          "returnType": "VraMachine[]",
+          "description": "Get all Machines for a given Host."
+        },
+        {
+          "name": "getRequestTracker",
+          "parameters": "vRAHost: VraHost, requestTrackerId: string",
+          "returnType": "VraRequestTracker",
+          "description": "Get RequestTracker object for a given request id."
+        },
+        {
+          "name": "getNsxTCloudAccounts",
+          "parameters": "vRAHost: VraHost",
+          "returnType": "VraCloudAccountNsxT[]",
+          "description": "Get all NSX-T Cloud Account."
+        },
+        {
+          "name": "getProjects",
+          "parameters": "vRAHost: VraHost, filter: string",
+          "returnType": "VraProject[]",
+          "description": "Get all projects with specified paging parameters for the given Host."
+        },
+        {
+          "name": "getMachineNetworkInterfaces",
+          "parameters": "vRAHost: VraHost, machineId: string",
+          "returnType": "VraNetworkInterface[]",
+          "description": "Get all Network Interfaces for a given Machine."
+        },
+        {
+          "name": "getNsxTCloudAccount",
+          "parameters": "vRAHost: VraHost, id: string",
+          "returnType": "VraCloudAccountNsxT",
+          "description": "Get NSX-T Cloud Account by Id."
+        },
+        {
+          "name": "getCloudZoneRegionByZone",
+          "parameters": "vRAHost: VraHost, zone: VraZone",
+          "returnType": "VraRegion",
+          "description": "Get CloudZone Region by given Zone."
+        },
+        {
+          "name": "getNetworkProfiles",
+          "parameters": "VraHost: VraHost",
+          "returnType": "VraNetworkProfile[]",
+          "description": "Get all NetworkProfile objects for a given Host."
+        },
+        {
+          "name": "getCloudZoneRegion",
+          "parameters": "vRAHost: VraHost, regionId: string",
+          "returnType": "VraRegion",
+          "description": "Get CloudZone Region by given region Id."
+        },
+        {
+          "name": "getTag",
+          "parameters": "vRAHost: VraHost, key: string, value: string",
+          "returnType": "VraTag",
+          "description": "Get Tag Object by String Key and value."
+        },
+        {
+          "name": "getStorageProfiles",
+          "parameters": "vRAHost: VraHost",
+          "returnType": "VraStorageProfile[]",
+          "description": "Get all StorageProfile objects for a given Host."
+        },
+        {
+          "name": "getCloudZoneRegions",
+          "parameters": "vRAHost: VraHost",
+          "returnType": "VraRegion[]",
+          "description": "Get all Cloud zone Region."
+        },
+        {
+          "name": "getDataCollector",
+          "parameters": "vRAHost: VraHost, dataCollectorId: string",
+          "returnType": "VraDataCollector",
+          "description": "Get Data Collector/Cloud Proxy by Id."
+        },
+        {
+          "name": "getAllFlavorReferencesByFlavor",
+          "parameters": "vRAHost: VraHost, flavor: string",
+          "returnType": "string[]",
+          "description": "Get all flavor references for a given Host and flavor."
+        },
+        {
+          "name": "getBlockDevice",
+          "parameters": "vRAHost: VraHost, id: string",
+          "returnType": "VraBlockDevice",
+          "description": "Get BlockDevice by ID."
+        },
+        {
+          "name": "getCloudAccounts",
+          "parameters": "vRAHost: VraHost, filter: string",
+          "returnType": "VraCloudAccount[]",
+          "description": "Get all Cloud Accounts - Vsphere, NSXT, NXTV, AWS, Azure, GCP etc."
+        },
+        {
+          "name": "getBlockDevices",
+          "parameters": "vRAHost: VraHost, filter: string",
+          "returnType": "VraBlockDevice[]",
+          "description": "Get all BlockDevice for a given Host."
+        },
+        {
+          "name": "getFlavorProfile",
+          "parameters": "vRAHost: VraHost, id: string",
+          "returnType": "VraFlavorProfile",
+          "description": "Get FlavorProfile by ID."
+        },
+        {
+          "name": "getNetwork",
+          "parameters": "vRAHost: VraHost, networkId: string",
+          "returnType": "VraNetwork",
+          "description": "Get Network for a given Network Id."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "VraFabricNetwork",
+      "description": "",
+      "methods": [
+        {
+          "name": "putCustomPropertiesItem",
+          "parameters": "key: string, customPropertiesItem: string",
+          "returnType": "VraFabricNetwork",
+          "description": "Get all Fabric Network Tags by Key."
+        },
+        {
+          "name": "addTagsItem",
+          "parameters": "tagsItem: VraTag",
+          "returnType": "VraFabricNetwork",
+          "description": ""
+        },
+        {
+          "name": "addCloudAccountIdsItem",
+          "parameters": "cloudAccountIdsItem: string",
+          "returnType": "VraFabricNetwork",
+          "description": ""
+        },
+        {
+          "name": "putLinksItem",
+          "parameters": "key: string, linksItem: VraHref",
+          "returnType": "VraFabricNetwork",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "owner",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "cloudAccountIdsExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "linksExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "externalRegionId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "externalId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "orgId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tags",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "cloudAccountIds",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "ipv6Cidr",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "createdAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "isDefault",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "host",
+          "type": "VraHost",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tagsExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "isPublic",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "cidr",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "customPropertiesExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraFlavorProfile",
+      "description": "",
+      "methods": [
+        {
+          "name": "putLinksItem",
+          "parameters": "key: string, linksItem: VraHref",
+          "returnType": "VraFlavorProfile",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "owner",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "flavorMappings",
+          "type": "VraFlavorMapping",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "linksExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "externalRegionId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "flavorMappingsExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "cloudAccountId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "orgId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "createdAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "host",
+          "type": "VraHost",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraFlavorMapping",
+      "description": "Describes a flavor mapping between a global fabric flavor key and fabric flavor.<br>**HATEOAS** links:<br>**region** - Region - Region for the mapping.",
+      "methods": [
+        {
+          "name": "putMappingItem",
+          "parameters": "key: string, mappingItem: VraFabricFlavor",
+          "returnType": "VraFlavorMapping",
+          "description": ""
+        },
+        {
+          "name": "putLinksItem",
+          "parameters": "key: string, linksItem: VraHref",
+          "returnType": "VraFlavorMapping",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "externalRegionId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraFabricFlavor",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "bootDiskSizeInMB",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "memoryInMB",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "storageType",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dataDiskMaxCount",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dataDiskSizeInMB",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "networkType",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "cpuCount",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraStorageProfile",
+      "description": "Represents a structure that holds details of storage profile linked to a cloud zone / region.**HATEOAS** links:<br>**region** - Region - Region for the profile.<br>**self** - StorageProfile - Self link to this storage profile.<br>**datastore** - FabricVsphereDatastore - Datastore of this storage profile.<br>**storage-policy** - FabricVsphereStoragePolicy - vSphere storage policy for this profile.<br> **storage-account** - FabricAzureStorageAccount - Azure storage account for this profile.<br>",
+      "methods": [
+        {
+          "name": "addTagsItem",
+          "parameters": "tagsItem: VraTag",
+          "returnType": "VraStorageProfile",
+          "description": ""
+        },
+        {
+          "name": "isDefaultItem",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": "Indicates if a storage profile is default profile or not."
+        },
+        {
+          "name": "isSupportsEncryption",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": "Indicates whether this storage profile supports encryption or not."
+        },
+        {
+          "name": "putLinksItem",
+          "parameters": "key: string, linksItem: VraHref",
+          "returnType": "VraStorageProfile",
+          "description": ""
+        },
+        {
+          "name": "putDiskPropertiesItem",
+          "parameters": "key: string, diskPropertiesItem: string",
+          "returnType": "VraStorageProfile",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "owner",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "linksExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "supportsEncryption",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "externalRegionId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "cloudAccountId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "orgId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tags",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "createdAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "diskPropertiesExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "host",
+          "type": "VraHost",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tagsExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "defaultItem",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraProject",
+      "description": "",
+      "methods": [
+        {
+          "name": "putCustomPropertiesItem",
+          "parameters": "key: string, customPropertiesItem: string",
+          "returnType": "VraProject",
+          "description": ""
+        },
+        {
+          "name": "addMembersItem",
+          "parameters": "membersItem: VraUser",
+          "returnType": "VraProject",
+          "description": ""
+        },
+        {
+          "name": "addViewersItem",
+          "parameters": "viewersItem: VraUser",
+          "returnType": "VraProject",
+          "description": ""
+        },
+        {
+          "name": "addZonesItem",
+          "parameters": "zonesItem: VraZoneAssignment",
+          "returnType": "VraProject",
+          "description": ""
+        },
+        {
+          "name": "addAdministratorsItem",
+          "parameters": "administratorsItem: VraUser",
+          "returnType": "VraProject",
+          "description": ""
+        },
+        {
+          "name": "putLinksItem",
+          "parameters": "key: string, linksItem: VraHref",
+          "returnType": "VraProject",
+          "description": ""
+        },
+        {
+          "name": "putConstraintsItem",
+          "parameters": "key: string, constraintsItem: VraConstraint[]",
+          "returnType": "VraProject",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "owner",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "viewersExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "linksExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "constraintsExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "zonesExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "operationTimeout",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "zones",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "orgId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "memberExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "createdAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "viewers",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "machineNamingTemplate",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "sharedResources",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "members",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "host",
+          "type": "VraHost",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "placementPolicy",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "administratorsExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "administrators",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "customPropertiesExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraUser",
+      "description": "A representation of a user.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "type",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "email",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraZoneAssignment",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "allocatedCpu",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "storageLimitGB",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "allocatedStorageGB",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "allocatedInstancesCount",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "cpuLimit",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "memoryLimitMB",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "allocatedMemoryMB",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "zoneId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "maxNumberInstances",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "priority",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraProjectResourceMetadata",
+      "description": "Represents the resource metadata associated with a project",
+      "methods": [
+        {
+          "name": "addTagsItem",
+          "parameters": "tagsItem: VraTag",
+          "returnType": "VraProjectResourceMetadata",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "internalIdString",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "host",
+          "type": "VraHost",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tags",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraImageProfile",
+      "description": "Represents a structure that holds a list of image mappings defined for the particular region.<br>**HATEOAS** links:<br>**region** - Region - Region for the profile.<br>**self** - ImageProfile - Self link to this image profile",
+      "methods": [
+        {
+          "name": "putLinksItem",
+          "parameters": "key: string, linksItem: VraHref",
+          "returnType": "VraImageProfile",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "owner",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "linksExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "externalRegionId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "imageMappings",
+          "type": "VraImageMapping",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "cloudAccountId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "orgId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "imageMappingsExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "createdAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "host",
+          "type": "VraHost",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraImageMapping",
+      "description": "Describes an image mapping between image key and fabric image.<br>**HATEOAS** links:<br>**region** - Region - Region for the mapping.",
+      "methods": [
+        {
+          "name": "putLinksItem",
+          "parameters": "key: string, linksItem: VraHref",
+          "returnType": "VraImageMapping",
+          "description": ""
+        },
+        {
+          "name": "putMappingItem",
+          "parameters": "key: string, mappingItem: VraImageMappingDescription",
+          "returnType": "VraImageMapping",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "externalRegionId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraImageMappingDescription",
+      "description": "",
+      "methods": [
+        {
+          "name": "addConstraintsItem",
+          "parameters": "constraintsItem: VraConstraint",
+          "returnType": "VraImageMappingDescription",
+          "description": ""
+        },
+        {
+          "name": "putLinksItem",
+          "parameters": "key: string, linksItem: VraHref",
+          "returnType": "VraImageMappingDescription",
+          "description": ""
+        },
+        {
+          "name": "putCustomPropertiesItem",
+          "parameters": "key: string, customPropertiesItem: string",
+          "returnType": "VraImageMappingDescription",
+          "description": ""
+        },
+        {
+          "name": "addCloudAccountIdsItem",
+          "parameters": "cloudAccountIdsItem: string",
+          "returnType": "VraImageMappingDescription",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "owner",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "cloudConfig",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "osFamily",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "externalRegionId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "externalId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "isPrivate",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "constraints",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "orgId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "cloudAccountIds",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "createdAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraDiskSnapshot",
+      "description": "Represents a disk snapshot",
+      "methods": [
+        {
+          "name": "putLinksItem",
+          "parameters": "key: string, linksItem: VraHref",
+          "returnType": "VraDiskSnapshot",
+          "description": ""
+        },
+        {
+          "name": "addTagsItem",
+          "parameters": "tagsItem: VraTag",
+          "returnType": "VraDiskSnapshot",
+          "description": ""
+        },
+        {
+          "name": "putSnapshotPropertiesItem",
+          "parameters": "key: string, snapshotPropertiesItem: string",
+          "returnType": "VraDiskSnapshot",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "owner",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "createdAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "linksExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "snapshotPropertiesExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "host",
+          "type": "VraHost",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "orgId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "desc",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tags",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraSnapshot",
+      "description": "",
+      "methods": [
+        {
+          "name": "putLinksItem",
+          "parameters": "key: string, linksItem: VraHref",
+          "returnType": "VraSnapshot",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "owner",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "createdAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "linksExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "isCurrent",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "internalIdString",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "host",
+          "type": "VraHost",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "orgId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraNetworkProfile",
+      "description": "",
+      "methods": [
+        {
+          "name": "addTagsItem",
+          "parameters": "tagsItem: VraTag",
+          "returnType": "VraNetworkProfile",
+          "description": ""
+        },
+        {
+          "name": "putCustomPropertiesItem",
+          "parameters": "key: string, customPropertiesItem: string",
+          "returnType": "VraNetworkProfile",
+          "description": ""
+        },
+        {
+          "name": "putLinksItem",
+          "parameters": "key: string, linksItem: VraHref",
+          "returnType": "VraNetworkProfile",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "owner",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "linksExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "externalRegionId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "cloudAccountId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "isolationNetworkDomainCIDR",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "orgId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tags",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "createdAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "host",
+          "type": "VraHost",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tagsExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "isolatedNetworkCIDRPrefix",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "customPropertiesExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraNetwork",
+      "description": "The network object is an opaque reference to a logical network that network interfaces are attached to.<br> Based on settings specified by your cloud administrator, it may be a reference to an existing network, or be backed by an on-demand network created for isolation, or a security group that will be attached to machines as part of provisioning.<br> Networks are a limited resource, when it is not needed it should be deleted.<br>**HATEOAS** links:<br>**self** - Network - Self link to this network",
+      "methods": [
+        {
+          "name": "putCustomPropertiesItem",
+          "parameters": "key: string, customPropertiesItem: string",
+          "returnType": "VraNetwork",
+          "description": ""
+        },
+        {
+          "name": "putLinksItem",
+          "parameters": "key: string, linksItem: VraHref",
+          "returnType": "VraNetwork",
+          "description": ""
+        },
+        {
+          "name": "addCloudAccountIdsItem",
+          "parameters": "cloudAccountIdsItem: string",
+          "returnType": "VraNetwork",
+          "description": ""
+        },
+        {
+          "name": "addTagsItem",
+          "parameters": "tagsItem: VraTag",
+          "returnType": "VraNetwork",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "owner",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "cloudAccountIdsExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "linksExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "externalZoneId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "externalRegionId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "externalId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "orgId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tags",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "cloudAccountIds",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "createdAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "provisioningStatus",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "deploymentId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "host",
+          "type": "VraHost",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tagsExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "cidr",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "projectId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "customPropertiesExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraNetworkInterface",
+      "description": "",
+      "methods": [
+        {
+          "name": "addTagsItem",
+          "parameters": "tagsItem: VraTag",
+          "returnType": "VraNetworkInterface",
+          "description": ""
+        },
+        {
+          "name": "addAddressesItem",
+          "parameters": "addressesItem: string",
+          "returnType": "VraNetworkInterface",
+          "description": ""
+        },
+        {
+          "name": "addCloudAccountIdsItem",
+          "parameters": "cloudAccountIdsItem: string",
+          "returnType": "VraNetworkInterface",
+          "description": ""
+        },
+        {
+          "name": "putLinksItem",
+          "parameters": "key: string, linksItem: VraHref",
+          "returnType": "VraNetworkInterface",
+          "description": ""
+        },
+        {
+          "name": "addSecurityGroupIdsItem",
+          "parameters": "securityGroupIdsItem: string",
+          "returnType": "VraNetworkInterface",
+          "description": ""
+        },
+        {
+          "name": "putCustomPropertiesItem",
+          "parameters": "key: string, customPropertiesItem: string",
+          "returnType": "VraNetworkInterface",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "owner",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "addresses",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "externalRegionId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "externalId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "deviceIndex",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "orgId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tags",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "cloudAccountIds",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "createdAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "securityGroupIds",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "host",
+          "type": "VraHost",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraMachine",
+      "description": "Represents a cloud agnostic machine.<br>**HATEOAS** links:<br>**operations** - array[String] - Supported operations for the machine.<br>**network-interfaces** - array[NetworkInterface] - Network interfaces for the machine.<br>**disks** - array[MachineDisk] - disks for the machine.<br>**deployment** - Deployment - Deployment that this machine is part of.<br>**cloud-accounts** - array[CloudAccount] - Cloud accounts where this machine is provisioned.<br>**self** - Machine - Self link to this machine",
+      "methods": [
+        {
+          "name": "putLinksItem",
+          "parameters": "key: string, linksItem: VraHref",
+          "returnType": "VraMachine",
+          "description": ""
+        },
+        {
+          "name": "addCloudAccountIdsItem",
+          "parameters": "cloudAccountIdsItem: string",
+          "returnType": "VraMachine",
+          "description": ""
+        },
+        {
+          "name": "addTagsItem",
+          "parameters": "tagsItem: VraTag",
+          "returnType": "VraMachine",
+          "description": ""
+        },
+        {
+          "name": "putCustomPropertiesItem",
+          "parameters": "key: string, customPropertiesItem: string",
+          "returnType": "VraMachine",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "externalZoneId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "externalRegionId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "orgId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "cloudAccountIds",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "createdAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "hostname",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "provisioningStatus",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "deploymentId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "host",
+          "type": "VraHost",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "owner",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "cloudAccountIdsExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "linksExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "address",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "externalId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tags",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "saltConfiguration",
+          "type": "VraSaltConfiguration",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "bootConfig",
+          "type": "VraMachineBootConfig",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "machinePowerState",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tagsExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "projectId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "customPropertiesExtension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraSaltConfiguration",
+      "description": "",
+      "methods": [
+        {
+          "name": "putAdditionalAuthParamsItem",
+          "parameters": "key: string, additionalAuthParamsItem: string",
+          "returnType": "VraSaltConfiguration",
+          "description": ""
+        },
+        {
+          "name": "addStateFilesItem",
+          "parameters": "stateFilesItem: string",
+          "returnType": "VraSaltConfiguration",
+          "description": ""
+        },
+        {
+          "name": "putAdditionalMinionParamsItem",
+          "parameters": "key: string, additionalMinionParamsItem: string",
+          "returnType": "VraSaltConfiguration",
+          "description": ""
+        },
+        {
+          "name": "putVariablesItem",
+          "parameters": "key: string, variablesItem: string",
+          "returnType": "VraSaltConfiguration",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "installerFileName",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "masterId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "saltEnvironment",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "pillarEnvironment",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "stateFiles",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "minionId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraMachineBootConfig",
+      "description": "Machine boot config that will be passed to the instance that can be used to perform common automated configuration tasks and even run scripts after the instance starts.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "content",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraMachineBootConfigSettings",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "phoneHomeShouldWait",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "phoneHomeFailOnTimeout",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "phoneHomeTimeoutSeconds",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraMachineResult",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "numberOfElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "content",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "totalElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VraMachineService",
+      "description": "",
+      "methods": [
+        {
+          "name": "setGenericRestClient",
+          "parameters": "genericRestClient: VraGenericRestClient",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "createMachine",
+          "parameters": "machineSpecification: VraMachineSpecification",
+          "returnType": "VraMachine",
+          "description": "Create a Machine in Synchronous manner"
+        },
+        {
+          "name": "shutDown",
+          "parameters": "id: string",
+          "returnType": "VraRequestTracker",
+          "description": "Shutdown a Machine"
+        },
+        {
+          "name": "deleteMachine",
+          "parameters": "machine: VraMachine, forceDelete: boolean",
+          "returnType": "VraRequestTracker",
+          "description": "Delete a Machine in an asynchronous manner"
+        },
+        {
+          "name": "reset",
+          "parameters": "id: string",
+          "returnType": "VraRequestTracker",
+          "description": "Resets a Machine"
+        },
+        {
+          "name": "resize",
+          "parameters": "id: string, name: string, cpuCount: string, memoryInMB: string, coreCount: string, rebootMachine: boolean",
+          "returnType": "VraRequestTracker",
+          "description": "Resize a Machine."
+        },
+        {
+          "name": "reboot",
+          "parameters": "id: string",
+          "returnType": "VraRequestTracker",
+          "description": "Reboot a Machine"
+        },
+        {
+          "name": "powerOn",
+          "parameters": "id: string",
+          "returnType": "VraRequestTracker",
+          "description": "Power-on a Machine"
+        },
+        {
+          "name": "revertMachineSnapshot",
+          "parameters": "machineId: string, snapshotId: string",
+          "returnType": "VraRequestTracker",
+          "description": "Revert Machine Snapshot."
+        },
+        {
+          "name": "powerOff",
+          "parameters": "id: string",
+          "returnType": "VraRequestTracker",
+          "description": "Power-off a Machine"
+        },
+        {
+          "name": "createMachineAsync",
+          "parameters": "machineSpecification: VraMachineSpecification",
+          "returnType": "VraRequestTracker",
+          "description": "Create a Machine in an asynchronous manner"
+        },
+        {
+          "name": "createMachineSnapshot",
+          "parameters": "machineId: string, snapshotSpecification: VraSnapshotSpecification",
+          "returnType": "VraRequestTracker",
+          "description": "Create Machine Snapshot."
+        },
+        {
+          "name": "updateMachine",
+          "parameters": "machine: VraMachine, updateMachineSpecification: VraUpdateMachineSpecification",
+          "returnType": "VraMachine",
+          "description": "Update a Machine"
+        },
+        {
+          "name": "detachMachineDisk",
+          "parameters": "machineId: string, diskId: string",
+          "returnType": "VraRequestTracker",
+          "description": "Detach Disk from machine"
+        },
+        {
+          "name": "attachMachineDisk",
+          "parameters": "attachmentSpecification: VraDiskAttachmentSpecification, machineId: string",
+          "returnType": "VraRequestTracker",
+          "description": "Attach machine disk to a machine."
+        },
+        {
+          "name": "deleteMachineSnapshot",
+          "parameters": "machineId: string, snapshotId: string",
+          "returnType": "VraRequestTracker",
+          "description": "Delete Machine Snapshot."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "VraUpdateMachineSpecification",
+      "description": "",
+      "methods": [
+        {
+          "name": "addTagsItem",
+          "parameters": "tagsItem: VraTag",
+          "returnType": "VraUpdateMachineSpecification",
+          "description": ""
+        },
+        {
+          "name": "putCustomPropertiesItem",
+          "parameters": "key: string, customPropertiesItem: string",
+          "returnType": "VraUpdateMachineSpecification",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tags",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraSnapshotSpecification",
+      "description": "",
+      "methods": [
+        {
+          "name": "putCustomPropertiesItem",
+          "parameters": "key: string, customPropertiesItem: string",
+          "returnType": "VraSnapshotSpecification",
+          "description": ""
+        },
+        {
+          "name": "putLinksItem",
+          "parameters": "key: string, linksItem: VraHref",
+          "returnType": "VraSnapshotSpecification",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "owner",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "createdAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "snapshotMemory",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "orgId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "updatedAt",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraMachineSpecification",
+      "description": "",
+      "methods": [
+        {
+          "name": "addNicsItem",
+          "parameters": "nicsItem: VraNetworkInterfaceSpecification",
+          "returnType": "VraMachineSpecification",
+          "description": ""
+        },
+        {
+          "name": "addImageDiskConstraintsItem",
+          "parameters": "imageDiskConstraintsItem: VraConstraint",
+          "returnType": "VraMachineSpecification",
+          "description": ""
+        },
+        {
+          "name": "addConstraintsItem",
+          "parameters": "constraintsItem: VraConstraint",
+          "returnType": "VraMachineSpecification",
+          "description": ""
+        },
+        {
+          "name": "addTagsItem",
+          "parameters": "tagsItem: VraTag",
+          "returnType": "VraMachineSpecification",
+          "description": ""
+        },
+        {
+          "name": "addDisksItem",
+          "parameters": "disksItem: VraDiskAttachmentSpecification",
+          "returnType": "VraMachineSpecification",
+          "description": ""
+        },
+        {
+          "name": "putCustomPropertiesItem",
+          "parameters": "key: string, customPropertiesItem: string",
+          "returnType": "VraMachineSpecification",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "image",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "disks",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "imageDiskConstraints",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "constraints",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "machineCount",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tags",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "flavor",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "saltConfiguration",
+          "type": "VraSaltConfiguration",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "bootConfigSettings",
+          "type": "VraMachineBootConfigSettings",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "deploymentId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "bootConfig",
+          "type": "VraMachineBootConfig",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "nics",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "flavorRef",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "remoteAccess",
+          "type": "VraRemoteAccessSpecification",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "imageRef",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "projectId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraRemoteAccessSpecification",
+      "description": "Represents a specification for machine's remote access settings.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "password",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "sshKey",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "keyPair",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "authentication",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "username",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraMachinesFolder",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraNetworkProfileResult",
+      "description": "State object representing a query result of network profiles.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "numberOfElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "content",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "totalElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VraNetworkProfileService",
+      "description": "",
+      "methods": [
+        {
+          "name": "setGenericRestClient",
+          "parameters": "genericRestClient: VraGenericRestClient",
+          "returnType": "void",
+          "description": ""
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "VraNetworkService",
+      "description": "",
+      "methods": [
+        {
+          "name": "setGenericRestClient",
+          "parameters": "genericRestClient: VraGenericRestClient",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "deleteNetwork",
+          "parameters": "networkId: string, forceDelete: boolean",
+          "returnType": "VraRequestTracker",
+          "description": "Delete a network in an asynchronous manner."
+        },
+        {
+          "name": "createNetwork",
+          "parameters": "networkSpecification: VraNetworkSpecification",
+          "returnType": "VraRequestTracker",
+          "description": "Create a network Provision a new network based on the passed in constraints. The network should be destroyed after the machine is destroyed to free up resources."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "VraNetworkSpecification",
+      "description": "Specification for a cloud network",
+      "methods": [
+        {
+          "name": "addConstraintsItem",
+          "parameters": "constraintsItem: VraConstraint",
+          "returnType": "VraNetworkSpecification",
+          "description": ""
+        },
+        {
+          "name": "addTagsItem",
+          "parameters": "tagsItem: VraTag",
+          "returnType": "VraNetworkSpecification",
+          "description": ""
+        },
+        {
+          "name": "putCustomPropertiesItem",
+          "parameters": "key: string, customPropertiesItem: string",
+          "returnType": "VraNetworkSpecification",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "deploymentId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "outboundAccess",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "createGateway",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "constraints",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "projectId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tags",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraProjectResourceMetadataSpecification",
+      "description": "",
+      "methods": [
+        {
+          "name": "addTagsItem",
+          "parameters": "tagsItem: VraTag",
+          "returnType": "VraProjectResourceMetadataSpecification",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "tags",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraProjectResult",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "numberOfElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "content",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "totalElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VraProjectService",
+      "description": "",
+      "methods": [
+        {
+          "name": "setGenericRestClient",
+          "parameters": "genericRestClient: VraGenericRestClient",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "updateProjectResourceMetadata",
+          "parameters": "id: string, projectResourceMetadataSpecification: VraProjectResourceMetadataSpecification",
+          "returnType": "VraProject",
+          "description": "Update project resource metadata by a given project id."
+        },
+        {
+          "name": "updateProject",
+          "parameters": "id: string, projectSpecification: VraProjectSpecification",
+          "returnType": "VraProject",
+          "description": "Updates a project by id."
+        },
+        {
+          "name": "deleteProject",
+          "parameters": "project: VraProject",
+          "returnType": "void",
+          "description": "Deletes a project with a given Project object."
+        },
+        {
+          "name": "createProject",
+          "parameters": "request: VraProjectSpecification",
+          "returnType": "VraProject",
+          "description": "Creates a project."
+        },
+        {
+          "name": "deleteProjectById",
+          "parameters": "id: string",
+          "returnType": "void",
+          "description": "Deletes a project with a given id."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "VraProjectSpecification",
+      "description": "Represents a specification for a project.",
+      "methods": [
+        {
+          "name": "putConstraintsItem",
+          "parameters": "key: string, constraintsItem: VraConstraint[]",
+          "returnType": "VraProjectSpecification",
+          "description": ""
+        },
+        {
+          "name": "addZoneAssignmentConfigurationsItem",
+          "parameters": "zoneAssignmentConfigurationsItem: VraZoneAssignmentSpecification",
+          "returnType": "VraProjectSpecification",
+          "description": ""
+        },
+        {
+          "name": "addMembersItem",
+          "parameters": "membersItem: VraUser",
+          "returnType": "VraProjectSpecification",
+          "description": ""
+        },
+        {
+          "name": "addViewersItem",
+          "parameters": "viewersItem: VraUser",
+          "returnType": "VraProjectSpecification",
+          "description": ""
+        },
+        {
+          "name": "addAdministratorsItem",
+          "parameters": "administratorsItem: VraUser",
+          "returnType": "VraProjectSpecification",
+          "description": ""
+        },
+        {
+          "name": "putCustomPropertiesItem",
+          "parameters": "key: string, customPropertiesItem: string",
+          "returnType": "VraProjectSpecification",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "viewers",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "machineNamingTemplate",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "sharedResources",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "operationTimeout",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "members",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "zoneAssignmentConfigurations",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "placementPolicy",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "administrators",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraRegionResult",
+      "description": "State object representing a query result of regions.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "numberOfElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "content",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "totalElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VraRequestTrackerResult",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "numberOfElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "internalIdString",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "host",
+          "type": "VraHost",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "content",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "totalElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VraStorageProfileResult",
+      "description": "State object representing a query result of storage profiles.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "numberOfElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "content",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "totalElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VraStorageProfileService",
+      "description": "",
+      "methods": [
+        {
+          "name": "setGenericRestClient",
+          "parameters": "genericRestClient: VraGenericRestClient",
+          "returnType": "void",
+          "description": ""
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "VraTagResult",
+      "description": "State object representing a query result of tags.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "numberOfElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "content",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "totalElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VraTagsService",
+      "description": "",
+      "methods": [
+        {
+          "name": "setGenericRestClient",
+          "parameters": "genericRestClient: VraGenericRestClient",
+          "returnType": "void",
+          "description": ""
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "VraZoneAssignmentSpecification",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "storageLimitGB",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "cpuLimit",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "memoryLimitMB",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "zoneId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "maxNumberInstances",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "priority",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VraZoneResult",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "numberOfElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "content",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "totalElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VraFabricNetworkResult",
+      "description": "State object representing a query result of fabric networks.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "numberOfElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "content",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "totalElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VraFlavorProfileResult",
+      "description": "State object representing a query result of flavor profiles.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "numberOfElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "content",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "totalElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VraFlavorProfileService",
+      "description": "",
+      "methods": [
+        {
+          "name": "setGenericRestClient",
+          "parameters": "genericRestClient: VraGenericRestClient",
+          "returnType": "void",
+          "description": ""
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "VraHostManager",
+      "description": "HostManager provides all the CRUD operations for VMware Aria Automation Plugin along with Generic Rest Client support.",
+      "methods": [
+        {
+          "name": "save",
+          "parameters": "props: Object",
+          "returnType": "string",
+          "description": "Save Automation Host object."
+        },
+        {
+          "name": "update",
+          "parameters": "props: Object, host: VraHost",
+          "returnType": "void",
+          "description": "Update Automation Host object."
+        },
+        {
+          "name": "createHost",
+          "parameters": "properties: Object",
+          "returnType": "VraHost",
+          "description": "Creates a dynamic Automation Host."
+        },
+        {
+          "name": "createHostForCurrentUser",
+          "parameters": "",
+          "returnType": "VraHost",
+          "description": "Creates a temporary host with the current user host and credentials."
+        },
+        {
+          "name": "findHostsByType",
+          "parameters": "connectionType: string",
+          "returnType": "VraHost[]",
+          "description": "Get All Automation Host by ConnectionType."
+        },
+        {
+          "name": "delete",
+          "parameters": "host: VraHost",
+          "returnType": "void",
+          "description": "Delete Automation Host."
+        },
+        {
+          "name": "validate",
+          "parameters": "host: VraHost",
+          "returnType": "boolean",
+          "description": "Validate Automation Host."
+        },
+        {
+          "name": "getHostBySid",
+          "parameters": "sid: string",
+          "returnType": "VraHost",
+          "description": "Get Automation Host by Sid."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "defaultHostData",
+          "type": "VraHost",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VraImageProfileResult",
+      "description": "State object representing a query result of image profiles.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "numberOfElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "content",
+          "type": "Object[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "totalElements",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VraImageProfileService",
+      "description": "",
+      "methods": [
+        {
+          "name": "setGenericRestClient",
+          "parameters": "genericRestClient: VraGenericRestClient",
+          "returnType": "void",
+          "description": ""
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "VraInfrastructure",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "displayName",
+          "type": "any",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    }
+  ]
+}

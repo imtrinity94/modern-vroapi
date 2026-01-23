@@ -1,0 +1,520 @@
+{
+  "name": "o11n-plugin-powershell",
+  "classes": [
+    {
+      "name": "PowerShellAuthorizationMode",
+      "description": "Enumeration for the supported authorization modes. The modes are \"Shared Session\" and \"Session per User\".",
+      "methods": [
+        {
+          "name": "fromString",
+          "parameters": "text: string",
+          "returnType": "PowerShellAuthorizationMode",
+          "description": "Converts a string to an instance of this class. If String is not possible to be converted an IllegalArgumentException is thrown."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "PowerShellAutorizationMode",
+      "description": "Deprecated. Use AuthorizationModeinstead.<br/>Enumeration for the supported authorization modes. The modes are \"Shared Session\" and \"Session per User\".",
+      "methods": [
+        {
+          "name": "fromString",
+          "parameters": "text: string",
+          "returnType": "PowerShellAutorizationMode",
+          "description": "Converts a string to an instance of this class. If String is not possible to be converted an IllegalArgumentException is thrown."
+        },
+        {
+          "name": "getAuthorizationMode",
+          "parameters": "mode: PowerShellAutorizationMode",
+          "returnType": "PowerShellAuthorizationMode",
+          "description": "Converts a string to an instance of AuthorizationMode class. If String is not possible to be converted an IllegalArgumentException is thrown."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "PowerShellCmdlet",
+      "description": "Wrapper of a PowerShell cmdlet that resides on the remote Windows machine",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "definition",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "commandType",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "psSnapin",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "PowerShellCommand",
+      "description": "Represents a PowerShell command that can be run on the remote PowerShell host.",
+      "methods": [
+        {
+          "name": "getCommand",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Returns the String that this Command object was initialy created."
+        },
+        {
+          "name": "getParams",
+          "parameters": "",
+          "returnType": "any",
+          "description": "Returns all Parameters as a Map."
+        },
+        {
+          "name": "addParameter",
+          "parameters": "paramName: string, value: any",
+          "returnType": "PowerShellCommand",
+          "description": "Adds a new parameter to the list of params for this PowerShellCommand instance."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "PowerShellConfigurationParameters",
+      "description": "Advanced configuration parameters.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "shellCodePage",
+          "type": "PowerShellShellCodePage",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "PowerShellHost",
+      "description": "Represents a remote host with PowerShell installed on it.",
+      "methods": [
+        {
+          "name": "closeSession",
+          "parameters": "sessionId: string",
+          "returnType": "void",
+          "description": "Closes the session with the given sessionId"
+        },
+        {
+          "name": "getHostConfig",
+          "parameters": "",
+          "returnType": "PowerShellHostConfig",
+          "description": "Returns the PowerShellHostConfig instance for this PowerShellHost"
+        },
+        {
+          "name": "openSession",
+          "parameters": "",
+          "returnType": "PowerShellSession",
+          "description": "Opens a new PowerShellSession, which can be used to run PowerShell scrits and cmdlets"
+        },
+        {
+          "name": "openSessionAs",
+          "parameters": "name: string, password: string",
+          "returnType": "PowerShellSession",
+          "description": "Opens a new PowerShellSession with provided credentials, which can be used to run PowerShell scrits and cmdlets"
+        },
+        {
+          "name": "invokeScript",
+          "parameters": "script: string",
+          "returnType": "PowerShellInvocationResult",
+          "description": "Invokes powershell script without adding it to pipeline."
+        },
+        {
+          "name": "inPipeline",
+          "parameters": "sessionId: string",
+          "returnType": "boolean",
+          "description": "Returns the inPipeline flag of the session identified by sessionId"
+        },
+        {
+          "name": "startPipeline",
+          "parameters": "sessionId: string",
+          "returnType": "void",
+          "description": "Starts a pipeline in the context of the session identified by sessionId"
+        },
+        {
+          "name": "endPipeline",
+          "parameters": "sessionId: string",
+          "returnType": "void",
+          "description": "Executes the pipeline associated with the session with id==sessionId and clears the pipeline, removing all commands from it."
+        },
+        {
+          "name": "getSession",
+          "parameters": "sessionId: string",
+          "returnType": "PowerShellSession",
+          "description": "Returns Session for the given sessionId. Exception is thrown if session does not exist or has been closed."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "port",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "transportProtocol",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "connectionURL",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "username",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "PowerShellHostConfig",
+      "description": "Encapsulates the configuration for a remote PowerShell host",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "port",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "configurationParameters",
+          "type": "PowerShellConfigurationParameters",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "transportProtocol",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "authorizationMode",
+          "type": "PowerShellAuthorizationMode",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "autorizationMode",
+          "type": "PowerShellAutorizationMode",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "connectionURL",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "username",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "password",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "authentication",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "PowerShellInvocationResult",
+      "description": "Represents the result from an execution fo PowerShell script",
+      "methods": [
+        {
+          "name": "getErrors",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "Returns list of errors reported by powershell engine during script invocation."
+        },
+        {
+          "name": "getInvocationState",
+          "parameters": "",
+          "returnType": "any",
+          "description": "Status of execution of the script. Possible values are (Completed, Failed)."
+        },
+        {
+          "name": "getHostOutput",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Returns output of script execution as it appears on the powershell console."
+        },
+        {
+          "name": "getResults",
+          "parameters": "",
+          "returnType": "PowerShellRemotePSObject",
+          "description": "Returns list of objects returned by PowerShell engine after successfull invocation."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "PowerShellPSObject",
+      "description": "Represents an object on the remote PowerShell machine",
+      "methods": [
+        {
+          "name": "getProperty",
+          "parameters": "propName: string",
+          "returnType": "any",
+          "description": "Returns value of specific object property. Tha returned value itself can be of primitive type, ArrayList, Hashtable or another PowerShellPSObject"
+        },
+        {
+          "name": "getTypes",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "Returns an array containing Types representing all the public classes and interfaces that object implements"
+        },
+        {
+          "name": "getToString",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Returns the object converted to String."
+        },
+        {
+          "name": "getPropertyAsString",
+          "parameters": "propName: string",
+          "returnType": "string",
+          "description": "Returns calue of the provided property converting it to string."
+        },
+        {
+          "name": "getPropertyAsPSObject",
+          "parameters": "propName: string",
+          "returnType": "PowerShellPSObject",
+          "description": "Returns the value of propName property."
+        },
+        {
+          "name": "getPropertyAsPSObjectList",
+          "parameters": "propName: string",
+          "returnType": "any[]",
+          "description": "Returns the value of propName property as a list of PowerShellPSObject"
+        },
+        {
+          "name": "instanceOf",
+          "parameters": "type: string",
+          "returnType": "boolean",
+          "description": "Checks if this instance is of specific type"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "PowerShellRemotePSObject",
+      "description": "Wrapper for the result from an execution fo PowerShell script",
+      "methods": [
+        {
+          "name": "getRootObject",
+          "parameters": "",
+          "returnType": "any",
+          "description": "Returns result of PowerShell script invocation converted in corresponding vCO type. The result can be simple type, ArrayList, Properties or PowerShellPSObject"
+        },
+        {
+          "name": "getAsJson",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Returns the object as String that is JSON formated"
+        },
+        {
+          "name": "getXml",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Returns the object as String that is XML formated"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "PowerShellSession",
+      "description": "Represents a session to the remote PowerShell machine, that can be used to run scripts and Cmdlets. Also users can benefit from the pipeline concept by demarcating pipeline boundaries with startPipeline() and endPipeline()",
+      "methods": [
+        {
+          "name": "getSessionId",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Returns the session id"
+        },
+        {
+          "name": "invokeScript",
+          "parameters": "script: string",
+          "returnType": "PowerShellInvocationResult",
+          "description": "Invokes powershell script without adding it to pipeline."
+        },
+        {
+          "name": "invokePipeline",
+          "parameters": "",
+          "returnType": "PowerShellInvocationResult",
+          "description": "Invokes commands currently in pipeline, and remove them from the pipeline."
+        },
+        {
+          "name": "addCommand",
+          "parameters": "command: PowerShellCommand",
+          "returnType": "void",
+          "description": "Adds command to pipeline"
+        },
+        {
+          "name": "addCommandFromString",
+          "parameters": "command: string",
+          "returnType": "PowerShellCommand",
+          "description": "Creates command from provided string and adds it to pipeline."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "PowerShellShellCodePage",
+      "description": "Enumeration for the supported shell code encodings.",
+      "methods": [
+        {
+          "name": "fromString",
+          "parameters": "text: string",
+          "returnType": "PowerShellShellCodePage",
+          "description": "Converts a string to an instance of this class. If String is not possible to be converted an IllegalArgumentException is thrown."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "PowerShellSnapIn",
+      "description": "PowerShell SnapIn wrapper object",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "version",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "moduleName",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "PowerShellSnapInRoot",
+      "description": "The root of the SnapIns",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "PowerShellActionGenerator",
+      "description": "Generates actions for PowerShell Cmdlets and Scripts",
+      "methods": [
+        {
+          "name": "createActionForScript",
+          "parameters": "actionName: string, script: string, moduleName: string, generateWorkflow: boolean, targetFolder: any",
+          "returnType": "void",
+          "description": "Generates vCO action for provided PowerShell script."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "PowerShellHostManager",
+      "description": "Manager for configuring the PowerShell plug-in hosts",
+      "methods": [
+        {
+          "name": "remove",
+          "parameters": "id: string",
+          "returnType": "void",
+          "description": "Removes the PowerShellHostConfig with the passed in as argument id from the configuration of the plugin."
+        },
+        {
+          "name": "update",
+          "parameters": "hostConfig: PowerShellHostConfig",
+          "returnType": "PowerShellHost",
+          "description": "Creates a PowerShellHost for the passed in as argument PowerShellHostConfig if it doesn't already exist. In case it already exists the PowerShellHost is updated."
+        },
+        {
+          "name": "validatePowerShellHost",
+          "parameters": "hostConfig: PowerShellHostConfig",
+          "returnType": "void",
+          "description": "Checks if the provided hostConfig parameter contains settings that the plugin can use to successfully connect to a remote PowerShell machine. In case the configurations are not valid the method throws appropriate exception."
+        }
+      ],
+      "attributes": []
+    }
+  ]
+}

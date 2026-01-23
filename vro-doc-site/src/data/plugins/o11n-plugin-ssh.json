@@ -1,0 +1,541 @@
+{
+  "name": "o11n-plugin-ssh",
+  "classes": [
+    {
+      "name": "SSHFile",
+      "description": "File on a remote file system using SSH to access it",
+      "methods": [],
+      "attributes": []
+    },
+    {
+      "name": "SSHFolder",
+      "description": "Folder on a remote file system using SSH to access it",
+      "methods": [],
+      "attributes": []
+    },
+    {
+      "name": "SSHCommand",
+      "description": "SSH Command",
+      "methods": [
+        {
+          "name": "execute",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Execute a single command and return immediately. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session. Value of the exitCode property is changed to -1 for initializing, 0 if successful, and positive number if an error occured."
+        },
+        {
+          "name": "executeAndLog",
+          "parameters": "file: string",
+          "returnType": "void",
+          "description": "Execute a single command and wait until end. Value of the exitCode property is changed to -1 for initializing, 0 if successful, and positive number if an error occurred."
+        },
+        {
+          "name": "executeCommand",
+          "parameters": "cmd: string, wait: boolean",
+          "returnType": "void",
+          "description": "Execute a single command and wait until completed, return the stdout result if synchronous. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session. Value of the exitCode property is changed to -1 for initializing, 0 if successful, and positive number if an error occured."
+        },
+        {
+          "name": "setEncoding",
+          "parameters": "encoding: string",
+          "returnType": "void",
+          "description": "Sets the encoding that will be used to process the results from executeCommand method."
+        },
+        {
+          "name": "getEncoding",
+          "parameters": "",
+          "returnType": "any",
+          "description": "Returns the encoding used by this SSHCommand"
+        },
+        {
+          "name": "getFile",
+          "parameters": "remoteFile: string, localFile: string",
+          "returnType": "number",
+          "description": "Copy a file FROM a remote host TO the vCO Server. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session. Returns 0 if successful, or -1 if an error has occurred."
+        },
+        {
+          "name": "putFile",
+          "parameters": "localFile: string, remoteFile: string",
+          "returnType": "number",
+          "description": "Copy a file TO a remote host FROM the vCO Server. Returns 0 if successful, or -1 if an error has occurred. If a remote file name is provided, the destination file name will use it. If only the destination directory is specified, then the destination file will use the source file name. The destination directory must exist."
+        },
+        {
+          "name": "findAll",
+          "parameters": "basePath: string, pattern: string",
+          "returnType": "string[]",
+          "description": "Recursively search and return matching pattern file and directory. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session."
+        },
+        {
+          "name": "findFile",
+          "parameters": "basePath: string, pattern: string",
+          "returnType": "string[]",
+          "description": "Recursively search and return matching pattern file ONLY. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session."
+        },
+        {
+          "name": "findDir",
+          "parameters": "basePath: string, pattern: string",
+          "returnType": "string[]",
+          "description": "Recursively search and return matching pattern directory ONLY.  This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session."
+        },
+        {
+          "name": "listAll",
+          "parameters": "basePath: string",
+          "returnType": "string[]",
+          "description": "List files and directories in path. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session."
+        },
+        {
+          "name": "listFile",
+          "parameters": "basePath: string",
+          "returnType": "string[]",
+          "description": "List files ONLY in path. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session."
+        },
+        {
+          "name": "listDir",
+          "parameters": "basePath: string",
+          "returnType": "string[]",
+          "description": "List directories ONLY in path. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session."
+        },
+        {
+          "name": "disconnect",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Disconnects the current session if open. The session parameters are given in the object constructor (host, username, password); a session is opened automatically when any method is called that requires a session (like execute). Once open, the session remains open; any method uses the same session but opens a new channel and the closes it when done. You need to use this disconnect method to close the session."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "exitCode",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "cmd",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "output",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "error",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "state",
+          "type": "void",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "SSHSession",
+      "description": "SSH Session to username@host:port. This object replace the old 'SSHCommand' object.",
+      "methods": [
+        {
+          "name": "connectWithPassword",
+          "parameters": "password: SecureString",
+          "returnType": "any",
+          "description": "Connect the session using simple username/password authentication."
+        },
+        {
+          "name": "connectWithIdentidy",
+          "parameters": "privateKeyPath: string, passphrase: SecureString",
+          "returnType": "any",
+          "description": "Deprecated use connectWithIdentity(). Connect the session using Public key Authentication."
+        },
+        {
+          "name": "connectWithIdentity",
+          "parameters": "privateKeyPath: string, passphrase: SecureString",
+          "returnType": "any",
+          "description": "Deprecated use connectWithIdentity(). Connect the session using Public key Authentication."
+        },
+        {
+          "name": "connectWithPasswordOrIdentity",
+          "parameters": "isPassword: boolean, password: SecureString, privateKeyPath: string",
+          "returnType": "any",
+          "description": "Connect the session using either password or Public key Authentication."
+        },
+        {
+          "name": "setUserInfo",
+          "parameters": "userInfo: any",
+          "returnType": "void",
+          "description": "The provided userInfo object is used for callback for the keyboard-interactive authentication and for the other types of messages send from the remote server during authentication. The function signatures should be:\r\n\r\nExample:"
+        },
+        {
+          "name": "addEnvironment",
+          "parameters": "key: string, value: string",
+          "returnType": "any",
+          "description": "Fills a property list of environment variables that will be set prior to opening a channel."
+        },
+        {
+          "name": "setConnectTimeout",
+          "parameters": "timeout: number",
+          "returnType": "void",
+          "description": "Set connection timeout, in milliseconds"
+        },
+        {
+          "name": "getConnectTimeout",
+          "parameters": "",
+          "returnType": "number",
+          "description": "Get connection timeout"
+        },
+        {
+          "name": "setTimeout",
+          "parameters": "timeout: number",
+          "returnType": "void",
+          "description": "Set socket timeout, in milliseconds"
+        },
+        {
+          "name": "getTimeout",
+          "parameters": "",
+          "returnType": "number",
+          "description": "Get socket timeout"
+        },
+        {
+          "name": "setKeepAliveInterval",
+          "parameters": "interval: number",
+          "returnType": "void",
+          "description": "Set an interval, in milliseconds, to send keep-alive message. If zero, keep-alive message will not be sent."
+        },
+        {
+          "name": "getKeepAliveInterval",
+          "parameters": "",
+          "returnType": "number",
+          "description": "Get keep-alive interval"
+        },
+        {
+          "name": "setKeepAliveCountMax",
+          "parameters": "count: number",
+          "returnType": "void",
+          "description": "Set the number of keep-alive messages that may be sent before the connection is considered to have failed."
+        },
+        {
+          "name": "getKeepAliveCountMax",
+          "parameters": "",
+          "returnType": "number",
+          "description": "Get keep-alive messages count threshold"
+        },
+        {
+          "name": "setEncoding",
+          "parameters": "encoding: string",
+          "returnType": "any",
+          "description": "Sets the encoding that will be used to process the results from executeCommand method"
+        },
+        {
+          "name": "getEncoding",
+          "parameters": "",
+          "returnType": "any",
+          "description": "Returns the encoding used by this SSHSession"
+        },
+        {
+          "name": "execute",
+          "parameters": "",
+          "returnType": "any",
+          "description": "Execute a single command and return immediately. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session. Value of the exitCode property is changed to -1 for initializing, 0 if successful, and positive number if an error occured."
+        },
+        {
+          "name": "executeAndLog",
+          "parameters": "file: any",
+          "returnType": "any",
+          "description": "Execute a single command and wait until end. Value of the exitCode property is changed to -1 for initializing, 0 if successful, and positive number if an error occurred."
+        },
+        {
+          "name": "executeCommand",
+          "parameters": "cmd: string, wait: boolean",
+          "returnType": "string",
+          "description": "Execute a single command and wait until completed, return the stdout result if synchronous. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session. Value of the exitCode property is changed to -1 for initializing, 0 if successful, and positive number if an error occured."
+        },
+        {
+          "name": "getFile",
+          "parameters": "remoteFile: string, localFile: string",
+          "returnType": "number",
+          "description": "Copy a file FROM a remote host TO the vCO Server. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session. Returns 0 if successful, or -1 if an error has occurred."
+        },
+        {
+          "name": "putFile",
+          "parameters": "localFile: string, remoteFile: string",
+          "returnType": "number",
+          "description": "Copy a file TO a remote host FROM the vCO Server. Returns 0 if successful, or -1 if an error has occurred. If a remote file name is provided, the destination file name will use it. If only the destination directory is specified, then the destination file will use the source file name. The destination directory must exist."
+        },
+        {
+          "name": "findAll",
+          "parameters": "basePath: string, pattern: string",
+          "returnType": "string[]",
+          "description": "Recursively search and return matching pattern file and directory. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session."
+        },
+        {
+          "name": "findFile",
+          "parameters": "basePath: string, pattern: string",
+          "returnType": "string[]",
+          "description": "Recursively search and return matching pattern file ONLY. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session."
+        },
+        {
+          "name": "findDir",
+          "parameters": "basePath: string, pattern: string",
+          "returnType": "string[]",
+          "description": "Recursively search and return matching pattern directory ONLY.  This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session."
+        },
+        {
+          "name": "listAll",
+          "parameters": "basePath: string",
+          "returnType": "string[]",
+          "description": "List files and directories in path. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session."
+        },
+        {
+          "name": "listFile",
+          "parameters": "basePath: string",
+          "returnType": "string[]",
+          "description": "List files ONLY in path. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session."
+        },
+        {
+          "name": "listDir",
+          "parameters": "basePath: string",
+          "returnType": "string[]",
+          "description": "List directories ONLY in path. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session."
+        },
+        {
+          "name": "disconnect",
+          "parameters": "",
+          "returnType": "any",
+          "description": "Disconnects the current session if open. The session parameters are given in the object constructor (host, username, password); a session is opened automatically when any method is called that requires a session (like execute). Once open, the session remains open; any method uses the same session but opens a new channel and the closes it when done. You need to use this disconnect method to close the session."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "exitCode",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "cmd",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "pty",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "terminal",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "output",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "error",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "state",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "soTimeout",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "KeyPairManager",
+      "description": "Set of functions to manage private/public keys.",
+      "methods": [
+        {
+          "name": "generateKeyPair",
+          "parameters": "type: string, path: any, passphrase: any, keySize: number, comment: string",
+          "returnType": "string",
+          "description": "Generate a pair of public/private key. Returns the generated key fingerprint."
+        },
+        {
+          "name": "changePassphrase",
+          "parameters": "path: any, oldPasspharse: any, newPassphrase: any",
+          "returnType": "void",
+          "description": "Change the passphrase of a private key."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "SSHHostConfiguration",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "hostname",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "port",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "username",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "password",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "passphrase",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "certificatePath",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "passwordAuthentication",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "rootFolders",
+          "type": "string[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "SSHHostManager",
+      "description": "SSHHostManager provides CRUD operations for the SSHHost objects",
+      "methods": [
+        {
+          "name": "addSshHost",
+          "parameters": "config: SSHHostConfiguration",
+          "returnType": "SSHHost",
+          "description": "Adds a SSH Host"
+        },
+        {
+          "name": "removeSshHost",
+          "parameters": "host: SSHHost",
+          "returnType": "void",
+          "description": "Removes a SSH Host"
+        },
+        {
+          "name": "updateSshHost",
+          "parameters": "sshHost: SSHHost, sourceConfig: SSHHostConfiguration",
+          "returnType": "SSHHost",
+          "description": "Updates a SSH Host"
+        },
+        {
+          "name": "getSshHost",
+          "parameters": "id: string",
+          "returnType": "SSHHost",
+          "description": "Gets a SSH Host"
+        },
+        {
+          "name": "getSshHosts",
+          "parameters": "",
+          "returnType": "SSHHost[]",
+          "description": "Gets all SSH Hosts"
+        },
+        {
+          "name": "addRootFolderToHost",
+          "parameters": "sshHost: SSHHost, rootFolder: string",
+          "returnType": "SSHHost",
+          "description": "Adds a Root Folder to SSH Host"
+        },
+        {
+          "name": "removeRootFolderFromHost",
+          "parameters": "sshHost: SSHHost, rootFolder: string",
+          "returnType": "SSHHost",
+          "description": "Removes a Root Folder from SSH Host"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "SSHHost",
+      "description": "SSH Host object",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "displayName",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "port",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "hostname",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "username",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "rootFolders",
+          "type": "string[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "sshHostConfiguration",
+          "type": "SSHHostConfiguration",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    }
+  ]
+}

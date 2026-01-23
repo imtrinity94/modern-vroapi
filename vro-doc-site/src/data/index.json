@@ -1,0 +1,98 @@
+[
+  {
+    "name": "o11n-core",
+    "fileName": "o11n-core.json"
+  },
+  {
+    "name": "o11n-plugin-activedirectory",
+    "fileName": "o11n-plugin-activedirectory.json"
+  },
+  {
+    "name": "o11n-plugin-amqp",
+    "fileName": "o11n-plugin-amqp.json"
+  },
+  {
+    "name": "o11n-plugin-apic",
+    "fileName": "o11n-plugin-apic.json"
+  },
+  {
+    "name": "o11n-plugin-aria",
+    "fileName": "o11n-plugin-aria.json"
+  },
+  {
+    "name": "o11n-plugin-azure",
+    "fileName": "o11n-plugin-azure.json"
+  },
+  {
+    "name": "o11n-plugin-crypto",
+    "fileName": "o11n-plugin-crypto.json"
+  },
+  {
+    "name": "o11n-plugin-dynamictypes",
+    "fileName": "o11n-plugin-dynamictypes.json"
+  },
+  {
+    "name": "o11n-plugin-mail",
+    "fileName": "o11n-plugin-mail.json"
+  },
+  {
+    "name": "o11n-plugin-mqtt",
+    "fileName": "o11n-plugin-mqtt.json"
+  },
+  {
+    "name": "o11n-plugin-net",
+    "fileName": "o11n-plugin-net.json"
+  },
+  {
+    "name": "o11n-plugin-nsx",
+    "fileName": "o11n-plugin-nsx.json"
+  },
+  {
+    "name": "o11n-plugin-powershell",
+    "fileName": "o11n-plugin-powershell.json"
+  },
+  {
+    "name": "o11n-plugin-rest",
+    "fileName": "o11n-plugin-rest.json"
+  },
+  {
+    "name": "o11n-plugin-snmp",
+    "fileName": "o11n-plugin-snmp.json"
+  },
+  {
+    "name": "o11n-plugin-soap",
+    "fileName": "o11n-plugin-soap.json"
+  },
+  {
+    "name": "o11n-plugin-sql",
+    "fileName": "o11n-plugin-sql.json"
+  },
+  {
+    "name": "o11n-plugin-ssh",
+    "fileName": "o11n-plugin-ssh.json"
+  },
+  {
+    "name": "o11n-plugin-vapi",
+    "fileName": "o11n-plugin-vapi.json"
+  },
+  {
+    "name": "o11n-plugin-vc",
+    "fileName": "o11n-plugin-vc.json"
+  },
+  {
+    "name": "o11n-plugin-vcloud",
+    "fileName": "o11n-plugin-vcloud.json"
+  },
+  {
+    "name": "o11n-plugin-vco",
+    "fileName": "o11n-plugin-vco.json"
+  },
+  {
+    "name": "o11n-plugin-vum",
+    "fileName": "o11n-plugin-vum.json"
+  },
+  {
+    "name": "o11n-plugin-xml",
+    "fileName": "o11n-plugin-xml.json"
+  }
+]

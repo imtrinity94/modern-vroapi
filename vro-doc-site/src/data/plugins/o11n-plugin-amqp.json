@@ -1,0 +1,275 @@
+{
+  "name": "o11n-plugin-amqp",
+  "classes": [
+    {
+      "name": "AMQPBroker",
+      "description": "AMQP Broker",
+      "methods": [
+        {
+          "name": "validate",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Validate connection for this broker"
+        },
+        {
+          "name": "subscribe",
+          "parameters": "queues: string[], props: any",
+          "returnType": "AMQPSubscription",
+          "description": "Subscribes to one or more queues."
+        },
+        {
+          "name": "declareQueue",
+          "parameters": "name: string, props: any",
+          "returnType": "void",
+          "description": "Declares a new queue."
+        },
+        {
+          "name": "unbind",
+          "parameters": "queue: string, exchange: string, props: any",
+          "returnType": "void",
+          "description": "Unbinds a queue from an exchange."
+        },
+        {
+          "name": "declareExchange",
+          "parameters": "exchange: string, props: any",
+          "returnType": "void",
+          "description": "Declares an exchange."
+        },
+        {
+          "name": "deleteQueue",
+          "parameters": "queue: string",
+          "returnType": "void",
+          "description": "Deletes a queue."
+        },
+        {
+          "name": "receive",
+          "parameters": "queue: string",
+          "returnType": "AMQPMessage",
+          "description": "Receives a messages from a specified queue."
+        },
+        {
+          "name": "sendAndReceive",
+          "parameters": "exchange: string, routingKey: string, requestMessage: AMQPMessage, timeoutSeconds: number",
+          "returnType": "AMQPMessage",
+          "description": "Sends a message to a specified destination and waits for the replay"
+        },
+        {
+          "name": "receiveAsync",
+          "parameters": "queue: string, timeoutSeconds: number",
+          "returnType": "any",
+          "description": "Receives a message asynchronously."
+        },
+        {
+          "name": "declareQueueAndReceiveAsync",
+          "parameters": "exchange: string, routingKey: string, timeoutSeconds: number",
+          "returnType": "any",
+          "description": "Receives a message asynchronously without interacting with the queue."
+        },
+        {
+          "name": "send",
+          "parameters": "exchange: string, routingKey: string, message: AMQPMessage",
+          "returnType": "void",
+          "description": "Sends a message."
+        },
+        {
+          "name": "deleteExchange",
+          "parameters": "exchange: string",
+          "returnType": "void",
+          "description": "Deletes an exchange."
+        },
+        {
+          "name": "retrieveMessage",
+          "parameters": "trigger: any",
+          "returnType": "AMQPMessage",
+          "description": "Retrieves a trigger properties"
+        },
+        {
+          "name": "retrieveTriggerProperties",
+          "parameters": "trigger: any",
+          "returnType": "Properties",
+          "description": "Retrieves a trigger properties"
+        },
+        {
+          "name": "remove",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Removes this broker."
+        },
+        {
+          "name": "update",
+          "parameters": "props: any",
+          "returnType": "AMQPBroker",
+          "description": "Updates this broker properties."
+        },
+        {
+          "name": "bind",
+          "parameters": "queue: string, exchange: string, props: any",
+          "returnType": "void",
+          "description": "Bind a queue to an exchanges with specified properties."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "username",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "virtualHost",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "useSSL",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "acceptAllCertificates",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "host",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "port",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "displayName",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "AMQPMessage",
+      "description": "AMQP Message",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "headers",
+          "type": "Properties",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "body",
+          "type": "any[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "bodyAsText",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "properties",
+          "type": "Properties",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "encoding",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "AMQPSubscription",
+      "description": "AMQP Subscription",
+      "methods": [
+        {
+          "name": "removeAndDeleteQueues",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Removes this subscription and deletes the associated queues."
+        },
+        {
+          "name": "retrieveLastOnMessageTrigger",
+          "parameters": "",
+          "returnType": "Properties",
+          "description": "Returns the last properties that triggered this subscription."
+        },
+        {
+          "name": "retrieveMessage",
+          "parameters": "trigger: any",
+          "returnType": "AMQPMessage",
+          "description": "Constructs new message object from a policy trigger event."
+        },
+        {
+          "name": "remove",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Removes this subscription"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "queues",
+          "type": "string[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "AMQPBrokerManager",
+      "description": "Manager that enables AMQP broker creation and configuration reload.",
+      "methods": [
+        {
+          "name": "addBroker",
+          "parameters": "props: any",
+          "returnType": "AMQPBroker",
+          "description": "Creates a new broker."
+        }
+      ],
+      "attributes": []
+    }
+  ]
+}

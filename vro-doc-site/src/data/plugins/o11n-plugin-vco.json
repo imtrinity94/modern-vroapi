@@ -1,0 +1,859 @@
+{
+  "name": "o11n-plugin-vco",
+  "classes": [
+    {
+      "name": "VCODeploymentStatus",
+      "description": "Provides information about the progress status of a deployment action.",
+      "methods": [
+        {
+          "name": "getMessages",
+          "parameters": "",
+          "returnType": "any[]",
+          "description": "Retrieves any additional information about the status of the deployment."
+        },
+        {
+          "name": "getTargetName",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Retrieves the target machine name for the deployment."
+        },
+        {
+          "name": "getStatusAsString",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Retrieves the status with possible values SUCCESSFULL or FAILED>."
+        },
+        {
+          "name": "getElementName",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Retrieves the element name for the event."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "VCOHostValidator",
+      "description": "Provides functionality for validating hosts and retrieving certification info.",
+      "methods": [
+        {
+          "name": "getCertificateInfo",
+          "parameters": "",
+          "returnType": "Properties",
+          "description": "Retrieves the server's certificate info as a string."
+        },
+        {
+          "name": "installCertificates",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Install the server's certificate into the JSSE keystore (only the server's specific certificate, not the whole chain)."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "VCORemoteAction",
+      "description": "Object representing an instance of remote objects of type Action.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VCORemoteActionCategory",
+      "description": "Object representing an instance of remote objects of type ActionCategory.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VCORemoteActionsFolder",
+      "description": "Object representing the root folder containing remote objects of type Action.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VCORemoteAny",
+      "description": "Object representing an instance of remote objects of type Any.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VCORemoteConfigurationElement",
+      "description": "Object representing an instance of remote objects of type ConfigurationElementCategory.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VCORemoteConfigurationElementCategory",
+      "description": "Object representing an instance of remote objects of type ConfigurationElementCategory.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VCORemoteConfigurationsFolder",
+      "description": "Object representing the root folder for the remote objects of type Configuration.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VCORemotePackage",
+      "description": "Object representing an instance of remote objects of type Package.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VCORemotePackagesFolder",
+      "description": "Object representing the root folder for the remote objects of type Package.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VCORemotePlugin",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VCORemotePluginObject",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VCORemoteResourceElement",
+      "description": "Object representing an instance of remote objects of type ResourceElement.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VCORemoteResourceElementCategory",
+      "description": "Object representing an instance of remote objects of type ResourceElementCategory.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VCORemoteResourcesFolder",
+      "description": "Object representing the root folder for the remote objects of type Resource.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VCORemoteServer",
+      "description": "Object representing the connection info for remote vCenter Orchestrator server.",
+      "methods": [
+        {
+          "name": "findAllPackages",
+          "parameters": "",
+          "returnType": "VCORemotePackage[]",
+          "description": "Retrieves a list of available remote packages."
+        },
+        {
+          "name": "findAllWorkflows",
+          "parameters": "",
+          "returnType": "VCORemoteWorkflow[]",
+          "description": "Retrieves a list of available remote workflows."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "connectionTimeout",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "socketTimeout",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "shared",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "ssoEnabled",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "ssoScheme",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "ssoHost",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "ssoPort",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "retryTimeout",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "connectionId",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "simpleName",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "scheme",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "host",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "port",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VCORemoteSystem",
+      "description": "Object representing the root folder for the remote system objects.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VCORemoteTask",
+      "description": "Object representing an instance of remote objects of type Task.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VCORemoteWorkflow",
+      "description": "Object representing an instance of remote objects of type Workflow.",
+      "methods": [
+        {
+          "name": "deleteCompletedWorkflowTokens",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Deletes the completed workflow tokens."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VCORemoteWorkflowCategory",
+      "description": "Object representing an instance of remote objects of type WorkflowCategory.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VCORemoteWorkflowToken",
+      "description": "Object representing an instance of a remote workflow, either running or finished.",
+      "methods": [
+        {
+          "name": "getInputParameters",
+          "parameters": "",
+          "returnType": "Properties",
+          "description": "Retrieves the input parameters of the target workflow after completion."
+        },
+        {
+          "name": "getOutputParameters",
+          "parameters": "",
+          "returnType": "Properties",
+          "description": "Retrieves the output parameters of the target workflow after completion."
+        },
+        {
+          "name": "getException",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Retrieves the exception raised while running the target workflow after the workflow has completed."
+        },
+        {
+          "name": "getAttributes",
+          "parameters": "",
+          "returnType": "Properties",
+          "description": "Retrieves the attributes of the target workflow after completion."
+        },
+        {
+          "name": "cancel",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Requests a cancellation of the token."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "state",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VCORemoteWorkflowsFolder",
+      "description": "Object representing the root folder for the remote workflows.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VCOServerConfiguration",
+      "description": "A configuration data object class for the Orchestrator server objects.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "shared",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "password",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "connectionTimeout",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "socketTimeout",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "user",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "retryTimeout",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "host",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "port",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VCODeploymentManager",
+      "description": "Provides the core set of functions for deploying and deleting vCenter Orchestrator packages and workflows.",
+      "methods": [
+        {
+          "name": "deletePackageWithContent",
+          "parameters": "pckg: VCORemotePackage, keepShared: boolean",
+          "returnType": "void",
+          "description": "Deletes a package on a remote Orchestrator server."
+        },
+        {
+          "name": "deletePackageWithContentByName",
+          "parameters": "server: VCORemoteServer, name: string, keepShared: boolean",
+          "returnType": "void",
+          "description": "Deletes a package on a remote Orchestrator server by package name."
+        },
+        {
+          "name": "deployWorkflow",
+          "parameters": "server: VCORemoteServer, source: any, path: string, override: boolean",
+          "returnType": "void",
+          "description": "Deploys a specified workflow on target servers. The workflow information is exported from the local Orchestrator server."
+        },
+        {
+          "name": "deployRemoteWorkflow",
+          "parameters": "server: VCORemoteServer, source: VCORemoteWorkflow, path: string, override: boolean",
+          "returnType": "void",
+          "description": "Deploys a specified workflow on target servers. The workflow information is exported from a remote Orchestrator server."
+        },
+        {
+          "name": "deployPackage",
+          "parameters": "pkg: any, servers: VCORemoteServer[], override: boolean",
+          "returnType": "VCODeploymentStatus[]",
+          "description": "Deploy specified package on list of target servers.Package information is exported from local server."
+        },
+        {
+          "name": "deployRemotePackage",
+          "parameters": "pkg: VCORemotePackage, targets: VCORemoteServer[], override: boolean",
+          "returnType": "VCODeploymentStatus[]",
+          "description": "Deploys a specified package on s list of target servers. The package information is exported from the provided remote package."
+        },
+        {
+          "name": "deleteWorkflow",
+          "parameters": "rmtWorkflow: VCORemoteWorkflow, force: boolean",
+          "returnType": "void",
+          "description": "Deletes a workflow on a remote server."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "VCOPlugin",
+      "description": "Provides the core set of functions for accessing information about configured remote servers.",
+      "methods": [
+        {
+          "name": "getAvailableRemoteServers",
+          "parameters": "",
+          "returnType": "VCORemoteServer[]",
+          "description": "Retrieves a list of accessible remote servers."
+        },
+        {
+          "name": "findRemoteServersByHost",
+          "parameters": "host: string",
+          "returnType": "VCORemoteServer[]",
+          "description": "Retrieves a remote server by host."
+        },
+        {
+          "name": "findRemoteServerByName",
+          "parameters": "name: string",
+          "returnType": "VCORemoteServer",
+          "description": "Retrieves a remote server by name."
+        },
+        {
+          "name": "getRemoteServers",
+          "parameters": "",
+          "returnType": "VCORemoteServer[]",
+          "description": "Retrieves a list of configured remote servers."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VCOProxyWorkflowManager",
+      "description": "Manages the creation and execution of the proxies for the remote workflows.",
+      "methods": [
+        {
+          "name": "createProxy",
+          "parameters": "remoteWorkflowId: string, synchronous: boolean",
+          "returnType": "void",
+          "description": "Creates a workflow to make calls to a remote workflow."
+        },
+        {
+          "name": "createAllProxies",
+          "parameters": "server: VCORemoteServer, synchronos: boolean",
+          "returnType": "void",
+          "description": "Creates a workflow to make calls to a remote workflow for all workflows available on remote server."
+        },
+        {
+          "name": "createProxies",
+          "parameters": "remotePathId: string, recursive: boolean, synchronos: boolean",
+          "returnType": "void",
+          "description": "Creates a workflow to make calls to a remote workflow for all workflows under a specified remote folder."
+        },
+        {
+          "name": "createProxyActionForRemote",
+          "parameters": "actionName: string, moduleName: string, workflow: VCORemoteWorkflow",
+          "returnType": "void",
+          "description": "Generates a proxy action for a running remote workflow."
+        },
+        {
+          "name": "createProxyActionForLocal",
+          "parameters": "actionName: string, moduleName: string, workflow: any",
+          "returnType": "void",
+          "description": "Generates a proxy action for a running remote workflow based on the local workflow definition."
+        },
+        {
+          "name": "processStaleProxyWorkflowExecutions",
+          "parameters": "remoteServer: VCORemoteServer",
+          "returnType": "void",
+          "description": "Process the workflow runs in waiting-state to reflect the remote workflow state."
+        },
+        {
+          "name": "executeAsynchronousProxy",
+          "parameters": "connectionId: string, workflowId: string, parameters: any",
+          "returnType": "VCORemoteWorkflowToken",
+          "description": "Starts an asynchronous run of the remote workflow. Validates that the remote workflow and the parameters are from the same remote Orchestrator server, and ensures that the arguments are of the correct type."
+        },
+        {
+          "name": "executeSynchronousProxy",
+          "parameters": "connectionId: string, workflowId: string, parameters: any",
+          "returnType": "Properties",
+          "description": "Used for running a synchronous workflow proxies.Starts a synchronous run of the remote workflow. Validates that the remote workflow and the parameters are from the same remote Orchestrator server, and ensures that the arguments are of the correct type."
+        },
+        {
+          "name": "executeAsynchronousProxies",
+          "parameters": "workflowId: string, params: any",
+          "returnType": "VCORemoteWorkflowToken[]",
+          "description": "Used for running an asynchronous workflow proxies. Starts an asynchronous run of the remote workflow. Validates that the remote workflow and the parameters are from the same remote Orchestrator server, and ensures that the arguments are of the correct type."
+        },
+        {
+          "name": "deleteProxies",
+          "parameters": "server: VCORemoteServer, alsoFolders: boolean",
+          "returnType": "void",
+          "description": "Deletes the proxy workflows generated for a remote server."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "VCOServerManager",
+      "description": "Provides the core set of functions for adding,updating, and deleting remote Orchestrator servers.",
+      "methods": [
+        {
+          "name": "addOrchestrator",
+          "parameters": "config: VCOServerConfiguration",
+          "returnType": "VCORemoteServer",
+          "description": "Adds a remote Orchestrator server."
+        },
+        {
+          "name": "updateOrchestrator",
+          "parameters": "src: VCORemoteServer, config: VCOServerConfiguration",
+          "returnType": "VCORemoteServer",
+          "description": "Updates a remote Orchestrator server."
+        },
+        {
+          "name": "updateServer",
+          "parameters": "src: VCORemoteServer, host: string, port: number, isShared: boolean, user: string, password: string, connectionTimeout: number, socketTimeout: number, retryTimeout: number, ssoEnabled: boolean, ssoScheme: string, ssoHost: string, ssoPort: number, ssoSameAsVco: boolean",
+          "returnType": "VCORemoteServer",
+          "description": "Updates a remote Orchestrator server."
+        },
+        {
+          "name": "deleteOrchestrator",
+          "parameters": "srv: VCORemoteServer",
+          "returnType": "void",
+          "description": "Deletes a remote Orchestrator server."
+        },
+        {
+          "name": "deleteServer",
+          "parameters": "srv: VCORemoteServer",
+          "returnType": "void",
+          "description": "Deletes a remote Orchestrator server."
+        },
+        {
+          "name": "addServer",
+          "parameters": "host: string, port: number, isShared: boolean, user: string, password: string, connectionTimeout: number, socketTimeout: number, retryTimeout: number, ssoEnabled: boolean, ssoScheme: string, ssoHost: string, ssoPort: number, ssoSameAsVco: boolean",
+          "returnType": "VCORemoteServer",
+          "description": "Adds a remote Orchestrator server."
+        }
+      ],
+      "attributes": []
+    }
+  ]
+}

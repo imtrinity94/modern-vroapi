@@ -1,0 +1,155 @@
+{
+  "name": "o11n-plugin-vapi",
+  "classes": [
+    {
+      "name": "VAPIClient",
+      "description": "",
+      "methods": [
+        {
+          "name": "close",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Close the active vAPI client session(s)."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "VAPIEndpoint",
+      "description": "",
+      "methods": [
+        {
+          "name": "client",
+          "parameters": "username: string, password: string",
+          "returnType": "VAPIClient",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "username",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "password",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "endpointUrl",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "useSecureConnection",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VAPIMetamodel",
+      "description": "",
+      "methods": [
+        {
+          "name": "checkForModifications",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "username",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "password",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "endpointUrl",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "useSecureConnection",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "VAPIManager",
+      "description": "",
+      "methods": [
+        {
+          "name": "addEndpoint",
+          "parameters": "endpointUrl: string, useSecureConnection: boolean, username: string, password: string",
+          "returnType": "VAPIEndpoint",
+          "description": ""
+        },
+        {
+          "name": "getAllEndpoints",
+          "parameters": "",
+          "returnType": "VAPIEndpoint[]",
+          "description": ""
+        },
+        {
+          "name": "removeEndpoint",
+          "parameters": "endpointUrl: string",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "findEndpoint",
+          "parameters": "endpointUrl: string",
+          "returnType": "VAPIEndpoint",
+          "description": ""
+        },
+        {
+          "name": "importMetamodel",
+          "parameters": "endpointUrl: string, useSecureConnection: boolean, username: string, password: string",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "getAllMetamodels",
+          "parameters": "",
+          "returnType": "VAPIMetamodel[]",
+          "description": ""
+        },
+        {
+          "name": "findMetamodel",
+          "parameters": "endpointUrl: string",
+          "returnType": "VAPIMetamodel",
+          "description": ""
+        },
+        {
+          "name": "removeMetamodel",
+          "parameters": "endpointUrl: string",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "stringifyDataValue",
+          "parameters": "data: any",
+          "returnType": "string",
+          "description": ""
+        }
+      ],
+      "attributes": []
+    }
+  ]
+}

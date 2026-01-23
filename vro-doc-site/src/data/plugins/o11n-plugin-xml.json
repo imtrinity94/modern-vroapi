@@ -1,0 +1,357 @@
+{
+  "name": "o11n-plugin-xml",
+  "classes": [
+    {
+      "name": "XMLManager",
+      "description": "Main class to create xml document parser",
+      "methods": [
+        {
+          "name": "newDocument",
+          "parameters": "",
+          "returnType": "XMLDocument",
+          "description": "Create a new Empty XML document"
+        },
+        {
+          "name": "loadDocument",
+          "parameters": "path: string, validate: boolean",
+          "returnType": "XMLDocument",
+          "description": "Get the document for a given path using the default character encoding"
+        },
+        {
+          "name": "loadDocumentWithEncoding",
+          "parameters": "path: string, encoding: string, validate: boolean",
+          "returnType": "XMLDocument",
+          "description": "Get the document for a given path using the specified character encoding"
+        },
+        {
+          "name": "fromString",
+          "parameters": "stringContext: string",
+          "returnType": "XMLDocument",
+          "description": "Get the document for a given string content"
+        },
+        {
+          "name": "saveDocument",
+          "parameters": "document: XMLDocument, path: string, systemDtD: string, publicDtD: string",
+          "returnType": "any",
+          "description": "Save the document to a given path using the default character encoding"
+        },
+        {
+          "name": "saveDocumentWithEncoding",
+          "parameters": "document: XMLDocument, path: string, encoding: string, systemDtD: string, publicDtD: string",
+          "returnType": "any",
+          "description": "Save the document to a given path using the default character encoding"
+        },
+        {
+          "name": "validateDocument",
+          "parameters": "document: XMLDocument, systemDtD: string, publicDtD: string",
+          "returnType": "any",
+          "description": "Validate a document without saving it"
+        },
+        {
+          "name": "getDocumentContent",
+          "parameters": "document: XMLDocument",
+          "returnType": "string",
+          "description": "Get the document as string"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "XMLDocument",
+      "description": "XML document",
+      "methods": [
+        {
+          "name": "getDocumentElement",
+          "parameters": "",
+          "returnType": "XMLElement",
+          "description": "This is a convenience attribute that allows direct access to the child node that is the root element of the document."
+        },
+        {
+          "name": "createElement",
+          "parameters": "name: string",
+          "returnType": "XMLElement",
+          "description": "Create a new element with the given name"
+        },
+        {
+          "name": "createComment",
+          "parameters": "name: string",
+          "returnType": "XMLNode",
+          "description": "Create a new comment node"
+        },
+        {
+          "name": "createTextNode",
+          "parameters": "name: string",
+          "returnType": "XMLNode",
+          "description": "Create a text node"
+        },
+        {
+          "name": "createCDATASection",
+          "parameters": "name: any",
+          "returnType": "XMLNode",
+          "description": "Create a new CDATA node"
+        },
+        {
+          "name": "createProcessingInstruction",
+          "parameters": "target: string, data: string",
+          "returnType": "XMLNode",
+          "description": "Create a ProcessingInstruction node given the specified name and data strings."
+        },
+        {
+          "name": "normalize",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Normalize the document"
+        },
+        {
+          "name": "getElementsByTagName",
+          "parameters": "name: string",
+          "returnType": "void",
+          "description": "Returns a XMLNodeList of all the Elements with a given tag name in the order in which they are encountered in a preorder traversal of the XMLDocument tree."
+        },
+        {
+          "name": "appendChild",
+          "parameters": "child: XMLNode",
+          "returnType": "void",
+          "description": "Adds the node newChild to the end of the list of children of this node.\r\nIf the newChild is already in the tree, it is first removed."
+        },
+        {
+          "name": "removeChild",
+          "parameters": "oldChild: XMLNode",
+          "returnType": "void",
+          "description": "Removes the child node indicated by oldChild from the list of children, and returns it"
+        },
+        {
+          "name": "replaceChild",
+          "parameters": "newNode: XMLNode, oldNode: XMLNode",
+          "returnType": "void",
+          "description": "Replaces the child node oldChild with newChild in the list of children, and returns the oldChild node.\r\nIf the newChild is already in the tree, it is first removed."
+        },
+        {
+          "name": "insertBefore",
+          "parameters": "newNode: XMLNode, refNode: XMLNode",
+          "returnType": "void",
+          "description": "Inserts the node newChild before the existing child node refChild.\r\nIf refChild is null, insert newChild at the end of the list of children.\r\nIf the newChild is already in the tree, it is first removed."
+        },
+        {
+          "name": "cloneNode",
+          "parameters": "deep: boolean",
+          "returnType": "void",
+          "description": "Clone the node"
+        },
+        {
+          "name": "getChildNodes",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Get all children"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "XMLElement",
+      "description": "Main Element",
+      "methods": [
+        {
+          "name": "getAttributes",
+          "parameters": "",
+          "returnType": "void",
+          "description": "A XMLNamedNodeMap containing the attributes of this Element."
+        },
+        {
+          "name": "setAttribute",
+          "parameters": "name: string, value: string",
+          "returnType": "void",
+          "description": "Set a new attribute"
+        },
+        {
+          "name": "removeAttribute",
+          "parameters": "name: string",
+          "returnType": "void",
+          "description": "Remove atrribute with the given name"
+        },
+        {
+          "name": "hasAttribute",
+          "parameters": "name: string",
+          "returnType": "void",
+          "description": "Returns true if the attribute exists"
+        },
+        {
+          "name": "getElementsByTagName",
+          "parameters": "name: string",
+          "returnType": "void",
+          "description": "Returns a XMLNodeList of all the Elements with a given tag name in the order in which they are encountered in a preorder traversal of the current element tree."
+        },
+        {
+          "name": "appendChild",
+          "parameters": "child: XMLNode",
+          "returnType": "void",
+          "description": "Adds the node newChild to the end of the list of children of this node.\r\nIf the newChild is already in the tree, it is first removed."
+        },
+        {
+          "name": "removeChild",
+          "parameters": "oldChild: XMLNode",
+          "returnType": "void",
+          "description": "Removes the child node indicated by oldChild from the list of children, and returns it"
+        },
+        {
+          "name": "replaceChild",
+          "parameters": "newNode: XMLNode, oldNode: XMLNode",
+          "returnType": "void",
+          "description": "Replaces the child node oldChild with newChild in the list of children, and returns the oldChild node.\r\nIf the newChild is already in the tree, it is first removed."
+        },
+        {
+          "name": "insertBefore",
+          "parameters": "newNode: XMLNode, refNode: XMLNode",
+          "returnType": "void",
+          "description": "Inserts the node newChild before the existing child node refChild.\r\nIf refChild is null, insert newChild at the end of the list of children.\r\nIf the newChild is already in the tree, it is first removed."
+        },
+        {
+          "name": "cloneNode",
+          "parameters": "deep: boolean",
+          "returnType": "void",
+          "description": "Clone the node"
+        },
+        {
+          "name": "normalize",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Normalize the node"
+        },
+        {
+          "name": "getChildNodes",
+          "parameters": "",
+          "returnType": "XMLNodeList",
+          "description": "Get all children"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "textContent",
+          "type": "void",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tagName",
+          "type": "void",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "XMLNode",
+      "description": "Node Element",
+      "methods": [
+        {
+          "name": "appendChild",
+          "parameters": "child: XMLNode",
+          "returnType": "void",
+          "description": "Adds the node newChild to the end of the list of children of this node.\r\nIf the newChild is already in the tree, it is first removed."
+        },
+        {
+          "name": "removeChild",
+          "parameters": "oldChild: XMLNode",
+          "returnType": "void",
+          "description": "Removes the child node indicated by oldChild from the list of children, and returns it"
+        },
+        {
+          "name": "replaceChild",
+          "parameters": "newNode: XMLNode, oldNode: XMLNode",
+          "returnType": "void",
+          "description": "Replaces the child node oldChild with newChild in the list of children, and returns the oldChild node.\r\nIf the newChild is already in the tree, it is first removed."
+        },
+        {
+          "name": "insertBefore",
+          "parameters": "newNode: XMLNode, refNode: XMLNode",
+          "returnType": "void",
+          "description": "Inserts the node newChild before the existing child node refChild.\r\nIf refChild is null, insert newChild at the end of the list of children.\r\nIf the newChild is already in the tree, it is first removed."
+        },
+        {
+          "name": "cloneNode",
+          "parameters": "deep: boolean",
+          "returnType": "void",
+          "description": "Clone the node"
+        },
+        {
+          "name": "normalize",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Normalize the node"
+        },
+        {
+          "name": "getChildNodes",
+          "parameters": "",
+          "returnType": "XMLNodeList",
+          "description": "Get all children"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "nodeValue",
+          "type": "void",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "nodeName",
+          "type": "void",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "parentNode",
+          "type": "void",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "XMLNamedNodeMap",
+      "description": "Node map, usually used for attributes of an element",
+      "methods": [
+        {
+          "name": "item",
+          "parameters": "index: number",
+          "returnType": "XMLNode",
+          "description": "Get child at index"
+        },
+        {
+          "name": "getNamedItem",
+          "parameters": "name: string",
+          "returnType": "XMLNode",
+          "description": "Retrieves a node specified by name."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "length",
+          "type": "void",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "XMLNodeList",
+      "description": "NodeList Element",
+      "methods": [
+        {
+          "name": "item",
+          "parameters": "index: number",
+          "returnType": "void",
+          "description": "Get child at index"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "length",
+          "type": "void",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,524 @@
+{
+  "name": "o11n-plugin-mail",
+  "classes": [
+    {
+      "name": "ConnectionManager",
+      "description": "",
+      "methods": [
+        {
+          "name": "save",
+          "parameters": "smtpHost: string, smtpPort: number, username: string, password: string, fromAddress: string, fromName: string",
+          "returnType": "string",
+          "description": "Creates a new Connection for the provided parameters."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "EmailMessage",
+      "description": "Main class to create mail messages",
+      "methods": [
+        {
+          "name": "sendMessage",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Send the message."
+        },
+        {
+          "name": "addMimePart",
+          "parameters": "content: any, mimetype: string",
+          "returnType": "void",
+          "description": "Add a mime part to the message."
+        },
+        {
+          "name": "setSessionProperty",
+          "parameters": "key: string, value: string",
+          "returnType": "void",
+          "description": "Set a session property."
+        },
+        {
+          "name": "getSessionProperty",
+          "parameters": "key: string",
+          "returnType": "string",
+          "description": "Get the value of the specified session property."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "smtpHost",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "smtpPort",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "toAddress",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "fromAddress",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "fromName",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "ccAddress",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "bccAddress",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "subject",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "username",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "password",
+          "type": "SecureString",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "useSsl",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "useStartTls",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "MailClient",
+      "description": "Mail client that can be used to retrieve messages from a mail server. The default protocol is IMAP but POP3 protocol can also be used.",
+      "methods": [
+        {
+          "name": "enableSSL",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Enable SSL connection."
+        },
+        {
+          "name": "setConnectionTimeout",
+          "parameters": "timeout: number",
+          "returnType": "void",
+          "description": "Set connection timeout."
+        },
+        {
+          "name": "setSocketTimeout",
+          "parameters": "timeout: number",
+          "returnType": "void",
+          "description": "Set socket timeout."
+        },
+        {
+          "name": "setProtocol",
+          "parameters": "protocol: string",
+          "returnType": "void",
+          "description": "Set a mail protocol to use."
+        },
+        {
+          "name": "connect",
+          "parameters": "host: string, port: number, username: string, password: string",
+          "returnType": "void",
+          "description": "Connect the client to a mail server."
+        },
+        {
+          "name": "enableImapCompatibilityMode",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Enables the IMAP Compatibility mode. It allows the client to avoid all sorts of parsing and protocol bugs in many IMAP servers, but of course it comes at the cost of being less efficient because it is not taking advantage of the IMAP protocol's ability to fetch only the parts of the message that are needed. For complete reference - http://www.oracle.com/technetwork/java/javamail/faq/index.html#imapserverbug"
+        },
+        {
+          "name": "disableImapCompatibilityMode",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Disables the IMAP Compatibility mode."
+        },
+        {
+          "name": "getDefaultFolder",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Returns the name of the root folder of the default namespace presented to the user."
+        },
+        {
+          "name": "openFolder",
+          "parameters": "folderName: string",
+          "returnType": "void",
+          "description": "Opens a folder on the mail server."
+        },
+        {
+          "name": "openDefaultFolder",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Opens the root folder of the default namespace presented to the user."
+        },
+        {
+          "name": "getSubFolders",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "Returns a list of subfolders of the current folder."
+        },
+        {
+          "name": "getSubscribedSubFolders",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "Returns a list of subfolders of the current folder."
+        },
+        {
+          "name": "getUserNamespaces",
+          "parameters": "userName: string",
+          "returnType": "string[]",
+          "description": "Returns a set of folders representing the namespaces for a user."
+        },
+        {
+          "name": "closeFolder",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Closes the current folder."
+        },
+        {
+          "name": "getMessage",
+          "parameters": "msgNumber: string",
+          "returnType": "ReceivedMessage[]",
+          "description": "Returns a message from the mail server."
+        },
+        {
+          "name": "getMessagesBetween",
+          "parameters": "startMsgNumber: string, endMsgNumber: string",
+          "returnType": "ReceivedMessage[]",
+          "description": "Returns a list of messages from the mail server which have message numbers within a certain range."
+        },
+        {
+          "name": "getMessages",
+          "parameters": "",
+          "returnType": "ReceivedMessage[]",
+          "description": "Returns all messages in the current folder."
+        },
+        {
+          "name": "getUnseenMessages",
+          "parameters": "",
+          "returnType": "ReceivedMessage[]",
+          "description": "Returns all unread messages in the current folder."
+        },
+        {
+          "name": "getRecentMessages",
+          "parameters": "",
+          "returnType": "ReceivedMessage[]",
+          "description": "Returns all recent messages of the current folder."
+        },
+        {
+          "name": "getDeletedMessages",
+          "parameters": "",
+          "returnType": "ReceivedMessage[]",
+          "description": "Returns all deleted messages from the current folder."
+        },
+        {
+          "name": "searchFromAddress",
+          "parameters": "pattern: string",
+          "returnType": "ReceivedMessage[]",
+          "description": "Returns all messages that contain a specific string in the \"From\" address attribute."
+        },
+        {
+          "name": "searchRecipientAddress",
+          "parameters": "pattern: string",
+          "returnType": "ReceivedMessage[]",
+          "description": "Returns all messages that contain a specific string in the \"To\", \"Cc\" or \"Bcc\" address attributes."
+        },
+        {
+          "name": "searchBodyMessage",
+          "parameters": "pattern: string",
+          "returnType": "ReceivedMessage[]",
+          "description": "Returns all messages that contain a specific string in the message body."
+        },
+        {
+          "name": "searchSubjectMessage",
+          "parameters": "pattern: string",
+          "returnType": "ReceivedMessage[]",
+          "description": "Returns all messages that contain a specific string in the message subject."
+        },
+        {
+          "name": "getMessageCount",
+          "parameters": "",
+          "returnType": "number",
+          "description": "Returns the total number of messages in the current folder."
+        },
+        {
+          "name": "getNewMessageSize",
+          "parameters": "",
+          "returnType": "number",
+          "description": "Returns the number of the new messages in the current folder."
+        },
+        {
+          "name": "deleteMessage",
+          "parameters": "msgNumber: string",
+          "returnType": "void",
+          "description": "Mark a message for deletion. Messages marked for deletion are deleted by the server only when the folder is closed or by\r\nexplicitly invoking an 'expunge' method."
+        },
+        {
+          "name": "deleteMessages",
+          "parameters": "msgNumbers: string[]",
+          "returnType": "void",
+          "description": "Mark messages for deletion. Messages marked for deletion are deleted by the server only when the folder is closed or by\r\nexplicitly invoking an 'expunge' method."
+        },
+        {
+          "name": "expungeMessages",
+          "parameters": "",
+          "returnType": "ReceivedMessage[]",
+          "description": "Expunge (permanently remove) all messages marked for deletion."
+        },
+        {
+          "name": "setMaxBodyPartSize",
+          "parameters": "size: number",
+          "returnType": "void",
+          "description": "Set MAX allowed body part size in MB"
+        },
+        {
+          "name": "setSessionProperty",
+          "parameters": "key: string, value: string",
+          "returnType": "void",
+          "description": "Set a session property."
+        },
+        {
+          "name": "getSessionProperty",
+          "parameters": "key: string",
+          "returnType": "string",
+          "description": "Get the value of the specified session property."
+        },
+        {
+          "name": "close",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Disconnects the client from the mail server. Expunges all messages marked for deletion."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "ReceivedMessage",
+      "description": "Represents a received email message from a mail server.",
+      "methods": [
+        {
+          "name": "getHeaders",
+          "parameters": "",
+          "returnType": "Properties",
+          "description": "Returns all message headers as properties."
+        },
+        {
+          "name": "getHeader",
+          "parameters": "key: string",
+          "returnType": "string",
+          "description": "Returns a value of a specific header key."
+        },
+        {
+          "name": "getFolder",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Returns the folder from which this message was obtained."
+        },
+        {
+          "name": "getContent",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Returns the content of the message as a raw string."
+        },
+        {
+          "name": "getMultiPartContent",
+          "parameters": "",
+          "returnType": "MessageMultiPart",
+          "description": "Returns the content of the message as MessageMultiPart if the content is of a multipart type."
+        },
+        {
+          "name": "isContentMultiPart",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": "Shows whether the content is a multipart object."
+        },
+        {
+          "name": "getReceivedDate",
+          "parameters": "",
+          "returnType": "Date",
+          "description": "Returns the date on which this message was received."
+        },
+        {
+          "name": "getSentDate",
+          "parameters": "",
+          "returnType": "Date",
+          "description": "Returns the date on which this message was sent."
+        },
+        {
+          "name": "isExpunged",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": "Checks whether this message is expunged."
+        },
+        {
+          "name": "delete",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Marks this message for deletion"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "from",
+          "type": "string[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "to",
+          "type": "string[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "subject",
+          "type": "void",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "cc",
+          "type": "string[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "bcc",
+          "type": "string[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "replyTo",
+          "type": "string[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "void",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "contentType",
+          "type": "void",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "MessageMultiPart",
+      "description": "Container that holds multiple body parts",
+      "methods": [
+        {
+          "name": "getPartsCount",
+          "parameters": "",
+          "returnType": "number",
+          "description": "Returns the number of the body parts."
+        },
+        {
+          "name": "getBodyPart",
+          "parameters": "index: number",
+          "returnType": "MessageBodyPart",
+          "description": "Returns a specific body part from the multipart message."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "MessageBodyPart",
+      "description": "Part of the message that contains a set of attributes and a content",
+      "methods": [
+        {
+          "name": "getContent",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Returns the content of this body part as a raw string."
+        },
+        {
+          "name": "getMultiPartContent",
+          "parameters": "",
+          "returnType": "MessageMultiPart",
+          "description": "Returns the content as MessageMultiPart if the body part is of a multipart type."
+        },
+        {
+          "name": "isContentMultiPart",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": "Shows whether the content is a multipart object."
+        },
+        {
+          "name": "getSize",
+          "parameters": "",
+          "returnType": "number",
+          "description": "Return the size of the content of this part in bytes."
+        },
+        {
+          "name": "isAttachment",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": "Returns true if this part is an attachment."
+        },
+        {
+          "name": "getAsMimeAttachment",
+          "parameters": "",
+          "returnType": "MimeAttachment",
+          "description": "Returns the content as MimeAttachment object."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "contentType",
+          "type": "void",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "disposition",
+          "type": "void",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "fileName",
+          "type": "void",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    }
+  ]
+}

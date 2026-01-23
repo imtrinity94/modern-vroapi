@@ -1,0 +1,2968 @@
+{
+  "name": "o11n-core",
+  "classes": [
+    {
+      "name": "Trigger",
+      "description": "",
+      "methods": [],
+      "attributes": []
+    },
+    {
+      "name": "Module",
+      "description": "Object used to call custom action in the system.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "actionDescriptions",
+          "type": "Action[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ExecutionContext",
+      "description": "Object containing parameters visible throughtout the workflow run and all sub workflow runs triggered byt it.",
+      "methods": [
+        {
+          "name": "getParameter",
+          "parameters": "name: string",
+          "returnType": "any",
+          "description": "Return a parameter by its name."
+        },
+        {
+          "name": "contains",
+          "parameters": "name: string",
+          "returnType": "boolean",
+          "description": "Check if a parameter with certain name is added to the execution context."
+        },
+        {
+          "name": "parameterNames",
+          "parameters": "",
+          "returnType": "any[]",
+          "description": "Return an array containing the names of all parameters in the execution context."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "Date",
+      "description": "JavaScript Date Object.",
+      "methods": [
+        {
+          "name": "getDate",
+          "parameters": "",
+          "returnType": "number",
+          "description": "Get the day of the month. It is returned as a value between 1 and 31."
+        },
+        {
+          "name": "setDate",
+          "parameters": "day: number",
+          "returnType": "void",
+          "description": "Set the day of the month in the date object as a value from 1 to 31."
+        },
+        {
+          "name": "getDay",
+          "parameters": "",
+          "returnType": "number",
+          "description": "Get the day of the week as a value from 0 to 6"
+        },
+        {
+          "name": "getHours",
+          "parameters": "",
+          "returnType": "number",
+          "description": "The value returned is 0 through 23."
+        },
+        {
+          "name": "setHours",
+          "parameters": "hours: number",
+          "returnType": "void",
+          "description": "Set the hours in the date object with a value of 0 through 23."
+        },
+        {
+          "name": "getMinutes",
+          "parameters": "",
+          "returnType": "number",
+          "description": "The value returned is 0 through 59."
+        },
+        {
+          "name": "setMinutes",
+          "parameters": "minutes: number",
+          "returnType": "void",
+          "description": "Set the minutes in the date object with a value of 0 through 59."
+        },
+        {
+          "name": "getMonth",
+          "parameters": "",
+          "returnType": "number",
+          "description": "Returns the month from the date object as a value from 0 through 11."
+        },
+        {
+          "name": "setMonth",
+          "parameters": "month: number",
+          "returnType": "void",
+          "description": "Set the month in the date object as a value of 0 through 11."
+        },
+        {
+          "name": "getSeconds",
+          "parameters": "",
+          "returnType": "number",
+          "description": "The value returned is 0 through 59."
+        },
+        {
+          "name": "setSeconds",
+          "parameters": "seconds: number",
+          "returnType": "void",
+          "description": "Set the seconds in the date object with a value of 0 through 59."
+        },
+        {
+          "name": "getYear",
+          "parameters": "",
+          "returnType": "number",
+          "description": "Returns the numeric digit value of the year (fullYear-1900)."
+        },
+        {
+          "name": "getFullYear",
+          "parameters": "",
+          "returnType": "number",
+          "description": "Returns the numeric four digit value of the year."
+        },
+        {
+          "name": "setYear",
+          "parameters": "years: number",
+          "returnType": "void",
+          "description": "Set the year in the date instance as a 4 digit numeric value."
+        },
+        {
+          "name": "getTime",
+          "parameters": "",
+          "returnType": "number",
+          "description": "The number of milliseconds since January 1, 1970. this function allows you to manipulate the date object based on a millisecond value then convert it back to the form you want."
+        },
+        {
+          "name": "setTime",
+          "parameters": "time: number",
+          "returnType": "void",
+          "description": "Sets time on the basis of number of milliseconds since January 1, 1970. The below example sets the date object to one hour in the future."
+        },
+        {
+          "name": "getTimezoneOffset",
+          "parameters": "",
+          "returnType": "number",
+          "description": "Time zone offset in minutes which is the difference between GMT and local time."
+        },
+        {
+          "name": "parse",
+          "parameters": "",
+          "returnType": "Date",
+          "description": "The number of milliseconds after midnight January 1, 1970 till the given date espressed as a string in the example which is IETF format."
+        },
+        {
+          "name": "toGMTString",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Convert date to GMT format in a form similar to \"Fri, 29 Sep 2000 06:23:54 GMT\"."
+        },
+        {
+          "name": "UTC",
+          "parameters": "",
+          "returnType": "Date",
+          "description": "Based on a comma delimited string, the number of milliseconds after midnight January 1, 1970 GMT is returned. The syntax of the string is \"year, month, day [, hrs]\r\n[, min] [, sec]\r\n\". An example is \"2000, 9, 29, 5, 43, 0\" for Sept 29, 2000 at 5:43:0. The string is considered to be GMT. The hours, minutes, and seconds are optional."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "Action",
+      "description": "Represents an action in the system",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "version",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "returnType",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "script",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "versionHistoryItems",
+          "type": "VersionHistoryItem[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "parameters",
+          "type": "Parameter[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "module",
+          "type": "Module",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ActionResult",
+      "description": "Object representing a instance of a result of action executed asynchronously",
+      "methods": [
+        {
+          "name": "getResult",
+          "parameters": "",
+          "returnType": "any",
+          "description": "Returns the actual result returned by the asynchronous executed action. Blocks until the result is available."
+        },
+        {
+          "name": "cancel",
+          "parameters": "mayInterruptIfRunning: boolean",
+          "returnType": "boolean",
+          "description": "Attempts to cancel the execution of the asynchronously executed action."
+        },
+        {
+          "name": "isDone",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": "Returns true if the asynchronous action has completed."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "Attribute",
+      "description": "Describe an attribute",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "AuthorizationElement",
+      "description": "AuthorizationElement JavaScript object",
+      "methods": [
+        {
+          "name": "addReference",
+          "parameters": "object: any, relation: any",
+          "returnType": "AuthorizationReference",
+          "description": "add an authorization reference on any inventory object and return it"
+        },
+        {
+          "name": "removeAllReferences",
+          "parameters": "",
+          "returnType": "void",
+          "description": "remove all reference in this authorization element"
+        },
+        {
+          "name": "removeReference",
+          "parameters": "jsObject: any, relation: any",
+          "returnType": "void",
+          "description": "remove all reference for a given object and relation."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "ldapElementDn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "ldapElement",
+          "type": "LdapGroup",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "references",
+          "type": "AuthorizationReference[]",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "AuthorizationReference",
+      "description": "AuthorizationReference JavaScript object",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "relationName",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "returnType",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "authorizedObjects",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "stringRepresentation",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "Command",
+      "description": "Executes a command in the host operating system. <p>Commands are dependent on the host operating system default shell.</p> <p>Example: com = new Command(\"ls\"); com.execute(true); // makes the call blocking output = com.getOutput();</p>",
+      "methods": [
+        {
+          "name": "execute",
+          "parameters": "wait: any",
+          "returnType": "number",
+          "description": "Executes the command. <p>Standard output is redirected to the <b>output</b> attribute.</p>"
+        },
+        {
+          "name": "executeAndLog",
+          "parameters": "filename: string",
+          "returnType": "number",
+          "description": "Executes the command and logs the standard output to a file."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "output",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "result",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "input",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ConfigurationElement",
+      "description": "ConfigurationElement",
+      "methods": [
+        {
+          "name": "getAttributeWithKey",
+          "parameters": "key: string",
+          "returnType": "Attribute | null",
+          "description": "Returns the attribute of the configuration element for the specified key or null if not found."
+        },
+        {
+          "name": "setAttributeWithKey",
+          "parameters": "key: string, value: any, typeHint: any",
+          "returnType": "void",
+          "description": "Sets the attribute value of the configuration element for the specified key."
+        },
+        {
+          "name": "reload",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Reloads the values of the attributes of this configuration element."
+        },
+        {
+          "name": "removeAttributeWithKey",
+          "parameters": "key: string",
+          "returnType": "void",
+          "description": "Remove the attribute of the configuration element for the specified key."
+        },
+        {
+          "name": "saveToVersionRepository",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Saves a change set in the local version repository.\r\nThis function is available with vRA 8"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "version",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "versionHistoryItems",
+          "type": "VersionHistoryItem[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "attributes",
+          "type": "Attribute[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "configurationElementCategory",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ConfigurationElementCategory",
+      "description": "ConfigurationElementCategory",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "path",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "configurationElements",
+          "type": "ConfigurationElement[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "subCategories",
+          "type": "ConfigurationElementCategory[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "parent",
+          "type": "ConfigurationElementCategory",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "allConfigurationElements",
+          "type": "ConfigurationElement[]",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "Credential",
+      "description": "Credential object (username / password pair)",
+      "methods": [
+        {
+          "name": "checkPassword",
+          "parameters": "otherPassword: string",
+          "returnType": "boolean",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "username",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "password",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "Enumeration",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "next",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "hasNext",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "Event",
+      "description": "Event generated by an 'OnInit'/'OnExit' event of a Policy item.",
+      "methods": [
+        {
+          "name": "consume",
+          "parameters": "owner: string",
+          "returnType": "void",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "source",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "when",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "EventGauge",
+      "description": "Event generated by an 'OnGauge.xxx' event of a Policy item.",
+      "methods": [
+        {
+          "name": "consume",
+          "parameters": "owner: string",
+          "returnType": "void",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "source",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "when",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "perfKey",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "device",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "EventSchedule",
+      "description": "Event generated by an 'OnExecute' event of a periodic Policy item.",
+      "methods": [
+        {
+          "name": "consume",
+          "parameters": "owner: string",
+          "returnType": "void",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "source",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "when",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "lastExec",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "nextExecutionDate",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "nextExec",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "lastExecutionDate",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "File",
+      "description": "Representation of a file on a managed computer.",
+      "methods": [
+        {
+          "name": "write",
+          "parameters": "content: string",
+          "returnType": "void",
+          "description": "Writes the content to the file. If the file does not exist, it is created."
+        },
+        {
+          "name": "renameTo",
+          "parameters": "destPathName: string",
+          "returnType": "boolean",
+          "description": "Renames the file denoted by this abstract pathname. Many aspects of the behavior of this method are inherently platform-dependent: The rename operation might not be able to move a file from one filesystem to another, it might not be atomic, and it might not succeed if a file with the destination abstract pathname already exists. The return value should always be checked to make sure that the rename operation was successful."
+        },
+        {
+          "name": "createFile",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Creates the file if it does not exist. Also creates its directory if needed."
+        },
+        {
+          "name": "createDirectory",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Creates the directory structure if it does not exist."
+        },
+        {
+          "name": "deleteFile",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Deletes the file from the file system."
+        },
+        {
+          "name": "list",
+          "parameters": "extension: any",
+          "returnType": "string[]",
+          "description": "List files / directories that end with the specified extension."
+        },
+        {
+          "name": "canRead",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": "Can read this file"
+        },
+        {
+          "name": "canWrite",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": "Can write this file"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "hostname",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "path",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "isLocal",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "exists",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "length",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "directory",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "extension",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "isDir",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "FileHelper",
+      "description": "FileHelper wrapper",
+      "methods": [],
+      "attributes": []
+    },
+    {
+      "name": "FileReader",
+      "description": "FileReader",
+      "methods": [
+        {
+          "name": "open",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Opens the file for reading. <p>Once open an index in the file is maintained. This means you can do succesive <b>readLine</b>.</p>"
+        },
+        {
+          "name": "readLine",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Reads one line from the opened file. <p>To go back to the start of the file, <b>close</b> it and re-<b>open</b> it.</p>"
+        },
+        {
+          "name": "readAll",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Reads all lines from the opened file."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "exists",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "FileWriter",
+      "description": "FileWriter",
+      "methods": [
+        {
+          "name": "open",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Opens the file for writing. From this point on the file is locked. Use <b>close</b> to release it."
+        },
+        {
+          "name": "clean",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Reinitializes the length to 0 and sets the file-pointer in the very begining of the file."
+        },
+        {
+          "name": "writeLine",
+          "parameters": "value: string",
+          "returnType": "void",
+          "description": "Writes a line to the file. The file must be opened first using <b>open</b>."
+        },
+        {
+          "name": "write",
+          "parameters": "value: string",
+          "returnType": "void",
+          "description": "Writes a string to the file. The file must be opened first using <b>open</b>."
+        },
+        {
+          "name": "close",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Closes a previously opened file."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "lineEndType",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "exists",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "LogFileWriter",
+      "description": "LogFileWriter",
+      "methods": [
+        {
+          "name": "open",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Opens the file for writing. From this point on the file is locked. Use <b>close</b> to release it."
+        },
+        {
+          "name": "clean",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Reinitializes the length to 0 and sets the file-pointer in the very begining of the file."
+        },
+        {
+          "name": "writeLine",
+          "parameters": "value: string",
+          "returnType": "void",
+          "description": "Writes a line to the file. The file must be opened first using <b>open</b>."
+        },
+        {
+          "name": "write",
+          "parameters": "value: string",
+          "returnType": "void",
+          "description": "Writes a string to the file. The file must be opened first using <b>open</b>."
+        },
+        {
+          "name": "close",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Closes a previously opened file."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "lineEndType",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "exists",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "LdapUser",
+      "description": "LdapUser object",
+      "methods": [
+        {
+          "name": "isMemberOfGroup",
+          "parameters": "ldapGroup: any",
+          "returnType": "boolean",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "commonName",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "userPrincipalName",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "loginName",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "displayInfo",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "groups",
+          "type": "LdapGroup[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "emailAddress",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "allGroups",
+          "type": "LdapGroup[]",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "LdapGroup",
+      "description": "LdapGroup object",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "displayName",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "commonName",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "displayInfo",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "parentGroups",
+          "type": "LdapGroup[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "subGroups",
+          "type": "LdapGroup[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "users",
+          "type": "LdapUser[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "emailAddress",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "LogEvent",
+      "description": "Object representing a log event",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "severity",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "logTimeStamp",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "shortDescription",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "longDescription",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "originatorUri",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "originatorUserName",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "originatorId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "LogQuery",
+      "description": "Object representing a log query",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "fetchLimit",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "fromDate",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "toDate",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "originatorId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "targetUri",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "severityThreshold",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "MimeAttachment",
+      "description": "Describe a mime attachment.",
+      "methods": [
+        {
+          "name": "write",
+          "parameters": "directory: any, filename: any",
+          "returnType": "void",
+          "description": "Write the content of the mime attachment to file."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "mimeType",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "content",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "buffer",
+          "type": "ByteBuffer",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "NotFound",
+      "description": "Representation of a not found object (doesn't exist anymore or currently unavailable)",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "originalStringRepresentation",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "originalType",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "Package",
+      "description": "Representation of a package",
+      "methods": [
+        {
+          "name": "remove",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Remove the package"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "policyTemplates",
+          "type": "PolicyTemplate[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "actions",
+          "type": "Action[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "workflows",
+          "type": "Workflow[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "resourceElements",
+          "type": "ResourceElement[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "configurationElements",
+          "type": "ConfigurationElement[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "version",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "Parameter",
+      "description": "Describe a parameter",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "PluginModuleDescription",
+      "description": "Description of a plug-in module",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "version",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "types",
+          "type": "any[]",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "PluginTypeDescription",
+      "description": "Description of a plug-in type",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "kind",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "Policy",
+      "description": "Representation of a policy",
+      "methods": [
+        {
+          "name": "getObjectByTag",
+          "parameters": "value: string",
+          "returnType": "any",
+          "description": "Returns the object referenced by 'tag' in the policy (Virtual machine or Hosts)"
+        },
+        {
+          "name": "forTag",
+          "parameters": "value: string",
+          "returnType": "any",
+          "description": "Returns the object referenced by 'tag' in the policy (Virtual machine or Hosts)"
+        },
+        {
+          "name": "exit",
+          "parameters": "reason: string",
+          "returnType": "void",
+          "description": "Exits the policy immediatlly."
+        },
+        {
+          "name": "getEventsByTag",
+          "parameters": "",
+          "returnType": "Properties[]",
+          "description": "Returns all tags and their corresponding events."
+        },
+        {
+          "name": "start",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Start the policy"
+        },
+        {
+          "name": "stop",
+          "parameters": "reason: string",
+          "returnType": "void",
+          "description": "Stop the policy"
+        },
+        {
+          "name": "remove",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Remove the policy"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "taggedObjects",
+          "type": "any[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tags",
+          "type": "string[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "owner",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "autostart",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "currentVersion",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "credential",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "logEvents",
+          "type": "LogEvent[]",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "PolicyTemplate",
+      "description": "Representation of a policy template",
+      "methods": [
+        {
+          "name": "apply",
+          "parameters": "name: string, properties: any",
+          "returnType": "any",
+          "description": "Apply the policy template and create a new policy with it."
+        },
+        {
+          "name": "getObjectByTag",
+          "parameters": "value: string",
+          "returnType": "any",
+          "description": "Returns the object referenced by 'tag' in the policy (Virtual machine or Hosts)"
+        },
+        {
+          "name": "forTag",
+          "parameters": "value: string",
+          "returnType": "any",
+          "description": "Returns the object referenced by 'tag' in the policy (Virtual machine or Hosts)"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "version",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "versionHistoryItems",
+          "type": "VersionHistoryItem[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "currentVersion",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "policyTemplateCategory",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "PolicyTemplateCategory",
+      "description": "Representation of a policy template category",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "path",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "policyTemplates",
+          "type": "PolicyTemplate[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "subCategories",
+          "type": "PolicyTemplateCategory[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "parent",
+          "type": "PolicyTemplateCategory",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "allPolicyTemplates",
+          "type": "PolicyTemplate[]",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "PropertiesConstructor",
+      "description": "",
+      "methods": [],
+      "attributes": []
+    },
+    {
+      "name": "Properties",
+      "description": "Properies list. A list of key - values.",
+      "methods": [
+        {
+          "name": "put",
+          "parameters": "key: string, value: any",
+          "returnType": "void",
+          "description": "Adds a property to the property list."
+        },
+        {
+          "name": "remove",
+          "parameters": "key: string",
+          "returnType": "void",
+          "description": "Remove a property to the property list."
+        },
+        {
+          "name": "get",
+          "parameters": "key: string",
+          "returnType": "T | null",
+          "description": "Returns the property entry for the given key or null if not found."
+        },
+        {
+          "name": "load",
+          "parameters": "input: any",
+          "returnType": "void",
+          "description": "Loads properties from a File, an URL or a String object"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "keys",
+          "type": "string[]",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "QueryResult",
+      "description": "QueryResult is a result for a plugin query",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "elements",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "totalCount",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "partial",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ResourceElement",
+      "description": "ResourceElement",
+      "methods": [
+        {
+          "name": "writeContentToFile",
+          "parameters": "fileName: string",
+          "returnType": "void",
+          "description": "Writes the content to a file."
+        },
+        {
+          "name": "getContentAsMimeAttachment",
+          "parameters": "",
+          "returnType": "MimeAttachment",
+          "description": "Returns the content converted to a MimeAttachment."
+        },
+        {
+          "name": "getResourceElementCategory",
+          "parameters": "",
+          "returnType": "ResourceElementCategory",
+          "description": "Returns this element's parent category"
+        },
+        {
+          "name": "reload",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Reload resource element"
+        },
+        {
+          "name": "setContentFromFile",
+          "parameters": "fileName: string, mimeType: any",
+          "returnType": "void",
+          "description": "Sets the content of this resource element."
+        },
+        {
+          "name": "setContentFromMimeAttachment",
+          "parameters": "mimeAttachment: any",
+          "returnType": "void",
+          "description": "Sets the content of this resource element."
+        },
+        {
+          "name": "saveToVersionRepository",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Saves a change set in the local version repository.\r\nThis function is available with vRA 8"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "version",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "mimeType",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "contentSize",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "versionHistoryItems",
+          "type": "VersionHistoryItem[]",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ResourceElementCategory",
+      "description": "ResourceElementCategory",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "path",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "resourceElements",
+          "type": "ResourceElement[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "subCategories",
+          "type": "ResourceElementCategory[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "parent",
+          "type": "ResourceElementCategory",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "allResourceElements",
+          "type": "ResourceElement[]",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "SDKObject",
+      "description": "Representation of a Custom object result comming from a sdk module.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "type",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "StringRepresentation",
+      "description": "Used to convert any 'Seriallizable' object in a String representation that can be stored.",
+      "methods": [
+        {
+          "name": "toParam",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Returns the urlParameter for this object representation (used to send object through URL)"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "type",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "stringValue",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "objectValue",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "Task",
+      "description": "Task",
+      "methods": [
+        {
+          "name": "cancel",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Cancels the task."
+        },
+        {
+          "name": "suspend",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Suspends the task."
+        },
+        {
+          "name": "resume",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Resumes the task."
+        },
+        {
+          "name": "addParameter",
+          "parameters": "key: string, value: any",
+          "returnType": "void",
+          "description": "Sets the execution parameters."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "state",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "operation",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "percentCompleted",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "error",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "executionDate",
+          "type": "Date",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "parameters",
+          "type": "Properties",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "restartInPast",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "isRecurrent",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "workflow",
+          "type": "Workflow",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "executions",
+          "type": "WorkflowToken[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "TagQuery",
+      "description": "Object representing a tag query.",
+      "methods": [
+        {
+          "name": "hasTag",
+          "parameters": "tag: string, value: string",
+          "returnType": "void",
+          "description": "Add new has tag conditions to query."
+        },
+        {
+          "name": "hasGlobalTag",
+          "parameters": "tag: string, value: string",
+          "returnType": "void",
+          "description": "Add new has global tag conditions to query."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "URL",
+      "description": "Usable object to put/get Http requests",
+      "methods": [
+        {
+          "name": "addParameter",
+          "parameters": "key: any, value: any",
+          "returnType": "void",
+          "description": "Adds a parameter at the end of the URL."
+        },
+        {
+          "name": "addPath",
+          "parameters": "value: any",
+          "returnType": "void",
+          "description": "Adds a path to the URL."
+        },
+        {
+          "name": "getContent",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Returns the content of the URL."
+        },
+        {
+          "name": "postContent",
+          "parameters": "content: any",
+          "returnType": "string",
+          "description": "Posts the content to the URL."
+        },
+        {
+          "name": "post",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Posts the content defined in the datas property to the URL."
+        },
+        {
+          "name": "getHostnameOrIPPatternStr",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Return the regex pattern string that matches any valid host name or IP address."
+        },
+        {
+          "name": "tnamePatternStr",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Return the regex pattern string that matches any valid host name."
+        },
+        {
+          "name": "getIPAddressPatternStr",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getIPv4AddressPatternStr",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Return the regex pattern string that matches any valid IPv4 address."
+        },
+        {
+          "name": "getIPv6AddressPatternStr",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Return the regex pattern string that matches any valid IPv6 address."
+        },
+        {
+          "name": "isValidHostname",
+          "parameters": "hostname: string",
+          "returnType": "boolean",
+          "description": "Checks if the parameter is valid host name. Example use: <code><pre> new URL().isValidHostname(hostname) </pre></code>"
+        },
+        {
+          "name": "isValidHostnameOrIPAddress",
+          "parameters": "hostOrIP: string",
+          "returnType": "boolean",
+          "description": "Checks if the parameter is valid host name or IP address (both IPv4 and IPv6). Example use: <code><pre> new URL().isHostnameOrIPAddress(hostOrIP) </pre></code>"
+        },
+        {
+          "name": "isValidIPAddress",
+          "parameters": "ipAddress: string",
+          "returnType": "boolean",
+          "description": "Checks if the parameter is valid IP address (both IPv4 and IPv6). Example use: <code><pre> new URL().isValidIPAddress(address) </pre></code>"
+        },
+        {
+          "name": "isValidIPv4Address",
+          "parameters": "ipAddress: string",
+          "returnType": "boolean",
+          "description": "Checks if the parameter is valid IPv4 address. Example use: <code><pre> new URL().isValidIPv4Address(address) </pre></code>"
+        },
+        {
+          "name": "isValidIPv6Address",
+          "parameters": "ipAddress: string",
+          "returnType": "boolean",
+          "description": "Checks if the parameter is valid IPv6 address. Example use: <code><pre> new URL().isValidIPv6Address(address) </pre></code>"
+        },
+        {
+          "name": "escapeHost",
+          "parameters": "ipAddress: string",
+          "returnType": "string",
+          "description": "Escapes the host if this is needed. Usually you need to escape IPv6 numeric addresses using brackets. If this host does not need to be escaped then the original is returned."
+        },
+        {
+          "name": "unescapeHost",
+          "parameters": "ipAddress: string",
+          "returnType": "string",
+          "description": "Un-escapes the host if this is IPv6 address in brackets. Usually you need to escape IPv6 numeric addresses using brackets but some times you need the plain IPv6 address. If this is not escaped IPv6 address the original is returned."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "host",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "port",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "url",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "datas",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "requestType",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "contentType",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "result",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VersionHistoryItem",
+      "description": "VersionHistoryItem",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "comment",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "date",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "version",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "user",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "Workflow",
+      "description": "Workflow",
+      "methods": [
+        {
+          "name": "saveSchemaImageToFile",
+          "parameters": "file: string",
+          "returnType": "void",
+          "description": "Save the picture of the workflow in .png format."
+        },
+        {
+          "name": "execute",
+          "parameters": "properties: any, uname: any, pwd: string",
+          "returnType": "WorkflowToken",
+          "description": "Executes the workflow."
+        },
+        {
+          "name": "scheduleRecurrently",
+          "parameters": "properties: any, recurrencePattern: any, recurrenceCycle: any, startDate: any, endDate: any, uname: any, pwd: string",
+          "returnType": "Task",
+          "description": "Schedules recurrently the workflow."
+        },
+        {
+          "name": "schedule",
+          "parameters": "properties: any, startDate: any, uname: any, pwd: string",
+          "returnType": "Task",
+          "description": "Schedules the workflow."
+        },
+        {
+          "name": "getExecutionUrl",
+          "parameters": "secure: any, inAutologon: any, inHost: any, inPort: any, inUrl: any",
+          "returnType": "any",
+          "description": "Generates a URL usable for interacting with workflows in VS-O or its web front end version 3.0.x."
+        },
+        {
+          "name": "getWebviewExecutionUrl",
+          "parameters": "inWebviewUrlFolder: any, inPage: any, secure: any, inAutologon: any, inHost: any, inPort: any, inUrl: any",
+          "returnType": "any",
+          "description": "Generates a URL usable for interacting with workflows in VS-O or its web front end."
+        },
+        {
+          "name": "getScheduleUrl",
+          "parameters": "secure: any, inAutologon: any, inHost: any, inPort: any, inUrl: any",
+          "returnType": "any",
+          "description": "Creates a URL usable to access Web-Operator \"Schedule Workflow operation\" page (version 3.0.x)."
+        },
+        {
+          "name": "getWebviewScheduleUrl",
+          "parameters": "inWebviewUrlFolder: any, inPage: any, secure: any, inAutologon: any, inHost: any, inPort: any, inUrl: any",
+          "returnType": "any",
+          "description": "Creates a URL usable to access Web-Operator \"Schedule Workflow operation\" page."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "workflowCategory",
+          "type": "WorkflowCategory",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "version",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "firstItem",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "numberOfItem",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "items",
+          "type": "WorkflowItem[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "inParameters",
+          "type": "Parameter[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "outParameters",
+          "type": "Parameter[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "attributes",
+          "type": "Attribute[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "versionHistoryItems",
+          "type": "VersionHistoryItem[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "parameterInfos",
+          "type": "Properties",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "executions",
+          "type": "WorkflowToken[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "logEvents",
+          "type": "LogEvent[]",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "WorkflowCategory",
+      "description": "WorkflowCategory Wrapper",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "path",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "workflows",
+          "type": "Workflow[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "allWorkflows",
+          "type": "Workflow[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "subCategories",
+          "type": "WorkflowCategory[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "parent",
+          "type": "WorkflowCategory",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "WorkflowItem",
+      "description": "WorkflowItem abstract class",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "nextItem",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "WorkflowCustomConditionItem",
+      "description": "Workflow item for conditions (Custom)",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "nextItem",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "nextItemTrue",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "nextItemFalse",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "script",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "WorkflowGenericConditionItem",
+      "description": "Workflow item for conditions (Generic)",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "nextItem",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "nextItemTrue",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "nextItemFalse",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "script",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "WorkflowItemEnd",
+      "description": "Workflow item end",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "WorkflowLinkItem",
+      "description": "Workflow item starting a sub-workflow",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "nextItem",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "linkedWorkflow",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "WorkflowMultipleCallItem",
+      "description": "Workflow item starting multiples workflows",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "nextItem",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "linkedWorkflows",
+          "type": "any[]",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "WorkflowTaskItem",
+      "description": "Workflow item with an associated script",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "nextItem",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "script",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "isActionCall",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "isStartWorkflowCall",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "linkedWorkflow",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "usedActions",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "WorkflowInputItem",
+      "description": "Workflow item for user interaction",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "nextItem",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "WorkflowItemWaitingEvent",
+      "description": "Workflow item waiting on an event",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "nextItem",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "WorkflowItemWaitingTimer",
+      "description": "Workflow item waiting on a timer",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "nextItem",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "WorkflowToken",
+      "description": "Object representing a instance of a Workflow (running or finished)",
+      "methods": [
+        {
+          "name": "saveSchemaImageToFile",
+          "parameters": "file: string",
+          "returnType": "void",
+          "description": "Save the picture of the workflowToken in .png format."
+        },
+        {
+          "name": "cancel",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Cancels the execution of this workflow."
+        },
+        {
+          "name": "getAnswerUrl",
+          "parameters": "secure: any, inAutologon: any, inHost: any, inPort: any, inUrl: any",
+          "returnType": "any",
+          "description": "Generates a URL usable for answering input in running workflows in VS-O web front end version 3.0.x."
+        },
+        {
+          "name": "getInteractionUrl",
+          "parameters": "secure: any, inHost: any, inPort: any",
+          "returnType": "any",
+          "description": "Generates a URL usable for interacting with running workflows in VS-O web front end version 3.0.x."
+        },
+        {
+          "name": "getWebviewAnswerUrl",
+          "parameters": "inWebviewUrlFolder: any, inPage: any, secure: any, inAutologon: any, inHost: any, inPort: any, inUrl: any",
+          "returnType": "any",
+          "description": "Generates a URL usable for answering input in running workflows in VS-O web front end."
+        },
+        {
+          "name": "getInputParameters",
+          "parameters": "",
+          "returnType": "Properties",
+          "description": "Gets the input parameters of the workflow token (if any)."
+        },
+        {
+          "name": "getOutputParameters",
+          "parameters": "",
+          "returnType": "Properties",
+          "description": "Gets the output parameters of the workflow token (if any)."
+        },
+        {
+          "name": "getAttributes",
+          "parameters": "",
+          "returnType": "Properties",
+          "description": "Gets the attributes of the workflow token (if any)."
+        },
+        {
+          "name": "changeCredential",
+          "parameters": "credential: any",
+          "returnType": "void",
+          "description": "Change the running credential for this workflow execution. The credential will be effective in the next workflow's exectution box."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "rootWorkflow",
+          "type": "Workflow",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "currentWorkflow",
+          "type": "Workflow",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "state",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "exception",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "businessState",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "workflowInputId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "startDate",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "endDate",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "startDateAsDate",
+          "type": "Date",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "endDateAsDate",
+          "type": "Date",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "logEvents",
+          "type": "LogEvent[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "isStillValid",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "attributesStack",
+          "type": "Attribute[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ByteBuffer",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "length",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "WorkflowInput",
+      "description": "Object representing a instance of a WorkflowInput",
+      "methods": [
+        {
+          "name": "getAnswerUrl",
+          "parameters": "secure: any, inAutologon: any, inHost: any, inPort: any, inUrl: any",
+          "returnType": "any",
+          "description": "Generates a URL usable for answering input in running workflows in VS-O web front end version 3.0.x."
+        },
+        {
+          "name": "getInteractionUrl",
+          "parameters": "secure: any, inHost: any, inPort: any",
+          "returnType": "any",
+          "description": "Generates a URL usable for interacting with running workflows in VS-O web front end version 3.0.x."
+        },
+        {
+          "name": "getWebviewAnswerUrl",
+          "parameters": "inWebviewUrlFolder: any, inPage: any, secure: any, inAutologon: any, inHost: any, inPort: any, inUrl: any",
+          "returnType": "any",
+          "description": "Generates a URL usable for answering input in running workflows in VS-O web front end."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "state",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "startDateAsString",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "startDate",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "isStillValid",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ZipWriter",
+      "description": "ZipWriter",
+      "methods": [
+        {
+          "name": "addContent",
+          "parameters": "entryName: string, content: string, encoding: string",
+          "returnType": "void",
+          "description": "Add a string element to the specified zip file"
+        },
+        {
+          "name": "writeZip",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Write the element to the Zip File"
+        },
+        {
+          "name": "addMimeAttachment",
+          "parameters": "mimeAttachment: MimeAttachment",
+          "returnType": "void",
+          "description": "Add mime attachement to the specified zip file"
+        },
+        {
+          "name": "clean",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Reinitializes the length to 0 and sets the file-pointer in the very start of the file."
+        }
+      ],
+      "attributes": []
+    }
+  ]
+}

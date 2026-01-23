@@ -1,0 +1,1285 @@
+{
+  "name": "o11n-plugin-apic",
+  "classes": [
+    {
+      "name": "ApicResponse",
+      "description": "\r\nThis class represent the APIC response/return status and\r\nassociated error code with description.\r\nFor methods that are successful the APIC object that got created/modified is returned\r\nin the object field.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "result",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "errorCode",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "errorDesc",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "object",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ApicDomain",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "userName",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "apic",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "noSsl",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "virtualIpv4Address",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "port",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ApicConfigHelper",
+      "description": "\r\nThis class provides various utility methods for APIC workflows.",
+      "methods": [
+        {
+          "name": "validateIPAddress",
+          "parameters": "ipAddress: string",
+          "returnType": "boolean",
+          "description": "\r\nThis method validate a ip address of the form a.b.c.d (a, b, c, d being digits)"
+        },
+        {
+          "name": "addHost",
+          "parameters": "hostName: string, hostIp0: string, hostIp1: string, hostIp2: string, userName: string, pwd: string, port: number, noSsl: boolean, role: string, tenantName: string, findKeystore: boolean, authentication: string, certName: string, privKey: string, displayAllTenants: boolean, clientCert: string",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis methods adds an APIC host to the repository and does a login to the APIC"
+        },
+        {
+          "name": "getApicHandle",
+          "parameters": "hostName: string",
+          "returnType": "ApicDomain",
+          "description": "\r\nThis methods gets the APIC handle give the APIC name"
+        },
+        {
+          "name": "getApicHandleByRole",
+          "parameters": "role: string, userName: string",
+          "returnType": "any",
+          "description": "\r\nThis methods gets List of APIC handles for a given role, username"
+        },
+        {
+          "name": "removeHost",
+          "parameters": "inApicName: string",
+          "returnType": "boolean",
+          "description": "\r\nThis methods removes an APIC host from the repository"
+        },
+        {
+          "name": "addOrDelUsegAttr",
+          "parameters": "handle: ApicDomain, tenantName: string, apName: string, epgName: string, criteriaName: string, addFvVmAttrList: VmCriteria[], addFvMacAttrList: MacCriteria[], addFvIpAttrList: IpCriteria[], delFvVmAttrList: any[], delFvMacAttrList: MacCriteria[], delFvIpAttrList: IpCriteria[]",
+          "returnType": "ApicResponse",
+          "description": "\r\nAdd or remove useg attributes"
+        },
+        {
+          "name": "addUsegEpg",
+          "parameters": "handle: ApicDomain, tenantName: string, apName: string, epgName: string, bdName: string, ctxName: string, subnet: string, domName: string, criteriaName: string, vmm: boolean, vpc: boolean, intraEpgDeny: boolean, fvVmAttrList: VmCriteria[], fvMacAttrList: MacCriteria[], fvIpAttrList: IpCriteria[], encapMode: string, switchingMode: string",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method creates a useg Tenant EPG and association to vmmDomain in APIC"
+        },
+        {
+          "name": "addNetwork",
+          "parameters": "handle: ApicDomain, tenantName: string, apName: string, epgName: string, bdName: string, ctxName: string, subnet: string, domName: string, vmm: boolean, vpc: boolean, intraEpgDeny: boolean, allowUseg: boolean, encapMode: string, switchingMode: string",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method creates Tenant EPG and association to vmmDomain in APIC"
+        },
+        {
+          "name": "updateNetwork",
+          "parameters": "handle: ApicDomain, tenantName: string, apName: string, epgName: string, domName: string, vmm: boolean, add: boolean, encapMode: string, switchingMode: string",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method updates the Domain of the EPG by adding or deleting the Domain of the EPG"
+        },
+        {
+          "name": "updateSubnets",
+          "parameters": "handle: ApicDomain, tenantName: string, bdName: string, privateFlag: boolean, publicFlag: boolean, sharedFlag: boolean, subnetList: ApicSubnet[], add: boolean",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method adds/deletes subnets to BD in VPC tenant"
+        },
+        {
+          "name": "updateBD",
+          "parameters": "handle: ApicDomain, tenantName: string, bdName: string, ctxName: string, arpFlooding: boolean, l2UnknownUnicast: string, l3UnknownMulticast: string, add: boolean",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method adds/delete BD to/from tenant"
+        },
+        {
+          "name": "validateFilterEntry",
+          "parameters": "etype: string, proto: string, portStart: string, portEnd: string",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method is used to validate build profile and filter entries"
+        },
+        {
+          "name": "validatePort",
+          "parameters": "startPort: string, endPort: string",
+          "returnType": "boolean",
+          "description": "\r\nThis method validates the start and end port numbers"
+        },
+        {
+          "name": "validatePort",
+          "parameters": "port: string",
+          "returnType": "boolean",
+          "description": "\r\nThis method validates the port number"
+        },
+        {
+          "name": "updateCtx",
+          "parameters": "handle: ApicDomain, tenantName: string, ctxName: string, add: boolean",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method adds/delete Ctx to/from tenant"
+        },
+        {
+          "name": "getTenantAp",
+          "parameters": "epgDn: string",
+          "returnType": "string",
+          "description": "\r\nParse the EPG dn and get the application-profile name"
+        },
+        {
+          "name": "addOrDeleteLBToNetwork",
+          "parameters": "handle: ApicDomain, tenantName: string, apName: string, epgName: string, bdName: string, ctxName: string, vpc: boolean, planName: string, vipPoolName: string, lbVendor: string, ldevName: string, graphName: string, sharedLb: boolean, protocol: string, port: string, consumerDn: string, snipIntAddress: string, snipIntNetMask: string, snipExtAddress: string, snipExtNetMask: string, snipNextHopGW: string, addOperation: boolean",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method adds/deletes the following based on add/delete operation"
+        },
+        {
+          "name": "addOrDelFWReq",
+          "parameters": "handle: ApicDomain, tenantName: string, apName: string, epgName: string, ctrctName: string, graphName: string, entryList: ApicSecurityRule[], extIntf: string, intIntf: string, consumerDn: string, addOp: boolean, updateOp: boolean",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method opens a connection to url, sends the postBody string to url location, and returns result."
+        },
+        {
+          "name": "addFWToNetworkInterEpg",
+          "parameters": "handle: ApicDomain, tenantName: string, apName: string, epgName: string, vpc: boolean, fwVendor: string, ldevName: string, graphName: string, entryList: ApicSecurityRule[], fwL3extExternal: string, fwL3extInternal: string, skipFWReq: boolean, interEpgFw: boolean, provTierNum: number, consTierNum: number, extIntf: string, intIntf: string, consumerDn: string",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method adds the firewall service to a EPG in shared and vpc plan"
+        },
+        {
+          "name": "addFWToNetwork",
+          "parameters": "handle: ApicDomain, tenantName: string, apName: string, epgName: string, vpc: boolean, fwVendor: string, ldevName: string, graphName: string, entryList: ApicSecurityRule[], fwL3extExternal: string, fwL3extInternal: string, skipFWReq: boolean, interEpgFw: boolean, provTierNum: number, consTierNum: number, consumerDn: string",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method adds the firewall service to a EPG in shared and vpc plan"
+        },
+        {
+          "name": "deleteFWFromNetwork",
+          "parameters": "handle: ApicDomain, tenantName: string, apName: string, epgName: string, vpc: boolean, graphName: string, ctrctName: string, protocol: string, startPort: string, skipFWReq: boolean, consumerDn: string",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method deletes the FW from EPG in Shared and VPC Plan"
+        },
+        {
+          "name": "apicRestApi",
+          "parameters": "handle: ApicDomain, apiUrl: string, method: string, postBody: string",
+          "returnType": "string",
+          "description": "\r\nThis method implements the Rest API to APIC"
+        },
+        {
+          "name": "addOrDelRouterId",
+          "parameters": "handle: ApicDomain, rtrId: string, addOp: boolean",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method adds/deletes the router id in a tenant"
+        },
+        {
+          "name": "deleteNetwork",
+          "parameters": "handle: ApicDomain, tenantName: string, apName: string, epgName: string",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method deletes Tenant EPG and association to VMM Domain in APIC"
+        },
+        {
+          "name": "addTenant",
+          "parameters": "handle: ApicDomain, tenantName: string, bdName: string, ctxName: string, nTiers: number, aaaDomain: string",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method creates Tenant, BD and CTX in APIC"
+        },
+        {
+          "name": "deleteTenant",
+          "parameters": "handle: ApicDomain, tenantName: string",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method deletes Tenant in APIC"
+        },
+        {
+          "name": "addVmmDomain",
+          "parameters": "handle: ApicDomain, dvsName: string, vcenterIP: string, userName: string, passwd: string, datacenter: string, vlanPoolName: string, vlanStart: number, vlanEnd: number, aaaDomain: string, dvsVersion: string",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method adds the following objects in APIC"
+        },
+        {
+          "name": "deleteVmmDomain",
+          "parameters": "handle: ApicDomain, domName: string, vlanPoolName: string",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis methods deletes VlanNS and vmmDomP objects from APIC"
+        },
+        {
+          "name": "updateVlanPool",
+          "parameters": "handle: ApicDomain, vlanPoolName: string, encapList: ApicEncapBlock[]",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method adds/deleted encap blocks in Vlan Pool"
+        },
+        {
+          "name": "addAvsVmmDomain",
+          "parameters": "handle: ApicDomain, dvsName: string, aepName: string, vcenterIP: string, userName: string, passwd: string, datacenter: string, mcastIP: string, mcastPoolName: string, rangeStart: string, rangeEnd: string, aaaDomain: string, domType: number, vlanPoolName: string, vlanEncaps: ApicEncapBlock[], virtualSwitch: string, dvsVersion: string",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method adds the following objects in APIC"
+        },
+        {
+          "name": "deleteAvsAveVmmDomain",
+          "parameters": "handle: ApicDomain, domName: string",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis methods deletes VLAN and McastAddr Pools and vmmDomP objects from APIC"
+        },
+        {
+          "name": "updateAvsVlanMcastPool",
+          "parameters": "handle: ApicDomain, poolName: string, encapList: ApicEncapBlock[], poolType: number",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method adds/deleted range blocks in Vlan/Multicast Pool"
+        },
+        {
+          "name": "createFWPol",
+          "parameters": "handle: ApicDomain, polName: string, vmmName: string, polMode: string, pInterval: string, logLevel: string, adminState: string, destGrpName: string, inclAction: string, caseVal: number",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method adds the following objects in APIC"
+        },
+        {
+          "name": "deleteFWPol",
+          "parameters": "handle: ApicDomain, polName: string",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method deletes the following objects in APIC"
+        },
+        {
+          "name": "updateFWPolMapping",
+          "parameters": "handle: ApicDomain, polName: string, vmmName: string, opValue: boolean",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method updates the following objects:"
+        },
+        {
+          "name": "addSecurityPolicySet",
+          "parameters": "handle: ApicDomain, tenant: string, ap: string, srcEpg: string, dstEpg: string, entryList: ApicSecurityRule[], createFlg: boolean",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method adds security policy (contract entry) between srcEpg and dstEpg"
+        },
+        {
+          "name": "updateSecurityFilters",
+          "parameters": "handle: ApicDomain, tenant: string, filterName: string, entryList: ApicSecurityRule[]",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method adds security policy (contract entry) between srcEpg and dstEpg"
+        },
+        {
+          "name": "updateSharedSvcConsumer",
+          "parameters": "handle: ApicDomain, tenant: string, ap: string, consumerEpg: string, contract: ApicSecurityPolicy, add: boolean",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method add/removed Consumer contract interface."
+        },
+        {
+          "name": "updateL3outPolicy",
+          "parameters": "handle: ApicDomain, tenant: string, ap: string, dstEpg: string, entryList: ApicSecurityRule[], l3out: ApicL3Connectivity, vpc: boolean, add: boolean",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method updates security policy (contract entry) between L3ext and dstEpg"
+        },
+        {
+          "name": "deleteSecurityPolicy",
+          "parameters": "handle: ApicDomain, tenant: string, ap: string, srcEpg: string, dstEpg: string",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method deletes all the security policy (contracts) between srcEpg and dstEpg."
+        },
+        {
+          "name": "addL3OutOspfPolicy",
+          "parameters": "handle: ApicDomain, tenant: string, bdName: string, ctxName: string, l3outPolName: string, nodeList: ApicL3ExternalNodePolicy[], pathList: ApicL3ExternalPortPolicy[], areaId: string",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method adds L3 external connectivity using OSPF"
+        },
+        {
+          "name": "deleteL3OutOspfPolicy",
+          "parameters": "handle: ApicDomain, tenant: string, bdName: string, ctxName: string, l3outPolName: string",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method delete L3 external connectivity using OSPF"
+        },
+        {
+          "name": "addVipPool",
+          "parameters": "handle: ApicDomain, vipPoolName: string, addrStart: string, addrEnd: string",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method creates VIP Address block in tn-common."
+        },
+        {
+          "name": "deleteVipPool",
+          "parameters": "handle: ApicDomain, vipPoolName: string, addrStart: string, addrEnd: string",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method deletes VIP Address block in tn-common."
+        },
+        {
+          "name": "addVmmOrchLBInfo",
+          "parameters": "handle: ApicDomain, domName: string, planName: string, vpcEnabled: boolean, sharedService: boolean, lDevIp: string, lDevCluster: string, vipStart: string, vipEnd: string",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method adds vmmOrch - Prov/Plan/LB config to APIC."
+        },
+        {
+          "name": "deleteVmmOrchLBInfo",
+          "parameters": "handle: ApicDomain, domName: string, planName: string, lDevIp: string",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method deletes vmmOrch - Prov/Plan/LB config to APIC"
+        },
+        {
+          "name": "validateDvs",
+          "parameters": "handle: ApicDomain, dvsName: string",
+          "returnType": "boolean",
+          "description": "\r\nThis methods checks if the physical nics are attached from hypervisors to the DVS"
+        },
+        {
+          "name": "addAppProfile",
+          "parameters": "handle: ApicDomain, tenantName: string, apName: string",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method creates Application-profile under a given tenant in APIC"
+        },
+        {
+          "name": "deleteAppProf",
+          "parameters": "handle: ApicDomain, tenantName: string, apName: string",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method deletes Application-Profile in APIC"
+        },
+        {
+          "name": "updateVmmDomain",
+          "parameters": "handle: ApicDomain, domName: string, aaaList: ApicAAADomainRef[]",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method adds/deletes security domain associations to the Vmm Domain"
+        },
+        {
+          "name": "deleteSharedServiceProvider",
+          "parameters": "handle: ApicDomain, tenant: string, ap: string, srcEpg: string, dstEpg: string, contract: ApicSecurityPolicy",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method deletes a shared service provider (EPG) from a contract"
+        },
+        {
+          "name": "addCertificate",
+          "parameters": "handle: ApicDomain, userName: string, certName: string, certData: string",
+          "returnType": "ApicResponse",
+          "description": "\r\nThis method adds a self-signed certificate to the APIC"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "ApicActionUtils",
+      "description": "\r\nThis class provides various utility functionalities for APIC actions.",
+      "methods": [
+        {
+          "name": "connectApic",
+          "parameters": "host: string, userName: string, password: any, noSsl: boolean, port: number, refreshable: boolean",
+          "returnType": "ApicDomain",
+          "description": "\r\nConnects to a APIC and returns a ApicDomain object."
+        },
+        {
+          "name": "disconnectApic",
+          "parameters": "apicDomain: ApicDomain",
+          "returnType": "void",
+          "description": "\r\nDisconnects connection with APIC."
+        },
+        {
+          "name": "getConfigHelper",
+          "parameters": "",
+          "returnType": "ApicConfigHelper",
+          "description": "\r\nGet ApicConfigHelper Utility."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "ApicAddressInstance",
+      "description": "\r\nThis class represents APIC Address Instance.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "multiApicDn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "\"address-type\"",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ApicUnicastAddressBlock",
+      "description": "\r\nThis class represents APIC Unicast Address Block.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "multiApicDn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "\"address-start\"",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "\"address-end\"",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ApicEncapBlock",
+      "description": "\r\nThis class represents a Vlan Encap Block.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "multiApicDn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "from",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "to",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "role",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "IpCriteria",
+      "description": "\r\nThis class represents a IP criteria",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "ip",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "descr",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "MacCriteria",
+      "description": "\r\nThis class represents a Mac criteria",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "mac",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "descr",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "VmCriteria",
+      "description": "\r\nThis class represents a VM criteria.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "labelName",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "operator",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "descr",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "controller",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "vmName",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "domain",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ApicSecurityRule",
+      "description": "\r\nThis class represents a Security Filter Rule entry.",
+      "methods": [
+        {
+          "name": "getAttr",
+          "parameters": "attrName: string",
+          "returnType": "any",
+          "description": "\r\nMethod returns value of any attribute of ApicSecurityRule."
+        },
+        {
+          "name": "setAttr",
+          "parameters": "attrName: string, value: any",
+          "returnType": "void",
+          "description": "\r\nMethod sets value to any attribute of ApicSecurityRule."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "multiApicDn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dstFromPort",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dstToPort",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "protocol",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "etherType",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ApicSecurityFilter",
+      "description": "\r\nThis class represents a Security Filter group.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "multiApicDn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ApicL3ExternalNodePolicy",
+      "description": "\r\nThis class represents a L3 external connectivity Node Policy.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "nodeDn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "routerId",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ApicL3ExternalPortPolicy",
+      "description": "\r\nThis class represents a L3 external connectivity Port Policy.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "portDn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "portType",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "address",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ApicCEp",
+      "description": "\r\nThis class represents an End-Point Group's End Point in the APIC.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "ip",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "lcC",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "encap",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ApicSecurityPolicy",
+      "description": "\r\nThis class represents a Security Policy in APIC.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "multiApicDn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ApicAp",
+      "description": "\r\nThis class represents a Tenant's Application Profile in APIC.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "multiApicDn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ApicEPG",
+      "description": "\r\nThis class represents a Tenant's Network/EPG in APIC.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "multiApicDn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ApicTenant",
+      "description": "\r\nThis class represents a Tenant in APIC.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "multiApicDn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ApicAAADomain",
+      "description": "\r\nThis class represents APIC AAA Domain.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "multiApicDn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ApicAAADomainRef",
+      "description": "\r\nThis class represents APIC AAA Domain Reference.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "multiApicDn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ApicVnsAbsGraph",
+      "description": "\r\nThis class represents a Service Graph Template",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "multiApicDn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ApicLogicalLBDevice",
+      "description": "\r\nThis class represents APIC L4-L7 Logical LB Device.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "multiApicDn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ApicSubnet",
+      "description": "\r\nThis class represents a Subnet entry",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "multiApicDn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ApicBridgeDomain",
+      "description": "\r\nThis class represents a Bridge Domain in APIC.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "multiApicDn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ApicL3Context",
+      "description": "\r\nThis class represents a L3 Context (VRF) in APIC.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "multiApicDn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ApicL3Connectivity",
+      "description": "\r\nThis class represents a L3 outside connectivity policy",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "multiApicDn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ApicPhysicalDomain",
+      "description": "\r\nThis class represents an APIC Physical Domain",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "multiApicDn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ApicVmmDomain",
+      "description": "\r\nThis class represents an APIC VMM Domain",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "multiApicDn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ApicVmmController",
+      "description": "\r\nThis class represents a VMM controller on APIC.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "multiApicDn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "rootContName",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "ApicDVS",
+      "description": "\r\nThis class represents a Logical Switch on APIC.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "dn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "multiApicDn",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    }
+  ]
+}

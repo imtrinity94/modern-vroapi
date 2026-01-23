@@ -1,0 +1,1353 @@
+{
+  "name": "o11n-plugin-activedirectory",
+  "classes": [
+    {
+      "name": "LdapClientFactory",
+      "description": "Create new non persisted ldap connections.",
+      "methods": [],
+      "attributes": []
+    },
+    {
+      "name": "LdapClient",
+      "description": "Connection to ldap server.",
+      "methods": [],
+      "attributes": []
+    },
+    {
+      "name": "LdapEntry",
+      "description": "This class provides a data structure for holding information about an LDAP\r\nentry. An entry contains a distinguished name (DN) and a set of attributes.\r\nAn entry can be created from these components, and it can also be created\r\nfrom its LDIF representation as described in RFC 2849.",
+      "methods": [],
+      "attributes": []
+    },
+    {
+      "name": "LdapAttribute",
+      "description": "This class provides a data structure for holding information about an LDAP attribute, which\r\nincludes an attribute name (which may include a set of attribute options) and zero or more values.",
+      "methods": [],
+      "attributes": []
+    },
+    {
+      "name": "ModificationTypeWrapper",
+      "description": "",
+      "methods": [],
+      "attributes": []
+    },
+    {
+      "name": "byte",
+      "description": "",
+      "methods": [],
+      "attributes": []
+    },
+    {
+      "name": "LdapModification",
+      "description": "",
+      "methods": [
+        {
+          "name": "getAttributeName",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Retrieves the name of the attribute to target with this modification."
+        },
+        {
+          "name": "getValues",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "the set of values for this modification as an array of strings."
+        },
+        {
+          "name": "getValueByteArrays",
+          "parameters": "",
+          "returnType": "any",
+          "description": "Retrieves the set of values for this modification as an array of byte arrays"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "LdapModificationType",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "ADD",
+          "type": "LdapModificationType",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "DELETE",
+          "type": "LdapModificationType",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "REPLACE",
+          "type": "LdapModificationType",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "INCREMENT",
+          "type": "LdapModificationType",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "LdapResult",
+      "description": "This class provides a data structure for holding the elements that are common to most types of\r\nLDAP responses.",
+      "methods": [],
+      "attributes": []
+    },
+    {
+      "name": "LdapSearchRequest",
+      "description": "This class implements the processing necessary to perform an LDAPv3 search operation, which can\r\nbe used to retrieve entries that match a given set of criteria.",
+      "methods": [
+        {
+          "name": "create",
+          "parameters": "baseDN: string, filter: string, scope: LdapSearchScope, attributes: string[], derefPolicy: LdapDereferencePolicy, sizeLimit: number, timeLimit: number, typesOnly: boolean",
+          "returnType": "LdapSearchRequest",
+          "description": ""
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "LdapDeleteRequest",
+      "description": "This class implements the processing necessary to perform an LDAPv3 search operation, which can\r\nbe used to retrieve entries that match a given set of criteria.",
+      "methods": [],
+      "attributes": []
+    },
+    {
+      "name": "LdapSearchResult",
+      "description": "This class provides a data structure for holding information about the result of processing a\r\nsearch request.",
+      "methods": [],
+      "attributes": []
+    },
+    {
+      "name": "LdapDN",
+      "description": "This class provides a data structure for holding information about an LDAP distinguished name\r\n(DN). A DN consists of a comma-delimited list of zero or more RDN components.",
+      "methods": [
+        {
+          "name": "fromString",
+          "parameters": "dnString: string",
+          "returnType": "LdapRDN",
+          "description": "Creates a new DN from the provided string representation."
+        },
+        {
+          "name": "fromRdns",
+          "parameters": "rdns: LdapRDN[]",
+          "returnType": "LdapRDN",
+          "description": "Creates a new DN with the provided set of RDNs."
+        },
+        {
+          "name": "fromParentDn",
+          "parameters": "rdn: LdapRDN, parentDN: LdapDN",
+          "returnType": "LdapRDN",
+          "description": "Creates a new DN below the provided parent DN with the given RDN."
+        },
+        {
+          "name": "getRDN",
+          "parameters": "",
+          "returnType": "LdapRDN",
+          "description": "Retrieves the leftmost (i.e., furthest from the naming context) RDN component for this\r\nDN."
+        },
+        {
+          "name": "getRDNString",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Retrieves the string representation of the leftmost (i.e., furthest from the naming\r\ncontext) RDN component for this DN."
+        },
+        {
+          "name": "getRDNs",
+          "parameters": "",
+          "returnType": "LdapRDN[]",
+          "description": "Retrieves the set of RDNs that comprise this DN."
+        },
+        {
+          "name": "getRDNStrings",
+          "parameters": "",
+          "returnType": "any[]",
+          "description": "Retrieves the set of string representations of the RDNs that comprise this DN."
+        },
+        {
+          "name": "isNullDN",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": "Indicates whether this DN represents the null DN, which does not have any RDN\r\ncomponents."
+        },
+        {
+          "name": "getParent",
+          "parameters": "",
+          "returnType": "LdapDN",
+          "description": "Retrieves the DN that is the parent for this DN. Note that neither the null DN nor DNs\r\nconsisting of a single RDN component will be considered to have parent DNs."
+        },
+        {
+          "name": "getParentString",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Retrieves the string representation of the DN that is the parent for this DN. Note that\r\nneither the null DN nor DNs consisting of a single RDN component will be considered to have\r\nparent DNs."
+        },
+        {
+          "name": "isAncestorOf",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": "Indicates whether this DN is an ancestor of the provided DN. It will be considered an\r\nancestor of the provided DN if the array of RDN components for the provided DN ends with the\r\nelements that comprise the array of RDN components for this DN (i.e., if the provided DN is\r\nsubordinate to, or optionally equal to, this DN). The null DN will be considered an ancestor for\r\nall other DNs (with the exception of the null DN if allowEquals is false)."
+        },
+        {
+          "name": "equals",
+          "parameters": "dn: LdapDN",
+          "returnType": "boolean",
+          "description": "Indicates whether the provided object is equal to this DN. In order for the provided\r\nobject to be considered equal, it must be a non-null DN with the same set of RDN components."
+        },
+        {
+          "name": "toString",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Retrieves a string representation of this DN."
+        },
+        {
+          "name": "toNormalizedString",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Retrieves a normalized string representation of this DN."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "LdapRDN",
+      "description": "This class provides a data structure for holding information about an LDAP relative\r\ndistinguished name (RDN). An RDN consists of one or more attribute name-value pairs.",
+      "methods": [
+        {
+          "name": "fromString",
+          "parameters": "rdnString: string",
+          "returnType": "LdapRDN",
+          "description": "Creates a new RDN from the provided string representation."
+        },
+        {
+          "name": "fromNameValue",
+          "parameters": "attributeName: string, attributeValue: string",
+          "returnType": "LdapRDN",
+          "description": "Creates a new single-valued RDN with the provided information."
+        },
+        {
+          "name": "getAttributeNames",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "Retrieves the set of attribute names for this RDN."
+        },
+        {
+          "name": "getAttributeValues",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "Retrieves the set of attribute values for this RDN."
+        },
+        {
+          "name": "toString",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Retrieves a string representation of this RDN."
+        },
+        {
+          "name": "toNormalizedString",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Retrieves a normalized string representation of this RDN."
+        },
+        {
+          "name": "equals",
+          "parameters": "rdn: LdapRDN",
+          "returnType": "boolean",
+          "description": "Indicates whether the provided object is equal to this RDN. The given object will only\r\nbe considered equal to this RDN if it is also an RDN with the same set of names and values."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "LdapSubtreeDeleteRequestControl",
+      "description": "TThis class provides an implementation of the subtree delete request control as defined in\r\ndraft-armijo-ldap-treedelete. This can be used to delete an entry and all subordinate entries in a\r\nsingle operation.\"",
+      "methods": [],
+      "attributes": []
+    },
+    {
+      "name": "LdapSimplePagedResultsControl",
+      "description": "This class provides an implementation of the simple paged results control as defined in RFC\r\n2696.\r\nIt allows the client to iterate through a potentially large set of search results in subsets of a\r\nspecified\r\nnumber of entries (i.e., \"pages\").\"",
+      "methods": [],
+      "attributes": []
+    },
+    {
+      "name": "LdapSearchResultReference",
+      "description": "This class provides a data structure for representing an LDAP search result reference. A search\r\nresult reference consists of a set of referral URLs and may also include zero or more controls. It\r\ndescribes an alternate location in which additional results for the search may be found. If there are\r\nmultiple referral URLs, then they should all be considered equivalent ways to access the information\r\n(e.g., referrals referencing different servers that may be contacted).",
+      "methods": [],
+      "attributes": []
+    },
+    {
+      "name": "AD_HostManager",
+      "description": "Manage Active Directory hosts",
+      "methods": [
+        {
+          "name": "findHost",
+          "parameters": "param0: string",
+          "returnType": "AD_Host",
+          "description": "Return Active Directory hosts by it's configuration id."
+        },
+        {
+          "name": "findAllHosts",
+          "parameters": "",
+          "returnType": "any[]",
+          "description": "Return all Active Directory hosts."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "ConfigurationManager",
+      "description": "Manage Active Directory plug-in configuration",
+      "methods": [
+        {
+          "name": "saveConfiguration",
+          "parameters": "param0: AD_ServerConfiguration",
+          "returnType": "string",
+          "description": "Save Active Directory server configuration."
+        },
+        {
+          "name": "deleteConfiguration",
+          "parameters": "param0: string",
+          "returnType": "void",
+          "description": "Delete Active Directory server configuration with the specified id."
+        },
+        {
+          "name": "validateConfiguration",
+          "parameters": "param0: AD_ServerConfiguration",
+          "returnType": "void",
+          "description": "Validate Active Directory configuration."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "ActiveDirectory",
+      "description": "Represents the Active Directory base.",
+      "methods": [
+        {
+          "name": "search",
+          "parameters": "type: string, query: string, adServer: AD_Host",
+          "returnType": "any[]",
+          "description": "Search the active directory for a certain type of object"
+        },
+        {
+          "name": "searchExactMatch",
+          "parameters": "type: string, objectName: string, limit: number, adServer: AD_Host",
+          "returnType": "any[]",
+          "description": "Search the active directory for a certain type of object. Object will be returned only\r\nif the there is\r\nexact match."
+        },
+        {
+          "name": "getComputerAD",
+          "parameters": "computerName: string, adServer: AD_Host",
+          "returnType": "AD_Computer",
+          "description": "Returns a computer when his exact name is given. If no computer found, returns null"
+        },
+        {
+          "name": "getDC",
+          "parameters": "adServer: AD_Host",
+          "returnType": "AD_Computer",
+          "description": "Return the AD_Computer representing the Domain Conroller"
+        },
+        {
+          "name": "rename",
+          "parameters": "from: string, to: string, new_parent: string, adServer: AD_Host",
+          "returnType": "void",
+          "description": "Move Ad Object to a diferent OU or rename"
+        },
+        {
+          "name": "searchForEntry",
+          "parameters": "baseDN: string, searchScope: LdapSearchScope, timeLimit: number, filter: string, attributes: string, host: AD_Host",
+          "returnType": "any",
+          "description": "Processes a search operation with the provided information. It is expected that at most one entry will be \r\nreturned from the search, and that no additional content from the successful search result \r\n(e.g., diagnostic message or response controls) are needed."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "AD_Host",
+      "description": "Represents Active directory server connection.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "Url",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "hostConfiguration",
+          "type": "AD_ServerConfiguration",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "AD_PluginOptions",
+      "description": "Active Directory Plug-in options",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "defaultAdServerId",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "searchSizeLimit",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "searchSizeLimitPerServer",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "AD_ServerConfiguration",
+      "description": "Represents single Active Directory service end point configuration.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "host",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "port",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "ldapBase",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "useSSL",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "defaultDomain",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "useSharedSession",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "sharedUserName",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "sharedUserPassword",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "followReferrals",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "alternativeHosts",
+          "type": "string[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "loadBalancingMode",
+          "type": "LdapLoadBalancingMode",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "AD_Computer",
+      "description": "Computer on the AD",
+      "methods": [
+        {
+          "name": "getArrayAttribute",
+          "parameters": "attibName: string",
+          "returnType": "string[]",
+          "description": "Get an AD attribute for an array of values"
+        },
+        {
+          "name": "getAttributeValueBytes",
+          "parameters": "attibName: string",
+          "returnType": "any[]",
+          "description": "Get an AD attribute value as byte array."
+        },
+        {
+          "name": "removeAttribute",
+          "parameters": "attribName: string",
+          "returnType": "void",
+          "description": "Removes an attribute as specified by the attribName parameter"
+        },
+        {
+          "name": "destroy",
+          "parameters": "param0: boolean",
+          "returnType": "void",
+          "description": "Destroy this element from the AD. Take care, this action PERMANENTLY DESTROY the element"
+        },
+        {
+          "name": "rename",
+          "parameters": "name: string",
+          "returnType": "void",
+          "description": "Allows a client to change the leftmost (least significant) component of the name of an entry in the directory. Тo rename the entry you must provide it with the attribute as prefix - e.g. \"cn=newName\"."
+        },
+        {
+          "name": "setAttribute",
+          "parameters": "attribName: string, newValue: any",
+          "returnType": "void",
+          "description": "Change the value of an existing attribute"
+        },
+        {
+          "name": "getAttribute",
+          "parameters": "attibName: string",
+          "returnType": "string",
+          "description": "Get an AD attribute"
+        },
+        {
+          "name": "addAttribute",
+          "parameters": "attribName: string, newValue: any",
+          "returnType": "void",
+          "description": "Adds an attribute"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "hostname",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "allAttributes",
+          "type": "any[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "gUID",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "distinguishedName",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "AD_Group",
+      "description": "Group",
+      "methods": [
+        {
+          "name": "createUser",
+          "parameters": "accountName: string, domainName: string, displayName: string",
+          "returnType": "void",
+          "description": "Creates a new user and adds it to this container."
+        },
+        {
+          "name": "createUserWithPassword",
+          "parameters": "accountName: string, password: string, domainName: string, displayName: string",
+          "returnType": "void",
+          "description": "Creates a new user, sets its password and adds it to this container."
+        },
+        {
+          "name": "createUserWithDetails",
+          "parameters": "accountName: string, password: string, domainName: string, displayName: string, firstName: string, lastName: string",
+          "returnType": "void",
+          "description": "Creates a new user, sets its password and adds it to this container."
+        },
+        {
+          "name": "createUserGroup",
+          "parameters": "groupName: string",
+          "returnType": "void",
+          "description": "Creates a new user group and adds it to this container."
+        },
+        {
+          "name": "createOrganizationalUnit",
+          "parameters": "ouName: string",
+          "returnType": "void",
+          "description": "Creates a new organizational unit and adds it to this container."
+        },
+        {
+          "name": "createComputer",
+          "parameters": "computerName: string, domainName: string, computerNamePreWin2K: string",
+          "returnType": "void",
+          "description": "Create a new computer and add it to this container."
+        },
+        {
+          "name": "createComputerWithPassword",
+          "parameters": "computerName: string, domainName: string, password: string, computerNamePreWin2K: string",
+          "returnType": "void",
+          "description": "Create a new computer with password and add it to this container."
+        },
+        {
+          "name": "removeAttribute",
+          "parameters": "attribName: string",
+          "returnType": "void",
+          "description": "Removes an attribute as specified by the attribName parameter."
+        },
+        {
+          "name": "setAttribute",
+          "parameters": "attribName: string, newValue: object",
+          "returnType": "void",
+          "description": "Change the value of an existing attribute."
+        },
+        {
+          "name": "getAttribute",
+          "parameters": "attribName: string",
+          "returnType": "string",
+          "description": "Get an AD attribute."
+        },
+        {
+          "name": "addAttribute",
+          "parameters": "attribName: string, newValue: string",
+          "returnType": "void",
+          "description": "Adds an attribute."
+        },
+        {
+          "name": "getAttributeValueBytes",
+          "parameters": "attribName: string",
+          "returnType": "object[]",
+          "description": "Get an AD attribute value as byte array."
+        },
+        {
+          "name": "getArrayAttribute",
+          "parameters": "attribName: string",
+          "returnType": "string[]",
+          "description": "Get an AD attribute for an array of values."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "users",
+          "type": "object[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "computers",
+          "type": "object[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "userGroups",
+          "type": "object[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "containers",
+          "type": "object[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "organizationalUnits",
+          "type": "object[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "distinguishedName",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "allAttributes",
+          "type": "object[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "gUID",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "AD_OrganizationalUnit",
+      "description": "Represents an Organizational Unit",
+      "methods": [
+        {
+          "name": "searchComputer",
+          "parameters": "computerName: string",
+          "returnType": "AD_Computer",
+          "description": "Get a computer by name"
+        },
+        {
+          "name": "createUserWithPassword",
+          "parameters": "accountName: string, password: string, domainName: string, displayName: string",
+          "returnType": "void",
+          "description": "Creates a new user, sets its password and adds it to this container"
+        },
+        {
+          "name": "createUserWithDetails",
+          "parameters": "accountName: string, password: string, domainName: string, displayName: string, firstName: string, lastName: string",
+          "returnType": "void",
+          "description": "Creates a new user, sets its password and adds it to this container"
+        },
+        {
+          "name": "createUserGroup",
+          "parameters": "groupName: string",
+          "returnType": "void",
+          "description": "Creates a new user group and adds it to this container"
+        },
+        {
+          "name": "createOrganizationalUnit",
+          "parameters": "ouName: string",
+          "returnType": "void",
+          "description": "Creates a new organizational unit and adds it to this container"
+        },
+        {
+          "name": "createComputer",
+          "parameters": "computerName: string, domainName: string, computerNamePreWin2K: string",
+          "returnType": "void",
+          "description": "Create a new computer and add it to this container"
+        },
+        {
+          "name": "createComputerWithPassword",
+          "parameters": "computerName: string, domainName: string, password: string, computerNamePreWin2K: string",
+          "returnType": "void",
+          "description": "Create a new computer with password and add it to this container"
+        },
+        {
+          "name": "createUser",
+          "parameters": "accountName: string, domainName: string, displayName: string",
+          "returnType": "void",
+          "description": "Creates a new user and adds it to this container"
+        },
+        {
+          "name": "getArrayAttribute",
+          "parameters": "attibName: string",
+          "returnType": "string[]",
+          "description": "Get an AD attribute for an array of values."
+        },
+        {
+          "name": "getAttributeValueBytes",
+          "parameters": "attibName: string",
+          "returnType": "any[]",
+          "description": "Get an AD attribute value as byte array."
+        },
+        {
+          "name": "removeAttribute",
+          "parameters": "attribName: string",
+          "returnType": "void",
+          "description": "Removes an attribute as specified by the attribName parameter"
+        },
+        {
+          "name": "destroy",
+          "parameters": "param0: boolean",
+          "returnType": "void",
+          "description": "Destroy this element from the AD. Take care, this action PERMANENTLY DESTROY the element"
+        },
+        {
+          "name": "setAttribute",
+          "parameters": "attribName: string, newValue: any",
+          "returnType": "void",
+          "description": "Change the value of an existing attribute"
+        },
+        {
+          "name": "getAttribute",
+          "parameters": "attibName: string",
+          "returnType": "string",
+          "description": "Get an AD attribute"
+        },
+        {
+          "name": "addAttribute",
+          "parameters": "attribName: string, newValue: any",
+          "returnType": "void",
+          "description": "Adds an attribute"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "computers",
+          "type": "AD_Computer[]",
+          "description": "List of all computers (read-only)",
+          "isReadonly": true
+        },
+        {
+          "name": "userGroups",
+          "type": "AD_UserGroup[]",
+          "description": "List of all user groups (read-only)",
+          "isReadonly": true
+        },
+        {
+          "name": "containers",
+          "type": "AD_Group[]",
+          "description": "List of all Group (read-only)",
+          "isReadonly": true
+        },
+        {
+          "name": "organizationalUnits",
+          "type": "AD_OrganizationalUnit[]",
+          "description": "List of all OU (read-only)",
+          "isReadonly": true
+        },
+        {
+          "name": "users",
+          "type": "AD_User[]",
+          "description": "List of all users (read-only)",
+          "isReadonly": true
+        },
+        {
+          "name": "allAttributes",
+          "type": "any[]",
+          "description": "Returns all attributes",
+          "isReadonly": true
+        },
+        {
+          "name": "gUID",
+          "type": "string",
+          "description": "Return object GUID formatted as dashed string",
+          "isReadonly": true
+        },
+        {
+          "name": "distinguishedName",
+          "type": "string",
+          "description": "Return the DN of the item",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "AD_Unknown",
+      "description": "Unknown type of object",
+      "methods": [
+        {
+          "name": "removeAttribute",
+          "parameters": "attribName: string",
+          "returnType": "void",
+          "description": "Removes an attribute as specified by the attribName parameter."
+        },
+        {
+          "name": "destroy",
+          "parameters": "param0: boolean",
+          "returnType": "void",
+          "description": "Destroy this element from the AD. Take care, this action PERMANENTLY DESTROY the element."
+        },
+        {
+          "name": "rename",
+          "parameters": "name: string",
+          "returnType": "void",
+          "description": "Allows a client to change the leftmost (least significant) component of the name of an entry in the directory. Тo rename the entry you must provide it with the attribute as prefix - e.g. \"cn=newName\"."
+        },
+        {
+          "name": "setAttribute",
+          "parameters": "attribName: string, newValue: object",
+          "returnType": "void",
+          "description": "Change the value of an existing attribute."
+        },
+        {
+          "name": "getAttribute",
+          "parameters": "attribName: string",
+          "returnType": "string",
+          "description": "Get an AD attribute."
+        },
+        {
+          "name": "addAttribute",
+          "parameters": "attribName: string, newValue: object",
+          "returnType": "void",
+          "description": "Adds an attribute."
+        },
+        {
+          "name": "getAttributeValueBytes",
+          "parameters": "attribName: string",
+          "returnType": "any[]",
+          "description": "Get an AD attribute value as byte array."
+        },
+        {
+          "name": "getArrayAttribute",
+          "parameters": "attribName: string",
+          "returnType": "string[]",
+          "description": "Get an AD attribute for an array of values."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "distinguishedName",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "allAttributes",
+          "type": "object[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "gUID",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "AD_User",
+      "description": "User",
+      "methods": [
+        {
+          "name": "setPassword",
+          "parameters": "password: string",
+          "returnType": "void",
+          "description": "Sets the passed in String value as a password of this user."
+        },
+        {
+          "name": "setChangePasswordAtNextLogon",
+          "parameters": "param0: boolean",
+          "returnType": "void",
+          "description": "Sets the user account to change or not change the password at next logon."
+        },
+        {
+          "name": "removeAttribute",
+          "parameters": "attribName: string",
+          "returnType": "void",
+          "description": "Removes an attribute as specified by the attribName parameter."
+        },
+        {
+          "name": "destroy",
+          "parameters": "param0: boolean",
+          "returnType": "void",
+          "description": "Destroy this element from the AD. Take care, this action PERMANENTLY DESTROY the element."
+        },
+        {
+          "name": "rename",
+          "parameters": "name: string",
+          "returnType": "void",
+          "description": "Allows a client to change the leftmost (least significant) component of the name of an entry in the directory. Тo rename the entry you must provide it with the attribute as prefix - e.g. \"cn=newName\"."
+        },
+        {
+          "name": "setAttribute",
+          "parameters": "attribName: string, newValue: object",
+          "returnType": "void",
+          "description": "Change the value of an existing attribute."
+        },
+        {
+          "name": "getAttribute",
+          "parameters": "attribName: string",
+          "returnType": "string",
+          "description": "Get an AD attribute."
+        },
+        {
+          "name": "addAttribute",
+          "parameters": "attribName: string, newValue: object",
+          "returnType": "void",
+          "description": "Adds an attribute."
+        },
+        {
+          "name": "getAttributeValueBytes",
+          "parameters": "attribName: string",
+          "returnType": "object[]",
+          "description": "Get an AD attribute value as byte array."
+        },
+        {
+          "name": "getArrayAttribute",
+          "parameters": "attribName: string",
+          "returnType": "string[]",
+          "description": "Get an AD attribute for an array of values."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "userPrincipalName",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "sID",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "accountName",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "memberOf",
+          "type": "AD_Group[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "distinguishedName",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "allAttributes",
+          "type": "any",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "gUID",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "AD_UserGroup",
+      "description": "UserGroup",
+      "methods": [
+        {
+          "name": "removeElements",
+          "parameters": "elements: object[]",
+          "returnType": "void",
+          "description": "Removes elements from the group."
+        },
+        {
+          "name": "addElements",
+          "parameters": "elements: object[]",
+          "returnType": "void",
+          "description": "Adds elements to the group."
+        },
+        {
+          "name": "removeAttribute",
+          "parameters": "attribName: string",
+          "returnType": "void",
+          "description": "Removes an attribute as specified by the attribName parameter."
+        },
+        {
+          "name": "destroy",
+          "parameters": "param0: boolean",
+          "returnType": "void",
+          "description": "Destroy this element from the AD. Take care, this action PERMANENTLY DESTROY the element."
+        },
+        {
+          "name": "rename",
+          "parameters": "name: string",
+          "returnType": "void",
+          "description": "Allows a client to change the leftmost (least significant) component of the name of an entry in the directory. Тo rename the entry you must provide it with the attribute as prefix - e.g. \"cn=newName\"."
+        },
+        {
+          "name": "setAttribute",
+          "parameters": "attribName: string, newValue: object",
+          "returnType": "void",
+          "description": "Change the value of an existing attribute."
+        },
+        {
+          "name": "getAttribute",
+          "parameters": "attribName: string",
+          "returnType": "string",
+          "description": "Get an AD attribute."
+        },
+        {
+          "name": "addAttribute",
+          "parameters": "attribName: string, newValue: object",
+          "returnType": "void",
+          "description": "Adds an attribute."
+        },
+        {
+          "name": "getAttributeValueBytes",
+          "parameters": "attribName: string",
+          "returnType": "object[]",
+          "description": "Get an AD attribute value as byte array."
+        },
+        {
+          "name": "getArrayAttribute",
+          "parameters": "attribName: string",
+          "returnType": "string[]",
+          "description": "Get an AD attribute for an array of values."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "sID",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "computerMembers",
+          "type": "AD_Computer[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "userMembers",
+          "type": "AD_User[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "memberOf",
+          "type": "AD_UserGroup[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "groupMembers",
+          "type": "AD_UserGroup[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "distinguishedName",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "allAttributes",
+          "type": "object[]",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "gUID",
+          "type": "object",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "LdapSearchScope",
+      "description": "Ldap search scope",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "BASE",
+          "type": "LdapSearchScope",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "ONE",
+          "type": "LdapSearchScope",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "SUB",
+          "type": "LdapSearchScope",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "SUBORDINATE_SUBTREE",
+          "type": "LdapSearchScope",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "LdapDereferencePolicy",
+      "description": "This class defines a data type for dereference policy values. Clients should\r\ngenerally use one of the {@code NEVER}, {@code SEARCHING}, {@code FINDING},\r\n{@code ALWAYS} values.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "NEVER",
+          "type": "LdapDereferencePolicy",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "SEARCHING",
+          "type": "LdapDereferencePolicy",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "FINDING",
+          "type": "LdapDereferencePolicy",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "ALWAYS",
+          "type": "LdapDereferencePolicy",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "LdapFilter",
+      "description": "This class provides a data structure that represents an LDAP search filter. It provides methods\r\nfor as parsing a filter from a string. See RFC 4515 for more information about representing search\r\nfilters as strings.",
+      "methods": [
+        {
+          "name": "create",
+          "parameters": "filterString: string",
+          "returnType": "LdapFilter",
+          "description": "Creates a new search filter from the provided string representation."
+        },
+        {
+          "name": "encodeValue",
+          "parameters": "value: string",
+          "returnType": "string",
+          "description": "Encodes the provided value into a form suitable for use as the assertion value in the\r\nstring representation of a search filter. Parentheses, asterisks, backslashes, null characters,\r\nand any non-ASCII characters will be escaped using a backslash before the hexadecimal\r\nrepresentation of each byte in the character to escape."
+        },
+        {
+          "name": "encodeValueBytes",
+          "parameters": "value: any",
+          "returnType": "string",
+          "description": "Encodes the provided value into a form suitable for use as the assertion value in the\r\nstring representation of a search filter. Parentheses, asterisks, backslashes, null characters,\r\nand any non-ASCII characters will be escaped using a backslash before the hexadecimal\r\nrepresentation of each byte in the character to escape."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "LdapLoadBalancingMode",
+      "description": "",
+      "methods": [
+        {
+          "name": "getValue",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Returns load balancing mode as string."
+        },
+        {
+          "name": "getValuesAsString",
+          "parameters": "",
+          "returnType": "any",
+          "description": "Returns supported load balancing modes ."
+        },
+        {
+          "name": "fromString",
+          "parameters": "value: string",
+          "returnType": "LdapLoadBalancingMode",
+          "description": "Create LdapLoadBalancingMode object from it's string representation."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "SingleServer",
+          "type": "LdapLoadBalancingMode",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "RoundRobin",
+          "type": "LdapLoadBalancingMode",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "Failover",
+          "type": "LdapLoadBalancingMode",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    }
+  ]
+}

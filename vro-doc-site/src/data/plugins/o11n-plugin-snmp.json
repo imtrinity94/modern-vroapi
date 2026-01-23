@@ -1,0 +1,331 @@
+{
+  "name": "o11n-plugin-snmp",
+  "classes": [
+    {
+      "name": "SNMPSnmpDevice",
+      "description": "SNMP Device",
+      "methods": [
+        {
+          "name": "getBulk",
+          "parameters": "oid: string, number: number",
+          "returnType": "SNMPSnmpResult",
+          "description": ""
+        },
+        {
+          "name": "validateAnsSetPort",
+          "parameters": "port: number",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "validateAndSetAddress",
+          "parameters": "address: string",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "validateAndSetName",
+          "parameters": "name: string",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "get",
+          "parameters": "oid: string",
+          "returnType": "SNMPSnmpResult",
+          "description": ""
+        },
+        {
+          "name": "getNext",
+          "parameters": "oid: string",
+          "returnType": "SNMPSnmpResult",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "credentials",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "queries",
+          "type": "SNMPSnmpQuery[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "address",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "port",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "version",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "SNMPSnmpQuery",
+      "description": "SNMP Query",
+      "methods": [
+        {
+          "name": "validateAndSetType",
+          "parameters": "type: string",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "validateAndSetOid",
+          "parameters": "oid: string",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "validateAndSetName",
+          "parameters": "name: string",
+          "returnType": "void",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "oid",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "SNMPSnmpResult",
+      "description": "SNMP Query Result",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "type",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "oid",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "enterprise",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "stringValue",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "numberValue",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "arrayValue",
+          "type": "any[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "snmpType",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "SNMPTrapHost",
+      "description": "SNMP Trap Host",
+      "methods": [
+        {
+          "name": "changePort",
+          "parameters": "port: number",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "start",
+          "parameters": "",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "stop",
+          "parameters": "",
+          "returnType": "void",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "port",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "SnmpService",
+      "description": "SNMP Service",
+      "methods": [
+        {
+          "name": "removeQuery",
+          "parameters": "query: SNMPSnmpQuery",
+          "returnType": "SNMPSnmpDevice",
+          "description": ""
+        },
+        {
+          "name": "snmpGet",
+          "parameters": "device: SNMPSnmpDevice, oid: string",
+          "returnType": "SNMPSnmpResult",
+          "description": ""
+        },
+        {
+          "name": "snmpGetNext",
+          "parameters": "device: SNMPSnmpDevice, oid: string",
+          "returnType": "SNMPSnmpResult",
+          "description": ""
+        },
+        {
+          "name": "snmpGetBulk",
+          "parameters": "device: SNMPSnmpDevice, oid: string, number: number",
+          "returnType": "SNMPSnmpResult",
+          "description": ""
+        },
+        {
+          "name": "addQuery",
+          "parameters": "device: SNMPSnmpDevice, query: SNMPSnmpQuery",
+          "returnType": "SNMPSnmpQuery",
+          "description": ""
+        },
+        {
+          "name": "updateQuery",
+          "parameters": "query: SNMPSnmpQuery, type: string, oid: string, name: string",
+          "returnType": "SNMPSnmpQuery",
+          "description": ""
+        },
+        {
+          "name": "runQuery",
+          "parameters": "query: SNMPSnmpQuery",
+          "returnType": "SNMPSnmpResult",
+          "description": ""
+        },
+        {
+          "name": "sendTrap",
+          "parameters": "address: string, port: number, enterprise: string, type: string, oid: string, value: string",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "createSnmpDeviceV1V2c",
+          "parameters": "address: string, name: string, port: number, community: string, version: string",
+          "returnType": "SNMPSnmpDevice",
+          "description": ""
+        },
+        {
+          "name": "createSnmpDeviceV3",
+          "parameters": "address: string, name: string, port: number, user: string, password: string",
+          "returnType": "SNMPSnmpDevice",
+          "description": ""
+        },
+        {
+          "name": "editSnmpDevice",
+          "parameters": "device: SNMPSnmpDevice, address: string, name: string, port: number, community: string, user: string, password: string, version: string",
+          "returnType": "SNMPSnmpDevice",
+          "description": ""
+        },
+        {
+          "name": "removeSnmpDevice",
+          "parameters": "device: SNMPSnmpDevice",
+          "returnType": "SNMPSnmpDevice",
+          "description": ""
+        },
+        {
+          "name": "createTriggerForAllDevices",
+          "parameters": "oid: string",
+          "returnType": "any",
+          "description": ""
+        },
+        {
+          "name": "createTrigger",
+          "parameters": "device: SNMPSnmpDevice, oid: string",
+          "returnType": "any",
+          "description": ""
+        },
+        {
+          "name": "retrieveTriggerData",
+          "parameters": "trigger: any",
+          "returnType": "SNMPSnmpResult",
+          "description": ""
+        },
+        {
+          "name": "retrievePolicyData",
+          "parameters": "key: string",
+          "returnType": "SNMPSnmpResult",
+          "description": ""
+        }
+      ],
+      "attributes": []
+    }
+  ]
+}

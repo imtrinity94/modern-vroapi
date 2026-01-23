@@ -1,0 +1,475 @@
+{
+  "name": "o11n-plugin-dynamictypes",
+  "classes": [
+    {
+      "name": "DynamicTypesDynamicNamespaceDefinition",
+      "description": "Provides operations for DynamicNamespaceDefinition objects.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "DynamicTypesDynamicObject",
+      "description": "Provides operations for DynamicObject objects.",
+      "methods": [
+        {
+          "name": "setProperty",
+          "parameters": "property: string, value: any",
+          "returnType": "void",
+          "description": "Set the value of a given property. Will create a new property if no property with such name exist."
+        },
+        {
+          "name": "getProperty",
+          "parameters": "property: string",
+          "returnType": "any",
+          "description": "Get the value of a given property. Throws an exception if no property with such name exist."
+        },
+        {
+          "name": "getPropertyInCache",
+          "parameters": "property: string",
+          "returnType": "any",
+          "description": "Get the value of a given property from the cache. Throws an exception if no property with such name exists."
+        },
+        {
+          "name": "setPropertyInCache",
+          "parameters": "property: string, value: any, seconds: number",
+          "returnType": "void",
+          "description": "Set the value of a given property in the cache with expire time limit. Will create a new property if no property with such name exists."
+        },
+        {
+          "name": "getOrderedPropertyNames",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "Get the insertion-ordered list of property names."
+        },
+        {
+          "name": "getOrderedPropertyNamesInCache",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "Get the inserted-ordered list of property names in cache."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "namespace",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "cachedProperties",
+          "type": "any",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "properties",
+          "type": "any",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "DynamicTypesDynamicObjectProxy",
+      "description": "Provides operations for DynamicObjectProxy objects.",
+      "methods": [
+        {
+          "name": "setProperty",
+          "parameters": "property: string, value: any",
+          "returnType": "void",
+          "description": "Set the value of a given property. Will create a new property if no property with such name exist."
+        },
+        {
+          "name": "getProperty",
+          "parameters": "property: string",
+          "returnType": "any",
+          "description": "Get the value of a given property. Throws an exception if no property with such name exist."
+        },
+        {
+          "name": "exists",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": "Check if the proxied object can be resolved."
+        },
+        {
+          "name": "getOrderedPropertyNames",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "Get the insertion-ordered list of property names."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "namespace",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "properties",
+          "type": "any",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "DynamicTypesDynamicTypeDefinition",
+      "description": "Provides operations for DynamicTypeDefinition objects.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "properties",
+          "type": "string[]",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "namespace",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "iconResource",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "findByIdBinding",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "findAllBinding",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "hasChildrenInRelationBinding",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "findRelationBinding",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "DynamicTypesRelationDefinition",
+      "description": "Provides operations for RelationDefinition objects.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "childType",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "parentType",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "DynamicTypesTypeHierarchyRootFolder",
+      "description": "",
+      "methods": [],
+      "attributes": []
+    },
+    {
+      "name": "DynamicTypesManager",
+      "description": "Provides operations for all dynamic objects.",
+      "methods": [
+        {
+          "name": "getFromCache",
+          "parameters": "key: string",
+          "returnType": "any",
+          "description": "Get object from cache."
+        },
+        {
+          "name": "getObject",
+          "parameters": "namespace: string, type: string, id: string",
+          "returnType": "DynamicTypesDynamicObjectProxy",
+          "description": "Get a reference to an instance of a given dynamic type."
+        },
+        {
+          "name": "getObject",
+          "parameters": "namespace: string, type: string, id: string",
+          "returnType": "T",
+          "description": ""
+        },
+        {
+          "name": "getType",
+          "parameters": "namespace: string, type: string",
+          "returnType": "DynamicTypesDynamicTypeDefinition",
+          "description": "Get dynamic type given its namesapce and name."
+        },
+        {
+          "name": "removeAll",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Remove all dynamic namespaces/types/relations."
+        },
+        {
+          "name": "getNamespace",
+          "parameters": "namespace: string",
+          "returnType": "DynamicTypesDynamicNamespaceDefinition",
+          "description": "Get a dynamic namespace with a given name."
+        },
+        {
+          "name": "invalidate",
+          "parameters": "namespace: string, type: string, id: string",
+          "returnType": "void",
+          "description": "Notify the system that an object has changed."
+        },
+        {
+          "name": "removeType",
+          "parameters": "namespace: string, type: string",
+          "returnType": "void",
+          "description": "Remove dynamic type definition."
+        },
+        {
+          "name": "defineRelation",
+          "parameters": "parentType: string, childType: string, relationName: string",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "removeRelation",
+          "parameters": "parentType: string, childType: string",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "getAllRelations",
+          "parameters": "",
+          "returnType": "DynamicTypesRelationDefinition[]",
+          "description": ""
+        },
+        {
+          "name": "exportConfigurationAsPackage",
+          "parameters": "namespacesToExport: DynamicTypesDynamicNamespaceDefinition[]",
+          "returnType": "any",
+          "description": "Export configuration to package."
+        },
+        {
+          "name": "importConfigurationFromPackage",
+          "parameters": "namespacesToImport: string[], packageContent: any",
+          "returnType": "boolean",
+          "description": "Import configuration from package."
+        },
+        {
+          "name": "validateConfigurationPackage",
+          "parameters": "packageContent: any",
+          "returnType": "boolean",
+          "description": "Validate configuration package."
+        },
+        {
+          "name": "bindTypeFinderMethods",
+          "parameters": "namespace: string, type: string, findByIdBinding: string, findAllBinding: string, hasChildrenInRelationBinding: string, findRelationBinding: string",
+          "returnType": "void",
+          "description": "Assign workflow/action bindings for a type."
+        },
+        {
+          "name": "generateTypeFinderMethods",
+          "parameters": "namespace: string, type: string, category: any",
+          "returnType": "string[]",
+          "description": "Generate workflow bindings for a type and return their IDs."
+        },
+        {
+          "name": "importTypesFromXSD",
+          "parameters": "xsdUri: string, namespace: string, category: any",
+          "returnType": "void",
+          "description": "Generate dynamic type definitions for complex types defined in a XSD schema."
+        },
+        {
+          "name": "getCacheKeys",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "Get a list of all keys in cache."
+        },
+        {
+          "name": "makeObject",
+          "parameters": "namespace: string, type: string, id: string, name: string, props: string[]",
+          "returnType": "DynamicTypesDynamicObject",
+          "description": "Create new instance of a given dynamic type."
+        },
+        {
+          "name": "removeFromCache",
+          "parameters": "key: string",
+          "returnType": "any",
+          "description": "Remove object from cache."
+        },
+        {
+          "name": "defineNamespace",
+          "parameters": "namespace: string",
+          "returnType": "DynamicTypesDynamicNamespaceDefinition",
+          "description": "Define a new dynamic namespace."
+        },
+        {
+          "name": "getAllNamespaces",
+          "parameters": "",
+          "returnType": "DynamicTypesDynamicNamespaceDefinition[]",
+          "description": "Get all defined dynamic namespaces."
+        },
+        {
+          "name": "getAllNamespacesByPackage",
+          "parameters": "packageContent: any",
+          "returnType": "string[]",
+          "description": "Get all defined dynamic namespaces in the configuration package."
+        },
+        {
+          "name": "updateNamespace",
+          "parameters": "name: string, newName: string",
+          "returnType": "DynamicTypesDynamicNamespaceDefinition",
+          "description": ""
+        },
+        {
+          "name": "removeNamespace",
+          "parameters": "namespace: string",
+          "returnType": "void",
+          "description": "Remove a dynamic namespace. All dynamic types that belong to this namespace are also removed."
+        },
+        {
+          "name": "defineType",
+          "parameters": "namespace: string, type: string, icon: string, properties: string[], actions: any[]",
+          "returnType": "DynamicTypesDynamicTypeDefinition",
+          "description": "Define a new dynamic type within a given namespace."
+        },
+        {
+          "name": "getAllTypes",
+          "parameters": "",
+          "returnType": "DynamicTypesDynamicTypeDefinition[]",
+          "description": "Get all defined dynamic types."
+        },
+        {
+          "name": "setTypeCustomProperty",
+          "parameters": "namespace: string, type: string, key: string, value: any",
+          "returnType": "void",
+          "description": "Add custom property to dynamic type."
+        },
+        {
+          "name": "getTypeCustomProperty",
+          "parameters": "namespace: string, type: string, key: string",
+          "returnType": "any",
+          "description": "Get custom property by key."
+        },
+        {
+          "name": "removeTypeCustomProperty",
+          "parameters": "namespace: string, type: string, key: string",
+          "returnType": "void",
+          "description": "Remove dynamic type's custom property by key"
+        },
+        {
+          "name": "updateType",
+          "parameters": "namespace: string, type: string, newNamespace: string, newType: string, newIcon: string, newProperties: string[]",
+          "returnType": "DynamicTypesDynamicTypeDefinition",
+          "description": ""
+        },
+        {
+          "name": "putInCache",
+          "parameters": "key: string, value: any",
+          "returnType": "void",
+          "description": "Put object in cache."
+        }
+      ],
+      "attributes": []
+    }
+  ]
+}

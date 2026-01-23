@@ -1,0 +1,41 @@
+name: Deploy vRO Docs
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        working-directory: vro-doc-site
+        run: npm ci
+
+      - name: Generate Data
+        working-directory: vro-doc-site
+        run: npx ts-node scripts/generate-docs.ts
+
+      - name: Build
+        working-directory: vro-doc-site
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./vro-doc-site/dist

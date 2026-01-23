@@ -1,0 +1,185 @@
+{
+  "name": "o11n-plugin-mqtt",
+  "classes": [
+    {
+      "name": "MQTTBroker",
+      "description": "MQTT Broker",
+      "methods": [
+        {
+          "name": "subscribe",
+          "parameters": "topic: string, props: any",
+          "returnType": "MQTTSubscription",
+          "description": ""
+        },
+        {
+          "name": "remove",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Removes this broker."
+        },
+        {
+          "name": "update",
+          "parameters": "props: any",
+          "returnType": "MQTTBroker",
+          "description": "Updates this broker properties."
+        },
+        {
+          "name": "validate",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Validate connection for this broker"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "displayName",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "serverURI",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "authType",
+          "type": "\"basic\" | \"vcd\"",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "username",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "useSSL",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "acceptAllCertificates",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "cleanSession",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "connectionTimeout",
+          "type": "number",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "MQTTBrokerManager",
+      "description": "Manager that enables MQTT broker creation and configuration reload.",
+      "methods": [
+        {
+          "name": "addBroker",
+          "parameters": "props: any",
+          "returnType": "MQTTBroker",
+          "description": "Creates a new broker."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "MQTTSubscription",
+      "description": "MQTT Subscription",
+      "methods": [
+        {
+          "name": "remove",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Removes this subscription"
+        },
+        {
+          "name": "retrieveMessage",
+          "parameters": "trigger: any",
+          "returnType": "MQTTMessage",
+          "description": "Retrieves a trigger properties"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "displayName",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "topic",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "MQTTMessage",
+      "description": "MQTT Message",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "broker",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "topic",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "payload",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    }
+  ]
+}

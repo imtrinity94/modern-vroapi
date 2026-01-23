@@ -1,0 +1,551 @@
+{
+  "name": "o11n-plugin-sql",
+  "classes": [
+    {
+      "name": "SQLDatabaseManager",
+      "description": "Provides CRUD operations for database objects.",
+      "methods": [
+        {
+          "name": "addDatabase",
+          "parameters": "item: SQLDatabase",
+          "returnType": "SQLDatabase",
+          "description": "Adds a database object to the plug-in's inventory."
+        },
+        {
+          "name": "updateDatabase",
+          "parameters": "item: SQLDatabase",
+          "returnType": "SQLDatabase",
+          "description": "Updates the specified database in the plug-in's inventory."
+        },
+        {
+          "name": "removeDatabase",
+          "parameters": "item: SQLDatabase",
+          "returnType": "SQLDatabase",
+          "description": "Removes a database object from the plug-in's inventory."
+        },
+        {
+          "name": "getDatabases",
+          "parameters": "",
+          "returnType": "SQLDatabase[]",
+          "description": "Returns the list of database objects in the plug-in's inventory."
+        },
+        {
+          "name": "getDatabase",
+          "parameters": "name: string",
+          "returnType": "SQLDatabase",
+          "description": "Returns the database object from the plug-in's inventory with a specified name."
+        },
+        {
+          "name": "getDatabaseById",
+          "parameters": "id: string",
+          "returnType": "SQLDatabase",
+          "description": "Returns the database object from the plug-in's inventory with a specified ID."
+        },
+        {
+          "name": "validateDatabase",
+          "parameters": "database: SQLDatabase",
+          "returnType": "void",
+          "description": "Validates the created databse object if it is able to connect to the real database."
+        },
+        {
+          "name": "getSupportedDatabaseTypes",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "Returns a list of supported database types."
+        },
+        {
+          "name": "addTablesToDatabase",
+          "parameters": "database: SQLDatabase, tableNames: string[]",
+          "returnType": "SQLTable[]",
+          "description": "Adds new tables to a database."
+        },
+        {
+          "name": "removeTableFromDatabase",
+          "parameters": "table: SQLTable",
+          "returnType": "SQLTable",
+          "description": "Removes a specified table from a database."
+        },
+        {
+          "name": "generateCreateWorkflow",
+          "parameters": "table: SQLTable, category: any, overwriteWorkflow: boolean, readOnlyColumns: SQLColumn[]",
+          "returnType": "any",
+          "description": "Generates a forkflow for creation of database record."
+        },
+        {
+          "name": "generateReadWorkflow",
+          "parameters": "table: SQLTable, category: any, overwriteWorkflow: boolean",
+          "returnType": "any",
+          "description": "Generates a forkflow that reads table records."
+        },
+        {
+          "name": "generateDeleteWorkflow",
+          "parameters": "table: SQLTable, category: any, overwriteWorkflow: boolean",
+          "returnType": "any",
+          "description": "Generates a forkflow that deletes table records."
+        },
+        {
+          "name": "generateUpdateWorkflow",
+          "parameters": "table: SQLTable, category: any, overwriteWorkflow: boolean, readOnlyColumns: SQLColumn[]",
+          "returnType": "any",
+          "description": "Generates a forkflow that updates a table record."
+        },
+        {
+          "name": "convertBooleanForPresentation",
+          "parameters": "source: string",
+          "returnType": "string",
+          "description": "Converts boolean values to 'Yes' or 'No' strings."
+        },
+        {
+          "name": "getConnectionUrl",
+          "parameters": "existing: string, type: string",
+          "returnType": "string",
+          "description": "Returns connection URL pattern for a particular database type."
+        },
+        {
+          "name": "isValidNumberOrEmpty",
+          "parameters": "source: any",
+          "returnType": "boolean",
+          "description": "Returns 'true' if the passed object is a valid number or null. Otherwise, returns 'false'."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "SQLTable",
+      "description": "Represents a database table.",
+      "methods": [
+        {
+          "name": "createRecord",
+          "parameters": "keyColumns: any, validateUnique: boolean",
+          "returnType": "SQLActiveRecord",
+          "description": "Creates a new active record with primary fields."
+        },
+        {
+          "name": "readRecords",
+          "parameters": "columns: any, validateUnique: boolean",
+          "returnType": "SQLActiveRecord[]",
+          "description": "Reads records by certain search criteria."
+        },
+        {
+          "name": "findUniqueRecord",
+          "parameters": "example: any[]",
+          "returnType": "SQLActiveRecord",
+          "description": "Finds a record by certain search criteria."
+        },
+        {
+          "name": "updateRecord",
+          "parameters": "record: SQLActiveRecord, values: any",
+          "returnType": "number",
+          "description": "Updates the record that matches the primary key fields."
+        },
+        {
+          "name": "deleteRecords",
+          "parameters": "columns: any, validateUnique: boolean",
+          "returnType": "number",
+          "description": "Deletes a record by certain search criteria."
+        },
+        {
+          "name": "getColumns",
+          "parameters": "",
+          "returnType": "SQLColumn[]",
+          "description": "Get all table columns."
+        }
+      ],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "database",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "SQLDatabase",
+      "description": "Represents a SQL Database connection.",
+      "methods": [
+        {
+          "name": "getUnmappedTableNames",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "Returns a list of tables, not added to this database."
+        },
+        {
+          "name": "getMappedTableNames",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "Returns a list of tables, that are added to this database."
+        },
+        {
+          "name": "getAllTableNames",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "Returns a list of all tables, that are in this database."
+        },
+        {
+          "name": "getTables",
+          "parameters": "",
+          "returnType": "SQLTable[]",
+          "description": "Returns a list of tables in this database."
+        },
+        {
+          "name": "readCustomQuery",
+          "parameters": "customQuery: string",
+          "returnType": "SQLActiveRecord[]",
+          "description": "Executes a read custom query on the database and returns the results in an ActiveRecord array"
+        },
+        {
+          "name": "executeCustomQuery",
+          "parameters": "customQuery: string",
+          "returnType": "number",
+          "description": "Execute non-read custom query on the database"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "connectionURL",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "username",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "password",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "sessionMode",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "SQLColumn",
+      "description": "Represents a SQL Table Column.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "table",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "typeName",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "typeId",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "mandatory",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "SQLActiveRecord",
+      "description": "Represents a table record.",
+      "methods": [
+        {
+          "name": "getProperty",
+          "parameters": "property: string",
+          "returnType": "any",
+          "description": "Returns the value of the given property."
+        },
+        {
+          "name": "getFieldNames",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "Returns record field names."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "JDBCConnection",
+      "description": "JDBC Connection",
+      "methods": [
+        {
+          "name": "getConnection",
+          "parameters": "url: string, username: string, password: string",
+          "returnType": "Connection",
+          "description": "Return a connection on a Database connection\r\n((String)url,(String)username,(String)password)"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "Connection",
+      "description": "Connection on a Database",
+      "methods": [
+        {
+          "name": "createStatement",
+          "parameters": "",
+          "returnType": "T",
+          "description": "Creates a Statement object for sending SQL statements\r\nto the database"
+        },
+        {
+          "name": "prepareStatement",
+          "parameters": "param0: string",
+          "returnType": "PreparedStatement",
+          "description": "Creates a PreparedStatement object for sending\r\nparameterized SQL statements to the database"
+        },
+        {
+          "name": "prepareCall",
+          "parameters": "param0: string",
+          "returnType": "PreparedStatement",
+          "description": "Creates a CallableStatement object for calling\r\ndatabase stored procedures"
+        },
+        {
+          "name": "close",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Releases this Connection object's database and JDBC\r\nresources"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "PreparedStatement",
+      "description": "An object that represents a precompiled SQL statement",
+      "methods": [
+        {
+          "name": "execute",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": "Executes the SQL statement in this PreparedStatement\r\nobject, which may be any kind of SQL statement.\r\nSome prepared\r\nstatements return multiple results; the execute method\r\nhandles\r\nthese complex statements as well as the simpler form of\r\nstatements\r\nhandled by the methods executeQuery and executeUpdate.\r\nThe execute\r\nmethod returns a boolean to indicate the form of the\r\nfirst result.\r\nYou must call either the method getResultSet or getUpdateCount to\r\nretrieve the result; you must call getMoreResults to move to any\r\nsubsequent result(s)."
+        },
+        {
+          "name": "executeQuery",
+          "parameters": "",
+          "returnType": "ResultSet",
+          "description": "Executes the SQL query in this PreparedStatement\r\nobject and returns the ResultSet object generated by the query."
+        },
+        {
+          "name": "executeUpdate",
+          "parameters": "",
+          "returnType": "number",
+          "description": "Executes the SQL statement in this PreparedStatement\r\nobject, which must be an SQL INSERT, UPDATE or DELETE statement;\r\nor an SQL statement that returns nothing, such as a DDL statement."
+        },
+        {
+          "name": "setString",
+          "parameters": "parameterIndex: number, x: any",
+          "returnType": "this",
+          "description": "Sets the designated parameter to the given String\r\nvalue."
+        },
+        {
+          "name": "setDate",
+          "parameters": "parameterIndex: number, x: any",
+          "returnType": "this",
+          "description": "Sets the designated parameter to the given Date value."
+        },
+        {
+          "name": "setTimestamp",
+          "parameters": "parameterIndex: number, x: any",
+          "returnType": "this",
+          "description": "Sets the designated parameter to the given Timestamp\r\nvalue."
+        },
+        {
+          "name": "setNull",
+          "parameters": "parameterIndex: number",
+          "returnType": "this",
+          "description": "Sets the designated parameter to db null."
+        },
+        {
+          "name": "registerOutParameter",
+          "parameters": "parameterIndex: number, sqlType: number",
+          "returnType": "void",
+          "description": "Registers the OUT parameter in ordinal position parameterIndex to the JDBC type sqlType."
+        },
+        {
+          "name": "getInt",
+          "parameters": "parameterIndex: number",
+          "returnType": "number",
+          "description": "Retrieves the value of the designated JDBC INTEGER parameter as an int in the Java programming language.\r\nNot present in the API documentation"
+        },
+        {
+          "name": "getString",
+          "parameters": "parameterIndex: number",
+          "returnType": "string",
+          "description": "Retrieves the value of the designated JDBC CHAR, VARCHAR, or LONGVARCHAR parameter as a String in the Java programming language.\r\nNot present in the API documentation"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "ResultSet",
+      "description": "Result of an executeQuery",
+      "methods": [
+        {
+          "name": "next",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": "Moves the cursor down one row from its current\r\nposition.\r\nA ResultSet cursor is initially positioned before the\r\nfirst row;\r\nthe first call to the method next makes the first row\r\nthe current\r\nrow; the second call makes the second row the current\r\nrow, and so\r\non.\r\nReturn true if the new current row is valid; false\r\nif there are no more\r\nrows"
+        },
+        {
+          "name": "previous",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": "Moves the cursor to the previous row in this ResultSet\r\nobject. Returns true if the cursor is on a valid row; false if it\r\nis off the result set"
+        },
+        {
+          "name": "beforeFirst",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Moves the cursor to the front of this ResultSet\r\nobject, just before the first row. This method has no effect if\r\nthe result set contains no rows."
+        },
+        {
+          "name": "first",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": "Moves the cursor to the first row in this ResultSet\r\nobject and returns true if the cursor is on a valid row; false if\r\nthere are no rows in the result set\r\nThis method can not be use because you can not set the properties\r\nto set up the JDBC connection using the vro SQL Plugin."
+        },
+        {
+          "name": "last",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": "Moves the cursor to the last row in this ResultSet\r\nobject and returns true if the cursor is on a valid row; false if\r\nthere are no rows in the result set"
+        },
+        {
+          "name": "afterLast",
+          "parameters": "",
+          "returnType": "void",
+          "description": "Moves the cursor to the end of this ResultSet object,\r\njust after the last row. This method has no effect if the result\r\nset contains no rows.\r\nThis method can not be use because you can not set the properties\r\nto set up the JDBC connection using the vro SQL Plugin."
+        },
+        {
+          "name": "wasNull",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": "Reports whether the last column read had a value of\r\nSQL NULL"
+        },
+        {
+          "name": "getString",
+          "parameters": "columnName: string",
+          "returnType": "string",
+          "description": "Return the String value of the given column name"
+        },
+        {
+          "name": "getStringAt",
+          "parameters": "columnIndex: number",
+          "returnType": "string",
+          "description": "Return the String value of the given column index"
+        },
+        {
+          "name": "getNumber",
+          "parameters": "columnName: string",
+          "returnType": "number",
+          "description": "Return the Number value of the given column name"
+        },
+        {
+          "name": "getNumberAt",
+          "parameters": "columnIndex: number",
+          "returnType": "number",
+          "description": "Return the Number value of the given column index"
+        },
+        {
+          "name": "getDate",
+          "parameters": "columnName: string",
+          "returnType": "Date",
+          "description": "Return the Date value of the given column name"
+        },
+        {
+          "name": "getDateAt",
+          "parameters": "columnIndex: number",
+          "returnType": "Date",
+          "description": "Return the Date value of the given column index"
+        },
+        {
+          "name": "getTimestamp",
+          "parameters": "columnName: string",
+          "returnType": "Date",
+          "description": "Return the Timestamp value of the given column name"
+        },
+        {
+          "name": "getTimestampAt",
+          "parameters": "columnIndex: number",
+          "returnType": "Date",
+          "description": "Return the Timestamp value of the given column index"
+        },
+        {
+          "name": "getMetaData",
+          "parameters": "",
+          "returnType": "ResultSetMetaData",
+          "description": "Return the meta data of this ResultSet"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "ResultSetMetaData",
+      "description": "Meta data of ResultSet",
+      "methods": [
+        {
+          "name": "getColumnCount",
+          "parameters": "",
+          "returnType": "number",
+          "description": "Get the number of columns in this ResultSet"
+        },
+        {
+          "name": "getColumnName",
+          "parameters": "index: number",
+          "returnType": "string",
+          "description": "Get the name of the column at position index (starting\r\nwith 1)"
+        },
+        {
+          "name": "getTableName",
+          "parameters": "index: number",
+          "returnType": "string",
+          "description": "Gets the designated column's table name."
+        }
+      ],
+      "attributes": []
+    }
+  ]
+}
