@@ -4,15 +4,19 @@ import { useParams, Link } from 'react-router-dom';
 import pluginIndex from '../data/index.json';
 import { useViewMode } from '../hooks/useUIState';
 import { ViewToggle } from '../components/UIToggles';
-import { Search, ChevronRight, FileCode, ArrowRight, List as ListIcon } from 'lucide-react';
+import { Search, ChevronRight, FileCode, ArrowRight, List as ListIcon, Edit3 } from 'lucide-react';
 
 interface ApiPlugin {
     name: string;
     classes: any[];
 }
 
+import { getPluginMeta } from '../data/plugin-meta';
+
 const PluginView: React.FC = () => {
     const { pluginName } = useParams<{ pluginName: string }>();
+    const pluginMeta = useMemo(() => getPluginMeta(pluginName || ''), [pluginName]);
+    const { icon: PluginIcon, color } = pluginMeta;
     const [data, setData] = useState<ApiPlugin | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -28,7 +32,7 @@ const PluginView: React.FC = () => {
                 if (!entry) throw new Error(`Plugin ${pluginName} not found`);
 
                 const modules = import.meta.glob('../data/plugins/*.json');
-                const path = `../data/plugins/${entry.fileName}`;
+                const path = `../data/plugins/${pluginName}.json`;
                 if (!modules[path]) throw new Error(`Data file ${path} not found`);
 
                 const module = await modules[path]();
@@ -52,7 +56,7 @@ const PluginView: React.FC = () => {
     if (loading) return (
         <div className="flex flex-col items-center justify-center py-24 gap-4">
             <div className="w-12 h-12 border-4 border-indigo-500/20 border-t-indigo-500 rounded-full animate-spin" />
-            <p className="text-slate-400 font-medium">Loading API definitions...</p>
+            <p className="text-slate-400 font-medium">Loading SDK definitions...</p>
         </div>
     );
 
@@ -61,24 +65,45 @@ const PluginView: React.FC = () => {
 
     return (
         <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <nav className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-2">
-                <Link to="/" className="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors flex items-center gap-1">
-                    Reference
-                </Link>
-                <ChevronRight size={14} />
-                <span className="text-slate-900 dark:text-slate-200 font-medium">{data?.name || pluginName}</span>
-            </nav>
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-2">
+                <nav className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+                    <Link to="/" className="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors flex items-center gap-1">
+                        Reference
+                    </Link>
+                    <ChevronRight size={14} />
+                    <span className="text-slate-900 dark:text-slate-200 font-medium">{data?.name || pluginName}</span>
+                </nav>
+
+                <a
+                    href={`https://github.com/imtrinity94/modern-vroapi/blob/main/vro-doc-site/src/data/plugins/${pluginName}.json`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-xs font-semibold px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-lg transition-colors border border-slate-200 dark:border-slate-700 w-fit"
+                >
+                    <Edit3 size={14} />
+                    <span>Suggest Edit</span>
+                </a>
+            </div>
 
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-                <div>
-                    <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight break-all">
-                        {data.name}
-                    </h1>
-                    <div className="mt-3 flex items-center gap-4 text-slate-500 dark:text-slate-400 text-sm">
-                        <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium border border-slate-200 dark:border-slate-700">
-                            <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                            {data.classes.length} Classes & Interfaces
-                        </span>
+                <div className="flex items-start gap-5">
+                    <div className={`${pluginMeta.image ? 'p-0' : 'p-4'} rounded-2xl bg-${color}-50 dark:bg-${color}-500/10 text-${color}-600 dark:text-${color}-400 border border-${color}-100 dark:border-${color}-500/20 shadow-sm w-20 h-20 flex items-center justify-center overflow-hidden`}>
+                        {pluginMeta.image ? (
+                            <img src={pluginMeta.image} alt={data.name} className="w-full h-full object-cover" />
+                        ) : (
+                            PluginIcon && <PluginIcon size={40} />
+                        )}
+                    </div>
+                    <div>
+                        <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight break-all">
+                            {data.name}
+                        </h1>
+                        <div className="mt-3 flex items-center gap-4 text-slate-500 dark:text-slate-400 text-sm">
+                            <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium border border-slate-200 dark:border-slate-700">
+                                <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                                {data.classes.length} Classes & Interfaces
+                            </span>
+                        </div>
                     </div>
                 </div>
 

@@ -1,0 +1,26 @@
+
+export const PLUGIN_NAMES: Record<string, string> = {
+    'o11n-core': 'Orchestrator Core',
+    'o11n-plugin-activedirectory': 'Active Directory',
+    'o11n-plugin-amqp': 'AMQP',
+    'o11n-plugin-azure': 'Microsoft Azure',
+    'o11n-plugin-crypto': 'Crypto',
+    'o11n-plugin-dynamictypes': 'Dynamic Types',
+    'o11n-plugin-mail': 'Mail',
+    'o11n-plugin-mqtt': 'MQTT',
+    'o11n-plugin-net': 'Networking',
+    'o11n-plugin-nsx': 'VMware NSX',
+    'o11n-plugin-powershell': 'PowerShell',
+    'o11n-plugin-rest': 'REST API',
+    'o11n-plugin-snmp': 'SNMP',
+    'o11n-plugin-soap': 'SOAP API',
+    'o11n-plugin-sql': 'SQL Database',
+    'o11n-plugin-ssh': 'SSH',
+    'o11n-plugin-vapi': 'vAPI',
+    'o11n-plugin-vc': 'vCenter',
+    'o11n-plugin-vcloud': 'vCloud Director',
+    'o11n-plugin-vco': 'Orchestrator Utils',
+    'o11n-plugin-vum': 'vCenter Update Manager',
+    'o11n-plugin-xml': 'XML',
+    'o11n-plugin-aria': 'Aria Automation'
+};
