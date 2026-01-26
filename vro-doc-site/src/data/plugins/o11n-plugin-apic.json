@@ -1,5 +1,5 @@
 {
-  "name": "o11n-plugin-apic",
+  "name": "Cisco APIC",
   "classes": [
     {
       "name": "ApicResponse",

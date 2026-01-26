@@ -24,7 +24,7 @@ const PluginView: React.FC = () => {
             if (!pluginName) return;
             setLoading(true);
             try {
-                const entry = pluginIndex.find(p => p.name === pluginName);
+                const entry = pluginIndex.find(p => p.id === pluginName);
                 if (!entry) throw new Error(`Plugin ${pluginName} not found`);
 
                 const modules = import.meta.glob('../data/plugins/*.json');
@@ -66,7 +66,7 @@ const PluginView: React.FC = () => {
                     Reference
                 </Link>
                 <ChevronRight size={14} />
-                <span className="text-slate-900 dark:text-slate-200 font-medium">{pluginName}</span>
+                <span className="text-slate-900 dark:text-slate-200 font-medium">{data?.name || pluginName}</span>
             </nav>
 
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">

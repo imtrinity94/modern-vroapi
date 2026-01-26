@@ -1,5 +1,5 @@
 {
-  "name": "o11n-plugin-mqtt",
+  "name": "MQTT",
   "classes": [
     {
       "name": "MQTTBroker",

@@ -22,7 +22,7 @@ const ClassView: React.FC = () => {
             if (!pluginName) return;
             setLoading(true);
             try {
-                const entry = pluginIndex.find(p => p.name === pluginName);
+                const entry = pluginIndex.find(p => p.id === pluginName);
                 if (!entry) throw new Error(`Plugin ${pluginName} not found`);
 
                 const modules = import.meta.glob('../data/plugins/*.json');
@@ -51,7 +51,9 @@ const ClassView: React.FC = () => {
             <nav className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
                 <Link to="/" className="hover:text-indigo-500 dark:hover:text-indigo-400">Reference</Link>
                 <ChevronRight size={14} />
-                <Link to={`/plugin/${pluginName}`} className="hover:text-indigo-500 dark:hover:text-indigo-400">{pluginName}</Link>
+                <Link to={`/plugin/${pluginName}`} className="hover:text-indigo-500 dark:hover:text-indigo-400">
+                    {pluginIndex.find(p => p.id === pluginName)?.name || pluginName}
+                </Link>
                 <ChevronRight size={14} />
                 <span className="text-slate-900 dark:text-white font-mono font-bold bg-slate-200 dark:bg-slate-800 px-2 py-0.5 rounded">{className}</span>
             </nav>

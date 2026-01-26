@@ -1,5 +1,5 @@
 {
-  "name": "o11n-plugin-vco",
+  "name": "Orchestrator Utils",
   "classes": [
     {
       "name": "VCODeploymentStatus",

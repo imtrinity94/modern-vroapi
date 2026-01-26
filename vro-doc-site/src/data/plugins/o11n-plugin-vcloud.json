@@ -1,5 +1,5 @@
 {
-  "name": "o11n-plugin-vcloud",
+  "name": "vCloud Director",
   "classes": [
     {
       "name": "VclHost",

@@ -5,6 +5,47 @@ import * as ts from 'typescript';
 
 const BTVA_DIR = path.resolve(process.cwd(), '../BTVA');
 
+const PLUGIN_NAME_MAP: Record<string, string> = {
+    'o11n-core': 'Core Standard',
+    'o11n-plugin-activedirectory': 'Active Directory',
+    'o11n-plugin-amqp': 'AMQP',
+    'o11n-plugin-apic': 'Cisco APIC',
+    'o11n-plugin-aria': 'Aria Automation',
+    'o11n-plugin-azure': 'Azure',
+    'o11n-plugin-crypto': 'Crypto',
+    'o11n-plugin-dynamictypes': 'Dynamic Types',
+    'o11n-plugin-mail': 'Mail',
+    'o11n-plugin-mqtt': 'MQTT',
+    'o11n-plugin-net': 'Net',
+    'o11n-plugin-nsx': 'NSX-T',
+    'o11n-plugin-powershell': 'PowerShell',
+    'o11n-plugin-rest': 'HTTP-REST',
+    'o11n-plugin-snmp': 'SNMP',
+    'o11n-plugin-soap': 'SOAP',
+    'o11n-plugin-sql': 'SQL',
+    'o11n-plugin-ssh': 'SSH',
+    'o11n-plugin-vapi': 'vAPI',
+    'o11n-plugin-vc': 'vCenter',
+    'o11n-plugin-vcloud': 'vCloud Director',
+    'o11n-plugin-vco': 'Orchestrator Utils',
+    'o11n-plugin-vum': 'vSphere Update Manager',
+    'o11n-plugin-xml': 'XML'
+};
+
+function getFriendlyName(internalName: string): string {
+    if (PLUGIN_NAME_MAP[internalName]) {
+        return PLUGIN_NAME_MAP[internalName];
+    }
+
+    // Fallback: strip o11n-plugin- and o11n- and capitalize
+    return internalName
+        .replace(/^o11n-plugin-/, '')
+        .replace(/^o11n-/, '')
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+}
+
 interface ApiMethod {
     name: string;
     parameters: string;
@@ -132,7 +173,7 @@ function main() {
         fs.mkdirSync(PLUGINS_DIR, { recursive: true });
     }
 
-    const pluginIndex: { name: string; fileName: string }[] = [];
+    const pluginIndex: { id: string; name: string; fileName: string }[] = [];
     const entries = fs.readdirSync(BTVA_DIR, { withFileTypes: true });
 
     for (const entry of entries) {
@@ -141,13 +182,14 @@ function main() {
             if (fs.existsSync(indexPath)) {
                 console.log(`Processing ${entry.name}...`);
                 try {
-                    const plugin = processFile(indexPath, entry.name);
+                    const friendlyName = getFriendlyName(entry.name);
+                    const plugin = processFile(indexPath, friendlyName);
                     const fileName = `${entry.name}.json`;
                     fs.writeFileSync(
                         path.join(PLUGINS_DIR, fileName),
                         JSON.stringify(plugin, null, 2)
                     );
-                    pluginIndex.push({ name: entry.name, fileName });
+                    pluginIndex.push({ id: entry.name, name: friendlyName, fileName });
                 } catch (e) {
                     console.error(`Failed to process ${entry.name}:`, e);
                 }

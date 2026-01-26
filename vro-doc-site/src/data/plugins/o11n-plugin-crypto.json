@@ -1,5 +1,5 @@
 {
-  "name": "o11n-plugin-crypto",
+  "name": "Crypto",
   "classes": [
     {
       "name": "CryptoCertificate",

@@ -1,5 +1,5 @@
 {
-  "name": "o11n-plugin-azure",
+  "name": "Azure",
   "classes": [
     {
       "name": "AzureDeploymentMode",

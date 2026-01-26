@@ -1,5 +1,5 @@
 {
-  "name": "o11n-plugin-vum",
+  "name": "vSphere Update Manager",
   "classes": [
     {
       "name": "VumBaseline",

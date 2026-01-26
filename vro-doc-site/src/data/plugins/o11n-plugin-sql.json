@@ -1,5 +1,5 @@
 {
-  "name": "o11n-plugin-sql",
+  "name": "SQL",
   "classes": [
     {
       "name": "SQLDatabaseManager",

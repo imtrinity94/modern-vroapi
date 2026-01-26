@@ -1,5 +1,5 @@
 {
-  "name": "o11n-plugin-powershell",
+  "name": "PowerShell",
   "classes": [
     {
       "name": "PowerShellAuthorizationMode",

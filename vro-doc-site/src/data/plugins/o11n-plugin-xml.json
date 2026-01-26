@@ -1,5 +1,5 @@
 {
-  "name": "o11n-plugin-xml",
+  "name": "XML",
   "classes": [
     {
       "name": "XMLManager",

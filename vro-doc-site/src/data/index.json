@@ -1,98 +1,122 @@
 [
   {
-    "name": "o11n-core",
+    "id": "o11n-core",
+    "name": "Core Standard",
     "fileName": "o11n-core.json"
   },
   {
-    "name": "o11n-plugin-activedirectory",
+    "id": "o11n-plugin-activedirectory",
+    "name": "Active Directory",
     "fileName": "o11n-plugin-activedirectory.json"
   },
   {
-    "name": "o11n-plugin-amqp",
+    "id": "o11n-plugin-amqp",
+    "name": "AMQP",
     "fileName": "o11n-plugin-amqp.json"
   },
   {
-    "name": "o11n-plugin-apic",
+    "id": "o11n-plugin-apic",
+    "name": "Cisco APIC",
     "fileName": "o11n-plugin-apic.json"
   },
   {
-    "name": "o11n-plugin-aria",
+    "id": "o11n-plugin-aria",
+    "name": "Aria Automation",
     "fileName": "o11n-plugin-aria.json"
   },
   {
-    "name": "o11n-plugin-azure",
+    "id": "o11n-plugin-azure",
+    "name": "Azure",
     "fileName": "o11n-plugin-azure.json"
   },
   {
-    "name": "o11n-plugin-crypto",
+    "id": "o11n-plugin-crypto",
+    "name": "Crypto",
     "fileName": "o11n-plugin-crypto.json"
   },
   {
-    "name": "o11n-plugin-dynamictypes",
+    "id": "o11n-plugin-dynamictypes",
+    "name": "Dynamic Types",
     "fileName": "o11n-plugin-dynamictypes.json"
   },
   {
-    "name": "o11n-plugin-mail",
+    "id": "o11n-plugin-mail",
+    "name": "Mail",
     "fileName": "o11n-plugin-mail.json"
   },
   {
-    "name": "o11n-plugin-mqtt",
+    "id": "o11n-plugin-mqtt",
+    "name": "MQTT",
     "fileName": "o11n-plugin-mqtt.json"
   },
   {
-    "name": "o11n-plugin-net",
+    "id": "o11n-plugin-net",
+    "name": "Net",
     "fileName": "o11n-plugin-net.json"
   },
   {
-    "name": "o11n-plugin-nsx",
+    "id": "o11n-plugin-nsx",
+    "name": "NSX-T",
     "fileName": "o11n-plugin-nsx.json"
   },
   {
-    "name": "o11n-plugin-powershell",
+    "id": "o11n-plugin-powershell",
+    "name": "PowerShell",
     "fileName": "o11n-plugin-powershell.json"
   },
   {
-    "name": "o11n-plugin-rest",
+    "id": "o11n-plugin-rest",
+    "name": "HTTP-REST",
     "fileName": "o11n-plugin-rest.json"
   },
   {
-    "name": "o11n-plugin-snmp",
+    "id": "o11n-plugin-snmp",
+    "name": "SNMP",
     "fileName": "o11n-plugin-snmp.json"
   },
   {
-    "name": "o11n-plugin-soap",
+    "id": "o11n-plugin-soap",
+    "name": "SOAP",
     "fileName": "o11n-plugin-soap.json"
   },
   {
-    "name": "o11n-plugin-sql",
+    "id": "o11n-plugin-sql",
+    "name": "SQL",
     "fileName": "o11n-plugin-sql.json"
   },
   {
-    "name": "o11n-plugin-ssh",
+    "id": "o11n-plugin-ssh",
+    "name": "SSH",
     "fileName": "o11n-plugin-ssh.json"
   },
   {
-    "name": "o11n-plugin-vapi",
+    "id": "o11n-plugin-vapi",
+    "name": "vAPI",
     "fileName": "o11n-plugin-vapi.json"
   },
   {
-    "name": "o11n-plugin-vc",
+    "id": "o11n-plugin-vc",
+    "name": "vCenter",
     "fileName": "o11n-plugin-vc.json"
   },
   {
-    "name": "o11n-plugin-vcloud",
+    "id": "o11n-plugin-vcloud",
+    "name": "vCloud Director",
     "fileName": "o11n-plugin-vcloud.json"
   },
   {
-    "name": "o11n-plugin-vco",
+    "id": "o11n-plugin-vco",
+    "name": "Orchestrator Utils",
     "fileName": "o11n-plugin-vco.json"
   },
   {
-    "name": "o11n-plugin-vum",
+    "id": "o11n-plugin-vum",
+    "name": "vSphere Update Manager",
     "fileName": "o11n-plugin-vum.json"
   },
   {
-    "name": "o11n-plugin-xml",
+    "id": "o11n-plugin-xml",
+    "name": "XML",
     "fileName": "o11n-plugin-xml.json"
   }
 ]

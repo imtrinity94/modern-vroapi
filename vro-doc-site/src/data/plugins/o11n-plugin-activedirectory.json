@@ -1,5 +1,5 @@
 {
-  "name": "o11n-plugin-activedirectory",
+  "name": "Active Directory",
   "classes": [
     {
       "name": "LdapClientFactory",

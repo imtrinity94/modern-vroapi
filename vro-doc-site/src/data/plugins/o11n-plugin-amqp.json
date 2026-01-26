@@ -1,5 +1,5 @@
 {
-  "name": "o11n-plugin-amqp",
+  "name": "AMQP",
   "classes": [
     {
       "name": "AMQPBroker",

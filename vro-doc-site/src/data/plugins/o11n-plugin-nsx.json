@@ -1,5 +1,5 @@
 {
-  "name": "o11n-plugin-nsx",
+  "name": "NSX-T",
   "classes": [
     {
       "name": "NSXAddressGroup",

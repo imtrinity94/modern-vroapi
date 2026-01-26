@@ -1,5 +1,5 @@
 {
-  "name": "o11n-plugin-snmp",
+  "name": "SNMP",
   "classes": [
     {
       "name": "SNMPSnmpDevice",
