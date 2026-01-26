@@ -13,7 +13,7 @@ const Layout: React.FC = () => {
                 <div className="container mx-auto px-4 md:px-6 h-16 md:h-24 flex items-center justify-between gap-4 md:gap-8">
                     <Link to="/" className="flex items-center gap-2 md:gap-4 shrink-0">
                         <div className="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center shrink-0">
-                            <img src="/logo.png" alt="VCF Orchestrator" className="w-full h-full object-contain" />
+                            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="VCF Orchestrator" className="w-full h-full object-contain" />
                         </div>
                         <span className="text-xl md:text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-white dark:to-slate-400 leading-tight">
                             <span className="hidden sm:inline">VCF Orchestrator JavaScript SDK APIs</span>

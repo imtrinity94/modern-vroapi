@@ -21,7 +21,7 @@
 - 🌓 **Dark Mode**: Native support for dark and light themes with a premium glassmorphic UI.
 - 📱 **Fully Responsive**: Optimized for everything from mobile phones up to 4K monitors.
 - 🛠 **Community Registry**: Easy "Suggest Edit" buttons on every page to keep metadata accurate via GitHub.
-- 🐇 **Hybrid Data**: Supports both Lucide vector icons and official branding for plugins like RabbitMQ (AMQP).
+- 🐇 **Hybrid Data**: Supports both Lucide vector icons and official branding for plugins (e.g., <img src="vro-doc-site/public/icons/amqp.png" width="20" height="20" align="center"> **AMQP/RabbitMQ**).
 
 ---
 
