@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="public/logo.png" width="120" height="120" alt="VCF Orchestrator Logo">
+  <img src="vro-doc-site/public/logo.png" width="120" height="120" alt="VCF Orchestrator Logo">
   <h1>VCF Orchestrator JavaScript SDK APIs</h1>
   <p>A modern, high-performance API reference for VMware Cloud Foundation Orchestrator (vRO) Plugins.</p>
 
