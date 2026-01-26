@@ -9,7 +9,7 @@ To run the documentation site on your machine:
 
 > [!TIP]
 > If you add new plugins to the `BTVA` folder, update the documentation data by running:
-> `npx ts-node scripts/generate-docs.ts`
+> `npx tsx scripts/generate-docs.ts`
 
 ---
 
