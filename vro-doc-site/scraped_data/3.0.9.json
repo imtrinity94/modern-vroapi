@@ -1,0 +1,2450 @@
+{
+  "name": "Unknown Plugin",
+  "classes": [
+    {
+      "name": "AdHost",
+      "description": "",
+      "attributes": [],
+      "methods": []
+    },
+    {
+      "name": "AdPlugin",
+      "description": "",
+      "attributes": [],
+      "methods": []
+    },
+    {
+      "name": "Attribute",
+      "description": "",
+      "attributes": [],
+      "methods": []
+    },
+    {
+      "name": "ComputerAD",
+      "description": "",
+      "attributes": [],
+      "methods": []
+    },
+    {
+      "name": "Group",
+      "description": "",
+      "attributes": [],
+      "methods": []
+    },
+    {
+      "name": "OrganizationalUnit",
+      "description": "",
+      "attributes": [],
+      "methods": []
+    },
+    {
+      "name": "Unknown",
+      "description": "",
+      "attributes": [],
+      "methods": []
+    },
+    {
+      "name": "User",
+      "description": "",
+      "attributes": [],
+      "methods": []
+    },
+    {
+      "name": "UserGroup",
+      "description": "",
+      "attributes": [],
+      "methods": []
+    },
+    {
+      "name": "ActiveDirectory",
+      "description": "",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "createScriptingSingleton",
+          "parameters": "(ch.dunes.vso.sdk.api.IPluginFactory )",
+          "returnType": "ActiveDirectory",
+          "description": ""
+        },
+        {
+          "name": "getAllDomainControllerComputers",
+          "parameters": "(AD_Host )",
+          "returnType": "Object[]",
+          "description": ""
+        },
+        {
+          "name": "getComputerAD",
+          "parameters": "(String computerName, AD_Host adServer)",
+          "returnType": "AD_Computer",
+          "description": ""
+        },
+        {
+          "name": "getComputerADRecursively",
+          "parameters": "(String , AD_Host )",
+          "returnType": "Object[]",
+          "description": ""
+        },
+        {
+          "name": "getDC",
+          "parameters": "(AD_Host adServer)",
+          "returnType": "AD_Computer",
+          "description": ""
+        },
+        {
+          "name": "getEntry",
+          "parameters": "(String , String[] , AD_Host )",
+          "returnType": "ch.dunes.ad.object.interfaces.IADBase",
+          "description": ""
+        },
+        {
+          "name": "rename",
+          "parameters": "(String , String , String , AD_Host )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "search",
+          "parameters": "(String type, String query, AD_Host adServer)",
+          "returnType": "Object[]",
+          "description": ""
+        },
+        {
+          "name": "searchExactMatch",
+          "parameters": "(String type, String objectName, Number limit, AD_Host adServer)",
+          "returnType": "Object[]",
+          "description": ""
+        },
+        {
+          "name": "searchForEntry",
+          "parameters": "(String , LdapSearchScope , Number , String , String[] , AD_Host )",
+          "returnType": "ch.dunes.ad.object.interfaces.IADBase",
+          "description": ""
+        },
+        {
+          "name": "searchRecursively",
+          "parameters": "(String , String , AD_Host )",
+          "returnType": "Object[]",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "AD_Computer",
+      "description": "",
+      "attributes": [
+        {
+          "name": "hostname",
+          "type": "String",
+          "description": "The remote\n                    host name"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "description": "The unique Id of the element"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "description": "The node name"
+        }
+      ],
+      "methods": [
+        {
+          "name": "com.vmware.o11n.plugin.ad.util.FqId",
+          "parameters": "(com.vmware.o11n.plugin.ad.util.FqId , com.unboundid.ldap.sdk.LDAPInterface , com.unboundid.ldap.sdk.Entry , ch.dunes.vso.sdk.api.IPluginNotificationHandler , ch.dunes.common.plugin.MSPluginFactory )",
+          "returnType": "constructor",
+          "description": ""
+        },
+        {
+          "name": "findByTypeAndId",
+          "parameters": "(String , com.vmware.o11n.plugin.ad.util.FqId )",
+          "returnType": "ch.dunes.common.object.interfaces.IBase",
+          "description": ""
+        },
+        {
+          "name": "findRelation",
+          "parameters": "(String )",
+          "returnType": "Object[]",
+          "description": ""
+        },
+        {
+          "name": "getEnabled",
+          "parameters": "()",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "getFinderType",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getUserAccountControl",
+          "parameters": "()",
+          "returnType": "Number",
+          "description": ""
+        },
+        {
+          "name": "hasChildrenInRelation",
+          "parameters": "(String )",
+          "returnType": "ch.dunes.vso.sdk.api.HasChildrenResult",
+          "description": ""
+        },
+        {
+          "name": "isDnCorrect",
+          "parameters": "()",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "isDnCorrect",
+          "parameters": "(String[] )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "setEnabled",
+          "parameters": "(boolean )",
+          "returnType": "void",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "AD_Group",
+      "description": "",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "String",
+          "description": "the unique Id of the element"
+        }
+      ],
+      "methods": [
+        {
+          "name": "com.vmware.o11n.plugin.ad.util.FqId",
+          "parameters": "(com.vmware.o11n.plugin.ad.util.FqId , com.unboundid.ldap.sdk.LDAPInterface , com.unboundid.ldap.sdk.Entry , ch.dunes.vso.sdk.api.IPluginNotificationHandler , ch.dunes.common.plugin.MSPluginFactory )",
+          "returnType": "constructor",
+          "description": ""
+        },
+        {
+          "name": "destroy",
+          "parameters": "(boolean )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "isDnCorrect",
+          "parameters": "()",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "isDnCorrect",
+          "parameters": "(String[] )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "rename",
+          "parameters": "(String )",
+          "returnType": "void",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "AD_Host",
+      "description": "",
+      "attributes": [
+        {
+          "name": "FINDER_TYPE",
+          "type": "String",
+          "description": ""
+        },
+        {
+          "name": "hostConfiguration",
+          "type": "AD_ServerConfiguration",
+          "description": "Active Directory host configuration settings for current AD_Host connection."
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Active directory\n                    configuration name"
+        },
+        {
+          "name": "Url",
+          "type": "String",
+          "description": "Active Directory host\n                    connection URL. Actual URL used for connection with Active Directory server. It might differ from\n                    configured values\n                    when current object represents sub-domain entity."
+        }
+      ],
+      "methods": [
+        {
+          "name": "ch.dunes.common.object.interfaces.ICredentials",
+          "parameters": "(ch.dunes.common.object.interfaces.ICredentials , ch.dunes.vso.sdk.api.IPluginNotificationHandler , ch.dunes.common.plugin.MSPluginFactory , AD_ServerConfiguration )",
+          "returnType": "constructor",
+          "description": ""
+        },
+        {
+          "name": "close",
+          "parameters": "()",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "findByTypeAndId",
+          "parameters": "(String , com.vmware.o11n.plugin.ad.util.FqId )",
+          "returnType": "ch.dunes.common.object.interfaces.IBase",
+          "description": ""
+        },
+        {
+          "name": "findRelation",
+          "parameters": "(String )",
+          "returnType": "Object[]",
+          "description": ""
+        },
+        {
+          "name": "getActiveDirectory",
+          "parameters": "()",
+          "returnType": "ch.dunes.ad.object.Domain",
+          "description": ""
+        },
+        {
+          "name": "getCredentials",
+          "parameters": "()",
+          "returnType": "ch.dunes.common.object.interfaces.ICredentials",
+          "description": ""
+        },
+        {
+          "name": "getEntry",
+          "parameters": "(String , String[] )",
+          "returnType": "ch.dunes.ad.object.interfaces.IADBase",
+          "description": ""
+        },
+        {
+          "name": "getFinderType",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getLdapClient",
+          "parameters": "()",
+          "returnType": "LdapClient",
+          "description": ""
+        },
+        {
+          "name": "getParent",
+          "parameters": "()",
+          "returnType": "ch.dunes.common.object.interfaces.IBase",
+          "description": ""
+        },
+        {
+          "name": "hasChildrenInRelation",
+          "parameters": "(String )",
+          "returnType": "ch.dunes.vso.sdk.api.HasChildrenResult",
+          "description": ""
+        },
+        {
+          "name": "invalidate",
+          "parameters": "()",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "isDefault",
+          "parameters": "()",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "refresh",
+          "parameters": "()",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "searchForEntry",
+          "parameters": "(String , LdapSearchScope , Number , String , String[] )",
+          "returnType": "ch.dunes.ad.object.interfaces.IADBase",
+          "description": ""
+        },
+        {
+          "name": "setDefault",
+          "parameters": "(boolean )",
+          "returnType": "void",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "AD_HostManager",
+      "description": "",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "createScriptingSingleton",
+          "parameters": "(ch.dunes.vso.sdk.api.IPluginFactory )",
+          "returnType": "AD_HostManager",
+          "description": ""
+        },
+        {
+          "name": "findAllHosts",
+          "parameters": "()",
+          "returnType": "Object[]",
+          "description": ""
+        },
+        {
+          "name": "findHost",
+          "parameters": "(String )",
+          "returnType": "AD_Host",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "AD_OrganizationalUnit",
+      "description": "",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "String",
+          "description": "the unique Id of the element"
+        }
+      ],
+      "methods": [
+        {
+          "name": "com.vmware.o11n.plugin.ad.util.FqId",
+          "parameters": "(com.vmware.o11n.plugin.ad.util.FqId , com.unboundid.ldap.sdk.LDAPInterface , com.unboundid.ldap.sdk.Entry , ch.dunes.vso.sdk.api.IPluginNotificationHandler , ch.dunes.common.plugin.MSPluginFactory )",
+          "returnType": "constructor",
+          "description": ""
+        },
+        {
+          "name": "getFinderType",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "isDnCorrect",
+          "parameters": "()",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "isDnCorrect",
+          "parameters": "(String[] )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "rename",
+          "parameters": "(String )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "searchComputer",
+          "parameters": "(String computerName)",
+          "returnType": "AD_Computer",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "AD_PluginOptions",
+      "description": "",
+      "attributes": [
+        {
+          "name": "DEFAULT_OPTIONS",
+          "type": "AD_PluginOptions",
+          "description": ""
+        },
+        {
+          "name": "defaultAdServerId",
+          "type": "String",
+          "description": "Default\n                    Active Directory end point id."
+        },
+        {
+          "name": "searchSizeLimit",
+          "type": "Number",
+          "description": "Maximum\n                    number of items that will be returned by a search."
+        },
+        {
+          "name": "searchSizeLimitPerServer",
+          "type": "Number",
+          "description": "Maximum number of items that will be returned by a search from single Active Directory server."
+        }
+      ],
+      "methods": [
+        {
+          "name": "AD_PluginOptions",
+          "parameters": "(AD_PluginOptions )",
+          "returnType": "constructor",
+          "description": ""
+        },
+        {
+          "name": "getSearchTimeoutInSec",
+          "parameters": "()",
+          "returnType": "Number",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "AD_ServerConfiguration",
+      "description": "",
+      "attributes": [
+        {
+          "name": "alternativeHosts",
+          "type": "String[]",
+          "description": "Alternative host adresses"
+        },
+        {
+          "name": "defaultDomain",
+          "type": "String",
+          "description": "Default domain"
+        },
+        {
+          "name": "followReferrals",
+          "type": "boolean",
+          "description": "Follow refferals"
+        },
+        {
+          "name": "host",
+          "type": "String",
+          "description": "Active Directory host"
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "description": "Id"
+        },
+        {
+          "name": "ldapBase",
+          "type": "String",
+          "description": "Root"
+        },
+        {
+          "name": "loadBalancingMode",
+          "type": "LdapLoadBalancingMode",
+          "description": "Strategy for load balancing between configured alternative hosts."
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Name"
+        },
+        {
+          "name": "port",
+          "type": "Number",
+          "description": "Active Directory port"
+        },
+        {
+          "name": "sharedUserName",
+          "type": "String",
+          "description": "User name for\n                    shared\n                    session"
+        },
+        {
+          "name": "sharedUserPassword",
+          "type": "String",
+          "description": "Password\n                    for shared\n                    session"
+        },
+        {
+          "name": "useSharedSession",
+          "type": "boolean",
+          "description": "Use a\n                    shared session"
+        },
+        {
+          "name": "useSSL",
+          "type": "boolean",
+          "description": "Use SSL"
+        }
+      ],
+      "methods": [
+        {
+          "name": "AD_ServerConfiguration",
+          "parameters": "()",
+          "returnType": "constructor",
+          "description": ""
+        },
+        {
+          "name": "clone",
+          "parameters": "()",
+          "returnType": "AD_ServerConfiguration",
+          "description": ""
+        },
+        {
+          "name": "equals",
+          "parameters": "(Object )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "getConnectTimeoutMillis",
+          "parameters": "()",
+          "returnType": "Number",
+          "description": ""
+        },
+        {
+          "name": "getCustomProperty",
+          "parameters": "(String )",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getCustomProperty",
+          "parameters": "(String , String )",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getDCNames",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getLdapUrl",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "hashCode",
+          "parameters": "()",
+          "returnType": "Number",
+          "description": ""
+        },
+        {
+          "name": "isEmpty",
+          "parameters": "()",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "isSubDomainAutoConnect",
+          "parameters": "()",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "setConnectTimeoutMillis",
+          "parameters": "(Number )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setCustomProperty",
+          "parameters": "(String , String )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setDcNames",
+          "parameters": "(String )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setSubDomainAutoConnect",
+          "parameters": "(boolean )",
+          "returnType": "void",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "AD_Unknown",
+      "description": "",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "String",
+          "description": "the unique Id of the element"
+        }
+      ],
+      "methods": [
+        {
+          "name": "com.vmware.o11n.plugin.ad.util.FqId",
+          "parameters": "(com.vmware.o11n.plugin.ad.util.FqId , com.unboundid.ldap.sdk.LDAPInterface , com.unboundid.ldap.sdk.Entry , ch.dunes.vso.sdk.api.IPluginNotificationHandler , ch.dunes.common.plugin.MSPluginFactory )",
+          "returnType": "constructor",
+          "description": ""
+        },
+        {
+          "name": "isDnCorrect",
+          "parameters": "()",
+          "returnType": "boolean",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "AD_User",
+      "description": "",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "String",
+          "description": "the unique Id of the element"
+        }
+      ],
+      "methods": [
+        {
+          "name": "com.vmware.o11n.plugin.ad.util.FqId",
+          "parameters": "(com.vmware.o11n.plugin.ad.util.FqId , com.unboundid.ldap.sdk.LDAPInterface , com.unboundid.ldap.sdk.Entry , ch.dunes.vso.sdk.api.IPluginNotificationHandler , ch.dunes.common.plugin.MSPluginFactory )",
+          "returnType": "constructor",
+          "description": ""
+        },
+        {
+          "name": "getAccountName",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getDisplayName",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getEnabled",
+          "parameters": "()",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "getGivenName",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getLastLogoff",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getLastLogon",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getMemberOf",
+          "parameters": "()",
+          "returnType": "AD_UserGroup[]",
+          "description": ""
+        },
+        {
+          "name": "getObjectClass",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getObjectUID",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getPrimaryGroupID",
+          "parameters": "()",
+          "returnType": "Number",
+          "description": ""
+        },
+        {
+          "name": "getSID",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getUserAccountControl",
+          "parameters": "()",
+          "returnType": "Number",
+          "description": ""
+        },
+        {
+          "name": "getUserPrincipalName",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "isDnCorrect",
+          "parameters": "()",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "isDnCorrect",
+          "parameters": "(String[] )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "setChangePasswordAtNextLogon",
+          "parameters": "(boolean )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setEnabled",
+          "parameters": "(boolean )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setPassword",
+          "parameters": "(String )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setUserPrincipalName",
+          "parameters": "(String )",
+          "returnType": "void",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "AD_UserGroup",
+      "description": "",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "String",
+          "description": "the unique Id of the element"
+        }
+      ],
+      "methods": [
+        {
+          "name": "com.vmware.o11n.plugin.ad.util.FqId",
+          "parameters": "(com.vmware.o11n.plugin.ad.util.FqId , com.unboundid.ldap.sdk.LDAPInterface , com.unboundid.ldap.sdk.Entry , ch.dunes.vso.sdk.api.IPluginNotificationHandler , ch.dunes.common.plugin.MSPluginFactory )",
+          "returnType": "constructor",
+          "description": ""
+        },
+        {
+          "name": "addElements",
+          "parameters": "(ch.dunes.ad.object.interfaces.IADBase[] )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "getComputerMembers",
+          "parameters": "()",
+          "returnType": "AD_Computer[]",
+          "description": ""
+        },
+        {
+          "name": "getGroupMembers",
+          "parameters": "()",
+          "returnType": "AD_UserGroup[]",
+          "description": ""
+        },
+        {
+          "name": "getMemberOf",
+          "parameters": "()",
+          "returnType": "AD_UserGroup[]",
+          "description": ""
+        },
+        {
+          "name": "getSID",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getUserMembers",
+          "parameters": "()",
+          "returnType": "AD_User[]",
+          "description": ""
+        },
+        {
+          "name": "isDnCorrect",
+          "parameters": "()",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "isDnCorrect",
+          "parameters": "(String[] )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "refresh",
+          "parameters": "()",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "removeElements",
+          "parameters": "(ch.dunes.ad.object.interfaces.IADBase[] )",
+          "returnType": "void",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "ConfigurationManager",
+      "description": "",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "ch.dunes.common.plugin.MSPluginFactory",
+          "parameters": "(ch.dunes.common.plugin.MSPluginFactory )",
+          "returnType": "constructor",
+          "description": ""
+        },
+        {
+          "name": "createScriptingSingleton",
+          "parameters": "(ch.dunes.vso.sdk.api.IPluginFactory )",
+          "returnType": "ConfigurationManager",
+          "description": ""
+        },
+        {
+          "name": "deleteConfiguration",
+          "parameters": "(String )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "findAll",
+          "parameters": "()",
+          "returnType": "Object[]",
+          "description": ""
+        },
+        {
+          "name": "getConfigurationById",
+          "parameters": "(String )",
+          "returnType": "AD_ServerConfiguration",
+          "description": ""
+        },
+        {
+          "name": "getPluginOptions",
+          "parameters": "()",
+          "returnType": "AD_PluginOptions",
+          "description": ""
+        },
+        {
+          "name": "reset",
+          "parameters": "()",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "saveConfiguration",
+          "parameters": "(AD_ServerConfiguration )",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "savePluginOptions",
+          "parameters": "(java.util.Properties )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "updateConfiguration",
+          "parameters": "(AD_ServerConfiguration )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "validateConfiguration",
+          "parameters": "(AD_ServerConfiguration )",
+          "returnType": "void",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "LdapAttribute",
+      "description": "",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "String",
+          "parameters": "(String name)",
+          "returnType": "constructor",
+          "description": ""
+        },
+        {
+          "name": "String",
+          "parameters": "(String name, String[] values)",
+          "returnType": "constructor",
+          "description": ""
+        },
+        {
+          "name": "encode",
+          "parameters": "()",
+          "returnType": "com.unboundid.asn1.ASN1Sequence",
+          "description": ""
+        },
+        {
+          "name": "equals",
+          "parameters": "(Object )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "getBaseName",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getDelegate",
+          "parameters": "()",
+          "returnType": "com.unboundid.ldap.sdk.Attribute",
+          "description": ""
+        },
+        {
+          "name": "getMatchingRule",
+          "parameters": "()",
+          "returnType": "com.unboundid.ldap.matchingrules.MatchingRule",
+          "description": ""
+        },
+        {
+          "name": "getName",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getOptions",
+          "parameters": "()",
+          "returnType": "java.util.Set",
+          "description": ""
+        },
+        {
+          "name": "getRawValues",
+          "parameters": "()",
+          "returnType": "com.unboundid.asn1.ASN1OctetString[]",
+          "description": ""
+        },
+        {
+          "name": "getValue",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getValueAsBoolean",
+          "parameters": "()",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "getValueAsDate",
+          "parameters": "()",
+          "returnType": "java.util.Date",
+          "description": ""
+        },
+        {
+          "name": "getValueAsDN",
+          "parameters": "()",
+          "returnType": "com.unboundid.ldap.sdk.DN",
+          "description": ""
+        },
+        {
+          "name": "getValueAsInteger",
+          "parameters": "()",
+          "returnType": "Number",
+          "description": ""
+        },
+        {
+          "name": "getValueAsLong",
+          "parameters": "()",
+          "returnType": "Number",
+          "description": ""
+        },
+        {
+          "name": "getValueByteArray",
+          "parameters": "()",
+          "returnType": "Number[]",
+          "description": ""
+        },
+        {
+          "name": "getValueByteArrays",
+          "parameters": "()",
+          "returnType": "Number[][]",
+          "description": ""
+        },
+        {
+          "name": "getValues",
+          "parameters": "()",
+          "returnType": "String[]",
+          "description": ""
+        },
+        {
+          "name": "hashCode",
+          "parameters": "()",
+          "returnType": "Number",
+          "description": ""
+        },
+        {
+          "name": "hasOption",
+          "parameters": "(String )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "hasOptions",
+          "parameters": "()",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "hasValue",
+          "parameters": "()",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "hasValue",
+          "parameters": "(String )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "hasValueAsByte",
+          "parameters": "(Number[] )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "nameIsValid",
+          "parameters": "()",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "needsBase64Encoding",
+          "parameters": "()",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "setDelegate",
+          "parameters": "(com.unboundid.ldap.sdk.Attribute )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "parameters": "()",
+          "returnType": "Number",
+          "description": ""
+        },
+        {
+          "name": "toString",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "toString",
+          "parameters": "(java.lang.StringBuilder )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "writeTo",
+          "parameters": "(com.unboundid.asn1.ASN1Buffer )",
+          "returnType": "void",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "LdapClient",
+      "description": "",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "com.unboundid.ldap.sdk.LDAPConnection",
+          "parameters": "(com.unboundid.ldap.sdk.LDAPConnection )",
+          "returnType": "constructor",
+          "description": ""
+        },
+        {
+          "name": "addAttribute",
+          "parameters": "(String , Object[] )",
+          "returnType": "LdapResult",
+          "description": ""
+        },
+        {
+          "name": "addEntry",
+          "parameters": "(LdapEntry )",
+          "returnType": "LdapResult",
+          "description": ""
+        },
+        {
+          "name": "bind",
+          "parameters": "(String , String )",
+          "returnType": "LdapResult",
+          "description": ""
+        },
+        {
+          "name": "close",
+          "parameters": "()",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "connect",
+          "parameters": "(String , Number , Number )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "delete",
+          "parameters": "(String )",
+          "returnType": "LdapResult",
+          "description": ""
+        },
+        {
+          "name": "deleteByDeleteRequest",
+          "parameters": "(LdapDeleteRequest )",
+          "returnType": "LdapResult",
+          "description": ""
+        },
+        {
+          "name": "getConnection",
+          "parameters": "()",
+          "returnType": "com.unboundid.ldap.sdk.LDAPConnection",
+          "description": ""
+        },
+        {
+          "name": "getConnectionName",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getConnectionStatistics",
+          "parameters": "()",
+          "returnType": "com.unboundid.ldap.sdk.LDAPConnectionStatistics",
+          "description": ""
+        },
+        {
+          "name": "getConnectTime",
+          "parameters": "()",
+          "returnType": "Number",
+          "description": ""
+        },
+        {
+          "name": "getDisconnectCause",
+          "parameters": "()",
+          "returnType": "java.lang.Throwable",
+          "description": ""
+        },
+        {
+          "name": "getDisconnectMessage",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getEntry",
+          "parameters": "(String , String[] )",
+          "returnType": "LdapEntry",
+          "description": ""
+        },
+        {
+          "name": "getLastCommunicationTime",
+          "parameters": "()",
+          "returnType": "Number",
+          "description": ""
+        },
+        {
+          "name": "getRootDSE",
+          "parameters": "()",
+          "returnType": "com.unboundid.ldap.sdk.RootDSE",
+          "description": ""
+        },
+        {
+          "name": "isConnected",
+          "parameters": "()",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "modify",
+          "parameters": "(String , Object[] )",
+          "returnType": "com.unboundid.ldap.sdk.LDAPResult",
+          "description": ""
+        },
+        {
+          "name": "modifyDN",
+          "parameters": "(String , String , boolean , String )",
+          "returnType": "LdapResult",
+          "description": ""
+        },
+        {
+          "name": "reconnect",
+          "parameters": "()",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "search",
+          "parameters": "(String , LdapSearchScope , LdapDereferencePolicy , Number , Number , String , String[] )",
+          "returnType": "LdapSearchResult",
+          "description": ""
+        },
+        {
+          "name": "searchBySearchRequest",
+          "parameters": "(LdapSearchRequest )",
+          "returnType": "LdapSearchResult",
+          "description": ""
+        },
+        {
+          "name": "searchForEntry",
+          "parameters": "(String , LdapSearchScope , Number , String , String[] )",
+          "returnType": "LdapEntry",
+          "description": ""
+        },
+        {
+          "name": "setConnectionName",
+          "parameters": "(String )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "toString",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "LdapClientFactory",
+      "description": "",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "createScriptingSingleton",
+          "parameters": "(ch.dunes.vso.sdk.api.IPluginFactory )",
+          "returnType": "LdapClientFactory",
+          "description": ""
+        },
+        {
+          "name": "newLdapClient",
+          "parameters": "(String , Number , String , String , boolean )",
+          "returnType": "LdapClient",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "LdapDeleteRequest",
+      "description": "",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "com.unboundid.ldap.sdk.DeleteRequest",
+          "parameters": "(com.unboundid.ldap.sdk.DeleteRequest )",
+          "returnType": "constructor",
+          "description": ""
+        },
+        {
+          "name": "createRequest",
+          "parameters": "(String , Object[] )",
+          "returnType": "LdapDeleteRequest",
+          "description": ""
+        },
+        {
+          "name": "duplicate",
+          "parameters": "(com.unboundid.ldap.sdk.Control[] )",
+          "returnType": "LdapDeleteRequest",
+          "description": ""
+        },
+        {
+          "name": "getDN",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "setDN",
+          "parameters": "(String )",
+          "returnType": "void",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "LdapDereferencePolicy",
+      "description": "",
+      "attributes": [
+        {
+          "name": "ALWAYS",
+          "type": "LdapDereferencePolicy",
+          "description": "A predefined dereference policy value which indicates that the server should dereference the base\n                    entry if it happens to be an alias entry, and should also dereference any entries that may be\n                    encountered while examining candidates."
+        },
+        {
+          "name": "FINDING",
+          "type": "LdapDereferencePolicy",
+          "description": "A predefined dereference policy value which indicates that the server should\n                    dereference the base entry if it happens to be an alias entry, but it should not dereference any\n                    alias entries that may be encountered while examining candidate entries."
+        },
+        {
+          "name": "NEVER",
+          "type": "LdapDereferencePolicy",
+          "description": "A\n                    predefined dereference policy value which indicates that the server should not dereference any\n                    aliases that it encounters."
+        },
+        {
+          "name": "SEARCHING",
+          "type": "LdapDereferencePolicy",
+          "description": "A predefined dereference policy value which indicates that the server should\n                    dereference any aliases that it may encounter while examining candidate entries, but it should not\n                    dereference the base entry if it happens to be an alias entry."
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "LdapDN",
+      "description": "",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "com.unboundid.ldap.sdk.DN",
+          "parameters": "(com.unboundid.ldap.sdk.DN )",
+          "returnType": "constructor",
+          "description": ""
+        },
+        {
+          "name": "equals",
+          "parameters": "(LdapDN dn)",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "fromParentDn",
+          "parameters": "(LdapRDN rdn, LdapDN parentDN)",
+          "returnType": "LdapRDN",
+          "description": ""
+        },
+        {
+          "name": "fromRdns",
+          "parameters": "(LdapRDN[] rdns)",
+          "returnType": "LdapRDN",
+          "description": ""
+        },
+        {
+          "name": "fromString",
+          "parameters": "(String dnString)",
+          "returnType": "LdapRDN",
+          "description": ""
+        },
+        {
+          "name": "getDelegate",
+          "parameters": "()",
+          "returnType": "com.unboundid.ldap.sdk.DN",
+          "description": ""
+        },
+        {
+          "name": "getParent",
+          "parameters": "()",
+          "returnType": "LdapDN",
+          "description": ""
+        },
+        {
+          "name": "getParentString",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getRDN",
+          "parameters": "()",
+          "returnType": "LdapRDN",
+          "description": ""
+        },
+        {
+          "name": "getRDNs",
+          "parameters": "()",
+          "returnType": "LdapRDN[]",
+          "description": ""
+        },
+        {
+          "name": "getRDNString",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getRDNStrings",
+          "parameters": "()",
+          "returnType": "String[]",
+          "description": ""
+        },
+        {
+          "name": "isAncestorOf",
+          "parameters": "()",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "isAncestorOf",
+          "parameters": "(LdapDN , boolean )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "isDescendantOf",
+          "parameters": "(LdapDN , boolean )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "isNullDN",
+          "parameters": "()",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "toNormalizedString",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "toString",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "LdapEntry",
+      "description": "",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "String",
+          "parameters": "(String dn, LdapAttribute[] values)",
+          "returnType": "constructor",
+          "description": ""
+        },
+        {
+          "name": "String[]",
+          "parameters": "(String[] entryLines)",
+          "returnType": "constructor",
+          "description": ""
+        },
+        {
+          "name": "addAttribute",
+          "parameters": "(LdapAttribute )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "addAttributeValue",
+          "parameters": "(String , String )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "addAttributeValueAsByte",
+          "parameters": "(String , Number[] )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "addAttributeValues",
+          "parameters": "(String , Object[] )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "equals",
+          "parameters": "(Object )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "getAttribute",
+          "parameters": "(String )",
+          "returnType": "LdapAttribute",
+          "description": ""
+        },
+        {
+          "name": "getAttributes",
+          "parameters": "()",
+          "returnType": "Object[]",
+          "description": ""
+        },
+        {
+          "name": "getAttributeValue",
+          "parameters": "(String )",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getAttributeValueAsBoolean",
+          "parameters": "(String )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "getAttributeValueAsBytes",
+          "parameters": "(String )",
+          "returnType": "Number[]",
+          "description": ""
+        },
+        {
+          "name": "getAttributeValueAsDate",
+          "parameters": "(String )",
+          "returnType": "java.util.Date",
+          "description": ""
+        },
+        {
+          "name": "getAttributeValueAsDN",
+          "parameters": "(String )",
+          "returnType": "com.unboundid.ldap.sdk.DN",
+          "description": ""
+        },
+        {
+          "name": "getAttributeValueAsInteger",
+          "parameters": "(String )",
+          "returnType": "Number",
+          "description": ""
+        },
+        {
+          "name": "getAttributeValueAsLong",
+          "parameters": "(String )",
+          "returnType": "Number",
+          "description": ""
+        },
+        {
+          "name": "getAttributeValueByteArrays",
+          "parameters": "(String )",
+          "returnType": "Number[][]",
+          "description": ""
+        },
+        {
+          "name": "getAttributeValues",
+          "parameters": "(String )",
+          "returnType": "String[]",
+          "description": ""
+        },
+        {
+          "name": "getDelegate",
+          "parameters": "()",
+          "returnType": "com.unboundid.ldap.sdk.Entry",
+          "description": ""
+        },
+        {
+          "name": "getDN",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getObjectClassAttribute",
+          "parameters": "()",
+          "returnType": "LdapAttribute",
+          "description": ""
+        },
+        {
+          "name": "getObjectClassValues",
+          "parameters": "()",
+          "returnType": "String[]",
+          "description": ""
+        },
+        {
+          "name": "getParentDN",
+          "parameters": "()",
+          "returnType": "com.unboundid.ldap.sdk.DN",
+          "description": ""
+        },
+        {
+          "name": "getParentDNString",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getParsedDN",
+          "parameters": "()",
+          "returnType": "LdapDN",
+          "description": ""
+        },
+        {
+          "name": "getRDN",
+          "parameters": "()",
+          "returnType": "com.unboundid.ldap.sdk.RDN",
+          "description": ""
+        },
+        {
+          "name": "hasAttribute",
+          "parameters": "(LdapAttribute )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "hasAttributeValue",
+          "parameters": "(String , String )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "hasAttributeValueBytes",
+          "parameters": "(String , Number[] )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "hasAttributeWithName",
+          "parameters": "(String )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "hashCode",
+          "parameters": "()",
+          "returnType": "Number",
+          "description": ""
+        },
+        {
+          "name": "hasObjectClass",
+          "parameters": "(String )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "matchesBaseAndScope",
+          "parameters": "(String , LdapSearchScope )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "matchesBaseAndScope",
+          "parameters": "(com.unboundid.ldap.sdk.DN , LdapSearchScope )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "removeAttribute",
+          "parameters": "(String )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "removeAttributeValue",
+          "parameters": "(String , String )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "removeAttributeValueAsBytes",
+          "parameters": "(String , Number[] )",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "setAttributeValue",
+          "parameters": "(String , String )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setAttributeValueAsBytes",
+          "parameters": "(String , Number[] )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setAttributeValues",
+          "parameters": "(String , Object[] )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setDN",
+          "parameters": "(String )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setDN",
+          "parameters": "(com.unboundid.ldap.sdk.DN )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "toLDIF",
+          "parameters": "()",
+          "returnType": "String[]",
+          "description": ""
+        },
+        {
+          "name": "toLDIF",
+          "parameters": "(Number )",
+          "returnType": "String[]",
+          "description": ""
+        },
+        {
+          "name": "toLDIF",
+          "parameters": "(com.unboundid.util.ByteStringBuffer )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "toLDIF",
+          "parameters": "(com.unboundid.util.ByteStringBuffer , Number )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "toLDIFString",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "toLDIFString",
+          "parameters": "(Number )",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "toLDIFString",
+          "parameters": "(java.lang.StringBuilder )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "toLDIFString",
+          "parameters": "(java.lang.StringBuilder , Number )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "toString",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "toString",
+          "parameters": "(java.lang.StringBuilder )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "unwrap",
+          "parameters": "(LdapEntry )",
+          "returnType": "com.unboundid.ldap.sdk.Entry",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "LdapFilter",
+      "description": "",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "create",
+          "parameters": "(String filterString)",
+          "returnType": "LdapFilter",
+          "description": ""
+        },
+        {
+          "name": "encodeValue",
+          "parameters": "(String value)",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "encodeValueBytes",
+          "parameters": "(Number[] value)",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "toNormalizedString",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "toString",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "LdapLoadBalancingMode",
+      "description": "",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "fromString",
+          "parameters": "(String value)",
+          "returnType": "LdapLoadBalancingMode",
+          "description": ""
+        },
+        {
+          "name": "getValue",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getValuesAsString",
+          "parameters": "()",
+          "returnType": "String[]",
+          "description": ""
+        },
+        {
+          "name": "valueOf",
+          "parameters": "(String )",
+          "returnType": "LdapLoadBalancingMode",
+          "description": ""
+        },
+        {
+          "name": "values",
+          "parameters": "()",
+          "returnType": "LdapLoadBalancingMode[]",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "LdapModification",
+      "description": "",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "LdapModificationType",
+          "parameters": "(LdapModificationType modificationType, String attributeName)",
+          "returnType": "constructor",
+          "description": ""
+        },
+        {
+          "name": "LdapModificationType",
+          "parameters": "(LdapModificationType modificationType, String attributeName, String attributeValue)",
+          "returnType": "constructor",
+          "description": ""
+        },
+        {
+          "name": "LdapModificationType",
+          "parameters": "(LdapModificationType modificationType, String attributeName, String[] attributeValues)",
+          "returnType": "constructor",
+          "description": ""
+        },
+        {
+          "name": "getAttribute",
+          "parameters": "()",
+          "returnType": "LdapAttribute",
+          "description": ""
+        },
+        {
+          "name": "getAttributeName",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getDelegate",
+          "parameters": "()",
+          "returnType": "com.unboundid.ldap.sdk.Modification",
+          "description": ""
+        },
+        {
+          "name": "getModificationType",
+          "parameters": "()",
+          "returnType": "LdapModificationType",
+          "description": ""
+        },
+        {
+          "name": "getValueByteArrays",
+          "parameters": "()",
+          "returnType": "Object",
+          "description": ""
+        },
+        {
+          "name": "getValues",
+          "parameters": "()",
+          "returnType": "String[]",
+          "description": ""
+        },
+        {
+          "name": "hasValue",
+          "parameters": "()",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "toString",
+          "parameters": "(java.lang.StringBuilder )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "unwrap",
+          "parameters": "(Object[] )",
+          "returnType": "Object[]",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "LdapModificationType",
+      "description": "",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "getRawValue",
+          "parameters": "()",
+          "returnType": "com.unboundid.ldap.sdk.ModificationType",
+          "description": ""
+        },
+        {
+          "name": "valueOf",
+          "parameters": "(String )",
+          "returnType": "LdapModificationType",
+          "description": ""
+        },
+        {
+          "name": "valueOf",
+          "parameters": "(com.unboundid.ldap.sdk.ModificationType )",
+          "returnType": "LdapModificationType",
+          "description": ""
+        },
+        {
+          "name": "values",
+          "parameters": "()",
+          "returnType": "LdapModificationType[]",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "LdapRDN",
+      "description": "",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "com.unboundid.ldap.sdk.RDN",
+          "parameters": "(com.unboundid.ldap.sdk.RDN )",
+          "returnType": "constructor",
+          "description": ""
+        },
+        {
+          "name": "equals",
+          "parameters": "(LdapRDN rdn)",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "fromNameValue",
+          "parameters": "(String attributeName, String attributeValue)",
+          "returnType": "LdapRDN",
+          "description": ""
+        },
+        {
+          "name": "fromString",
+          "parameters": "(String rdnString)",
+          "returnType": "LdapRDN",
+          "description": ""
+        },
+        {
+          "name": "getAttributeNames",
+          "parameters": "()",
+          "returnType": "String[]",
+          "description": ""
+        },
+        {
+          "name": "getAttributeValues",
+          "parameters": "()",
+          "returnType": "String[]",
+          "description": ""
+        },
+        {
+          "name": "getDelegate",
+          "parameters": "()",
+          "returnType": "com.unboundid.ldap.sdk.RDN",
+          "description": ""
+        },
+        {
+          "name": "toNormalizedString",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "toString",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "LdapResult",
+      "description": "",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "com.unboundid.ldap.sdk.LDAPResult",
+          "parameters": "(com.unboundid.ldap.sdk.LDAPResult )",
+          "returnType": "constructor",
+          "description": ""
+        },
+        {
+          "name": "getDiagnosticMessage",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getMatchedDN",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getReferralURLs",
+          "parameters": "()",
+          "returnType": "String[]",
+          "description": ""
+        },
+        {
+          "name": "getResultCode",
+          "parameters": "()",
+          "returnType": "com.unboundid.ldap.sdk.ResultCode",
+          "description": ""
+        },
+        {
+          "name": "getResultString",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "LdapSearchRequest",
+      "description": "",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "com.unboundid.ldap.sdk.SearchRequest",
+          "parameters": "(com.unboundid.ldap.sdk.SearchRequest )",
+          "returnType": "constructor",
+          "description": ""
+        },
+        {
+          "name": "create",
+          "parameters": "(String baseDN, String filter, LdapSearchScope scope, String[] attributes, LdapDereferencePolicy derefPolicy, Number sizeLimit, Number timeLimit, boolean typesOnly)",
+          "returnType": "LdapSearchRequest",
+          "description": ""
+        },
+        {
+          "name": "createRequest",
+          "parameters": "(String , String , LdapSearchScope , String[] , LdapDereferencePolicy , Number , Number , boolean )",
+          "returnType": "LdapSearchRequest",
+          "description": ""
+        },
+        {
+          "name": "duplicate",
+          "parameters": "(com.unboundid.ldap.sdk.Control[] )",
+          "returnType": "LdapSearchRequest",
+          "description": ""
+        },
+        {
+          "name": "getAttributeList",
+          "parameters": "()",
+          "returnType": "Object[]",
+          "description": ""
+        },
+        {
+          "name": "getBaseDN",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getDereferencePolicy",
+          "parameters": "()",
+          "returnType": "LdapDereferencePolicy",
+          "description": ""
+        },
+        {
+          "name": "getScope",
+          "parameters": "()",
+          "returnType": "LdapSearchScope",
+          "description": ""
+        },
+        {
+          "name": "getSizeLimit",
+          "parameters": "()",
+          "returnType": "Number",
+          "description": ""
+        },
+        {
+          "name": "getTimeLimitSeconds",
+          "parameters": "()",
+          "returnType": "Number",
+          "description": ""
+        },
+        {
+          "name": "setAttributes",
+          "parameters": "(Object[] )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setBaseDN",
+          "parameters": "(String )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setDerefPolicy",
+          "parameters": "(LdapDereferencePolicy )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setFilter",
+          "parameters": "(String )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setScope",
+          "parameters": "(LdapSearchScope )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setSizeLimit",
+          "parameters": "(Number )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setTimeLimitSeconds",
+          "parameters": "(Number )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setTypesOnly",
+          "parameters": "(boolean )",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "typesOnly",
+          "parameters": "()",
+          "returnType": "boolean",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "LdapSearchResult",
+      "description": "",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "com.unboundid.ldap.sdk.SearchResult",
+          "parameters": "(com.unboundid.ldap.sdk.SearchResult )",
+          "returnType": "constructor",
+          "description": ""
+        },
+        {
+          "name": "getDelegate",
+          "parameters": "()",
+          "returnType": "com.unboundid.ldap.sdk.SearchResult",
+          "description": ""
+        },
+        {
+          "name": "getDiagnosticMessage",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getEntryCount",
+          "parameters": "()",
+          "returnType": "Number",
+          "description": ""
+        },
+        {
+          "name": "getMatchedDN",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        },
+        {
+          "name": "getReferenceCount",
+          "parameters": "()",
+          "returnType": "Number",
+          "description": ""
+        },
+        {
+          "name": "getResultCode",
+          "parameters": "()",
+          "returnType": "com.unboundid.ldap.sdk.ResultCode",
+          "description": ""
+        },
+        {
+          "name": "getSearchEntries",
+          "parameters": "()",
+          "returnType": "Object[]",
+          "description": ""
+        },
+        {
+          "name": "getSearchEntry",
+          "parameters": "(String )",
+          "returnType": "LdapEntry",
+          "description": ""
+        },
+        {
+          "name": "getSearchReferences",
+          "parameters": "()",
+          "returnType": "Object[]",
+          "description": ""
+        },
+        {
+          "name": "toString",
+          "parameters": "()",
+          "returnType": "String",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "LdapSearchResultReference",
+      "description": "",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "com.unboundid.ldap.sdk.SearchResultReference",
+          "parameters": "(com.unboundid.ldap.sdk.SearchResultReference )",
+          "returnType": "constructor",
+          "description": ""
+        },
+        {
+          "name": "getMessageID",
+          "parameters": "()",
+          "returnType": "Number",
+          "description": ""
+        },
+        {
+          "name": "getReferralURLs",
+          "parameters": "()",
+          "returnType": "String[]",
+          "description": ""
+        },
+        {
+          "name": "wrap",
+          "parameters": "(Object[] )",
+          "returnType": "Object[]",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "LdapSearchScope",
+      "description": "",
+      "attributes": [
+        {
+          "name": "BASE",
+          "type": "LdapSearchScope",
+          "description": "indicates\n                    that only the entry specified by the base DN should be considered."
+        },
+        {
+          "name": "ONE",
+          "type": "LdapSearchScope",
+          "description": "indicates\n                    that only entries that are immediate subordinates of the entry specified by the base DN (but not the\n                    base entry itself) should be considered"
+        },
+        {
+          "name": "SUB",
+          "type": "LdapSearchScope",
+          "description": "which\n                    indicates that the base entry itself and any subordinate entries (to any depth) should be considered"
+        },
+        {
+          "name": "SUBORDINATE_SUBTREE",
+          "type": "LdapSearchScope",
+          "description": "indicates that any subordinate entries (to any\n                    depth) below the entry specified by the base DN should be considered, but the base entry itself\n                    should not be considered"
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "LdapSimplePagedResultsControl",
+      "description": "",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "Number",
+          "parameters": "(Number pageSize, Number[] cookie, boolean isCritical)",
+          "returnType": "constructor",
+          "description": ""
+        },
+        {
+          "name": "get",
+          "parameters": "(LdapSearchResult )",
+          "returnType": "LdapSimplePagedResultsControl",
+          "description": ""
+        },
+        {
+          "name": "getCookie",
+          "parameters": "()",
+          "returnType": "com.unboundid.asn1.ASN1OctetString",
+          "description": ""
+        },
+        {
+          "name": "getCookieBytes",
+          "parameters": "()",
+          "returnType": "Number[]",
+          "description": ""
+        },
+        {
+          "name": "getSize",
+          "parameters": "()",
+          "returnType": "Number",
+          "description": ""
+        },
+        {
+          "name": "moreResultsToReturn",
+          "parameters": "()",
+          "returnType": "boolean",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "LdapSubtreeDeleteRequestControl",
+      "description": "",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "LdapSubtreeDeleteRequestControl",
+          "parameters": "()",
+          "returnType": "constructor",
+          "description": ""
+        }
+      ]
+    }
+  ]
+}

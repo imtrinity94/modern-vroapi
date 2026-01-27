@@ -2,328 +2,57 @@
   "name": "Active Directory",
   "classes": [
     {
-      "name": "LdapClientFactory",
-      "description": "Create new non persisted ldap connections.",
-      "methods": [],
-      "attributes": []
-    },
-    {
-      "name": "LdapClient",
-      "description": "Connection to ldap server.",
-      "methods": [],
-      "attributes": []
-    },
-    {
-      "name": "LdapEntry",
-      "description": "This class provides a data structure for holding information about an LDAP\r\nentry. An entry contains a distinguished name (DN) and a set of attributes.\r\nAn entry can be created from these components, and it can also be created\r\nfrom its LDIF representation as described in RFC 2849.",
-      "methods": [],
-      "attributes": []
-    },
-    {
-      "name": "LdapAttribute",
-      "description": "This class provides a data structure for holding information about an LDAP attribute, which\r\nincludes an attribute name (which may include a set of attribute options) and zero or more values.",
-      "methods": [],
-      "attributes": []
-    },
-    {
-      "name": "ModificationTypeWrapper",
+      "name": "AdHost",
       "description": "",
       "methods": [],
       "attributes": []
     },
     {
-      "name": "byte",
+      "name": "AdPlugin",
       "description": "",
       "methods": [],
       "attributes": []
     },
     {
-      "name": "LdapModification",
-      "description": "",
-      "methods": [
-        {
-          "name": "getAttributeName",
-          "parameters": "",
-          "returnType": "string",
-          "description": "Retrieves the name of the attribute to target with this modification."
-        },
-        {
-          "name": "getValues",
-          "parameters": "",
-          "returnType": "string[]",
-          "description": "the set of values for this modification as an array of strings."
-        },
-        {
-          "name": "getValueByteArrays",
-          "parameters": "",
-          "returnType": "any",
-          "description": "Retrieves the set of values for this modification as an array of byte arrays"
-        }
-      ],
-      "attributes": []
-    },
-    {
-      "name": "LdapModificationType",
+      "name": "Attribute",
       "description": "",
       "methods": [],
-      "attributes": [
-        {
-          "name": "ADD",
-          "type": "LdapModificationType",
-          "description": "",
-          "isReadonly": true
-        },
-        {
-          "name": "DELETE",
-          "type": "LdapModificationType",
-          "description": "",
-          "isReadonly": true
-        },
-        {
-          "name": "REPLACE",
-          "type": "LdapModificationType",
-          "description": "",
-          "isReadonly": true
-        },
-        {
-          "name": "INCREMENT",
-          "type": "LdapModificationType",
-          "description": "",
-          "isReadonly": true
-        }
-      ]
+      "attributes": []
     },
     {
-      "name": "LdapResult",
-      "description": "This class provides a data structure for holding the elements that are common to most types of\r\nLDAP responses.",
+      "name": "ComputerAD",
+      "description": "",
       "methods": [],
       "attributes": []
     },
     {
-      "name": "LdapSearchRequest",
-      "description": "This class implements the processing necessary to perform an LDAPv3 search operation, which can\r\nbe used to retrieve entries that match a given set of criteria.",
-      "methods": [
-        {
-          "name": "create",
-          "parameters": "baseDN: string, filter: string, scope: LdapSearchScope, attributes: string[], derefPolicy: LdapDereferencePolicy, sizeLimit: number, timeLimit: number, typesOnly: boolean",
-          "returnType": "LdapSearchRequest",
-          "description": ""
-        }
-      ],
-      "attributes": []
-    },
-    {
-      "name": "LdapDeleteRequest",
-      "description": "This class implements the processing necessary to perform an LDAPv3 search operation, which can\r\nbe used to retrieve entries that match a given set of criteria.",
+      "name": "Group",
+      "description": "",
       "methods": [],
       "attributes": []
     },
     {
-      "name": "LdapSearchResult",
-      "description": "This class provides a data structure for holding information about the result of processing a\r\nsearch request.",
+      "name": "OrganizationalUnit",
+      "description": "",
       "methods": [],
       "attributes": []
     },
     {
-      "name": "LdapDN",
-      "description": "This class provides a data structure for holding information about an LDAP distinguished name\r\n(DN). A DN consists of a comma-delimited list of zero or more RDN components.",
-      "methods": [
-        {
-          "name": "fromString",
-          "parameters": "dnString: string",
-          "returnType": "LdapRDN",
-          "description": "Creates a new DN from the provided string representation."
-        },
-        {
-          "name": "fromRdns",
-          "parameters": "rdns: LdapRDN[]",
-          "returnType": "LdapRDN",
-          "description": "Creates a new DN with the provided set of RDNs."
-        },
-        {
-          "name": "fromParentDn",
-          "parameters": "rdn: LdapRDN, parentDN: LdapDN",
-          "returnType": "LdapRDN",
-          "description": "Creates a new DN below the provided parent DN with the given RDN."
-        },
-        {
-          "name": "getRDN",
-          "parameters": "",
-          "returnType": "LdapRDN",
-          "description": "Retrieves the leftmost (i.e., furthest from the naming context) RDN component for this\r\nDN."
-        },
-        {
-          "name": "getRDNString",
-          "parameters": "",
-          "returnType": "string",
-          "description": "Retrieves the string representation of the leftmost (i.e., furthest from the naming\r\ncontext) RDN component for this DN."
-        },
-        {
-          "name": "getRDNs",
-          "parameters": "",
-          "returnType": "LdapRDN[]",
-          "description": "Retrieves the set of RDNs that comprise this DN."
-        },
-        {
-          "name": "getRDNStrings",
-          "parameters": "",
-          "returnType": "any[]",
-          "description": "Retrieves the set of string representations of the RDNs that comprise this DN."
-        },
-        {
-          "name": "isNullDN",
-          "parameters": "",
-          "returnType": "boolean",
-          "description": "Indicates whether this DN represents the null DN, which does not have any RDN\r\ncomponents."
-        },
-        {
-          "name": "getParent",
-          "parameters": "",
-          "returnType": "LdapDN",
-          "description": "Retrieves the DN that is the parent for this DN. Note that neither the null DN nor DNs\r\nconsisting of a single RDN component will be considered to have parent DNs."
-        },
-        {
-          "name": "getParentString",
-          "parameters": "",
-          "returnType": "string",
-          "description": "Retrieves the string representation of the DN that is the parent for this DN. Note that\r\nneither the null DN nor DNs consisting of a single RDN component will be considered to have\r\nparent DNs."
-        },
-        {
-          "name": "isAncestorOf",
-          "parameters": "",
-          "returnType": "boolean",
-          "description": "Indicates whether this DN is an ancestor of the provided DN. It will be considered an\r\nancestor of the provided DN if the array of RDN components for the provided DN ends with the\r\nelements that comprise the array of RDN components for this DN (i.e., if the provided DN is\r\nsubordinate to, or optionally equal to, this DN). The null DN will be considered an ancestor for\r\nall other DNs (with the exception of the null DN if allowEquals is false)."
-        },
-        {
-          "name": "equals",
-          "parameters": "dn: LdapDN",
-          "returnType": "boolean",
-          "description": "Indicates whether the provided object is equal to this DN. In order for the provided\r\nobject to be considered equal, it must be a non-null DN with the same set of RDN components."
-        },
-        {
-          "name": "toString",
-          "parameters": "",
-          "returnType": "string",
-          "description": "Retrieves a string representation of this DN."
-        },
-        {
-          "name": "toNormalizedString",
-          "parameters": "",
-          "returnType": "string",
-          "description": "Retrieves a normalized string representation of this DN."
-        }
-      ],
-      "attributes": []
-    },
-    {
-      "name": "LdapRDN",
-      "description": "This class provides a data structure for holding information about an LDAP relative\r\ndistinguished name (RDN). An RDN consists of one or more attribute name-value pairs.",
-      "methods": [
-        {
-          "name": "fromString",
-          "parameters": "rdnString: string",
-          "returnType": "LdapRDN",
-          "description": "Creates a new RDN from the provided string representation."
-        },
-        {
-          "name": "fromNameValue",
-          "parameters": "attributeName: string, attributeValue: string",
-          "returnType": "LdapRDN",
-          "description": "Creates a new single-valued RDN with the provided information."
-        },
-        {
-          "name": "getAttributeNames",
-          "parameters": "",
-          "returnType": "string[]",
-          "description": "Retrieves the set of attribute names for this RDN."
-        },
-        {
-          "name": "getAttributeValues",
-          "parameters": "",
-          "returnType": "string[]",
-          "description": "Retrieves the set of attribute values for this RDN."
-        },
-        {
-          "name": "toString",
-          "parameters": "",
-          "returnType": "string",
-          "description": "Retrieves a string representation of this RDN."
-        },
-        {
-          "name": "toNormalizedString",
-          "parameters": "",
-          "returnType": "string",
-          "description": "Retrieves a normalized string representation of this RDN."
-        },
-        {
-          "name": "equals",
-          "parameters": "rdn: LdapRDN",
-          "returnType": "boolean",
-          "description": "Indicates whether the provided object is equal to this RDN. The given object will only\r\nbe considered equal to this RDN if it is also an RDN with the same set of names and values."
-        }
-      ],
-      "attributes": []
-    },
-    {
-      "name": "LdapSubtreeDeleteRequestControl",
-      "description": "TThis class provides an implementation of the subtree delete request control as defined in\r\ndraft-armijo-ldap-treedelete. This can be used to delete an entry and all subordinate entries in a\r\nsingle operation.\"",
+      "name": "Unknown",
+      "description": "",
       "methods": [],
       "attributes": []
     },
     {
-      "name": "LdapSimplePagedResultsControl",
-      "description": "This class provides an implementation of the simple paged results control as defined in RFC\r\n2696.\r\nIt allows the client to iterate through a potentially large set of search results in subsets of a\r\nspecified\r\nnumber of entries (i.e., \"pages\").\"",
+      "name": "User",
+      "description": "",
       "methods": [],
       "attributes": []
     },
     {
-      "name": "LdapSearchResultReference",
-      "description": "This class provides a data structure for representing an LDAP search result reference. A search\r\nresult reference consists of a set of referral URLs and may also include zero or more controls. It\r\ndescribes an alternate location in which additional results for the search may be found. If there are\r\nmultiple referral URLs, then they should all be considered equivalent ways to access the information\r\n(e.g., referrals referencing different servers that may be contacted).",
+      "name": "UserGroup",
+      "description": "",
       "methods": [],
-      "attributes": []
-    },
-    {
-      "name": "AD_HostManager",
-      "description": "Manage Active Directory hosts",
-      "methods": [
-        {
-          "name": "findHost",
-          "parameters": "param0: string",
-          "returnType": "AD_Host",
-          "description": "Return Active Directory hosts by it's configuration id."
-        },
-        {
-          "name": "findAllHosts",
-          "parameters": "",
-          "returnType": "any[]",
-          "description": "Return all Active Directory hosts."
-        }
-      ],
-      "attributes": []
-    },
-    {
-      "name": "ConfigurationManager",
-      "description": "Manage Active Directory plug-in configuration",
-      "methods": [
-        {
-          "name": "saveConfiguration",
-          "parameters": "param0: AD_ServerConfiguration",
-          "returnType": "string",
-          "description": "Save Active Directory server configuration."
-        },
-        {
-          "name": "deleteConfiguration",
-          "parameters": "param0: string",
-          "returnType": "void",
-          "description": "Delete Active Directory server configuration with the specified id."
-        },
-        {
-          "name": "validateConfiguration",
-          "parameters": "param0: AD_ServerConfiguration",
-          "returnType": "void",
-          "description": "Validate Active Directory configuration."
-        }
-      ],
       "attributes": []
     },
     {
@@ -331,183 +60,132 @@
       "description": "Represents the Active Directory base.",
       "methods": [
         {
+          "name": "createScriptingSingleton",
+          "parameters": "param0: IPluginFactory",
+          "returnType": "ActiveDirectory",
+          "description": ""
+        },
+        {
+          "name": "getAllDomainControllerComputers",
+          "parameters": "param0: AD_Host",
+          "returnType": "any[]",
+          "description": ""
+        },
+        {
+          "name": "getComputerAD",
+          "parameters": "String: computerName, AD_Host: adServer",
+          "returnType": "AD_Computer",
+          "description": "Returns a computer when his exact name is given. If no computer found, returns null"
+        },
+        {
+          "name": "getComputerADRecursively",
+          "parameters": "param0: string, param1: AD_Host",
+          "returnType": "any[]",
+          "description": ""
+        },
+        {
+          "name": "getDC",
+          "parameters": "AD_Host: adServer",
+          "returnType": "AD_Computer",
+          "description": "Return the AD_Computer representing the Domain Conroller"
+        },
+        {
+          "name": "getEntry",
+          "parameters": "param0: string, param1: string[], param2: AD_Host",
+          "returnType": "IADBase",
+          "description": ""
+        },
+        {
+          "name": "rename",
+          "parameters": "param0: string, param1: string, param2: string, param3: AD_Host",
+          "returnType": "void",
+          "description": "Move Ad Object to a diferent OU or rename"
+        },
+        {
           "name": "search",
-          "parameters": "type: string, query: string, adServer: AD_Host",
+          "parameters": "String: type, String: query, AD_Host: adServer",
           "returnType": "any[]",
           "description": "Search the active directory for a certain type of object"
         },
         {
           "name": "searchExactMatch",
-          "parameters": "type: string, objectName: string, limit: number, adServer: AD_Host",
+          "parameters": "String: type, String: objectName, Number: limit, AD_Host: adServer",
           "returnType": "any[]",
           "description": "Search the active directory for a certain type of object. Object will be returned only\r\nif the there is\r\nexact match."
         },
         {
-          "name": "getComputerAD",
-          "parameters": "computerName: string, adServer: AD_Host",
-          "returnType": "AD_Computer",
-          "description": "Returns a computer when his exact name is given. If no computer found, returns null"
-        },
-        {
-          "name": "getDC",
-          "parameters": "adServer: AD_Host",
-          "returnType": "AD_Computer",
-          "description": "Return the AD_Computer representing the Domain Conroller"
-        },
-        {
-          "name": "rename",
-          "parameters": "from: string, to: string, new_parent: string, adServer: AD_Host",
-          "returnType": "void",
-          "description": "Move Ad Object to a diferent OU or rename"
-        },
-        {
           "name": "searchForEntry",
-          "parameters": "baseDN: string, searchScope: LdapSearchScope, timeLimit: number, filter: string, attributes: string, host: AD_Host",
-          "returnType": "any",
+          "parameters": "param0: string, param1: LdapSearchScope, param2: number, param3: string, param4: string[], param5: AD_Host",
+          "returnType": "IADBase",
           "description": "Processes a search operation with the provided information. It is expected that at most one entry will be \r\nreturned from the search, and that no additional content from the successful search result \r\n(e.g., diagnostic message or response controls) are needed."
+        },
+        {
+          "name": "searchRecursively",
+          "parameters": "param0: string, param1: string, param2: AD_Host",
+          "returnType": "any[]",
+          "description": ""
         }
       ],
       "attributes": []
     },
     {
-      "name": "AD_Host",
-      "description": "Represents Active directory server connection.",
-      "methods": [],
-      "attributes": [
-        {
-          "name": "name",
-          "type": "string",
-          "description": "",
-          "isReadonly": true
-        },
-        {
-          "name": "Url",
-          "type": "string",
-          "description": "",
-          "isReadonly": true
-        },
-        {
-          "name": "hostConfiguration",
-          "type": "AD_ServerConfiguration",
-          "description": "",
-          "isReadonly": true
-        }
-      ]
-    },
-    {
-      "name": "AD_PluginOptions",
-      "description": "Active Directory Plug-in options",
-      "methods": [],
-      "attributes": [
-        {
-          "name": "defaultAdServerId",
-          "type": "string",
-          "description": "",
-          "isReadonly": true
-        },
-        {
-          "name": "searchSizeLimit",
-          "type": "number",
-          "description": "",
-          "isReadonly": true
-        },
-        {
-          "name": "searchSizeLimitPerServer",
-          "type": "number",
-          "description": "",
-          "isReadonly": true
-        }
-      ]
-    },
-    {
-      "name": "AD_ServerConfiguration",
-      "description": "Represents single Active Directory service end point configuration.",
-      "methods": [],
-      "attributes": [
-        {
-          "name": "id",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "name",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "host",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "port",
-          "type": "number",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "ldapBase",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "useSSL",
-          "type": "boolean",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "defaultDomain",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "useSharedSession",
-          "type": "boolean",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "sharedUserName",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "sharedUserPassword",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "followReferrals",
-          "type": "boolean",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "alternativeHosts",
-          "type": "string[]",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "loadBalancingMode",
-          "type": "LdapLoadBalancingMode",
-          "description": "",
-          "isReadonly": false
-        }
-      ]
-    },
-    {
       "name": "AD_Computer",
       "description": "Computer on the AD",
       "methods": [
+        {
+          "name": "findByTypeAndId",
+          "parameters": "param0: string, param1: FqId",
+          "returnType": "IBase",
+          "description": ""
+        },
+        {
+          "name": "findRelation",
+          "parameters": "param0: string",
+          "returnType": "any[]",
+          "description": ""
+        },
+        {
+          "name": "getEnabled",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "getFinderType",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getUserAccountControl",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "hasChildrenInRelation",
+          "parameters": "param0: string",
+          "returnType": "HasChildrenResult",
+          "description": ""
+        },
+        {
+          "name": "isDnCorrect",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "isDnCorrect",
+          "parameters": "param0: string[]",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "setEnabled",
+          "parameters": "param0: boolean",
+          "returnType": "void",
+          "description": ""
+        },
         {
           "name": "getArrayAttribute",
           "parameters": "attibName: string",
@@ -559,21 +237,21 @@
       ],
       "attributes": [
         {
+          "name": "hostname",
+          "type": "string",
+          "description": "The remote\n                    host name",
+          "isReadonly": true
+        },
+        {
           "name": "id",
           "type": "string",
-          "description": "",
+          "description": "The unique Id of the element",
           "isReadonly": false
         },
         {
           "name": "name",
           "type": "string",
-          "description": "",
-          "isReadonly": true
-        },
-        {
-          "name": "hostname",
-          "type": "string",
-          "description": "",
+          "description": "The node name",
           "isReadonly": true
         },
         {
@@ -606,6 +284,30 @@
       "name": "AD_Group",
       "description": "Group",
       "methods": [
+        {
+          "name": "destroy",
+          "parameters": "param0: boolean",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "isDnCorrect",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "isDnCorrect",
+          "parameters": "param0: string[]",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "rename",
+          "parameters": "param0: string",
+          "returnType": "void",
+          "description": ""
+        },
         {
           "name": "createUser",
           "parameters": "accountName: string, domainName: string, displayName: string",
@@ -689,7 +391,7 @@
         {
           "name": "id",
           "type": "string",
-          "description": "",
+          "description": "the unique Id of the element",
           "isReadonly": true
         },
         {
@@ -743,12 +445,183 @@
       ]
     },
     {
+      "name": "AD_Host",
+      "description": "Represents Active directory server connection.",
+      "methods": [
+        {
+          "name": "close",
+          "parameters": "",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "findByTypeAndId",
+          "parameters": "param0: string, param1: FqId",
+          "returnType": "IBase",
+          "description": ""
+        },
+        {
+          "name": "findRelation",
+          "parameters": "param0: string",
+          "returnType": "any[]",
+          "description": ""
+        },
+        {
+          "name": "getActiveDirectory",
+          "parameters": "",
+          "returnType": "Domain",
+          "description": ""
+        },
+        {
+          "name": "getCredentials",
+          "parameters": "",
+          "returnType": "ICredentials",
+          "description": ""
+        },
+        {
+          "name": "getEntry",
+          "parameters": "param0: string, param1: string[]",
+          "returnType": "IADBase",
+          "description": ""
+        },
+        {
+          "name": "getFinderType",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getLdapClient",
+          "parameters": "",
+          "returnType": "LdapClient",
+          "description": ""
+        },
+        {
+          "name": "getParent",
+          "parameters": "",
+          "returnType": "IBase",
+          "description": ""
+        },
+        {
+          "name": "hasChildrenInRelation",
+          "parameters": "param0: string",
+          "returnType": "HasChildrenResult",
+          "description": ""
+        },
+        {
+          "name": "invalidate",
+          "parameters": "",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "isDefault",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "refresh",
+          "parameters": "",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "searchForEntry",
+          "parameters": "param0: string, param1: LdapSearchScope, param2: number, param3: string, param4: string[]",
+          "returnType": "IADBase",
+          "description": ""
+        },
+        {
+          "name": "setDefault",
+          "parameters": "param0: boolean",
+          "returnType": "void",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "FINDER_TYPE",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "hostConfiguration",
+          "type": "AD_ServerConfiguration",
+          "description": "Active Directory host configuration settings for current AD_Host connection.",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Active directory\n                    configuration name",
+          "isReadonly": true
+        },
+        {
+          "name": "Url",
+          "type": "string",
+          "description": "Active Directory host\n                    connection URL. Actual URL used for connection with Active Directory server. It might differ from\n                    configured values\n                    when current object represents sub-domain entity.",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "AD_HostManager",
+      "description": "Manage Active Directory hosts",
+      "methods": [
+        {
+          "name": "createScriptingSingleton",
+          "parameters": "param0: IPluginFactory",
+          "returnType": "AD_HostManager",
+          "description": ""
+        },
+        {
+          "name": "findAllHosts",
+          "parameters": "",
+          "returnType": "any[]",
+          "description": "Return all Active Directory hosts."
+        },
+        {
+          "name": "findHost",
+          "parameters": "param0: string",
+          "returnType": "AD_Host",
+          "description": "Return Active Directory hosts by it's configuration id."
+        }
+      ],
+      "attributes": []
+    },
+    {
       "name": "AD_OrganizationalUnit",
       "description": "Represents an Organizational Unit",
       "methods": [
         {
+          "name": "getFinderType",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "isDnCorrect",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "isDnCorrect",
+          "parameters": "param0: string[]",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "rename",
+          "parameters": "param0: string",
+          "returnType": "void",
+          "description": ""
+        },
+        {
           "name": "searchComputer",
-          "parameters": "computerName: string",
+          "parameters": "String: computerName",
           "returnType": "AD_Computer",
           "description": "Get a computer by name"
         },
@@ -841,7 +714,7 @@
         {
           "name": "id",
           "type": "string",
-          "description": "",
+          "description": "the unique Id of the element",
           "isReadonly": true
         },
         {
@@ -895,9 +768,223 @@
       ]
     },
     {
+      "name": "AD_PluginOptions",
+      "description": "Active Directory Plug-in options",
+      "methods": [
+        {
+          "name": "getSearchTimeoutInSec",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "DEFAULT_OPTIONS",
+          "type": "AD_PluginOptions",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "defaultAdServerId",
+          "type": "string",
+          "description": "Default\n                    Active Directory end point id.",
+          "isReadonly": true
+        },
+        {
+          "name": "searchSizeLimit",
+          "type": "number",
+          "description": "Maximum\n                    number of items that will be returned by a search.",
+          "isReadonly": true
+        },
+        {
+          "name": "searchSizeLimitPerServer",
+          "type": "number",
+          "description": "Maximum number of items that will be returned by a search from single Active Directory server.",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "AD_ServerConfiguration",
+      "description": "Represents single Active Directory service end point configuration.",
+      "methods": [
+        {
+          "name": "clone",
+          "parameters": "",
+          "returnType": "AD_ServerConfiguration",
+          "description": ""
+        },
+        {
+          "name": "equals",
+          "parameters": "param0: any",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "getConnectTimeoutMillis",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "getCustomProperty",
+          "parameters": "param0: string",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getCustomProperty",
+          "parameters": "param0: string, param1: string",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getDCNames",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getLdapUrl",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "hashCode",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "isEmpty",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "isSubDomainAutoConnect",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "setConnectTimeoutMillis",
+          "parameters": "param0: number",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setCustomProperty",
+          "parameters": "param0: string, param1: string",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setDcNames",
+          "parameters": "param0: string",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setSubDomainAutoConnect",
+          "parameters": "param0: boolean",
+          "returnType": "void",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "alternativeHosts",
+          "type": "string[]",
+          "description": "Alternative host adresses",
+          "isReadonly": false
+        },
+        {
+          "name": "defaultDomain",
+          "type": "string",
+          "description": "Default domain",
+          "isReadonly": false
+        },
+        {
+          "name": "followReferrals",
+          "type": "boolean",
+          "description": "Follow refferals",
+          "isReadonly": false
+        },
+        {
+          "name": "host",
+          "type": "string",
+          "description": "Active Directory host",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Id",
+          "isReadonly": false
+        },
+        {
+          "name": "ldapBase",
+          "type": "string",
+          "description": "Root",
+          "isReadonly": false
+        },
+        {
+          "name": "loadBalancingMode",
+          "type": "LdapLoadBalancingMode",
+          "description": "Strategy for load balancing between configured alternative hosts.",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Name",
+          "isReadonly": false
+        },
+        {
+          "name": "port",
+          "type": "number",
+          "description": "Active Directory port",
+          "isReadonly": false
+        },
+        {
+          "name": "sharedUserName",
+          "type": "string",
+          "description": "User name for\n                    shared\n                    session",
+          "isReadonly": false
+        },
+        {
+          "name": "sharedUserPassword",
+          "type": "string",
+          "description": "Password\n                    for shared\n                    session",
+          "isReadonly": false
+        },
+        {
+          "name": "useSharedSession",
+          "type": "boolean",
+          "description": "Use a\n                    shared session",
+          "isReadonly": false
+        },
+        {
+          "name": "useSSL",
+          "type": "boolean",
+          "description": "Use SSL",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
       "name": "AD_Unknown",
       "description": "Unknown type of object",
       "methods": [
+        {
+          "name": "isDnCorrect",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": ""
+        },
         {
           "name": "removeAttribute",
           "parameters": "attribName: string",
@@ -951,7 +1038,7 @@
         {
           "name": "id",
           "type": "string",
-          "description": "",
+          "description": "the unique Id of the element",
           "isReadonly": true
         },
         {
@@ -979,16 +1066,118 @@
       "description": "User",
       "methods": [
         {
-          "name": "setPassword",
-          "parameters": "password: string",
-          "returnType": "void",
-          "description": "Sets the passed in String value as a password of this user."
+          "name": "getAccountName",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getDisplayName",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getEnabled",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "getGivenName",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getLastLogoff",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getLastLogon",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getMemberOf",
+          "parameters": "",
+          "returnType": "AD_UserGroup[]",
+          "description": ""
+        },
+        {
+          "name": "getObjectClass",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getObjectUID",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getPrimaryGroupID",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "getSID",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getUserAccountControl",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "getUserPrincipalName",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "isDnCorrect",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "isDnCorrect",
+          "parameters": "param0: string[]",
+          "returnType": "boolean",
+          "description": ""
         },
         {
           "name": "setChangePasswordAtNextLogon",
           "parameters": "param0: boolean",
           "returnType": "void",
           "description": "Sets the user account to change or not change the password at next logon."
+        },
+        {
+          "name": "setEnabled",
+          "parameters": "param0: boolean",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setPassword",
+          "parameters": "param0: string",
+          "returnType": "void",
+          "description": "Sets the passed in String value as a password of this user."
+        },
+        {
+          "name": "setUserPrincipalName",
+          "parameters": "param0: string",
+          "returnType": "void",
+          "description": ""
         },
         {
           "name": "removeAttribute",
@@ -1043,7 +1232,7 @@
         {
           "name": "id",
           "type": "string",
-          "description": "",
+          "description": "the unique Id of the element",
           "isReadonly": true
         },
         {
@@ -1101,16 +1290,64 @@
       "description": "UserGroup",
       "methods": [
         {
-          "name": "removeElements",
-          "parameters": "elements: object[]",
-          "returnType": "void",
-          "description": "Removes elements from the group."
-        },
-        {
           "name": "addElements",
-          "parameters": "elements: object[]",
+          "parameters": "param0: IADBase[]",
           "returnType": "void",
           "description": "Adds elements to the group."
+        },
+        {
+          "name": "getComputerMembers",
+          "parameters": "",
+          "returnType": "AD_Computer[]",
+          "description": ""
+        },
+        {
+          "name": "getGroupMembers",
+          "parameters": "",
+          "returnType": "AD_UserGroup[]",
+          "description": ""
+        },
+        {
+          "name": "getMemberOf",
+          "parameters": "",
+          "returnType": "AD_UserGroup[]",
+          "description": ""
+        },
+        {
+          "name": "getSID",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getUserMembers",
+          "parameters": "",
+          "returnType": "AD_User[]",
+          "description": ""
+        },
+        {
+          "name": "isDnCorrect",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "isDnCorrect",
+          "parameters": "param0: string[]",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "refresh",
+          "parameters": "",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "removeElements",
+          "parameters": "param0: IADBase[]",
+          "returnType": "void",
+          "description": "Removes elements from the group."
         },
         {
           "name": "removeAttribute",
@@ -1165,7 +1402,7 @@
         {
           "name": "id",
           "type": "string",
-          "description": "",
+          "description": "the unique Id of the element",
           "isReadonly": true
         },
         {
@@ -1219,35 +1456,465 @@
       ]
     },
     {
-      "name": "LdapSearchScope",
-      "description": "Ldap search scope",
-      "methods": [],
-      "attributes": [
+      "name": "ConfigurationManager",
+      "description": "Manage Active Directory plug-in configuration",
+      "methods": [
         {
-          "name": "BASE",
-          "type": "LdapSearchScope",
-          "description": "",
-          "isReadonly": true
+          "name": "createScriptingSingleton",
+          "parameters": "param0: IPluginFactory",
+          "returnType": "ConfigurationManager",
+          "description": ""
         },
         {
-          "name": "ONE",
-          "type": "LdapSearchScope",
-          "description": "",
-          "isReadonly": true
+          "name": "deleteConfiguration",
+          "parameters": "param0: string",
+          "returnType": "void",
+          "description": "Delete Active Directory server configuration with the specified id."
         },
         {
-          "name": "SUB",
-          "type": "LdapSearchScope",
-          "description": "",
-          "isReadonly": true
+          "name": "findAll",
+          "parameters": "",
+          "returnType": "any[]",
+          "description": ""
         },
         {
-          "name": "SUBORDINATE_SUBTREE",
-          "type": "LdapSearchScope",
-          "description": "",
-          "isReadonly": true
+          "name": "getConfigurationById",
+          "parameters": "param0: string",
+          "returnType": "AD_ServerConfiguration",
+          "description": ""
+        },
+        {
+          "name": "getPluginOptions",
+          "parameters": "",
+          "returnType": "AD_PluginOptions",
+          "description": ""
+        },
+        {
+          "name": "reset",
+          "parameters": "",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "saveConfiguration",
+          "parameters": "param0: AD_ServerConfiguration",
+          "returnType": "string",
+          "description": "Save Active Directory server configuration."
+        },
+        {
+          "name": "savePluginOptions",
+          "parameters": "param0: Properties",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "updateConfiguration",
+          "parameters": "param0: AD_ServerConfiguration",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "validateConfiguration",
+          "parameters": "param0: AD_ServerConfiguration",
+          "returnType": "void",
+          "description": "Validate Active Directory configuration."
         }
-      ]
+      ],
+      "attributes": []
+    },
+    {
+      "name": "LdapAttribute",
+      "description": "This class provides a data structure for holding information about an LDAP attribute, which\r\nincludes an attribute name (which may include a set of attribute options) and zero or more values.",
+      "methods": [
+        {
+          "name": "encode",
+          "parameters": "",
+          "returnType": "ASN1Sequence",
+          "description": ""
+        },
+        {
+          "name": "equals",
+          "parameters": "param0: any",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "getBaseName",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getDelegate",
+          "parameters": "",
+          "returnType": "Attribute",
+          "description": ""
+        },
+        {
+          "name": "getMatchingRule",
+          "parameters": "",
+          "returnType": "MatchingRule",
+          "description": ""
+        },
+        {
+          "name": "getName",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getOptions",
+          "parameters": "",
+          "returnType": "Set",
+          "description": ""
+        },
+        {
+          "name": "getRawValues",
+          "parameters": "",
+          "returnType": "ASN1OctetString[]",
+          "description": ""
+        },
+        {
+          "name": "getValue",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getValueAsBoolean",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "getValueAsDate",
+          "parameters": "",
+          "returnType": "Date",
+          "description": ""
+        },
+        {
+          "name": "getValueAsDN",
+          "parameters": "",
+          "returnType": "DN",
+          "description": ""
+        },
+        {
+          "name": "getValueAsInteger",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "getValueAsLong",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "getValueByteArray",
+          "parameters": "",
+          "returnType": "Number[]",
+          "description": ""
+        },
+        {
+          "name": "getValueByteArrays",
+          "parameters": "",
+          "returnType": "Number[][]",
+          "description": ""
+        },
+        {
+          "name": "getValues",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": ""
+        },
+        {
+          "name": "hashCode",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "hasOption",
+          "parameters": "param0: string",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "hasOptions",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "hasValue",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "hasValue",
+          "parameters": "param0: string",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "hasValueAsByte",
+          "parameters": "param0: Number[]",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "nameIsValid",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "needsBase64Encoding",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "setDelegate",
+          "parameters": "param0: Attribute",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "toString",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "toString",
+          "parameters": "param0: StringBuilder",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "writeTo",
+          "parameters": "param0: ASN1Buffer",
+          "returnType": "void",
+          "description": ""
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "LdapClient",
+      "description": "Connection to ldap server.",
+      "methods": [
+        {
+          "name": "addAttribute",
+          "parameters": "param0: string, param1: any[]",
+          "returnType": "LdapResult",
+          "description": ""
+        },
+        {
+          "name": "addEntry",
+          "parameters": "param0: LdapEntry",
+          "returnType": "LdapResult",
+          "description": ""
+        },
+        {
+          "name": "bind",
+          "parameters": "param0: string, param1: string",
+          "returnType": "LdapResult",
+          "description": ""
+        },
+        {
+          "name": "close",
+          "parameters": "",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "connect",
+          "parameters": "param0: string, param1: number, param2: number",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "delete",
+          "parameters": "param0: string",
+          "returnType": "LdapResult",
+          "description": ""
+        },
+        {
+          "name": "deleteByDeleteRequest",
+          "parameters": "param0: LdapDeleteRequest",
+          "returnType": "LdapResult",
+          "description": ""
+        },
+        {
+          "name": "getConnection",
+          "parameters": "",
+          "returnType": "LDAPConnection",
+          "description": ""
+        },
+        {
+          "name": "getConnectionName",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getConnectionStatistics",
+          "parameters": "",
+          "returnType": "LDAPConnectionStatistics",
+          "description": ""
+        },
+        {
+          "name": "getConnectTime",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "getDisconnectCause",
+          "parameters": "",
+          "returnType": "Throwable",
+          "description": ""
+        },
+        {
+          "name": "getDisconnectMessage",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getEntry",
+          "parameters": "param0: string, param1: string[]",
+          "returnType": "LdapEntry",
+          "description": ""
+        },
+        {
+          "name": "getLastCommunicationTime",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "getRootDSE",
+          "parameters": "",
+          "returnType": "RootDSE",
+          "description": ""
+        },
+        {
+          "name": "isConnected",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "modify",
+          "parameters": "param0: string, param1: any[]",
+          "returnType": "LDAPResult",
+          "description": ""
+        },
+        {
+          "name": "modifyDN",
+          "parameters": "param0: string, param1: string, param2: boolean, param3: string",
+          "returnType": "LdapResult",
+          "description": ""
+        },
+        {
+          "name": "reconnect",
+          "parameters": "",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "search",
+          "parameters": "param0: string, param1: LdapSearchScope, param2: LdapDereferencePolicy, param3: number, param4: number, param5: string, param6: string[]",
+          "returnType": "LdapSearchResult",
+          "description": ""
+        },
+        {
+          "name": "searchBySearchRequest",
+          "parameters": "param0: LdapSearchRequest",
+          "returnType": "LdapSearchResult",
+          "description": ""
+        },
+        {
+          "name": "searchForEntry",
+          "parameters": "param0: string, param1: LdapSearchScope, param2: number, param3: string, param4: string[]",
+          "returnType": "LdapEntry",
+          "description": ""
+        },
+        {
+          "name": "setConnectionName",
+          "parameters": "param0: string",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "toString",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "LdapClientFactory",
+      "description": "Create new non persisted ldap connections.",
+      "methods": [
+        {
+          "name": "createScriptingSingleton",
+          "parameters": "param0: IPluginFactory",
+          "returnType": "LdapClientFactory",
+          "description": ""
+        },
+        {
+          "name": "newLdapClient",
+          "parameters": "param0: string, param1: number, param2: string, param3: string, param4: boolean",
+          "returnType": "LdapClient",
+          "description": ""
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "LdapDeleteRequest",
+      "description": "This class implements the processing necessary to perform an LDAPv3 search operation, which can\r\nbe used to retrieve entries that match a given set of criteria.",
+      "methods": [
+        {
+          "name": "createRequest",
+          "parameters": "param0: string, param1: any[]",
+          "returnType": "LdapDeleteRequest",
+          "description": ""
+        },
+        {
+          "name": "duplicate",
+          "parameters": "param0: Control[]",
+          "returnType": "LdapDeleteRequest",
+          "description": ""
+        },
+        {
+          "name": "getDN",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "setDN",
+          "parameters": "param0: string",
+          "returnType": "void",
+          "description": ""
+        }
+      ],
+      "attributes": []
     },
     {
       "name": "LdapDereferencePolicy",
@@ -1255,30 +1922,452 @@
       "methods": [],
       "attributes": [
         {
-          "name": "NEVER",
+          "name": "ALWAYS",
           "type": "LdapDereferencePolicy",
-          "description": "",
-          "isReadonly": true
-        },
-        {
-          "name": "SEARCHING",
-          "type": "LdapDereferencePolicy",
-          "description": "",
+          "description": "A predefined dereference policy value which indicates that the server should dereference the base\n                    entry if it happens to be an alias entry, and should also dereference any entries that may be\n                    encountered while examining candidates.",
           "isReadonly": true
         },
         {
           "name": "FINDING",
           "type": "LdapDereferencePolicy",
-          "description": "",
+          "description": "A predefined dereference policy value which indicates that the server should\n                    dereference the base entry if it happens to be an alias entry, but it should not dereference any\n                    alias entries that may be encountered while examining candidate entries.",
           "isReadonly": true
         },
         {
-          "name": "ALWAYS",
+          "name": "NEVER",
           "type": "LdapDereferencePolicy",
-          "description": "",
+          "description": "A\n                    predefined dereference policy value which indicates that the server should not dereference any\n                    aliases that it encounters.",
+          "isReadonly": true
+        },
+        {
+          "name": "SEARCHING",
+          "type": "LdapDereferencePolicy",
+          "description": "A predefined dereference policy value which indicates that the server should\n                    dereference any aliases that it may encounter while examining candidate entries, but it should not\n                    dereference the base entry if it happens to be an alias entry.",
           "isReadonly": true
         }
       ]
+    },
+    {
+      "name": "LdapDN",
+      "description": "This class provides a data structure for holding information about an LDAP distinguished name\r\n(DN). A DN consists of a comma-delimited list of zero or more RDN components.",
+      "methods": [
+        {
+          "name": "equals",
+          "parameters": "LdapDN: dn",
+          "returnType": "boolean",
+          "description": "Indicates whether the provided object is equal to this DN. In order for the provided\r\nobject to be considered equal, it must be a non-null DN with the same set of RDN components."
+        },
+        {
+          "name": "fromParentDn",
+          "parameters": "LdapRDN: rdn, LdapDN: parentDN",
+          "returnType": "LdapRDN",
+          "description": "Creates a new DN below the provided parent DN with the given RDN."
+        },
+        {
+          "name": "fromRdns",
+          "parameters": "LdapRDN[]: rdns",
+          "returnType": "LdapRDN",
+          "description": "Creates a new DN with the provided set of RDNs."
+        },
+        {
+          "name": "fromString",
+          "parameters": "String: dnString",
+          "returnType": "LdapRDN",
+          "description": "Creates a new DN from the provided string representation."
+        },
+        {
+          "name": "getDelegate",
+          "parameters": "",
+          "returnType": "DN",
+          "description": ""
+        },
+        {
+          "name": "getParent",
+          "parameters": "",
+          "returnType": "LdapDN",
+          "description": "Retrieves the DN that is the parent for this DN. Note that neither the null DN nor DNs\r\nconsisting of a single RDN component will be considered to have parent DNs."
+        },
+        {
+          "name": "getParentString",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Retrieves the string representation of the DN that is the parent for this DN. Note that\r\nneither the null DN nor DNs consisting of a single RDN component will be considered to have\r\nparent DNs."
+        },
+        {
+          "name": "getRDN",
+          "parameters": "",
+          "returnType": "LdapRDN",
+          "description": "Retrieves the leftmost (i.e., furthest from the naming context) RDN component for this\r\nDN."
+        },
+        {
+          "name": "getRDNs",
+          "parameters": "",
+          "returnType": "LdapRDN[]",
+          "description": "Retrieves the set of RDNs that comprise this DN."
+        },
+        {
+          "name": "getRDNString",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Retrieves the string representation of the leftmost (i.e., furthest from the naming\r\ncontext) RDN component for this DN."
+        },
+        {
+          "name": "getRDNStrings",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "Retrieves the set of string representations of the RDNs that comprise this DN."
+        },
+        {
+          "name": "isAncestorOf",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": "Indicates whether this DN is an ancestor of the provided DN. It will be considered an\r\nancestor of the provided DN if the array of RDN components for the provided DN ends with the\r\nelements that comprise the array of RDN components for this DN (i.e., if the provided DN is\r\nsubordinate to, or optionally equal to, this DN). The null DN will be considered an ancestor for\r\nall other DNs (with the exception of the null DN if allowEquals is false)."
+        },
+        {
+          "name": "isAncestorOf",
+          "parameters": "param0: LdapDN, param1: boolean",
+          "returnType": "boolean",
+          "description": "Indicates whether this DN is an ancestor of the provided DN. It will be considered an\r\nancestor of the provided DN if the array of RDN components for the provided DN ends with the\r\nelements that comprise the array of RDN components for this DN (i.e., if the provided DN is\r\nsubordinate to, or optionally equal to, this DN). The null DN will be considered an ancestor for\r\nall other DNs (with the exception of the null DN if allowEquals is false)."
+        },
+        {
+          "name": "isDescendantOf",
+          "parameters": "param0: LdapDN, param1: boolean",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "isNullDN",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": "Indicates whether this DN represents the null DN, which does not have any RDN\r\ncomponents."
+        },
+        {
+          "name": "toNormalizedString",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Retrieves a normalized string representation of this DN."
+        },
+        {
+          "name": "toString",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Retrieves a string representation of this DN."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "LdapEntry",
+      "description": "This class provides a data structure for holding information about an LDAP\r\nentry. An entry contains a distinguished name (DN) and a set of attributes.\r\nAn entry can be created from these components, and it can also be created\r\nfrom its LDIF representation as described in RFC 2849.",
+      "methods": [
+        {
+          "name": "addAttribute",
+          "parameters": "param0: LdapAttribute",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "addAttributeValue",
+          "parameters": "param0: string, param1: string",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "addAttributeValueAsByte",
+          "parameters": "param0: string, param1: Number[]",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "addAttributeValues",
+          "parameters": "param0: string, param1: any[]",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "equals",
+          "parameters": "param0: any",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "getAttribute",
+          "parameters": "param0: string",
+          "returnType": "LdapAttribute",
+          "description": ""
+        },
+        {
+          "name": "getAttributes",
+          "parameters": "",
+          "returnType": "any[]",
+          "description": ""
+        },
+        {
+          "name": "getAttributeValue",
+          "parameters": "param0: string",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getAttributeValueAsBoolean",
+          "parameters": "param0: string",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "getAttributeValueAsBytes",
+          "parameters": "param0: string",
+          "returnType": "Number[]",
+          "description": ""
+        },
+        {
+          "name": "getAttributeValueAsDate",
+          "parameters": "param0: string",
+          "returnType": "Date",
+          "description": ""
+        },
+        {
+          "name": "getAttributeValueAsDN",
+          "parameters": "param0: string",
+          "returnType": "DN",
+          "description": ""
+        },
+        {
+          "name": "getAttributeValueAsInteger",
+          "parameters": "param0: string",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "getAttributeValueAsLong",
+          "parameters": "param0: string",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "getAttributeValueByteArrays",
+          "parameters": "param0: string",
+          "returnType": "Number[][]",
+          "description": ""
+        },
+        {
+          "name": "getAttributeValues",
+          "parameters": "param0: string",
+          "returnType": "string[]",
+          "description": ""
+        },
+        {
+          "name": "getDelegate",
+          "parameters": "",
+          "returnType": "Entry",
+          "description": ""
+        },
+        {
+          "name": "getDN",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getObjectClassAttribute",
+          "parameters": "",
+          "returnType": "LdapAttribute",
+          "description": ""
+        },
+        {
+          "name": "getObjectClassValues",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": ""
+        },
+        {
+          "name": "getParentDN",
+          "parameters": "",
+          "returnType": "DN",
+          "description": ""
+        },
+        {
+          "name": "getParentDNString",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getParsedDN",
+          "parameters": "",
+          "returnType": "LdapDN",
+          "description": ""
+        },
+        {
+          "name": "getRDN",
+          "parameters": "",
+          "returnType": "RDN",
+          "description": ""
+        },
+        {
+          "name": "hasAttribute",
+          "parameters": "param0: LdapAttribute",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "hasAttributeValue",
+          "parameters": "param0: string, param1: string",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "hasAttributeValueBytes",
+          "parameters": "param0: string, param1: Number[]",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "hasAttributeWithName",
+          "parameters": "param0: string",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "hashCode",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "hasObjectClass",
+          "parameters": "param0: string",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "matchesBaseAndScope",
+          "parameters": "param0: string, param1: LdapSearchScope",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "matchesBaseAndScope",
+          "parameters": "param0: DN, param1: LdapSearchScope",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "removeAttribute",
+          "parameters": "param0: string",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "removeAttributeValue",
+          "parameters": "param0: string, param1: string",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "removeAttributeValueAsBytes",
+          "parameters": "param0: string, param1: Number[]",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "setAttributeValue",
+          "parameters": "param0: string, param1: string",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setAttributeValueAsBytes",
+          "parameters": "param0: string, param1: Number[]",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setAttributeValues",
+          "parameters": "param0: string, param1: any[]",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setDN",
+          "parameters": "param0: string",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setDN",
+          "parameters": "param0: DN",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "toLDIF",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": ""
+        },
+        {
+          "name": "toLDIF",
+          "parameters": "param0: number",
+          "returnType": "string[]",
+          "description": ""
+        },
+        {
+          "name": "toLDIF",
+          "parameters": "param0: ByteStringBuffer",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "toLDIF",
+          "parameters": "param0: ByteStringBuffer, param1: number",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "toLDIFString",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "toLDIFString",
+          "parameters": "param0: number",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "toLDIFString",
+          "parameters": "param0: StringBuilder",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "toLDIFString",
+          "parameters": "param0: StringBuilder, param1: number",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "toString",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "toString",
+          "parameters": "param0: StringBuilder",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "unwrap",
+          "parameters": "param0: LdapEntry",
+          "returnType": "Entry",
+          "description": ""
+        }
+      ],
+      "attributes": []
     },
     {
       "name": "LdapFilter",
@@ -1286,21 +2375,33 @@
       "methods": [
         {
           "name": "create",
-          "parameters": "filterString: string",
+          "parameters": "String: filterString",
           "returnType": "LdapFilter",
           "description": "Creates a new search filter from the provided string representation."
         },
         {
           "name": "encodeValue",
-          "parameters": "value: string",
+          "parameters": "String: value",
           "returnType": "string",
           "description": "Encodes the provided value into a form suitable for use as the assertion value in the\r\nstring representation of a search filter. Parentheses, asterisks, backslashes, null characters,\r\nand any non-ASCII characters will be escaped using a backslash before the hexadecimal\r\nrepresentation of each byte in the character to escape."
         },
         {
           "name": "encodeValueBytes",
-          "parameters": "value: any",
+          "parameters": "Number[]: value",
           "returnType": "string",
           "description": "Encodes the provided value into a form suitable for use as the assertion value in the\r\nstring representation of a search filter. Parentheses, asterisks, backslashes, null characters,\r\nand any non-ASCII characters will be escaped using a backslash before the hexadecimal\r\nrepresentation of each byte in the character to escape."
+        },
+        {
+          "name": "toNormalizedString",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "toString",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
         }
       ],
       "attributes": []
@@ -1310,6 +2411,12 @@
       "description": "",
       "methods": [
         {
+          "name": "fromString",
+          "parameters": "String: value",
+          "returnType": "LdapLoadBalancingMode",
+          "description": "Create LdapLoadBalancingMode object from it's string representation."
+        },
+        {
           "name": "getValue",
           "parameters": "",
           "returnType": "string",
@@ -1318,14 +2425,20 @@
         {
           "name": "getValuesAsString",
           "parameters": "",
-          "returnType": "any",
+          "returnType": "string[]",
           "description": "Returns supported load balancing modes ."
         },
         {
-          "name": "fromString",
-          "parameters": "value: string",
+          "name": "valueOf",
+          "parameters": "param0: string",
           "returnType": "LdapLoadBalancingMode",
-          "description": "Create LdapLoadBalancingMode object from it's string representation."
+          "description": ""
+        },
+        {
+          "name": "values",
+          "parameters": "",
+          "returnType": "LdapLoadBalancingMode[]",
+          "description": ""
         }
       ],
       "attributes": [
@@ -1348,6 +2461,508 @@
           "isReadonly": true
         }
       ]
+    },
+    {
+      "name": "LdapModification",
+      "description": "",
+      "methods": [
+        {
+          "name": "getAttribute",
+          "parameters": "",
+          "returnType": "LdapAttribute",
+          "description": ""
+        },
+        {
+          "name": "getAttributeName",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Retrieves the name of the attribute to target with this modification."
+        },
+        {
+          "name": "getDelegate",
+          "parameters": "",
+          "returnType": "Modification",
+          "description": ""
+        },
+        {
+          "name": "getModificationType",
+          "parameters": "",
+          "returnType": "LdapModificationType",
+          "description": ""
+        },
+        {
+          "name": "getValueByteArrays",
+          "parameters": "",
+          "returnType": "any",
+          "description": "Retrieves the set of values for this modification as an array of byte arrays"
+        },
+        {
+          "name": "getValues",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "the set of values for this modification as an array of strings."
+        },
+        {
+          "name": "hasValue",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": ""
+        },
+        {
+          "name": "toString",
+          "parameters": "param0: StringBuilder",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "unwrap",
+          "parameters": "param0: any[]",
+          "returnType": "any[]",
+          "description": ""
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "LdapModificationType",
+      "description": "",
+      "methods": [
+        {
+          "name": "getRawValue",
+          "parameters": "",
+          "returnType": "ModificationType",
+          "description": ""
+        },
+        {
+          "name": "valueOf",
+          "parameters": "param0: string",
+          "returnType": "LdapModificationType",
+          "description": ""
+        },
+        {
+          "name": "valueOf",
+          "parameters": "param0: ModificationType",
+          "returnType": "LdapModificationType",
+          "description": ""
+        },
+        {
+          "name": "values",
+          "parameters": "",
+          "returnType": "LdapModificationType[]",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "ADD",
+          "type": "LdapModificationType",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "DELETE",
+          "type": "LdapModificationType",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "REPLACE",
+          "type": "LdapModificationType",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "INCREMENT",
+          "type": "LdapModificationType",
+          "description": "",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "LdapRDN",
+      "description": "This class provides a data structure for holding information about an LDAP relative\r\ndistinguished name (RDN). An RDN consists of one or more attribute name-value pairs.",
+      "methods": [
+        {
+          "name": "equals",
+          "parameters": "LdapRDN: rdn",
+          "returnType": "boolean",
+          "description": "Indicates whether the provided object is equal to this RDN. The given object will only\r\nbe considered equal to this RDN if it is also an RDN with the same set of names and values."
+        },
+        {
+          "name": "fromNameValue",
+          "parameters": "String: attributeName, String: attributeValue",
+          "returnType": "LdapRDN",
+          "description": "Creates a new single-valued RDN with the provided information."
+        },
+        {
+          "name": "fromString",
+          "parameters": "String: rdnString",
+          "returnType": "LdapRDN",
+          "description": "Creates a new RDN from the provided string representation."
+        },
+        {
+          "name": "getAttributeNames",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "Retrieves the set of attribute names for this RDN."
+        },
+        {
+          "name": "getAttributeValues",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": "Retrieves the set of attribute values for this RDN."
+        },
+        {
+          "name": "getDelegate",
+          "parameters": "",
+          "returnType": "RDN",
+          "description": ""
+        },
+        {
+          "name": "toNormalizedString",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Retrieves a normalized string representation of this RDN."
+        },
+        {
+          "name": "toString",
+          "parameters": "",
+          "returnType": "string",
+          "description": "Retrieves a string representation of this RDN."
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "LdapResult",
+      "description": "This class provides a data structure for holding the elements that are common to most types of\r\nLDAP responses.",
+      "methods": [
+        {
+          "name": "getDiagnosticMessage",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getMatchedDN",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getReferralURLs",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": ""
+        },
+        {
+          "name": "getResultCode",
+          "parameters": "",
+          "returnType": "ResultCode",
+          "description": ""
+        },
+        {
+          "name": "getResultString",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "LdapSearchRequest",
+      "description": "This class implements the processing necessary to perform an LDAPv3 search operation, which can\r\nbe used to retrieve entries that match a given set of criteria.",
+      "methods": [
+        {
+          "name": "create",
+          "parameters": "String: baseDN, String: filter, LdapSearchScope: scope, String[]: attributes, LdapDereferencePolicy: derefPolicy, Number: sizeLimit, Number: timeLimit, boolean: typesOnly",
+          "returnType": "LdapSearchRequest",
+          "description": ""
+        },
+        {
+          "name": "createRequest",
+          "parameters": "param0: string, param1: string, param2: LdapSearchScope, param3: string[], param4: LdapDereferencePolicy, param5: number, param6: number, param7: boolean",
+          "returnType": "LdapSearchRequest",
+          "description": ""
+        },
+        {
+          "name": "duplicate",
+          "parameters": "param0: Control[]",
+          "returnType": "LdapSearchRequest",
+          "description": ""
+        },
+        {
+          "name": "getAttributeList",
+          "parameters": "",
+          "returnType": "any[]",
+          "description": ""
+        },
+        {
+          "name": "getBaseDN",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getDereferencePolicy",
+          "parameters": "",
+          "returnType": "LdapDereferencePolicy",
+          "description": ""
+        },
+        {
+          "name": "getScope",
+          "parameters": "",
+          "returnType": "LdapSearchScope",
+          "description": ""
+        },
+        {
+          "name": "getSizeLimit",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "getTimeLimitSeconds",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "setAttributes",
+          "parameters": "param0: any[]",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setBaseDN",
+          "parameters": "param0: string",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setDerefPolicy",
+          "parameters": "param0: LdapDereferencePolicy",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setFilter",
+          "parameters": "param0: string",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setScope",
+          "parameters": "param0: LdapSearchScope",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setSizeLimit",
+          "parameters": "param0: number",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setTimeLimitSeconds",
+          "parameters": "param0: number",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setTypesOnly",
+          "parameters": "param0: boolean",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "typesOnly",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": ""
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "LdapSearchResult",
+      "description": "This class provides a data structure for holding information about the result of processing a\r\nsearch request.",
+      "methods": [
+        {
+          "name": "getDelegate",
+          "parameters": "",
+          "returnType": "SearchResult",
+          "description": ""
+        },
+        {
+          "name": "getDiagnosticMessage",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getEntryCount",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "getMatchedDN",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "getReferenceCount",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "getResultCode",
+          "parameters": "",
+          "returnType": "ResultCode",
+          "description": ""
+        },
+        {
+          "name": "getSearchEntries",
+          "parameters": "",
+          "returnType": "any[]",
+          "description": ""
+        },
+        {
+          "name": "getSearchEntry",
+          "parameters": "param0: string",
+          "returnType": "LdapEntry",
+          "description": ""
+        },
+        {
+          "name": "getSearchReferences",
+          "parameters": "",
+          "returnType": "any[]",
+          "description": ""
+        },
+        {
+          "name": "toString",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "LdapSearchResultReference",
+      "description": "This class provides a data structure for representing an LDAP search result reference. A search\r\nresult reference consists of a set of referral URLs and may also include zero or more controls. It\r\ndescribes an alternate location in which additional results for the search may be found. If there are\r\nmultiple referral URLs, then they should all be considered equivalent ways to access the information\r\n(e.g., referrals referencing different servers that may be contacted).",
+      "methods": [
+        {
+          "name": "getMessageID",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "getReferralURLs",
+          "parameters": "",
+          "returnType": "string[]",
+          "description": ""
+        },
+        {
+          "name": "wrap",
+          "parameters": "param0: any[]",
+          "returnType": "any[]",
+          "description": ""
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "LdapSearchScope",
+      "description": "Ldap search scope",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "BASE",
+          "type": "LdapSearchScope",
+          "description": "indicates\n                    that only the entry specified by the base DN should be considered.",
+          "isReadonly": true
+        },
+        {
+          "name": "ONE",
+          "type": "LdapSearchScope",
+          "description": "indicates\n                    that only entries that are immediate subordinates of the entry specified by the base DN (but not the\n                    base entry itself) should be considered",
+          "isReadonly": true
+        },
+        {
+          "name": "SUB",
+          "type": "LdapSearchScope",
+          "description": "which\n                    indicates that the base entry itself and any subordinate entries (to any depth) should be considered",
+          "isReadonly": true
+        },
+        {
+          "name": "SUBORDINATE_SUBTREE",
+          "type": "LdapSearchScope",
+          "description": "indicates that any subordinate entries (to any\n                    depth) below the entry specified by the base DN should be considered, but the base entry itself\n                    should not be considered",
+          "isReadonly": true
+        }
+      ]
+    },
+    {
+      "name": "LdapSimplePagedResultsControl",
+      "description": "This class provides an implementation of the simple paged results control as defined in RFC\r\n2696.\r\nIt allows the client to iterate through a potentially large set of search results in subsets of a\r\nspecified\r\nnumber of entries (i.e., \"pages\").\"",
+      "methods": [
+        {
+          "name": "get",
+          "parameters": "param0: LdapSearchResult",
+          "returnType": "LdapSimplePagedResultsControl",
+          "description": ""
+        },
+        {
+          "name": "getCookie",
+          "parameters": "",
+          "returnType": "ASN1OctetString",
+          "description": ""
+        },
+        {
+          "name": "getCookieBytes",
+          "parameters": "",
+          "returnType": "Number[]",
+          "description": ""
+        },
+        {
+          "name": "getSize",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "moreResultsToReturn",
+          "parameters": "",
+          "returnType": "boolean",
+          "description": ""
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "name": "LdapSubtreeDeleteRequestControl",
+      "description": "TThis class provides an implementation of the subtree delete request control as defined in\r\ndraft-armijo-ldap-treedelete. This can be used to delete an entry and all subordinate entries in a\r\nsingle operation.\"",
+      "methods": [],
+      "attributes": []
+    },
+    {
+      "name": "ModificationTypeWrapper",
+      "description": "",
+      "methods": [],
+      "attributes": []
+    },
+    {
+      "name": "byte",
+      "description": "",
+      "methods": [],
+      "attributes": []
     }
   ]
 }

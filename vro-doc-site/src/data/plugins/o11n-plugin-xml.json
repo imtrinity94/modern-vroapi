@@ -32,19 +32,19 @@
         {
           "name": "saveDocument",
           "parameters": "document: XMLDocument, path: string, systemDtD: string, publicDtD: string",
-          "returnType": "any",
+          "returnType": "void",
           "description": "Save the document to a given path using the default character encoding"
         },
         {
           "name": "saveDocumentWithEncoding",
           "parameters": "document: XMLDocument, path: string, encoding: string, systemDtD: string, publicDtD: string",
-          "returnType": "any",
+          "returnType": "void",
           "description": "Save the document to a given path using the default character encoding"
         },
         {
           "name": "validateDocument",
           "parameters": "document: XMLDocument, systemDtD: string, publicDtD: string",
-          "returnType": "any",
+          "returnType": "void",
           "description": "Validate a document without saving it"
         },
         {
@@ -52,6 +52,12 @@
           "parameters": "document: XMLDocument",
           "returnType": "string",
           "description": "Get the document as string"
+        },
+        {
+          "name": "createDocumentBuilderFactory",
+          "parameters": "",
+          "returnType": "any",
+          "description": "Create a new DocumentBuilderFactory"
         }
       ],
       "attributes": []
@@ -105,14 +111,14 @@
         {
           "name": "getElementsByTagName",
           "parameters": "name: string",
-          "returnType": "void",
+          "returnType": "XMLNodeList",
           "description": "Returns a XMLNodeList of all the Elements with a given tag name in the order in which they are encountered in a preorder traversal of the XMLDocument tree."
         },
         {
           "name": "appendChild",
           "parameters": "child: XMLNode",
           "returnType": "void",
-          "description": "Adds the node newChild to the end of the list of children of this node.\r\nIf the newChild is already in the tree, it is first removed."
+          "description": "Adds the node newChild to the end of the list of children of this node.\nIf the newChild is already in the tree, it is first removed."
         },
         {
           "name": "removeChild",
@@ -124,13 +130,13 @@
           "name": "replaceChild",
           "parameters": "newNode: XMLNode, oldNode: XMLNode",
           "returnType": "void",
-          "description": "Replaces the child node oldChild with newChild in the list of children, and returns the oldChild node.\r\nIf the newChild is already in the tree, it is first removed."
+          "description": "Replaces the child node oldChild with newChild in the list of children, and returns the oldChild node.\nIf the newChild is already in the tree, it is first removed."
         },
         {
           "name": "insertBefore",
           "parameters": "newNode: XMLNode, refNode: XMLNode",
           "returnType": "void",
-          "description": "Inserts the node newChild before the existing child node refChild.\r\nIf refChild is null, insert newChild at the end of the list of children.\r\nIf the newChild is already in the tree, it is first removed."
+          "description": "Inserts the node newChild before the existing child node refChild.\nIf refChild is null, insert newChild at the end of the list of children.\nIf the newChild is already in the tree, it is first removed."
         },
         {
           "name": "cloneNode",
@@ -141,7 +147,7 @@
         {
           "name": "getChildNodes",
           "parameters": "",
-          "returnType": "void",
+          "returnType": "XMLNodeList",
           "description": "Get all children"
         }
       ],
@@ -154,7 +160,7 @@
         {
           "name": "getAttributes",
           "parameters": "",
-          "returnType": "void",
+          "returnType": "XMLNamedNodeMap",
           "description": "A XMLNamedNodeMap containing the attributes of this Element."
         },
         {
@@ -172,20 +178,20 @@
         {
           "name": "hasAttribute",
           "parameters": "name: string",
-          "returnType": "void",
+          "returnType": "boolean",
           "description": "Returns true if the attribute exists"
         },
         {
           "name": "getElementsByTagName",
           "parameters": "name: string",
-          "returnType": "void",
+          "returnType": "XMLNodeList",
           "description": "Returns a XMLNodeList of all the Elements with a given tag name in the order in which they are encountered in a preorder traversal of the current element tree."
         },
         {
           "name": "appendChild",
           "parameters": "child: XMLNode",
           "returnType": "void",
-          "description": "Adds the node newChild to the end of the list of children of this node.\r\nIf the newChild is already in the tree, it is first removed."
+          "description": "Adds the node newChild to the end of the list of children of this node.\nIf the newChild is already in the tree, it is first removed."
         },
         {
           "name": "removeChild",
@@ -197,13 +203,13 @@
           "name": "replaceChild",
           "parameters": "newNode: XMLNode, oldNode: XMLNode",
           "returnType": "void",
-          "description": "Replaces the child node oldChild with newChild in the list of children, and returns the oldChild node.\r\nIf the newChild is already in the tree, it is first removed."
+          "description": "Replaces the child node oldChild with newChild in the list of children, and returns the oldChild node.\nIf the newChild is already in the tree, it is first removed."
         },
         {
           "name": "insertBefore",
           "parameters": "newNode: XMLNode, refNode: XMLNode",
           "returnType": "void",
-          "description": "Inserts the node newChild before the existing child node refChild.\r\nIf refChild is null, insert newChild at the end of the list of children.\r\nIf the newChild is already in the tree, it is first removed."
+          "description": "Inserts the node newChild before the existing child node refChild.\nIf refChild is null, insert newChild at the end of the list of children.\nIf the newChild is already in the tree, it is first removed."
         },
         {
           "name": "cloneNode",
@@ -227,15 +233,15 @@
       "attributes": [
         {
           "name": "textContent",
-          "type": "void",
-          "description": "",
+          "type": "string",
+          "description": "The text content of the element",
           "isReadonly": false
         },
         {
           "name": "tagName",
-          "type": "void",
-          "description": "",
-          "isReadonly": false
+          "type": "string",
+          "description": "The name of the tag",
+          "isReadonly": true
         }
       ]
     },
@@ -247,7 +253,7 @@
           "name": "appendChild",
           "parameters": "child: XMLNode",
           "returnType": "void",
-          "description": "Adds the node newChild to the end of the list of children of this node.\r\nIf the newChild is already in the tree, it is first removed."
+          "description": "Adds the node newChild to the end of the list of children of this node.\nIf the newChild is already in the tree, it is first removed."
         },
         {
           "name": "removeChild",
@@ -259,13 +265,13 @@
           "name": "replaceChild",
           "parameters": "newNode: XMLNode, oldNode: XMLNode",
           "returnType": "void",
-          "description": "Replaces the child node oldChild with newChild in the list of children, and returns the oldChild node.\r\nIf the newChild is already in the tree, it is first removed."
+          "description": "Replaces the child node oldChild with newChild in the list of children, and returns the oldChild node.\nIf the newChild is already in the tree, it is first removed."
         },
         {
           "name": "insertBefore",
           "parameters": "newNode: XMLNode, refNode: XMLNode",
           "returnType": "void",
-          "description": "Inserts the node newChild before the existing child node refChild.\r\nIf refChild is null, insert newChild at the end of the list of children.\r\nIf the newChild is already in the tree, it is first removed."
+          "description": "Inserts the node newChild before the existing child node refChild.\nIf refChild is null, insert newChild at the end of the list of children.\nIf the newChild is already in the tree, it is first removed."
         },
         {
           "name": "cloneNode",
@@ -289,21 +295,21 @@
       "attributes": [
         {
           "name": "nodeValue",
-          "type": "void",
-          "description": "",
+          "type": "string",
+          "description": "The value of the node",
           "isReadonly": false
         },
         {
           "name": "nodeName",
-          "type": "void",
-          "description": "",
-          "isReadonly": false
+          "type": "string",
+          "description": "The name of the node",
+          "isReadonly": true
         },
         {
           "name": "parentNode",
-          "type": "void",
-          "description": "",
-          "isReadonly": false
+          "type": "XMLNode",
+          "description": "The parent node",
+          "isReadonly": true
         }
       ]
     },
@@ -327,9 +333,9 @@
       "attributes": [
         {
           "name": "length",
-          "type": "void",
-          "description": "",
-          "isReadonly": false
+          "type": "number",
+          "description": "Number of nodes in the map",
+          "isReadonly": true
         }
       ]
     },
@@ -340,16 +346,16 @@
         {
           "name": "item",
           "parameters": "index: number",
-          "returnType": "void",
+          "returnType": "XMLNode",
           "description": "Get child at index"
         }
       ],
       "attributes": [
         {
           "name": "length",
-          "type": "void",
-          "description": "",
-          "isReadonly": false
+          "type": "number",
+          "description": "Number of nodes in the list",
+          "isReadonly": true
         }
       ]
     }

@@ -176,7 +176,7 @@ const ClassView: React.FC = () => {
                                     <div className="md:w-1/3 p-5 bg-slate-50 dark:bg-slate-800/30 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800">
                                         <h4 className="font-mono font-bold text-indigo-600 dark:text-indigo-400 text-xl break-all group-hover:text-indigo-500">{method.name}</h4>
                                         <div className="mt-3 text-sm font-black uppercase tracking-wider text-slate-400 dark:text-slate-600">Return Type</div>
-                                        <div className="font-mono text-base text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-500/10 px-3 py-1 rounded inline-block mt-2 truncate">{method.returnType}</div>
+                                        <div className="font-mono text-base text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-500/10 border border-orange-200 dark:border-orange-500/20 px-3 py-1 rounded inline-block mt-2 truncate">{method.returnType}</div>
                                     </div>
                                     <div className="flex-1 p-5 space-y-3">
                                         <div className="flex gap-2">
@@ -211,7 +211,7 @@ const ClassView: React.FC = () => {
                                         <tr key={method.name} className="hover:bg-slate-50 dark:hover:bg-indigo-500/[0.02] transition-colors group">
                                             <td className="p-4 font-mono font-bold text-indigo-600 dark:text-indigo-400 text-lg align-top whitespace-nowrap">{method.name}</td>
                                             <td className="p-4 align-top whitespace-nowrap">
-                                                <span className="font-mono text-base text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-500/10 px-2 py-0.5 rounded inline-block">{method.returnType}</span>
+                                                <span className="font-mono text-base text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-500/10 border border-orange-200 dark:border-orange-500/20 px-2 py-0.5 rounded inline-block">{method.returnType}</span>
                                             </td>
                                             <td className="p-4 align-top max-w-sm">
                                                 <div className="font-mono text-base text-emerald-600 dark:text-emerald-500 leading-normal break-words">
