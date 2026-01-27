@@ -1,94 +1,94 @@
 [
-    {
-        "id": "o11n-plugin-activedirectory",
-        "name": "Active Directory"
-    },
-    {
-        "id": "o11n-plugin-amqp",
-        "name": "AMQP"
-    },
-    {
-        "id": "o11n-plugin-aria",
-        "name": "Aria Automation"
-    },
-    {
-        "id": "o11n-plugin-crypto",
-        "name": "Crypto"
-    },
-    {
-        "id": "o11n-plugin-dynamictypes",
-        "name": "Dynamic Types"
-    },
-    {
-        "id": "o11n-plugin-mail",
-        "name": "Mail"
-    },
-    {
-        "id": "o11n-plugin-azure",
-        "name": "Microsoft Azure"
-    },
-    {
-        "id": "o11n-plugin-mqtt",
-        "name": "MQTT"
-    },
-    {
-        "id": "o11n-plugin-net",
-        "name": "Networking"
-    },
-    {
-        "id": "o11n-core",
-        "name": "Orchestrator Core"
-    },
-    {
-        "id": "o11n-plugin-vco",
-        "name": "Orchestrator Utils"
-    },
-    {
-        "id": "o11n-plugin-powershell",
-        "name": "PowerShell"
-    },
-    {
-        "id": "o11n-plugin-rest",
-        "name": "REST API"
-    },
-    {
-        "id": "o11n-plugin-snmp",
-        "name": "SNMP"
-    },
-    {
-        "id": "o11n-plugin-soap",
-        "name": "SOAP API"
-    },
-    {
-        "id": "o11n-plugin-sql",
-        "name": "SQL Database"
-    },
-    {
-        "id": "o11n-plugin-ssh",
-        "name": "SSH"
-    },
-    {
-        "id": "o11n-plugin-vapi",
-        "name": "vAPI"
-    },
-    {
-        "id": "o11n-plugin-vc",
-        "name": "vCenter"
-    },
-    {
-        "id": "o11n-plugin-vum",
-        "name": "vCenter Update Manager"
-    },
-    {
-        "id": "o11n-plugin-vcloud",
-        "name": "vCloud Director"
-    },
-    {
-        "id": "o11n-plugin-nsx",
-        "name": "VMware NSX"
-    },
-    {
-        "id": "o11n-plugin-xml",
-        "name": "XML"
-    }
+  {
+    "id": "o11n-plugin-activedirectory",
+    "name": "Active Directory"
+  },
+  {
+    "id": "o11n-plugin-amqp",
+    "name": "AMQP"
+  },
+  {
+    "id": "o11n-plugin-aria",
+    "name": "Aria Automation"
+  },
+  {
+    "id": "o11n-plugin-crypto",
+    "name": "Crypto"
+  },
+  {
+    "id": "o11n-plugin-dynamictypes",
+    "name": "Dynamic Types"
+  },
+  {
+    "id": "o11n-plugin-mail",
+    "name": "Mail"
+  },
+  {
+    "id": "o11n-plugin-azure",
+    "name": "Microsoft Azure"
+  },
+  {
+    "id": "o11n-plugin-mqtt",
+    "name": "MQTT"
+  },
+  {
+    "id": "o11n-plugin-net",
+    "name": "Networking"
+  },
+  {
+    "id": "o11n-core",
+    "name": "Orchestrator Core"
+  },
+  {
+    "id": "o11n-plugin-vco",
+    "name": "Orchestrator Utils"
+  },
+  {
+    "id": "o11n-plugin-powershell",
+    "name": "PowerShell"
+  },
+  {
+    "id": "o11n-plugin-rest",
+    "name": "REST API"
+  },
+  {
+    "id": "o11n-plugin-snmp",
+    "name": "SNMP"
+  },
+  {
+    "id": "o11n-plugin-soap",
+    "name": "SOAP API"
+  },
+  {
+    "id": "o11n-plugin-sql",
+    "name": "SQL Database"
+  },
+  {
+    "id": "o11n-plugin-ssh",
+    "name": "SSH"
+  },
+  {
+    "id": "o11n-plugin-vapi",
+    "name": "vAPI"
+  },
+  {
+    "id": "o11n-plugin-vc",
+    "name": "vCenter"
+  },
+  {
+    "id": "o11n-plugin-vum",
+    "name": "vCenter Update Manager"
+  },
+  {
+    "id": "o11n-plugin-vcloud",
+    "name": "vCloud Director"
+  },
+  {
+    "id": "o11n-plugin-nsx",
+    "name": "VMware NSX"
+  },
+  {
+    "id": "o11n-plugin-xml",
+    "name": "XML"
+  }
 ]

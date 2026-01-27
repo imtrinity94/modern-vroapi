@@ -57,7 +57,7 @@ const Home: React.FC = () => {
                                 className="group bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/80 border border-slate-200 dark:border-slate-800 hover:border-indigo-500/50 rounded-2xl p-6 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-indigo-500/10"
                             >
                                 <div className="flex items-center justify-between mb-4">
-                                    <div className={`${pluginMeta.image ? 'p-0' : 'p-2.5'} rounded-xl bg-${color}-50 dark:bg-${color}-500/10 text-${color}-600 dark:text-${color}-400 group-hover:scale-110 transition-transform border border-${color}-100 dark:border-${color}-500/20 w-12 h-12 flex items-center justify-center overflow-hidden`}>
+                                    <div className={`${pluginMeta.image ? '' : 'p-2.5 rounded-xl'} bg-${color}-50 dark:bg-${color}-500/10 text-${color}-600 dark:text-${color}-400 group-hover:scale-110 transition-transform border border-${color}-100 dark:border-${color}-500/20 w-12 h-12 flex items-center justify-center overflow-hidden`}>
                                         {pluginMeta.image ? (
                                             <img src={pluginMeta.image} alt={plugin.name} className="w-full h-full object-cover" />
                                         ) : (

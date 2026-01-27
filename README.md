@@ -17,11 +17,12 @@
 **VCF Orchestrator JavaScript SDK APIs** is a community-driven, modern replacement for legacy vRO documentation sites. Built with **React 19**, **Vite**, and **Tailwind CSS**, it provides a blazing-fast user experience with instant search, dark mode support, and deep-linking for every class and method.
 
 ### ✨ Key Features
-- 🔍 **Instant Search**: Find any plugin, class, or interface in milliseconds.
+- 🔍 **Universal Global Search**: Find any plugin, class, or method (over 14,000+ entries) instantly via `Ctrl+K` or `/`.
+- ⚡ **High Performance**: Pre-indexed metadata ensures lightning-fast navigation with zero lag.
 - 🌓 **Dark Mode**: Native support for dark and light themes with a premium glassmorphic UI.
 - 📱 **Fully Responsive**: Optimized for everything from mobile phones up to 4K monitors.
 - 🛠 **Community Registry**: Easy "Suggest Edit" buttons on every page to keep metadata accurate via GitHub.
-- 🐇 **Hybrid Data**: Supports both Lucide vector icons and official branding for plugins (e.g., <img src="vro-doc-site/public/icons/amqp.png" width="20" height="20" align="center"> **AMQP/RabbitMQ**).
+- 🐇 **HD Branding**: Support for high-definition custom logos for specialized plugins.
 
 ---
 

@@ -2,7 +2,8 @@
 import { Link, Outlet } from 'react-router-dom';
 import { useTheme } from '../hooks/useUIState';
 import { ThemeToggle } from './UIToggles';
-import { Search, Slack, Star, Github, ExternalLink, BookOpen } from 'lucide-react';
+import { Slack, Star, Github, ExternalLink, BookOpen } from 'lucide-react';
+import GlobalSearch from './GlobalSearch';
 
 const Layout: React.FC = () => {
     const { theme, toggleTheme } = useTheme();
@@ -34,15 +35,8 @@ const Layout: React.FC = () => {
                     </nav>
 
                     <div className="flex items-center gap-4">
-                        <div className="relative group hidden sm:block">
-                            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-indigo-500 transition-colors">
-                                <Search size={16} />
-                            </div>
-                            <input
-                                type="text"
-                                placeholder="Search..."
-                                className="bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-full py-1.5 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 w-48 md:w-64 transition-all"
-                            />
+                        <div className="hidden sm:block">
+                            <GlobalSearch />
                         </div>
 
                         <div className="flex items-center gap-2">
