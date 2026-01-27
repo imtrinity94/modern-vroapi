@@ -1,4 +1,5 @@
 
+import { useState, useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { useTheme } from '../hooks/useUIState';
 import { ThemeToggle } from './UIToggles';
@@ -7,13 +8,35 @@ import GlobalSearch from './GlobalSearch';
 
 const Layout: React.FC = () => {
     const { theme, toggleTheme } = useTheme();
+    const [isVisible, setIsVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            // Show header if scrolling up or at the very top
+            if (currentScrollY < lastScrollY || currentScrollY < 10) {
+                setIsVisible(true);
+            }
+            // Hide header if scrolling down and not at the top
+            else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                setIsVisible(false);
+            }
+
+            setLastScrollY(currentScrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [lastScrollY]);
 
     return (
         <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans selection:bg-indigo-500 selection:text-white transition-colors duration-300">
-            <header className="sticky top-0 z-50 w-full backdrop-blur-md border-b border-slate-800 bg-slate-950/95">
-                <div className="container mx-auto px-4 md:px-6 h-16 md:h-24 flex items-center justify-between gap-4 md:gap-8">
-                    <Link to="/" className="flex items-center gap-2 md:gap-4 shrink-0">
-                        <div className="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center shrink-0">
+            <header className={`sticky top-0 z-50 w-full backdrop-blur-md border-b border-slate-800 bg-slate-950/95 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
+                <div className="container mx-auto px-4 md:px-6 h-14 md:h-16 flex items-center justify-between gap-4 md:gap-8">
+                    <Link to="/" className="flex items-center gap-2 md:gap-3 shrink-0">
+                        <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shrink-0">
                             <img src={`${import.meta.env.BASE_URL}logo.png`} alt="VCF Orchestrator" className="w-full h-full object-contain" />
                         </div>
                         <span className="text-xl md:text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400 leading-tight transition-opacity hover:opacity-90">
