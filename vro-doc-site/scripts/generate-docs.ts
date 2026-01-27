@@ -10,7 +10,6 @@ const PLUGIN_NAME_MAP: Record<string, string> = {
     'o11n-plugin-activedirectory': 'Active Directory',
     'o11n-plugin-amqp': 'AMQP',
     'o11n-plugin-aria': 'Aria Automation',
-    'o11n-plugin-azure': 'Azure',
     'o11n-plugin-crypto': 'Crypto',
     'o11n-plugin-dynamictypes': 'Dynamic Types',
     'o11n-plugin-mail': 'Mail',

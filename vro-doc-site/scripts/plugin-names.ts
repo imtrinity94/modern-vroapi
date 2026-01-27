@@ -3,7 +3,6 @@ export const PLUGIN_NAMES: Record<string, string> = {
     'o11n-core': 'Intrinsic / Core APIs',
     'o11n-plugin-activedirectory': 'Active Directory',
     'o11n-plugin-amqp': 'AMQP',
-    'o11n-plugin-azure': 'Microsoft Azure',
     'o11n-plugin-crypto': 'Crypto',
     'o11n-plugin-dynamictypes': 'Dynamic Types',
     'o11n-plugin-mail': 'Mail',

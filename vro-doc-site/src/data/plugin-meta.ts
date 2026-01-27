@@ -17,7 +17,6 @@ export const PLUGIN_META: Record<string, PluginMetadata> = {
     'o11n-plugin-activedirectory': { icon: Users, color: 'blue' },
     'o11n-plugin-amqp': { image: `${import.meta.env.BASE_URL}icons/amqp.png`, color: 'orange' },
     'o11n-plugin-aria': { icon: Cloud, color: 'indigo' },
-    'o11n-plugin-azure': { icon: Cloud, color: 'sky' },
     'o11n-plugin-crypto': { icon: Lock, color: 'emerald' },
     'o11n-plugin-dynamictypes': { icon: Variable, color: 'purple' },
     'o11n-plugin-mail': { icon: Mail, color: 'amber' },

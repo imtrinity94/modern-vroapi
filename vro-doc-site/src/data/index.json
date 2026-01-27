@@ -28,10 +28,6 @@
     "name": "Mail"
   },
   {
-    "id": "o11n-plugin-azure",
-    "name": "Microsoft Azure"
-  },
-  {
     "id": "o11n-plugin-mqtt",
     "name": "MQTT"
   },
