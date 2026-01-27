@@ -119,8 +119,8 @@ const ClassView: React.FC = () => {
                             <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
                                 {classData.attributes.map((attr) => (
                                     <tr key={attr.name} className="hover:bg-slate-50 dark:hover:bg-indigo-500/[0.02] transition-colors group">
-                                        <td className="p-4 font-mono font-bold text-indigo-600 dark:text-indigo-300">{attr.name}</td>
-                                        <td className="p-4 font-mono text-emerald-600 dark:text-emerald-400 text-base whitespace-nowrap">{attr.type}</td>
+                                        <td className="p-4 font-mono font-bold text-indigo-600 dark:text-indigo-300 text-lg">{attr.name}</td>
+                                        <td className="p-4 font-mono text-emerald-600 dark:text-emerald-400 text-lg whitespace-nowrap">{attr.type}</td>
                                         <td className="p-4 text-slate-600 dark:text-slate-400 text-base leading-relaxed">{attr.description}</td>
                                         <td className="p-4 text-center">
                                             {attr.isReadonly && (
@@ -149,9 +149,9 @@ const ClassView: React.FC = () => {
                         {classData.methods.map((method) => (
                             <div key={method.name} className="group flex flex-col md:flex-row bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl hover:border-indigo-500/50 transition-all shadow-sm overflow-hidden">
                                 <div className="md:w-1/3 p-5 bg-slate-50 dark:bg-slate-800/30 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800">
-                                    <h4 className="font-mono font-bold text-indigo-600 dark:text-indigo-400 break-all group-hover:text-indigo-500">{method.name}</h4>
-                                    <div className="mt-2 text-[10px] font-black uppercase tracking-tighter text-slate-400 dark:text-slate-600">Return Type</div>
-                                    <div className="font-mono text-xs text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-500/10 px-2 py-0.5 rounded inline-block mt-1 truncate">{method.returnType}</div>
+                                    <h4 className="font-mono font-bold text-indigo-600 dark:text-indigo-400 text-xl break-all group-hover:text-indigo-500">{method.name}</h4>
+                                    <div className="mt-3 text-sm font-black uppercase tracking-wider text-slate-400 dark:text-slate-600">Return Type</div>
+                                    <div className="font-mono text-base text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-500/10 px-3 py-1 rounded inline-block mt-2 truncate">{method.returnType}</div>
                                 </div>
                                 <div className="flex-1 p-5 space-y-3">
                                     <div className="flex gap-2">
@@ -161,9 +161,9 @@ const ClassView: React.FC = () => {
                                         </p>
                                     </div>
                                     {method.parameters && (
-                                        <div className="ml-6 p-4 rounded-xl bg-slate-50 dark:bg-black/20 border border-slate-100 dark:border-slate-800">
-                                            <div className="text-[10px] font-black tracking-widest text-slate-400 dark:text-slate-600 uppercase mb-2">Parameters</div>
-                                            <div className="font-mono text-sm text-emerald-600 dark:text-emerald-500 leading-normal">{method.parameters}</div>
+                                        <div className="ml-6 p-5 rounded-xl bg-slate-50 dark:bg-black/20 border border-slate-100 dark:border-slate-800">
+                                            <div className="text-sm font-black tracking-widest text-slate-400 dark:text-slate-600 uppercase mb-3">Parameters</div>
+                                            <div className="font-mono text-base text-emerald-600 dark:text-emerald-500 leading-normal">{method.parameters}</div>
                                         </div>
                                     )}
                                 </div>

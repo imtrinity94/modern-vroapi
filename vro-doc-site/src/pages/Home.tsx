@@ -12,10 +12,17 @@ const Home: React.FC = () => {
     const { viewMode, toggleViewMode } = useViewMode();
 
     const filteredPlugins = useMemo(() => {
-        return pluginIndex.filter(plugin =>
+        const filtered = pluginIndex.filter(plugin =>
             plugin.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
             plugin.id.toLowerCase().includes(searchTerm.toLowerCase())
         );
+
+        // Sort: Put o11n-core at the very top
+        return [...filtered].sort((a, b) => {
+            if (a.id === 'o11n-core') return -1;
+            if (b.id === 'o11n-core') return 1;
+            return a.name.localeCompare(b.name);
+        });
     }, [searchTerm]);
 
     return (

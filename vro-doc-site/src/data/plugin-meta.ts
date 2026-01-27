@@ -1,9 +1,9 @@
 
 import {
-    Settings, Users, Cloud,
+    Users, Cloud,
     Lock, Variable, Mail, Radio, Globe, Shield,
     Terminal, Database, Key, Zap, Monitor,
-    Download, FileCode, Activity, Package, type LucideIcon
+    Download, FileCode, Activity, Package, Cpu, type LucideIcon
 } from 'lucide-react';
 
 export interface PluginMetadata {
@@ -13,7 +13,7 @@ export interface PluginMetadata {
 }
 
 export const PLUGIN_META: Record<string, PluginMetadata> = {
-    'o11n-core': { icon: Settings, color: 'slate' },
+    'o11n-core': { icon: Cpu, color: 'indigo' },
     'o11n-plugin-activedirectory': { icon: Users, color: 'blue' },
     'o11n-plugin-amqp': { image: `${import.meta.env.BASE_URL}icons/amqp.png`, color: 'orange' },
     'o11n-plugin-aria': { icon: Cloud, color: 'indigo' },

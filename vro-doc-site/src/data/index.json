@@ -20,6 +20,10 @@
     "name": "Dynamic Types"
   },
   {
+    "id": "o11n-core",
+    "name": "Intrinsic / Core APIs"
+  },
+  {
     "id": "o11n-plugin-mail",
     "name": "Mail"
   },
@@ -34,10 +38,6 @@
   {
     "id": "o11n-plugin-net",
     "name": "Networking"
-  },
-  {
-    "id": "o11n-core",
-    "name": "Orchestrator Core"
   },
   {
     "id": "o11n-plugin-vco",
