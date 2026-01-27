@@ -37,7 +37,7 @@ const Layout: React.FC = () => {
                 <div className="container mx-auto px-4 md:px-6 h-14 md:h-16 flex items-center justify-between gap-4 md:gap-8">
                     <Link to="/" className="flex items-center gap-2 md:gap-3 shrink-0">
                         <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shrink-0">
-                            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="VCF Orchestrator" className="w-full h-full object-contain" />
+                            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="VCF Orchestrator Plugin" className="w-full h-full object-contain" />
                         </div>
                         <span className="text-xl md:text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400 leading-tight transition-opacity hover:opacity-90">
                             modernvroapi.in
@@ -96,7 +96,7 @@ const Layout: React.FC = () => {
             <footer className="border-t border-slate-200 dark:border-slate-800 py-12 mt-12 bg-white dark:bg-slate-900/50">
                 <div className="container mx-auto px-4 text-center">
                     <p className="text-slate-500 dark:text-slate-400 text-sm mb-6">
-                        Generated Documentation for VMware Cloud Foundation Orchestrator Plugins
+                        API Documentation for VCF Operations Orchestrator™ Plugins
                     </p>
                     <div className="flex justify-center items-center gap-6">
                         <a
