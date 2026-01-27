@@ -1,7 +1,12 @@
 <div align="center">
   <img src="vro-doc-site/public/logo.png" width="120" height="120" alt="VCF Orchestrator Logo">
-  <h1>VCF Orchestrator JavaScript SDK APIs</h1>
-  <p>A modern, high-performance API reference for VMware Cloud Foundation Orchestrator (vRO) Plugins.</p>
+  <h1>modernvroapi.in</h1>
+  <p><strong>API Documentation for VCF Operations Orchestrator™ Plugins</strong></p>
+  <p>A modern, high-performance community reference for VMware Cloud Foundation Orchestrator (vRO) Plugins.</p>
+  
+  <p>
+    <a href="https://modernvroapi.in"><strong>🌐 Live Preview: modernvroapi.in</strong></a>
+  </p>
 
   <p>
     <a href="https://github.com/imtrinity94/modern-vroapi/stargazers"><img src="https://img.shields.io/github/stars/imtrinity94/modern-vroapi?style=for-the-badge&color=indigo" alt="Stars"></a>
@@ -14,7 +19,7 @@
 
 ## 🚀 Overview
 
-**VCF Orchestrator JavaScript SDK APIs** is a community-driven, modern replacement for legacy vRO documentation sites. Built with **React 19**, **Vite**, and **Tailwind CSS**, it provides a blazing-fast user experience with instant search, dark mode support, and deep-linking for every class and method.
+**modernvroapi.in** is a community-driven, modern replacement for legacy vRO documentation sites. Built with **React 19**, **Vite**, and **Tailwind CSS**, it provides a blazing-fast user experience with instant search, dark mode support, and deep-linking for every class and method.
 
 ### ✨ Key Features
 - 🔍 **Universal Global Search**: Find any plugin, class, or method (over 14,000+ entries) instantly via `Ctrl+K` or `/`.
