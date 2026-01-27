@@ -84,10 +84,6 @@
     "name": "vCloud Director"
   },
   {
-    "id": "o11n-plugin-nsx",
-    "name": "VMware NSX"
-  },
-  {
     "id": "o11n-plugin-xml",
     "name": "XML"
   }

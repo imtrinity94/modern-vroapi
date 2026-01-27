@@ -151,7 +151,7 @@ const PluginView: React.FC = () => {
                 </div>
             ) : (
                 <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm">
-                    <div className="divide-y divide-slate-100 dark:divide-slate-800/50 font-mono text-sm leading-none">
+                    <div className="divide-y divide-slate-100 dark:divide-slate-800/50 font-mono text-base leading-none">
                         {filteredClasses.map((cls) => (
                             <Link
                                 to={`/plugin/${pluginName}/class/${cls.name}`}
@@ -159,13 +159,13 @@ const PluginView: React.FC = () => {
                                 className="flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group"
                             >
                                 <div className="flex items-center gap-4">
-                                    <ListIcon className="text-slate-300 dark:text-slate-700" size={18} />
-                                    <span className="text-slate-900 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 font-semibold truncate max-w-[200px] md:max-w-none">
+                                    <ListIcon className="text-slate-300 dark:text-slate-700" size={20} />
+                                    <span className="text-slate-900 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 font-bold text-lg truncate max-w-[200px] md:max-w-none">
                                         {cls.name}
                                     </span>
                                 </div>
                                 <div className="flex items-center gap-6">
-                                    <div className="hidden md:flex gap-4 text-[10px] text-slate-400 uppercase font-bold">
+                                    <div className="hidden md:flex gap-4 text-xs text-slate-400 uppercase font-black tracking-wider">
                                         <span>{cls.methods.length} Methods</span>
                                         <span>{cls.attributes.length} Attributes</span>
                                     </div>

@@ -1,7 +1,7 @@
 
 import {
     Users, Cloud,
-    Lock, Variable, Mail, Radio, Globe, Shield,
+    Lock, Variable, Mail, Radio, Globe,
     Terminal, Database, Key, Zap, Monitor,
     Download, FileCode, Activity, Package, Cpu, type LucideIcon
 } from 'lucide-react';
@@ -23,7 +23,6 @@ export const PLUGIN_META: Record<string, PluginMetadata> = {
     'o11n-plugin-mail': { icon: Mail, color: 'amber' },
     'o11n-plugin-mqtt': { icon: Radio, color: 'rose' },
     'o11n-plugin-net': { icon: Globe, color: 'blue' },
-    'o11n-plugin-nsx': { icon: Shield, color: 'emerald' },
     'o11n-plugin-powershell': { icon: Terminal, color: 'slate' },
     'o11n-plugin-rest': { icon: Globe, color: 'green' },
     'o11n-plugin-snmp': { icon: Activity, color: 'orange' },

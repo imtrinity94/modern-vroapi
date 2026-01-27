@@ -9,7 +9,6 @@ export const PLUGIN_NAMES: Record<string, string> = {
     'o11n-plugin-mail': 'Mail',
     'o11n-plugin-mqtt': 'MQTT',
     'o11n-plugin-net': 'Networking',
-    'o11n-plugin-nsx': 'VMware NSX',
     'o11n-plugin-powershell': 'PowerShell',
     'o11n-plugin-rest': 'REST API',
     'o11n-plugin-snmp': 'SNMP',
