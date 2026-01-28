@@ -4,466 +4,628 @@
     {
       "name": "Action",
       "description": "",
+      "methods": [],
       "attributes": [
         {
           "name": "description",
-          "type": "String",
-          "description": "Returns the description of the Action."
+          "type": "string",
+          "description": "Returns the description of the Action.",
+          "isReadonly": false
         },
         {
           "name": "module",
           "type": "Module",
-          "description": "Returns the parameter list of the Action."
+          "description": "Returns the parameter list of the Action.",
+          "isReadonly": false
         },
         {
           "name": "name",
-          "type": "String",
-          "description": "Returns the name of the Action."
+          "type": "string",
+          "description": "Returns the name of the Action.",
+          "isReadonly": false
         },
         {
           "name": "parameters",
           "type": "Parameter[]",
-          "description": "Returns the parameter list of the Action."
+          "description": "Returns the parameter list of the Action.",
+          "isReadonly": false
         },
         {
           "name": "returnType",
-          "type": "String",
-          "description": "Returns the return type of the Action."
+          "type": "string",
+          "description": "Returns the return type of the Action.",
+          "isReadonly": false
         },
         {
           "name": "script",
-          "type": "String",
-          "description": "Returns the script of the Action."
+          "type": "string",
+          "description": "Returns the script of the Action.",
+          "isReadonly": false
         },
         {
           "name": "version",
-          "type": "String",
-          "description": "Returns the version of the Action."
+          "type": "string",
+          "description": "Returns the version of the Action.",
+          "isReadonly": false
         },
         {
           "name": "versionHistoryItems",
           "type": "VersionHistoryItem[]",
-          "description": "Returns the versionHistoryItem list of the Action."
+          "description": "Returns the versionHistoryItem list of the Action.",
+          "isReadonly": false
         }
-      ],
-      "methods": []
+      ]
     },
     {
       "name": "ActionResult",
       "description": "",
-      "attributes": [],
       "methods": [
         {
           "name": "cancel",
-          "parameters": "(boolean mayInterruptIfRunning)",
+          "parameters": "boolean: mayInterruptIfRunning",
           "returnType": "boolean",
           "description": ""
         },
         {
           "name": "getResult",
-          "parameters": "()",
-          "returnType": "Object",
+          "parameters": "",
+          "returnType": "any",
           "description": ""
         },
         {
           "name": "isDone",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "boolean",
           "description": ""
         }
-      ]
+      ],
+      "attributes": []
     },
     {
       "name": "Array",
       "description": "",
-      "attributes": [
-        {
-          "name": "length",
-          "type": "Number",
-          "description": "Length of the array"
-        }
-      ],
       "methods": [
         {
           "name": "concat",
-          "parameters": "(Array array1)",
+          "parameters": "Array: array1",
           "returnType": "Array",
           "description": ""
         },
         {
           "name": "join",
-          "parameters": "(String separator)",
-          "returnType": "String",
+          "parameters": "String: separator",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "pop",
-          "parameters": "()",
-          "returnType": "Object",
+          "parameters": "",
+          "returnType": "any",
           "description": ""
         },
         {
           "name": "push",
-          "parameters": "(Object element1, Object elementX)",
+          "parameters": "Object: element1, Object: elementX",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "reverse",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "shift",
-          "parameters": "()",
-          "returnType": "Object",
+          "parameters": "",
+          "returnType": "any",
           "description": ""
         },
         {
           "name": "slice",
-          "parameters": "(Number start, Number end)",
+          "parameters": "Number: start, Number: end",
           "returnType": "Array",
           "description": ""
         },
         {
           "name": "sort",
-          "parameters": "(Function sortBy)",
+          "parameters": "Function: sortBy",
           "returnType": "Array",
           "description": ""
         },
         {
           "name": "splice",
-          "parameters": "(Number start, Number howmany, Object element1, Object elementX)",
+          "parameters": "Number: start, Number: howmany, Object: element1, Object: elementX",
           "returnType": "Array",
           "description": ""
         },
         {
           "name": "unshift",
-          "parameters": "(Object element1, Object elementX)",
+          "parameters": "Object: element1, Object: elementX",
           "returnType": "void",
           "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "length",
+          "type": "number",
+          "description": "Length of the array",
+          "isReadonly": false
         }
       ]
     },
     {
       "name": "Attribute",
       "description": "",
+      "methods": [],
       "attributes": [
         {
           "name": "description",
-          "type": "String",
-          "description": "Returns the description of the Parameter."
+          "type": "string",
+          "description": "Returns the description of the Parameter.",
+          "isReadonly": false
         },
         {
           "name": "name",
-          "type": "String",
-          "description": "Returns the name of the Parameter."
+          "type": "string",
+          "description": "Returns the name of the Parameter.",
+          "isReadonly": false
         },
         {
           "name": "type",
-          "type": "String",
-          "description": "Returns the type of the Parameter."
+          "type": "string",
+          "description": "Returns the type of the Parameter.",
+          "isReadonly": false
         },
         {
           "name": "value",
-          "type": "Object",
-          "description": ""
+          "type": "any",
+          "description": "",
+          "isReadonly": false
         }
-      ],
-      "methods": []
+      ]
     },
     {
       "name": "AuthorizationElement",
       "description": "",
-      "attributes": [
-        {
-          "name": "description",
-          "type": "String",
-          "description": "Returns the description of the configuration element."
-        },
-        {
-          "name": "ldapElement",
-          "type": "LdapGroup",
-          "description": "Returns the ldap element for this authorization."
-        },
-        {
-          "name": "ldapElementDn",
-          "type": "String",
-          "description": "Returns the ldap element DN for this authorization."
-        },
-        {
-          "name": "name",
-          "type": "String",
-          "description": "Returns the name of the configuration element."
-        },
-        {
-          "name": "references",
-          "type": "AuthorizationReference[]",
-          "description": "Returns all Authorization references for this authorization element."
-        },
-        {
-          "name": "status",
-          "type": "String",
-          "description": "Returns=\"enable\""
-        }
-      ],
       "methods": [
         {
           "name": "addReference",
-          "parameters": "(Object object, Object relation)",
+          "parameters": "Object: object, Object: relation",
           "returnType": "AuthorizationReference",
           "description": ""
         },
         {
           "name": "removeAllReferences",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "removeReference",
-          "parameters": "(Object jsObject, Object relation)",
+          "parameters": "Object: jsObject, Object: relation",
           "returnType": "void",
           "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "description",
+          "type": "string",
+          "description": "Returns the description of the configuration element.",
+          "isReadonly": false
+        },
+        {
+          "name": "ldapElement",
+          "type": "LdapGroup",
+          "description": "Returns the ldap element for this authorization.",
+          "isReadonly": false
+        },
+        {
+          "name": "ldapElementDn",
+          "type": "string",
+          "description": "Returns the ldap element DN for this authorization.",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Returns the name of the configuration element.",
+          "isReadonly": false
+        },
+        {
+          "name": "references",
+          "type": "AuthorizationReference[]",
+          "description": "Returns all Authorization references for this authorization element.",
+          "isReadonly": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "Returns=\"enable\"",
+          "isReadonly": false
         }
       ]
     },
     {
       "name": "AuthorizationReference",
       "description": "",
+      "methods": [],
       "attributes": [
         {
           "name": "authorizedObjects",
-          "type": "Object",
-          "description": "Returns the authorized objects"
+          "type": "any",
+          "description": "Returns the authorized objects",
+          "isReadonly": false
         },
         {
           "name": "relationName",
-          "type": "String",
-          "description": "Returns the relationName or null if it is the objet itself"
+          "type": "string",
+          "description": "Returns the relationName or null if it is the objet itself",
+          "isReadonly": false
         },
         {
           "name": "returnType",
-          "type": "String",
-          "description": "Returns the element return type."
+          "type": "string",
+          "description": "Returns the element return type.",
+          "isReadonly": false
         },
         {
           "name": "stringRepresentation",
-          "type": "String",
-          "description": "Returns the reference string representation, may be used with Server.fromStringRepresentation()"
+          "type": "string",
+          "description": "Returns the reference string representation, may be used with Server.fromStringRepresentation()",
+          "isReadonly": false
         },
         {
           "name": "type",
-          "type": "String",
-          "description": "Returns the type of the element."
+          "type": "string",
+          "description": "Returns the type of the element.",
+          "isReadonly": false
         },
         {
           "name": "value",
-          "type": "Object",
-          "description": "Returns the reference object"
+          "type": "any",
+          "description": "Returns the reference object",
+          "isReadonly": false
         }
-      ],
-      "methods": []
+      ]
     },
     {
       "name": "boolean",
       "description": "",
-      "attributes": [],
-      "methods": []
+      "methods": [],
+      "attributes": []
     },
     {
       "name": "Boolean",
       "description": "",
-      "attributes": [],
-      "methods": []
+      "methods": [],
+      "attributes": []
     },
     {
       "name": "char",
       "description": "",
-      "attributes": [],
-      "methods": []
+      "methods": [],
+      "attributes": []
     },
     {
       "name": "Command",
       "description": "",
-      "attributes": [
+      "methods": [
         {
-          "name": "input",
-          "type": "String",
+          "name": "execute",
+          "parameters": "Object: wait",
+          "returnType": "number",
           "description": ""
         },
         {
-          "name": "output",
-          "type": "String",
-          "description": "Returns the standard output from the command."
+          "name": "executeAndLog",
+          "parameters": "String: filename",
+          "returnType": "number",
+          "description": ""
         },
-        {
-          "name": "result",
-          "type": "Number",
-          "description": "Returns the return code from the command."
-        }
-      ],
-      "methods": [
         {
           "name": "Object",
           "parameters": "(Object cmd)",
           "returnType": "constructor",
           "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "input",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
         },
         {
-          "name": "execute",
-          "parameters": "(Object wait)",
-          "returnType": "Number",
-          "description": ""
+          "name": "output",
+          "type": "string",
+          "description": "Returns the standard output from the command.",
+          "isReadonly": false
         },
         {
-          "name": "executeAndLog",
-          "parameters": "(String filename)",
-          "returnType": "Number",
-          "description": ""
+          "name": "result",
+          "type": "number",
+          "description": "Returns the return code from the command.",
+          "isReadonly": false
         }
       ]
     },
     {
       "name": "ConfigurationElement",
       "description": "",
-      "attributes": [
-        {
-          "name": "attributes",
-          "type": "Attribute[]",
-          "description": "Returns the attribute list of the configuration element."
-        },
-        {
-          "name": "configurationElementCategory",
-          "type": "Object",
-          "description": "Returns the category object of the configuration element"
-        },
-        {
-          "name": "description",
-          "type": "String",
-          "description": "Returns the description of the configuration element."
-        },
-        {
-          "name": "name",
-          "type": "String",
-          "description": "Returns the name of the configuration element."
-        },
-        {
-          "name": "version",
-          "type": "String",
-          "description": "Returns the version of the configuration element."
-        },
-        {
-          "name": "versionHistoryItems",
-          "type": "VersionHistoryItem[]",
-          "description": "Returns the versionHistoryItem list of the configuration element."
-        }
-      ],
       "methods": [
         {
           "name": "getAttributeWithKey",
-          "parameters": "(String key)",
+          "parameters": "String: key",
           "returnType": "Attribute",
           "description": ""
         },
         {
           "name": "reload",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "removeAttributeWithKey",
-          "parameters": "(String key)",
+          "parameters": "String: key",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "setAttributeWithKey",
-          "parameters": "(String key, Object value)",
+          "parameters": "String: key, Object: value",
           "returnType": "void",
           "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "attributes",
+          "type": "Attribute[]",
+          "description": "Returns the attribute list of the configuration element.",
+          "isReadonly": false
+        },
+        {
+          "name": "configurationElementCategory",
+          "type": "any",
+          "description": "Returns the category object of the configuration element",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "Returns the description of the configuration element.",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Returns the name of the configuration element.",
+          "isReadonly": false
+        },
+        {
+          "name": "version",
+          "type": "string",
+          "description": "Returns the version of the configuration element.",
+          "isReadonly": false
+        },
+        {
+          "name": "versionHistoryItems",
+          "type": "VersionHistoryItem[]",
+          "description": "Returns the versionHistoryItem list of the configuration element.",
+          "isReadonly": false
         }
       ]
     },
     {
       "name": "ConfigurationElementCategory",
       "description": "",
+      "methods": [],
       "attributes": [
         {
           "name": "allConfigurationElements",
           "type": "ConfigurationElement[]",
-          "description": ""
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "configurationElements",
           "type": "ConfigurationElement[]",
-          "description": ""
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "description",
-          "type": "String",
-          "description": "Returns the description of the configuration element category."
+          "type": "string",
+          "description": "Returns the description of the configuration element category.",
+          "isReadonly": false
         },
         {
           "name": "name",
-          "type": "String",
-          "description": "Returns the name of the configuration element category."
+          "type": "string",
+          "description": "Returns the name of the configuration element category.",
+          "isReadonly": false
         },
         {
           "name": "parent",
           "type": "ConfigurationElementCategory",
-          "description": ""
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "path",
-          "type": "String",
-          "description": "Returns path of the configuration element category."
+          "type": "string",
+          "description": "Returns path of the configuration element category.",
+          "isReadonly": false
         },
         {
           "name": "subCategories",
           "type": "ConfigurationElementCategory[]",
-          "description": ""
+          "description": "",
+          "isReadonly": false
         }
-      ],
-      "methods": []
+      ]
     },
     {
       "name": "Credential",
       "description": "",
-      "attributes": [
-        {
-          "name": "password",
-          "type": "String",
-          "description": "[Deprecated] Passwords are not available in scripting."
-        },
-        {
-          "name": "username",
-          "type": "String",
-          "description": ""
-        }
-      ],
       "methods": [
+        {
+          "name": "checkPassword",
+          "parameters": "String: otherPassword",
+          "returnType": "boolean",
+          "description": ""
+        },
         {
           "name": "String",
           "parameters": "(String username, String password)",
           "returnType": "constructor",
           "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "password",
+          "type": "string",
+          "description": "[Deprecated] Passwords are not available in scripting.",
+          "isReadonly": false
         },
         {
-          "name": "checkPassword",
-          "parameters": "(String otherPassword)",
-          "returnType": "boolean",
-          "description": ""
+          "name": "username",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
         }
       ]
     },
     {
       "name": "Date",
       "description": "",
-      "attributes": [],
       "methods": [
+        {
+          "name": "getDate",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "getDay",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "getFullYear",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "getHours",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "getMinutes",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "getMonth",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "getSeconds",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "getTime",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "getTimezoneOffset",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "getYear",
+          "parameters": "",
+          "returnType": "number",
+          "description": ""
+        },
+        {
+          "name": "parse",
+          "parameters": "",
+          "returnType": "Date",
+          "description": ""
+        },
+        {
+          "name": "setDate",
+          "parameters": "Number: day",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setHours",
+          "parameters": "Number: hours",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setMinutes",
+          "parameters": "Number: minutes",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setMonth",
+          "parameters": "Number: month",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setSeconds",
+          "parameters": "Number: seconds",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setTime",
+          "parameters": "Number: time",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "setYear",
+          "parameters": "Number: years",
+          "returnType": "void",
+          "description": ""
+        },
+        {
+          "name": "toGMTString",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
+        {
+          "name": "UTC",
+          "parameters": "",
+          "returnType": "Date",
+          "description": ""
+        },
         {
           "name": "Date",
           "parameters": "()",
@@ -481,181 +643,44 @@
           "parameters": "(Number year, Number month, Number day)",
           "returnType": "constructor",
           "description": ""
-        },
-        {
-          "name": "Number",
-          "parameters": "(Number year, Number month, Number day, Number hours, Number minutes, Number seconds)",
-          "returnType": "constructor",
-          "description": ""
-        },
-        {
-          "name": "getDate",
-          "parameters": "()",
-          "returnType": "Number",
-          "description": ""
-        },
-        {
-          "name": "getDay",
-          "parameters": "()",
-          "returnType": "Number",
-          "description": ""
-        },
-        {
-          "name": "getFullYear",
-          "parameters": "()",
-          "returnType": "Number",
-          "description": ""
-        },
-        {
-          "name": "getHours",
-          "parameters": "()",
-          "returnType": "Number",
-          "description": ""
-        },
-        {
-          "name": "getMinutes",
-          "parameters": "()",
-          "returnType": "Number",
-          "description": ""
-        },
-        {
-          "name": "getMonth",
-          "parameters": "()",
-          "returnType": "Number",
-          "description": ""
-        },
-        {
-          "name": "getSeconds",
-          "parameters": "()",
-          "returnType": "Number",
-          "description": ""
-        },
-        {
-          "name": "getTime",
-          "parameters": "()",
-          "returnType": "Number",
-          "description": ""
-        },
-        {
-          "name": "getTimezoneOffset",
-          "parameters": "()",
-          "returnType": "Number",
-          "description": ""
-        },
-        {
-          "name": "getYear",
-          "parameters": "()",
-          "returnType": "Number",
-          "description": ""
-        },
-        {
-          "name": "parse",
-          "parameters": "()",
-          "returnType": "Date",
-          "description": ""
-        },
-        {
-          "name": "setDate",
-          "parameters": "(Number day)",
-          "returnType": "void",
-          "description": ""
-        },
-        {
-          "name": "setHours",
-          "parameters": "(Number hours)",
-          "returnType": "void",
-          "description": ""
-        },
-        {
-          "name": "setMinutes",
-          "parameters": "(Number minutes)",
-          "returnType": "void",
-          "description": ""
-        },
-        {
-          "name": "setMonth",
-          "parameters": "(Number month)",
-          "returnType": "void",
-          "description": ""
-        },
-        {
-          "name": "setSeconds",
-          "parameters": "(Number seconds)",
-          "returnType": "void",
-          "description": ""
-        },
-        {
-          "name": "setTime",
-          "parameters": "(Number time)",
-          "returnType": "void",
-          "description": ""
-        },
-        {
-          "name": "setYear",
-          "parameters": "(Number years)",
-          "returnType": "void",
-          "description": ""
-        },
-        {
-          "name": "toGMTString",
-          "parameters": "()",
-          "returnType": "String",
-          "description": ""
-        },
-        {
-          "name": "UTC",
-          "parameters": "()",
-          "returnType": "Date",
-          "description": ""
         }
-      ]
+      ],
+      "attributes": []
     },
     {
       "name": "Debug",
       "description": "",
-      "attributes": [],
       "methods": [
         {
           "name": "dumpVariables",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "unwatch",
-          "parameters": "(String variable)",
+          "parameters": "String: variable",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "watch",
-          "parameters": "(String variable)",
+          "parameters": "String: variable",
           "returnType": "void",
           "description": ""
         }
-      ]
+      ],
+      "attributes": []
     },
     {
       "name": "EncryptedString",
       "description": "",
-      "attributes": [],
-      "methods": []
+      "methods": [],
+      "attributes": []
     },
     {
       "name": "Enumeration",
       "description": "",
-      "attributes": [
-        {
-          "name": "hasNext",
-          "type": "boolean",
-          "description": ""
-        },
-        {
-          "name": "next",
-          "type": "Object",
-          "description": ""
-        }
-      ],
       "methods": [
         {
           "name": "Object",
@@ -663,669 +688,707 @@
           "returnType": "constructor",
           "description": ""
         }
+      ],
+      "attributes": [
+        {
+          "name": "hasNext",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "next",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        }
       ]
     },
     {
       "name": "Event",
       "description": "",
-      "attributes": [
-        {
-          "name": "source",
-          "type": "Object",
-          "description": "Generator of the event."
-        },
-        {
-          "name": "when",
-          "type": "Number",
-          "description": "when the evant has been generated"
-        }
-      ],
       "methods": [
         {
           "name": "consume",
-          "parameters": "(String owner)",
+          "parameters": "String: owner",
           "returnType": "void",
           "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "source",
+          "type": "any",
+          "description": "Generator of the event.",
+          "isReadonly": false
+        },
+        {
+          "name": "when",
+          "type": "number",
+          "description": "when the evant has been generated",
+          "isReadonly": false
         }
       ]
     },
     {
       "name": "EventGauge",
       "description": "",
-      "attributes": [
-        {
-          "name": "device",
-          "type": "String",
-          "description": "Gauge device."
-        },
-        {
-          "name": "perfKey",
-          "type": "String",
-          "description": "the gauge type (cpu,mem,...)."
-        },
-        {
-          "name": "source",
-          "type": "Object",
-          "description": "Generator of the event."
-        },
-        {
-          "name": "value",
-          "type": "Number",
-          "description": "Gauge value , depends of the type."
-        },
-        {
-          "name": "when",
-          "type": "Number",
-          "description": "when the evant has been generated"
-        }
-      ],
       "methods": [
         {
           "name": "consume",
-          "parameters": "(String owner)",
+          "parameters": "String: owner",
           "returnType": "void",
           "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "device",
+          "type": "string",
+          "description": "Gauge device.",
+          "isReadonly": false
+        },
+        {
+          "name": "perfKey",
+          "type": "string",
+          "description": "the gauge type (cpu,mem,...).",
+          "isReadonly": false
+        },
+        {
+          "name": "source",
+          "type": "any",
+          "description": "Generator of the event.",
+          "isReadonly": false
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "description": "Gauge value , depends of the type.",
+          "isReadonly": false
+        },
+        {
+          "name": "when",
+          "type": "number",
+          "description": "when the evant has been generated",
+          "isReadonly": false
         }
       ]
     },
     {
       "name": "EventSchedule",
       "description": "",
-      "attributes": [
-        {
-          "name": "lastExec",
-          "type": "Number",
-          "description": ""
-        },
-        {
-          "name": "lastExecutionDate",
-          "type": "Object",
-          "description": ""
-        },
-        {
-          "name": "nextExec",
-          "type": "Number",
-          "description": ""
-        },
-        {
-          "name": "nextExecutionDate",
-          "type": "Object",
-          "description": ""
-        },
-        {
-          "name": "source",
-          "type": "Object",
-          "description": "Generator of the event."
-        },
-        {
-          "name": "when",
-          "type": "Number",
-          "description": "when the evant has been generated"
-        }
-      ],
       "methods": [
         {
           "name": "consume",
-          "parameters": "(String owner)",
+          "parameters": "String: owner",
           "returnType": "void",
           "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "lastExec",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "lastExecutionDate",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "nextExec",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "nextExecutionDate",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "source",
+          "type": "any",
+          "description": "Generator of the event.",
+          "isReadonly": false
+        },
+        {
+          "name": "when",
+          "type": "number",
+          "description": "when the evant has been generated",
+          "isReadonly": false
         }
       ]
     },
     {
       "name": "EventTrigger",
       "description": "",
-      "attributes": [
-        {
-          "name": "source",
-          "type": "Object",
-          "description": ""
-        },
-        {
-          "name": "triggerName",
-          "type": "String",
-          "description": ""
-        },
-        {
-          "name": "valueOf",
-          "type": "String",
-          "description": ""
-        },
-        {
-          "name": "when",
-          "type": "Number",
-          "description": ""
-        }
-      ],
       "methods": [
         {
           "name": "consume",
-          "parameters": "(String owner)",
+          "parameters": "String: owner",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "getValue",
-          "parameters": "(String key)",
-          "returnType": "String",
+          "parameters": "String: key",
+          "returnType": "string",
           "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "source",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "triggerName",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "valueOf",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "when",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
         }
       ]
     },
     {
       "name": "ExecutionContext",
       "description": "",
-      "attributes": [],
       "methods": [
         {
           "name": "contains",
-          "parameters": "(String name)",
+          "parameters": "String: name",
           "returnType": "boolean",
           "description": ""
         },
         {
           "name": "getParameter",
-          "parameters": "(String name)",
-          "returnType": "Object",
+          "parameters": "String: name",
+          "returnType": "any",
           "description": ""
         },
         {
           "name": "parameterNames",
-          "parameters": "(String name)",
+          "parameters": "String: name",
           "returnType": "Array",
           "description": ""
         }
-      ]
+      ],
+      "attributes": []
     },
     {
       "name": "File",
       "description": "",
-      "attributes": [
-        {
-          "name": "directory",
-          "type": "String",
-          "description": "Returns the directory in which the file resides."
-        },
-        {
-          "name": "exists",
-          "type": "boolean",
-          "description": "Return true if the descibed by this object exists."
-        },
-        {
-          "name": "extension",
-          "type": "String",
-          "description": "Returns the extension of this file. <p>The extention is the set of characters after the last dot in the filename.</p> <p>Examples: Extension of \"fail-over.policy\" is \"policy\". Extension of \"file.name.with.points.xyz\" is \"xyz\".</p>"
-        },
-        {
-          "name": "hostname",
-          "type": "String",
-          "description": "The hostname of the <a cmd=\"show.type.Host\">Host</a> on which the file resides."
-        },
-        {
-          "name": "isDir",
-          "type": "boolean",
-          "description": "Returns true if this file (\"path\") is a directory."
-        },
-        {
-          "name": "isLocal",
-          "type": "boolean",
-          "description": "Returns true if the file resides on the same computer as the one running the script."
-        },
-        {
-          "name": "length",
-          "type": "Number",
-          "description": "Returns the file length."
-        },
-        {
-          "name": "name",
-          "type": "String",
-          "description": "The name of this file, not including the full path."
-        },
-        {
-          "name": "path",
-          "type": "String",
-          "description": "The path to the file, not including its name."
-        }
-      ],
       "methods": [
         {
-          "name": "String",
-          "parameters": "(String file)",
-          "returnType": "constructor",
-          "description": ""
-        },
-        {
           "name": "canRead",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "boolean",
           "description": ""
         },
         {
           "name": "canWrite",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "boolean",
           "description": ""
         },
         {
           "name": "createDirectory",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "createFile",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "deleteFile",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "list",
-          "parameters": "(Object extension)",
-          "returnType": "String[]",
+          "parameters": "Object: extension",
+          "returnType": "string[]",
           "description": ""
         },
         {
           "name": "renameTo",
-          "parameters": "(String destPathName)",
+          "parameters": "String: destPathName",
           "returnType": "boolean",
           "description": ""
         },
         {
           "name": "write",
-          "parameters": "(String content)",
+          "parameters": "String: content",
           "returnType": "void",
           "description": ""
+        },
+        {
+          "name": "String",
+          "parameters": "(String file)",
+          "returnType": "constructor",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "directory",
+          "type": "string",
+          "description": "Returns the directory in which the file resides.",
+          "isReadonly": false
+        },
+        {
+          "name": "exists",
+          "type": "boolean",
+          "description": "Return true if the descibed by this object exists.",
+          "isReadonly": false
+        },
+        {
+          "name": "extension",
+          "type": "string",
+          "description": "Returns the extension of this file. <p>The extention is the set of characters after the last dot in the filename.</p> <p>Examples: Extension of \"fail-over.policy\" is \"policy\". Extension of \"file.name.with.points.xyz\" is \"xyz\".</p>",
+          "isReadonly": false
+        },
+        {
+          "name": "hostname",
+          "type": "string",
+          "description": "The hostname of the <a cmd=\"show.type.Host\">Host</a> on which the file resides.",
+          "isReadonly": false
+        },
+        {
+          "name": "isDir",
+          "type": "boolean",
+          "description": "Returns true if this file (\"path\") is a directory.",
+          "isReadonly": false
+        },
+        {
+          "name": "isLocal",
+          "type": "boolean",
+          "description": "Returns true if the file resides on the same computer as the one running the script.",
+          "isReadonly": false
+        },
+        {
+          "name": "length",
+          "type": "number",
+          "description": "Returns the file length.",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "The name of this file, not including the full path.",
+          "isReadonly": false
+        },
+        {
+          "name": "path",
+          "type": "string",
+          "description": "The path to the file, not including its name.",
+          "isReadonly": false
         }
       ]
     },
     {
       "name": "FileHelper",
       "description": "",
-      "attributes": [],
-      "methods": []
+      "methods": [],
+      "attributes": []
     },
     {
       "name": "FileReader",
       "description": "",
-      "attributes": [
-        {
-          "name": "exists",
-          "type": "boolean",
-          "description": "Returns true if the file exists in the file system."
-        }
-      ],
       "methods": [
         {
-          "name": "String",
-          "parameters": "(String file)",
-          "returnType": "constructor",
-          "description": ""
-        },
-        {
           "name": "open",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "readAll",
-          "parameters": "()",
-          "returnType": "String",
+          "parameters": "",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "readLine",
-          "parameters": "()",
-          "returnType": "String",
+          "parameters": "",
+          "returnType": "string",
           "description": ""
+        },
+        {
+          "name": "String",
+          "parameters": "(String file)",
+          "returnType": "constructor",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "exists",
+          "type": "boolean",
+          "description": "Returns true if the file exists in the file system.",
+          "isReadonly": false
         }
       ]
     },
     {
       "name": "FileWriter",
       "description": "",
-      "attributes": [
-        {
-          "name": "exists",
-          "type": "boolean",
-          "description": ""
-        },
-        {
-          "name": "lineEndType",
-          "type": "Number",
-          "description": "The type of carriage return used in writeLine. Possible values: 0 : Unix (LF) 1 : Windows (CR,LF) 2 : Mac (CR)"
-        }
-      ],
       "methods": [
         {
-          "name": "String",
-          "parameters": "(String file)",
-          "returnType": "constructor",
-          "description": ""
-        },
-        {
           "name": "clean",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "close",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "open",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "write",
-          "parameters": "(String value)",
+          "parameters": "String: value",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "writeLine",
-          "parameters": "(String value)",
+          "parameters": "String: value",
           "returnType": "void",
           "description": ""
+        },
+        {
+          "name": "String",
+          "parameters": "(String file)",
+          "returnType": "constructor",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "exists",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "lineEndType",
+          "type": "number",
+          "description": "The type of carriage return used in writeLine. Possible values: 0 : Unix (LF) 1 : Windows (CR,LF) 2 : Mac (CR)",
+          "isReadonly": false
         }
       ]
     },
     {
       "name": "Function",
       "description": "",
-      "attributes": [],
-      "methods": []
+      "methods": [],
+      "attributes": []
     },
     {
       "name": "LdapGroup",
       "description": "",
+      "methods": [],
       "attributes": [
         {
           "name": "commonName",
-          "type": "String",
-          "description": ""
+          "type": "string",
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "displayInfo",
-          "type": "String",
-          "description": ""
+          "type": "string",
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "displayName",
-          "type": "String",
-          "description": ""
+          "type": "string",
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "dn",
-          "type": "String",
-          "description": ""
+          "type": "string",
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "emailAddress",
-          "type": "String",
-          "description": ""
+          "type": "string",
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "parentGroups",
           "type": "LdapGroup[]",
-          "description": ""
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "subGroups",
           "type": "LdapGroup[]",
-          "description": ""
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "users",
           "type": "LdapUser[]",
-          "description": ""
+          "description": "",
+          "isReadonly": false
         }
-      ],
-      "methods": []
+      ]
     },
     {
       "name": "LdapUser",
       "description": "",
+      "methods": [
+        {
+          "name": "isMemberOfGroup",
+          "parameters": "Object: ldapGroup",
+          "returnType": "boolean",
+          "description": ""
+        }
+      ],
       "attributes": [
         {
           "name": "allGroups",
           "type": "LdapGroup[]",
-          "description": ""
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "commonName",
-          "type": "String",
-          "description": ""
+          "type": "string",
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "displayInfo",
-          "type": "String",
-          "description": ""
+          "type": "string",
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "displayName",
-          "type": "String",
-          "description": ""
+          "type": "string",
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "dn",
-          "type": "String",
-          "description": ""
+          "type": "string",
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "emailAddress",
-          "type": "String",
-          "description": ""
+          "type": "string",
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "groups",
           "type": "LdapGroup[]",
-          "description": ""
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "loginName",
-          "type": "String",
-          "description": ""
+          "type": "string",
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "userPrincipalName",
-          "type": "String",
-          "description": ""
-        }
-      ],
-      "methods": [
-        {
-          "name": "isMemberOfGroup",
-          "parameters": "(Object ldapGroup)",
-          "returnType": "boolean",
-          "description": ""
+          "type": "string",
+          "description": "",
+          "isReadonly": false
         }
       ]
     },
     {
       "name": "LockingSystem",
       "description": "",
-      "attributes": [],
       "methods": [
         {
           "name": "lock",
-          "parameters": "(String lockId, String owner)",
+          "parameters": "String: lockId, String: owner",
           "returnType": "boolean",
           "description": ""
         },
         {
           "name": "lockAndWait",
-          "parameters": "(String lockId, String owner)",
+          "parameters": "String: lockId, String: owner",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "retrieveAll",
-          "parameters": "()",
-          "returnType": "String[]",
+          "parameters": "",
+          "returnType": "string[]",
           "description": ""
         },
         {
           "name": "unlock",
-          "parameters": "(String lockId, String owner)",
+          "parameters": "String: lockId, String: owner",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "unlockAll",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "void",
           "description": ""
         }
-      ]
+      ],
+      "attributes": []
     },
     {
       "name": "LogEvent",
       "description": "",
+      "methods": [],
       "attributes": [
         {
           "name": "id",
-          "type": "String",
-          "description": "Returns the unique identifier (ID) for this object."
+          "type": "string",
+          "description": "Returns the unique identifier (ID) for this object.",
+          "isReadonly": false
         },
         {
           "name": "logTimeStamp",
-          "type": "java.util.Date",
-          "description": "Returns the time stamp of the log event."
+          "type": "Date",
+          "description": "Returns the time stamp of the log event.",
+          "isReadonly": false
         },
         {
           "name": "longDescription",
-          "type": "String",
-          "description": "Returns the long description of the log event."
+          "type": "string",
+          "description": "Returns the long description of the log event.",
+          "isReadonly": false
         },
         {
           "name": "originatorId",
-          "type": "String",
-          "description": "Returns the originator id of the log event."
+          "type": "string",
+          "description": "Returns the originator id of the log event.",
+          "isReadonly": false
         },
         {
           "name": "originatorUri",
-          "type": "String",
-          "description": "Returns the originator uri of the log event."
+          "type": "string",
+          "description": "Returns the originator uri of the log event.",
+          "isReadonly": false
         },
         {
           "name": "originatorUserName",
-          "type": "String",
-          "description": "Returns the originator user name of the log event."
+          "type": "string",
+          "description": "Returns the originator user name of the log event.",
+          "isReadonly": false
         },
         {
           "name": "severity",
-          "type": "Number",
-          "description": "Returns the severity of the log event."
+          "type": "number",
+          "description": "Returns the severity of the log event.",
+          "isReadonly": false
         },
         {
           "name": "shortDescription",
-          "type": "String",
-          "description": "Returns the short description of the log event."
+          "type": "string",
+          "description": "Returns the short description of the log event.",
+          "isReadonly": false
         }
-      ],
-      "methods": []
+      ]
     },
     {
       "name": "LogFileWriter",
       "description": "",
-      "attributes": [
-        {
-          "name": "exists",
-          "type": "boolean",
-          "description": ""
-        },
-        {
-          "name": "lineEndType",
-          "type": "Number",
-          "description": "The type of carriage return used in writeLine. Possible values: 0 : Unix (LF) 1 : Windows (CR,LF) 2 : Mac (CR)"
-        }
-      ],
       "methods": [
         {
-          "name": "String",
-          "parameters": "(String file)",
-          "returnType": "constructor",
-          "description": ""
-        },
-        {
           "name": "clean",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "close",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "open",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "write",
-          "parameters": "(String value)",
+          "parameters": "String: value",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "writeLine",
-          "parameters": "(String value)",
+          "parameters": "String: value",
           "returnType": "void",
           "description": ""
+        },
+        {
+          "name": "String",
+          "parameters": "(String file)",
+          "returnType": "constructor",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "exists",
+          "type": "boolean",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "lineEndType",
+          "type": "number",
+          "description": "The type of carriage return used in writeLine. Possible values: 0 : Unix (LF) 1 : Windows (CR,LF) 2 : Mac (CR)",
+          "isReadonly": false
         }
       ]
     },
     {
       "name": "LogQuery",
       "description": "",
-      "attributes": [
-        {
-          "name": "fetchLimit",
-          "type": "Number",
-          "description": "Gets or sets the fetch limit."
-        },
-        {
-          "name": "fromDate",
-          "type": "java.util.Date",
-          "description": "Gets or sets the from date."
-        },
-        {
-          "name": "originatorId",
-          "type": "String",
-          "description": "Gets or sets the originator id."
-        },
-        {
-          "name": "severityThreshold",
-          "type": "Number",
-          "description": "Gets or sets the severity threshold."
-        },
-        {
-          "name": "targetUri",
-          "type": "String",
-          "description": "Gets or sets the target uri."
-        },
-        {
-          "name": "toDate",
-          "type": "java.util.Date",
-          "description": "Gets or sets the to date."
-        }
-      ],
       "methods": [
         {
           "name": "LogQuery",
@@ -1333,640 +1396,740 @@
           "returnType": "constructor",
           "description": ""
         }
+      ],
+      "attributes": [
+        {
+          "name": "fetchLimit",
+          "type": "number",
+          "description": "Gets or sets the fetch limit.",
+          "isReadonly": false
+        },
+        {
+          "name": "fromDate",
+          "type": "Date",
+          "description": "Gets or sets the from date.",
+          "isReadonly": false
+        },
+        {
+          "name": "originatorId",
+          "type": "string",
+          "description": "Gets or sets the originator id.",
+          "isReadonly": false
+        },
+        {
+          "name": "severityThreshold",
+          "type": "number",
+          "description": "Gets or sets the severity threshold.",
+          "isReadonly": false
+        },
+        {
+          "name": "targetUri",
+          "type": "string",
+          "description": "Gets or sets the target uri.",
+          "isReadonly": false
+        },
+        {
+          "name": "toDate",
+          "type": "Date",
+          "description": "Gets or sets the to date.",
+          "isReadonly": false
+        }
       ]
     },
     {
       "name": "MimeAttachment",
       "description": "",
-      "attributes": [
-        {
-          "name": "content",
-          "type": "String",
-          "description": ""
-        },
-        {
-          "name": "mimeType",
-          "type": "String",
-          "description": ""
-        },
-        {
-          "name": "name",
-          "type": "String",
-          "description": ""
-        }
-      ],
       "methods": [
+        {
+          "name": "write",
+          "parameters": "Object: directory, Object: filename",
+          "returnType": "void",
+          "description": ""
+        },
         {
           "name": "Object",
           "parameters": "(Object arg)",
           "returnType": "constructor",
           "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "content",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
         },
         {
-          "name": "write",
-          "parameters": "(Object directory, Object filename)",
-          "returnType": "void",
-          "description": ""
+          "name": "mimeType",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
         }
       ]
     },
     {
       "name": "Module",
       "description": "",
-      "attributes": [
-        {
-          "name": "actionDesciptions",
-          "type": "Action[]",
-          "description": "Return all action modules."
-        },
-        {
-          "name": "description",
-          "type": "String",
-          "description": "Return the module description."
-        },
-        {
-          "name": "name",
-          "type": "String",
-          "description": "Return the module name."
-        }
-      ],
-      "methods": []
-    },
-    {
-      "name": "NotFound",
-      "description": "",
-      "attributes": [
-        {
-          "name": "originalStringRepresentation",
-          "type": "String",
-          "description": "Returns the original StringRepresentation of this object."
-        },
-        {
-          "name": "originalType",
-          "type": "String",
-          "description": "Returns the original type of this object."
-        }
-      ],
-      "methods": []
-    },
-    {
-      "name": "Number",
-      "description": "",
-      "attributes": [],
-      "methods": []
-    },
-    {
-      "name": "Object",
-      "description": "",
-      "attributes": [],
-      "methods": []
-    },
-    {
-      "name": "Package",
-      "description": "",
+      "methods": [],
       "attributes": [
         {
           "name": "actions",
           "type": "Action[]",
+          "description": "Return all action modules.",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "Return the module description.",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Return the module name.",
+          "isReadonly": false
+        },
+        {
+          "name": "actionDesciptions",
+          "type": "Action[]",
+          "description": "Return all action modules."
+        }
+      ]
+    },
+    {
+      "name": "NotFound",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "originalStringRepresentation",
+          "type": "string",
+          "description": "Returns the original StringRepresentation of this object.",
+          "isReadonly": false
+        },
+        {
+          "name": "originalType",
+          "type": "string",
+          "description": "Returns the original type of this object.",
+          "isReadonly": false
+        }
+      ]
+    },
+    {
+      "name": "Number",
+      "description": "",
+      "methods": [],
+      "attributes": []
+    },
+    {
+      "name": "Object",
+      "description": "",
+      "methods": [],
+      "attributes": []
+    },
+    {
+      "name": "Package",
+      "description": "",
+      "methods": [
+        {
+          "name": "remove",
+          "parameters": "",
+          "returnType": "void",
           "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "actions",
+          "type": "Action[]",
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "configurationElements",
           "type": "ConfigurationElement[]",
-          "description": ""
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "description",
-          "type": "String",
-          "description": "Returns the description of the package."
+          "type": "string",
+          "description": "Returns the description of the package.",
+          "isReadonly": false
         },
         {
           "name": "id",
-          "type": "String",
-          "description": "Returns the unique identifier (ID) for this object."
+          "type": "string",
+          "description": "Returns the unique identifier (ID) for this object.",
+          "isReadonly": false
         },
         {
           "name": "name",
-          "type": "String",
-          "description": "Returns the name of the package."
+          "type": "string",
+          "description": "Returns the name of the package.",
+          "isReadonly": false
         },
         {
           "name": "policyTemplates",
           "type": "PolicyTemplate[]",
-          "description": ""
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "resourceElements",
           "type": "ResourceElement[]",
-          "description": ""
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "version",
-          "type": "String",
-          "description": "Returns the version of the package."
+          "type": "string",
+          "description": "Returns the version of the package.",
+          "isReadonly": false
         },
         {
           "name": "workflows",
           "type": "Workflow[]",
-          "description": ""
-        }
-      ],
-      "methods": [
-        {
-          "name": "remove",
-          "parameters": "()",
-          "returnType": "void",
-          "description": ""
+          "description": "",
+          "isReadonly": false
         }
       ]
     },
     {
       "name": "Parameter",
       "description": "",
+      "methods": [],
       "attributes": [
         {
           "name": "description",
-          "type": "String",
-          "description": "Returns the description of the Parameter."
+          "type": "string",
+          "description": "Returns the description of the Parameter.",
+          "isReadonly": false
         },
         {
           "name": "name",
-          "type": "String",
-          "description": "Returns the name of the Parameter."
+          "type": "string",
+          "description": "Returns the name of the Parameter.",
+          "isReadonly": false
         },
         {
           "name": "type",
-          "type": "String",
-          "description": "Returns the type of the Parameter."
+          "type": "string",
+          "description": "Returns the type of the Parameter.",
+          "isReadonly": false
         }
-      ],
-      "methods": []
+      ]
     },
     {
       "name": "Path",
       "description": "",
-      "attributes": [],
-      "methods": []
+      "methods": [],
+      "attributes": []
     },
     {
       "name": "PluginModuleDescription",
       "description": "",
+      "methods": [],
       "attributes": [
         {
           "name": "description",
-          "type": "String",
-          "description": ""
+          "type": "string",
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "name",
-          "type": "String",
-          "description": ""
+          "type": "string",
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "types",
-          "type": "Object[]",
-          "description": ""
+          "type": "any[]",
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "version",
-          "type": "String",
-          "description": ""
+          "type": "string",
+          "description": "",
+          "isReadonly": false
         }
-      ],
-      "methods": []
+      ]
     },
     {
       "name": "PluginTypeDescription",
       "description": "",
+      "methods": [],
       "attributes": [
         {
           "name": "description",
-          "type": "String",
-          "description": ""
+          "type": "string",
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "kind",
-          "type": "String",
-          "description": ""
+          "type": "string",
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "name",
-          "type": "String",
-          "description": ""
+          "type": "string",
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "type",
-          "type": "String",
-          "description": ""
+          "type": "string",
+          "description": "",
+          "isReadonly": false
         }
-      ],
-      "methods": []
+      ]
     },
     {
       "name": "Policy",
       "description": "",
-      "attributes": [
-        {
-          "name": "autostart",
-          "type": "boolean",
-          "description": "Tell the policy to autostart when VMO server start"
-        },
-        {
-          "name": "credential",
-          "type": "Object",
-          "description": ""
-        },
-        {
-          "name": "currentVersion",
-          "type": "String",
-          "description": ""
-        },
-        {
-          "name": "description",
-          "type": "String",
-          "description": "Returns the description of the policy."
-        },
-        {
-          "name": "logEvents",
-          "type": "LogEvent[]",
-          "description": "Returns the log events"
-        },
-        {
-          "name": "name",
-          "type": "String",
-          "description": "Returns the name of the policy."
-        },
-        {
-          "name": "owner",
-          "type": "Object",
-          "description": "Returns the Owner of the policy."
-        },
-        {
-          "name": "status",
-          "type": "String",
-          "description": "Get the policy status (running,stopped)"
-        },
-        {
-          "name": "taggedObjects",
-          "type": "Object[]",
-          "description": "Returns all tagged object in the policy."
-        },
-        {
-          "name": "tags",
-          "type": "String[]",
-          "description": "Returns all tags in the policy."
-        }
-      ],
       "methods": [
         {
           "name": "exit",
-          "parameters": "(String reason)",
+          "parameters": "String: reason",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "forTag",
-          "parameters": "(String value)",
-          "returnType": "Object",
+          "parameters": "String: value",
+          "returnType": "any",
           "description": ""
         },
         {
           "name": "getEventsByTag",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "Properties[]",
           "description": ""
         },
         {
           "name": "getObjectByTag",
-          "parameters": "(String value)",
-          "returnType": "Object",
+          "parameters": "String: value",
+          "returnType": "any",
           "description": ""
         },
         {
           "name": "remove",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "start",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "stop",
-          "parameters": "(String reason)",
+          "parameters": "String: reason",
           "returnType": "void",
           "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "autostart",
+          "type": "boolean",
+          "description": "Tell the policy to autostart when VMO server start",
+          "isReadonly": false
+        },
+        {
+          "name": "credential",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "currentVersion",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "Returns the description of the policy.",
+          "isReadonly": false
+        },
+        {
+          "name": "logEvents",
+          "type": "LogEvent[]",
+          "description": "Returns the log events",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Returns the name of the policy.",
+          "isReadonly": false
+        },
+        {
+          "name": "owner",
+          "type": "any",
+          "description": "Returns the Owner of the policy.",
+          "isReadonly": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "Get the policy status (running,stopped)",
+          "isReadonly": false
+        },
+        {
+          "name": "taggedObjects",
+          "type": "any[]",
+          "description": "Returns all tagged object in the policy.",
+          "isReadonly": false
+        },
+        {
+          "name": "tags",
+          "type": "string[]",
+          "description": "Returns all tags in the policy.",
+          "isReadonly": false
         }
       ]
     },
     {
       "name": "PolicyTemplate",
       "description": "",
-      "attributes": [
-        {
-          "name": "currentVersion",
-          "type": "String",
-          "description": ""
-        },
-        {
-          "name": "description",
-          "type": "String",
-          "description": "Returns the description of the policy template."
-        },
-        {
-          "name": "id",
-          "type": "String",
-          "description": "Returns the unique identifier (ID) for this object."
-        },
-        {
-          "name": "name",
-          "type": "String",
-          "description": "Returns the name of the policy template."
-        },
-        {
-          "name": "policyTemplateCategory",
-          "type": "Object",
-          "description": "Returns the category object of the policy template"
-        },
-        {
-          "name": "version",
-          "type": "String",
-          "description": "Returns the version of the PolicyTemplate."
-        },
-        {
-          "name": "versionHistoryItems",
-          "type": "VersionHistoryItem[]",
-          "description": "Returns the versionHistoryItem list of the PolicyTemplate."
-        }
-      ],
       "methods": [
         {
           "name": "apply",
-          "parameters": "(String name, Object properties)",
+          "parameters": "String: name, Object: properties",
           "returnType": "Policy",
           "description": ""
         },
         {
           "name": "forTag",
-          "parameters": "(String value)",
-          "returnType": "Object",
+          "parameters": "String: value",
+          "returnType": "any",
           "description": ""
         },
         {
           "name": "getObjectByTag",
-          "parameters": "(String value)",
-          "returnType": "Object",
+          "parameters": "String: value",
+          "returnType": "any",
           "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "currentVersion",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "Returns the description of the policy template.",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Returns the unique identifier (ID) for this object.",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Returns the name of the policy template.",
+          "isReadonly": false
+        },
+        {
+          "name": "policyTemplateCategory",
+          "type": "any",
+          "description": "Returns the category object of the policy template",
+          "isReadonly": false
+        },
+        {
+          "name": "version",
+          "type": "string",
+          "description": "Returns the version of the PolicyTemplate.",
+          "isReadonly": false
+        },
+        {
+          "name": "versionHistoryItems",
+          "type": "VersionHistoryItem[]",
+          "description": "Returns the versionHistoryItem list of the PolicyTemplate.",
+          "isReadonly": false
         }
       ]
     },
     {
       "name": "PolicyTemplateCategory",
       "description": "",
+      "methods": [],
       "attributes": [
         {
           "name": "allPolicyTemplates",
           "type": "PolicyTemplate[]",
-          "description": ""
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "description",
-          "type": "String",
-          "description": "Returns the description of the policy template category."
+          "type": "string",
+          "description": "Returns the description of the policy template category.",
+          "isReadonly": false
         },
         {
           "name": "name",
-          "type": "String",
-          "description": "Returns the name of the policy template category."
+          "type": "string",
+          "description": "Returns the name of the policy template category.",
+          "isReadonly": false
         },
         {
           "name": "parent",
           "type": "PolicyTemplateCategory",
-          "description": ""
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "path",
-          "type": "String",
-          "description": "Returns the path of the policy template category."
+          "type": "string",
+          "description": "Returns the path of the policy template category.",
+          "isReadonly": false
         },
         {
           "name": "policyTemplates",
           "type": "PolicyTemplate[]",
-          "description": ""
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "subCategories",
           "type": "PolicyTemplateCategory[]",
-          "description": ""
+          "description": "",
+          "isReadonly": false
         }
-      ],
-      "methods": []
+      ]
     },
     {
       "name": "Properties",
       "description": "",
-      "attributes": [
-        {
-          "name": "keys",
-          "type": "String[]",
-          "description": "Returns the list of keys in the property list."
-        }
-      ],
       "methods": [
         {
-          "name": "Object",
-          "parameters": "(Object value)",
-          "returnType": "constructor",
-          "description": ""
-        },
-        {
           "name": "get",
-          "parameters": "(String key)",
-          "returnType": "Object",
+          "parameters": "String: key",
+          "returnType": "any",
           "description": ""
         },
         {
           "name": "load",
-          "parameters": "(Object input)",
+          "parameters": "Object: input",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "put",
-          "parameters": "(String key, Object value)",
+          "parameters": "String: key, Object: value",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "remove",
-          "parameters": "(String key)",
-          "returnType": "Object",
+          "parameters": "String: key",
+          "returnType": "any",
           "description": ""
+        },
+        {
+          "name": "Object",
+          "parameters": "(Object value)",
+          "returnType": "constructor",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "keys",
+          "type": "string[]",
+          "description": "Returns the list of keys in the property list.",
+          "isReadonly": false
         }
       ]
     },
     {
       "name": "QueryResult",
       "description": "",
+      "methods": [],
       "attributes": [
         {
           "name": "elements",
-          "type": "Object",
-          "description": "Returns the elements"
+          "type": "any",
+          "description": "Returns the elements",
+          "isReadonly": false
         },
         {
           "name": "partial",
           "type": "boolean",
-          "description": "Returns true if the number of elements returned is partial."
+          "description": "Returns true if the number of elements returned is partial.",
+          "isReadonly": false
         },
         {
           "name": "totalCount",
-          "type": "Number",
-          "description": "Returns the total number of elements for the query"
+          "type": "number",
+          "description": "Returns the total number of elements for the query",
+          "isReadonly": false
         }
-      ],
-      "methods": []
+      ]
     },
     {
       "name": "Regexp",
       "description": "",
-      "attributes": [],
-      "methods": []
+      "methods": [],
+      "attributes": []
     },
     {
       "name": "ResourceElement",
       "description": "",
-      "attributes": [
-        {
-          "name": "contentSize",
-          "type": "Number",
-          "description": "Returns the content size of the resource element."
-        },
-        {
-          "name": "description",
-          "type": "String",
-          "description": "Returns the description of the resource element."
-        },
-        {
-          "name": "mimeType",
-          "type": "String",
-          "description": "Returns the mime type of the resource element."
-        },
-        {
-          "name": "name",
-          "type": "String",
-          "description": "Returns the name of the resource element."
-        },
-        {
-          "name": "version",
-          "type": "String",
-          "description": "Returns the version of the resource element."
-        },
-        {
-          "name": "versionHistoryItems",
-          "type": "VersionHistoryItem[]",
-          "description": "Returns the versionHistoryItem list of the resource element."
-        }
-      ],
       "methods": [
         {
           "name": "getContentAsMimeAttachment",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "MimeAttachment",
           "description": ""
         },
         {
           "name": "getResourceElementCategory",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "ResourceElementCategory",
           "description": ""
         },
         {
           "name": "reload",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "setContentFromFile",
-          "parameters": "(String fileName, Object mimeType)",
+          "parameters": "String: fileName, Object: mimeType",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "setContentFromMimeAttachment",
-          "parameters": "(Object mimeAttachment)",
+          "parameters": "Object: mimeAttachment",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "writeContentToFile",
-          "parameters": "(String fileName)",
+          "parameters": "String: fileName",
           "returnType": "void",
           "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "contentSize",
+          "type": "number",
+          "description": "Returns the content size of the resource element.",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "Returns the description of the resource element.",
+          "isReadonly": false
+        },
+        {
+          "name": "mimeType",
+          "type": "string",
+          "description": "Returns the mime type of the resource element.",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Returns the name of the resource element.",
+          "isReadonly": false
+        },
+        {
+          "name": "version",
+          "type": "string",
+          "description": "Returns the version of the resource element.",
+          "isReadonly": false
+        },
+        {
+          "name": "versionHistoryItems",
+          "type": "VersionHistoryItem[]",
+          "description": "Returns the versionHistoryItem list of the resource element.",
+          "isReadonly": false
         }
       ]
     },
     {
       "name": "ResourceElementCategory",
       "description": "",
+      "methods": [],
       "attributes": [
         {
           "name": "allResourceElements",
           "type": "ResourceElement[]",
-          "description": ""
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "description",
-          "type": "String",
-          "description": "Returns the description of the resource element category."
+          "type": "string",
+          "description": "Returns the description of the resource element category.",
+          "isReadonly": false
         },
         {
           "name": "name",
-          "type": "String",
-          "description": "Returns the name of the resource element category."
+          "type": "string",
+          "description": "Returns the name of the resource element category.",
+          "isReadonly": false
         },
         {
           "name": "parent",
           "type": "ResourceElementCategory",
-          "description": ""
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "path",
-          "type": "String",
-          "description": "Returns the path of the resource element category."
+          "type": "string",
+          "description": "Returns the path of the resource element category.",
+          "isReadonly": false
         },
         {
           "name": "resourceElements",
           "type": "ResourceElement[]",
-          "description": ""
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "subCategories",
           "type": "ResourceElementCategory[]",
-          "description": ""
+          "description": "",
+          "isReadonly": false
         }
-      ],
-      "methods": []
+      ]
     },
     {
       "name": "SDKObject",
       "description": "",
-      "attributes": [
-        {
-          "name": "id",
-          "type": "String",
-          "description": "Id of the SDKObject"
-        },
-        {
-          "name": "type",
-          "type": "String",
-          "description": "Real type of the SDKObject"
-        }
-      ],
       "methods": [
         {
           "name": "Object",
@@ -1974,898 +2137,915 @@
           "returnType": "constructor",
           "description": ""
         }
+      ],
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Id of the SDKObject",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "Real type of the SDKObject",
+          "isReadonly": false
+        }
       ]
     },
     {
       "name": "SecureString",
       "description": "",
-      "attributes": [],
-      "methods": []
+      "methods": [],
+      "attributes": []
     },
     {
       "name": "Server",
       "description": "",
-      "attributes": [],
       "methods": [
         {
           "name": "createAuthorizationElement",
-          "parameters": "(String name, Object ldapElement, String description)",
+          "parameters": "String: name, Object: ldapElement, String: description",
           "returnType": "AuthorizationElement",
           "description": ""
         },
         {
           "name": "createConfigurationElement",
-          "parameters": "(Object category, String name)",
+          "parameters": "Object: category, String: name",
           "returnType": "ConfigurationElement",
           "description": ""
         },
         {
           "name": "createResourceElement",
-          "parameters": "(Object category, String name, Object fileNameOrMime, String mimeType)",
+          "parameters": "Object: category, String: name, Object: fileNameOrMime, String: mimeType",
           "returnType": "ResourceElement",
           "description": ""
         },
         {
           "name": "error",
-          "parameters": "(String text, String info)",
+          "parameters": "String: text, String: info",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "fetchLogEvents",
-          "parameters": "(LogQuery query)",
+          "parameters": "LogQuery: query",
           "returnType": "LogEvent[]",
           "description": ""
         },
         {
           "name": "findAllForType",
-          "parameters": "(String type, String query)",
-          "returnType": "Object[]",
+          "parameters": "String: type, String: query",
+          "returnType": "any[]",
           "description": ""
         },
         {
           "name": "findForType",
-          "parameters": "(String type, String id)",
-          "returnType": "Object",
+          "parameters": "String: type, String: id",
+          "returnType": "any",
           "description": ""
         },
         {
           "name": "findGlobalTagsForObject",
-          "parameters": "(Object Properties)",
+          "parameters": "Object: Properties",
           "returnType": "Properties",
           "description": ""
         },
         {
           "name": "findTagsForObject",
-          "parameters": "(Object Properties)",
+          "parameters": "Object: Properties",
           "returnType": "Properties",
           "description": ""
         },
         {
           "name": "findTagsInUse",
-          "parameters": "()",
-          "returnType": "String[]",
+          "parameters": "",
+          "returnType": "string[]",
           "description": ""
         },
         {
           "name": "fromStringRepresentation",
-          "parameters": "(StringRepresentation rep)",
-          "returnType": "Object",
+          "parameters": "StringRepresentation: rep",
+          "returnType": "any",
           "description": ""
         },
         {
           "name": "fromUri",
-          "parameters": "(String uri)",
-          "returnType": "Object",
+          "parameters": "String: uri",
+          "returnType": "any",
           "description": ""
         },
         {
           "name": "getAllConfigurationElementCategories",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "ConfigurationElementCategory[]",
           "description": ""
         },
         {
           "name": "getAllDescriptionsForType",
-          "parameters": "(String type)",
-          "returnType": "String[]",
+          "parameters": "String: type",
+          "returnType": "string[]",
           "description": ""
         },
         {
           "name": "getAllDisplayNamesForType",
-          "parameters": "(String type)",
-          "returnType": "String[]",
+          "parameters": "String: type",
+          "returnType": "string[]",
           "description": ""
         },
         {
           "name": "getAllNamesForType",
-          "parameters": "(String type)",
-          "returnType": "String[]",
+          "parameters": "String: type",
+          "returnType": "string[]",
           "description": ""
         },
         {
           "name": "getAllPluginInfo",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "PluginModuleDescription[]",
           "description": ""
         },
         {
           "name": "getAllPluginTypes",
-          "parameters": "()",
-          "returnType": "Object[]",
+          "parameters": "",
+          "returnType": "any[]",
           "description": ""
         },
         {
           "name": "getAllPolicyTemplateCategories",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "PolicyTemplateCategory[]",
           "description": ""
         },
         {
           "name": "getAllResourceElementCategories",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "ResourceElementCategory[]",
           "description": ""
         },
         {
           "name": "getAllWorkflowCategories",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "WorkflowCategory[]",
           "description": ""
         },
         {
           "name": "getAuthorizationElementForName",
-          "parameters": "(String name)",
+          "parameters": "String: name",
           "returnType": "AuthorizationElement",
           "description": ""
         },
         {
           "name": "getAuthorizationElementsForLdapElement",
-          "parameters": "(Object ldapElement)",
+          "parameters": "Object: ldapElement",
           "returnType": "AuthorizationElement[]",
           "description": ""
         },
         {
           "name": "getConfigurationElementCategoryWithPath",
-          "parameters": "(String path)",
+          "parameters": "String: path",
           "returnType": "ConfigurationElementCategory",
           "description": ""
         },
         {
           "name": "getCredential",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "Credential",
           "description": ""
         },
         {
           "name": "getCurrentLdapUser",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "LdapUser",
           "description": ""
         },
         {
           "name": "getCustomProperty",
-          "parameters": "(Object target, String key)",
-          "returnType": "Object",
+          "parameters": "Object: target, String: key",
+          "returnType": "any",
           "description": ""
         },
         {
           "name": "getCustomPropertyKeys",
-          "parameters": "(Object target)",
-          "returnType": "String[]",
+          "parameters": "Object: target",
+          "returnType": "string[]",
           "description": ""
         },
         {
           "name": "getLdapElement",
-          "parameters": "(String dn)",
-          "returnType": "Object",
+          "parameters": "String: dn",
+          "returnType": "any",
           "description": ""
         },
         {
           "name": "getObjectsURIWithCustomPropertyKey",
-          "parameters": "(String key)",
-          "returnType": "String[]",
+          "parameters": "String: key",
+          "returnType": "string[]",
           "description": ""
         },
         {
           "name": "getObjectsWithCustomPropertyKey",
-          "parameters": "(String key)",
-          "returnType": "Object[]",
+          "parameters": "String: key",
+          "returnType": "any[]",
           "description": ""
         },
         {
           "name": "getPackageWithName",
-          "parameters": "(String name)",
+          "parameters": "String: name",
           "returnType": "Package",
           "description": ""
         },
         {
           "name": "getPluginTypeInfo",
-          "parameters": "(String type)",
+          "parameters": "String: type",
           "returnType": "PluginTypeDescription",
           "description": ""
         },
         {
           "name": "getPolicyTemplateCategoryWithPath",
-          "parameters": "(String path)",
+          "parameters": "String: path",
           "returnType": "PolicyTemplateCategory",
           "description": ""
         },
         {
           "name": "getResourceElementCategoryWithPath",
-          "parameters": "(String path)",
+          "parameters": "String: path",
           "returnType": "ResourceElementCategory",
           "description": ""
         },
         {
           "name": "getRunningUser",
-          "parameters": "()",
-          "returnType": "String",
+          "parameters": "",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "getSignatureFingerPrint",
-          "parameters": "(Object element)",
-          "returnType": "String",
+          "parameters": "Object: element",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "getSignatureOwner",
-          "parameters": "(Object element)",
-          "returnType": "String",
+          "parameters": "Object: element",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "getWorkflowCategoryWithPath",
-          "parameters": "(String path)",
+          "parameters": "String: path",
           "returnType": "WorkflowCategory",
           "description": ""
         },
         {
           "name": "getWorkflowTokenState",
-          "parameters": "(String token_id)",
-          "returnType": "String",
+          "parameters": "String: token_id",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "getWorkflowWithId",
-          "parameters": "(String id)",
+          "parameters": "String: id",
           "returnType": "Workflow",
           "description": ""
         },
         {
           "name": "isValidLdapCredential",
-          "parameters": "(Credential credential)",
+          "parameters": "Credential: credential",
           "returnType": "boolean",
           "description": ""
         },
         {
           "name": "log",
-          "parameters": "(String text, String info)",
+          "parameters": "String: text, String: info",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "query",
-          "parameters": "(String type, String queryExp, Number maxCount)",
-          "returnType": "Object[]",
+          "parameters": "String: type, String: queryExp, Number: maxCount",
+          "returnType": "any[]",
           "description": ""
         },
         {
           "name": "queryByTags",
-          "parameters": "(Object tagQuery, String type)",
-          "returnType": "Object[]",
+          "parameters": "Object: tagQuery, String: type",
+          "returnType": "any[]",
           "description": ""
         },
         {
           "name": "removeAccessRights",
-          "parameters": "(Object owner, Object user)",
+          "parameters": "Object: owner, Object: user",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "removeAllCustomPropertiesForObject",
-          "parameters": "(Object target)",
+          "parameters": "Object: target",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "removeAllCustomPropertiesForType",
-          "parameters": "(String type)",
+          "parameters": "String: type",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "removeAllCustomPropertiesForTypeAndKey",
-          "parameters": "(String type, String key)",
+          "parameters": "String: type, String: key",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "removeAuthorizationElement",
-          "parameters": "(AuthorizationElement authorizationElement)",
+          "parameters": "AuthorizationElement: authorizationElement",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "removeCustomProperty",
-          "parameters": "(Object target, String key)",
+          "parameters": "Object: target, String: key",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "removeResourceElement",
-          "parameters": "(ResourceElement resourceElement)",
+          "parameters": "ResourceElement: resourceElement",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "searchLdapGroups",
-          "parameters": "(String query, Number limit)",
+          "parameters": "String: query, Number: limit",
           "returnType": "LdapGroup[]",
           "description": ""
         },
         {
           "name": "searchLdapUsers",
-          "parameters": "(String query, Number limit)",
+          "parameters": "String: query, Number: limit",
           "returnType": "LdapUser[]",
           "description": ""
         },
         {
           "name": "setAccessRights",
-          "parameters": "(Object owner, Object user, String rights)",
+          "parameters": "Object: owner, Object: user, String: rights",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "setCustomProperty",
-          "parameters": "(Object target, String key, Object value)",
+          "parameters": "Object: target, String: key, Object: value",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "tag",
-          "parameters": "(Object object, String tag, String value)",
+          "parameters": "Object: object, String: tag, String: value",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "tagGlobally",
-          "parameters": "(Object object, String tag, String value)",
+          "parameters": "Object: object, String: tag, String: value",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "toStringRepresentation",
-          "parameters": "(Object object)",
+          "parameters": "Object: object",
           "returnType": "StringRepresentation",
           "description": ""
         },
         {
           "name": "toUri",
-          "parameters": "(Object object)",
-          "returnType": "String",
+          "parameters": "Object: object",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "untag",
-          "parameters": "(Object object, String[] tags)",
+          "parameters": "Object: object, String[]: tags",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "untagGlobally",
-          "parameters": "(Object object, String[] tags)",
+          "parameters": "Object: object, String[]: tags",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "warn",
-          "parameters": "(String text, String info)",
+          "parameters": "String: text, String: info",
           "returnType": "void",
           "description": ""
         }
-      ]
+      ],
+      "attributes": []
     },
     {
       "name": "String",
       "description": "",
-      "attributes": [],
       "methods": [
         {
           "name": "charAt",
-          "parameters": "(Number index)",
-          "returnType": "String",
+          "parameters": "Number: index",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "indexOf",
-          "parameters": "(String substring)",
-          "returnType": "String",
+          "parameters": "String: substring",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "lastIndexOf",
-          "parameters": "(String substring)",
-          "returnType": "String",
+          "parameters": "String: substring",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "match",
-          "parameters": "(String regexp)",
-          "returnType": "String[]",
+          "parameters": "String: regexp",
+          "returnType": "string[]",
           "description": ""
         },
         {
           "name": "replace",
-          "parameters": "(String regexp, String string2)",
-          "returnType": "String",
+          "parameters": "String: regexp, String: string2",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "search",
-          "parameters": "(String regexp)",
-          "returnType": "Number",
+          "parameters": "String: regexp",
+          "returnType": "number",
           "description": ""
         },
         {
           "name": "split",
-          "parameters": "(String regexp)",
-          "returnType": "String[]",
+          "parameters": "String: regexp",
+          "returnType": "string[]",
           "description": ""
         },
         {
           "name": "substring",
-          "parameters": "(Number start, Number end)",
-          "returnType": "String",
+          "parameters": "Number: start, Number: end",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "toLowerCase",
-          "parameters": "()",
-          "returnType": "String",
+          "parameters": "",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "toUpperCase",
-          "parameters": "()",
-          "returnType": "String",
+          "parameters": "",
+          "returnType": "string",
           "description": ""
         }
-      ]
+      ],
+      "attributes": []
     },
     {
       "name": "StringRepresentation",
       "description": "",
-      "attributes": [
-        {
-          "name": "objectValue",
-          "type": "Object",
-          "description": "Returns the object value for this representation"
-        },
-        {
-          "name": "stringValue",
-          "type": "String",
-          "description": "Returns the string value for this representation"
-        },
-        {
-          "name": "type",
-          "type": "String",
-          "description": "Returns the type represneted"
-        }
-      ],
       "methods": [
+        {
+          "name": "toParam",
+          "parameters": "",
+          "returnType": "string",
+          "description": ""
+        },
         {
           "name": "Object",
           "parameters": "(Object repOrType, Object stringValue)",
           "returnType": "constructor",
           "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "objectValue",
+          "type": "any",
+          "description": "Returns the object value for this representation",
+          "isReadonly": false
         },
         {
-          "name": "toParam",
-          "parameters": "()",
-          "returnType": "String",
-          "description": ""
+          "name": "stringValue",
+          "type": "string",
+          "description": "Returns the string value for this representation",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "Returns the type represneted",
+          "isReadonly": false
         }
       ]
     },
     {
       "name": "System",
       "description": "",
-      "attributes": [],
       "methods": [
         {
           "name": "appendToPath",
-          "parameters": "(Object rootPath, String toAdd)",
-          "returnType": "String",
+          "parameters": "Object: rootPath, String: toAdd",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "compareVersionNumber",
-          "parameters": "(String v1, String v2)",
-          "returnType": "Number",
+          "parameters": "String: v1, String: v2",
+          "returnType": "number",
           "description": ""
         },
         {
           "name": "createTempFile",
-          "parameters": "(String suffix)",
+          "parameters": "String: suffix",
           "returnType": "File",
           "description": ""
         },
         {
           "name": "customEventUrl",
-          "parameters": "(String eventName, boolean secure)",
+          "parameters": "String: eventName, boolean: secure",
           "returnType": "URL",
           "description": ""
         },
         {
           "name": "customEventUrlforServer",
-          "parameters": "(String eventName, String host, String port, boolean secure)",
+          "parameters": "String: eventName, String: host, String: port, boolean: secure",
           "returnType": "URL",
           "description": ""
         },
         {
           "name": "debug",
-          "parameters": "(String text)",
+          "parameters": "String: text",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "decimalToHex",
-          "parameters": "(Number value)",
-          "returnType": "String",
+          "parameters": "Number: value",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "error",
-          "parameters": "(String text)",
+          "parameters": "String: text",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "extractDirectory",
-          "parameters": "(Object fullPath)",
-          "returnType": "String",
+          "parameters": "Object: fullPath",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "extractFileName",
-          "parameters": "(Object fullPath)",
-          "returnType": "String",
+          "parameters": "Object: fullPath",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "extractFileNameExtension",
-          "parameters": "(Object fullPath)",
-          "returnType": "String",
+          "parameters": "Object: fullPath",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "extractFileNameWithoutExtension",
-          "parameters": "(Object fullPath)",
-          "returnType": "String",
+          "parameters": "Object: fullPath",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "filterAuthorized",
-          "parameters": "(Object obj)",
-          "returnType": "Object",
+          "parameters": "Object: obj",
+          "returnType": "any",
           "description": ""
         },
         {
           "name": "formatBinaryValue",
-          "parameters": "(Number value)",
-          "returnType": "String",
+          "parameters": "Number: value",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "formatDate",
-          "parameters": "(Date aDate, String pattern)",
-          "returnType": "String",
+          "parameters": "Date: aDate, String: pattern",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "formatDuration",
-          "parameters": "(Number milisecond, boolean showMili, boolean showZero)",
-          "returnType": "String",
+          "parameters": "Number: milisecond, boolean: showMili, boolean: showZero",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "formatNumber",
-          "parameters": "(Number aNumber, String pattern)",
-          "returnType": "String",
+          "parameters": "Number: aNumber, String: pattern",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "getAllModules",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "Module[]",
           "description": ""
         },
         {
           "name": "getContext",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "ExecutionContext",
           "description": ""
         },
         {
           "name": "getCurrentTime",
-          "parameters": "()",
-          "returnType": "Number",
+          "parameters": "",
+          "returnType": "number",
           "description": ""
         },
         {
           "name": "getDate",
-          "parameters": "(String inputString, Date refDate)",
+          "parameters": "String: inputString, Date: refDate",
           "returnType": "Date",
           "description": ""
         },
         {
           "name": "getDateFromFormat",
-          "parameters": "(Date date, String pattern)",
+          "parameters": "Date: date, String: pattern",
           "returnType": "Date",
           "description": ""
         },
         {
           "name": "getModule",
-          "parameters": "(String name)",
+          "parameters": "String: name",
           "returnType": "Module",
           "description": ""
         },
         {
           "name": "getObjectClassName",
-          "parameters": "(Object obj)",
-          "returnType": "String",
+          "parameters": "Object: obj",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "getObjectId",
-          "parameters": "(Object obj)",
-          "returnType": "String",
+          "parameters": "Object: obj",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "getObjectPluginName",
-          "parameters": "(Object obj)",
-          "returnType": "String",
+          "parameters": "Object: obj",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "getObjectType",
-          "parameters": "(Object obj)",
-          "returnType": "String",
+          "parameters": "Object: obj",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "getOsName",
-          "parameters": "()",
-          "returnType": "String",
+          "parameters": "",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "getTempDirectory",
-          "parameters": "()",
-          "returnType": "String",
+          "parameters": "",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "hexToDecimal",
-          "parameters": "(String value)",
-          "returnType": "Number",
+          "parameters": "String: value",
+          "returnType": "number",
           "description": ""
         },
         {
           "name": "isHostReachable",
-          "parameters": "(String hostOrIp, Number timeout)",
+          "parameters": "String: hostOrIp, Number: timeout",
           "returnType": "boolean",
           "description": ""
         },
         {
           "name": "isNotFound",
-          "parameters": "(Object obj)",
+          "parameters": "Object: obj",
           "returnType": "boolean",
           "description": ""
         },
         {
           "name": "log",
-          "parameters": "(String text)",
+          "parameters": "String: text",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "nextUUID",
-          "parameters": "()",
-          "returnType": "String",
+          "parameters": "",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "resolveHostName",
-          "parameters": "(String hostName)",
-          "returnType": "String",
+          "parameters": "String: hostName",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "resolveIpAddress",
-          "parameters": "(String ipAddress)",
-          "returnType": "String",
+          "parameters": "String: ipAddress",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "sendCustomEvent",
-          "parameters": "(String eventKey)",
+          "parameters": "String: eventKey",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "setLogMarker",
-          "parameters": "(String logMarker)",
+          "parameters": "String: logMarker",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "sleep",
-          "parameters": "(Number ms)",
+          "parameters": "Number: ms",
           "returnType": "boolean",
           "description": ""
         },
         {
           "name": "stdout",
-          "parameters": "(String text)",
+          "parameters": "String: text",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "waitCustomEventUntil",
-          "parameters": "(String text, String text2, Date endDate)",
+          "parameters": "String: text, String: text2, Date: endDate",
           "returnType": "EventTrigger",
           "description": ""
         },
         {
           "name": "waitUntil",
-          "parameters": "(Date waitDate, Number milli)",
+          "parameters": "Date: waitDate, Number: milli",
           "returnType": "boolean",
           "description": ""
         },
         {
           "name": "warn",
-          "parameters": "(String text)",
+          "parameters": "String: text",
           "returnType": "void",
           "description": ""
         }
-      ]
+      ],
+      "attributes": []
     },
     {
       "name": "TagQuery",
       "description": "",
-      "attributes": [],
       "methods": [
         {
-          "name": "TagQuery",
-          "parameters": "()",
-          "returnType": "constructor",
-          "description": ""
-        },
-        {
           "name": "hasGlobalTag",
-          "parameters": "(String tag, String value)",
+          "parameters": "String: tag, String: value",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "hasTag",
-          "parameters": "(String tag, String value)",
+          "parameters": "String: tag, String: value",
           "returnType": "void",
           "description": ""
+        },
+        {
+          "name": "TagQuery",
+          "parameters": "()",
+          "returnType": "constructor",
+          "description": ""
         }
-      ]
+      ],
+      "attributes": []
     },
     {
       "name": "Task",
       "description": "",
-      "attributes": [
-        {
-          "name": "error",
-          "type": "String",
-          "description": "Returns a description of the error."
-        },
-        {
-          "name": "executionDate",
-          "type": "Date",
-          "description": "Returns the execution date."
-        },
-        {
-          "name": "executions",
-          "type": "WorkflowToken[]",
-          "description": "Return the execution."
-        },
-        {
-          "name": "id",
-          "type": "String",
-          "description": "Returns the unique identifier (ID) for this object."
-        },
-        {
-          "name": "isRecurrent",
-          "type": "boolean",
-          "description": "Returns true if the task is a recurrent one."
-        },
-        {
-          "name": "name",
-          "type": "String",
-          "description": "Returns the task name."
-        },
-        {
-          "name": "operation",
-          "type": "String",
-          "description": "Returns the operation."
-        },
-        {
-          "name": "parameters",
-          "type": "Properties",
-          "description": "Returns the execution parameters."
-        },
-        {
-          "name": "percentCompleted",
-          "type": "Number",
-          "description": "Returns the percent completed."
-        },
-        {
-          "name": "restartInPast",
-          "type": "boolean",
-          "description": "Returns restart in past flag."
-        },
-        {
-          "name": "state",
-          "type": "String",
-          "description": "Returns the Task's state."
-        },
-        {
-          "name": "workflow",
-          "type": "Workflow",
-          "description": "Return the associated workflow"
-        }
-      ],
       "methods": [
         {
           "name": "addParameter",
-          "parameters": "(String key, Object value)",
+          "parameters": "String: key, Object: value",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "cancel",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "resume",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "suspend",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "void",
           "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "error",
+          "type": "string",
+          "description": "Returns a description of the error.",
+          "isReadonly": false
+        },
+        {
+          "name": "executionDate",
+          "type": "Date",
+          "description": "Returns the execution date.",
+          "isReadonly": false
+        },
+        {
+          "name": "executions",
+          "type": "WorkflowToken[]",
+          "description": "Return the execution.",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Returns the unique identifier (ID) for this object.",
+          "isReadonly": false
+        },
+        {
+          "name": "isRecurrent",
+          "type": "boolean",
+          "description": "Returns true if the task is a recurrent one.",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Returns the task name.",
+          "isReadonly": false
+        },
+        {
+          "name": "operation",
+          "type": "string",
+          "description": "Returns the operation.",
+          "isReadonly": false
+        },
+        {
+          "name": "parameters",
+          "type": "Properties",
+          "description": "Returns the execution parameters.",
+          "isReadonly": false
+        },
+        {
+          "name": "percentCompleted",
+          "type": "number",
+          "description": "Returns the percent completed.",
+          "isReadonly": false
+        },
+        {
+          "name": "restartInPast",
+          "type": "boolean",
+          "description": "Returns restart in past flag.",
+          "isReadonly": false
+        },
+        {
+          "name": "state",
+          "type": "string",
+          "description": "Returns the Task's state.",
+          "isReadonly": false
+        },
+        {
+          "name": "workflow",
+          "type": "Workflow",
+          "description": "Return the associated workflow",
+          "isReadonly": false
         }
       ]
     },
     {
       "name": "Trigger",
       "description": "",
-      "attributes": [
-        {
-          "name": "moduleName",
-          "type": "String",
-          "description": ""
-        },
-        {
-          "name": "timeout",
-          "type": "Object",
-          "description": ""
-        }
-      ],
       "methods": [
         {
           "name": "String",
@@ -2873,858 +3053,966 @@
           "returnType": "constructor",
           "description": ""
         }
+      ],
+      "attributes": [
+        {
+          "name": "moduleName",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "timeout",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        }
       ]
     },
     {
       "name": "URL",
       "description": "",
-      "attributes": [
-        {
-          "name": "contentType",
-          "type": "String",
-          "description": "Gets or sets the datas (content)."
-        },
-        {
-          "name": "datas",
-          "type": "String",
-          "description": "Gets or sets the datas (content)."
-        },
-        {
-          "name": "host",
-          "type": "String",
-          "description": ""
-        },
-        {
-          "name": "port",
-          "type": "Number",
-          "description": ""
-        },
-        {
-          "name": "requestType",
-          "type": "String",
-          "description": "Gets or sets the request type (GET, PUT, POST or DELETE)."
-        },
-        {
-          "name": "result",
-          "type": "String",
-          "description": "Returns the result."
-        },
-        {
-          "name": "url",
-          "type": "String",
-          "description": "Returns the URL in the form of a String"
-        }
-      ],
       "methods": [
         {
-          "name": "Object",
-          "parameters": "(Object url)",
-          "returnType": "constructor",
-          "description": ""
-        },
-        {
           "name": "addParameter",
-          "parameters": "(Object key, Object value)",
+          "parameters": "Object: key, Object: value",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "addPath",
-          "parameters": "(Object value)",
+          "parameters": "Object: value",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "escapeHost",
-          "parameters": "(String ipAddress)",
-          "returnType": "String",
+          "parameters": "String: ipAddress",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "getContent",
-          "parameters": "()",
-          "returnType": "String",
+          "parameters": "",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "getHostnameOrIPPatternStr",
-          "parameters": "()",
-          "returnType": "String",
+          "parameters": "",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "getIPAddressPatternStr",
-          "parameters": "()",
-          "returnType": "String",
+          "parameters": "",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "getIPv4AddressPatternStr",
-          "parameters": "()",
-          "returnType": "String",
+          "parameters": "",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "getIPv6AddressPatternStr",
-          "parameters": "()",
-          "returnType": "String",
+          "parameters": "",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "isValidHostname",
-          "parameters": "(String hostname)",
+          "parameters": "String: hostname",
           "returnType": "boolean",
           "description": ""
         },
         {
           "name": "isValidHostnameOrIPAddress",
-          "parameters": "(String hostOrIP)",
+          "parameters": "String: hostOrIP",
           "returnType": "boolean",
           "description": ""
         },
         {
           "name": "isValidIPAddress",
-          "parameters": "(String ipAddress)",
+          "parameters": "String: ipAddress",
           "returnType": "boolean",
           "description": ""
         },
         {
           "name": "isValidIPv4Address",
-          "parameters": "(String ipAddress)",
+          "parameters": "String: ipAddress",
           "returnType": "boolean",
           "description": ""
         },
         {
           "name": "isValidIPv6Address",
-          "parameters": "(String ipAddress)",
+          "parameters": "String: ipAddress",
           "returnType": "boolean",
           "description": ""
         },
         {
           "name": "post",
-          "parameters": "()",
-          "returnType": "String",
+          "parameters": "",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "postContent",
-          "parameters": "(Object content)",
-          "returnType": "String",
+          "parameters": "Object: content",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "tnamePatternStr",
-          "parameters": "()",
-          "returnType": "String",
+          "parameters": "",
+          "returnType": "string",
           "description": ""
         },
         {
           "name": "unescapeHost",
-          "parameters": "(String ipAddress)",
-          "returnType": "String",
+          "parameters": "String: ipAddress",
+          "returnType": "string",
           "description": ""
+        },
+        {
+          "name": "Object",
+          "parameters": "(Object url)",
+          "returnType": "constructor",
+          "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "contentType",
+          "type": "string",
+          "description": "Gets or sets the datas (content).",
+          "isReadonly": false
+        },
+        {
+          "name": "datas",
+          "type": "string",
+          "description": "Gets or sets the datas (content).",
+          "isReadonly": false
+        },
+        {
+          "name": "host",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "port",
+          "type": "number",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "requestType",
+          "type": "string",
+          "description": "Gets or sets the request type (GET, PUT, POST or DELETE).",
+          "isReadonly": false
+        },
+        {
+          "name": "result",
+          "type": "string",
+          "description": "Returns the result.",
+          "isReadonly": false
+        },
+        {
+          "name": "url",
+          "type": "string",
+          "description": "Returns the URL in the form of a String",
+          "isReadonly": false
         }
       ]
     },
     {
       "name": "VersionHistoryItem",
       "description": "",
+      "methods": [],
       "attributes": [
         {
           "name": "comment",
-          "type": "String",
-          "description": "Returns the comment of the VersionHistoryItem."
+          "type": "string",
+          "description": "Returns the comment of the VersionHistoryItem.",
+          "isReadonly": false
         },
         {
           "name": "date",
-          "type": "Object",
-          "description": "Returns the date of the VersionHistoryItem."
+          "type": "any",
+          "description": "Returns the date of the VersionHistoryItem.",
+          "isReadonly": false
         },
         {
           "name": "user",
-          "type": "String",
-          "description": "Returns the user that entered this VersionHistoryItem."
+          "type": "string",
+          "description": "Returns the user that entered this VersionHistoryItem.",
+          "isReadonly": false
         },
         {
           "name": "version",
-          "type": "String",
-          "description": "Returns the version of the VersionHistoryItem."
+          "type": "string",
+          "description": "Returns the version of the VersionHistoryItem.",
+          "isReadonly": false
         }
-      ],
-      "methods": []
+      ]
     },
     {
       "name": "Workflow",
       "description": "",
-      "attributes": [
-        {
-          "name": "attributes",
-          "type": "Attribute[]",
-          "description": "Returns the attribute list of the workflow."
-        },
-        {
-          "name": "description",
-          "type": "String",
-          "description": "Returns the description of the workflow."
-        },
-        {
-          "name": "executions",
-          "type": "WorkflowToken[]",
-          "description": "Get all execution of a given workflow"
-        },
-        {
-          "name": "firstItem",
-          "type": "WorkflowItem",
-          "description": "Returns the first item of the workflow."
-        },
-        {
-          "name": "inParameters",
-          "type": "Parameter[]",
-          "description": "Returns the input parameter list of the workflow."
-        },
-        {
-          "name": "items",
-          "type": "WorkflowItem[]",
-          "description": "Returns the item list of the workflow."
-        },
-        {
-          "name": "logEvents",
-          "type": "LogEvent[]",
-          "description": "Returns the log events"
-        },
-        {
-          "name": "name",
-          "type": "String",
-          "description": "Returns the name of the workflow."
-        },
-        {
-          "name": "numberOfItem",
-          "type": "Number",
-          "description": "Returns the number of items in the workflow."
-        },
-        {
-          "name": "outParameters",
-          "type": "Parameter[]",
-          "description": "Returns the output parameter list of the workflow."
-        },
-        {
-          "name": "parameterInfos",
-          "type": "Properties",
-          "description": "Returns a properties object with as keys the parameters names and values the type of the parameter."
-        },
-        {
-          "name": "version",
-          "type": "String",
-          "description": "Returns the version of the workflow."
-        },
-        {
-          "name": "versionHistoryItems",
-          "type": "VersionHistoryItem[]",
-          "description": "Returns the versionHistoryItem list of the workflow."
-        },
-        {
-          "name": "workflowCategory",
-          "type": "WorkflowCategory",
-          "description": "Returns the category object of the workflow"
-        }
-      ],
       "methods": [
         {
           "name": "execute",
-          "parameters": "(Object properties, Object uname, String pwd)",
+          "parameters": "Object: properties, Object: uname, String: pwd",
           "returnType": "WorkflowToken",
           "description": ""
         },
         {
           "name": "getExecutionUrl",
-          "parameters": "(Object secure, Object inAutologon, Object inHost, Object inPort, Object inUrl)",
+          "parameters": "Object: secure, Object: inAutologon, Object: inHost, Object: inPort, Object: inUrl",
           "returnType": "URL",
           "description": ""
         },
         {
           "name": "getScheduleUrl",
-          "parameters": "(Object secure, Object inAutologon, Object inHost, Object inPort, Object inUrl)",
+          "parameters": "Object: secure, Object: inAutologon, Object: inHost, Object: inPort, Object: inUrl",
           "returnType": "URL",
           "description": ""
         },
         {
           "name": "getWebviewExecutionUrl",
-          "parameters": "(Object inWebviewUrlFolder, Object inPage, Object secure, Object inAutologon, Object inHost, Object inPort, Object inUrl)",
+          "parameters": "Object: inWebviewUrlFolder, Object: inPage, Object: secure, Object: inAutologon, Object: inHost, Object: inPort, Object: inUrl",
           "returnType": "URL",
           "description": ""
         },
         {
           "name": "getWebviewScheduleUrl",
-          "parameters": "(Object inWebviewUrlFolder, Object inPage, Object secure, Object inAutologon, Object inHost, Object inPort, Object inUrl)",
+          "parameters": "Object: inWebviewUrlFolder, Object: inPage, Object: secure, Object: inAutologon, Object: inHost, Object: inPort, Object: inUrl",
           "returnType": "URL",
           "description": ""
         },
         {
           "name": "saveSchemaImageToFile",
-          "parameters": "(String file)",
+          "parameters": "String: file",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "schedule",
-          "parameters": "(Object properties, Object startDate, Object uname, String pwd)",
+          "parameters": "Object: properties, Object: startDate, Object: uname, String: pwd",
           "returnType": "Task",
           "description": ""
         },
         {
           "name": "scheduleRecurrently",
-          "parameters": "(Object properties, Object recurrencePattern, Object recurrenceCycle, Object startDate, Object endDate, Object uname, String pwd)",
+          "parameters": "Object: properties, Object: recurrencePattern, Object: recurrenceCycle, Object: startDate, Object: endDate, Object: uname, String: pwd",
           "returnType": "Task",
           "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "attributes",
+          "type": "Attribute[]",
+          "description": "Returns the attribute list of the workflow.",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "Returns the description of the workflow.",
+          "isReadonly": false
+        },
+        {
+          "name": "executions",
+          "type": "WorkflowToken[]",
+          "description": "Get all execution of a given workflow",
+          "isReadonly": false
+        },
+        {
+          "name": "firstItem",
+          "type": "WorkflowItem",
+          "description": "Returns the first item of the workflow.",
+          "isReadonly": false
+        },
+        {
+          "name": "inParameters",
+          "type": "Parameter[]",
+          "description": "Returns the input parameter list of the workflow.",
+          "isReadonly": false
+        },
+        {
+          "name": "items",
+          "type": "WorkflowItem[]",
+          "description": "Returns the item list of the workflow.",
+          "isReadonly": false
+        },
+        {
+          "name": "logEvents",
+          "type": "LogEvent[]",
+          "description": "Returns the log events",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Returns the name of the workflow.",
+          "isReadonly": false
+        },
+        {
+          "name": "numberOfItem",
+          "type": "number",
+          "description": "Returns the number of items in the workflow.",
+          "isReadonly": false
+        },
+        {
+          "name": "outParameters",
+          "type": "Parameter[]",
+          "description": "Returns the output parameter list of the workflow.",
+          "isReadonly": false
+        },
+        {
+          "name": "parameterInfos",
+          "type": "Properties",
+          "description": "Returns a properties object with as keys the parameters names and values the type of the parameter.",
+          "isReadonly": false
+        },
+        {
+          "name": "version",
+          "type": "string",
+          "description": "Returns the version of the workflow.",
+          "isReadonly": false
+        },
+        {
+          "name": "versionHistoryItems",
+          "type": "VersionHistoryItem[]",
+          "description": "Returns the versionHistoryItem list of the workflow.",
+          "isReadonly": false
+        },
+        {
+          "name": "workflowCategory",
+          "type": "WorkflowCategory",
+          "description": "Returns the category object of the workflow",
+          "isReadonly": false
         }
       ]
     },
     {
       "name": "WorkflowCategory",
       "description": "",
+      "methods": [],
       "attributes": [
         {
           "name": "allWorkflows",
           "type": "Workflow[]",
-          "description": ""
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "description",
-          "type": "String",
-          "description": "Returns the description of the workflowCategory."
+          "type": "string",
+          "description": "Returns the description of the workflowCategory.",
+          "isReadonly": false
         },
         {
           "name": "name",
-          "type": "String",
-          "description": "Returns the name of the workflowCategory."
+          "type": "string",
+          "description": "Returns the name of the workflowCategory.",
+          "isReadonly": false
         },
         {
           "name": "parent",
           "type": "WorkflowCategory",
-          "description": ""
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "path",
-          "type": "String",
-          "description": "Returns the path of the workflowCategory."
+          "type": "string",
+          "description": "Returns the path of the workflowCategory.",
+          "isReadonly": false
         },
         {
           "name": "subCategories",
           "type": "WorkflowCategory[]",
-          "description": ""
+          "description": "",
+          "isReadonly": false
         },
         {
           "name": "workflows",
           "type": "Workflow[]",
-          "description": ""
+          "description": "",
+          "isReadonly": false
         }
-      ],
-      "methods": []
+      ]
     },
     {
       "name": "WorkflowCustomConditionItem",
       "description": "",
+      "methods": [],
       "attributes": [
         {
           "name": "description",
-          "type": "String",
-          "description": "Returns the description of the ConditionItem."
+          "type": "string",
+          "description": "Returns the description of the ConditionItem.",
+          "isReadonly": false
         },
         {
           "name": "name",
-          "type": "String",
-          "description": "Returns the name of the ConditionItem."
+          "type": "string",
+          "description": "Returns the name of the ConditionItem.",
+          "isReadonly": false
         },
         {
           "name": "nextItem",
           "type": "WorkflowItem",
-          "description": "Returns the next item , or null if it is the end."
+          "description": "Returns the next item , or null if it is the end.",
+          "isReadonly": false
         },
         {
           "name": "nextItemFalse",
           "type": "WorkflowItem",
-          "description": "Returns the next item if condition is false, or null if it is the end."
+          "description": "Returns the next item if condition is false, or null if it is the end.",
+          "isReadonly": false
         },
         {
           "name": "nextItemTrue",
           "type": "WorkflowItem",
-          "description": "Returns the next item if condition is true , or null if it is the end."
+          "description": "Returns the next item if condition is true , or null if it is the end.",
+          "isReadonly": false
         },
         {
           "name": "script",
-          "type": "String",
-          "description": "Returns the script of the ConditionItem."
+          "type": "string",
+          "description": "Returns the script of the ConditionItem.",
+          "isReadonly": false
         }
-      ],
-      "methods": []
+      ]
     },
     {
       "name": "WorkflowGenericConditionItem",
       "description": "",
+      "methods": [],
       "attributes": [
         {
           "name": "description",
-          "type": "String",
-          "description": "Returns the description of the ConditionItem."
+          "type": "string",
+          "description": "Returns the description of the ConditionItem.",
+          "isReadonly": false
         },
         {
           "name": "name",
-          "type": "String",
-          "description": "Returns the name of the ConditionItem."
+          "type": "string",
+          "description": "Returns the name of the ConditionItem.",
+          "isReadonly": false
         },
         {
           "name": "nextItem",
           "type": "WorkflowItem",
-          "description": "Returns the next item , or null if it is the end."
+          "description": "Returns the next item , or null if it is the end.",
+          "isReadonly": false
         },
         {
           "name": "nextItemFalse",
           "type": "WorkflowItem",
-          "description": "Returns the next item if condition is false, or null if it is the end."
+          "description": "Returns the next item if condition is false, or null if it is the end.",
+          "isReadonly": false
         },
         {
           "name": "nextItemTrue",
           "type": "WorkflowItem",
-          "description": "Returns the next item if condition is true , or null if it is the end."
+          "description": "Returns the next item if condition is true , or null if it is the end.",
+          "isReadonly": false
         },
         {
           "name": "script",
-          "type": "String",
-          "description": "Returns the script of the ConditionItem."
+          "type": "string",
+          "description": "Returns the script of the ConditionItem.",
+          "isReadonly": false
         }
-      ],
-      "methods": []
+      ]
     },
     {
       "name": "WorkflowInput",
       "description": "",
-      "attributes": [
-        {
-          "name": "isStillValid",
-          "type": "boolean",
-          "description": "Returns true is the workflow input is still valid, false if it has been deleted.Returns true is the workflow input is still valid, false if it has been deleted."
-        },
-        {
-          "name": "name",
-          "type": "String",
-          "description": "Returns the name of the workflow input.Returns the name of the workflow input."
-        },
-        {
-          "name": "startDate",
-          "type": "java.util.Date",
-          "description": "Get the workflow input start date.the date object"
-        },
-        {
-          "name": "startDateAsString",
-          "type": "String",
-          "description": "Get the workflow input start date as formated string.the formated date string"
-        },
-        {
-          "name": "state",
-          "type": "String",
-          "description": "Return the workflow input state ('waiting' or 'completed')."
-        }
-      ],
       "methods": [
         {
           "name": "getAnswerUrl",
-          "parameters": "(Object secure, Object inAutologon, Object inHost, Object inPort, Object inUrl)",
+          "parameters": "Object: secure, Object: inAutologon, Object: inHost, Object: inPort, Object: inUrl",
           "returnType": "URL",
           "description": ""
         },
         {
           "name": "getInteractionUrl",
-          "parameters": "(Object secure, Object inHost, Object inPort)",
+          "parameters": "Object: secure, Object: inHost, Object: inPort",
           "returnType": "URL",
           "description": ""
         },
         {
           "name": "getWebviewAnswerUrl",
-          "parameters": "(Object inWebviewUrlFolder, Object inPage, Object secure, Object inAutologon, Object inHost, Object inPort, Object inUrl)",
+          "parameters": "Object: inWebviewUrlFolder, Object: inPage, Object: secure, Object: inAutologon, Object: inHost, Object: inPort, Object: inUrl",
           "returnType": "URL",
           "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "isStillValid",
+          "type": "boolean",
+          "description": "Returns true is the workflow input is still valid, false if it has been deleted.Returns true is the workflow input is still valid, false if it has been deleted.",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Returns the name of the workflow input.Returns the name of the workflow input.",
+          "isReadonly": false
+        },
+        {
+          "name": "startDate",
+          "type": "Date",
+          "description": "Get the workflow input start date.the date object",
+          "isReadonly": false
+        },
+        {
+          "name": "startDateAsString",
+          "type": "string",
+          "description": "Get the workflow input start date as formated string.the formated date string",
+          "isReadonly": false
+        },
+        {
+          "name": "state",
+          "type": "string",
+          "description": "Return the workflow input state ('waiting' or 'completed').",
+          "isReadonly": false
         }
       ]
     },
     {
       "name": "WorkflowInputItem",
       "description": "",
+      "methods": [],
       "attributes": [
         {
           "name": "description",
-          "type": "String",
-          "description": "Returns the description of the InputItem."
+          "type": "string",
+          "description": "Returns the description of the InputItem.",
+          "isReadonly": false
         },
         {
           "name": "name",
-          "type": "String",
-          "description": "Returns the name of the InputItem."
+          "type": "string",
+          "description": "Returns the name of the InputItem.",
+          "isReadonly": false
         },
         {
           "name": "nextItem",
           "type": "WorkflowItem",
-          "description": "Returns the next item , or null if it is the end."
+          "description": "Returns the next item , or null if it is the end.",
+          "isReadonly": false
         }
-      ],
-      "methods": []
+      ]
     },
     {
       "name": "WorkflowItem",
       "description": "",
+      "methods": [],
       "attributes": [
         {
           "name": "description",
-          "type": "String",
-          "description": "Returns the description of the item."
+          "type": "string",
+          "description": "Returns the description of the item.",
+          "isReadonly": false
         },
         {
           "name": "name",
-          "type": "String",
-          "description": "Returns the name of the item."
+          "type": "string",
+          "description": "Returns the name of the item.",
+          "isReadonly": false
         },
         {
           "name": "nextItem",
           "type": "WorkflowItem",
-          "description": "Returns the next item."
+          "description": "Returns the next item.",
+          "isReadonly": false
         }
-      ],
-      "methods": []
+      ]
     },
     {
       "name": "WorkflowItemEnd",
       "description": "",
+      "methods": [],
       "attributes": [
         {
           "name": "description",
-          "type": "String",
-          "description": "Returns the description of the ConditionItem."
+          "type": "string",
+          "description": "Returns the description of the ConditionItem.",
+          "isReadonly": false
         },
         {
           "name": "name",
-          "type": "String",
-          "description": "Returns the name of the ConditionItem."
+          "type": "string",
+          "description": "Returns the name of the ConditionItem.",
+          "isReadonly": false
         }
-      ],
-      "methods": []
+      ]
     },
     {
       "name": "WorkflowItemWaitingEvent",
       "description": "",
+      "methods": [],
       "attributes": [
         {
           "name": "description",
-          "type": "String",
-          "description": "Returns the description of the WaitingEventItem."
+          "type": "string",
+          "description": "Returns the description of the WaitingEventItem.",
+          "isReadonly": false
         },
         {
           "name": "name",
-          "type": "String",
-          "description": "Returns the name of the WaitingEventItem."
+          "type": "string",
+          "description": "Returns the name of the WaitingEventItem.",
+          "isReadonly": false
         },
         {
           "name": "nextItem",
           "type": "WorkflowItem",
-          "description": "Returns the next item , or null if it is the end."
+          "description": "Returns the next item , or null if it is the end.",
+          "isReadonly": false
         }
-      ],
-      "methods": []
+      ]
     },
     {
       "name": "WorkflowItemWaitingTimer",
       "description": "",
+      "methods": [],
       "attributes": [
         {
           "name": "description",
-          "type": "String",
-          "description": "Returns the description of the WaitingTimerItem."
+          "type": "string",
+          "description": "Returns the description of the WaitingTimerItem.",
+          "isReadonly": false
         },
         {
           "name": "name",
-          "type": "String",
-          "description": "Returns the name of the WaitingTimerItem."
+          "type": "string",
+          "description": "Returns the name of the WaitingTimerItem.",
+          "isReadonly": false
         },
         {
           "name": "nextItem",
           "type": "WorkflowItem",
-          "description": "Returns the next item , or null if it is the end."
+          "description": "Returns the next item , or null if it is the end.",
+          "isReadonly": false
         }
-      ],
-      "methods": []
+      ]
     },
     {
       "name": "WorkflowLinkItem",
       "description": "",
+      "methods": [],
       "attributes": [
         {
           "name": "description",
-          "type": "String",
-          "description": "Returns the description of the LinkItem."
+          "type": "string",
+          "description": "Returns the description of the LinkItem.",
+          "isReadonly": false
         },
         {
           "name": "linkedWorkflow",
           "type": "Workflow",
-          "description": "Returns the linked workflow"
+          "description": "Returns the linked workflow",
+          "isReadonly": false
         },
         {
           "name": "name",
-          "type": "String",
-          "description": "Returns the name of the LinkItem."
+          "type": "string",
+          "description": "Returns the name of the LinkItem.",
+          "isReadonly": false
         },
         {
           "name": "nextItem",
           "type": "WorkflowItem",
-          "description": "Returns the next item , or null if it is the end."
+          "description": "Returns the next item , or null if it is the end.",
+          "isReadonly": false
         }
-      ],
-      "methods": []
+      ]
     },
     {
       "name": "WorkflowMultipleCallItem",
       "description": "",
+      "methods": [],
       "attributes": [
         {
           "name": "description",
-          "type": "String",
-          "description": "Returns the description of the SubElementItem."
+          "type": "string",
+          "description": "Returns the description of the SubElementItem.",
+          "isReadonly": false
         },
         {
           "name": "linkedWorkflows",
           "type": "Workflow[]",
-          "description": "Returns the linked workflows"
+          "description": "Returns the linked workflows",
+          "isReadonly": false
         },
         {
           "name": "name",
-          "type": "String",
-          "description": "Returns the name of the SubElementItem."
+          "type": "string",
+          "description": "Returns the name of the SubElementItem.",
+          "isReadonly": false
         },
         {
           "name": "nextItem",
           "type": "WorkflowItem",
-          "description": "Returns the next item , or null if it is the end."
+          "description": "Returns the next item , or null if it is the end.",
+          "isReadonly": false
         }
-      ],
-      "methods": []
+      ]
     },
     {
       "name": "WorkflowTaskItem",
       "description": "",
+      "methods": [],
       "attributes": [
         {
           "name": "description",
-          "type": "String",
-          "description": "Returns the description of the TaskItem."
+          "type": "string",
+          "description": "Returns the description of the TaskItem.",
+          "isReadonly": false
         },
         {
           "name": "isActionCall",
           "type": "boolean",
-          "description": "Return true if the box is a wrapped Action call"
+          "description": "Return true if the box is a wrapped Action call",
+          "isReadonly": false
         },
         {
           "name": "isStartWorkflowCall",
           "type": "boolean",
-          "description": "Return true if the box start an asynchronous workflow"
+          "description": "Return true if the box start an asynchronous workflow",
+          "isReadonly": false
         },
         {
           "name": "linkedWorkflow",
           "type": "Workflow",
-          "description": "Returns the linked workflow started asynchronously"
+          "description": "Returns the linked workflow started asynchronously",
+          "isReadonly": false
         },
         {
           "name": "name",
-          "type": "String",
-          "description": "Returns the name of the TaskItem."
+          "type": "string",
+          "description": "Returns the name of the TaskItem.",
+          "isReadonly": false
         },
         {
           "name": "nextItem",
           "type": "WorkflowItem",
-          "description": "Returns the next item , or null if it is the end."
+          "description": "Returns the next item , or null if it is the end.",
+          "isReadonly": false
         },
         {
           "name": "script",
-          "type": "String",
-          "description": "Returns the script of the TaskItem."
+          "type": "string",
+          "description": "Returns the script of the TaskItem.",
+          "isReadonly": false
         },
         {
           "name": "usedActions",
-          "type": "Object",
-          "description": "Returns all used action in this item"
+          "type": "any",
+          "description": "Returns all used action in this item",
+          "isReadonly": false
         }
-      ],
-      "methods": []
+      ]
     },
     {
       "name": "WorkflowToken",
       "description": "",
-      "attributes": [
-        {
-          "name": "attributesStack",
-          "type": "Attribute[]",
-          "description": "Returns the attributes' stack of the workflow token. The stack is ordered : the last item in the stack is the current one."
-        },
-        {
-          "name": "businessState",
-          "type": "String",
-          "description": "Get the workflow business state"
-        },
-        {
-          "name": "currentWorkflow",
-          "type": "Object",
-          "description": "Returns the current workflow."
-        },
-        {
-          "name": "endDate",
-          "type": "String",
-          "description": "Get the workflow execution end date"
-        },
-        {
-          "name": "endDateAsDate",
-          "type": "Object",
-          "description": "Get the workflow execution end date as date object"
-        },
-        {
-          "name": "exception",
-          "type": "String",
-          "description": "Return the error code of this workflow, if state is failed"
-        },
-        {
-          "name": "id",
-          "type": "String",
-          "description": "Returns the unique identifier (ID) for this object."
-        },
-        {
-          "name": "isStillValid",
-          "type": "boolean",
-          "description": "Returns true is the workflow token is still valid, false if it has been deleted."
-        },
-        {
-          "name": "logEvents",
-          "type": "LogEvent[]",
-          "description": "Returns the log events"
-        },
-        {
-          "name": "name",
-          "type": "String",
-          "description": "Returns the name of the workflow token."
-        },
-        {
-          "name": "rootWorkflow",
-          "type": "Object",
-          "description": "Returns the root workflow."
-        },
-        {
-          "name": "startDate",
-          "type": "String",
-          "description": "Get the workflow execution start date"
-        },
-        {
-          "name": "startDateAsDate",
-          "type": "Object",
-          "description": "Get the workflow execution start date as date object"
-        },
-        {
-          "name": "state",
-          "type": "String",
-          "description": "Return the state of this workflow."
-        },
-        {
-          "name": "workflowInputId",
-          "type": "String",
-          "description": "Returns the current workflow input ID. Returns null if the current workflow item is not a workflow input."
-        }
-      ],
       "methods": [
         {
           "name": "cancel",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "changeCredential",
-          "parameters": "(Object credential)",
+          "parameters": "Object: credential",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "getAnswerUrl",
-          "parameters": "(Object secure, Object inAutologon, Object inHost, Object inPort, Object inUrl)",
+          "parameters": "Object: secure, Object: inAutologon, Object: inHost, Object: inPort, Object: inUrl",
           "returnType": "URL",
           "description": ""
         },
         {
           "name": "getAttributes",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "Properties",
           "description": ""
         },
         {
           "name": "getInputParameters",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "Properties",
           "description": ""
         },
         {
           "name": "getInteractionUrl",
-          "parameters": "(Object secure, Object inHost, Object inPort)",
+          "parameters": "Object: secure, Object: inHost, Object: inPort",
           "returnType": "URL",
           "description": ""
         },
         {
           "name": "getOutputParameters",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "Properties",
           "description": ""
         },
         {
           "name": "getWebviewAnswerUrl",
-          "parameters": "(Object inWebviewUrlFolder, Object inPage, Object secure, Object inAutologon, Object inHost, Object inPort, Object inUrl)",
+          "parameters": "Object: inWebviewUrlFolder, Object: inPage, Object: secure, Object: inAutologon, Object: inHost, Object: inPort, Object: inUrl",
           "returnType": "URL",
           "description": ""
         },
         {
           "name": "saveSchemaImageToFile",
-          "parameters": "(String file)",
+          "parameters": "String: file",
           "returnType": "void",
           "description": ""
+        }
+      ],
+      "attributes": [
+        {
+          "name": "attributesStack",
+          "type": "Attribute[]",
+          "description": "Returns the attributes' stack of the workflow token. The stack is ordered : the last item in the stack is the current one.",
+          "isReadonly": false
+        },
+        {
+          "name": "businessState",
+          "type": "string",
+          "description": "Get the workflow business state",
+          "isReadonly": false
+        },
+        {
+          "name": "currentWorkflow",
+          "type": "any",
+          "description": "Returns the current workflow.",
+          "isReadonly": false
+        },
+        {
+          "name": "endDate",
+          "type": "string",
+          "description": "Get the workflow execution end date",
+          "isReadonly": false
+        },
+        {
+          "name": "endDateAsDate",
+          "type": "any",
+          "description": "Get the workflow execution end date as date object",
+          "isReadonly": false
+        },
+        {
+          "name": "exception",
+          "type": "string",
+          "description": "Return the error code of this workflow, if state is failed",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Returns the unique identifier (ID) for this object.",
+          "isReadonly": false
+        },
+        {
+          "name": "isStillValid",
+          "type": "boolean",
+          "description": "Returns true is the workflow token is still valid, false if it has been deleted.",
+          "isReadonly": false
+        },
+        {
+          "name": "logEvents",
+          "type": "LogEvent[]",
+          "description": "Returns the log events",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Returns the name of the workflow token.",
+          "isReadonly": false
+        },
+        {
+          "name": "rootWorkflow",
+          "type": "any",
+          "description": "Returns the root workflow.",
+          "isReadonly": false
+        },
+        {
+          "name": "startDate",
+          "type": "string",
+          "description": "Get the workflow execution start date",
+          "isReadonly": false
+        },
+        {
+          "name": "startDateAsDate",
+          "type": "any",
+          "description": "Get the workflow execution start date as date object",
+          "isReadonly": false
+        },
+        {
+          "name": "state",
+          "type": "string",
+          "description": "Return the state of this workflow.",
+          "isReadonly": false
+        },
+        {
+          "name": "workflowInputId",
+          "type": "string",
+          "description": "Returns the current workflow input ID. Returns null if the current workflow item is not a workflow input.",
+          "isReadonly": false
         }
       ]
     },
     {
       "name": "ZipWriter",
       "description": "",
-      "attributes": [],
       "methods": [
         {
-          "name": "String",
-          "parameters": "(String file)",
-          "returnType": "constructor",
-          "description": ""
-        },
-        {
           "name": "addContent",
-          "parameters": "(Object entryName, Object content, Object encoding)",
+          "parameters": "Object: entryName, Object: content, Object: encoding",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "addMimeAttachment",
-          "parameters": "(Object mimeAttachment)",
+          "parameters": "Object: mimeAttachment",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "clean",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "void",
           "description": ""
         },
         {
           "name": "writeZip",
-          "parameters": "()",
+          "parameters": "",
           "returnType": "void",
           "description": ""
+        },
+        {
+          "name": "String",
+          "parameters": "(String file)",
+          "returnType": "constructor",
+          "description": ""
         }
-      ]
+      ],
+      "attributes": []
     }
   ]
 }

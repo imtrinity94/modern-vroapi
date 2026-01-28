@@ -3,7 +3,7 @@ import { useEffect, useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import pluginIndex from '../data/index.json';
 import { getPluginMeta } from '../data/plugin-meta';
-import { ChevronRight, Box, FunctionSquare, Info, ShieldAlert, Edit3, List, LayoutGrid } from 'lucide-react';
+import { ChevronRight, Box, FunctionSquare, Info, ShieldAlert, Edit3, List, LayoutGrid, Copy, Check } from 'lucide-react';
 
 interface ApiClass {
     name: string;
@@ -20,6 +20,29 @@ const ClassView: React.FC = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [viewMode, setViewMode] = useState<'detailed' | 'compact'>('compact');
+    const [copiedMethod, setCopiedMethod] = useState<string | null>(null);
+
+    const formatMethodSnippet = (name: string, params: string) => {
+        if (!params || params === '-' || params === '()') return `${name}()`;
+
+        const formattedParams = params.split(',').map(p => {
+            const part = p.trim();
+            if (part.includes(':')) {
+                const [pName, pType] = part.split(':').map(s => s.trim());
+                return `${pName} <${pType}>`;
+            }
+            return part;
+        }).join(', ');
+
+        return `${name}(${formattedParams})`;
+    };
+
+    const handleCopy = (method: any) => {
+        const snippet = formatMethodSnippet(method.name, method.parameters);
+        navigator.clipboard.writeText(snippet);
+        setCopiedMethod(method.name);
+        setTimeout(() => setCopiedMethod(null), 2000);
+    };
 
     useEffect(() => {
         const loadData = async () => {
@@ -173,8 +196,20 @@ const ClassView: React.FC = () => {
                         <div className="grid grid-cols-1 gap-4">
                             {classData.methods.map((method) => (
                                 <div key={method.name} className="group flex flex-col md:flex-row bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl hover:border-indigo-500/50 transition-all shadow-sm overflow-hidden">
-                                    <div className="md:w-1/3 p-5 bg-slate-50 dark:bg-slate-800/30 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800">
-                                        <h4 className="font-mono font-bold text-indigo-600 dark:text-indigo-400 text-xl break-all group-hover:text-indigo-500">{method.name}</h4>
+                                    <div className="md:w-1/3 p-5 bg-slate-50 dark:bg-slate-800/30 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800 relative group">
+                                        <div className="flex items-start justify-between gap-2">
+                                            <h4 className="font-mono font-bold text-indigo-600 dark:text-indigo-400 text-xl break-all group-hover:text-indigo-500">{method.name}</h4>
+                                            <button
+                                                onClick={() => handleCopy(method)}
+                                                className={`p-1.5 rounded-md transition-all ${copiedMethod === method.name
+                                                    ? 'bg-emerald-500 text-white'
+                                                    : 'bg-white dark:bg-slate-700 text-slate-400 hover:text-indigo-500 border border-slate-200 dark:border-slate-600 shadow-sm opacity-0 group-hover:opacity-100'
+                                                    }`}
+                                                title="Copy JS Signature"
+                                            >
+                                                {copiedMethod === method.name ? <Check size={14} /> : <Copy size={14} />}
+                                            </button>
+                                        </div>
                                         <div className="mt-3 text-sm font-black uppercase tracking-wider text-slate-400 dark:text-slate-600">Return Type</div>
                                         <div className="font-mono text-base text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-500/10 border border-orange-200 dark:border-orange-500/20 px-3 py-1 rounded inline-block mt-2 truncate">{method.returnType}</div>
                                     </div>
@@ -209,7 +244,21 @@ const ClassView: React.FC = () => {
                                 <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
                                     {classData.methods.map((method) => (
                                         <tr key={method.name} className="hover:bg-slate-50 dark:hover:bg-indigo-500/[0.02] transition-colors group">
-                                            <td className="p-4 font-mono font-bold text-indigo-600 dark:text-indigo-400 text-lg align-top whitespace-nowrap">{method.name}</td>
+                                            <td className="p-4 align-top whitespace-nowrap">
+                                                <div className="flex items-center gap-3">
+                                                    <span className="font-mono font-bold text-indigo-600 dark:text-indigo-400 text-lg">{method.name}</span>
+                                                    <button
+                                                        onClick={() => handleCopy(method)}
+                                                        className={`p-1 rounded-md transition-all ${copiedMethod === method.name
+                                                            ? 'bg-emerald-500 text-white'
+                                                            : 'bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-indigo-500 border border-slate-200 dark:border-slate-700 opacity-0 group-hover:opacity-100'
+                                                            }`}
+                                                        title="Copy JS Signature"
+                                                    >
+                                                        {copiedMethod === method.name ? <Check size={12} /> : <Copy size={12} />}
+                                                    </button>
+                                                </div>
+                                            </td>
                                             <td className="p-4 align-top whitespace-nowrap">
                                                 <span className="font-mono text-base text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-500/10 border border-orange-200 dark:border-orange-500/20 px-2 py-0.5 rounded inline-block">{method.returnType}</span>
                                             </td>

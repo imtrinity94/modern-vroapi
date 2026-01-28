@@ -38,8 +38,11 @@ function simplifyParams(params: string): string {
     if (!p) return '';
 
     return p.split(',').map((part, index) => {
-        let [type, name] = part.trim().split(/\s+/).reverse();
-        if (!name) name = `param${index}`;
+        let [name, type] = part.trim().split(/\s+/).reverse();
+        if (!type) {
+            type = name;
+            name = `param${index}`;
+        }
         return `${name}: ${simplifyType(type)}`;
     }).join(', ');
 }
@@ -55,7 +58,7 @@ function processAd() {
     const classMap = new Map();
     localData.classes.forEach((c: any) => classMap.set(c.name, c));
 
-    const finalClasses = [];
+    const finalClasses: any[] = [];
 
     for (const sClass of scrapedData.classes) {
         const localClass = classMap.get(sClass.name);
