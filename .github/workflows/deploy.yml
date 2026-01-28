@@ -27,9 +27,9 @@ jobs:
         working-directory: vro-doc-site
         run: npm ci
 
-      - name: Generate Data
+      - name: Reindex Data
         working-directory: vro-doc-site
-        run: npx tsx scripts/generate-docs.ts
+        run: npm run reindex
 
       - name: Build
         working-directory: vro-doc-site
