@@ -1,347 +1,11 @@
 {
-  "name": "Active Directory",
+  "name": "AD",
+  "description": "API Reference for AD",
   "classes": [
-    {
-      "name": "AdHost",
-      "description": "",
-      "methods": [],
-      "attributes": [
-        {
-          "name": "alternativeHosts",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "connectTimeoutMillis",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "defaultDomain",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "followReferrals",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "host",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "id",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "ldapBase",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "loadBalancingMode",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "name",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "port",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "sharedUserName",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "subDomainAutoConnect",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "url",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "useSharedSession",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "useSSL",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        }
-      ]
-    },
-    {
-      "name": "AdPlugin",
-      "description": "",
-      "methods": [],
-      "attributes": []
-    },
-    {
-      "name": "Attribute",
-      "description": "",
-      "methods": [],
-      "attributes": [
-        {
-          "name": "name",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "value",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        }
-      ]
-    },
-    {
-      "name": "ComputerAD",
-      "description": "",
-      "methods": [],
-      "attributes": [
-        {
-          "name": "distinguishedName",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "enabled",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "name",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "objectCategory",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "objectCategoryName",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        }
-      ]
-    },
-    {
-      "name": "Group",
-      "description": "",
-      "methods": [],
-      "attributes": [
-        {
-          "name": "distinguishedName",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "name",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "objectCategory",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "objectCategoryName",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        }
-      ]
-    },
-    {
-      "name": "OrganizationalUnit",
-      "description": "",
-      "methods": [],
-      "attributes": [
-        {
-          "name": "distinguishedName",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "name",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "objectCategory",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "objectCategoryName",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        }
-      ]
-    },
-    {
-      "name": "Unknown",
-      "description": "",
-      "methods": [],
-      "attributes": [
-        {
-          "name": "distinguishedName",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "name",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "objectCategory",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "objectCategoryName",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        }
-      ]
-    },
-    {
-      "name": "User",
-      "description": "",
-      "methods": [],
-      "attributes": [
-        {
-          "name": "accountName",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "distinguishedName",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "enabled",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "id",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "name",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "objectCategory",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "objectCategoryName",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        }
-      ]
-    },
-    {
-      "name": "UserGroup",
-      "description": "",
-      "methods": [],
-      "attributes": [
-        {
-          "name": "distinguishedName",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "id",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "name",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "objectCategory",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "objectCategoryName",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        }
-      ]
-    },
     {
       "name": "ActiveDirectory",
       "description": "Represents the Active Directory base.",
+      "attributes": [],
       "methods": [
         {
           "name": "search",
@@ -403,12 +67,55 @@
           "parameters": "param0: AD_Host",
           "returnType": "Array/Object"
         }
-      ],
-      "attributes": []
+      ]
     },
     {
       "name": "AD_Computer",
       "description": "Computer on the AD",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "The unique Id of the element",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "The node name",
+          "isReadonly": true
+        },
+        {
+          "name": "hostname",
+          "type": "string",
+          "description": "The remote host name",
+          "isReadonly": true
+        },
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "description": "Activate or deactivate a computer",
+          "isReadonly": false
+        },
+        {
+          "name": "distinguishedName",
+          "type": "string",
+          "description": "Return the DN of the item",
+          "isReadonly": true
+        },
+        {
+          "name": "allAttributes",
+          "type": "Array/Object",
+          "description": "Returns all attributes",
+          "isReadonly": true
+        },
+        {
+          "name": "gUID",
+          "type": "string",
+          "description": "Return object GUID formatted as dashed string",
+          "isReadonly": true
+        }
+      ],
       "methods": [
         {
           "name": "removeAttribute",
@@ -458,55 +165,67 @@
           "parameters": "attibName: string",
           "returnType": "Array/Object"
         }
-      ],
-      "attributes": [
-        {
-          "name": "id",
-          "description": "The unique Id of the element",
-          "type": "string",
-          "isReadonly": true
-        },
-        {
-          "name": "name",
-          "description": "The node name",
-          "type": "string",
-          "isReadonly": true
-        },
-        {
-          "name": "hostname",
-          "description": "The remote host name",
-          "type": "string",
-          "isReadonly": true
-        },
-        {
-          "name": "enabled",
-          "description": "Activate or deactivate a computer",
-          "type": "boolean",
-          "isReadonly": false
-        },
-        {
-          "name": "distinguishedName",
-          "description": "Return the DN of the item",
-          "type": "string",
-          "isReadonly": true
-        },
-        {
-          "name": "allAttributes",
-          "description": "Returns all attributes",
-          "type": "Array/Object",
-          "isReadonly": true
-        },
-        {
-          "name": "gUID",
-          "description": "Return object GUID formatted as dashed string",
-          "type": "string",
-          "isReadonly": true
-        }
       ]
     },
     {
       "name": "AD_Group",
       "description": "Group",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "the unique Id of the element",
+          "isReadonly": true
+        },
+        {
+          "name": "users",
+          "type": "Array/Object",
+          "description": "List of all users (read-only)",
+          "isReadonly": true
+        },
+        {
+          "name": "computers",
+          "type": "Array/Object",
+          "description": "List of all computers (read-only)",
+          "isReadonly": true
+        },
+        {
+          "name": "userGroups",
+          "type": "Array/Object",
+          "description": "List of all user groups (read-only)",
+          "isReadonly": true
+        },
+        {
+          "name": "containers",
+          "type": "Array/Object",
+          "description": "List of all Group (read-only)",
+          "isReadonly": true
+        },
+        {
+          "name": "organizationalUnits",
+          "type": "Array/Object",
+          "description": "List of all OU (read-only)",
+          "isReadonly": true
+        },
+        {
+          "name": "distinguishedName",
+          "type": "string",
+          "description": "Return the DN of the item",
+          "isReadonly": true
+        },
+        {
+          "name": "allAttributes",
+          "type": "Array/Object",
+          "description": "Returns all attributes",
+          "isReadonly": true
+        },
+        {
+          "name": "gUID",
+          "type": "string",
+          "description": "Return object GUID formatted as dashed string",
+          "isReadonly": true
+        }
+      ],
       "methods": [
         {
           "name": "createUser",
@@ -586,67 +305,31 @@
           "parameters": "attibName: string",
           "returnType": "Array/Object"
         }
-      ],
-      "attributes": [
-        {
-          "name": "id",
-          "description": "the unique Id of the element",
-          "type": "string",
-          "isReadonly": true
-        },
-        {
-          "name": "users",
-          "description": "List of all users (read-only)",
-          "type": "Array/Object",
-          "isReadonly": true
-        },
-        {
-          "name": "computers",
-          "description": "List of all computers (read-only)",
-          "type": "Array/Object",
-          "isReadonly": true
-        },
-        {
-          "name": "userGroups",
-          "description": "List of all user groups (read-only)",
-          "type": "Array/Object",
-          "isReadonly": true
-        },
-        {
-          "name": "containers",
-          "description": "List of all Group (read-only)",
-          "type": "Array/Object",
-          "isReadonly": true
-        },
-        {
-          "name": "organizationalUnits",
-          "description": "List of all OU (read-only)",
-          "type": "Array/Object",
-          "isReadonly": true
-        },
-        {
-          "name": "distinguishedName",
-          "description": "Return the DN of the item",
-          "type": "string",
-          "isReadonly": true
-        },
-        {
-          "name": "allAttributes",
-          "description": "Returns all attributes",
-          "type": "Array/Object",
-          "isReadonly": true
-        },
-        {
-          "name": "gUID",
-          "description": "Return object GUID formatted as dashed string",
-          "type": "string",
-          "isReadonly": true
-        }
       ]
     },
     {
       "name": "AD_Host",
       "description": "Represents Active directory server connection.",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Active directory configuration name",
+          "isReadonly": true
+        },
+        {
+          "name": "Url",
+          "type": "String",
+          "description": "Active Directory host connection URL. Actual URL used for connection with Active Directory server. It might differ from configured values when current object represents sub-domain entity.",
+          "isReadonly": true
+        },
+        {
+          "name": "hostConfiguration",
+          "type": "AD_ServerConfiguration",
+          "description": "Active Directory host configuration settings for current AD_Host connection.",
+          "isReadonly": true
+        }
+      ],
       "methods": [
         {
           "name": "getLdapClient",
@@ -654,31 +337,12 @@
           "parameters": "",
           "returnType": "LdapClient"
         }
-      ],
-      "attributes": [
-        {
-          "name": "name",
-          "description": "Active directory configuration name",
-          "type": "string",
-          "isReadonly": true
-        },
-        {
-          "name": "Url",
-          "description": "Active Directory host connection URL. Actual URL used for connection with Active Directory server. It might differ from configured values when current object represents sub-domain entity.",
-          "type": "String",
-          "isReadonly": true
-        },
-        {
-          "name": "hostConfiguration",
-          "description": "Active Directory host configuration settings for current AD_Host connection.",
-          "type": "AD_ServerConfiguration",
-          "isReadonly": true
-        }
       ]
     },
     {
       "name": "AD_HostManager",
       "description": "Manage Active Directory hosts",
+      "attributes": [],
       "methods": [
         {
           "name": "findHost",
@@ -692,12 +356,67 @@
           "parameters": "",
           "returnType": "Array/Object"
         }
-      ],
-      "attributes": []
+      ]
     },
     {
       "name": "AD_OrganizationalUnit",
       "description": "Represents an Organizational Unit",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "the unique Id of the element",
+          "isReadonly": true
+        },
+        {
+          "name": "users",
+          "type": "Array/Object",
+          "description": "List of all users (read-only)",
+          "isReadonly": true
+        },
+        {
+          "name": "computers",
+          "type": "Array/Object",
+          "description": "List of all computers (read-only)",
+          "isReadonly": true
+        },
+        {
+          "name": "userGroups",
+          "type": "Array/Object",
+          "description": "List of all user groups (read-only)",
+          "isReadonly": true
+        },
+        {
+          "name": "containers",
+          "type": "Array/Object",
+          "description": "List of all Group (read-only)",
+          "isReadonly": true
+        },
+        {
+          "name": "organizationalUnits",
+          "type": "Array/Object",
+          "description": "List of all OU (read-only)",
+          "isReadonly": true
+        },
+        {
+          "name": "distinguishedName",
+          "type": "string",
+          "description": "Return the DN of the item",
+          "isReadonly": true
+        },
+        {
+          "name": "allAttributes",
+          "type": "Array/Object",
+          "description": "Returns all attributes",
+          "isReadonly": true
+        },
+        {
+          "name": "gUID",
+          "type": "string",
+          "description": "Return object GUID formatted as dashed string",
+          "isReadonly": true
+        }
+      ],
       "methods": [
         {
           "name": "searchComputer",
@@ -789,275 +508,153 @@
           "parameters": "attibName: string",
           "returnType": "Array/Object"
         }
-      ],
-      "attributes": [
-        {
-          "name": "id",
-          "description": "the unique Id of the element",
-          "type": "string",
-          "isReadonly": true
-        },
-        {
-          "name": "users",
-          "description": "List of all users (read-only)",
-          "type": "Array/Object",
-          "isReadonly": true
-        },
-        {
-          "name": "computers",
-          "description": "List of all computers (read-only)",
-          "type": "Array/Object",
-          "isReadonly": true
-        },
-        {
-          "name": "userGroups",
-          "description": "List of all user groups (read-only)",
-          "type": "Array/Object",
-          "isReadonly": true
-        },
-        {
-          "name": "containers",
-          "description": "List of all Group (read-only)",
-          "type": "Array/Object",
-          "isReadonly": true
-        },
-        {
-          "name": "organizationalUnits",
-          "description": "List of all OU (read-only)",
-          "type": "Array/Object",
-          "isReadonly": true
-        },
-        {
-          "name": "distinguishedName",
-          "description": "Return the DN of the item",
-          "type": "string",
-          "isReadonly": true
-        },
-        {
-          "name": "allAttributes",
-          "description": "Returns all attributes",
-          "type": "Array/Object",
-          "isReadonly": true
-        },
-        {
-          "name": "gUID",
-          "description": "Return object GUID formatted as dashed string",
-          "type": "string",
-          "isReadonly": true
-        }
       ]
     },
     {
       "name": "AD_PluginOptions",
       "description": "Active Directory Plug-in options",
-      "methods": [
-        {
-          "name": "getSearchTimeoutInSec",
-          "parameters": "",
-          "returnType": "number",
-          "description": ""
-        }
-      ],
       "attributes": [
         {
           "name": "defaultAdServerId",
-          "description": "Default Active Directory end point id.",
           "type": "string",
+          "description": "Default Active Directory end point id.",
           "isReadonly": true
         },
         {
           "name": "searchSizeLimit",
-          "description": "Maximum number of items that will be returned by a search.",
           "type": "number",
+          "description": "Maximum number of items that will be returned by a search.",
           "isReadonly": true
         },
         {
           "name": "searchSizeLimitPerServer",
-          "description": "Maximum number of items that will be returned by a search from single Active Directory server.",
           "type": "number",
+          "description": "Maximum number of items that will be returned by a search from single Active Directory server.",
           "isReadonly": true
         }
-      ]
+      ],
+      "methods": []
     },
     {
       "name": "AD_ServerConfiguration",
       "description": "Represents single Active Directory service end point configuration.",
-      "methods": [
-        {
-          "name": "clone",
-          "parameters": "",
-          "returnType": "AD_ServerConfiguration",
-          "description": ""
-        },
-        {
-          "name": "equals",
-          "parameters": "param0: any",
-          "returnType": "boolean",
-          "description": ""
-        },
-        {
-          "name": "getConnectTimeoutMillis",
-          "parameters": "",
-          "returnType": "number",
-          "description": ""
-        },
-        {
-          "name": "getCustomProperty",
-          "parameters": "param0: string",
-          "returnType": "string",
-          "description": ""
-        },
-        {
-          "name": "getCustomProperty",
-          "parameters": "param0: string, param1: string",
-          "returnType": "string",
-          "description": ""
-        },
-        {
-          "name": "getDCNames",
-          "parameters": "",
-          "returnType": "string",
-          "description": ""
-        },
-        {
-          "name": "getLdapUrl",
-          "parameters": "",
-          "returnType": "string",
-          "description": ""
-        },
-        {
-          "name": "hashCode",
-          "parameters": "",
-          "returnType": "number",
-          "description": ""
-        },
-        {
-          "name": "isEmpty",
-          "parameters": "",
-          "returnType": "boolean",
-          "description": ""
-        },
-        {
-          "name": "isSubDomainAutoConnect",
-          "parameters": "",
-          "returnType": "boolean",
-          "description": ""
-        },
-        {
-          "name": "setConnectTimeoutMillis",
-          "parameters": "param0: number",
-          "returnType": "void",
-          "description": ""
-        },
-        {
-          "name": "setCustomProperty",
-          "parameters": "param0: string, param1: string",
-          "returnType": "void",
-          "description": ""
-        },
-        {
-          "name": "setDcNames",
-          "parameters": "param0: string",
-          "returnType": "void",
-          "description": ""
-        },
-        {
-          "name": "setSubDomainAutoConnect",
-          "parameters": "param0: boolean",
-          "returnType": "void",
-          "description": ""
-        }
-      ],
       "attributes": [
         {
           "name": "id",
-          "description": "Id",
           "type": "String",
+          "description": "Id",
           "isReadonly": false
         },
         {
           "name": "name",
-          "description": "Name",
           "type": "String",
+          "description": "Name",
           "isReadonly": false
         },
         {
           "name": "host",
-          "description": "Active Directory host",
           "type": "String",
+          "description": "Active Directory host",
           "isReadonly": false
         },
         {
           "name": "port",
-          "description": "Active Directory port",
           "type": "number",
+          "description": "Active Directory port",
           "isReadonly": false
         },
         {
           "name": "ldapBase",
-          "description": "Root",
           "type": "String",
+          "description": "Root",
           "isReadonly": false
         },
         {
           "name": "useSSL",
-          "description": "Use SSL",
           "type": "boolean",
+          "description": "Use SSL",
           "isReadonly": false
         },
         {
           "name": "defaultDomain",
-          "description": "Default domain",
           "type": "string",
+          "description": "Default domain",
           "isReadonly": false
         },
         {
           "name": "useSharedSession",
-          "description": "Use a shared session (deprecated)",
           "type": "boolean",
+          "description": "Use a shared session (deprecated)",
           "isReadonly": false
         },
         {
           "name": "sharedUserName",
-          "description": "User name for shared session",
           "type": "String",
+          "description": "User name for shared session",
           "isReadonly": false
         },
         {
           "name": "sharedUserPassword",
-          "description": "Password for shared session",
           "type": "String",
+          "description": "Password for shared session",
           "isReadonly": false
         },
         {
           "name": "followReferrals",
-          "description": "Follow refferals",
           "type": "boolean",
+          "description": "Follow refferals",
           "isReadonly": false
         },
         {
           "name": "alternativeHosts",
-          "description": "Alternative host adresses",
           "type": "Array/String",
+          "description": "Alternative host adresses",
           "isReadonly": false
         },
         {
           "name": "loadBalancingMode",
-          "description": "Strategy for load balancing between configured alternative hosts.",
           "type": "LdapLoadBalancingMode",
+          "description": "Strategy for load balancing between configured alternative hosts.",
           "isReadonly": false
         },
         {
           "name": "bindType",
-          "description": "Bind Type. Supported bind types are 'Simple' and 'Digest'.",
           "type": "LdapBindType",
+          "description": "Bind Type. Supported bind types are 'Simple' and 'Digest'.",
           "isReadonly": false
         }
-      ]
+      ],
+      "methods": []
     },
     {
       "name": "AD_Unknown",
       "description": "Unknown type of object",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "the unique Id of the element",
+          "isReadonly": true
+        },
+        {
+          "name": "distinguishedName",
+          "type": "string",
+          "description": "Return the DN of the item",
+          "isReadonly": true
+        },
+        {
+          "name": "allAttributes",
+          "type": "Array/Object",
+          "description": "Returns all attributes",
+          "isReadonly": true
+        },
+        {
+          "name": "gUID",
+          "type": "string",
+          "description": "Return object GUID formatted as dashed string",
+          "isReadonly": true
+        }
+      ],
       "methods": [
         {
           "name": "removeAttribute",
@@ -1107,37 +704,67 @@
           "parameters": "attibName: string",
           "returnType": "Array/Object"
         }
-      ],
-      "attributes": [
-        {
-          "name": "id",
-          "description": "the unique Id of the element",
-          "type": "string",
-          "isReadonly": true
-        },
-        {
-          "name": "distinguishedName",
-          "description": "Return the DN of the item",
-          "type": "string",
-          "isReadonly": true
-        },
-        {
-          "name": "allAttributes",
-          "description": "Returns all attributes",
-          "type": "Array/Object",
-          "isReadonly": true
-        },
-        {
-          "name": "gUID",
-          "description": "Return object GUID formatted as dashed string",
-          "type": "string",
-          "isReadonly": true
-        }
       ]
     },
     {
       "name": "AD_User",
       "description": "User",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "the unique Id of the element",
+          "isReadonly": true
+        },
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "description": "Activate or deactivate a user",
+          "isReadonly": false
+        },
+        {
+          "name": "userPrincipalName",
+          "type": "string",
+          "description": "The user principal name",
+          "isReadonly": false
+        },
+        {
+          "name": "sID",
+          "type": "string",
+          "description": "The SID represented as a character string with following format 'S-1-IdentifierAuthority-SubAuthority1-SubAuthority2-...-SubAuthorityn'",
+          "isReadonly": true
+        },
+        {
+          "name": "accountName",
+          "type": "string",
+          "description": "Return the SAM Account Name",
+          "isReadonly": true
+        },
+        {
+          "name": "memberOf",
+          "type": "Array/AD_UserGroup",
+          "description": "Return groups that contains the user",
+          "isReadonly": true
+        },
+        {
+          "name": "distinguishedName",
+          "type": "string",
+          "description": "Return the DN of the item",
+          "isReadonly": true
+        },
+        {
+          "name": "allAttributes",
+          "type": "Array/Object",
+          "description": "Returns all attributes",
+          "isReadonly": true
+        },
+        {
+          "name": "gUID",
+          "type": "string",
+          "description": "Return object GUID formatted as dashed string",
+          "isReadonly": true
+        }
+      ],
       "methods": [
         {
           "name": "setPassword",
@@ -1199,67 +826,67 @@
           "parameters": "attibName: string",
           "returnType": "Array/Object"
         }
-      ],
-      "attributes": [
-        {
-          "name": "id",
-          "description": "the unique Id of the element",
-          "type": "string",
-          "isReadonly": true
-        },
-        {
-          "name": "enabled",
-          "description": "Activate or deactivate a user",
-          "type": "boolean",
-          "isReadonly": false
-        },
-        {
-          "name": "userPrincipalName",
-          "description": "The user principal name",
-          "type": "string",
-          "isReadonly": false
-        },
-        {
-          "name": "sID",
-          "description": "The SID represented as a character string with following format 'S-1-IdentifierAuthority-SubAuthority1-SubAuthority2-...-SubAuthorityn'",
-          "type": "string",
-          "isReadonly": true
-        },
-        {
-          "name": "accountName",
-          "description": "Return the SAM Account Name",
-          "type": "string",
-          "isReadonly": true
-        },
-        {
-          "name": "memberOf",
-          "description": "Return groups that contains the user",
-          "type": "Array/AD_UserGroup",
-          "isReadonly": true
-        },
-        {
-          "name": "distinguishedName",
-          "description": "Return the DN of the item",
-          "type": "string",
-          "isReadonly": true
-        },
-        {
-          "name": "allAttributes",
-          "description": "Returns all attributes",
-          "type": "Array/Object",
-          "isReadonly": true
-        },
-        {
-          "name": "gUID",
-          "description": "Return object GUID formatted as dashed string",
-          "type": "string",
-          "isReadonly": true
-        }
       ]
     },
     {
       "name": "AD_UserGroup",
       "description": "UserGroup",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "the unique Id of the element",
+          "isReadonly": true
+        },
+        {
+          "name": "sID",
+          "type": "string",
+          "description": "The SID represented as a character string with following format 'S-1-IdentifierAuthority-SubAuthority1-SubAuthority2-...-SubAuthorityn'",
+          "isReadonly": true
+        },
+        {
+          "name": "computerMembers",
+          "type": "Array/AD_Computer",
+          "description": "Gets the computers that are members of the current group",
+          "isReadonly": true
+        },
+        {
+          "name": "memberOf",
+          "type": "Array/AD_UserGroup",
+          "description": "Get the group of which current group is member",
+          "isReadonly": true
+        },
+        {
+          "name": "userMembers",
+          "type": "Array/AD_User",
+          "description": "Gets the users that are members of the current group",
+          "isReadonly": true
+        },
+        {
+          "name": "groupMembers",
+          "type": "Array/AD_UserGroup",
+          "description": "Gets the groups that are members of the current group",
+          "isReadonly": true
+        },
+        {
+          "name": "distinguishedName",
+          "type": "string",
+          "description": "Return the DN of the item",
+          "isReadonly": true
+        },
+        {
+          "name": "allAttributes",
+          "type": "Array/Object",
+          "description": "Returns all attributes",
+          "isReadonly": true
+        },
+        {
+          "name": "gUID",
+          "type": "string",
+          "description": "Return object GUID formatted as dashed string",
+          "isReadonly": true
+        }
+      ],
       "methods": [
         {
           "name": "addElements",
@@ -1321,67 +948,202 @@
           "parameters": "attibName: string",
           "returnType": "Array/Object"
         }
-      ],
+      ]
+    },
+    {
+      "name": "ConfigurationManager",
+      "description": "Manage Active Directory plug-in configuration",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "reset",
+          "description": "Delete Active Directory server configuration. Since version 2.0.0 of the plug-in multiple Active Directory servers can be configured. This method will delete default Active Directory server configuration.",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "findAll",
+          "description": "Return available Active Directory server configurations.",
+          "parameters": "",
+          "returnType": "Array/Object"
+        },
+        {
+          "name": "updateConfiguration",
+          "description": "Configure Active Directory server. Since version 2.0.0 of Active Directory plug-in multiple Active Directory servers can be configured.This method will update default Active Directory configuration if exists otherwise new configuration will be created.Deprecated use saveConfiguration(ServerConfiguration).",
+          "parameters": "param0: AD_ServerConfiguration",
+          "returnType": "void"
+        },
+        {
+          "name": "deleteConfiguration",
+          "description": "Delete Active Directory server configuration with specified id.",
+          "parameters": "param0: string",
+          "returnType": "void"
+        },
+        {
+          "name": "validateConfiguration",
+          "description": "Validate Active Directory configuration.",
+          "parameters": "param0: AD_ServerConfiguration",
+          "returnType": "void"
+        },
+        {
+          "name": "saveConfiguration",
+          "description": "Save Active Directory server configuration. If provided configuration id is not set new configuration will be created otherwise existing configuration will be updated.",
+          "parameters": "param0: AD_ServerConfiguration",
+          "returnType": "string"
+        },
+        {
+          "name": "savePluginOptions",
+          "description": "Save ActiveDirectory plugin options.",
+          "parameters": "param0: Object",
+          "returnType": "void"
+        },
+        {
+          "name": "getPluginOptions",
+          "description": "Get global ActiveDirectory plugin options.",
+          "parameters": "",
+          "returnType": "AD_PluginOptions"
+        },
+        {
+          "name": "getConfigurationById",
+          "description": "Return Active Directory server configuration with specified id. If id is not provided default Active Directory server will be returned.",
+          "parameters": "param0: string",
+          "returnType": "AD_ServerConfiguration"
+        }
+      ]
+    },
+    {
+      "name": "LdapAttribute",
+      "description": "This class provides a data structure for holding information about an LDAP attribute, which includes an attribute name (which may include a set of attribute options) and zero or more values.",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "LdapAttribute",
+          "description": "Creates a new LDAP attribute with the specified name and no values.",
+          "parameters": "name: String",
+          "returnType": "void"
+        },
+        {
+          "name": "LdapAttribute",
+          "description": "Creates a new LDAP attribute with the specified name and no values.",
+          "parameters": "name: String, values: Array/String",
+          "returnType": "void"
+        },
+        {
+          "name": "getName",
+          "description": "Retrieves the name for this attribute (i.e., the attribute description), which may include zero or more attribute options.",
+          "parameters": "",
+          "returnType": "string"
+        },
+        {
+          "name": "getValue",
+          "description": "Retrieves the value for this attribute as a string.",
+          "parameters": "",
+          "returnType": "string"
+        },
+        {
+          "name": "size",
+          "description": "Retrieves the number of values for this attribute.",
+          "parameters": "",
+          "returnType": "number"
+        },
+        {
+          "name": "hasValue",
+          "description": "Indicates whether this attribute contains the specified value.",
+          "parameters": "param0: string",
+          "returnType": "boolean"
+        },
+        {
+          "name": "getBaseName",
+          "description": "Retrieves the base name for this attribute, which is the name or OID of the attribute type, without any attribute options.",
+          "parameters": "",
+          "returnType": "string"
+        },
+        {
+          "name": "getValueAsLong",
+          "description": "Retrieves the value for this attribute as a long.",
+          "parameters": "",
+          "returnType": "number"
+        },
+        {
+          "name": "getValues",
+          "description": "Retrieves the set of values for this attribute as strings.",
+          "parameters": "",
+          "returnType": "Array/string"
+        },
+        {
+          "name": "getValueByteArray",
+          "description": "Retrieves the value for this attribute as a byte array.",
+          "parameters": "",
+          "returnType": "Array/Object"
+        },
+        {
+          "name": "getValueAsDate",
+          "description": "Retrieves the value for this attribute as a Date.",
+          "parameters": "",
+          "returnType": "Object"
+        },
+        {
+          "name": "getValueByteArrays",
+          "description": "Retrieves the set of values for this attribute as byte arrays.",
+          "parameters": "",
+          "returnType": "Array/Object"
+        },
+        {
+          "name": "hasValueAsByte",
+          "description": "Indicates whether this attribute contains the specified value.",
+          "parameters": "param0: Array/Object",
+          "returnType": "boolean"
+        },
+        {
+          "name": "getOptions",
+          "description": "Retrieves the set of options for this attribute.",
+          "parameters": "",
+          "returnType": "Array/Object"
+        }
+      ]
+    },
+    {
+      "name": "LdapBindType",
+      "description": "",
       "attributes": [
         {
-          "name": "id",
-          "description": "the unique Id of the element",
-          "type": "string",
+          "name": "Simple",
+          "type": "LdapBindType",
+          "description": "Use Simple bind",
           "isReadonly": true
         },
         {
-          "name": "sID",
-          "description": "The SID represented as a character string with following format 'S-1-IdentifierAuthority-SubAuthority1-SubAuthority2-...-SubAuthorityn'",
-          "type": "string",
+          "name": "Digest",
+          "type": "LdapBindType",
+          "description": "Use Digest.",
           "isReadonly": true
+        }
+      ],
+      "methods": [
+        {
+          "name": "getValue",
+          "description": "Returns Bind Type as string.",
+          "parameters": "",
+          "returnType": "String"
         },
         {
-          "name": "computerMembers",
-          "description": "Gets the computers that are members of the current group",
-          "type": "Array/AD_Computer",
-          "isReadonly": true
+          "name": "getValuesAsString",
+          "description": "(Static) Returns supported bind types .",
+          "parameters": "",
+          "returnType": "String["
         },
         {
-          "name": "memberOf",
-          "description": "Get the group of which current group is member",
-          "type": "Array/AD_UserGroup",
-          "isReadonly": true
-        },
-        {
-          "name": "userMembers",
-          "description": "Gets the users that are members of the current group",
-          "type": "Array/AD_User",
-          "isReadonly": true
-        },
-        {
-          "name": "groupMembers",
-          "description": "Gets the groups that are members of the current group",
-          "type": "Array/AD_UserGroup",
-          "isReadonly": true
-        },
-        {
-          "name": "distinguishedName",
-          "description": "Return the DN of the item",
-          "type": "string",
-          "isReadonly": true
-        },
-        {
-          "name": "allAttributes",
-          "description": "Returns all attributes",
-          "type": "Array/Object",
-          "isReadonly": true
-        },
-        {
-          "name": "gUID",
-          "description": "Return object GUID formatted as dashed string",
-          "type": "string",
-          "isReadonly": true
+          "name": "fromString",
+          "description": "(Static) Create BindType object from it's string representation.",
+          "parameters": "value: string",
+          "returnType": "LdapBindType"
         }
       ]
     },
     {
       "name": "LdapClient",
       "description": "Connection to ldap server.",
+      "attributes": [],
       "methods": [
         {
           "name": "LdapClient",
@@ -1509,12 +1271,25 @@
           "parameters": "dn: string, searchScope: LdapSearchScope, timeLimit: number, filter: string, attributes: Array/string",
           "returnType": "LdapEntry"
         }
-      ],
-      "attributes": []
+      ]
+    },
+    {
+      "name": "LdapClientFactory",
+      "description": "Create new non persisted ldap connections.",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "newLdapClient",
+          "description": "Creates a new LDAP connection that is established to the specified server and is authenticated as the specified user (via LDAP simple authentication).",
+          "parameters": "host: string, port: number, bindDN: string, password: string, useSSL: boolean",
+          "returnType": "LdapClient"
+        }
+      ]
     },
     {
       "name": "LdapDeleteRequest",
       "description": "This class implements the processing necessary to perform an LDAPv3 search operation, which can be used to retrieve entries that match a given set of criteria.",
+      "attributes": [],
       "methods": [
         {
           "name": "duplicate",
@@ -1630,12 +1405,134 @@
           "parameters": "oid: string",
           "returnType": "Object"
         }
+      ]
+    },
+    {
+      "name": "LdapDereferencePolicy",
+      "description": "This class defines a data type for dereference policy values. Clients should generally use one of the {@code NEVER}, {@code SEARCHING}, {@code FINDING}, {@code ALWAYS} values.",
+      "attributes": [
+        {
+          "name": "NEVER",
+          "type": "LdapDereferencePolicy",
+          "description": "A predefined dereference policy value which indicates that the server should not dereference any aliases that it encounters.",
+          "isReadonly": true
+        },
+        {
+          "name": "SEARCHING",
+          "type": "LdapDereferencePolicy",
+          "description": "A predefined dereference policy value which indicates that the server should dereference any aliases that it may encounter while examining candidate entries, but it should not dereference the base entry if it happens to be an alias entry.",
+          "isReadonly": true
+        },
+        {
+          "name": "FINDING",
+          "type": "LdapDereferencePolicy",
+          "description": "A predefined dereference policy value which indicates that the server should dereference the base entry if it happens to be an alias entry, but it should not dereference any alias entries that may be encountered while examining candidate entries.",
+          "isReadonly": true
+        },
+        {
+          "name": "ALWAYS",
+          "type": "LdapDereferencePolicy",
+          "description": "A predefined dereference policy value which indicates that the server should dereference the base entry if it happens to be an alias entry, and should also dereference any entries that may be encountered while examining candidates.",
+          "isReadonly": true
+        }
       ],
-      "attributes": []
+      "methods": []
+    },
+    {
+      "name": "LdapDN",
+      "description": "This class provides a data structure for holding information about an LDAP distinguished name (DN). A DN consists of a comma-delimited list of zero or more RDN components.",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "fromString",
+          "description": "(Static) Creates a new DN from the provided string representation.",
+          "parameters": "dnString: String",
+          "returnType": "LdapRDN"
+        },
+        {
+          "name": "fromRdns",
+          "description": "(Static) Creates a new DN with the provided set of RDNs.",
+          "parameters": "rdns: Array/LdapRDN",
+          "returnType": "LdapRDN"
+        },
+        {
+          "name": "fromParentDn",
+          "description": "(Static) Creates a new DN below the provided parent DN with the given RDN.",
+          "parameters": "rdn: LdapRDN, parentDN: LdapDN",
+          "returnType": "LdapRDN"
+        },
+        {
+          "name": "getRDN",
+          "description": "Retrieves the leftmost (i.e., furthest from the naming context) RDN component for this DN.",
+          "parameters": "",
+          "returnType": "LdapRDN"
+        },
+        {
+          "name": "getRDNString",
+          "description": "Retrieves the string representation of the leftmost (i.e., furthest from the naming context) RDN component for this DN.",
+          "parameters": "",
+          "returnType": "String"
+        },
+        {
+          "name": "getRDNs",
+          "description": "Retrieves the set of RDNs that comprise this DN.",
+          "parameters": "",
+          "returnType": "Array/LdapRDN"
+        },
+        {
+          "name": "getRDNStrings",
+          "description": "Retrieves the set of string representations of the RDNs that comprise this DN.",
+          "parameters": "",
+          "returnType": "Array/Strings"
+        },
+        {
+          "name": "isNullDN",
+          "description": "Indicates whether this DN represents the null DN, which does not have any RDN components.",
+          "parameters": "",
+          "returnType": "boolean"
+        },
+        {
+          "name": "getParent",
+          "description": "Retrieves the DN that is the parent for this DN. Note that neither the null DN nor DNs consisting of a single RDN component will be considered to have parent DNs.",
+          "parameters": "",
+          "returnType": "LdapDN"
+        },
+        {
+          "name": "getParentString",
+          "description": "Retrieves the string representation of the DN that is the parent for this DN. Note that neither the null DN nor DNs consisting of a single RDN component will be considered to have parent DNs.",
+          "parameters": "",
+          "returnType": "String"
+        },
+        {
+          "name": "isAncestorOf",
+          "description": "Indicates whether this DN is an ancestor of the provided DN. It will be considered an ancestor of the provided DN if the array of RDN components for the provided DN ends with the elements that comprise the array of RDN components for this DN (i.e., if the provided DN is subordinate to, or optionally equal to, this DN). The null DN will be considered an ancestor for all other DNs (with the exception of the null DN if allowEquals is false).",
+          "parameters": "param0: LdapDN, param1: boolean",
+          "returnType": "boolean"
+        },
+        {
+          "name": "equals",
+          "description": "Indicates whether the provided object is equal to this DN. In order for the provided object to be considered equal, it must be a non-null DN with the same set of RDN components.",
+          "parameters": "dn: LdapDN",
+          "returnType": "boolean"
+        },
+        {
+          "name": "toString",
+          "description": "Retrieves a string representation of this DN.",
+          "parameters": "",
+          "returnType": "String"
+        },
+        {
+          "name": "toNormalizedString",
+          "description": "Retrieves a normalized string representation of this DN.",
+          "parameters": "",
+          "returnType": "String"
+        }
+      ]
     },
     {
       "name": "LdapEntry",
       "description": "This class provides a data structure for holding information about an LDAP entry. An entry contains a distinguished name (DN) and a set of attributes. An entry can be created from these components, and it can also be created from its LDIF representation as described in RFC 2849.",
+      "attributes": [],
       "methods": [
         {
           "name": "LdapEntry",
@@ -1841,12 +1738,56 @@
           "parameters": "param0: number",
           "returnType": "string"
         }
-      ],
-      "attributes": []
+      ]
+    },
+    {
+      "name": "LdapFilter",
+      "description": "This class provides a data structure that represents an LDAP search filter. It provides methods for as parsing a filter from a string. See RFC 4515 for more information about representing search filters as strings.",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "create",
+          "description": "(Static) Creates a new search filter from the provided string representation.",
+          "parameters": "filterString: string",
+          "returnType": "LdapFilter"
+        },
+        {
+          "name": "encodeValue",
+          "description": "(Static) Encodes the provided value into a form suitable for use as the assertion value in the string representation of a search filter. Parentheses, asterisks, backslashes, null characters, and any non-ASCII characters will be escaped using a backslash before the hexadecimal representation of each byte in the character to escape.",
+          "parameters": "value: string",
+          "returnType": "string"
+        },
+        {
+          "name": "encodeValueBytes",
+          "description": "(Static) Encodes the provided value into a form suitable for use as the assertion value in the string representation of a search filter. Parentheses, asterisks, backslashes, null characters, and any non-ASCII characters will be escaped using a backslash before the hexadecimal representation of each byte in the character to escape.",
+          "parameters": "value: byte[",
+          "returnType": "String"
+        }
+      ]
     },
     {
       "name": "LdapLoadBalancingMode",
       "description": "",
+      "attributes": [
+        {
+          "name": "SingleServer",
+          "type": "LdapLoadBalancingMode",
+          "description": "Connect to a single server",
+          "isReadonly": true
+        },
+        {
+          "name": "RoundRobin",
+          "type": "LdapLoadBalancingMode",
+          "description": "Use a round-robin algorithm to select the server to which the connection should be established. Any number of servers may be included in this server set, and each request will attempt to retrieve a connection to the next server in the list.",
+          "isReadonly": true
+        },
+        {
+          "name": "Failover",
+          "type": "LdapLoadBalancingMode",
+          "description": "Establish connections to servers in the order they are provided. If the first server is unavailable, then it will attempt to connect to the second, then to the third.",
+          "isReadonly": true
+        }
+      ],
       "methods": [
         {
           "name": "getValue",
@@ -1866,87 +1807,172 @@
           "parameters": "value: string",
           "returnType": "LdapLoadBalancingMode"
         }
-      ],
-      "attributes": [
+      ]
+    },
+    {
+      "name": "LdapModification",
+      "description": "",
+      "attributes": [],
+      "methods": [
         {
-          "name": "SingleServer",
-          "description": "Connect to a single server",
-          "type": "LdapLoadBalancingMode",
-          "isReadonly": true
+          "name": "LdapModification",
+          "description": "Creates a new LDAP modification with the provided information.",
+          "parameters": "modificationType: ModificationTypeWrapper, attributeName: String",
+          "returnType": "void"
         },
         {
-          "name": "RoundRobin",
-          "description": "Use a round-robin algorithm to select the server to which the connection should be established. Any number of servers may be included in this server set, and each request will attempt to retrieve a connection to the next server in the list.",
-          "type": "LdapLoadBalancingMode",
-          "isReadonly": true
+          "name": "LdapModification",
+          "description": "Creates a new LDAP modification with the provided information.",
+          "parameters": "modificationType: ModificationTypeWrapper, attributeName: String, attributeValue: String",
+          "returnType": "void"
         },
         {
-          "name": "Failover",
-          "description": "Establish connections to servers in the order they are provided. If the first server is unavailable, then it will attempt to connect to the second, then to the third.",
-          "type": "LdapLoadBalancingMode",
-          "isReadonly": true
+          "name": "LdapModification",
+          "description": "Creates a new LDAP modification with the provided information.",
+          "parameters": "modificationType: ModificationTypeWrapper, attributeName: String, attributeValues: Array/String",
+          "returnType": "void"
+        },
+        {
+          "name": "getAttributeName",
+          "description": "Retrieves the name of the attribute to target with this modification.",
+          "parameters": "",
+          "returnType": "String"
+        },
+        {
+          "name": "getValues",
+          "description": "the set of values for this modification as an array of strings.",
+          "parameters": "",
+          "returnType": "Array/String"
+        },
+        {
+          "name": "getValueByteArrays",
+          "description": "Retrieves the set of values for this modification as an array of byte arrays",
+          "parameters": "",
+          "returnType": "any"
         }
       ]
     },
     {
       "name": "LdapModificationType",
       "description": "",
-      "methods": [
-        {
-          "name": "getRawValue",
-          "parameters": "",
-          "returnType": "ModificationType",
-          "description": ""
-        },
-        {
-          "name": "valueOf",
-          "parameters": "param0: string",
-          "returnType": "LdapModificationType",
-          "description": ""
-        },
-        {
-          "name": "valueOf",
-          "parameters": "param0: ModificationType",
-          "returnType": "LdapModificationType",
-          "description": ""
-        },
-        {
-          "name": "values",
-          "parameters": "",
-          "returnType": "LdapModificationType[]",
-          "description": ""
-        }
-      ],
       "attributes": [
         {
           "name": "ADD",
-          "description": "`LdapModificationType`",
-          "type": "Yes",
-          "isReadonly": false
+          "type": "LdapModificationType",
+          "description": "",
+          "isReadonly": true
         },
         {
           "name": "DELETE",
-          "description": "`LdapModificationType`",
-          "type": "Yes",
-          "isReadonly": false
+          "type": "LdapModificationType",
+          "description": "",
+          "isReadonly": true
         },
         {
           "name": "REPLACE",
-          "description": "`LdapModificationType`",
-          "type": "Yes",
-          "isReadonly": false
+          "type": "LdapModificationType",
+          "description": "",
+          "isReadonly": true
         },
         {
           "name": "INCREMENT",
-          "description": "`LdapModificationType`",
-          "type": "Yes",
-          "isReadonly": false
+          "type": "LdapModificationType",
+          "description": "",
+          "isReadonly": true
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "LdapRDN",
+      "description": "This class provides a data structure for holding information about an LDAP relative distinguished name (RDN). An RDN consists of one or more attribute name-value pairs.",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "fromString",
+          "description": "(Static) Creates a new RDN from the provided string representation.",
+          "parameters": "rdnString: String",
+          "returnType": "LdapRDN"
+        },
+        {
+          "name": "fromNameValue",
+          "description": "(Static) Creates a new single-valued RDN with the provided information.",
+          "parameters": "attributeName: String, attributeValue: String",
+          "returnType": "LdapRDN"
+        },
+        {
+          "name": "getAttributeNames",
+          "description": "Retrieves the set of attribute names for this RDN.",
+          "parameters": "",
+          "returnType": "Array/String"
+        },
+        {
+          "name": "getAttributeValues",
+          "description": "Retrieves the set of attribute values for this RDN.",
+          "parameters": "",
+          "returnType": "Array/String"
+        },
+        {
+          "name": "toString",
+          "description": "Retrieves a string representation of this RDN.",
+          "parameters": "",
+          "returnType": "String"
+        },
+        {
+          "name": "toNormalizedString",
+          "description": "Retrieves a normalized string representation of this RDN.",
+          "parameters": "",
+          "returnType": "String"
+        },
+        {
+          "name": "equals",
+          "description": "Indicates whether the provided object is equal to this RDN. The given object will only be considered equal to this RDN if it is also an RDN with the same set of names and values.",
+          "parameters": "rdn: LdapRDN",
+          "returnType": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "LdapResult",
+      "description": "This class provides a data structure for holding the elements that are common to most types of LDAP responses.",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "getResultCode",
+          "description": "Retrieves the result code from the response.",
+          "parameters": "",
+          "returnType": "Object"
+        },
+        {
+          "name": "getMatchedDN",
+          "description": "Retrieves the matched DN from the response, if available.",
+          "parameters": "",
+          "returnType": "string"
+        },
+        {
+          "name": "getReferralURLs",
+          "description": "Retrieves the set of referral URLs from the response, if available.",
+          "parameters": "",
+          "returnType": "Array/string"
+        },
+        {
+          "name": "getDiagnosticMessage",
+          "description": "Retrieves the diagnostic message from the response, if available.",
+          "parameters": "",
+          "returnType": "string"
+        },
+        {
+          "name": "getResultString",
+          "description": "Retrieves a string representation of this LDAP result, consisting of the result code, diagnostic message (if present), matched DN (if present), and referral URLs (if present).",
+          "parameters": "",
+          "returnType": "string"
         }
       ]
     },
     {
       "name": "LdapSearchRequest",
       "description": "This class implements the processing necessary to perform an LDAPv3 search operation, which can be used to retrieve entries that match a given set of criteria.",
+      "attributes": [],
       "methods": [
         {
           "name": "duplicate",
@@ -2134,8 +2160,192 @@
           "parameters": "oid: string",
           "returnType": "Object"
         }
+      ]
+    },
+    {
+      "name": "LdapSearchResult",
+      "description": "This class provides a data structure for holding information about the result of processing a search request.",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "getEntryCount",
+          "description": "Retrieves the number of matching entries returned for the search operation.",
+          "parameters": "",
+          "returnType": "number"
+        },
+        {
+          "name": "getResultCode",
+          "description": "Retrieves the result code from the response.",
+          "parameters": "",
+          "returnType": "Object"
+        },
+        {
+          "name": "getMatchedDN",
+          "description": "Retrieves the matched DN from the response, if available.",
+          "parameters": "",
+          "returnType": "string"
+        },
+        {
+          "name": "getDiagnosticMessage",
+          "description": "Retrieves the diagnostic message from the response, if available.",
+          "parameters": "",
+          "returnType": "string"
+        },
+        {
+          "name": "getSearchEntries",
+          "description": "Retrieves the search result entry with the specified DN from the set of entries returned. This will only be available if a SearchResultListener was not used during the search.",
+          "parameters": "",
+          "returnType": "Array/Object"
+        },
+        {
+          "name": "getReferenceCount",
+          "description": "Retrieves the number of search references returned for the search operation. This may be zero even if search references were received if the connection used when processing the search was configured to automatically follow referrals.",
+          "parameters": "",
+          "returnType": "number"
+        },
+        {
+          "name": "getSearchEntry",
+          "description": "Retrieves the search result entry with the specified DN from the set of entries returned. This will only be available if a SearchResultListener was not used during the search.",
+          "parameters": "dn: string",
+          "returnType": "LdapEntry"
+        },
+        {
+          "name": "getSearchReferences",
+          "description": "Retrieves a list containing the search references returned from the search operation. May be empty even if search references were received if the connection used when processing the search was configured to automatically follow referrals.",
+          "parameters": "",
+          "returnType": "Array/Object"
+        }
+      ]
+    },
+    {
+      "name": "LdapSearchResultReference",
+      "description": "This class provides a data structure for representing an LDAP search result reference. A search result reference consists of a set of referral URLs and may also include zero or more controls. It describes an alternate location in which additional results for the search may be found. If there are multiple referral URLs, then they should all be considered equivalent ways to access the information (e.g., referrals referencing different servers that may be contacted).",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "getReferralURLs",
+          "description": "Retrieves the set of referral URLs for this search result reference.",
+          "parameters": "",
+          "returnType": "Array/string"
+        }
+      ]
+    },
+    {
+      "name": "LdapSearchScope",
+      "description": "Ldap search scope",
+      "attributes": [
+        {
+          "name": "BASE",
+          "type": "LdapSearchScope",
+          "description": "indicates that only the entry specified by the base DN should be considered.",
+          "isReadonly": true
+        },
+        {
+          "name": "ONE",
+          "type": "LdapSearchScope",
+          "description": "indicates that only entries that are immediate subordinates of the entry specified by the base DN (but not the base entry itself) should be considered",
+          "isReadonly": true
+        },
+        {
+          "name": "SUB",
+          "type": "LdapSearchScope",
+          "description": "which indicates that the base entry itself and any subordinate entries (to any depth) should be considered",
+          "isReadonly": true
+        },
+        {
+          "name": "SUBORDINATE_SUBTREE",
+          "type": "LdapSearchScope",
+          "description": "indicates that any subordinate entries (to any depth) below the entry specified by the base DN should be considered, but the base entry itself should not be considered",
+          "isReadonly": true
+        }
       ],
-      "attributes": []
+      "methods": []
+    },
+    {
+      "name": "LdapSimplePagedResultsControl",
+      "description": "This class provides an implementation of the simple paged results control as defined in RFC 2696. It allows the client to iterate through a potentially large set of search results in subsets of a specified number of entries (i.e., \"pages\").\"",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "LdapSimplePagedResultsControl",
+          "description": "Creates a new paged results control with the specified page size and the provided cookie. This version of the constructor should be used to continue iterating through an existing set of results, but potentially using a different page size.",
+          "parameters": "pageSize: number, cookie: byte[, isCritical: boolean",
+          "returnType": "void"
+        },
+        {
+          "name": "get",
+          "description": "(Static) Extracts a simple paged results response control from the provided result.",
+          "parameters": "param0: LdapSearchResult",
+          "returnType": "LdapSimplePagedResultsControl"
+        },
+        {
+          "name": "getSize",
+          "description": "Retrieves the size for this paged results control. For a request control, it may be used to specify the number of entries that should be included in the next page of results. For a response control, it may be used to specify the estimated number of entries in the complete result set.",
+          "parameters": "",
+          "returnType": "number"
+        },
+        {
+          "name": "moreResultsToReturn",
+          "description": "Indicates whether there are more results to return as part of this search",
+          "parameters": "",
+          "returnType": "boolean"
+        },
+        {
+          "name": "getCookieBytes",
+          "description": "Retrieves the cookie for this control, which may be used in a subsequent request to resume reading entries from the next page of results. The value should have a length of zero when used to retrieve the first page of results for a given search, and also in the response from the server when there are no more entries to send. It should be non-empty for all other conditions.",
+          "parameters": "",
+          "returnType": "Array/Object"
+        },
+        {
+          "name": "getCookie",
+          "description": "Retrieves the cookie for this control, which may be used in a subsequent request to resume reading entries from the next page of results. The value should have a length of zero when used to retrieve the first page of results for a given search, and also in the response from the server when there are no more entries to send. It should be non-empty for all other conditions.",
+          "parameters": "",
+          "returnType": "Object"
+        },
+        {
+          "name": "getOID",
+          "description": "@ScriptingFunction(\"Retrieves the user-friendly name for this control, if available. If no user-friendly name has been defined, then the OID will be returned.\")",
+          "parameters": "",
+          "returnType": "string"
+        },
+        {
+          "name": "isCritical",
+          "description": "Indicates whether this control should be considered critical.",
+          "parameters": "",
+          "returnType": "boolean"
+        },
+        {
+          "name": "getControlName",
+          "description": "Retrieves the user-friendly name for this control, if available. If no user-friendly name has been defined, then the OID will be returned.",
+          "parameters": "",
+          "returnType": "string"
+        }
+      ]
+    },
+    {
+      "name": "LdapSubtreeDeleteRequestControl",
+      "description": "TThis class provides an implementation of the subtree delete request control as defined in draft-armijo-ldap-treedelete. This can be used to delete an entry and all subordinate entries in a single operation.\"",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "getOID",
+          "description": "@ScriptingFunction(\"Retrieves the user-friendly name for this control, if available. If no user-friendly name has been defined, then the OID will be returned.\")",
+          "parameters": "",
+          "returnType": "string"
+        },
+        {
+          "name": "isCritical",
+          "description": "Indicates whether this control should be considered critical.",
+          "parameters": "",
+          "returnType": "boolean"
+        },
+        {
+          "name": "getControlName",
+          "description": "Retrieves the user-friendly name for this control, if available. If no user-friendly name has been defined, then the OID will be returned.",
+          "parameters": "",
+          "returnType": "string"
+        }
+      ]
     }
   ]
 }

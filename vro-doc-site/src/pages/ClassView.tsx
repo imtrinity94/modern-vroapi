@@ -3,7 +3,7 @@ import { useEffect, useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import pluginIndex from '../data/index.json';
 import { getPluginMeta } from '../data/plugin-meta';
-import { ChevronRight, Box, FunctionSquare, Info, ShieldAlert, Edit3, List, LayoutGrid, Copy, Check } from 'lucide-react';
+import { ChevronRight, Box, FunctionSquare, Info, Edit3, List, LayoutGrid, Copy, Check } from 'lucide-react';
 
 interface ApiClass {
     name: string;
@@ -100,9 +100,9 @@ const ClassView: React.FC = () => {
             <header className="space-y-6">
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                     <div className="flex items-start gap-5">
-                        <div className={`${pluginMeta.image ? 'p-0' : 'p-4'} rounded-2xl bg-${color}-50 dark:bg-${color}-500/10 text-${color}-600 dark:text-${color}-400 border border-${color}-100 dark:border-${color}-500/20 shadow-sm transition-transform hover:scale-105 w-16 h-16 flex items-center justify-center overflow-hidden`}>
+                        <div className={`p-4 rounded-2xl bg-${color}-50 dark:bg-${color}-500/10 text-${color}-600 dark:text-${color}-400 border border-${color}-100 dark:border-${color}-500/20 shadow-sm transition-transform hover:scale-105 w-16 h-16 flex items-center justify-center overflow-hidden`}>
                             {pluginMeta.image ? (
-                                <img src={pluginMeta.image} alt={pluginName} className="w-full h-full object-cover" />
+                                <img src={pluginMeta.image} alt={pluginName} className="w-full h-full object-contain" />
                             ) : (
                                 PluginIcon && <PluginIcon size={36} />
                             )}
@@ -137,7 +137,7 @@ const ClassView: React.FC = () => {
                                     <th className="p-4 border-b border-slate-200 dark:border-slate-800">Identifier</th>
                                     <th className="p-4 border-b border-slate-200 dark:border-slate-800">Type Interface</th>
                                     <th className="p-4 border-b border-slate-200 dark:border-slate-800">Description</th>
-                                    <th className="p-4 border-b border-slate-200 dark:border-slate-800 w-32 text-center">Flags</th>
+                                    <th className="p-4 border-b border-slate-200 dark:border-slate-800 w-32 text-center">Read Only</th>
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
@@ -146,11 +146,11 @@ const ClassView: React.FC = () => {
                                         <td className="p-4 font-mono font-bold text-indigo-600 dark:text-indigo-300 text-lg">{attr.name}</td>
                                         <td className="p-4 font-mono text-emerald-600 dark:text-emerald-400 text-lg whitespace-nowrap">{attr.type}</td>
                                         <td className="p-4 text-slate-600 dark:text-slate-400 text-base leading-relaxed">{attr.description}</td>
-                                        <td className="p-4 text-center">
-                                            {attr.isReadonly && (
-                                                <span className="inline-flex items-center gap-1 text-[10px] font-black uppercase px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-500 border border-slate-200 dark:border-slate-700">
-                                                    <ShieldAlert size={10} /> RO
-                                                </span>
+                                        <td className="p-4 text-center align-middle">
+                                            {attr.isReadonly ? (
+                                                <span className="text-xs font-bold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-500/10 px-2 py-1 rounded">Yes</span>
+                                            ) : (
+                                                <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 px-2 py-1 rounded">No</span>
                                             )}
                                         </td>
                                     </tr>

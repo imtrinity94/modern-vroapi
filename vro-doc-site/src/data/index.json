@@ -8,8 +8,20 @@
     "name": "AMQP"
   },
   {
-    "id": "o11n-plugin-aria",
-    "name": "Aria Automation"
+    "id": "o11n-plugin-autodeploy",
+    "name": "AutoDeploy"
+  },
+  {
+    "id": "o11n-plugin-avi",
+    "name": "Avi"
+  },
+  {
+    "id": "o11n-plugin-aws",
+    "name": "AWS EC2"
+  },
+  {
+    "id": "o11n-plugin-configurator",
+    "name": "Configurator"
   },
   {
     "id": "o11n-plugin-crypto",
@@ -25,7 +37,11 @@
   },
   {
     "id": "o11n-plugin-jsonpath",
-    "name": "JSONPATH"
+    "name": "JsonPath"
+  },
+  {
+    "id": "o11n-plugin-lenovo",
+    "name": "Lenovo"
   },
   {
     "id": "o11n-plugin-mail",
@@ -48,6 +64,10 @@
     "name": "PowerShell"
   },
   {
+    "id": "o11n-plugin-redis",
+    "name": "Redis"
+  },
+  {
     "id": "o11n-plugin-rest",
     "name": "REST API"
   },
@@ -68,6 +88,10 @@
     "name": "SSH"
   },
   {
+    "id": "o11n-plugin-support",
+    "name": "Support"
+  },
+  {
     "id": "o11n-plugin-vapi",
     "name": "vAPI"
   },
@@ -82,6 +106,18 @@
   {
     "id": "o11n-plugin-vcloud",
     "name": "vCloud Director"
+  },
+  {
+    "id": "o11n-plugin-vra",
+    "name": "vRealize Automation"
+  },
+  {
+    "id": "o11n-plugin-vsan",
+    "name": "vSAN"
+  },
+  {
+    "id": "o11n-plugin-vr",
+    "name": "vSphere Replication"
   },
   {
     "id": "o11n-plugin-xml",

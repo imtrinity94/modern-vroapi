@@ -1,643 +1,650 @@
 {
   "name": "Net",
+  "description": "API Reference for Net",
   "classes": [
-    {
-      "name": "TelnetClient",
-      "description": "Telnet client Wrapper",
-      "methods": [
-        {
-          "name": "enableSSL",
-          "parameters": "on: boolean",
-          "returnType": "void",
-          "description": "Enable SSL"
-        },
-        {
-          "name": "connect",
-          "parameters": "host: string, port: number",
-          "returnType": "void",
-          "description": "Connect the client to an host"
-        },
-        {
-          "name": "disconnect",
-          "parameters": "",
-          "returnType": "void",
-          "description": "Disconnect the client"
-        },
-        {
-          "name": "sendBinary",
-          "parameters": "val: any[]",
-          "returnType": "void",
-          "description": "Get an OID value in the current session"
-        },
-        {
-          "name": "sendString",
-          "parameters": "oid: string",
-          "returnType": "void",
-          "description": "Get an OID value in the current session"
-        },
-        {
-          "name": "waitForData",
-          "parameters": "timeout: number",
-          "returnType": "void",
-          "description": "return true if data are available or false if timeout"
-        },
-        {
-          "name": "receiveAsString",
-          "parameters": "",
-          "returnType": "void",
-          "description": "Get a response as string"
-        },
-        {
-          "name": "receiveAsBinary",
-          "parameters": "",
-          "returnType": "void",
-          "description": "Get a response as an arrayof number"
-        },
-        {
-          "name": "isAvailable",
-          "parameters": "",
-          "returnType": "boolean",
-          "description": "Make various checks on the socket to test if it is available for use"
-        },
-        {
-          "name": "isConnected",
-          "parameters": "",
-          "returnType": "boolean",
-          "description": "Returns true if the client is currently connected to a server"
-        }
-      ],
-      "attributes": [
-        {
-          "name": "connectTimeout",
-          "type": "number",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "timeout",
-          "type": "number",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "tcpNoDelay",
-          "type": "boolean",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "soLinger",
-          "type": "number",
-          "description": "",
-          "isReadonly": false
-        }
-      ]
-    },
     {
       "name": "FTPClient",
       "description": "Jakarta Commons Net FTP client wrapper",
-      "methods": [
-        {
-          "name": "enableSSL",
-          "parameters": "on: boolean",
-          "returnType": "void",
-          "description": "Enable SSL"
-        },
-        {
-          "name": "connect",
-          "parameters": "host: string, port: number",
-          "returnType": "void",
-          "description": "Connect the client to an host"
-        },
-        {
-          "name": "login",
-          "parameters": "username: string, password: string, account: string",
-          "returnType": "void",
-          "description": "Login on the ftp server"
-        },
-        {
-          "name": "executeCommand",
-          "parameters": "cmd: string, args: string",
-          "returnType": "void",
-          "description": "Execute command"
-        },
-        {
-          "name": "getFile",
-          "parameters": "remoteFile: string, localFile: string",
-          "returnType": "number",
-          "description": "Copy a file FROM a remote host TO the VS-O Server."
-        },
-        {
-          "name": "getString",
-          "parameters": "remoteFile: string",
-          "returnType": "string",
-          "description": "Get the content of a remote file."
-        },
-        {
-          "name": "putFile",
-          "parameters": "localFile: string, remoteFile: string",
-          "returnType": "number",
-          "description": "Copy a file TO a remote host FROM the VS-O Server."
-        },
-        {
-          "name": "putString",
-          "parameters": "content: string, remoteFile: string",
-          "returnType": "number",
-          "description": "Put a string content to a remote file."
-        },
-        {
-          "name": "listAll",
-          "parameters": "basePath: string",
-          "returnType": "string[]",
-          "description": "List files and directories in path."
-        },
-        {
-          "name": "listFile",
-          "parameters": "basePath: string",
-          "returnType": "string[]",
-          "description": "List files ONLY in path."
-        },
-        {
-          "name": "listDir",
-          "parameters": "basePath: string",
-          "returnType": "string[]",
-          "description": "List directories ONLY in path."
-        },
-        {
-          "name": "disconnect",
-          "parameters": "",
-          "returnType": "void",
-          "description": "Logout and disconnects the current session if open."
-        },
-        {
-          "name": "getStatus",
-          "parameters": "",
-          "returnType": "string",
-          "description": "The status information returned by the server."
-        },
-        {
-          "name": "isAvailable",
-          "parameters": "",
-          "returnType": "boolean",
-          "description": "Make various checks on the socket to test if it is available for use"
-        },
-        {
-          "name": "isConnected",
-          "parameters": "",
-          "returnType": "boolean",
-          "description": "Returns true if the client is currently connected to a server"
-        }
-      ],
       "attributes": [
         {
           "name": "output",
-          "type": "void",
-          "description": "",
-          "isReadonly": false
+          "type": "string",
+          "description": "Command output if any",
+          "isReadonly": true
         },
         {
           "name": "replyCode",
-          "type": "void",
-          "description": "",
-          "isReadonly": false
+          "type": "number",
+          "description": "Last reply code",
+          "isReadonly": true
         },
         {
           "name": "state",
-          "type": "void",
-          "description": "",
-          "isReadonly": false
+          "type": "string",
+          "description": "Execution state",
+          "isReadonly": true
         },
         {
           "name": "cwd",
-          "type": "void",
-          "description": "",
+          "type": "string",
+          "description": "Current working directory",
           "isReadonly": false
         },
         {
           "name": "connectTimeout",
           "type": "number",
-          "description": "",
+          "description": "Socket connect timeout",
           "isReadonly": false
         },
         {
           "name": "timeout",
           "type": "number",
-          "description": "",
+          "description": "Socket timeout",
           "isReadonly": false
         },
         {
           "name": "tcpNoDelay",
           "type": "boolean",
-          "description": "",
+          "description": "Socket TCP NO DELAY",
           "isReadonly": false
         },
         {
           "name": "soLinger",
           "type": "number",
-          "description": "",
+          "description": "Socket SO Linger , null if disabled",
           "isReadonly": false
         }
-      ]
-    },
-    {
-      "name": "POP3Client",
-      "description": "Jakarta Commons Net POP3 client wrapper",
+      ],
       "methods": [
         {
+          "name": "FTPClient",
+          "description": "",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
           "name": "enableSSL",
+          "description": "Enable SSL",
           "parameters": "on: boolean",
-          "returnType": "void",
-          "description": "Enable SSL"
+          "returnType": "Object"
         },
         {
           "name": "connect",
-          "parameters": "host: string, port: number",
-          "returnType": "void",
-          "description": "Connect the client to an host"
+          "description": "Connect the client to an host",
+          "parameters": "host: String, port: number",
+          "returnType": "Object"
         },
         {
           "name": "login",
-          "parameters": "username: string, password: string",
-          "returnType": "void",
-          "description": "Login to the POP3 server with the given username and password.\r\nYou must first connect to the server with 'connect()' before attempting to login."
+          "description": "Login on the ftp server",
+          "parameters": "username: String, password: String, account: String",
+          "returnType": "boolean"
         },
         {
-          "name": "loginWithSecret",
-          "parameters": "username: string, timestamp: string, secret: string",
-          "returnType": "void",
-          "description": "Login to the POP3 server with the given username and authentication information.\r\nUse this method when connecting to a server requiring authentication using the APOP command.\r\nBecause the timestamp produced in the greeting banner varies from server to server, it is not possible to consistently extract the information.\r\nTherefore, after connecting to the server, you must get the 'output' sttribute and parse out the timestamp information yourself."
+          "name": "executeCommand",
+          "description": "Execute command",
+          "parameters": "cmd: String, args: String",
+          "returnType": "number"
         },
         {
-          "name": "listMessages",
-          "parameters": "",
-          "returnType": "void",
-          "description": "List all messages. If there are no messages, this method returns a zero length array. If the list attempt fails, it returns null."
+          "name": "getFile",
+          "description": "Copy a file FROM a remote host TO the Automation Orchestrator Server.",
+          "parameters": "remoteFile: String, localFile: String",
+          "returnType": "Number"
         },
         {
-          "name": "logout",
-          "parameters": "",
-          "returnType": "void",
-          "description": "Logout of the POP3 server.  To fully disconnect from the server you must call 'disconnect()'"
+          "name": "getString",
+          "description": "Get the content of a remote file.",
+          "parameters": "remoteFile: String",
+          "returnType": "String"
+        },
+        {
+          "name": "putFile",
+          "description": "Copy a file TO a remote host FROM the Automation Orchestrator Server.",
+          "parameters": "localFile: String, remoteFile: String",
+          "returnType": "Number"
+        },
+        {
+          "name": "putString",
+          "description": "Put a string content to a remote file.",
+          "parameters": "content: String, remoteFile: String",
+          "returnType": "Number"
+        },
+        {
+          "name": "listAll",
+          "description": "List files and directories in path.",
+          "parameters": "basePath: String",
+          "returnType": "Array/String"
+        },
+        {
+          "name": "listFile",
+          "description": "List files ONLY in path.",
+          "parameters": "basePath: String",
+          "returnType": "Array/String"
+        },
+        {
+          "name": "listDir",
+          "description": "List directories ONLY in path.",
+          "parameters": "basePath: String",
+          "returnType": "Array/String"
         },
         {
           "name": "disconnect",
+          "description": "Logout and disconnects the current session if open.",
           "parameters": "",
-          "returnType": "void",
-          "description": "Disconnects the client from the server."
+          "returnType": "Object"
         },
         {
-          "name": "noop",
+          "name": "getStatus",
+          "description": "The status information returned by the server.",
           "parameters": "",
-          "returnType": "void",
-          "description": "Send a NOOP command to the POP3 server.  This is useful for keeping connection alive."
-        },
-        {
-          "name": "reset",
-          "parameters": "",
-          "returnType": "void",
-          "description": "Reset the POP3 session.  This is useful for undoing any message deletions that may have been performed."
+          "returnType": "String"
         },
         {
           "name": "isAvailable",
+          "description": "Make various checks on the socket to test if it is available for use",
           "parameters": "",
-          "returnType": "boolean",
-          "description": "Make various checks on the socket to test if it is available for use"
+          "returnType": "boolean"
         },
         {
           "name": "isConnected",
+          "description": "Returns true if the client is currently connected to a server",
           "parameters": "",
-          "returnType": "boolean",
-          "description": "Returns true if the client is currently connected to a server"
-        }
-      ],
-      "attributes": [
-        {
-          "name": "output",
-          "type": "void",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "state",
-          "type": "void",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "connectTimeout",
-          "type": "number",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "timeout",
-          "type": "number",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "tcpNoDelay",
-          "type": "boolean",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "soLinger",
-          "type": "number",
-          "description": "",
-          "isReadonly": false
+          "returnType": "boolean"
         }
       ]
     },
     {
       "name": "IMAPClient",
       "description": "Jakarta Commons Net IMAP client wrapper",
-      "methods": [
-        {
-          "name": "enableSSL",
-          "parameters": "on: boolean",
-          "returnType": "void",
-          "description": "Enable SSL"
-        },
-        {
-          "name": "connect",
-          "parameters": "host: string, port: number",
-          "returnType": "void",
-          "description": "Connect the client to an host"
-        },
-        {
-          "name": "login",
-          "parameters": "username: string, password: string",
-          "returnType": "boolean",
-          "description": "Login to the IMAP server with the given username and password.\r\nYou must first connect to the server with 'connect()' before attempting to login."
-        },
-        {
-          "name": "logout",
-          "parameters": "",
-          "returnType": "boolean",
-          "description": "Logout of the IMAP server.  To fully disconnect from the server you must call 'disconnect()'"
-        },
-        {
-          "name": "close",
-          "parameters": "",
-          "returnType": "boolean",
-          "description": "Send a CLOSE command to the server."
-        },
-        {
-          "name": "disconnect",
-          "parameters": "",
-          "returnType": "void",
-          "description": "Disconnects the client from the server."
-        },
-        {
-          "name": "noop",
-          "parameters": "",
-          "returnType": "void",
-          "description": "Send a NOOP command to the IMAP server. This is useful for keeping connection alive."
-        },
-        {
-          "name": "isAvailable",
-          "parameters": "",
-          "returnType": "boolean",
-          "description": "Make various checks on the socket to test if it is available for use."
-        },
-        {
-          "name": "isConnected",
-          "parameters": "",
-          "returnType": "boolean",
-          "description": "Returns true if the client is currently connected to a server."
-        },
-        {
-          "name": "append",
-          "parameters": "mailboxName: string",
-          "returnType": "boolean",
-          "description": "Send an APPEND command to the server."
-        },
-        {
-          "name": "appendWithOptions",
-          "parameters": "mailboxName: string, flags: string, datetime: string",
-          "returnType": "boolean",
-          "description": "Send an APPEND command to the server."
-        },
-        {
-          "name": "capability",
-          "parameters": "",
-          "returnType": "boolean",
-          "description": "Send a CAPABILITY command to the server."
-        },
-        {
-          "name": "check",
-          "parameters": "",
-          "returnType": "boolean",
-          "description": "Send a CHECK command to the server"
-        },
-        {
-          "name": "copy",
-          "parameters": "sequenceSet: string, mailboxName: string",
-          "returnType": "boolean",
-          "description": "Send a COPY command to the server."
-        },
-        {
-          "name": "create",
-          "parameters": "mailboxName: string",
-          "returnType": "boolean",
-          "description": "Send a CREATE command to the server."
-        },
-        {
-          "name": "delete",
-          "parameters": "mailboxName: string",
-          "returnType": "boolean",
-          "description": "Send a DELETE command to the server."
-        },
-        {
-          "name": "examine",
-          "parameters": "mailboxName: string",
-          "returnType": "boolean",
-          "description": "Send a EXAMINE command to the server."
-        },
-        {
-          "name": "expunge",
-          "parameters": "",
-          "returnType": "boolean",
-          "description": "Send a EXPUNGE command to the server."
-        },
-        {
-          "name": "fetch",
-          "parameters": "sequenceSet: string, itemNames: string",
-          "returnType": "boolean",
-          "description": "Send a FETCH command to the server."
-        },
-        {
-          "name": "list",
-          "parameters": "refName: string, mailboxName: string",
-          "returnType": "boolean",
-          "description": "Send a LIST command to the server."
-        },
-        {
-          "name": "lsub",
-          "parameters": "refName: string, mailboxName: string",
-          "returnType": "boolean",
-          "description": "Send a LSUB command to the server."
-        },
-        {
-          "name": "rename",
-          "parameters": "oldMailboxName: string, newMailboxName: string",
-          "returnType": "boolean",
-          "description": "Send a RENAME command to the server."
-        },
-        {
-          "name": "search",
-          "parameters": "criteria: string",
-          "returnType": "boolean",
-          "description": "Send a SEARCH command to the server."
-        },
-        {
-          "name": "searchCharset",
-          "parameters": "charset: string, criteria: string",
-          "returnType": "boolean",
-          "description": "Send a SEARCH command to the server."
-        },
-        {
-          "name": "status",
-          "parameters": "mailboxName: string, itemNames: string[]",
-          "returnType": "boolean",
-          "description": "Send a STATUS command to the server."
-        },
-        {
-          "name": "select",
-          "parameters": "mailboxName: string",
-          "returnType": "boolean",
-          "description": "Send a SELECT command to the server."
-        },
-        {
-          "name": "store",
-          "parameters": "sequenceSet: string, itemNames: string, itemValues: string",
-          "returnType": "boolean",
-          "description": "Send a STORE command to the server."
-        },
-        {
-          "name": "subscribe",
-          "parameters": "mailboxName: string",
-          "returnType": "boolean",
-          "description": "Send a SUBSCRIBE command to the server."
-        },
-        {
-          "name": "unsubscribe",
-          "parameters": "mailboxName: string",
-          "returnType": "boolean",
-          "description": "Send a UNSUBSCRIBE command to the server."
-        },
-        {
-          "name": "uid",
-          "parameters": "command: string",
-          "returnType": "boolean",
-          "description": "Send a UID command to the server."
-        },
-        {
-          "name": "getReply",
-          "parameters": "",
-          "returnType": "string",
-          "description": "Returns the reply to the last command sent to the server. The value is a single string containing all the reply lines including newlines."
-        },
-        {
-          "name": "getReplyLines",
-          "parameters": "",
-          "returnType": "string[]",
-          "description": "Returns an array of lines received as a reply to the last command sent to the server. The lines have end of lines truncated."
-        }
-      ],
       "attributes": [
-        {
-          "name": "output",
-          "type": "void",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "state",
-          "type": "void",
-          "description": "",
-          "isReadonly": false
-        },
         {
           "name": "connectTimeout",
           "type": "number",
-          "description": "",
+          "description": "Socket connect timeout",
           "isReadonly": false
         },
         {
           "name": "timeout",
           "type": "number",
-          "description": "",
+          "description": "Socket timeout",
           "isReadonly": false
         },
         {
           "name": "tcpNoDelay",
           "type": "boolean",
-          "description": "",
+          "description": "Socket TCP NO DELAY",
           "isReadonly": false
         },
         {
           "name": "soLinger",
           "type": "number",
-          "description": "",
+          "description": "Socket SO Linger , null if disabled",
           "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "IMAPClient",
+          "description": "",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "enableSSL",
+          "description": "Enable SSL",
+          "parameters": "on: boolean",
+          "returnType": "Object"
+        },
+        {
+          "name": "connect",
+          "description": "Connect the client to an host",
+          "parameters": "host: String, port: number",
+          "returnType": "Object"
+        },
+        {
+          "name": "login",
+          "description": "Login to the IMAP server with the given username and password. You must first connect to the server with 'connect()' before attempting to login.",
+          "parameters": "username: String, password: String",
+          "returnType": "boolean"
+        },
+        {
+          "name": "logout",
+          "description": "Logout of the IMAP server. To fully disconnect from the server you must call 'disconnect()'",
+          "parameters": "",
+          "returnType": "boolean"
+        },
+        {
+          "name": "close",
+          "description": "Send a CLOSE command to the server.",
+          "parameters": "",
+          "returnType": "boolean"
+        },
+        {
+          "name": "disconnect",
+          "description": "Disconnects the client from the server.",
+          "parameters": "",
+          "returnType": "Object"
+        },
+        {
+          "name": "noop",
+          "description": "Send a NOOP command to the IMAP server. This is useful for keeping connection alive.",
+          "parameters": "",
+          "returnType": "boolean"
+        },
+        {
+          "name": "isAvailable",
+          "description": "Make various checks on the socket to test if it is available for use.",
+          "parameters": "",
+          "returnType": "boolean"
+        },
+        {
+          "name": "isConnected",
+          "description": "Returns true if the client is currently connected to a server.",
+          "parameters": "",
+          "returnType": "boolean"
+        },
+        {
+          "name": "append",
+          "description": "Send an APPEND command to the server.",
+          "parameters": "mailboxName: String",
+          "returnType": "boolean"
+        },
+        {
+          "name": "appendWithOptions",
+          "description": "Send an APPEND command to the server.",
+          "parameters": "mailboxName: String, flags: String, datetime: String",
+          "returnType": "boolean"
+        },
+        {
+          "name": "capability",
+          "description": "Send a CAPABILITY command to the server.",
+          "parameters": "",
+          "returnType": "boolean"
+        },
+        {
+          "name": "check",
+          "description": "Send a CHECK command to the server",
+          "parameters": "",
+          "returnType": "boolean"
+        },
+        {
+          "name": "copy",
+          "description": "Send a COPY command to the server.",
+          "parameters": "sequenceSet: String, mailboxName: String",
+          "returnType": "boolean"
+        },
+        {
+          "name": "create",
+          "description": "Send a CREATE command to the server.",
+          "parameters": "mailboxName: String",
+          "returnType": "boolean"
+        },
+        {
+          "name": "delete",
+          "description": "Send a DELETE command to the server.",
+          "parameters": "mailboxName: String",
+          "returnType": "boolean"
+        },
+        {
+          "name": "examine",
+          "description": "Send a EXAMINE command to the server.",
+          "parameters": "mailboxName: String",
+          "returnType": "boolean"
+        },
+        {
+          "name": "expunge",
+          "description": "Send a EXPUNGE command to the server.",
+          "parameters": "",
+          "returnType": "boolean"
+        },
+        {
+          "name": "fetch",
+          "description": "Send a FETCH command to the server.",
+          "parameters": "sequenceSet: String, itemNames: String",
+          "returnType": "boolean"
+        },
+        {
+          "name": "list",
+          "description": "Send a LIST command to the server.",
+          "parameters": "refName: String, mailboxName: String",
+          "returnType": "boolean"
+        },
+        {
+          "name": "lsub",
+          "description": "Send a LSUB command to the server.",
+          "parameters": "refName: String, mailboxName: String",
+          "returnType": "boolean"
+        },
+        {
+          "name": "rename",
+          "description": "Send a RENAME command to the server.",
+          "parameters": "oldMailboxName: String, newMailboxName: String",
+          "returnType": "boolean"
+        },
+        {
+          "name": "search",
+          "description": "Send a SEARCH command to the server.",
+          "parameters": "criteria: String",
+          "returnType": "boolean"
+        },
+        {
+          "name": "searchCharset",
+          "description": "Send a SEARCH command to the server.",
+          "parameters": "charset: String, criteria: String",
+          "returnType": "boolean"
+        },
+        {
+          "name": "status",
+          "description": "Send a STATUS command to the server.",
+          "parameters": "mailboxName: String, itemNames: Array/String",
+          "returnType": "boolean"
+        },
+        {
+          "name": "select",
+          "description": "Send a SELECT command to the server.",
+          "parameters": "mailboxName: String",
+          "returnType": "boolean"
+        },
+        {
+          "name": "store",
+          "description": "Send a STORE command to the server.",
+          "parameters": "sequenceSet: String, itemNames: String, itemValues: String",
+          "returnType": "boolean"
+        },
+        {
+          "name": "subscribe",
+          "description": "Send a SUBSCRIBE command to the server.",
+          "parameters": "mailboxName: String",
+          "returnType": "boolean"
+        },
+        {
+          "name": "unsubscribe",
+          "description": "Send a UNSUBSCRIBE command to the server.",
+          "parameters": "mailboxName: String",
+          "returnType": "boolean"
+        },
+        {
+          "name": "uid",
+          "description": "Send a UID command to the server.",
+          "parameters": "command: String, command: String",
+          "returnType": "boolean"
+        },
+        {
+          "name": "getReply",
+          "description": "Returns the reply to the last command sent to the server. The value is a single string containing all the reply lines including newlines.",
+          "parameters": "",
+          "returnType": "String"
+        },
+        {
+          "name": "getReplyLines",
+          "description": "Returns an array of lines received as a reply to the last command sent to the server. The lines have end of lines truncated.",
+          "parameters": "",
+          "returnType": "Array/String"
+        }
+      ]
+    },
+    {
+      "name": "POP3Client",
+      "description": "Jakarta Commons Net POP3 client wrapper",
+      "attributes": [
+        {
+          "name": "output",
+          "type": "string",
+          "description": "Command output if any",
+          "isReadonly": true
+        },
+        {
+          "name": "state",
+          "type": "number",
+          "description": "Connection state",
+          "isReadonly": true
+        },
+        {
+          "name": "connectTimeout",
+          "type": "number",
+          "description": "Socket connect timeout",
+          "isReadonly": false
+        },
+        {
+          "name": "timeout",
+          "type": "number",
+          "description": "Socket timeout",
+          "isReadonly": false
+        },
+        {
+          "name": "tcpNoDelay",
+          "type": "boolean",
+          "description": "Socket TCP NO DELAY",
+          "isReadonly": false
+        },
+        {
+          "name": "soLinger",
+          "type": "number",
+          "description": "Socket SO Linger , null if disabled",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "POP3Client",
+          "description": "",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "enableSSL",
+          "description": "Enable SSL",
+          "parameters": "on: boolean",
+          "returnType": "Object"
+        },
+        {
+          "name": "connect",
+          "description": "Connect the client to an host",
+          "parameters": "host: String, port: number",
+          "returnType": "Object"
+        },
+        {
+          "name": "login",
+          "description": "Login to the POP3 server with the given username and password. You must first connect to the server with 'connect()' before attempting to login.",
+          "parameters": "username: String, password: String",
+          "returnType": "boolean"
+        },
+        {
+          "name": "loginWithSecret",
+          "description": "Login to the POP3 server with the given username and authentication information. Use this method when connecting to a server requiring authentication using the APOP command. Because the timestamp produced in the greeting banner varies from server to server, it is not possible to consistently extract the information. Therefore, after connecting to the server, you must get the 'output' sttribute and parse out the timestamp information yourself.",
+          "parameters": "username: String, timestamp: String, secret: String",
+          "returnType": "boolean"
+        },
+        {
+          "name": "listMessages",
+          "description": "List all messages. If there are no messages, this method returns a zero length array. If the list attempt fails, it returns null.",
+          "parameters": "",
+          "returnType": "Array/POP3Message"
+        },
+        {
+          "name": "logout",
+          "description": "Logout of the POP3 server. To fully disconnect from the server you must call 'disconnect()'",
+          "parameters": "",
+          "returnType": "Object"
+        },
+        {
+          "name": "disconnect",
+          "description": "Disconnects the client from the server.",
+          "parameters": "",
+          "returnType": "Object"
+        },
+        {
+          "name": "noop",
+          "description": "Send a NOOP command to the POP3 server. This is useful for keeping connection alive.",
+          "parameters": "",
+          "returnType": "Object"
+        },
+        {
+          "name": "reset",
+          "description": "Reset the POP3 session. This is useful for undoing any message deletions that may have been performed.",
+          "parameters": "",
+          "returnType": "Object"
+        },
+        {
+          "name": "isAvailable",
+          "description": "Make various checks on the socket to test if it is available for use",
+          "parameters": "",
+          "returnType": "boolean"
+        },
+        {
+          "name": "isConnected",
+          "description": "Returns true if the client is currently connected to a server",
+          "parameters": "",
+          "returnType": "boolean"
         }
       ]
     },
     {
       "name": "POP3Message",
       "description": "POP3 Message",
-      "methods": [
-        {
-          "name": "getHeader",
-          "parameters": "key: string",
-          "returnType": "void",
-          "description": "Get the header value i.e. (\"Subject\",\"Date\",\"From\",...)"
-        },
-        {
-          "name": "deleteFromServer",
-          "parameters": "",
-          "returnType": "void",
-          "description": "Delete a message from the POP3 server.  The message is only marked for deletion by the server.\r\nIf you decide to unmark the message, you must issues a 'reset()' command on POP3Client.\r\nMessages marked for deletion are only deleted by the server on POP3Client 'logout()'."
-        }
-      ],
       "attributes": [
         {
           "name": "id",
-          "type": "void",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "size",
-          "type": "void",
-          "description": "",
-          "isReadonly": false
+          "type": "number",
+          "description": "return message id in current session",
+          "isReadonly": true
         },
         {
           "name": "from",
-          "type": "void",
-          "description": "",
-          "isReadonly": false
+          "type": "string",
+          "description": "return message \"from\"",
+          "isReadonly": true
         },
         {
           "name": "to",
-          "type": "void",
-          "description": "",
-          "isReadonly": false
+          "type": "string",
+          "description": "return message \"to\"",
+          "isReadonly": true
         },
         {
           "name": "subject",
-          "type": "void",
-          "description": "",
-          "isReadonly": false
+          "type": "string",
+          "description": "return message subject",
+          "isReadonly": true
         },
         {
           "name": "body",
-          "type": "void",
-          "description": "",
+          "type": "string",
+          "description": "return message body",
+          "isReadonly": true
+        }
+      ],
+      "methods": [
+        {
+          "name": "getHeader",
+          "description": "Get the header value i.e. (\"Subject\",\"Date\",\"From\",...)",
+          "parameters": "key: String",
+          "returnType": "string"
+        },
+        {
+          "name": "deleteFromServer",
+          "description": "Delete a message from the POP3 server. The message is only marked for deletion by the server. If you decide to unmark the message, you must issues a 'reset()' command on POP3Client. Messages marked for deletion are only deleted by the server on POP3Client 'logout()'.",
+          "parameters": "",
+          "returnType": "Object"
+        }
+      ]
+    },
+    {
+      "name": "TelnetClient",
+      "description": "Telnet client Wrapper",
+      "attributes": [
+        {
+          "name": "connectTimeout",
+          "type": "number",
+          "description": "Socket connect timeout",
           "isReadonly": false
+        },
+        {
+          "name": "timeout",
+          "type": "number",
+          "description": "Socket timeout",
+          "isReadonly": false
+        },
+        {
+          "name": "tcpNoDelay",
+          "type": "boolean",
+          "description": "Socket TCP NO DELAY",
+          "isReadonly": false
+        },
+        {
+          "name": "soLinger",
+          "type": "number",
+          "description": "Socket SO Linger , null if disabled",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "TelnetClient",
+          "description": "",
+          "parameters": "terminal: String",
+          "returnType": "void"
+        },
+        {
+          "name": "enableSSL",
+          "description": "Enable SSL",
+          "parameters": "on: boolean",
+          "returnType": "Object"
+        },
+        {
+          "name": "connect",
+          "description": "Connect the client to an host",
+          "parameters": "host: String, port: number",
+          "returnType": "Object"
+        },
+        {
+          "name": "disconnect",
+          "description": "Disconnect the client",
+          "parameters": "",
+          "returnType": "Object"
+        },
+        {
+          "name": "sendBinary",
+          "description": "Get an OID value in the current session",
+          "parameters": "val: Array/Object",
+          "returnType": "Object"
+        },
+        {
+          "name": "sendString",
+          "description": "Get an OID value in the current session",
+          "parameters": "oid: String",
+          "returnType": "Object"
+        },
+        {
+          "name": "waitForData",
+          "description": "return true if data are available or false if timeout",
+          "parameters": "timeout: Number",
+          "returnType": "boolean"
+        },
+        {
+          "name": "receiveAsString",
+          "description": "Get a response as string",
+          "parameters": "",
+          "returnType": "string"
+        },
+        {
+          "name": "receiveAsBinary",
+          "description": "Get a response as an arrayof number",
+          "parameters": "",
+          "returnType": "Array/Object"
+        },
+        {
+          "name": "isAvailable",
+          "description": "Make various checks on the socket to test if it is available for use",
+          "parameters": "",
+          "returnType": "boolean"
+        },
+        {
+          "name": "isConnected",
+          "description": "Returns true if the client is currently connected to a server",
+          "parameters": "",
+          "returnType": "boolean"
         }
       ]
     }

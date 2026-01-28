@@ -1,0 +1,43 @@
+{
+  "name": "Support",
+  "description": "API Reference for Support",
+  "classes": [
+    {
+      "name": "PluginsUtil",
+      "description": "Utility methods for plugin configurations troubleshooting.",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "dumpAllPluginsConfigurations",
+          "description": "Dump configuration for all installed plugins which store their bits in IEndpointService",
+          "parameters": "",
+          "returnType": "boolean"
+        },
+        {
+          "name": "exception",
+          "description": "This method will throw NPE. Useful for debugging purposes.",
+          "parameters": "msg: String",
+          "returnType": "void"
+        },
+        {
+          "name": "createTrigger",
+          "description": "This method will create plugin trigger. Useful for debugging purposes.",
+          "parameters": "timeout: Number, id: String",
+          "returnType": "Trigger"
+        },
+        {
+          "name": "pushTrigger",
+          "description": "This method will push plugin trigger notification. Useful for debugging purposes.",
+          "parameters": "id: String",
+          "returnType": "void"
+        },
+        {
+          "name": "getPrincipal",
+          "description": "Get current user token from ICredential service and return its principal field",
+          "parameters": "",
+          "returnType": "String"
+        }
+      ]
+    }
+  ]
+}

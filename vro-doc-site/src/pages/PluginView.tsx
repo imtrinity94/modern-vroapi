@@ -105,9 +105,9 @@ const PluginView: React.FC = () => {
 
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
                 <div className="flex items-start gap-5">
-                    <div className={`${pluginMeta.image ? '' : 'p-4 rounded-2xl'} bg-${color}-50 dark:bg-${color}-500/10 text-${color}-600 dark:text-${color}-400 border border-${color}-100 dark:border-${color}-500/20 shadow-sm w-20 h-20 flex items-center justify-center overflow-hidden`}>
+                    <div className={`p-4 rounded-2xl bg-${color}-50 dark:bg-${color}-500/10 text-${color}-600 dark:text-${color}-400 border border-${color}-100 dark:border-${color}-500/20 shadow-sm w-20 h-20 flex items-center justify-center overflow-hidden`}>
                         {pluginMeta.image ? (
-                            <img src={pluginMeta.image} alt={data.name} className="w-full h-full object-cover" />
+                            <img src={pluginMeta.image} alt={data.name} className="w-full h-full object-contain" />
                         ) : (
                             PluginIcon && <PluginIcon size={40} />
                         )}

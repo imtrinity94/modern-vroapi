@@ -1,0 +1,735 @@
+{
+  "name": "AutoDeploy",
+  "description": "API Reference for AutoDeploy",
+  "classes": [
+    {
+      "name": "ADAnswerFile",
+      "description": "Represents an answer file associated with a specific ESXi host.",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "getContentAsXml",
+          "description": "Gets the content of an answer file as XML.",
+          "parameters": "",
+          "returnType": "String"
+        },
+        {
+          "name": "addUserInputParameter",
+          "description": "Adds a user input parameter to the answer file.",
+          "parameters": "inputParameter: UserInputParameter",
+          "returnType": "Object"
+        },
+        {
+          "name": "getUserInputParameters",
+          "description": "Gets a list with all user input parameters of the answer file.",
+          "parameters": "",
+          "returnType": "Array/UserInputParameter"
+        },
+        {
+          "name": "getId",
+          "description": "Returns the ID of the answer file.",
+          "parameters": "",
+          "returnType": "String"
+        },
+        {
+          "name": "getMultiAdId",
+          "description": "Returns the multi ID of the answer file.",
+          "parameters": "",
+          "returnType": "String"
+        }
+      ]
+    },
+    {
+      "name": "ADHostProfile",
+      "description": "Wrapper of the VC host profile",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Name of the host profile",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "getName",
+          "description": "Returns the name of the host profile.",
+          "parameters": "",
+          "returnType": "String"
+        }
+      ]
+    },
+    {
+      "name": "AutoDeploy",
+      "description": "Auto Deploy host",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Name of the Auto Deploy host",
+          "isReadonly": false
+        },
+        {
+          "name": "adUri",
+          "type": "String",
+          "description": "URI of the Auto Deploy host",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "getVcUri",
+          "description": "Returns a URI of the associated vCenter Server host.",
+          "parameters": "",
+          "returnType": "String"
+        },
+        {
+          "name": "getHostProfile",
+          "description": "Returns a host profile with a specific name.",
+          "parameters": "hostProfileName: String",
+          "returnType": "ADHostProfile"
+        },
+        {
+          "name": "createDeployRule",
+          "description": "Creates a deploy rule on a specific Auto Deploy host.",
+          "parameters": "ruleName: String, imageProfile: SoftwareImageProfile, hostProfile: ADHostProfile, location: AutoDeployItem, pattern: String",
+          "returnType": "DeployRule"
+        },
+        {
+          "name": "editDeployRule",
+          "description": "Updates an editable deploy rule on a specific Auto Deploy host.",
+          "parameters": "rule: DeployRule, ruleName: String, changedPxeProfile: boolean, imageProfile: SoftwareImageProfile, changedHostProfile: boolean, hostProfile: ADHostProfile, changedLocation: boolean, location: AutoDeployItem, pattern: String",
+          "returnType": "DeployRule"
+        },
+        {
+          "name": "copyDeployRule",
+          "description": "Updates a non editable deploy rule by making a copy of it.",
+          "parameters": "rule: DeployRule, ruleName: String, changedPxeProfile: boolean, imageProfile: SoftwareImageProfile, changedHostProfile: boolean, hostProfile: ADHostProfile, changedLocation: boolean, location: AutoDeployItem, pattern: String, updateSets: boolean, activate: boolean",
+          "returnType": "DeployRule"
+        },
+        {
+          "name": "activateWorkingSet",
+          "description": "Activates all rules from the working rule set.",
+          "parameters": "",
+          "returnType": "Object"
+        },
+        {
+          "name": "activateDeployRule",
+          "description": "Activates a deploy rule with all rules from the working rule set.",
+          "parameters": "deployRule: DeployRule, position: number",
+          "returnType": "Object"
+        },
+        {
+          "name": "addToWorkingSet",
+          "description": "Adds a specific deploy rule to the working rule set.",
+          "parameters": "deployRule: DeployRule, position: number",
+          "returnType": "Object"
+        },
+        {
+          "name": "deleteDeployRule",
+          "description": "Deletes a deploy rule from the Auto Deploy host.",
+          "parameters": "deployRule: DeployRule",
+          "returnType": "String"
+        },
+        {
+          "name": "removeFromRuleSet",
+          "description": "Removes a rule from a rule set without deleting the rule.",
+          "parameters": "deployRule: DeployRule, activate: Boolean",
+          "returnType": "Object"
+        },
+        {
+          "name": "getDeployRules",
+          "description": "Returns deploy rules from the Rule Engine.",
+          "parameters": "",
+          "returnType": "Array/DeployRule"
+        },
+        {
+          "name": "getHiddenRules",
+          "description": "Returns all hidden rules from the rule engine.",
+          "parameters": "",
+          "returnType": "Array/DeployRule"
+        },
+        {
+          "name": "getDeployRule",
+          "description": "Retrieves a deploy rule by name from a specific Auto Deploy host.",
+          "parameters": "ruleName: String",
+          "returnType": "DeployRule"
+        },
+        {
+          "name": "getWorkingDeployRules",
+          "description": "Returns the deploy rules from the working rule set.",
+          "parameters": "",
+          "returnType": "Array/DeployRule"
+        },
+        {
+          "name": "getActiveDeployRules",
+          "description": "Returns deploy rules from the active rule set.",
+          "parameters": "",
+          "returnType": "Array/DeployRule"
+        },
+        {
+          "name": "getActiveRuleSetSize",
+          "description": "Returns a number of deploy rules from the active rule set.",
+          "parameters": "",
+          "returnType": "number"
+        },
+        {
+          "name": "getWorkingRuleSetSize",
+          "description": "Returns a number of deploy rules in a working rule set.",
+          "parameters": "",
+          "returnType": "number"
+        },
+        {
+          "name": "isActiveRule",
+          "description": "Shows if the deploy rule is active.",
+          "parameters": "deployRule: DeployRule",
+          "returnType": "Boolean"
+        },
+        {
+          "name": "isWorkingRule",
+          "description": "Shows if the deploy rule is added to the working rule set.",
+          "parameters": "deployRule: DeployRule",
+          "returnType": "Boolean"
+        },
+        {
+          "name": "getAnswerFileStatus",
+          "description": "Gets the status of an answer file for a specific ESXi host.",
+          "parameters": "esxHost: AutoDeployItem",
+          "returnType": "String"
+        },
+        {
+          "name": "clearAnswerFile",
+          "description": "Clears the answer file of a specific ESXi host.",
+          "parameters": "targetHost: AutoDeployItem",
+          "returnType": "Object"
+        },
+        {
+          "name": "updateAnswerFile",
+          "description": "Updates an answer file for a specific ESXi host.",
+          "parameters": "targetHost: AutoDeployItem, xmlAnswerFile: String",
+          "returnType": "ADAnswerFile"
+        },
+        {
+          "name": "getXmlAnswerFile",
+          "description": "Gets an answer file as XML.",
+          "parameters": "esxHost: AutoDeployItem",
+          "returnType": "String"
+        },
+        {
+          "name": "updateAnswerFileFromFile",
+          "description": "Updates an answer file for a specific ESXi host.",
+          "parameters": "targetHost: AutoDeployItem, fileAttachment: MimeAttachment",
+          "returnType": "ADAnswerFile"
+        },
+        {
+          "name": "retrieveAnswerFile",
+          "description": "Retrieves the answer file associated with a specific ESXi host.",
+          "parameters": "targetHost: AutoDeployItem",
+          "returnType": "ADAnswerFile"
+        },
+        {
+          "name": "retrieveHostAttributes",
+          "description": "Retrieves the attributes of a specific ESXi host.",
+          "parameters": "esxHost: AutoDeployItem",
+          "returnType": "Properties"
+        },
+        {
+          "name": "getHostMatchingRules",
+          "description": "Retrieves all rules that apply to an ESXi host for a specific rule set.",
+          "parameters": "esxHost: AutoDeployItem, ruleSetType: String",
+          "returnType": "Array/DelpoyRule"
+        },
+        {
+          "name": "testRuleSetCompliance",
+          "description": "Checks whether the items associated with a specified ESXi host are in compliance with a specified rule set.",
+          "parameters": "esxHost: AutoDeployItem, ruleSetType: String",
+          "returnType": "Array/CheckItemResult"
+        },
+        {
+          "name": "repairRuleSetCompliance",
+          "description": "Repairs rule set compliance for a specified ESXi host.",
+          "parameters": "esxHost: AutoDeployItem",
+          "returnType": "Object"
+        },
+        {
+          "name": "changeImageProfile",
+          "description": "Changes the image profile of a deploy rule.",
+          "parameters": "deployRule: DeployRule, imageProfile: SoftwareImageProfile",
+          "returnType": "Object"
+        },
+        {
+          "name": "changeHostProfile",
+          "description": "Changes the host profile of a deploy rule.",
+          "parameters": "deployRule: DeployRule, hostProfile: ADHostProfile",
+          "returnType": "Object"
+        },
+        {
+          "name": "changeRuleLocation",
+          "description": "Changes the ESXi location of a deploy rule.",
+          "parameters": "deployRule: DeployRule, locationItem: AutoDeployItem",
+          "returnType": "Object"
+        },
+        {
+          "name": "getDeployOptions",
+          "description": "Get Auto Deploy global configuration options.",
+          "parameters": "",
+          "returnType": "Properties"
+        },
+        {
+          "name": "setDeployOption",
+          "description": "Set value for an Auto Deploy global configuration option.",
+          "parameters": "key: String, value: String",
+          "returnType": "Object"
+        },
+        {
+          "name": "applyImageProfile",
+          "description": "Associates the specified image profile with the specified ESXi hosts.",
+          "parameters": "esxHosts: Array/AutoDeployItem, imageProfile: SoftwareImageProfile",
+          "returnType": "Object"
+        }
+      ]
+    },
+    {
+      "name": "AutoDeployItem",
+      "description": "Holder of the Auto Deploy object item",
+      "attributes": [
+        {
+          "name": "type",
+          "type": "String",
+          "description": "Type of the Auto Deploy object item",
+          "isReadonly": false
+        },
+        {
+          "name": "value",
+          "type": "String",
+          "description": "Value of the Auto Deploy object item",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "getItemRepresentation",
+          "description": "Returns the item representation.",
+          "parameters": "",
+          "returnType": "String"
+        }
+      ]
+    },
+    {
+      "name": "autoDeployManager",
+      "description": "Provides CRUD operations for the Auto Deploy objects.",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "getAutoDeploys",
+          "description": "Returns a list of Auto Deploy hosts from the plug-in's repository.",
+          "parameters": "",
+          "returnType": "Array/AutoDeploy"
+        },
+        {
+          "name": "getAutoDeploy",
+          "description": "Returns the Auto Deploy host from the plug-in's repository with a specified name.",
+          "parameters": "name: String",
+          "returnType": "AutoDeploy"
+        },
+        {
+          "name": "reloadConfiguration",
+          "description": "Reloads the plug-in configuration.",
+          "parameters": "",
+          "returnType": "Object"
+        },
+        {
+          "name": "addSoftwareDepot",
+          "description": "Adds a new public depot.",
+          "parameters": "depotName: String, depotURL: String",
+          "returnType": "SoftwareDepot"
+        },
+        {
+          "name": "removeSoftwareDepot",
+          "description": "Removes a public depot.",
+          "parameters": "depot: SoftwareDepot",
+          "returnType": "String"
+        },
+        {
+          "name": "updateSoftwareDepot",
+          "description": "Updates a public depot.",
+          "parameters": "depot: SoftwareDepot, depotName: String, depotURL: String",
+          "returnType": "SoftwareDepot"
+        },
+        {
+          "name": "isAnswerFileContentValid",
+          "description": "Checks if the XML content of an answer file is valid.",
+          "parameters": "xmlAnswerFileContent: String",
+          "returnType": "Boolean"
+        },
+        {
+          "name": "isAnswerFileValid",
+          "description": "Checks if the answer file is valid.",
+          "parameters": "xmlAnswerFile: MimeAttachment",
+          "returnType": "Boolean"
+        },
+        {
+          "name": "getAnswerFileTemplate",
+          "description": "Returns an XML template of the answer file.",
+          "parameters": "",
+          "returnType": "String"
+        },
+        {
+          "name": "addAutoDeployHost",
+          "description": "Adds a new Auto Deploy host.",
+          "parameters": "vcURI: String",
+          "returnType": "AutoDeploy"
+        },
+        {
+          "name": "removeAutoDeployHost",
+          "description": "Removes an Auto Deploy host.",
+          "parameters": "adHost: AutoDeploy",
+          "returnType": "Object"
+        },
+        {
+          "name": "findAutoDeployHostUri",
+          "description": "Returns an Auto Deploy host URI.",
+          "parameters": "vcHostUri: String",
+          "returnType": "String"
+        }
+      ]
+    },
+    {
+      "name": "CheckItemResult",
+      "description": "Pair of current and expected rule item",
+      "attributes": [
+        {
+          "name": "currentItem",
+          "type": "AutoDeployItem",
+          "description": "Current rule item",
+          "isReadonly": false
+        },
+        {
+          "name": "expectedItem",
+          "type": "AutoDeployItem",
+          "description": "Expected rule item",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "DeployRule",
+      "description": "Deploy rule as defined within the rule engine.",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "String",
+          "description": "ID of the rule",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "description": "Type of the rule",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Name of the rule",
+          "isReadonly": false
+        },
+        {
+          "name": "pattern",
+          "type": "String",
+          "description": "Pattern of the rule",
+          "isReadonly": false
+        },
+        {
+          "name": "pxeProfileName",
+          "type": "String",
+          "description": "PXE profile name of the rule",
+          "isReadonly": false
+        },
+        {
+          "name": "pxeProfilePackages",
+          "type": "Array/String",
+          "description": "PXE profile packages of the rule",
+          "isReadonly": false
+        },
+        {
+          "name": "hostProfile",
+          "type": "String",
+          "description": "Host profile of the rule",
+          "isReadonly": false
+        },
+        {
+          "name": "location",
+          "type": "String",
+          "description": "Inventory location of the rule",
+          "isReadonly": false
+        },
+        {
+          "name": "editable",
+          "type": "Boolean",
+          "description": "Shows if the rule is editable.",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "getHostUri",
+          "description": "Returns the URI of the parent host.",
+          "parameters": "",
+          "returnType": "String"
+        }
+      ]
+    },
+    {
+      "name": "SoftwareChannel",
+      "description": "Software channel as defined in the depot.",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Name of the software channel",
+          "isReadonly": false
+        },
+        {
+          "name": "imageProfiles",
+          "type": "Array/SoftwareImageProfile",
+          "description": "Image profiles of the software channel",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "getImageProfile",
+          "description": "Returns an image profile with a specific name.",
+          "parameters": "profileId: String",
+          "returnType": "SoftwareImageProfile"
+        }
+      ]
+    },
+    {
+      "name": "SoftwareDepot",
+      "description": "A public depot containing all the software packages.",
+      "attributes": [
+        {
+          "name": "depotName",
+          "type": "String",
+          "description": "Name of the software depot",
+          "isReadonly": false
+        },
+        {
+          "name": "depotURL",
+          "type": "String",
+          "description": "URI of the software depot",
+          "isReadonly": false
+        },
+        {
+          "name": "vendors",
+          "type": "Array/SoftwareVendor",
+          "description": "Software vendors defined by the software depot.",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "getVendor",
+          "description": "Returns a software vendor with a specific name.",
+          "parameters": "depotName: String",
+          "returnType": "SoftwareVendor"
+        }
+      ]
+    },
+    {
+      "name": "SoftwareImageProfile",
+      "description": "Software image profile defined in the depot.",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Name of the image profile",
+          "isReadonly": false
+        },
+        {
+          "name": "profileId",
+          "type": "String",
+          "description": "ID of the image profile",
+          "isReadonly": false
+        },
+        {
+          "name": "serialNo",
+          "type": "String",
+          "description": "Serial number of the image profile",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "description": "Description of the image profile",
+          "isReadonly": false
+        },
+        {
+          "name": "vibs",
+          "type": "Array/Vib",
+          "description": "List of VIBs of the image profile",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "SoftwareVendor",
+      "description": "Software vendor as defined within the depot.",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Name of the software vendor",
+          "isReadonly": true
+        },
+        {
+          "name": "code",
+          "type": "String",
+          "description": "Code of the software vendor",
+          "isReadonly": true
+        },
+        {
+          "name": "channels",
+          "type": "Array/SoftwareChannel",
+          "description": "Software channels defined by the software vendor.",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "getChannel",
+          "description": "Returns a software channel with a specific name.",
+          "parameters": "channelName: String",
+          "returnType": "SoftwareChannel"
+        }
+      ]
+    },
+    {
+      "name": "UserInputParameter",
+      "description": "Represents a user input parameter that is part of the answer file.",
+      "attributes": [
+        {
+          "name": "profilePath",
+          "type": "String",
+          "description": "Profile path of the user input parameter",
+          "isReadonly": false
+        },
+        {
+          "name": "policyId",
+          "type": "String",
+          "description": "Policy ID of the user input parameter",
+          "isReadonly": false
+        },
+        {
+          "name": "parameterId",
+          "type": "String",
+          "description": "Parameter ID of the user input parameter",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "UserInputParameter",
+          "description": "",
+          "parameters": "profilePath: String, policyId: String, parameterId: String",
+          "returnType": "void"
+        },
+        {
+          "name": "addKeyValueParameter",
+          "description": "Adds a key value pair to the user input parameter.",
+          "parameters": "key: String, value: Object",
+          "returnType": "Object"
+        },
+        {
+          "name": "getParameterKeys",
+          "description": "Returns all the keys of the user input parameter.",
+          "parameters": "",
+          "returnType": "Array/String"
+        },
+        {
+          "name": "getKeyValue",
+          "description": "Returns the value for a specific key of the user input parameter.",
+          "parameters": "key: String",
+          "returnType": "Object"
+        },
+        {
+          "name": "getKey",
+          "description": "Returns the parameter key at a specified index.",
+          "parameters": "index: number",
+          "returnType": "String"
+        },
+        {
+          "name": "getValue",
+          "description": "Returns the parameter object at a specified index.",
+          "parameters": "index: number",
+          "returnType": "Object"
+        }
+      ]
+    },
+    {
+      "name": "Vib",
+      "description": "Virtual infrastructure bundle defined in the depot.",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Name of the VIB",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "description": "Type of the VIB",
+          "isReadonly": false
+        },
+        {
+          "name": "version",
+          "type": "String",
+          "description": "Version of the VIB",
+          "isReadonly": false
+        },
+        {
+          "name": "vendor",
+          "type": "String",
+          "description": "Vendor of the VIB",
+          "isReadonly": false
+        },
+        {
+          "name": "summary",
+          "type": "String",
+          "description": "Summary of the VIB",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "description": "Description of the VIB",
+          "isReadonly": false
+        },
+        {
+          "name": "releaseDdate",
+          "type": "String",
+          "description": "Released date of the VIB",
+          "isReadonly": false
+        },
+        {
+          "name": "relativePath",
+          "type": "String",
+          "description": "Relative path of the VIB",
+          "isReadonly": false
+        },
+        {
+          "name": "baseUrl",
+          "type": "String",
+          "description": "Base URL of the VIB",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    }
+  ]
+}

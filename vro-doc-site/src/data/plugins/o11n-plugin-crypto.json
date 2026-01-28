@@ -1,372 +1,379 @@
 {
   "name": "Crypto",
+  "description": "API Reference for Crypto",
   "classes": [
     {
       "name": "CryptoCertificate",
-      "description": "A scripting object representing a X.509 certificate.",
-      "methods": [
-        {
-          "name": "verify",
-          "parameters": "pemKey: string",
-          "returnType": "boolean",
-          "description": "Verifies the Certificate was signed by a signing certificates private key."
-        },
-        {
-          "name": "getValidbefore",
-          "parameters": "",
-          "returnType": "Date",
-          "description": "The certificate is valid before this date."
-        },
-        {
-          "name": "getValidAfter",
-          "parameters": "",
-          "returnType": "Date",
-          "description": "The certificate is valid after this date."
-        },
-        {
-          "name": "isValidOn",
-          "parameters": "date: Date",
-          "returnType": "boolean",
-          "description": "Is the certificate valid based on a provided date."
-        }
-      ],
+      "description": "A scripting object representing a X.509 certificate",
       "attributes": [
         {
           "name": "serialNumber",
-          "type": "string",
-          "description": "",
+          "type": "String",
+          "description": "Serial Number of the Certificate",
           "isReadonly": true
         },
         {
           "name": "encodedBase64",
-          "type": "string",
-          "description": "",
+          "type": "String",
+          "description": "Encoded form of the certificate encoded as a Base64 string. Hashing this can create a fingerprint",
           "isReadonly": true
         },
         {
           "name": "publicKeyPem",
-          "type": "string",
-          "description": "",
+          "type": "String",
+          "description": "The RSA Public Key in PEM format found in the certificate",
           "isReadonly": true
         },
         {
           "name": "issuedToMap",
-          "type": "Properties",
-          "description": "",
+          "type": "java.util.Map",
+          "description": "issuedToDN parsed into key/value pairs",
           "isReadonly": true
         },
         {
           "name": "issuedByDN",
-          "type": "string",
-          "description": "",
+          "type": "String",
+          "description": "Distinguished Name the certificate was issued by",
           "isReadonly": true
         },
         {
           "name": "issuedToDN",
-          "type": "string",
-          "description": "",
+          "type": "String",
+          "description": "Distinguished Name the certificate was issued to",
           "isReadonly": true
         },
         {
           "name": "pemEncoded",
-          "type": "string",
-          "description": "",
+          "type": "String",
+          "description": "PEM Encoding of the certificate",
           "isReadonly": true
         },
         {
           "name": "issuedByMap",
-          "type": "Properties",
-          "description": "",
+          "type": "java.util.Map",
+          "description": "issuedByDN parsed into key/value pairs",
           "isReadonly": true
         },
         {
           "name": "signatureAlgorithm",
-          "type": "string",
-          "description": "",
+          "type": "String",
+          "description": "Signature algorithm used by the certificate signer",
           "isReadonly": true
         },
         {
           "name": "sha1Fingerprint",
-          "type": "string",
-          "description": "",
+          "type": "String",
+          "description": "SHA1 fingerprint of the certificate",
           "isReadonly": true
         },
         {
           "name": "signatureBase64",
-          "type": "string",
-          "description": "",
+          "type": "String",
+          "description": "Base64 encoded signature of the certificate",
           "isReadonly": true
         },
         {
           "name": "sha256Fingerprint",
-          "type": "string",
-          "description": "",
+          "type": "String",
+          "description": "SHA256 fingerprint of the certificate",
           "isReadonly": true
         },
         {
           "name": "subjectAlternativeNames",
-          "type": "string[]",
-          "description": "",
+          "type": "Array/String",
+          "description": "A list of subject alternative names found in the certificate. Each will have a colon delimited prefix for the type of SAN found. ex: \"dns:\"",
           "isReadonly": true
+        }
+      ],
+      "methods": [
+        {
+          "name": "CryptoCertificate",
+          "description": "A X.509 Certificate Object",
+          "parameters": "certString: String",
+          "returnType": "void"
+        },
+        {
+          "name": "verify",
+          "description": "Verifies the Certificate was signed by a signing certificates private key",
+          "parameters": "pemKey: String",
+          "returnType": "boolean"
+        },
+        {
+          "name": "getValidBefore",
+          "description": "The certificate is valid before this date",
+          "parameters": "",
+          "returnType": "Date"
+        },
+        {
+          "name": "getValidAfter",
+          "description": "The certificate is valid after this date",
+          "parameters": "",
+          "returnType": "Date"
+        },
+        {
+          "name": "isValidOn",
+          "description": "Is the certificate valid based on a provided date",
+          "parameters": "date: Date",
+          "returnType": "boolean"
         }
       ]
     },
     {
       "name": "CryptoCertificateManager",
-      "description": "Provides methods to parse or fetch certificates.",
+      "description": "Provides methods to parse or fetch certificates",
+      "attributes": [],
       "methods": [
         {
           "name": "parseCertificatePem",
-          "parameters": "pemCertString: string",
-          "returnType": "CryptoCertificate",
-          "description": "Parses a PEM encoded X.509 Certificate."
+          "description": "parses a PEM encoded X.509 Certificate",
+          "parameters": "pemCertString: String",
+          "returnType": "CryptoCertificate"
         },
         {
           "name": "getHttpsCertificate",
-          "parameters": "urlString: string",
-          "returnType": "CryptoCertificate[]",
-          "description": "Returns array of certificates presented by an https server."
+          "description": "Returns array of certificates presented by an https server",
+          "parameters": "urlString: String",
+          "returnType": "Array/CryptoCertificate"
         }
-      ],
-      "attributes": []
+      ]
     },
     {
       "name": "CryptoDigest",
-      "description": "Provides methods to hash data with different digests.",
+      "description": "Provides methods to hash data with different digests",
+      "attributes": [],
       "methods": [
         {
           "name": "sha1Base64",
-          "parameters": "dataB64: string",
-          "returnType": "string",
-          "description": "Returns a Base64 encoded 160 bit SHA-1 hash."
+          "description": "Returns a Base64 encoded 160 bit SHA-1 hash",
+          "parameters": "dataB64: String",
+          "returnType": "String"
         },
         {
           "name": "sha1",
-          "parameters": "data: string",
-          "returnType": "string",
-          "description": "Returns a Base64 encoded 160 bit SHA-1 hash."
+          "description": "Returns a Base64 encoded 160 bit SHA-1 hash",
+          "parameters": "data: String",
+          "returnType": "String"
         },
         {
           "name": "md5",
-          "parameters": "data: string",
-          "returnType": "string",
-          "description": "Returns a Base64 encoded 128 bit MD5 hash."
+          "description": "Returns a Base64 encoded 128 bit MD5 hash",
+          "parameters": "data: String",
+          "returnType": "String"
         },
         {
           "name": "md5Base64",
-          "parameters": "dataB64: string",
-          "returnType": "string",
-          "description": "Returns a Base64 encoded 128 bit MD5 hash."
+          "description": "Returns a Base64 encoded 128 bit MD5 hash",
+          "parameters": "dataB64: String",
+          "returnType": "String"
         },
         {
           "name": "sha384Base64",
-          "parameters": "dataB64: string",
-          "returnType": "string",
-          "description": "Returns a Base64 encoded 384 bit SHA384 hash."
+          "description": "Returns a Base64 encoded 384 bit SHA384 hash",
+          "parameters": "dataB64: String",
+          "returnType": "String"
         },
         {
           "name": "hmacSha512",
-          "parameters": "keyB64: string, dataB64: string",
-          "returnType": "string",
-          "description": "Returns HmacSHA512 MAC for the given key and data Base64 encoded."
+          "description": "Returns HmacSHA512 MAC for the given key and data Base64 encoded",
+          "parameters": "keyB64: String, dataB64: String",
+          "returnType": "String"
         },
         {
           "name": "hmacMd5",
-          "parameters": "keyB64: string, dataB64: string",
-          "returnType": "string",
-          "description": "Returns HmacMD5 MAC for the given key and data Base64 encoded."
+          "description": "Returns HmacMD5 MAC for the given key and data Base64 encoded",
+          "parameters": "keyB64: String, dataB64: String",
+          "returnType": "String"
         },
         {
           "name": "hmacSha384",
-          "parameters": "keyB64: string, dataB64: string",
-          "returnType": "string",
-          "description": "Returns HmacSHA384 MAC for the given key and data Base64 encoded."
+          "description": "Returns HmacSHA384 MAC for the given key and data Base64 encoded",
+          "parameters": "keyB64: String, dataB64: String",
+          "returnType": "String"
         },
         {
           "name": "sha256",
-          "parameters": "data: string",
-          "returnType": "string",
-          "description": "Returns a Base64 encoded 256 bit SHA256 hash."
+          "description": "Returns a Base64 encoded 256 bit SHA256 hash",
+          "parameters": "data: String",
+          "returnType": "String"
         },
         {
           "name": "hmacSha256",
-          "parameters": "keyB64: string, dataB64: string",
-          "returnType": "string",
-          "description": "Returns HmacSHA256 MAC for the given key and data Base64 encoded."
+          "description": "Returns HmacSHA256 MAC for the given key and data Base64 encoded",
+          "parameters": "keyB64: String, dataB64: String",
+          "returnType": "String"
         },
         {
           "name": "hmacSha1",
-          "parameters": "keyB64: string, dataB64: string",
-          "returnType": "string",
-          "description": "Returns HmacSHA1 MAC for the given key and data Base64 encoded."
+          "description": "Returns HmacSHA1 MAC for the given key and data Base64 encoded",
+          "parameters": "keyB64: String, dataB64: String",
+          "returnType": "String"
         },
         {
           "name": "sha384",
-          "parameters": "data: string",
-          "returnType": "string",
-          "description": "Returns a Base64 encoded 384 bit SHA384 hash."
+          "description": "Returns a Base64 encoded 384 bit SHA384 hash",
+          "parameters": "data: String",
+          "returnType": "String"
         },
         {
           "name": "sha256Base64",
-          "parameters": "dataB64: string",
-          "returnType": "string",
-          "description": "Returns a Base64 encoded 256 bit SHA256 hash."
+          "description": "Returns a Base64 encoded 256 bit SHA256 hash",
+          "parameters": "dataB64: String",
+          "returnType": "String"
         },
         {
           "name": "sha512",
-          "parameters": "data: string",
-          "returnType": "string",
-          "description": "Returns a Base64 encoded 512 bit SHA512 hash."
+          "description": "Returns a Base64 encoded 512 bit SHA512 hash",
+          "parameters": "data: String",
+          "returnType": "String"
         },
         {
           "name": "sha512Base64",
-          "parameters": "dataB64: string",
-          "returnType": "string",
-          "description": "Returns a Base64 encoded 512 bit SHA512 hash."
+          "description": "Returns a Base64 encoded 512 bit SHA512 hash",
+          "parameters": "dataB64: String",
+          "returnType": "String"
         }
-      ],
-      "attributes": []
+      ]
     },
     {
       "name": "CryptoEncoding",
-      "description": "Provides methods to encode/decode strings between different encodings.",
+      "description": "Provides methods to encode/decode strings between different encodings",
+      "attributes": [],
       "methods": [
         {
           "name": "binaryConcatBase64",
-          "parameters": "b64data1: string, b64data2: string",
-          "returnType": "string",
-          "description": "Decodes two Base64 strings and concatenates the binary data. Returns base64 encoded result."
+          "description": "Decodes two Base64 strings and concatenates the binary data. Returns base64 encoded result",
+          "parameters": "b64data1: String, b64data2: String",
+          "returnType": "String"
         },
         {
           "name": "base64EncodeBytes",
-          "parameters": "data: byte[]",
-          "returnType": "string",
-          "description": "Base64 Encoder"
+          "description": "Base64 Encoder",
+          "parameters": "data: Array/byte",
+          "returnType": "String"
         },
         {
           "name": "base64Encode",
-          "parameters": "data: string",
-          "returnType": "string",
-          "description": "Base64 Encoder."
+          "description": "Base64 Encoder",
+          "parameters": "data: String",
+          "returnType": "String"
         },
         {
           "name": "hexToBase64",
-          "parameters": "hex: string",
-          "returnType": "string",
-          "description": "Hex to Base64 Encoder."
+          "description": "Hex to Base64 Encoder",
+          "parameters": "hex: String",
+          "returnType": "String"
         },
         {
           "name": "mimeToBase64",
+          "description": "Extracts data from MimeAttachment as Base64",
           "parameters": "mime: MimeAttachment",
-          "returnType": "string",
-          "description": "Extracts data from MimeAttachment as Base64."
+          "returnType": "String"
         },
         {
           "name": "base64ToMime",
-          "parameters": "b64data: string, mimeType: string, fileName: string",
-          "returnType": "MimeAttachment",
-          "description": "Base64 to MimeAttachment."
+          "description": "Base64 to MimeAttachment",
+          "parameters": "b64data: String, mimeType: String, fileName: String",
+          "returnType": "MimeAttachment"
         },
         {
           "name": "base64Decode",
-          "parameters": "b64data: string",
-          "returnType": "string",
-          "description": "Base64 Decoder."
+          "description": "Base64 Decoder",
+          "parameters": "b64data: String",
+          "returnType": "String"
         },
         {
           "name": "getSubsetBase64",
-          "parameters": "b64data: string, start: number, end: number",
-          "returnType": "string",
-          "description": "Returns a subset of bytes from a Base64 encoded string."
+          "description": "Returns a subset of bytes from a Base64 encoded string",
+          "parameters": "b64data: String, start: Number, length: Number",
+          "returnType": "String"
         },
         {
           "name": "base64toHex",
-          "parameters": "b64data: string",
-          "returnType": "string",
-          "description": "Base64 to Hex Encoder."
+          "description": "Base64 to Hex Encoder",
+          "parameters": "b64data: String",
+          "returnType": "String"
         },
         {
           "name": "getLengthBase64",
-          "parameters": "b64data: string",
-          "returnType": "number",
-          "description": "Decodes a Base64 String and returns the number of bytes that were encoded."
+          "description": "Decodes a Base64 String and returns the number of bytes that were encoded.",
+          "parameters": "b64data: String",
+          "returnType": "Number"
         }
-      ],
-      "attributes": []
+      ]
     },
     {
       "name": "CryptoEncryption",
-      "description": "Provides static methods to encrypt/decrypt data with different ciphers. All ciphers use CBC mode with PKCS5 padding.",
+      "description": "Provides static methods to encrypt/decrypt data with different ciphers. All ciphers use CBC mode with PKCS5 padding",
+      "attributes": [],
       "methods": [
         {
           "name": "generateRandomBytes",
-          "parameters": "numberOfBytes: number",
-          "returnType": "string",
-          "description": "Returns a number of random bytes encoded as a Base64 string."
+          "description": "Returns a number of random bytes encoded as a Base64 string",
+          "parameters": "numberOfBytes: Number",
+          "returnType": "String"
         },
         {
           "name": "tripleDesEncrypt",
-          "parameters": "dataB64: string, secretB64: string, ivB64: string",
-          "returnType": "string",
-          "description": "3DES Encryption. Returns encrypted data Base64 encoded."
+          "description": "3DES Encryption. Returns encrypted data Base64 encoded",
+          "parameters": "dataB64: String, secretB64: String, ivB64: String",
+          "returnType": "String"
         },
         {
           "name": "aesEncrypt",
-          "parameters": "dataB64: string, secretB64: string, ivB64: string",
-          "returnType": "string",
-          "description": "AES Encryption. Returns encrypted data Base64 encoded."
+          "description": "AES Encryption. Returns encrypted data Base64 encoded",
+          "parameters": "dataB64: String, secretB64: String, ivB64: String",
+          "returnType": "String"
         },
         {
           "name": "aesDecrypt",
-          "parameters": "encryptedB64: string, secretB64: string, ivB64: string",
-          "returnType": "string",
-          "description": "AES Decryption. Returns data Base64 encoded."
+          "description": "AES Decryption. Returns data Base64 encoded",
+          "parameters": "encryptedB64: String, secretB64: String, ivB64: String",
+          "returnType": "String"
         },
         {
           "name": "tripleDesDecrypt",
-          "parameters": "encryptedB64: string, secretB64: string, ivB64: string",
-          "returnType": "string",
-          "description": "3DES Decryption. Returns data Base64 encoded."
+          "description": "3DES Decryption. Returns data Base64 encoded",
+          "parameters": "encryptedB64: String, secretB64: String, ivB64: String",
+          "returnType": "String"
         },
         {
           "name": "generateRandomIv",
+          "description": "Returns 16 random bytes encoded as a Base64 string suitable for an AES Initialization Vector",
           "parameters": "",
-          "returnType": "string",
-          "description": "Returns 16 random bytes encoded as a Base64 string suitable for an AES Initialization Vector."
+          "returnType": "String"
         }
-      ],
-      "attributes": []
+      ]
     },
     {
       "name": "CryptoRSA",
-      "description": "Provides static methods to encrypt / decrypt / sign data with RSA style encryption.",
+      "description": "Provides static methods to encrypt / decrypt / sign data with RSA style encryption",
+      "attributes": [],
       "methods": [
         {
           "name": "encrypt",
-          "parameters": "key: string, dateB64: string",
-          "returnType": "string",
-          "description": "Asymmetric RSA Encryption. Result is Base64 encoded."
+          "description": "Asymmetric RSA Encryption. Result is Base64 encoded",
+          "parameters": "key: String, dataB64: String",
+          "returnType": "String"
         },
         {
           "name": "decrypt",
-          "parameters": "key: string, encryptedB64: string",
-          "returnType": "string",
-          "description": "Asymmetric RSA Decryption. Result is Base64 encoded."
+          "description": "Asymmetric RSA Decryption. Result is Base64 encoded",
+          "parameters": "key: String, encryptedB64: String",
+          "returnType": "String"
         },
         {
           "name": "createSignature",
-          "parameters": "key: string, dateB64: string",
-          "returnType": "string",
-          "description": "Creates a RSA Signature."
+          "description": "Creates a RSA Signature",
+          "parameters": "key: String, dataB64: String",
+          "returnType": "String"
         },
         {
           "name": "verifySignature",
-          "parameters": "key: string, dateB64: string, signatureB64: string",
-          "returnType": "boolean",
-          "description": "Verifies a RSA Signature."
+          "description": "Verifies a RSA Signature",
+          "parameters": "key: String, dataB64: String, signatureB64: String",
+          "returnType": "boolean"
         }
-      ],
-      "attributes": []
+      ]
     }
   ]
 }

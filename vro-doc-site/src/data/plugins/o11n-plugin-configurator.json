@@ -1,0 +1,480 @@
+{
+  "name": "Configurator",
+  "description": "API Reference for Configurator",
+  "classes": [
+    {
+      "name": "Config",
+      "description": "Insert your description for PluginInventory here",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "String",
+          "description": "Unique identifier of this PluginInventory",
+          "isReadonly": true
+        },
+        {
+          "name": "displayName",
+          "type": "String",
+          "description": "Display name of this PluginInventory",
+          "isReadonly": true
+        }
+      ],
+      "methods": [
+        {
+          "name": "getKeystores",
+          "description": "Gets the list of Keystores.",
+          "parameters": "",
+          "returnType": "_ConfiguratorKeystores"
+        }
+      ]
+    },
+    {
+      "name": "ConfigConnectionValidator",
+      "description": "Generic Connection Validator",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "validateConnectionUrl",
+          "description": "Validate connection",
+          "parameters": "url: java.net.URL",
+          "returnType": "String"
+        },
+        {
+          "name": "validateConnectionWithProxy",
+          "description": "Validate connection",
+          "parameters": "url: java.net.URL, proxy: java.net.Proxy",
+          "returnType": "String"
+        },
+        {
+          "name": "validateConnection",
+          "description": "Validate connection",
+          "parameters": "host: String, port: int, ssl: boolean",
+          "returnType": "String"
+        },
+        {
+          "name": "createHttpProxy",
+          "description": "Create HTTP proxy connection",
+          "parameters": "host: String, port: int",
+          "returnType": "java.net.Proxy"
+        }
+      ]
+    },
+    {
+      "name": "ConfiguratorCertificate",
+      "description": "Insert your description for CA here",
+      "attributes": [
+        {
+          "name": "notBefore",
+          "type": "java.util.Date",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "notAfter",
+          "type": "java.util.Date",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "sigAlgName",
+          "type": "String",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "sigAlgOID",
+          "type": "String",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "description": "Unique identifier of this CA",
+          "isReadonly": true
+        },
+        {
+          "name": "version",
+          "type": "int",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "displayName",
+          "type": "String",
+          "description": "Display name of this CA",
+          "isReadonly": true
+        },
+        {
+          "name": "issuerCn",
+          "type": "String",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "issuerOU",
+          "type": "String",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "issuerO",
+          "type": "String",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "subjectO",
+          "type": "String",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "subjectCn",
+          "type": "String",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "subjectOU",
+          "type": "String",
+          "description": "",
+          "isReadonly": true
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "ConfiguratorDeleteCAAction",
+      "description": "Delete Certificate Action",
+      "attributes": [],
+      "methods": []
+    },
+    {
+      "name": "ConfiguratorGeneratePackageSigningCertificateAction",
+      "description": "Generate a new Package Signing Certificate Action",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "setOrganization",
+          "description": "Set the Organisation for the new certificate",
+          "parameters": "organization: String",
+          "returnType": "void"
+        },
+        {
+          "name": "setCommonName",
+          "description": "Set CN for the new certificate",
+          "parameters": "commonName: String",
+          "returnType": "void"
+        },
+        {
+          "name": "setOrganizationalUnit",
+          "description": "Set the Organizational Unit for the new certificate",
+          "parameters": "organizationalUnit: String",
+          "returnType": "void"
+        },
+        {
+          "name": "setCountryCode",
+          "description": "Set the Country code for the new certificate",
+          "parameters": "countryCode: String",
+          "returnType": "void"
+        },
+        {
+          "name": "setSignatureAlgorithm",
+          "description": "Set the Signature Algorithm for the new certificate",
+          "parameters": "signatureAlgorithm: String",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "ConfiguratorImportCAFromUrlAction",
+      "description": "Import from Certificate Action",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "validate",
+          "description": "Validates connection to the host",
+          "parameters": "",
+          "returnType": "String"
+        },
+        {
+          "name": "execute",
+          "description": "Imports certificate chain in trusted key store",
+          "parameters": "",
+          "returnType": "String"
+        },
+        {
+          "name": "getModel",
+          "description": "",
+          "parameters": "",
+          "returnType": "ch.dunes.util.Holder"
+        },
+        {
+          "name": "getProxyHost",
+          "description": "",
+          "parameters": "",
+          "returnType": "ch.dunes.util.Holder"
+        },
+        {
+          "name": "getProxyPort",
+          "description": "",
+          "parameters": "",
+          "returnType": "ch.dunes.util.Holder"
+        },
+        {
+          "name": "getCertInfo",
+          "description": "Returns certificate info",
+          "parameters": "",
+          "returnType": "String"
+        },
+        {
+          "name": "setCertificateAlias",
+          "description": "Sets the alias which the root certificate must be associated with",
+          "parameters": "certAlias: String",
+          "returnType": "void"
+        },
+        {
+          "name": "validateCertificates",
+          "description": "Returns results of certificate validation",
+          "parameters": "",
+          "returnType": "ch.dunes.crypto.validation.CertChainValidatorResult"
+        },
+        {
+          "name": "getCertificateChainInfo",
+          "description": "Returns certificate chain info",
+          "parameters": "",
+          "returnType": "String"
+        },
+        {
+          "name": "getProxyUsername",
+          "description": "",
+          "parameters": "",
+          "returnType": "ch.dunes.util.Holder"
+        },
+        {
+          "name": "getProxyPassword",
+          "description": "",
+          "parameters": "",
+          "returnType": "ch.dunes.util.Holder"
+        }
+      ]
+    },
+    {
+      "name": "ConfiguratorImportFromCerAction",
+      "description": "Import from Certificate Action",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "validate",
+          "description": "",
+          "parameters": "",
+          "returnType": "String"
+        },
+        {
+          "name": "execute",
+          "description": "",
+          "parameters": "",
+          "returnType": "String"
+        },
+        {
+          "name": "getModel",
+          "description": "",
+          "parameters": "",
+          "returnType": "ch.dunes.model.fileattachment.MimeAttachment"
+        }
+      ]
+    },
+    {
+      "name": "ConfiguratorKey",
+      "description": "Represents private key with the associated certificate chain.",
+      "attributes": [
+        {
+          "name": "notBefore",
+          "type": "java.util.Date",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "notAfter",
+          "type": "java.util.Date",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "sigAlgName",
+          "type": "String",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "sigAlgOID",
+          "type": "String",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "description": "Unique identifier of this Key",
+          "isReadonly": true
+        },
+        {
+          "name": "version",
+          "type": "int",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "displayName",
+          "type": "String",
+          "description": "Display name of this Key",
+          "isReadonly": true
+        },
+        {
+          "name": "issuerCn",
+          "type": "String",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "issuerOU",
+          "type": "String",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "issuerO",
+          "type": "String",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "subjectO",
+          "type": "String",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "subjectCn",
+          "type": "String",
+          "description": "",
+          "isReadonly": true
+        },
+        {
+          "name": "subjectOU",
+          "type": "String",
+          "description": "",
+          "isReadonly": true
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "ConfiguratorKeystore",
+      "description": "Keystore",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "String",
+          "description": "Unique identifier of this Keystore",
+          "isReadonly": true
+        },
+        {
+          "name": "displayName",
+          "type": "String",
+          "description": "Display name of this PrivateKeys",
+          "isReadonly": true
+        }
+      ],
+      "methods": [
+        {
+          "name": "getKeys",
+          "description": "Gets the list of Keystores.",
+          "parameters": "",
+          "returnType": "Array/ConfiguratorKey"
+        },
+        {
+          "name": "getCAs",
+          "description": "Gets the list of Certificates.",
+          "parameters": "",
+          "returnType": "Array/ConfiguratorCertificate"
+        },
+        {
+          "name": "getAddEntryToKeystoreAction",
+          "description": "Add key pair to keystore",
+          "parameters": "",
+          "returnType": "com.vmware.o11n.plugins.configurator.actions.AddEntryToKeystoreAction"
+        },
+        {
+          "name": "getAddCertificateToKeystoreAction",
+          "description": "Add certificate to keystore",
+          "parameters": "",
+          "returnType": "com.vmware.o11n.plugins.configurator.actions.AddCertificateToKeystoreAction"
+        },
+        {
+          "name": "getDeleteEntryFromKeystoreAction",
+          "description": "Delete certificate/key from keystore",
+          "parameters": "",
+          "returnType": "com.vmware.o11n.plugins.configurator.actions.DeleteEntryFromKeystoreAction"
+        }
+      ]
+    },
+    {
+      "name": "ConfiguratorKeystores",
+      "description": "List of keystores",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "String",
+          "description": "Unique identifier of this Keystores",
+          "isReadonly": true
+        },
+        {
+          "name": "displayName",
+          "type": "String",
+          "description": "Display name of this Keystores",
+          "isReadonly": true
+        }
+      ],
+      "methods": [
+        {
+          "name": "getCreateKeystoreAction",
+          "description": "Create an empty keystore",
+          "parameters": "",
+          "returnType": "com.vmware.o11n.plugins.configurator.actions.CreateKeystoreAction"
+        },
+        {
+          "name": "getDeleteKeystoreAction",
+          "description": "Delete keystore",
+          "parameters": "",
+          "returnType": "com.vmware.o11n.plugins.configurator.actions.DeleteKeystoreAction"
+        },
+        {
+          "name": "getDeleteCAAction",
+          "description": "",
+          "parameters": "",
+          "returnType": "ConfiguratorDeleteCAAction"
+        },
+        {
+          "name": "getImportFromCerAction",
+          "description": "",
+          "parameters": "",
+          "returnType": "ConfiguratorImportFromCerAction"
+        },
+        {
+          "name": "getImportCAFromUrlAction",
+          "description": "",
+          "parameters": "",
+          "returnType": "ConfiguratorImportCAFromUrlAction"
+        },
+        {
+          "name": "getKeystores",
+          "description": "Gets the list of Keystores.",
+          "parameters": "",
+          "returnType": "Array/ConfiguratorKeystore"
+        }
+      ]
+    }
+  ]
+}

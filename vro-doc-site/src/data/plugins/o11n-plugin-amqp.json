@@ -1,9 +1,66 @@
 {
   "name": "AMQP",
+  "description": "API Reference for AMQP",
   "classes": [
     {
       "name": "AMQPBroker",
       "description": "AMQP Broker",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "User-friendly name of this broker",
+          "isReadonly": true
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "description": "Unique identifier of this broker",
+          "isReadonly": true
+        },
+        {
+          "name": "host",
+          "type": "String",
+          "description": "Host address of this broker",
+          "isReadonly": true
+        },
+        {
+          "name": "port",
+          "type": "int",
+          "description": "Port number of this broker",
+          "isReadonly": true
+        },
+        {
+          "name": "displayName",
+          "type": "String",
+          "description": "Display name of this broker, an extended version of the name property",
+          "isReadonly": true
+        },
+        {
+          "name": "username",
+          "type": "String",
+          "description": "User name for this broker",
+          "isReadonly": true
+        },
+        {
+          "name": "virtualHost",
+          "type": "String",
+          "description": "Virtual host of this broker",
+          "isReadonly": true
+        },
+        {
+          "name": "useSSL",
+          "type": "boolean",
+          "description": "Whether this broker uses SSL",
+          "isReadonly": true
+        },
+        {
+          "name": "acceptAllCertificates",
+          "type": "boolean",
+          "description": "Whether this broker accepts all certificates",
+          "isReadonly": true
+        }
+      ],
       "methods": [
         {
           "name": "remove",
@@ -107,104 +164,87 @@
           "parameters": "trigger: Trigger",
           "returnType": "Properties"
         }
-      ],
-      "attributes": [
+      ]
+    },
+    {
+      "name": "AMQPBrokerManager",
+      "description": "Manager that enables AMQP broker creation and configuration reload.",
+      "attributes": [],
+      "methods": [
         {
-          "name": "name",
-          "description": "User-friendly name of this broker",
-          "type": "String",
-          "isReadonly": true
-        },
-        {
-          "name": "id",
-          "description": "Unique identifier of this broker",
-          "type": "String",
-          "isReadonly": true
-        },
-        {
-          "name": "host",
-          "description": "Host address of this broker",
-          "type": "String",
-          "isReadonly": true
-        },
-        {
-          "name": "port",
-          "description": "Port number of this broker",
-          "type": "int",
-          "isReadonly": true
-        },
-        {
-          "name": "displayName",
-          "description": "Display name of this broker, an extended version of the name property",
-          "type": "String",
-          "isReadonly": true
-        },
-        {
-          "name": "username",
-          "description": "User name for this broker",
-          "type": "String",
-          "isReadonly": true
-        },
-        {
-          "name": "virtualHost",
-          "description": "Virtual host of this broker",
-          "type": "String",
-          "isReadonly": true
-        },
-        {
-          "name": "useSSL",
-          "description": "Whether this broker uses SSL",
-          "type": "boolean",
-          "isReadonly": true
-        },
-        {
-          "name": "acceptAllCertificates",
-          "description": "Whether this broker accepts all certificates",
-          "type": "boolean",
-          "isReadonly": true
+          "name": "addBroker",
+          "description": "Creates a new broker.",
+          "parameters": "props: Any",
+          "returnType": "AMQPBroker"
         }
       ]
     },
     {
       "name": "AMQPMessage",
       "description": "AMQP Message",
-      "methods": [],
       "attributes": [
         {
           "name": "properties",
-          "description": "Message properties",
           "type": "Properties",
+          "description": "Message properties",
           "isReadonly": false
         },
         {
           "name": "encoding",
-          "description": "Message encoding",
           "type": "String",
+          "description": "Message encoding",
           "isReadonly": false
         },
         {
           "name": "body",
-          "description": "Message body as byte array",
           "type": "Array/byte",
+          "description": "Message body as byte array",
           "isReadonly": false
         },
         {
           "name": "bodyAsText",
-          "description": "Message body as string",
           "type": "String",
+          "description": "Message body as string",
           "isReadonly": false
         },
         {
           "name": "headers",
-          "description": "Message headers",
           "type": "Properties",
+          "description": "Message headers",
           "isReadonly": false
         }
-      ]
+      ],
+      "methods": []
     },
     {
       "name": "AMQPSubscription",
       "description": "AMQP Subscription",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "User-friendly name of this subscription",
+          "isReadonly": true
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "description": "Unique identifier of this subscription",
+          "isReadonly": true
+        },
+        {
+          "name": "displayName",
+          "type": "String",
+          "description": "Display name of this subscription, an extended version of the name property",
+          "isReadonly": true
+        },
+        {
+          "name": "queues",
+          "type": "Array/String",
+          "description": "Array of the queue names to which this subscription is subscribed",
+          "isReadonly": true
+        }
+      ],
       "methods": [
         {
           "name": "OnMessage",
@@ -236,46 +276,7 @@
           "parameters": "",
           "returnType": "Properties"
         }
-      ],
-      "attributes": [
-        {
-          "name": "name",
-          "description": "User-friendly name of this subscription",
-          "type": "String",
-          "isReadonly": true
-        },
-        {
-          "name": "id",
-          "description": "Unique identifier of this subscription",
-          "type": "String",
-          "isReadonly": true
-        },
-        {
-          "name": "displayName",
-          "description": "Display name of this subscription, an extended version of the name property",
-          "type": "String",
-          "isReadonly": true
-        },
-        {
-          "name": "queues",
-          "description": "Array of the queue names to which this subscription is subscribed",
-          "type": "Array/String",
-          "isReadonly": true
-        }
       ]
-    },
-    {
-      "name": "AMQPBrokerManager",
-      "description": "Manager that enables AMQP broker creation and configuration reload.",
-      "methods": [
-        {
-          "name": "addBroker",
-          "description": "Creates a new broker.",
-          "parameters": "props: Any",
-          "returnType": "AMQPBroker"
-        }
-      ],
-      "attributes": []
     }
   ]
 }

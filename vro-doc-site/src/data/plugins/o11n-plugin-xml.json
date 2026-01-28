@@ -1,64 +1,11 @@
 {
   "name": "XML",
+  "description": "API Reference for XML",
   "classes": [
-    {
-      "name": "XMLManager",
-      "description": "Main class to create xml document parser",
-      "methods": [
-        {
-          "name": "newDocument",
-          "description": "(Static) Create a new Empty XML document",
-          "parameters": "",
-          "returnType": "XMLDocument"
-        },
-        {
-          "name": "loadDocument",
-          "description": "(Static) Deprecated. Use XMLManager.fromString instead. Get the document for a given path using the default character encoding",
-          "parameters": "path: String, validate: boolean",
-          "returnType": "XMLDocument"
-        },
-        {
-          "name": "loadDocumentWithEncoding",
-          "description": "(Static) Deprecated. Use XMLManager.fromString instead. Get the document for a given path using the specified character encoding",
-          "parameters": "path: String, encoding: String, validate: boolean",
-          "returnType": "XMLDocument"
-        },
-        {
-          "name": "fromString",
-          "description": "(Static) Get the document for a given string content",
-          "parameters": "stringContext: String",
-          "returnType": "XMLDocument"
-        },
-        {
-          "name": "saveDocument",
-          "description": "(Static) Deprecated. Return the content as string instead using getDocumentContent. Save the document to a given path using the default character encoding",
-          "parameters": "document: XMLDocument, path: String, systemDtD: String, publicDtD: String",
-          "returnType": "Object"
-        },
-        {
-          "name": "saveDocumentWithEncoding",
-          "description": "(Static) Deprecated. Return the content as string instead using getDocumentContent. Save the document to a given path using the default character encoding",
-          "parameters": "document: XMLDocument, path: String, encoding: String, systemDtD: String, publicDtD: String",
-          "returnType": "Object"
-        },
-        {
-          "name": "validateDocument",
-          "description": "(Static) Validate a document without saving it",
-          "parameters": "document: XMLDocument, systemDtD: String, publicDtD: String",
-          "returnType": "Object"
-        },
-        {
-          "name": "getDocumentContent",
-          "description": "(Static) Get the document as string",
-          "parameters": "document: XMLDocument",
-          "returnType": "string"
-        }
-      ],
-      "attributes": []
-    },
     {
       "name": "XMLDocument",
       "description": "XML document",
+      "attributes": [],
       "methods": [
         {
           "name": "getDocumentElement",
@@ -144,12 +91,25 @@
           "parameters": "",
           "returnType": "Object"
         }
-      ],
-      "attributes": []
+      ]
     },
     {
       "name": "XMLElement",
       "description": "Main Element",
+      "attributes": [
+        {
+          "name": "textContent",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "tagName",
+          "type": "string",
+          "description": "",
+          "isReadonly": true
+        }
+      ],
       "methods": [
         {
           "name": "getAttributes",
@@ -223,25 +183,112 @@
           "parameters": "",
           "returnType": "XMLNodeList"
         }
-      ],
-      "attributes": [
+      ]
+    },
+    {
+      "name": "XMLManager",
+      "description": "Main class to create xml document parser",
+      "attributes": [],
+      "methods": [
         {
-          "name": "textContent",
-          "description": "`string`",
-          "type": "No",
-          "isReadonly": false
+          "name": "newDocument",
+          "description": "(Static) Create a new Empty XML document",
+          "parameters": "",
+          "returnType": "XMLDocument"
         },
         {
-          "name": "tagName",
-          "description": "`string`",
-          "type": "Yes",
-          "isReadonly": false
+          "name": "loadDocument",
+          "description": "(Static) Deprecated. Use XMLManager.fromString instead. Get the document for a given path using the default character encoding",
+          "parameters": "path: String, validate: boolean",
+          "returnType": "XMLDocument"
+        },
+        {
+          "name": "loadDocumentWithEncoding",
+          "description": "(Static) Deprecated. Use XMLManager.fromString instead. Get the document for a given path using the specified character encoding",
+          "parameters": "path: String, encoding: String, validate: boolean",
+          "returnType": "XMLDocument"
+        },
+        {
+          "name": "fromString",
+          "description": "(Static) Get the document for a given string content",
+          "parameters": "stringContext: String",
+          "returnType": "XMLDocument"
+        },
+        {
+          "name": "saveDocument",
+          "description": "(Static) Deprecated. Return the content as string instead using getDocumentContent. Save the document to a given path using the default character encoding",
+          "parameters": "document: XMLDocument, path: String, systemDtD: String, publicDtD: String",
+          "returnType": "Object"
+        },
+        {
+          "name": "saveDocumentWithEncoding",
+          "description": "(Static) Deprecated. Return the content as string instead using getDocumentContent. Save the document to a given path using the default character encoding",
+          "parameters": "document: XMLDocument, path: String, encoding: String, systemDtD: String, publicDtD: String",
+          "returnType": "Object"
+        },
+        {
+          "name": "validateDocument",
+          "description": "(Static) Validate a document without saving it",
+          "parameters": "document: XMLDocument, systemDtD: String, publicDtD: String",
+          "returnType": "Object"
+        },
+        {
+          "name": "getDocumentContent",
+          "description": "(Static) Get the document as string",
+          "parameters": "document: XMLDocument",
+          "returnType": "string"
+        }
+      ]
+    },
+    {
+      "name": "XMLNamedNodeMap",
+      "description": "Node map, usually used for attributes of an element",
+      "attributes": [
+        {
+          "name": "length",
+          "type": "number",
+          "description": "list's length",
+          "isReadonly": true
+        }
+      ],
+      "methods": [
+        {
+          "name": "item",
+          "description": "Get child at index",
+          "parameters": "index: number",
+          "returnType": "XMLNode"
+        },
+        {
+          "name": "getNamedItem",
+          "description": "Retrieves a node specified by name.",
+          "parameters": "name: string",
+          "returnType": "XMLNode"
         }
       ]
     },
     {
       "name": "XMLNode",
       "description": "Node Element",
+      "attributes": [
+        {
+          "name": "nodeValue",
+          "type": "string",
+          "description": "The node value",
+          "isReadonly": false
+        },
+        {
+          "name": "nodeName",
+          "type": "string",
+          "description": "The node name",
+          "isReadonly": true
+        },
+        {
+          "name": "parentNode",
+          "type": "Object",
+          "description": "The parent node (XMLNode)",
+          "isReadonly": true
+        }
+      ],
       "methods": [
         {
           "name": "appendChild",
@@ -285,71 +332,25 @@
           "parameters": "",
           "returnType": "XMLNodeList"
         }
-      ],
-      "attributes": [
-        {
-          "name": "nodeValue",
-          "description": "The node value",
-          "type": "string",
-          "isReadonly": false
-        },
-        {
-          "name": "nodeName",
-          "description": "The node name",
-          "type": "string",
-          "isReadonly": true
-        },
-        {
-          "name": "parentNode",
-          "description": "The parent node (XMLNode)",
-          "type": "Object",
-          "isReadonly": true
-        }
-      ]
-    },
-    {
-      "name": "XMLNamedNodeMap",
-      "description": "Node map, usually used for attributes of an element",
-      "methods": [
-        {
-          "name": "item",
-          "description": "Get child at index",
-          "parameters": "index: number",
-          "returnType": "XMLNode"
-        },
-        {
-          "name": "getNamedItem",
-          "description": "Retrieves a node specified by name.",
-          "parameters": "name: string",
-          "returnType": "XMLNode"
-        }
-      ],
-      "attributes": [
-        {
-          "name": "length",
-          "description": "list's length",
-          "type": "number",
-          "isReadonly": true
-        }
       ]
     },
     {
       "name": "XMLNodeList",
       "description": "NodeList Element",
+      "attributes": [
+        {
+          "name": "length",
+          "type": "number",
+          "description": "list's length",
+          "isReadonly": true
+        }
+      ],
       "methods": [
         {
           "name": "item",
           "description": "Get child at index",
           "parameters": "index: number",
           "returnType": "Object"
-        }
-      ],
-      "attributes": [
-        {
-          "name": "length",
-          "description": "list's length",
-          "type": "number",
-          "isReadonly": true
         }
       ]
     }
