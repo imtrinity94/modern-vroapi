@@ -24,6 +24,10 @@
     "name": "Intrinsic / Core APIs"
   },
   {
+    "id": "o11n-plugin-jsonpath",
+    "name": "JSONPATH"
+  },
+  {
     "id": "o11n-plugin-mail",
     "name": "Mail"
   },

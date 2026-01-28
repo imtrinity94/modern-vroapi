@@ -63,7 +63,7 @@ async function scrapeClassPage(url: string): Promise<ScrapedClass> {
         const headerText = $(element).text().toLowerCase();
         const table = $(element).next('table');
 
-        if (headerText.includes('attributes')) {
+        if (headerText.includes('attributes') || headerText.includes('properties')) {
             table.find('tr').each((_, tr) => {
                 const tds = $(tr).find('td');
                 if (tds.length >= 2) {

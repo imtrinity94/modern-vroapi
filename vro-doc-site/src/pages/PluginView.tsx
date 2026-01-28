@@ -4,7 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import pluginIndex from '../data/index.json';
 import { useViewMode } from '../hooks/useUIState';
 import { ViewToggle } from '../components/UIToggles';
-import { Search, ChevronRight, FileCode, ArrowRight, List as ListIcon, Edit3 } from 'lucide-react';
+import { Search, ChevronRight, FileCode, ArrowRight, List as ListIcon, Edit3, Download } from 'lucide-react';
 
 interface ApiPlugin {
     name: string;
@@ -74,15 +74,33 @@ const PluginView: React.FC = () => {
                     <span className="text-slate-900 dark:text-slate-200 font-medium">{data?.name || pluginName}</span>
                 </nav>
 
-                <a
-                    href={`https://github.com/imtrinity94/modern-vroapi/blob/main/vro-doc-site/src/data/plugins/${pluginName}.json`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-xs font-semibold px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-lg transition-colors border border-slate-200 dark:border-slate-700 w-fit"
-                >
-                    <Edit3 size={14} />
-                    <span>Suggest Edit</span>
-                </a>
+                <div className="flex items-center gap-3">
+                    {/* Show Download Button if NOT In-Built */}
+                    {pluginMeta.tags && !pluginMeta.tags.includes('IN-BUILT') && (
+                        <a
+                            href={pluginMeta.downloadUrl || '#'}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`flex items-center gap-2 text-xs font-bold px-4 py-2 rounded-lg transition-colors border shadow-sm ${pluginMeta.tags.includes('3RD PARTY')
+                                ? 'bg-orange-50 dark:bg-orange-500/10 text-orange-700 dark:text-orange-400 border-orange-200 dark:border-orange-500/20 hover:bg-orange-100 dark:hover:bg-orange-500/20'
+                                : 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-500/20 hover:bg-emerald-100 dark:hover:bg-emerald-500/20'
+                                }`}
+                        >
+                            <Download size={14} />
+                            <span>Download Plugin</span>
+                        </a>
+                    )}
+
+                    <a
+                        href={`https://github.com/imtrinity94/modern-vroapi/blob/main/vro-doc-site/src/data/plugins/${pluginName}.json`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-xs font-semibold px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-lg transition-colors border border-slate-200 dark:border-slate-700 w-fit"
+                    >
+                        <Edit3 size={14} />
+                        <span>Suggest Edit</span>
+                    </a>
+                </div>
             </div>
 
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
@@ -95,9 +113,23 @@ const PluginView: React.FC = () => {
                         )}
                     </div>
                     <div>
-                        <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight break-all">
-                            {data.name}
-                        </h1>
+                        <div className="flex items-center gap-3">
+                            <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight break-all">
+                                {data.name}
+                            </h1>
+                            {pluginMeta.tags?.map(tag => {
+                                let tagColorClasses = "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400";
+                                if (tag === 'IN-BUILT') tagColorClasses = "bg-blue-100 text-blue-700 dark:bg-blue-500/10 dark:text-blue-400 border-blue-200 dark:border-blue-500/20";
+                                if (tag === 'CERTIFIED') tagColorClasses = "bg-emerald-100 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400 border-emerald-200 dark:border-emerald-500/20";
+                                if (tag === '3RD PARTY') tagColorClasses = "bg-orange-100 text-orange-700 dark:bg-orange-500/10 dark:text-orange-400 border-orange-200 dark:border-orange-500/20";
+
+                                return (
+                                    <span key={tag} className={`text-xs font-black uppercase tracking-wider px-2.5 py-1 rounded-md border ${tagColorClasses}`}>
+                                        {tag}
+                                    </span>
+                                );
+                            })}
+                        </div>
                         <div className="mt-3 flex items-center gap-4 text-slate-500 dark:text-slate-400 text-sm">
                             <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium border border-slate-200 dark:border-slate-700">
                                 <span className="w-2 h-2 rounded-full bg-emerald-500" />

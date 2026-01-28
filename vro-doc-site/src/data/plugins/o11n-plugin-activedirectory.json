@@ -5,7 +5,98 @@
       "name": "AdHost",
       "description": "",
       "methods": [],
-      "attributes": []
+      "attributes": [
+        {
+          "name": "alternativeHosts",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "connectTimeoutMillis",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "defaultDomain",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "followReferrals",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "host",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "ldapBase",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "loadBalancingMode",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "port",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "sharedUserName",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "subDomainAutoConnect",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "url",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "useSharedSession",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "useSSL",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
     },
     {
       "name": "AdPlugin",
@@ -17,43 +108,236 @@
       "name": "Attribute",
       "description": "",
       "methods": [],
-      "attributes": []
+      "attributes": [
+        {
+          "name": "name",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
     },
     {
       "name": "ComputerAD",
       "description": "",
       "methods": [],
-      "attributes": []
+      "attributes": [
+        {
+          "name": "distinguishedName",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "enabled",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "objectCategory",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "objectCategoryName",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
     },
     {
       "name": "Group",
       "description": "",
       "methods": [],
-      "attributes": []
+      "attributes": [
+        {
+          "name": "distinguishedName",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "objectCategory",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "objectCategoryName",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
     },
     {
       "name": "OrganizationalUnit",
       "description": "",
       "methods": [],
-      "attributes": []
+      "attributes": [
+        {
+          "name": "distinguishedName",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "objectCategory",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "objectCategoryName",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
     },
     {
       "name": "Unknown",
       "description": "",
       "methods": [],
-      "attributes": []
+      "attributes": [
+        {
+          "name": "distinguishedName",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "objectCategory",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "objectCategoryName",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
     },
     {
       "name": "User",
       "description": "",
       "methods": [],
-      "attributes": []
+      "attributes": [
+        {
+          "name": "accountName",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "distinguishedName",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "enabled",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "objectCategory",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "objectCategoryName",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
     },
     {
       "name": "UserGroup",
       "description": "",
       "methods": [],
-      "attributes": []
+      "attributes": [
+        {
+          "name": "distinguishedName",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "objectCategory",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "objectCategoryName",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        }
+      ]
     },
     {
       "name": "ActiveDirectory",
@@ -73,7 +357,7 @@
         },
         {
           "name": "getComputerAD",
-          "parameters": "String: computerName, AD_Host: adServer",
+          "parameters": "computerName: string, adServer: AD_Host",
           "returnType": "AD_Computer",
           "description": "Returns a computer when his exact name is given. If no computer found, returns null"
         },
@@ -85,7 +369,7 @@
         },
         {
           "name": "getDC",
-          "parameters": "AD_Host: adServer",
+          "parameters": "adServer: AD_Host",
           "returnType": "AD_Computer",
           "description": "Return the AD_Computer representing the Domain Conroller"
         },
@@ -103,13 +387,13 @@
         },
         {
           "name": "search",
-          "parameters": "String: type, String: query, AD_Host: adServer",
+          "parameters": "type: string, query: string, adServer: AD_Host",
           "returnType": "any[]",
           "description": "Search the active directory for a certain type of object"
         },
         {
           "name": "searchExactMatch",
-          "parameters": "String: type, String: objectName, Number: limit, AD_Host: adServer",
+          "parameters": "type: string, objectName: string, limit: number, adServer: AD_Host",
           "returnType": "any[]",
           "description": "Search the active directory for a certain type of object. Object will be returned only\r\nif the there is\r\nexact match."
         },
@@ -621,7 +905,7 @@
         },
         {
           "name": "searchComputer",
-          "parameters": "String: computerName",
+          "parameters": "computerName: string",
           "returnType": "AD_Computer",
           "description": "Get a computer by name"
         },
@@ -1953,25 +2237,25 @@
       "methods": [
         {
           "name": "equals",
-          "parameters": "LdapDN: dn",
+          "parameters": "dn: LdapDN",
           "returnType": "boolean",
           "description": "Indicates whether the provided object is equal to this DN. In order for the provided\r\nobject to be considered equal, it must be a non-null DN with the same set of RDN components."
         },
         {
           "name": "fromParentDn",
-          "parameters": "LdapRDN: rdn, LdapDN: parentDN",
+          "parameters": "rdn: LdapRDN, parentDN: LdapDN",
           "returnType": "LdapRDN",
           "description": "Creates a new DN below the provided parent DN with the given RDN."
         },
         {
           "name": "fromRdns",
-          "parameters": "LdapRDN[]: rdns",
+          "parameters": "rdns: LdapRDN[]",
           "returnType": "LdapRDN",
           "description": "Creates a new DN with the provided set of RDNs."
         },
         {
           "name": "fromString",
-          "parameters": "String: dnString",
+          "parameters": "dnString: string",
           "returnType": "LdapRDN",
           "description": "Creates a new DN from the provided string representation."
         },
@@ -2375,19 +2659,19 @@
       "methods": [
         {
           "name": "create",
-          "parameters": "String: filterString",
+          "parameters": "filterString: string",
           "returnType": "LdapFilter",
           "description": "Creates a new search filter from the provided string representation."
         },
         {
           "name": "encodeValue",
-          "parameters": "String: value",
+          "parameters": "value: string",
           "returnType": "string",
           "description": "Encodes the provided value into a form suitable for use as the assertion value in the\r\nstring representation of a search filter. Parentheses, asterisks, backslashes, null characters,\r\nand any non-ASCII characters will be escaped using a backslash before the hexadecimal\r\nrepresentation of each byte in the character to escape."
         },
         {
           "name": "encodeValueBytes",
-          "parameters": "Number[]: value",
+          "parameters": "value: Number[]",
           "returnType": "string",
           "description": "Encodes the provided value into a form suitable for use as the assertion value in the\r\nstring representation of a search filter. Parentheses, asterisks, backslashes, null characters,\r\nand any non-ASCII characters will be escaped using a backslash before the hexadecimal\r\nrepresentation of each byte in the character to escape."
         },
@@ -2412,7 +2696,7 @@
       "methods": [
         {
           "name": "fromString",
-          "parameters": "String: value",
+          "parameters": "value: string",
           "returnType": "LdapLoadBalancingMode",
           "description": "Create LdapLoadBalancingMode object from it's string representation."
         },
@@ -2585,19 +2869,19 @@
       "methods": [
         {
           "name": "equals",
-          "parameters": "LdapRDN: rdn",
+          "parameters": "rdn: LdapRDN",
           "returnType": "boolean",
           "description": "Indicates whether the provided object is equal to this RDN. The given object will only\r\nbe considered equal to this RDN if it is also an RDN with the same set of names and values."
         },
         {
           "name": "fromNameValue",
-          "parameters": "String: attributeName, String: attributeValue",
+          "parameters": "attributeName: string, attributeValue: string",
           "returnType": "LdapRDN",
           "description": "Creates a new single-valued RDN with the provided information."
         },
         {
           "name": "fromString",
-          "parameters": "String: rdnString",
+          "parameters": "rdnString: string",
           "returnType": "LdapRDN",
           "description": "Creates a new RDN from the provided string representation."
         },
@@ -2677,7 +2961,7 @@
       "methods": [
         {
           "name": "create",
-          "parameters": "String: baseDN, String: filter, LdapSearchScope: scope, String[]: attributes, LdapDereferencePolicy: derefPolicy, Number: sizeLimit, Number: timeLimit, boolean: typesOnly",
+          "parameters": "baseDN: string, filter: string, scope: LdapSearchScope, attributes: string[], derefPolicy: LdapDereferencePolicy, sizeLimit: number, timeLimit: number, typesOnly: boolean",
           "returnType": "LdapSearchRequest",
           "description": ""
         },

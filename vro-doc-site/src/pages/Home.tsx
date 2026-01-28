@@ -61,27 +61,41 @@ const Home: React.FC = () => {
                             <Link
                                 to={`/plugin/${plugin.id}`}
                                 key={plugin.id}
-                                className="group bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/80 border border-slate-200 dark:border-slate-800 hover:border-indigo-500/50 rounded-2xl p-6 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-indigo-500/10"
+                                className="group bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/80 border border-slate-200 dark:border-slate-800 hover:border-indigo-500/50 rounded-2xl p-6 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-indigo-500/10 flex flex-col h-full"
                             >
-                                <div className="flex items-center justify-between mb-4">
-                                    <div className={`${pluginMeta.image ? '' : 'p-2.5 rounded-xl'} bg-${color}-50 dark:bg-${color}-500/10 text-${color}-600 dark:text-${color}-400 group-hover:scale-110 transition-transform border border-${color}-100 dark:border-${color}-500/20 w-12 h-12 flex items-center justify-center overflow-hidden`}>
+                                <div className="flex items-start justify-between mb-4">
+                                    <div className={`${pluginMeta.image ? '' : 'p-2.5 rounded-xl'} bg-${color}-50 dark:bg-${color}-500/10 text-${color}-600 dark:text-${color}-400 group-hover:scale-110 transition-transform border border-${color}-100 dark:border-${color}-500/20 w-12 h-12 flex items-center justify-center overflow-hidden shrink-0`}>
                                         {pluginMeta.image ? (
                                             <img src={pluginMeta.image} alt={plugin.name} className="w-full h-full object-cover" />
                                         ) : (
                                             PluginIcon && <PluginIcon size={24} />
                                         )}
                                     </div>
-                                    <div className="text-slate-300 dark:text-slate-700 group-hover:text-indigo-500 transition-colors">
-                                        <ArrowRight size={20} />
+                                    <div className="flex flex-col items-end gap-2">
+                                        {pluginMeta.tags?.map(tag => {
+                                            let tagColorClasses = "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400";
+                                            if (tag === 'IN-BUILT') tagColorClasses = "bg-blue-100 text-blue-700 dark:bg-blue-500/10 dark:text-blue-400 border-blue-200 dark:border-blue-500/20";
+                                            if (tag === 'CERTIFIED') tagColorClasses = "bg-emerald-100 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400 border-emerald-200 dark:border-emerald-500/20";
+                                            if (tag === '3RD PARTY') tagColorClasses = "bg-orange-100 text-orange-700 dark:bg-orange-500/10 dark:text-orange-400 border-orange-200 dark:border-orange-500/20";
+
+                                            return (
+                                                <span key={tag} className={`text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded border ${tagColorClasses}`}>
+                                                    {tag}
+                                                </span>
+                                            );
+                                        })}
                                     </div>
                                 </div>
 
                                 <h2 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                                     {plugin.name}
                                 </h2>
-                                <p className="mt-2 text-slate-500 dark:text-slate-400 text-base line-clamp-2 leading-relaxed">
+                                <p className="mt-2 text-slate-500 dark:text-slate-400 text-base line-clamp-2 leading-relaxed flex-grow">
                                     Complete API reference for {plugin.name}.
                                 </p>
+                                <div className="mt-4 flex justify-end text-slate-300 dark:text-slate-700 group-hover:text-indigo-500 transition-colors">
+                                    <ArrowRight size={20} />
+                                </div>
                             </Link>
                         );
                     })}
@@ -99,16 +113,32 @@ const Home: React.FC = () => {
                                     className="flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group"
                                 >
                                     <div className="flex items-center gap-4">
-                                        <div className={`${pluginMeta.image ? 'p-0' : 'p-1.5'} rounded-lg bg-${color}-50 dark:bg-${color}-500/10 text-${color}-600 dark:text-${color}-400 group-hover:scale-105 transition-transform w-8 h-8 flex items-center justify-center overflow-hidden`}>
+                                        <div className={`${pluginMeta.image ? 'p-0' : 'p-1.5'} rounded-lg bg-${color}-50 dark:bg-${color}-500/10 text-${color}-600 dark:text-${color}-400 group-hover:scale-105 transition-transform w-8 h-8 flex items-center justify-center overflow-hidden shrink-0`}>
                                             {pluginMeta.image ? (
                                                 <img src={pluginMeta.image} alt={plugin.name} className="w-full h-full object-cover" />
                                             ) : (
                                                 PluginIcon && <PluginIcon size={18} />
                                             )}
                                         </div>
-                                        <span className="font-semibold text-slate-900 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">
-                                            {plugin.name}
-                                        </span>
+                                        <div>
+                                            <span className="font-semibold text-slate-900 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 block">
+                                                {plugin.name}
+                                            </span>
+                                        </div>
+                                        <div className="flex items-center gap-2 ml-2">
+                                            {pluginMeta.tags?.map(tag => {
+                                                let tagColorClasses = "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400";
+                                                if (tag === 'IN-BUILT') tagColorClasses = "bg-blue-100 text-blue-700 dark:bg-blue-500/10 dark:text-blue-400 border-blue-200 dark:border-blue-500/20";
+                                                if (tag === 'CERTIFIED') tagColorClasses = "bg-emerald-100 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400 border-emerald-200 dark:border-emerald-500/20";
+                                                if (tag === '3RD PARTY') tagColorClasses = "bg-orange-100 text-orange-700 dark:bg-orange-500/10 dark:text-orange-400 border-orange-200 dark:border-orange-500/20";
+
+                                                return (
+                                                    <span key={tag} className={`hidden md:inline-flex text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded border ${tagColorClasses}`}>
+                                                        {tag}
+                                                    </span>
+                                                );
+                                            })}
+                                        </div>
                                     </div>
                                     <ArrowRight size={16} className="text-slate-300 dark:text-slate-700 group-hover:text-indigo-500" />
                                 </Link>
