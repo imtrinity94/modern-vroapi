@@ -25,6 +25,7 @@ const PLUGIN_MAP: Record<string, string> = {
     'REST': 'o11n-plugin-rest',
     'SNMP': 'o11n-plugin-snmp',
     'SOAP': 'o11n-plugin-soap',
+    'SRM': 'o11n-plugin-srm',
     'SQL': 'o11n-plugin-sql',
     'SSH': 'o11n-plugin-ssh',
     'Support': 'o11n-plugin-support',

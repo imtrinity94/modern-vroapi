@@ -1,0 +1,1490 @@
+{
+  "name": "SRM",
+  "description": "API Reference for SRM",
+  "classes": [
+    {
+      "name": "SRMCommand",
+      "description": "Represents SRM Callout object",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "isPrePowerOnStep",
+          "type": "boolean",
+          "description": "Pre- or post-power on step",
+          "isReadonly": false
+        },
+        {
+          "name": "command",
+          "type": "String",
+          "description": "Command to run while running a recovery",
+          "isReadonly": false
+        },
+        {
+          "name": "timeout",
+          "type": "long",
+          "description": "Timeout",
+          "isReadonly": false
+        },
+        {
+          "name": "runInRecoveredVm",
+          "type": "boolean",
+          "description": "Execution target: SRM server or in-guest",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "SRMConfigurationSettings",
+      "description": "Represents the connection settings for the SRM plugin",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "deploymentId",
+          "type": "String",
+          "description": "Extension of the SRM server",
+          "isReadonly": false
+        },
+        {
+          "name": "maxConnections",
+          "type": "Integer",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "sessionTimeout",
+          "type": "Integer",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "connectTimeout",
+          "type": "Integer",
+          "description": "",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "SRMFactoryLifecycleManager",
+      "description": "",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "SRMFaultDomain",
+      "description": "Represents a vVol fault domain",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "deploymentId",
+          "type": "String",
+          "description": "Extension of the SRM server",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "SRMInventory",
+      "description": "Represents root of the inventory tree",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "deploymentId",
+          "type": "String",
+          "description": "Extension of the SRM server",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "SRMIpv4Spec",
+      "description": "IPv4 address definitions",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "address",
+          "type": "String",
+          "description": "Contains static address",
+          "isReadonly": false
+        },
+        {
+          "name": "gateways",
+          "type": "Array/Ljava.lang.String;",
+          "description": "Contains a list of gateways",
+          "isReadonly": false
+        },
+        {
+          "name": "subnetMask",
+          "type": "String",
+          "description": "Subnet mask",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "SRMIpv6Spec",
+      "description": "IPv6 address definitions",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "address",
+          "type": "String",
+          "description": "Contains static address",
+          "isReadonly": false
+        },
+        {
+          "name": "gateways",
+          "type": "Array/Ljava.lang.String;",
+          "description": "Contains a list of gateways",
+          "isReadonly": false
+        },
+        {
+          "name": "subnetPrefixLength",
+          "type": "int",
+          "description": "Subnet Prefix Length",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "SRMLocalDatacenter",
+      "description": "Represents Local Datacenter",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "path",
+          "type": "String",
+          "description": "Path to this Scripting Object",
+          "isReadonly": false
+        },
+        {
+          "name": "morType",
+          "type": "String",
+          "description": "Type of this Scripting Object",
+          "isReadonly": false
+        },
+        {
+          "name": "vcUriHost",
+          "type": "String",
+          "description": "VC of this Scripting Object",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "SRMLocalNetwork",
+      "description": "Represents Local Network",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "path",
+          "type": "String",
+          "description": "Path to this Scripting Object",
+          "isReadonly": false
+        },
+        {
+          "name": "morType",
+          "type": "String",
+          "description": "Type of this Scripting Object",
+          "isReadonly": false
+        },
+        {
+          "name": "vcUriHost",
+          "type": "String",
+          "description": "VC of this Scripting Object",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "SRMLocalResourcePool",
+      "description": "Represents Local ResourcePool",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "path",
+          "type": "String",
+          "description": "Path to this Scripting Object",
+          "isReadonly": false
+        },
+        {
+          "name": "morType",
+          "type": "String",
+          "description": "Type of this Scripting Object",
+          "isReadonly": false
+        },
+        {
+          "name": "vcUriHost",
+          "type": "String",
+          "description": "VC of this Scripting Object",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "SRMNetworkDevice",
+      "description": "Represents a VM network device",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "deploymentId",
+          "type": "String",
+          "description": "Extension of the SRM server",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "SRMNetworkIPCustomizationSpec",
+      "description": "Contains all data, needed to perform IP customization for a network mapping",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "localSubnet",
+          "type": "String",
+          "description": "Local subnet IP address",
+          "isReadonly": false
+        },
+        {
+          "name": "remoteSubnet",
+          "type": "String",
+          "description": "Remote subnet IP address",
+          "isReadonly": false
+        },
+        {
+          "name": "subnetPrefix",
+          "type": "int",
+          "description": "Subnet prefix number",
+          "isReadonly": false
+        },
+        {
+          "name": "gateway",
+          "type": "String",
+          "description": "Gateway IP address",
+          "isReadonly": false
+        },
+        {
+          "name": "dnsAddresses",
+          "type": "String",
+          "description": "List of DNS addresses separated by semicolon",
+          "isReadonly": false
+        },
+        {
+          "name": "dnsSuffixes",
+          "type": "String",
+          "description": "List of DNS suffixes separated by semicolon",
+          "isReadonly": false
+        },
+        {
+          "name": "primaryWinsServer",
+          "type": "String",
+          "description": "Primary WINS server IP address",
+          "isReadonly": false
+        },
+        {
+          "name": "secondaryWinsServer",
+          "type": "String",
+          "description": "Secondary WINS server IP address",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "SRMNicSpec",
+      "description": "Contains IP customization info for a specific network adapter",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "deviceId",
+          "type": "int",
+          "description": "Identifier of the virtual network device",
+          "isReadonly": false
+        },
+        {
+          "name": "ipv4Spec",
+          "type": "SRMIpv4Spec",
+          "description": "IP customization information for IPv4 address",
+          "isReadonly": false
+        },
+        {
+          "name": "ipv6Spec",
+          "type": "SRMIpv6Spec",
+          "description": "IP customization information for IPv6 address",
+          "isReadonly": false
+        },
+        {
+          "name": "dns",
+          "type": "Array/Ljava.lang.String;",
+          "description": "List of server IP addresses to use for DNS lookup",
+          "isReadonly": false
+        },
+        {
+          "name": "dnsSufix",
+          "type": "Array/Ljava.lang.String;",
+          "description": "DNS suffixes",
+          "isReadonly": false
+        },
+        {
+          "name": "wins",
+          "type": "Array/Ljava.lang.String;",
+          "description": "IP addresses of the primary and secondary WINS servers",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "SRMPlaceholderDatastore",
+      "description": "Represents a Placeholder Datastore",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "deploymentId",
+          "type": "String",
+          "description": "Extension of the SRM server",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "SRMPluginConfig",
+      "description": "Handles plugin connection configuration",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "refresh",
+          "description": "Refreshes cached information so the other workflow can see the new configuration",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "listUnassignedReplicatedDatastores",
+          "description": "",
+          "parameters": "deploymentId: String",
+          "returnType": "Array/com.vmware.srm.o11n.model.ScriptingObject"
+        },
+        {
+          "name": "listUnassignedReplicatedVms",
+          "description": "",
+          "parameters": "deploymentId: String",
+          "returnType": "Array/com.vmware.srm.o11n.model.ScriptingObject"
+        },
+        {
+          "name": "getSrmUrls",
+          "description": "",
+          "parameters": "host: String, port: int, path: String",
+          "returnType": "Array/String"
+        },
+        {
+          "name": "validateConnection",
+          "description": "Validate credetials for local site",
+          "parameters": "host: String, port: int, path: String, username: String, password: String",
+          "returnType": "void"
+        },
+        {
+          "name": "registerLocalSites",
+          "description": "Register local site information in SRM plugin configuration",
+          "parameters": "host: String, port: int, path: String, username: String, password: String",
+          "returnType": "void"
+        },
+        {
+          "name": "unregisterLocalSites",
+          "description": "Unregister local site information from SRM plugin configuration",
+          "parameters": "host: String",
+          "returnType": "void"
+        },
+        {
+          "name": "getAllRegisteredInstances",
+          "description": "",
+          "parameters": "",
+          "returnType": "Array/String"
+        },
+        {
+          "name": "listFaultDomains",
+          "description": "List Fault Domains",
+          "parameters": "deploymentId: String",
+          "returnType": "Array/SRMFaultDomain"
+        },
+        {
+          "name": "listUnprotectedReplicationGroupsInFaultDomain",
+          "description": "List Replication Groups within a Fault Domain",
+          "parameters": "deploymentId: String, faultDomainId: String",
+          "returnType": "Array/SRMReplicationGroup"
+        },
+        {
+          "name": "listVMsInVvolReplicationGroup",
+          "description": "List VMs in a vVol replication group",
+          "parameters": "replicationGroup: SRMReplicationGroup",
+          "returnType": "Array/SRMUnassignedReplicatedVm"
+        },
+        {
+          "name": "getConfigurationSettings",
+          "description": "Retrieves the current configuration settings",
+          "parameters": "",
+          "returnType": "SRMConfigurationSettings"
+        },
+        {
+          "name": "saveConfigurationSettings",
+          "description": "Saves the new configuration settings",
+          "parameters": "newConfigurationSettings: SRMConfigurationSettings",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "SRMPrompt",
+      "description": "Represents SRM Callout object",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "isPrePowerOnStep",
+          "type": "boolean",
+          "description": "Pre- or post-power on step",
+          "isReadonly": false
+        },
+        {
+          "name": "promptText",
+          "type": "String",
+          "description": "Message of the Callout",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "SRMProtectedDatastore",
+      "description": "Represents Datastores that are part of a ProtectionGroup",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "deploymentId",
+          "type": "String",
+          "description": "Extension of the SRM server",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "SRMProtectedVm",
+      "description": "Represents VMs that are part of a ProtectionGroup",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "deploymentId",
+          "type": "String",
+          "description": "Extension of the SRM server",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "SRMProtectionFolder",
+      "description": "Represents SRM ProtectionFolder object",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "deploymentId",
+          "type": "String",
+          "description": "Extension of the SRM server",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "createAbrGroup",
+          "description": "Create ABR protection group",
+          "parameters": "name: String, description: String, datastores: Array/SRMUnassignedReplicatedDatastore",
+          "returnType": "SRMProtectionGroup"
+        },
+        {
+          "name": "createHbrGroup",
+          "description": "Create HBR protection group",
+          "parameters": "name: String, description: String, vms: Array/SRMUnassignedReplicatedVm",
+          "returnType": "SRMProtectionGroup"
+        },
+        {
+          "name": "createVvolGroup",
+          "description": "Create VVol protection group",
+          "parameters": "name: String, description: String, replicationGroups: Array/SRMReplicationGroup",
+          "returnType": "SRMProtectionGroup"
+        },
+        {
+          "name": "createProtectionFolder",
+          "description": "Create a new folder with @this as root",
+          "parameters": "newFolderName: String",
+          "returnType": "void"
+        },
+        {
+          "name": "moveProtectionFolder",
+          "description": "Moves this folder to the destination folder",
+          "parameters": "destinationFolder: SRMProtectionFolder",
+          "returnType": "void"
+        },
+        {
+          "name": "destroyProtectionFolder",
+          "description": "Destroys this folder",
+          "parameters": "",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "SRMProtectionGroup",
+      "description": "Represents SRM ProtectionGroup object",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "deploymentId",
+          "type": "String",
+          "description": "Extension of the SRM server",
+          "isReadonly": false
+        },
+        {
+          "name": "replicationType",
+          "type": "String",
+          "description": "This protection group's replication type",
+          "isReadonly": true
+        }
+      ],
+      "methods": [
+        {
+          "name": "getRemoteDatacenters",
+          "description": "Return remote Datacenters in this protection group's Site",
+          "parameters": "",
+          "returnType": "Array/com.vmware.srm.o11n.model.ScriptingObject"
+        },
+        {
+          "name": "getRemoteNetworks",
+          "description": "Return remote Networks in this protection group's Site",
+          "parameters": "",
+          "returnType": "Array/com.vmware.srm.o11n.model.ScriptingObject"
+        },
+        {
+          "name": "getRemoteResourcePools",
+          "description": "Return remote Resource Pools in this protection group's Site",
+          "parameters": "",
+          "returnType": "Array/com.vmware.srm.o11n.model.ScriptingObject"
+        },
+        {
+          "name": "getVMNetworkDevices",
+          "description": "Return network devices for this VM",
+          "parameters": "vmId: String",
+          "returnType": "Array/com.vmware.srm.o11n.model.ScriptingObject"
+        },
+        {
+          "name": "removeProtectionGroup",
+          "description": "Remove this ProtectionGroup",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "protectVm",
+          "description": "Protect VM",
+          "parameters": "vmId: String",
+          "returnType": "void"
+        },
+        {
+          "name": "protectVmWithCustomInventoryMappings",
+          "description": "Protect VM with custom inventory mappings",
+          "parameters": "vmId: String, remoteFolder: SRMRemoteDatacenter, remoteNetwork: SRMRemoteNetwork, remoteResourcePool: SRMRemoteResourcePool, protectPerNetworkDevice: boolean, networkDevices: Array/SRMNetworkDevice, remoteNetworks: Array/SRMRemoteNetwork",
+          "returnType": "void"
+        },
+        {
+          "name": "protectAllVms",
+          "description": "Protect all VMs inside the group which can be protected",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "unprotectVm",
+          "description": "Unprotect VM",
+          "parameters": "vms: Array/SRMProtectedVm",
+          "returnType": "void"
+        },
+        {
+          "name": "getProtectedVm",
+          "description": "Return all ProtectedVms in this ProtectionGroup",
+          "parameters": "",
+          "returnType": "Array/SRMProtectedVm"
+        },
+        {
+          "name": "getProtectedDatastore",
+          "description": "Return all ProtectedDatastores in this ProtectionGroup",
+          "parameters": "",
+          "returnType": "Array/SRMProtectedDatastore"
+        },
+        {
+          "name": "updateGroupDatastore",
+          "description": "Update ProtectionGroup Datastore",
+          "parameters": "datastoresToRemove: Array/SRMProtectedDatastore, datastoresToAdd: Array/SRMUnassignedReplicatedDatastore",
+          "returnType": "void"
+        },
+        {
+          "name": "addReplicatedVmToVrGroup",
+          "description": "Add Replicated VM to this ProtectionGroup",
+          "parameters": "vm: SRMUnassignedReplicatedVm",
+          "returnType": "void"
+        },
+        {
+          "name": "removeReplicatedVmFromVrGroup",
+          "description": "Remove Replicated VM From VR Group",
+          "parameters": "vmId: String",
+          "returnType": "void"
+        },
+        {
+          "name": "getReplicationGroupsInVvolGroup",
+          "description": "Return all vVol protection groups in this ProtectionGroup",
+          "parameters": "",
+          "returnType": "Array/SRMReplicationGroup"
+        },
+        {
+          "name": "moveProtectionGroup",
+          "description": "Move this group to the destination folder",
+          "parameters": "destinationFolder: SRMProtectionFolder",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "SRMRecoveryFolder",
+      "description": "Represents SRM RecoveryFolder object",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "deploymentId",
+          "type": "String",
+          "description": "Extension of the SRM server",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "createRecoveryPlan",
+          "description": "Create recovery plan",
+          "parameters": "name: String, description: String, groups: Array/SRMProtectionGroup",
+          "returnType": "SRMRecoveryPlan"
+        },
+        {
+          "name": "createRecoveryFolder",
+          "description": "Create a new folder with @this as root",
+          "parameters": "newFolderName: String",
+          "returnType": "void"
+        },
+        {
+          "name": "moveRecoveryFolder",
+          "description": "Moves this folder to the destination folder",
+          "parameters": "destinationFolder: SRMRecoveryFolder",
+          "returnType": "void"
+        },
+        {
+          "name": "destroyRecoveryFolder",
+          "description": "Destroys this folder",
+          "parameters": "",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "SRMRecoveryPlan",
+      "description": "Represents SRM RecoveryPlan object",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "deploymentId",
+          "type": "String",
+          "description": "Extension of the SRM server",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "getRemoteNetworks",
+          "description": "Return remote Networks in this Site",
+          "parameters": "",
+          "returnType": "Array/com.vmware.srm.o11n.model.ScriptingObject"
+        },
+        {
+          "name": "getRecoverySettings",
+          "description": "Return RecoverySettings of this RecoveryPlan",
+          "parameters": "vmId: String",
+          "returnType": "SRMRecoverySettings"
+        },
+        {
+          "name": "setRecoverySettings",
+          "description": "Set RecoverySettings of this RecoveryPlan",
+          "parameters": "vmId: String, settings: SRMRecoverySettings",
+          "returnType": "void"
+        },
+        {
+          "name": "deleteRecoveryPlan",
+          "description": "Delete this Recovery Plan",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "addProtectionGroup",
+          "description": "Add ProtectionGroups to this RecoveryPlan",
+          "parameters": "protectionGroup: SRMProtectionGroup",
+          "returnType": "void"
+        },
+        {
+          "name": "deleteCallouts",
+          "description": "Delete Callouts of this RecoveryPlan",
+          "parameters": "vmId: String, commands: Array/SRMCommand, prompts: Array/SRMPrompt",
+          "returnType": "void"
+        },
+        {
+          "name": "getCurrentState",
+          "description": "Return the current state of this RecoveryPlan",
+          "parameters": "",
+          "returnType": "String"
+        },
+        {
+          "name": "testRecoveryPlan",
+          "description": "Run test recovery for this RecoveryPlan",
+          "parameters": "syncData: boolean",
+          "returnType": "void"
+        },
+        {
+          "name": "migrateRecoveryPlan",
+          "description": "Run planned migration for this RecoveryPlan",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "failoverRecoveryPlan",
+          "description": "Run failover recovery for this RecoveryPlan",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "cleanupRecoveryPlan",
+          "description": "Run cleanup for this RecoveryPlan",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "reprotectRecoveryPlan",
+          "description": "Run reprotect for this RecoveryPlan",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "cancelRecoveryPlan",
+          "description": "Run cancel for this RecoveryPlan",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "addTestNetworkMappingToPlan",
+          "description": "Add TestNetworkMapping to this RecoveryPlan",
+          "parameters": "remote: SRMRemoteNetwork, testNetwork: SRMRemoteNetwork",
+          "returnType": "void"
+        },
+        {
+          "name": "removeTestNetworkMappingFromPlan",
+          "description": "Remove TestNetworkMapping from this RecoveryPlan",
+          "parameters": "remote: SRMRemoteNetwork",
+          "returnType": "void"
+        },
+        {
+          "name": "moveRecoveryPlan",
+          "description": "Move this plan to the destination folder",
+          "parameters": "destinationFolder: SRMRecoveryFolder",
+          "returnType": "void"
+        },
+        {
+          "name": "getProtectionGroups",
+          "description": "Return all ProtectionGroups in this RecoveryPlan",
+          "parameters": "",
+          "returnType": "Array/SRMProtectionGroup"
+        },
+        {
+          "name": "removeProtectionGroup",
+          "description": "Remove ProtectionGroup from this RecoveryPlan",
+          "parameters": "protectionGroup: SRMProtectionGroup",
+          "returnType": "void"
+        },
+        {
+          "name": "getProtectedVm",
+          "description": "Return all ProtectedVms in this RecoveryPlan",
+          "parameters": "",
+          "returnType": "Array/SRMProtectedVm"
+        }
+      ]
+    },
+    {
+      "name": "SRMRecoveryPriority",
+      "description": "Represents PriorityGroup",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "get",
+          "description": "(Static) null",
+          "parameters": "id: String",
+          "returnType": "SRMRecoveryPriority"
+        }
+      ]
+    },
+    {
+      "name": "SRMRecoverySettings",
+      "description": "Represents SRM RecoverySettings object",
+      "attributes": [
+        {
+          "name": "priorityGroup",
+          "type": "SRMRecoveryPriority",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "powerState",
+          "type": "SRMVirtualMachinePowerState",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "command",
+          "type": "Array/Lcom.vmware.srm.o11n.model.Command;",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "prompt",
+          "type": "Array/Lcom.vmware.srm.o11n.model.Prompt;",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "vmIpCustomizationData",
+          "type": "SRMVmIpCustomizationSpec",
+          "description": "",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "SRMRemoteDatacenter",
+      "description": "Represents Remote Datacenter",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "path",
+          "type": "String",
+          "description": "Path to this Scripting Object",
+          "isReadonly": false
+        },
+        {
+          "name": "morType",
+          "type": "String",
+          "description": "Type of this Scripting Object",
+          "isReadonly": false
+        },
+        {
+          "name": "vcUriHost",
+          "type": "String",
+          "description": "VC of this Scripting Object",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "SRMRemoteNetwork",
+      "description": "Represents Local Network",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "path",
+          "type": "String",
+          "description": "Path to this Scripting Object",
+          "isReadonly": false
+        },
+        {
+          "name": "morType",
+          "type": "String",
+          "description": "Type of this Scripting Object",
+          "isReadonly": false
+        },
+        {
+          "name": "vcUriHost",
+          "type": "String",
+          "description": "VC of this Scripting Object",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "SRMRemoteResourcePool",
+      "description": "Represents Remote ResourcePool",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "path",
+          "type": "String",
+          "description": "Path to this Scripting Object",
+          "isReadonly": false
+        },
+        {
+          "name": "morType",
+          "type": "String",
+          "description": "Type of this Scripting Object",
+          "isReadonly": false
+        },
+        {
+          "name": "vcUriHost",
+          "type": "String",
+          "description": "VC of this Scripting Object",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "SRMReplicationGroup",
+      "description": "Represents a replication group within a fault domain",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "deploymentId",
+          "type": "String",
+          "description": "Extension of the SRM server",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "SRMScriptingObjectTask",
+      "description": "Represents Scripting Object Task",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "getState",
+          "description": "",
+          "parameters": "",
+          "returnType": "String"
+        },
+        {
+          "name": "getErrorMessage",
+          "description": "",
+          "parameters": "",
+          "returnType": "String"
+        }
+      ]
+    },
+    {
+      "name": "SRMSite",
+      "description": "Represents SRM Site object",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "deploymentId",
+          "type": "String",
+          "description": "Extension of the SRM server",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "login",
+          "description": "Login SRM site via user and password",
+          "parameters": "username: String, password: String",
+          "returnType": "void"
+        },
+        {
+          "name": "discoverDevices",
+          "description": "Discover Replicated Devices",
+          "parameters": "",
+          "returnType": "SRMScriptingObjectTask"
+        },
+        {
+          "name": "addFolderMapping",
+          "description": "Create folder mapping",
+          "parameters": "local: SRMLocalDatacenter, remote: SRMRemoteDatacenter",
+          "returnType": "void"
+        },
+        {
+          "name": "addNetworkMapping",
+          "description": "Create network mapping",
+          "parameters": "local: SRMLocalNetwork, remote: SRMRemoteNetwork",
+          "returnType": "void"
+        },
+        {
+          "name": "addTestNetworkMapping",
+          "description": "Create test network mapping",
+          "parameters": "remote: SRMRemoteNetwork, testNetwork: SRMRemoteNetwork",
+          "returnType": "void"
+        },
+        {
+          "name": "removeFolderMapping",
+          "description": "Remove folder mapping",
+          "parameters": "local: SRMLocalDatacenter",
+          "returnType": "void"
+        },
+        {
+          "name": "removeNetworkMapping",
+          "description": "Remove network mapping",
+          "parameters": "local: SRMLocalNetwork",
+          "returnType": "void"
+        },
+        {
+          "name": "removeTestNetworkMapping",
+          "description": "Remove test network mapping",
+          "parameters": "remote: SRMRemoteNetwork",
+          "returnType": "void"
+        },
+        {
+          "name": "getNetworkMappings",
+          "description": "Returns all NetworkMappings in this Site",
+          "parameters": "",
+          "returnType": "Array/SRMLocalNetwork"
+        },
+        {
+          "name": "getTestNetworkMappings",
+          "description": "Returns all TestNetworkMappings in this Site",
+          "parameters": "",
+          "returnType": "Array/SRMRemoteNetwork"
+        },
+        {
+          "name": "getResourcePoolMappings",
+          "description": "Returns all ResourcePoolMappings in this Site",
+          "parameters": "",
+          "returnType": "Array/SRMLocalResourcePool"
+        },
+        {
+          "name": "getLocalDatacenters",
+          "description": "Return local Datacenters in this Site",
+          "parameters": "",
+          "returnType": "Array/com.vmware.srm.o11n.model.ScriptingObject"
+        },
+        {
+          "name": "getRemoteDatacenters",
+          "description": "Return remote Datacenters in this Site",
+          "parameters": "",
+          "returnType": "Array/com.vmware.srm.o11n.model.ScriptingObject"
+        },
+        {
+          "name": "getLocalNetworks",
+          "description": "Return local Networks in this Site",
+          "parameters": "",
+          "returnType": "Array/com.vmware.srm.o11n.model.ScriptingObject"
+        },
+        {
+          "name": "getRemoteNetworks",
+          "description": "Return remote Networks in this Site",
+          "parameters": "",
+          "returnType": "Array/com.vmware.srm.o11n.model.ScriptingObject"
+        },
+        {
+          "name": "getLocalResourcePools",
+          "description": "Return local Resource Pools in this Site",
+          "parameters": "",
+          "returnType": "Array/com.vmware.srm.o11n.model.ScriptingObject"
+        },
+        {
+          "name": "getRemoteResourcePools",
+          "description": "Return remote Resource Pools in this Site",
+          "parameters": "",
+          "returnType": "Array/com.vmware.srm.o11n.model.ScriptingObject"
+        },
+        {
+          "name": "getPlaceholderDatastores",
+          "description": "Get all Placeholder Datastores",
+          "parameters": "",
+          "returnType": "Array/com.vmware.srm.o11n.model.ScriptingObject"
+        },
+        {
+          "name": "getRemoteLsUrl",
+          "description": "URL of the remote lookup service",
+          "parameters": "",
+          "returnType": "String"
+        },
+        {
+          "name": "getRemoteVcUrl",
+          "description": "URL of the remote VC",
+          "parameters": "",
+          "returnType": "String"
+        },
+        {
+          "name": "addResourceMapping",
+          "description": "Create resource mapping",
+          "parameters": "local: SRMLocalResourcePool, remote: SRMRemoteResourcePool",
+          "returnType": "void"
+        },
+        {
+          "name": "removeResourceMapping",
+          "description": "Remove resource mapping",
+          "parameters": "local: SRMLocalResourcePool",
+          "returnType": "void"
+        },
+        {
+          "name": "getProtectionGroups",
+          "description": "Returns all ProtectionGroups in this Site",
+          "parameters": "",
+          "returnType": "Array/SRMProtectionGroup"
+        },
+        {
+          "name": "getRecoveryPlans",
+          "description": "Returns all RecoveryPlans in this Site",
+          "parameters": "",
+          "returnType": "Array/SRMRecoveryPlan"
+        },
+        {
+          "name": "getNetworkMappingPairs",
+          "description": "Returns all NetworkMapping pairs in this Site",
+          "parameters": "",
+          "returnType": "Array/java.util.List"
+        },
+        {
+          "name": "getTestNetworkMappingPairs",
+          "description": "Returns all TestNetworkMapping pairs in this Site",
+          "parameters": "",
+          "returnType": "Array/java.util.List"
+        },
+        {
+          "name": "getResourcePoolMappingPairs",
+          "description": "Returns all ResourcePoolMapping pairs in this Site",
+          "parameters": "",
+          "returnType": "Array/java.util.List"
+        },
+        {
+          "name": "getDatacenterMappings",
+          "description": "Returns all DatacenterMappings in this Site",
+          "parameters": "",
+          "returnType": "Array/SRMLocalDatacenter"
+        },
+        {
+          "name": "getDatacenterMappingPairs",
+          "description": "Returns all DatacenterMapping pairs in this Site",
+          "parameters": "",
+          "returnType": "Array/java.util.List"
+        },
+        {
+          "name": "getProtectionRootFolder",
+          "description": "Return protection root folder in this Site",
+          "parameters": "",
+          "returnType": "SRMProtectionFolder"
+        },
+        {
+          "name": "getRecoveryRootFolder",
+          "description": "Return recovery root folder in this Site",
+          "parameters": "",
+          "returnType": "SRMRecoveryFolder"
+        },
+        {
+          "name": "addIpCustomization",
+          "description": "Add IP customization",
+          "parameters": "local: SRMLocalNetwork, ipCustomizationSpec: SRMNetworkIPCustomizationSpec",
+          "returnType": "void"
+        },
+        {
+          "name": "removeIpCustomization",
+          "description": "Remove IP customization",
+          "parameters": "local: SRMLocalNetwork",
+          "returnType": "void"
+        },
+        {
+          "name": "addPlaceHolderDatastores",
+          "description": "Assigns the supplied datastores as Placeholder Datastores",
+          "parameters": "datastores: java.util.List",
+          "returnType": "void"
+        },
+        {
+          "name": "getUnreplicatedDatastores",
+          "description": "Get all datastores suitable for Placeholder Datastores",
+          "parameters": "",
+          "returnType": "Array/com.vmware.srm.o11n.model.ScriptingObject"
+        },
+        {
+          "name": "removePlaceHolderDatastores",
+          "description": "Removes the supplied datastores from the placeholder datastores pool",
+          "parameters": "datastores: java.util.List",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "SRMUnassignedReplicatedDatastore",
+      "description": "Represents Unassigned Replicated Datastore",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "deploymentId",
+          "type": "String",
+          "description": "Extension of the SRM server",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "SRMUnassignedReplicatedVm",
+      "description": "Represents Unassigned Replicated Vm",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "deploymentId",
+          "type": "String",
+          "description": "Extension of the SRM server",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "SRMUnreplicatedDatastore",
+      "description": "Represents an Unreplicated Datastore",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "deploymentId",
+          "type": "String",
+          "description": "Extension of the SRM server",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "SRMVirtualMachinePowerState",
+      "description": "Represents final power state for this VirtualMachine after recovery",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "get",
+          "description": "(Static) null",
+          "parameters": "id: String",
+          "returnType": "SRMVirtualMachinePowerState"
+        }
+      ]
+    },
+    {
+      "name": "SRMVmIpCustomizationSpec",
+      "description": "Contains all data, needed to perform IP customization for a virtual machine",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Display name of this Object",
+          "isReadonly": false
+        },
+        {
+          "name": "ipCustomizationMode",
+          "type": "String",
+          "description": "IP customization mode",
+          "isReadonly": false
+        },
+        {
+          "name": "protNic",
+          "type": "Array/Lcom.vmware.srm.o11n.model.NicSpec;",
+          "description": "IP customization data for protection site",
+          "isReadonly": false
+        },
+        {
+          "name": "recNic",
+          "type": "Array/Lcom.vmware.srm.o11n.model.NicSpec;",
+          "description": "IP customization data for recovery site",
+          "isReadonly": false
+        },
+        {
+          "name": "isWindowsOs",
+          "type": "boolean",
+          "description": "If VM OS is windows or not",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    }
+  ]
+}

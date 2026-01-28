@@ -33,6 +33,7 @@ export const PLUGIN_META: Record<string, PluginMetadata> = {
     'o11n-plugin-rest': { icon: Globe, color: 'green', tags: ['IN-BUILT', 'CERTIFIED'] },
     'o11n-plugin-snmp': { icon: Activity, color: 'orange', tags: ['IN-BUILT', 'CERTIFIED'] },
     'o11n-plugin-soap': { icon: FileCode, color: 'indigo', tags: ['IN-BUILT', 'CERTIFIED'] },
+    'o11n-plugin-srm': { image: `${import.meta.env.BASE_URL}icons/srm.png`, color: 'blue', tags: ['IN-BUILT', 'CERTIFIED'] },
     'o11n-plugin-sql': { icon: Database, color: 'blue', tags: ['IN-BUILT', 'CERTIFIED'] },
     'o11n-plugin-ssh': { icon: Key, color: 'slate', tags: ['IN-BUILT', 'CERTIFIED'] },
     'o11n-plugin-support': { icon: Activity, color: 'pink', tags: ['IN-BUILT', 'CERTIFIED'] },

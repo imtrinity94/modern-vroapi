@@ -53,11 +53,7 @@
   },
   {
     "id": "o11n-plugin-net",
-    "name": "Networking"
-  },
-  {
-    "id": "o11n-plugin-vco",
-    "name": "Orchestrator Utils"
+    "name": "Net"
   },
   {
     "id": "o11n-plugin-powershell",
@@ -70,6 +66,10 @@
   {
     "id": "o11n-plugin-rest",
     "name": "REST API"
+  },
+  {
+    "id": "o11n-plugin-srm",
+    "name": "Site Recovery Manager"
   },
   {
     "id": "o11n-plugin-snmp",
@@ -110,6 +110,10 @@
   {
     "id": "o11n-plugin-vra",
     "name": "vRealize Automation"
+  },
+  {
+    "id": "o11n-plugin-vco",
+    "name": "vRO Multi-Node"
   },
   {
     "id": "o11n-plugin-vsan",
