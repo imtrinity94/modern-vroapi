@@ -32,6 +32,10 @@
     "name": "Dynamic Types"
   },
   {
+    "id": "o11n-plugin-f5",
+    "name": "F5 BIG-IP"
+  },
+  {
     "id": "o11n-core",
     "name": "Intrinsic / Core APIs"
   },
@@ -41,15 +45,11 @@
   },
   {
     "id": "o11n-plugin-lenovo",
-    "name": "Lenovo"
+    "name": "Lenovo XClarity Integrator"
   },
   {
     "id": "o11n-plugin-mail",
     "name": "Mail"
-  },
-  {
-    "id": "o11n-plugin-mqtt",
-    "name": "MQTT"
   },
   {
     "id": "o11n-plugin-net",

@@ -29,7 +29,7 @@ const ClassView: React.FC = () => {
             const part = p.trim();
             if (part.includes(':')) {
                 const [pName, pType] = part.split(':').map(s => s.trim());
-                return `${pName} <${pType}>`;
+                return `${pType} ${pName}`;
             }
             return part;
         }).join(', ');
@@ -111,14 +111,14 @@ const ClassView: React.FC = () => {
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 text-xs font-bold uppercase tracking-wider border border-indigo-100 dark:border-indigo-500/20">
                                 <Box size={14} /> Class Definition
                             </div>
-                            <h1 className="text-4xl md:text-5xl font-mono font-extrabold text-slate-900 dark:text-white leading-tight">
+                            <h1 className="text-2xl md:text-3xl font-mono font-extrabold text-slate-900 dark:text-white leading-tight">
                                 {classData.name}
                             </h1>
                         </div>
                     </div>
                 </div>
                 <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border-l-4 border-indigo-500 shadow-sm border border-slate-200 dark:border-slate-800">
-                    <p className="text-slate-700 dark:text-slate-300 text-xl leading-relaxed">
+                    <p className="text-slate-700 dark:text-slate-300 text-base leading-relaxed">
                         {classData.description || 'No detailed documentation available for this class.'}
                     </p>
                 </div>
@@ -143,9 +143,9 @@ const ClassView: React.FC = () => {
                             <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
                                 {classData.attributes.map((attr) => (
                                     <tr key={attr.name} className="hover:bg-slate-50 dark:hover:bg-indigo-500/[0.02] transition-colors group">
-                                        <td className="p-4 font-mono font-bold text-indigo-600 dark:text-indigo-300 text-lg">{attr.name}</td>
-                                        <td className="p-4 font-mono text-emerald-600 dark:text-emerald-400 text-lg whitespace-nowrap">{attr.type}</td>
-                                        <td className="p-4 text-slate-600 dark:text-slate-400 text-base leading-relaxed">{attr.description}</td>
+                                        <td className="p-4 font-mono font-bold text-indigo-600 dark:text-indigo-300 text-base">{attr.name}</td>
+                                        <td className="p-4 font-mono text-emerald-600 dark:text-emerald-400 text-base whitespace-nowrap">{attr.type}</td>
+                                        <td className="p-4 text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{attr.description}</td>
                                         <td className="p-4 text-center align-middle">
                                             {attr.isReadonly ? (
                                                 <span className="text-xs font-bold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-500/10 px-2 py-1 rounded">Yes</span>
@@ -198,7 +198,7 @@ const ClassView: React.FC = () => {
                                 <div key={method.name} className="group flex flex-col md:flex-row bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl hover:border-indigo-500/50 transition-all shadow-sm overflow-hidden">
                                     <div className="md:w-1/3 p-5 bg-slate-50 dark:bg-slate-800/30 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800 relative group">
                                         <div className="flex items-start justify-between gap-2">
-                                            <h4 className="font-mono font-bold text-indigo-600 dark:text-indigo-400 text-xl break-all group-hover:text-indigo-500">{method.name}</h4>
+                                            <h4 className="font-mono font-bold text-indigo-600 dark:text-indigo-400 text-lg break-all group-hover:text-indigo-500">{method.name}</h4>
                                             <button
                                                 onClick={() => handleCopy(method)}
                                                 className={`p-1.5 rounded-md transition-all ${copiedMethod === method.name
@@ -210,20 +210,20 @@ const ClassView: React.FC = () => {
                                                 {copiedMethod === method.name ? <Check size={14} /> : <Copy size={14} />}
                                             </button>
                                         </div>
-                                        <div className="mt-3 text-sm font-black uppercase tracking-wider text-slate-400 dark:text-slate-600">Return Type</div>
-                                        <div className="font-mono text-base text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-500/10 border border-orange-200 dark:border-orange-500/20 px-3 py-1 rounded inline-block mt-2 truncate">{method.returnType}</div>
+                                        <div className="mt-3 text-xs font-black uppercase tracking-wider text-slate-400 dark:text-slate-600">Return Type</div>
+                                        <div className="font-mono text-sm text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-500/10 border border-orange-200 dark:border-orange-500/20 px-3 py-1 rounded inline-block mt-2 truncate">{method.returnType}</div>
                                     </div>
                                     <div className="flex-1 p-5 space-y-3">
                                         <div className="flex gap-2">
                                             <div className="min-w-[14px] pt-1 text-slate-300 dark:text-slate-600"><ChevronRight size={14} /></div>
-                                            <p className="text-slate-700 dark:text-slate-300 text-base leading-relaxed">
+                                            <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
                                                 {method.description || 'No method documentation.'}
                                             </p>
                                         </div>
                                         {method.parameters && (
                                             <div className="ml-6 p-5 rounded-xl bg-slate-50 dark:bg-black/20 border border-slate-100 dark:border-slate-800">
-                                                <div className="text-sm font-black tracking-widest text-slate-400 dark:text-slate-600 uppercase mb-3">Parameters</div>
-                                                <div className="font-mono text-base text-emerald-600 dark:text-emerald-500 leading-normal">{method.parameters}</div>
+                                                <div className="text-xs font-black tracking-widest text-slate-400 dark:text-slate-600 uppercase mb-3">Parameters</div>
+                                                <div className="font-mono text-sm text-emerald-600 dark:text-emerald-500 leading-normal">{method.parameters}</div>
                                             </div>
                                         )}
                                     </div>
@@ -246,7 +246,7 @@ const ClassView: React.FC = () => {
                                         <tr key={method.name} className="hover:bg-slate-50 dark:hover:bg-indigo-500/[0.02] transition-colors group">
                                             <td className="p-4 align-top whitespace-nowrap">
                                                 <div className="flex items-center gap-3">
-                                                    <span className="font-mono font-bold text-indigo-600 dark:text-indigo-400 text-lg">{method.name}</span>
+                                                    <span className="font-mono font-bold text-indigo-600 dark:text-indigo-400 text-base">{method.name}</span>
                                                     <button
                                                         onClick={() => handleCopy(method)}
                                                         className={`p-1 rounded-md transition-all ${copiedMethod === method.name
@@ -260,14 +260,14 @@ const ClassView: React.FC = () => {
                                                 </div>
                                             </td>
                                             <td className="p-4 align-top whitespace-nowrap">
-                                                <span className="font-mono text-base text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-500/10 border border-orange-200 dark:border-orange-500/20 px-2 py-0.5 rounded inline-block">{method.returnType}</span>
+                                                <span className="font-mono text-sm text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-500/10 border border-orange-200 dark:border-orange-500/20 px-2 py-0.5 rounded inline-block">{method.returnType}</span>
                                             </td>
                                             <td className="p-4 align-top max-w-sm">
-                                                <div className="font-mono text-base text-emerald-600 dark:text-emerald-500 leading-normal break-words">
+                                                <div className="font-mono text-sm text-emerald-600 dark:text-emerald-500 leading-normal break-words">
                                                     {method.parameters || '-'}
                                                 </div>
                                             </td>
-                                            <td className="p-4 text-slate-600 dark:text-slate-400 text-base leading-relaxed align-top min-w-[300px]">
+                                            <td className="p-4 text-slate-600 dark:text-slate-400 text-sm leading-relaxed align-top min-w-[300px]">
                                                 {method.description || 'No documentation.'}
                                             </td>
                                         </tr>

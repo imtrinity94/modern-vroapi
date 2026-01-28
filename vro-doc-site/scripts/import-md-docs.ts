@@ -16,6 +16,7 @@ const PLUGIN_MAP: Record<string, string> = {
     'Configurator': 'o11n-plugin-configurator',
     'Crypto': 'o11n-plugin-crypto',
     'DynamicTypes': 'o11n-plugin-dynamictypes',
+    'F5': 'o11n-plugin-f5',
     'Lenovo': 'o11n-plugin-lenovo',
     'Mail': 'o11n-plugin-mail',
     'Net': 'o11n-plugin-net',
