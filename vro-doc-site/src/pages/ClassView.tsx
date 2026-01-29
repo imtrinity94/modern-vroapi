@@ -13,7 +13,13 @@ interface ApiClass {
 }
 
 const ClassView: React.FC = () => {
-    const { pluginName, className } = useParams<{ pluginName: string; className: string }>();
+    const { pluginName, className, versionId } = useParams<{ pluginName: string; className: string; versionId?: string }>();
+    const pluginEntry = useMemo(() =>
+        (pluginIndex as any[]).find(p => p.id === pluginName),
+        [pluginName]);
+
+    // Use versionId from URL, or fallback to the latest version's ID
+    const activeVersionId = versionId || (pluginEntry?.versions ? pluginEntry.versions[0].id : pluginName);
     const pluginMeta = useMemo(() => getPluginMeta(pluginName || ''), [pluginName]);
     const { icon: PluginIcon, color } = pluginMeta;
     const [data, setData] = useState<any>(null);
@@ -49,11 +55,8 @@ const ClassView: React.FC = () => {
             if (!pluginName) return;
             setLoading(true);
             try {
-                const entry = pluginIndex.find(p => p.id === pluginName);
-                if (!entry) throw new Error(`Plugin ${pluginName} not found`);
-
                 const modules = import.meta.glob('../data/plugins/*.json');
-                const path = `../data/plugins/${pluginName}.json`;
+                const path = `../data/plugins/${activeVersionId}.json`;
                 if (!modules[path]) throw new Error(`Data file ${path} not found`);
 
                 const module = await modules[path]();
@@ -65,7 +68,7 @@ const ClassView: React.FC = () => {
             }
         };
         loadData();
-    }, [pluginName]);
+    }, [activeVersionId]);
 
     if (loading) return <div className="text-center py-20 text-slate-400 lg:text-lg animate-pulse">Analyzing class definition...</div>;
     if (error) return <div className="text-center py-20 text-red-500 font-bold">{error}</div>;
@@ -79,15 +82,15 @@ const ClassView: React.FC = () => {
                 <nav className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
                     <Link to="/" className="hover:text-indigo-500 dark:hover:text-indigo-400">Reference</Link>
                     <ChevronRight size={14} />
-                    <Link to={`/plugin/${pluginName}`} className="hover:text-indigo-500 dark:hover:text-indigo-400">
-                        {pluginIndex.find(p => p.id === pluginName)?.name || pluginName}
+                    <Link to={`/plugin/${pluginName}${versionId ? `/v/${versionId}` : ''}`} className="hover:text-indigo-500 dark:hover:text-indigo-400">
+                        {pluginEntry?.name || pluginName}
                     </Link>
                     <ChevronRight size={14} />
                     <span className="text-slate-900 dark:text-white font-mono font-bold bg-slate-200 dark:bg-slate-800 px-2 py-0.5 rounded">{className}</span>
                 </nav>
 
                 <a
-                    href={`https://github.com/imtrinity94/modern-vroapi/blob/main/vro-doc-site/src/data/plugins/${pluginName}.json`}
+                    href={`https://github.com/imtrinity94/modern-vroapi/blob/main/vro-doc-site/src/data/plugins/${activeVersionId}.json`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-xs font-semibold px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-lg transition-colors border border-slate-200 dark:border-slate-700 w-fit"
@@ -108,8 +111,13 @@ const ClassView: React.FC = () => {
                             )}
                         </div>
                         <div className="space-y-3">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 text-xs font-bold uppercase tracking-wider border border-indigo-100 dark:border-indigo-500/20">
-                                <Box size={14} /> Class Definition
+                            <div className="flex flex-wrap items-center gap-2">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 text-xs font-bold uppercase tracking-wider border border-indigo-100 dark:border-indigo-500/20">
+                                    <Box size={14} /> Class Definition
+                                </div>
+                                <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-${color}-50 dark:bg-${color}-500/10 text-${color}-700 dark:text-${color}-400 text-xs font-bold uppercase tracking-wider border border-${color}-100 dark:border-${color}-500/20`}>
+                                    {pluginEntry?.name || pluginName}
+                                </div>
                             </div>
                             <h1 className="text-2xl md:text-3xl font-mono font-extrabold text-slate-900 dark:text-white leading-tight">
                                 {classData.name}
@@ -130,8 +138,8 @@ const ClassView: React.FC = () => {
                     <Info className="text-purple-500" /> Attributes
                 </h2>
                 {classData.attributes.length > 0 ? (
-                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm">
-                        <table className="w-full text-left border-collapse">
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm overflow-x-auto">
+                        <table className="w-full text-left border-collapse min-w-[800px]">
                             <thead>
                                 <tr className="bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-[11px] uppercase tracking-widest font-black">
                                     <th className="p-4 border-b border-slate-200 dark:border-slate-800">Identifier</th>

@@ -36,10 +36,6 @@
     "name": "F5 BIG-IP"
   },
   {
-    "id": "o11n-core",
-    "name": "Intrinsic / Core APIs"
-  },
-  {
     "id": "o11n-plugin-jsonpath",
     "name": "JsonPath"
   },
@@ -92,6 +88,10 @@
     "name": "Support"
   },
   {
+    "id": "o11n-core",
+    "name": "System"
+  },
+  {
     "id": "o11n-plugin-vapi",
     "name": "vAPI"
   },
@@ -109,11 +109,21 @@
   },
   {
     "id": "o11n-plugin-vra",
-    "name": "vRealize Automation"
+    "name": "Aria Automation"
   },
   {
     "id": "o11n-plugin-vco",
-    "name": "vRO Multi-Node"
+    "name": "Multi-Node",
+    "versions": [
+      {
+        "id": "o11n-plugin-vco",
+        "version": "8.18.1"
+      },
+      {
+        "id": "o11n-plugin-vco-v817",
+        "version": "8.17.0"
+      }
+    ]
   },
   {
     "id": "o11n-plugin-vsan",

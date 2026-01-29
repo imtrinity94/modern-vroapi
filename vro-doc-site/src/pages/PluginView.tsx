@@ -1,38 +1,60 @@
 
 import { useEffect, useState, useMemo } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useDebounce } from '../hooks/useDebounce';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import { Layers } from 'lucide-react';
 import pluginIndex from '../data/index.json';
 import { useViewMode } from '../hooks/useUIState';
 import { ViewToggle } from '../components/UIToggles';
 import { Search, ChevronRight, FileCode, ArrowRight, List as ListIcon, Edit3, Download } from 'lucide-react';
+
+interface Version {
+    id: string;
+    version: string;
+}
 
 interface ApiPlugin {
     name: string;
     classes: any[];
 }
 
+interface ApiPluginIndexEntry {
+    id: string;
+    name: string;
+    versions?: Version[];
+}
+
 import { getPluginMeta } from '../data/plugin-meta';
 
 const PluginView: React.FC = () => {
-    const { pluginName } = useParams<{ pluginName: string }>();
+    const { pluginName, versionId } = useParams<{ pluginName: string; versionId?: string }>();
+    const navigate = useNavigate();
+
+    // Find plugin entry in index to check for versions
+    const pluginEntry = useMemo(() =>
+        (pluginIndex as ApiPluginIndexEntry[]).find(p => p.id === pluginName),
+        [pluginName]);
+
+    // Use versionId from URL, or fallback to the latest version's ID from the index
+    const activeVersionId = versionId || (pluginEntry?.versions ? pluginEntry.versions[0].id : pluginName);
+
     const pluginMeta = useMemo(() => getPluginMeta(pluginName || ''), [pluginName]);
     const { icon: PluginIcon, color } = pluginMeta;
     const [data, setData] = useState<ApiPlugin | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [searchTerm, setSearchTerm] = useState('');
+    const debouncedSearchTerm = useDebounce(searchTerm, 500); // 500ms debounce
+    const isSearching = searchTerm !== debouncedSearchTerm;
     const { viewMode, toggleViewMode } = useViewMode();
 
     useEffect(() => {
         const loadData = async () => {
-            if (!pluginName) return;
+            if (!activeVersionId) return;
             setLoading(true);
             try {
-                const entry = pluginIndex.find(p => p.id === pluginName);
-                if (!entry) throw new Error(`Plugin ${pluginName} not found`);
-
                 const modules = import.meta.glob('../data/plugins/*.json');
-                const path = `../data/plugins/${pluginName}.json`;
+                const path = `../data/plugins/${activeVersionId}.json`;
                 if (!modules[path]) throw new Error(`Data file ${path} not found`);
 
                 const module = await modules[path]();
@@ -44,14 +66,14 @@ const PluginView: React.FC = () => {
             }
         };
         loadData();
-    }, [pluginName]);
+    }, [activeVersionId]);
 
     const filteredClasses = useMemo(() => {
         if (!data) return [];
-        return data.classes.filter(c =>
-            c.name.toLowerCase().includes(searchTerm.toLowerCase())
+        return data.classes.filter((c: any) =>
+            c.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase())
         );
-    }, [data, searchTerm]);
+    }, [data, debouncedSearchTerm]);
 
     if (loading) return (
         <div className="flex flex-col items-center justify-center py-24 gap-4">
@@ -104,44 +126,67 @@ const PluginView: React.FC = () => {
             </div>
 
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-                <div className="flex items-start gap-5">
-                    <div className={`p-4 rounded-2xl bg-${color}-50 dark:bg-${color}-500/10 text-${color}-600 dark:text-${color}-400 border border-${color}-100 dark:border-${color}-500/20 shadow-sm w-20 h-20 flex items-center justify-center overflow-hidden`}>
-                        {pluginMeta.image ? (
-                            <img src={pluginMeta.image} alt={data.name} className="w-full h-full object-contain" />
-                        ) : (
-                            PluginIcon && <PluginIcon size={40} />
-                        )}
-                    </div>
-                    <div>
-                        <div className="flex items-center gap-3">
-                            <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight break-all">
-                                {data.name}
-                            </h1>
-                            {pluginMeta.tags?.map(tag => {
-                                let tagColorClasses = "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400";
-                                if (tag === 'IN-BUILT') tagColorClasses = "bg-blue-100 text-blue-700 dark:bg-blue-500/10 dark:text-blue-400 border-blue-200 dark:border-blue-500/20";
-                                if (tag === 'CERTIFIED') tagColorClasses = "bg-emerald-100 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400 border-emerald-200 dark:border-emerald-500/20";
-                                if (tag === '3RD PARTY') tagColorClasses = "bg-orange-100 text-orange-700 dark:bg-orange-500/10 dark:text-orange-400 border-orange-200 dark:border-orange-500/20";
+                <div className="flex flex-col gap-6">
+                    <div className="flex items-start gap-5">
+                        <div className={`p-4 rounded-2xl bg-${color}-50 dark:bg-${color}-500/10 text-${color}-600 dark:text-${color}-400 border border-${color}-100 dark:border-${color}-500/20 shadow-sm w-20 h-20 flex items-center justify-center overflow-hidden`}>
+                            {pluginMeta.image ? (
+                                <img src={pluginMeta.image} alt={data.name} className="w-full h-full object-contain" />
+                            ) : (
+                                PluginIcon && <PluginIcon size={40} />
+                            )}
+                        </div>
+                        <div>
+                            <div className="flex items-center gap-3">
+                                <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight break-all">
+                                    {data.name}
+                                </h1>
+                                {pluginMeta.tags?.map(tag => {
+                                    let tagColorClasses = "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400";
+                                    if (tag === 'IN-BUILT') tagColorClasses = "bg-blue-100 text-blue-700 dark:bg-blue-500/10 dark:text-blue-400 border-blue-200 dark:border-blue-500/20";
+                                    if (tag === 'CERTIFIED') tagColorClasses = "bg-emerald-100 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400 border-emerald-200 dark:border-emerald-500/20";
+                                    if (tag === '3RD PARTY') tagColorClasses = "bg-orange-100 text-orange-700 dark:bg-orange-500/10 dark:text-orange-400 border-orange-200 dark:border-orange-500/20";
 
-                                return (
-                                    <span key={tag} className={`text-xs font-black uppercase tracking-wider px-2.5 py-1 rounded-md border ${tagColorClasses}`}>
-                                        {tag}
-                                    </span>
-                                );
-                            })}
-                        </div>
-                        <div className="mt-3 flex items-center gap-4 text-slate-500 dark:text-slate-400 text-sm">
-                            <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium border border-slate-200 dark:border-slate-700">
-                                <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                                {data.classes.length} Classes & Interfaces
-                            </span>
+                                    return (
+                                        <span key={tag} className={`text-xs font-black uppercase tracking-wider px-2.5 py-1 rounded-md border ${tagColorClasses}`}>
+                                            {tag}
+                                        </span>
+                                    );
+                                })}
+                            </div>
+                            <div className="mt-3 flex items-center gap-4 text-slate-500 dark:text-slate-400 text-sm">
+                                <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium border border-slate-200 dark:border-slate-700">
+                                    <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                                    {data.classes.length} Classes & Interfaces
+                                </span>
+                            </div>
                         </div>
                     </div>
+
+                    {/* Version Selector Tabs */}
+                    {pluginEntry?.versions && pluginEntry.versions.length > 1 && (
+                        <div className="flex flex-wrap items-center gap-2 p-1 bg-slate-100 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700/50 w-fit">
+                            <div className="px-3 py-1 text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2 border-r border-slate-200 dark:border-slate-700 mr-1">
+                                <Layers size={14} /> Versions
+                            </div>
+                            {pluginEntry.versions.map((v, idx) => (
+                                <button
+                                    key={v.id}
+                                    onClick={() => navigate(idx === 0 ? `/plugin/${pluginName}` : `/plugin/${pluginName}/v/${v.id}`)}
+                                    className={`px-4 py-1.5 rounded-lg text-sm font-bold transition-all ${activeVersionId === v.id
+                                        ? 'bg-white dark:bg-slate-700 text-indigo-600 dark:text-indigo-400 shadow-sm border border-slate-200 dark:border-slate-600'
+                                        : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+                                        }`}
+                                >
+                                    {v.version} {idx === 0 && <span className="ml-1 text-[10px] opacity-60">(LATEST)</span>}
+                                </button>
+                            ))}
+                        </div>
+                    )}
                 </div>
 
                 <div className="flex items-center gap-3">
                     <div className="relative flex-1 lg:w-72">
-                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+                        <Search className={`absolute left-3 top-1/2 -translate-y-1/2 transition-colors ${isSearching ? 'text-indigo-500 animate-pulse' : 'text-slate-400'}`} size={18} />
                         <input
                             type="text"
                             placeholder="Filter classes..."
@@ -149,6 +194,11 @@ const PluginView: React.FC = () => {
                             onChange={(e) => setSearchTerm(e.target.value)}
                             className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-2.5 pl-10 pr-4 shadow-sm focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none transition-all dark:text-white"
                         />
+                        {isSearching && (
+                            <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2">
+                                <div className="w-4 h-4 border-2 border-indigo-500/20 border-t-indigo-500 rounded-full animate-spin" />
+                            </div>
+                        )}
                     </div>
                     <ViewToggle mode={viewMode} toggle={toggleViewMode} />
                 </div>
@@ -156,9 +206,14 @@ const PluginView: React.FC = () => {
 
             {viewMode === 'grid' ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {filteredClasses.map((cls) => (
+                    {isSearching ? (
+                        <div className="col-span-full py-12 flex flex-col items-center justify-center gap-3">
+                            <div className="w-8 h-8 border-3 border-indigo-500/20 border-t-indigo-500 rounded-full animate-spin" />
+                            <p className="text-slate-400 font-medium animate-pulse">Filtering classes...</p>
+                        </div>
+                    ) : filteredClasses.map((cls: any) => (
                         <Link
-                            to={`/plugin/${pluginName}/class/${cls.name}`}
+                            to={`/plugin/${pluginName}/class/${cls.name}${versionId ? `/v/${versionId}` : ''}`}
                             key={cls.name}
                             className="group block bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-500/50 hover:bg-slate-50 dark:hover:bg-slate-800/80 rounded-2xl p-5 transition-all shadow-sm hover:shadow-lg"
                         >
@@ -183,33 +238,40 @@ const PluginView: React.FC = () => {
                 </div>
             ) : (
                 <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm">
-                    <div className="divide-y divide-slate-100 dark:divide-slate-800/50 font-mono text-base leading-none">
-                        {filteredClasses.map((cls) => (
-                            <Link
-                                to={`/plugin/${pluginName}/class/${cls.name}`}
-                                key={cls.name}
-                                className="flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group"
-                            >
-                                <div className="flex items-center gap-4">
-                                    <ListIcon className="text-slate-300 dark:text-slate-700" size={20} />
-                                    <span className="text-slate-900 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 font-bold text-lg truncate max-w-[200px] md:max-w-none">
-                                        {cls.name}
-                                    </span>
-                                </div>
-                                <div className="flex items-center gap-6">
-                                    <div className="hidden md:flex gap-4 text-xs text-slate-400 uppercase font-black tracking-wider">
-                                        <span>{cls.methods.length} Methods</span>
-                                        <span>{cls.attributes.length} Attributes</span>
+                    {isSearching ? (
+                        <div className="py-12 flex flex-col items-center justify-center gap-3 border-b border-slate-100 dark:border-slate-800/50">
+                            <div className="w-8 h-8 border-3 border-indigo-500/20 border-t-indigo-500 rounded-full animate-spin" />
+                            <p className="text-slate-400 font-medium animate-pulse">Filtering classes...</p>
+                        </div>
+                    ) : (
+                        <div className="divide-y divide-slate-100 dark:divide-slate-800/50 font-mono text-base leading-none">
+                            {filteredClasses.map((cls: any) => (
+                                <Link
+                                    to={`/plugin/${pluginName}/class/${cls.name}${versionId ? `/v/${versionId}` : ''}`}
+                                    key={cls.name}
+                                    className="flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group"
+                                >
+                                    <div className="flex items-center gap-4">
+                                        <ListIcon className="text-slate-300 dark:text-slate-700" size={20} />
+                                        <span className="text-slate-900 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 font-bold text-lg truncate max-w-[200px] md:max-w-none">
+                                            {cls.name}
+                                        </span>
                                     </div>
-                                    <ArrowRight size={16} className="text-slate-200 dark:text-slate-800 group-hover:text-indigo-500" />
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
+                                    <div className="flex items-center gap-6">
+                                        <div className="hidden md:flex gap-4 text-xs text-slate-400 uppercase font-black tracking-wider">
+                                            <span>{cls.methods.length} Methods</span>
+                                            <span>{cls.attributes.length} Attributes</span>
+                                        </div>
+                                        <ArrowRight size={16} className="text-slate-200 dark:text-slate-800 group-hover:text-indigo-500" />
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
+                    )}
                 </div>
             )}
 
-            {filteredClasses.length === 0 && (
+            {!isSearching && filteredClasses.length === 0 && (
                 <div className="text-center py-20 bg-slate-50 dark:bg-slate-800/20 rounded-3xl border-2 border-dashed border-slate-200 dark:border-slate-800">
                     <h3 className="text-xl font-bold dark:text-white">No classes found</h3>
                     <p className="text-slate-500 dark:text-slate-400">Try adjusting your filter.</p>

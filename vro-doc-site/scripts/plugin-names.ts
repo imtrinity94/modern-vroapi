@@ -1,6 +1,6 @@
 
 export const PLUGIN_NAMES: Record<string, string> = {
-    'o11n-core': 'Intrinsic / Core APIs',
+    'o11n-core': 'System',
     'o11n-plugin-activedirectory': 'Active Directory',
     'o11n-plugin-amqp': 'AMQP',
     'o11n-plugin-autodeploy': 'AutoDeploy',

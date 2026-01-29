@@ -45,7 +45,7 @@ const Layout: React.FC = () => {
                     </Link>
 
                     <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-400">
-                        <Link to="/" className="hover:text-white transition-colors">Plugins</Link>
+
                         <a
                             href="https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-9-0-and-later/9-0/configuration-of-vmware-cloud-foundation-operations-orchestrator.html"
                             target="_blank"

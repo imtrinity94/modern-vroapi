@@ -1,6 +1,6 @@
 {
-  "name": "VCO",
-  "description": "API Reference for VCO",
+  "name": "Multi-Node",
+  "description": "API Reference for Multi-Node",
   "classes": [
     {
       "name": "VCODeploymentManager",

@@ -12,7 +12,9 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="plugin/:pluginName" element={<PluginView />} />
+          <Route path="plugin/:pluginName/v/:versionId" element={<PluginView />} />
           <Route path="plugin/:pluginName/class/:className" element={<ClassView />} />
+          <Route path="plugin/:pluginName/class/:className/v/:versionId" element={<ClassView />} />
         </Route>
       </Routes>
     </HashRouter>

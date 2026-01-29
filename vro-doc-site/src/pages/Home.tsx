@@ -1,5 +1,6 @@
 
 import { useState, useMemo } from 'react';
+import { useDebounce } from '../hooks/useDebounce';
 import { Link } from 'react-router-dom';
 import pluginIndex from '../data/index.json';
 import { useViewMode } from '../hooks/useUIState';
@@ -9,12 +10,14 @@ import { Package, Search, ArrowRight } from 'lucide-react';
 
 const Home: React.FC = () => {
     const [searchTerm, setSearchTerm] = useState('');
+    const debouncedSearchTerm = useDebounce(searchTerm, 300); // 300ms is enough for home page
+    const isSearching = searchTerm !== debouncedSearchTerm;
     const { viewMode, toggleViewMode } = useViewMode();
 
     const filteredPlugins = useMemo(() => {
         const filtered = pluginIndex.filter(plugin =>
-            plugin.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            plugin.id.toLowerCase().includes(searchTerm.toLowerCase())
+            plugin.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
+            plugin.id.toLowerCase().includes(debouncedSearchTerm.toLowerCase())
         );
 
         // Sort: Put o11n-core at the very top
@@ -23,7 +26,7 @@ const Home: React.FC = () => {
             if (b.id === 'o11n-core') return 1;
             return a.name.localeCompare(b.name);
         });
-    }, [searchTerm]);
+    }, [debouncedSearchTerm]);
 
     return (
         <div className="space-y-8 animate-in fade-in duration-500">
@@ -39,7 +42,7 @@ const Home: React.FC = () => {
 
                 <div className="flex items-center gap-3">
                     <div className="relative flex-1 lg:w-80">
-                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+                        <Search className={`absolute left-3 top-1/2 -translate-y-1/2 transition-colors ${isSearching ? 'text-indigo-500 animate-pulse' : 'text-slate-400'}`} size={18} />
                         <input
                             type="text"
                             placeholder="Filter plugins..."
@@ -47,6 +50,11 @@ const Home: React.FC = () => {
                             onChange={(e) => setSearchTerm(e.target.value)}
                             className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-2.5 pl-10 pr-4 shadow-sm focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none transition-all dark:text-white"
                         />
+                        {isSearching && (
+                            <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2">
+                                <div className="w-4 h-4 border-2 border-indigo-500/20 border-t-indigo-500 rounded-full animate-spin" />
+                            </div>
+                        )}
                     </div>
                     <ViewToggle mode={viewMode} toggle={toggleViewMode} />
                 </div>
@@ -87,9 +95,16 @@ const Home: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <h2 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                                    {plugin.name}
-                                </h2>
+                                <div>
+                                    <h2 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                                        {plugin.name}
+                                    </h2>
+                                    {pluginMeta.version && (
+                                        <div className="font-mono text-xs text-slate-400 dark:text-slate-500 mt-1">
+                                            v{pluginMeta.version}
+                                        </div>
+                                    )}
+                                </div>
                                 <p className="mt-2 text-slate-500 dark:text-slate-400 text-base line-clamp-2 leading-relaxed flex-grow">
                                     Complete API reference for {plugin.name}.
                                 </p>
@@ -124,6 +139,11 @@ const Home: React.FC = () => {
                                             <span className="font-semibold text-slate-900 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 block">
                                                 {plugin.name}
                                             </span>
+                                            {pluginMeta.version && (
+                                                <span className="font-mono text-[10px] text-slate-400 dark:text-slate-500 block">
+                                                    v{pluginMeta.version}
+                                                </span>
+                                            )}
                                         </div>
                                         <div className="flex items-center gap-2 ml-2">
                                             {pluginMeta.tags?.map(tag => {
@@ -148,7 +168,7 @@ const Home: React.FC = () => {
                 </div>
             )}
 
-            {filteredPlugins.length === 0 && (
+            {!isSearching && filteredPlugins.length === 0 && (
                 <div className="text-center py-20 bg-slate-50 dark:bg-slate-800/20 rounded-3xl border-2 border-dashed border-slate-200 dark:border-slate-800">
                     <Package className="mx-auto text-slate-300 dark:text-slate-700 mb-4" size={48} />
                     <h3 className="text-xl font-bold text-slate-900 dark:text-white">No plugins found</h3>

@@ -1,6 +1,6 @@
 {
-  "name": "VRA",
-  "description": "API Reference for VRA",
+  "name": "Aria Automation",
+  "description": "API Reference for Aria Automation",
   "classes": [
     {
       "name": "VraBlockDevice",
