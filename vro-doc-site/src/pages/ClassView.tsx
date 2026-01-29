@@ -103,16 +103,16 @@ const ClassView: React.FC = () => {
             <header className="space-y-6">
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                     <div className="flex items-start gap-5">
-                        <div className={`p-4 rounded-2xl bg-${color}-50 dark:bg-${color}-500/10 text-${color}-600 dark:text-${color}-400 border border-${color}-100 dark:border-${color}-500/20 shadow-sm transition-transform hover:scale-105 w-16 h-16 flex items-center justify-center overflow-hidden`}>
+                        <div className={`p-4 rounded-2xl bg-${color}-50 dark:bg-${color}-500/10 text-${color}-600 dark:text-${color}-400 border border-${color}-100 dark:border-${color}-500/20 shadow-sm transition-transform hover:scale-105 w-20 h-20 flex items-center justify-center overflow-hidden`}>
                             {pluginMeta.image ? (
                                 <img src={pluginMeta.image} alt={pluginName} className="w-full h-full object-contain" />
                             ) : (
-                                PluginIcon && <PluginIcon size={36} />
+                                PluginIcon && <PluginIcon size={48} />
                             )}
                         </div>
                         <div className="space-y-3">
                             <div className="flex flex-wrap items-center gap-2">
-                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 text-xs font-bold uppercase tracking-wider border border-indigo-100 dark:border-indigo-500/20">
+                                <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-${color}-50 dark:bg-${color}-500/10 text-${color}-700 dark:text-${color}-400 text-xs font-bold uppercase tracking-wider border border-${color}-100 dark:border-${color}-500/20`}>
                                     <Box size={14} /> Class Definition
                                 </div>
                                 <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-${color}-50 dark:bg-${color}-500/10 text-${color}-700 dark:text-${color}-400 text-xs font-bold uppercase tracking-wider border border-${color}-100 dark:border-${color}-500/20`}>
@@ -125,7 +125,7 @@ const ClassView: React.FC = () => {
                         </div>
                     </div>
                 </div>
-                <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border-l-4 border-indigo-500 shadow-sm border border-slate-200 dark:border-slate-800">
+                <div className={`bg-${color}-50/30 dark:bg-slate-900 rounded-2xl p-6 border-l-4 border-${color}-500 shadow-sm border border-${color}-100 dark:border-slate-800`}>
                     <p className="text-slate-700 dark:text-slate-300 text-base leading-relaxed">
                         {classData.description || 'No detailed documentation available for this class.'}
                     </p>

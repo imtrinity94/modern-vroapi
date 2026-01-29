@@ -97,7 +97,7 @@
   },
   {
     "id": "o11n-core",
-    "name": "System"
+    "name": "System (Core Classes)"
   },
   {
     "id": "o11n-plugin-vapi",

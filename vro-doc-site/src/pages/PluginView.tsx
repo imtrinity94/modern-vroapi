@@ -128,11 +128,11 @@ const PluginView: React.FC = () => {
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
                 <div className="flex flex-col gap-6">
                     <div className="flex items-start gap-5">
-                        <div className={`p-4 rounded-2xl bg-${color}-50 dark:bg-${color}-500/10 text-${color}-600 dark:text-${color}-400 border border-${color}-100 dark:border-${color}-500/20 shadow-sm w-20 h-20 flex items-center justify-center overflow-hidden`}>
+                        <div className={`p-4 rounded-2xl bg-${color}-50 dark:bg-${color}-500/10 text-${color}-600 dark:text-${color}-400 border border-${color}-100 dark:border-${color}-500/20 shadow-sm w-24 h-24 flex items-center justify-center overflow-hidden`}>
                             {pluginMeta.image ? (
                                 <img src={pluginMeta.image} alt={data.name} className="w-full h-full object-contain" />
                             ) : (
-                                PluginIcon && <PluginIcon size={40} />
+                                PluginIcon && <PluginIcon size={52} />
                             )}
                         </div>
                         <div>
@@ -215,15 +215,15 @@ const PluginView: React.FC = () => {
                         <Link
                             to={`/plugin/${pluginName}/class/${cls.name}${versionId ? `/v/${versionId}` : ''}`}
                             key={cls.name}
-                            className="group block bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-500/50 hover:bg-slate-50 dark:hover:bg-slate-800/80 rounded-2xl p-5 transition-all shadow-sm hover:shadow-lg"
+                            className={`group block bg-${color}-50/50 dark:bg-slate-900 border border-${color}-100 dark:border-slate-800 hover:border-${color}-500/50 hover:bg-${color}-50 dark:hover:bg-slate-800/80 rounded-2xl p-5 transition-all shadow-sm hover:shadow-lg`}
                         >
                             <div className="flex items-start justify-between">
-                                <FileCode className="text-indigo-500/50 group-hover:text-indigo-500 transition-colors" size={24} />
-                                <div className="text-slate-300 dark:text-slate-700 group-hover:text-indigo-400">
+                                <FileCode className={`text-${color}-500/50 group-hover:text-${color}-500 transition-colors`} size={24} />
+                                <div className={`text-slate-300 dark:text-slate-700 group-hover:text-${color}-400`}>
                                     <ArrowRight size={16} />
                                 </div>
                             </div>
-                            <h3 className="mt-3 text-lg font-mono font-bold text-slate-900 dark:text-indigo-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-200 truncate transition-colors">
+                            <h3 className={`mt-3 text-lg font-mono font-bold text-slate-900 dark:text-slate-200 group-hover:text-${color}-600 dark:group-hover:text-${color}-300 truncate transition-colors`}>
                                 {cls.name}
                             </h3>
                             <p className="mt-2 text-base text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed h-12">
@@ -253,7 +253,7 @@ const PluginView: React.FC = () => {
                                 >
                                     <div className="flex items-center gap-4">
                                         <ListIcon className="text-slate-300 dark:text-slate-700" size={20} />
-                                        <span className="text-slate-900 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 font-bold text-lg truncate max-w-[200px] md:max-w-none">
+                                        <span className={`text-slate-900 dark:text-slate-200 group-hover:text-${color}-600 dark:group-hover:text-${color}-400 font-bold text-lg truncate max-w-[200px] md:max-w-none`}>
                                             {cls.name}
                                         </span>
                                     </div>
