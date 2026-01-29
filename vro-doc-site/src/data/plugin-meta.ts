@@ -2,7 +2,7 @@ import {
     Leaf, Boxes, Mail, Globe,
     Terminal, Database, Wrench, Gauge,
     Settings, Waypoints,
-    Download, FileCode, Package, type LucideIcon
+    FileCode, Package, type LucideIcon
 } from 'lucide-react';
 
 export interface PluginMetadata {
@@ -45,7 +45,7 @@ export const PLUGIN_META: Record<string, PluginMetadata> = {
     'o11n-plugin-vr': { image: `${import.meta.env.BASE_URL}icons/vr.png`, color: 'blue', tags: ['OFFICIAL'], downloadUrl: 'https://vcf.broadcom.com/vsc/services/details/vmware-cloud-foundation-orchestrator-plug-in-for-vmware-vsphere-replication-2?slug=true', version: '9.0.4.0.24920185' },
     'o11n-plugin-vra': { image: `${import.meta.env.BASE_URL}icons/vra.png`, color: 'cyan', tags: ['IN-BUILT'], version: '8.14.0.23221431' },
     'o11n-plugin-vsan': { image: `${import.meta.env.BASE_URL}icons/vsan.png`, color: 'blue', tags: ['OFFICIAL'], downloadUrl: 'https://vcf.broadcom.com/vsc/services/details/vmware-aria-automation-orchestrator-plug-in-for-vmware-vsan-2-2-0-2?slug=true', version: '2.2.0.23824262' },
-    'o11n-plugin-vum': { icon: Download, color: 'green', tags: ['IN-BUILT'], version: '8.1.1.24105053' },
+    'o11n-plugin-vum': { image: `${import.meta.env.BASE_URL}icons/update-manager.png`, color: 'yellow', tags: ['IN-BUILT'], version: '8.1.1.24105053' },
     'o11n-plugin-xml': { icon: FileCode, color: 'orange', tags: ['IN-BUILT'], version: '8.3.0.24114285' }
 };
 
