@@ -7,10 +7,13 @@ import ClassView from './pages/ClassView';
 
 import ScrollToTop from './components/ScrollToTop';
 
+import { SpeedInsights } from "@vercel/speed-insights/react"
+
 function App() {
   return (
     <HashRouter>
       <ScrollToTop />
+      <SpeedInsights />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
