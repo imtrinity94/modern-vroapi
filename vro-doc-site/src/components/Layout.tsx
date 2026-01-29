@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { useTheme } from '../hooks/useUIState';
 import { ThemeToggle } from './UIToggles';
-import { Slack, Star, Github, ExternalLink, BookOpen } from 'lucide-react';
+import { Slack, Star, Github, ExternalLink, BookOpen, Mail } from 'lucide-react';
 import GlobalSearch from './GlobalSearch';
 
 const Layout: React.FC = () => {
@@ -128,6 +128,35 @@ const Layout: React.FC = () => {
                             <BookOpen size={18} />
                             <span>Official Broadcom Docs</span>
                         </a>
+                    </div>
+
+                    <div className="mt-10 pt-10 border-t border-slate-100 dark:border-slate-800/50 flex flex-col items-center gap-6">
+                        <div className="flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-indigo-500/20 p-0.5 shadow-lg shadow-indigo-500/10 bg-white dark:bg-slate-800">
+                                    <img
+                                        src={`${import.meta.env.BASE_URL}mayank.png`}
+                                        alt="Mayank Goyal"
+                                        className="w-full h-full object-cover rounded-full"
+                                    />
+                                </div>
+                                <div className="flex flex-col">
+                                    <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-[0.2em] leading-none mb-1">
+                                        Developed & Maintained By
+                                    </p>
+                                    <h4 className="text-sm font-extrabold text-slate-900 dark:text-white">Mayank Goyal</h4>
+                                </div>
+                            </div>
+
+                            <div className="hidden md:block w-px h-8 bg-slate-200 dark:bg-slate-800" />
+
+                            <a href="mailto:mayankgoyalmax@gmail.com" className="group flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800/50 hover:bg-indigo-50 dark:hover:bg-indigo-500/10 border border-slate-200 dark:border-slate-700/50 hover:border-indigo-500/30 transition-all">
+                                <Mail size={14} className="text-slate-400 group-hover:text-indigo-500 transition-colors" />
+                                <span className="text-xs font-medium text-slate-600 dark:text-slate-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-300 transition-colors">
+                                    mayankgoyalmax@gmail.com
+                                </span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </footer>
