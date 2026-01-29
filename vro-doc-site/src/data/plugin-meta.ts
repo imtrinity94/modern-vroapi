@@ -20,7 +20,7 @@ export const PLUGIN_META: Record<string, PluginMetadata> = {
     'o11n-plugin-amqp': { image: `${import.meta.env.BASE_URL}icons/amqp.png`, color: 'orange', tags: ['IN-BUILT'], version: '1.1.0.24105062' },
     'o11n-plugin-autodeploy': { image: `${import.meta.env.BASE_URL}icons/auto-deploy.png`, color: 'green', tags: ['IN-BUILT'], version: '8.1.1.24114289' },
     'o11n-plugin-avi': { image: `${import.meta.env.BASE_URL}icons/avi.png`, color: 'orange', tags: ['CERTIFIED'], downloadUrl: 'https://github.com/vmware/vrealize-orchestrator-plugin-for-alb', version: '30.2.6.RELEASE.50' },
-    'o11n-plugin-aws': { image: `${import.meta.env.BASE_URL}icons/aws-ec2.png`, color: 'orange', tags: ['3RD PARTY', 'CERTIFIED'], version: '1.3.1.21665162' },
+    'o11n-plugin-aws': { image: `${import.meta.env.BASE_URL}icons/aws-ec2.png`, color: 'orange', tags: ['3RD PARTY', 'CERTIFIED'], downloadUrl: 'https://vcf.broadcom.com/vsc/services/details/vmware-aria-automation-orchestrator-plug-in-for-amazon-ec2?slug=true', version: '1.3.1.21665162' },
     'o11n-plugin-configurator': { icon: Settings, color: 'slate', tags: ['IN-BUILT'], version: '8.18.1.24266232' },
     'o11n-plugin-crypto': { icon: Leaf, color: 'emerald', tags: ['3RD PARTY'], downloadUrl: 'https://github.com/vmware-archive/o11n-plugin-crypto', version: '1.1.0.32' },
     'o11n-plugin-dynamictypes': { icon: Boxes, color: 'purple', tags: ['IN-BUILT'], version: '1.4.2.24140226' },
