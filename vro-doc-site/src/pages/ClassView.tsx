@@ -245,8 +245,8 @@ const ClassView: React.FC = () => {
                                     <tr className="bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-[11px] uppercase tracking-widest font-black">
                                         <th className="p-4 border-b border-slate-200 dark:border-slate-800 whitespace-nowrap">Method Name</th>
                                         <th className="p-4 border-b border-slate-200 dark:border-slate-800 whitespace-nowrap">Return Type</th>
-                                        <th className="p-4 border-b border-slate-200 dark:border-slate-800 min-w-[200px]">Parameters</th>
-                                        <th className="p-4 border-b border-slate-200 dark:border-slate-800 w-full">Description</th>
+                                        <th className="p-4 border-b border-slate-200 dark:border-slate-800">Parameters</th>
+                                        <th className="p-4 border-b border-slate-200 dark:border-slate-800">Description</th>
                                     </tr>
                                 </thead>
                                 <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
@@ -275,7 +275,7 @@ const ClassView: React.FC = () => {
                                                     {method.parameters || '-'}
                                                 </div>
                                             </td>
-                                            <td className="p-4 text-slate-600 dark:text-slate-400 text-sm leading-relaxed align-top min-w-[300px]">
+                                            <td className="p-4 text-slate-600 dark:text-slate-400 text-sm leading-relaxed align-top">
                                                 {method.description || 'No documentation.'}
                                             </td>
                                         </tr>

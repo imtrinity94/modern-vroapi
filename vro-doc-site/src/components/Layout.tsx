@@ -72,12 +72,19 @@ const Layout: React.FC = () => {
                     </Link>
 
                     <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-400">
-
+                        <a
+                            href="https://vroapi.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:text-slate-900 dark:hover:text-white transition-colors flex items-center gap-1"
+                        >
+                            Legacy vroapi <ExternalLink size={14} />
+                        </a>
                         <a
                             href="https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-9-0-and-later/9-0/configuration-of-vmware-cloud-foundation-operations-orchestrator.html"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="hover:text-white transition-colors flex items-center gap-1"
+                            className="hover:text-slate-900 dark:hover:text-white transition-colors flex items-center gap-1"
                         >
                             Official Docs <ExternalLink size={14} />
                         </a>

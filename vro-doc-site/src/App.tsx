@@ -5,9 +5,12 @@ import Home from './pages/Home';
 import PluginView from './pages/PluginView';
 import ClassView from './pages/ClassView';
 
+import ScrollToTop from './components/ScrollToTop';
+
 function App() {
   return (
     <HashRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />

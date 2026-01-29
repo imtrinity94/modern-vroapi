@@ -104,7 +104,7 @@ const PluginView: React.FC = () => {
             .filter(c => c.p === pluginName)
             .map(c => ({
                 name: c.n,
-                description: 'Pre-loading class metadata...',
+                description: '',
                 methods: [],
                 attributes: [],
                 isStub: true
@@ -193,7 +193,7 @@ const PluginView: React.FC = () => {
                         <div className="min-w-0 flex-1">
                             <div className="flex flex-wrap items-center gap-2 md:gap-3">
                                 <h1 className="text-2xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight break-all">
-                                    {data?.name || pluginEntry?.name || pluginName}
+                                    {pluginEntry?.name || data?.name || pluginName}
                                 </h1>
                                 {pluginMeta.tags?.map(tag => {
                                     let tagColorClasses = "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400";
@@ -282,9 +282,11 @@ const PluginView: React.FC = () => {
                             <h3 className={`mt-3 text-lg font-mono font-bold text-slate-900 dark:text-slate-200 group-hover:text-${color}-600 dark:group-hover:text-${color}-300 truncate transition-colors`}>
                                 {cls.name}
                             </h3>
-                            <p className="mt-2 text-base text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed h-12">
-                                {cls.description || 'API component for plugin integration.'}
-                            </p>
+                            {classes.length <= 500 && (
+                                <p className="mt-2 text-base text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed h-12">
+                                    {!cls.isStub && (cls.description || 'API component for plugin integration.')}
+                                </p>
+                            )}
                             <div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800/50 flex gap-4 text-[11px] uppercase tracking-wider text-slate-400 dark:text-slate-500 font-bold font-mono">
                                 <span>{cls.methods.length} Met</span>
                                 <span>{cls.attributes.length} Attr</span>
