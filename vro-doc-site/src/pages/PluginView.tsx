@@ -127,17 +127,17 @@ const PluginView: React.FC = () => {
 
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
                 <div className="flex flex-col gap-6">
-                    <div className="flex items-start gap-5">
-                        <div className={`p-4 rounded-2xl bg-${color}-50 dark:bg-${color}-500/10 text-${color}-600 dark:text-${color}-400 border border-${color}-100 dark:border-${color}-500/20 shadow-sm w-24 h-24 flex items-center justify-center overflow-hidden`}>
+                    <div className="flex items-start gap-3 md:gap-5">
+                        <div className={`p-3 md:p-4 rounded-2xl bg-${color}-50 dark:bg-${color}-500/10 text-${color}-600 dark:text-${color}-400 border border-${color}-100 dark:border-${color}-500/20 shadow-sm w-16 h-16 md:w-24 md:h-24 flex items-center justify-center overflow-hidden shrink-0`}>
                             {pluginMeta.image ? (
                                 <img src={pluginMeta.image} alt={data.name} className="w-full h-full object-contain" />
                             ) : (
-                                PluginIcon && <PluginIcon size={52} />
+                                PluginIcon && <div className="scale-75 md:scale-110"><PluginIcon size={48} /></div>
                             )}
                         </div>
-                        <div>
-                            <div className="flex items-center gap-3">
-                                <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight break-all">
+                        <div className="min-w-0 flex-1">
+                            <div className="flex flex-wrap items-center gap-2 md:gap-3">
+                                <h1 className="text-2xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight break-all">
                                     {data.name}
                                 </h1>
                                 {pluginMeta.tags?.map(tag => {

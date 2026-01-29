@@ -8,8 +8,21 @@ import GlobalSearch from './GlobalSearch';
 
 const Layout: React.FC = () => {
     const { theme, toggleTheme } = useTheme();
+    const [starCount, setStarCount] = useState<number | null>(null);
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
+
+    useEffect(() => {
+        // Fetch real-time GitHub stars
+        fetch('https://api.github.com/repos/imtrinity94/modern-vroapi')
+            .then(res => res.json())
+            .then(data => {
+                if (data.stargazers_count) {
+                    setStarCount(data.stargazers_count);
+                }
+            })
+            .catch(() => { /* Fallback to hidden count */ });
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -72,13 +85,18 @@ const Layout: React.FC = () => {
                                 <Slack size={20} />
                             </a>
                             <a
-                                href="https://github.com/imtrinity94/modern-vroapi"
+                                href="https://github.com/imtrinity94/modern-vroapi/stargazers"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 px-2 sm:px-3 py-1.5 rounded-lg bg-white text-slate-900 hover:bg-slate-100 transition-all text-sm font-semibold shadow-sm"
+                                className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white text-slate-900 hover:bg-slate-100 transition-all text-sm font-semibold shadow-sm group"
                             >
-                                <Star size={16} fill="currentColor" />
+                                <Star size={16} fill="currentColor" className="text-amber-500 group-hover:scale-110 transition-transform" />
                                 <span className="hidden sm:inline">Star</span>
+                                {starCount !== null && (
+                                    <span className="ml-1 px-1.5 py-0.5 rounded-md bg-slate-100 text-slate-600 text-[10px] font-bold border border-slate-200">
+                                        {starCount}
+                                    </span>
+                                )}
                             </a>
                         </div>
 
