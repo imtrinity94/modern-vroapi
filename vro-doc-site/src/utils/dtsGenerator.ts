@@ -34,7 +34,7 @@ const mapType = (type: string): string => {
     // Handle Array types (e.g., Array/string, Array/AD_User)
     if (trimmedType.startsWith('Array/')) {
         const innerType = trimmedType.replace('Array/', '').trim();
-        return `${mapType(innerType)}[]`;
+        return `Array/${mapType(innerType)}`;
     }
 
     // Basic mappings
