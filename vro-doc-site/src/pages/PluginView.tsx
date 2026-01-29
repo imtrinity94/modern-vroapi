@@ -148,7 +148,7 @@ const PluginView: React.FC = () => {
                         Reference
                     </Link>
                     <ChevronRight size={14} />
-                    <span className="text-slate-900 dark:text-slate-200 font-medium">{data?.name || pluginEntry?.name || pluginName}</span>
+                    <span className="text-slate-900 dark:text-slate-200 font-medium">{pluginEntry?.name || data?.name || pluginName}</span>
                 </nav>
 
                 <div className="flex items-center gap-3">
@@ -185,7 +185,7 @@ const PluginView: React.FC = () => {
                     <div className="flex items-start gap-3 md:gap-5">
                         <div className={`p-3 md:p-4 rounded-2xl bg-${color}-50 dark:bg-${color}-500/10 text-${color}-600 dark:text-${color}-400 border border-${color}-100 dark:border-${color}-500/20 shadow-sm w-16 h-16 md:w-24 md:h-24 flex items-center justify-center overflow-hidden shrink-0`}>
                             {pluginMeta.image ? (
-                                <img src={pluginMeta.image} alt={data?.name || pluginName} className="w-full h-full object-contain" />
+                                <img src={pluginMeta.image} alt={pluginEntry?.name || data?.name || pluginName} className="w-full h-full object-contain" />
                             ) : (
                                 PluginIcon && <div className="scale-75 md:scale-110"><PluginIcon size={48} /></div>
                             )}

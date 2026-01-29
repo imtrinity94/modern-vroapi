@@ -1,1707 +1,1721 @@
-{
-  "name": "VR",
-  "description": "API Reference for VR",
-  "classes": [
-    {
-      "name": "VRConfigurationSettings",
-      "description": "Represents the connection settings for the HMS plugin",
-      "attributes": [
-        {
-          "name": "name",
-          "type": "String",
-          "description": "Display name of this Object",
-          "isReadonly": false
-        },
-        {
-          "name": "maxConnections",
-          "type": "Integer",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "sessionTimeout",
-          "type": "Integer",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "connectTimeout",
-          "type": "Integer",
-          "description": "",
-          "isReadonly": false
-        }
-      ],
-      "methods": []
-    },
-    {
-      "name": "VRDiskType",
-      "description": "DiskType",
-      "attributes": [
-        {
-          "name": "name",
-          "type": "String",
-          "description": "Display name of this Object",
-          "isReadonly": false
-        }
-      ],
-      "methods": []
-    },
-    {
-      "name": "VRFactoryLifecycleManager",
-      "description": "",
-      "attributes": [
-        {
-          "name": "name",
-          "type": "String",
-          "description": "Display name of this Object",
-          "isReadonly": false
-        }
-      ],
-      "methods": []
-    },
-    {
-      "name": "VRPluginConfig",
-      "description": "Handles plugin connection configuration",
-      "attributes": [
-        {
-          "name": "name",
-          "type": "String",
-          "description": "Display name of this Object",
-          "isReadonly": false
-        }
-      ],
-      "methods": [
-        {
-          "name": "getSites",
-          "description": "",
-          "parameters": "",
-          "returnType": "Array/VRSite"
-        },
-        {
-          "name": "registerRemoteVcSite",
-          "description": "",
-          "parameters": "remoteSite: VRVcRemoteSite, username: String, password: String",
-          "returnType": "void"
-        },
-        {
-          "name": "unregisterRemoteVcSite",
-          "description": "",
-          "parameters": "remoteSite: VRVcRemoteSite",
-          "returnType": "void"
-        },
-        {
-          "name": "listVCsForRemoteLS",
-          "description": "",
-          "parameters": "lsAddress: String",
-          "returnType": "Array/VRVcEndpoint"
-        },
-        {
-          "name": "getSupportedDiskFormats",
-          "description": "",
-          "parameters": "",
-          "returnType": "Array/VRDiskType"
-        },
-        {
-          "name": "refreshCache",
-          "description": "",
-          "parameters": "",
-          "returnType": "void"
-        },
-        {
-          "name": "getConfigurationSettings",
-          "description": "Retrieves the current configuration settings",
-          "parameters": "",
-          "returnType": "VRConfigurationSettings"
-        },
-        {
-          "name": "saveConfigurationSettings",
-          "description": "Saves the new configuration settings",
-          "parameters": "newConfigurationSettings: VRConfigurationSettings",
-          "returnType": "void"
-        }
-      ]
-    },
-    {
-      "name": "VRRemoteDatastore",
-      "description": "Represents Remote Datastore",
-      "attributes": [
-        {
-          "name": "name",
-          "type": "String",
-          "description": "Display name of this Object",
-          "isReadonly": false
-        },
-        {
-          "name": "path",
-          "type": "String",
-          "description": "Path to this Scripting Object",
-          "isReadonly": false
-        },
-        {
-          "name": "morType",
-          "type": "String",
-          "description": "Type of this Scripting Object",
-          "isReadonly": false
-        },
-        {
-          "name": "vcUriHost",
-          "type": "String",
-          "description": "VC of this Scripting Object",
-          "isReadonly": false
-        }
-      ],
-      "methods": []
-    },
-    {
-      "name": "VRReplicationIssue",
-      "description": "Represents Replication Issue details",
-      "attributes": [
-        {
-          "name": "name",
-          "type": "String",
-          "description": "Display name of this Object",
-          "isReadonly": false
-        }
-      ],
-      "methods": [
-        {
-          "name": "getSeverity",
-          "description": "",
-          "parameters": "",
-          "returnType": "String"
-        },
-        {
-          "name": "setFault",
-          "description": "",
-          "parameters": "fault: java.lang.Exception",
-          "returnType": "void"
-        },
-        {
-          "name": "getFault",
-          "description": "",
-          "parameters": "",
-          "returnType": "java.lang.Exception"
-        },
-        {
-          "name": "setSeverity",
-          "description": "",
-          "parameters": "severity: String",
-          "returnType": "void"
-        },
-        {
-          "name": "setTargetObject",
-          "description": "",
-          "parameters": "targetObject: com.vmware.vim.binding.vmodl.ManagedObjectReference",
-          "returnType": "void"
-        },
-        {
-          "name": "setTargetObjectName",
-          "description": "",
-          "parameters": "targetObjectName: String",
-          "returnType": "void"
-        },
-        {
-          "name": "setTriggeredTime",
-          "description": "",
-          "parameters": "triggeredTime: java.util.Calendar",
-          "returnType": "void"
-        },
-        {
-          "name": "getIssueType",
-          "description": "",
-          "parameters": "",
-          "returnType": "String"
-        },
-        {
-          "name": "setIssueType",
-          "description": "",
-          "parameters": "issueType: String",
-          "returnType": "void"
-        },
-        {
-          "name": "setSourceSiteUuid",
-          "description": "",
-          "parameters": "sourceSiteUuid: String",
-          "returnType": "void"
-        },
-        {
-          "name": "setDestinationSiteUuid",
-          "description": "",
-          "parameters": "destinationSiteUuid: String",
-          "returnType": "void"
-        },
-        {
-          "name": "getTargetObject",
-          "description": "",
-          "parameters": "",
-          "returnType": "com.vmware.vim.binding.vmodl.ManagedObjectReference"
-        },
-        {
-          "name": "getTargetObjectName",
-          "description": "",
-          "parameters": "",
-          "returnType": "String"
-        },
-        {
-          "name": "getTriggeredTime",
-          "description": "",
-          "parameters": "",
-          "returnType": "java.util.Calendar"
-        },
-        {
-          "name": "getSourceSiteUuid",
-          "description": "",
-          "parameters": "",
-          "returnType": "String"
-        },
-        {
-          "name": "getDestinationSiteUuid",
-          "description": "",
-          "parameters": "",
-          "returnType": "String"
-        }
-      ]
-    },
-    {
-      "name": "VRReplicationSettings",
-      "description": "Replication settings",
-      "attributes": [
-        {
-          "name": "name",
-          "type": "String",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "newDisksDatastoreId",
-          "type": "String",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "remoteDatastore",
-          "type": "VRRemoteDatastore",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "rpo",
-          "type": "long",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "quiesceGuestEnabled",
-          "type": "boolean",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "networkCompressionEnabled",
-          "type": "boolean",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "encryptionEnabled",
-          "type": "boolean",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "perDiskEnabled",
-          "type": "boolean",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "includedDisks",
-          "type": "Array/Lcom.vmware.hms.o11n.model.VmDisk;",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "includeAllDisks",
-          "type": "boolean",
-          "description": "Whether to retrieve and include all existing disks. Ignores existingDisks property",
-          "isReadonly": false
-        },
-        {
-          "name": "useDefaultSeed",
-          "type": "boolean",
-          "description": "Whether to use existing disk seeds or create a new folder for replicated disk.",
-          "isReadonly": false
-        },
-        {
-          "name": "excludedDisks",
-          "type": "Array/Lcom.vmware.hms.o11n.model.VmDisk;",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "retentionPolicyTiers",
-          "type": "Array/VRRetentionPolicyTier",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "diskType",
-          "type": "VRDiskType",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "diskTypes",
-          "type": "Array/Lcom.vmware.hms.o11n.model.DiskType;",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "storageProfile",
-          "type": "VRStorageProfile",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "storageProfiles",
-          "type": "Array/Lcom.vmware.hms.o11n.model.StorageProfile;",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "remoteDatastores",
-          "type": "Array/Lcom.vmware.hms.o11n.model.RemoteDatastore;",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "autoReplicateNewDisks",
-          "type": "boolean",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "dataSetsReplicationEnabled",
-          "type": "boolean",
-          "description": "",
-          "isReadonly": false
-        }
-      ],
-      "methods": [
-        {
-          "name": "isDataSetsReplicationEnabled",
-          "description": "",
-          "parameters": "",
-          "returnType": "boolean"
-        },
-        {
-          "name": "setDataSetsReplicationEnabled",
-          "description": "",
-          "parameters": "dataSetsReplicationEnabled: boolean",
-          "returnType": "void"
-        },
-        {
-          "name": "getDiskType",
-          "description": "",
-          "parameters": "",
-          "returnType": "VRDiskType"
-        },
-        {
-          "name": "setDiskType",
-          "description": "",
-          "parameters": "diskType: VRDiskType",
-          "returnType": "void"
-        },
-        {
-          "name": "getStorageProfile",
-          "description": "",
-          "parameters": "",
-          "returnType": "VRStorageProfile"
-        },
-        {
-          "name": "setStorageProfile",
-          "description": "",
-          "parameters": "storageProfile: VRStorageProfile",
-          "returnType": "void"
-        },
-        {
-          "name": "getStorageProfiles",
-          "description": "",
-          "parameters": "",
-          "returnType": "Array/VRStorageProfile"
-        },
-        {
-          "name": "isPerDiskEnabled",
-          "description": "",
-          "parameters": "",
-          "returnType": "boolean"
-        },
-        {
-          "name": "getIncludedDisks",
-          "description": "",
-          "parameters": "",
-          "returnType": "Array/VRVmDisk"
-        },
-        {
-          "name": "getDiskTypes",
-          "description": "",
-          "parameters": "",
-          "returnType": "Array/VRDiskType"
-        },
-        {
-          "name": "getRemoteDatastores",
-          "description": "",
-          "parameters": "",
-          "returnType": "Array/VRRemoteDatastore"
-        },
-        {
-          "name": "getRemoteDatastore",
-          "description": "",
-          "parameters": "",
-          "returnType": "VRRemoteDatastore"
-        },
-        {
-          "name": "setReplicationRef",
-          "description": "",
-          "parameters": "replicationRef: com.vmware.vim.binding.vmodl.ManagedObjectReference",
-          "returnType": "void"
-        },
-        {
-          "name": "getReplicationRef",
-          "description": "",
-          "parameters": "",
-          "returnType": "com.vmware.vim.binding.vmodl.ManagedObjectReference"
-        },
-        {
-          "name": "setIncludedDisks",
-          "description": "",
-          "parameters": "includedDisks: Array/VRVmDisk",
-          "returnType": "void"
-        },
-        {
-          "name": "getExcludedDisks",
-          "description": "",
-          "parameters": "",
-          "returnType": "Array/VRVmDisk"
-        },
-        {
-          "name": "setExcludedDisks",
-          "description": "",
-          "parameters": "excludedDisks: Array/VRVmDisk",
-          "returnType": "void"
-        },
-        {
-          "name": "isUseDefaultSeed",
-          "description": "",
-          "parameters": "",
-          "returnType": "boolean"
-        },
-        {
-          "name": "setUseDefaultSeed",
-          "description": "",
-          "parameters": "useDefaultSeed: boolean",
-          "returnType": "void"
-        },
-        {
-          "name": "isEncryptionEnabled",
-          "description": "",
-          "parameters": "",
-          "returnType": "boolean"
-        },
-        {
-          "name": "setEncryptionEnabled",
-          "description": "",
-          "parameters": "encryptionEnabled: boolean",
-          "returnType": "void"
-        },
-        {
-          "name": "isMpitEnabled",
-          "description": "",
-          "parameters": "",
-          "returnType": "boolean"
-        },
-        {
-          "name": "setMpitEnabled",
-          "description": "",
-          "parameters": "mpitEnabled: boolean",
-          "returnType": "void"
-        },
-        {
-          "name": "getMpitInstances",
-          "description": "",
-          "parameters": "",
-          "returnType": "int"
-        },
-        {
-          "name": "setMpitInstances",
-          "description": "",
-          "parameters": "mpitInstances: int",
-          "returnType": "void"
-        },
-        {
-          "name": "getMpitDays",
-          "description": "",
-          "parameters": "",
-          "returnType": "int"
-        },
-        {
-          "name": "setMpitDays",
-          "description": "",
-          "parameters": "mpitDays: int",
-          "returnType": "void"
-        },
-        {
-          "name": "getNewDisksDatastoreId",
-          "description": "",
-          "parameters": "",
-          "returnType": "String"
-        },
-        {
-          "name": "setNewDisksDatastoreId",
-          "description": "",
-          "parameters": "newDisksDatastoreId: String",
-          "returnType": "void"
-        },
-        {
-          "name": "setPerDiskEnabled",
-          "description": "",
-          "parameters": "perDiskEnabled: boolean",
-          "returnType": "void"
-        },
-        {
-          "name": "setDiskTypes",
-          "description": "",
-          "parameters": "diskTypes: Array/VRDiskType",
-          "returnType": "void"
-        },
-        {
-          "name": "setStorageProfiles",
-          "description": "",
-          "parameters": "storageProfiles: Array/VRStorageProfile",
-          "returnType": "void"
-        },
-        {
-          "name": "setRemoteDatastores",
-          "description": "",
-          "parameters": "remoteDatastores: Array/VRRemoteDatastore",
-          "returnType": "void"
-        },
-        {
-          "name": "setRemoteDatastore",
-          "description": "",
-          "parameters": "remoteDatastore: VRRemoteDatastore",
-          "returnType": "void"
-        },
-        {
-          "name": "isAutoReplicateNewDisks",
-          "description": "",
-          "parameters": "",
-          "returnType": "boolean"
-        },
-        {
-          "name": "setAutoReplicateNewDisks",
-          "description": "",
-          "parameters": "autoReplicateNewDisks: boolean",
-          "returnType": "void"
-        }
-      ]
-    },
-    {
-      "name": "VRRetentionPolicyTier",
-      "description": "Rettention policy for the replication",
-      "attributes": [
-        {
-          "name": "granularityMinutes",
-          "type": "int",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "numSlots",
-          "type": "int",
-          "description": "",
-          "isReadonly": false
-        }
-      ],
-      "methods": []
-    },
-    {
-      "name": "VRSite",
-      "description": "Represents HMS Site object",
-      "attributes": [
-        {
-          "name": "name",
-          "type": "String",
-          "description": "Display name of this Object",
-          "isReadonly": false
-        },
-        {
-          "name": "vcInstanceUuid",
-          "type": "String",
-          "description": "",
-          "isReadonly": true
-        }
-      ],
-      "methods": [
-        {
-          "name": "getVcRemoteSites",
-          "description": "",
-          "parameters": "",
-          "returnType": "Array/VRVcRemoteSite"
-        },
-        {
-          "name": "pairWithVcRemoteSite",
-          "description": "",
-          "parameters": "vcUuid: String, username: String, password: String, remoteLsAddress: String, localLsAddress: String",
-          "returnType": "VRTask"
-        },
-        {
-          "name": "reconnectVcToVcPair",
-          "description": "",
-          "parameters": "pairVcUuid: String, username: String, password: String, remoteLsAddress: String, localLsAddress: String",
-          "returnType": "VRTask"
-        },
-        {
-          "name": "getReplicationIssues",
-          "description": "",
-          "parameters": "isOutgoing: boolean, remoteSite: VRVcRemoteSite",
-          "returnType": "Array/VRReplicationIssue"
-        },
-        {
-          "name": "getReplicationIds",
-          "description": "",
-          "parameters": "vmName: String",
-          "returnType": "Array/String"
-        },
-        {
-          "name": "getVmDisks",
-          "description": "Gets VirtualMachine disks",
-          "parameters": "vmId: String",
-          "returnType": "Array/VRVmDisk"
-        }
-      ]
-    },
-    {
-      "name": "VRStorageProfile",
-      "description": "StorageProfile",
-      "attributes": [
-        {
-          "name": "name",
-          "type": "String",
-          "description": "Display name of this Object",
-          "isReadonly": false
-        }
-      ],
-      "methods": []
-    },
-    {
-      "name": "VRTask",
-      "description": "Represents HMS Task",
-      "attributes": [
-        {
-          "name": "name",
-          "type": "String",
-          "description": "Display name of this Object",
-          "isReadonly": false
-        }
-      ],
-      "methods": [
-        {
-          "name": "getState",
-          "description": "",
-          "parameters": "",
-          "returnType": "String"
-        },
-        {
-          "name": "getProgress",
-          "description": "",
-          "parameters": "",
-          "returnType": "Integer"
-        },
-        {
-          "name": "getErrotMessage",
-          "description": "",
-          "parameters": "",
-          "returnType": "String"
-        }
-      ]
-    },
-    {
-      "name": "VRVcEndpoint",
-      "description": "Service Endpoint description for a vCenter server",
-      "attributes": [
-        {
-          "name": "name",
-          "type": "String",
-          "description": "Display name of this Object",
-          "isReadonly": false
-        },
-        {
-          "name": "uri",
-          "type": "java.net.URI",
-          "description": "",
-          "isReadonly": true
-        },
-        {
-          "name": "lsUri",
-          "type": "java.net.URI",
-          "description": "Lookup Service URI",
-          "isReadonly": true
-        },
-        {
-          "name": "uuid",
-          "type": "String",
-          "description": "",
-          "isReadonly": true
-        },
-        {
-          "name": "sslTrust",
-          "type": "Array/Ljava.lang.String;",
-          "description": "",
-          "isReadonly": true
-        }
-      ],
-      "methods": []
-    },
-    {
-      "name": "VRVcRemoteSite",
-      "description": "Represents VSphere Remote Site object",
-      "attributes": [
-        {
-          "name": "name",
-          "type": "String",
-          "description": "Display name of this Object",
-          "isReadonly": false
-        },
-        {
-          "name": "uri",
-          "type": "java.net.URI",
-          "description": "URI of the remote VC server",
-          "isReadonly": false
-        },
-        {
-          "name": "lsUri",
-          "type": "java.net.URI",
-          "description": "URI of the remote Lookup Service",
-          "isReadonly": false
-        },
-        {
-          "name": "localSiteUri",
-          "type": "java.net.URI",
-          "description": "URI of the local VC server",
-          "isReadonly": false
-        }
-      ],
-      "methods": [
-        {
-          "name": "getDatastores",
-          "description": "Retrieve datastores at this site",
-          "parameters": "",
-          "returnType": "Array/VRRemoteDatastore"
-        },
-        {
-          "name": "loginSpbmServer",
-          "description": "Login remote Spbm server",
-          "parameters": "",
-          "returnType": "void"
-        },
-        {
-          "name": "loginRemoteSite",
-          "description": "Login remote VSphere site",
-          "parameters": "",
-          "returnType": "void"
-        },
-        {
-          "name": "loginRemoteSiteWithCredentials",
-          "description": "Login remote vSphere site with user name and password",
-          "parameters": "userName: String, password: String",
-          "returnType": "void"
-        },
-        {
-          "name": "logoutRemoteSite",
-          "description": "Logout remote VC Site",
-          "parameters": "",
-          "returnType": "void"
-        },
-        {
-          "name": "getReplicationsTo",
-          "description": "Retrieve replication groups targeting this site",
-          "parameters": "",
-          "returnType": "Array/VRVcToVcSourceGroup"
-        },
-        {
-          "name": "getReplicationsFrom",
-          "description": "Retrieve replication groups originating from this site",
-          "parameters": "",
-          "returnType": "Array/VRVcToVcTargetGroup"
-        },
-        {
-          "name": "getDatastoresFilteredByProfile",
-          "description": "Retrieve datastores at this site which support the provided storage profile",
-          "parameters": "storageProfile: VRStorageProfile",
-          "returnType": "Array/VRRemoteDatastore"
-        },
-        {
-          "name": "getStorageProfiles",
-          "description": "Retrieve storage profiles for this site",
-          "parameters": "",
-          "returnType": "Array/VRStorageProfile"
-        },
-        {
-          "name": "configureReplicationTo",
-          "description": "Create a new host based replication group",
-          "parameters": "vmId: String, settings: VRReplicationSettings",
-          "returnType": "VRTask"
-        },
-        {
-          "name": "getConfigureReplicationTaskResult",
-          "description": "Get the group created as a result of executing the task",
-          "parameters": "task: VRTask",
-          "returnType": "VRVcToVcSourceGroup"
-        },
-        {
-          "name": "getVMReplicationData",
-          "description": "Collects all replication data for given vm",
-          "parameters": "vmId: String",
-          "returnType": "VRVrReplicationDetailsData"
-        },
-        {
-          "name": "getVMGroup",
-          "description": "Gets VirtualMachine replication group",
-          "parameters": "vmId: String",
-          "returnType": "com.vmware.vim.binding.vmodl.ManagedObjectReference"
-        }
-      ]
-    },
-    {
-      "name": "VRVcToVcSourceGroup",
-      "description": "Represents VSphere Replication Group object",
-      "attributes": [
-        {
-          "name": "name",
-          "type": "String",
-          "description": "Display name of this Object",
-          "isReadonly": false
-        },
-        {
-          "name": "rpo",
-          "type": "long",
-          "description": "",
-          "isReadonly": true
-        }
-      ],
-      "methods": [
-        {
-          "name": "unconfigure",
-          "description": "Stop replication",
-          "parameters": "leaveReplicaDisks: boolean",
-          "returnType": "VRTask"
-        },
-        {
-          "name": "getDatastores",
-          "description": "Retrieve datastores at this site",
-          "parameters": "storageProfile: VRStorageProfile",
-          "returnType": "Array/VRRemoteDatastore"
-        },
-        {
-          "name": "getTargetDatastoreVmHome",
-          "description": "Retrieve VM home datastore",
-          "parameters": "",
-          "returnType": "VRRemoteDatastore"
-        },
-        {
-          "name": "getCommonDiskType",
-          "description": "Retrieve the common disk type.",
-          "parameters": "",
-          "returnType": "VRDiskType"
-        },
-        {
-          "name": "getCommonStorageProfile",
-          "description": "Retrieve the common storage profile.",
-          "parameters": "",
-          "returnType": "VRStorageProfile"
-        },
-        {
-          "name": "getRecoverySolution",
-          "description": "Retrieve the recovery solution of this replication.",
-          "parameters": "userName: String, password: String",
-          "returnType": "String"
-        },
-        {
-          "name": "getReplicationTestBubbleStatus",
-          "description": "",
-          "parameters": "userName: String, password: String",
-          "returnType": "String"
-        },
-        {
-          "name": "reConfigureReplicationTo",
-          "description": "Reconfigures a replication group",
-          "parameters": "settings: VRReplicationSettings",
-          "returnType": "VRTask"
-        },
-        {
-          "name": "getReplicationData",
-          "description": "Collects all data for given replication",
-          "parameters": "",
-          "returnType": "VRVrReplicationDetailsData"
-        },
-        {
-          "name": "getConfigureReplicationTaskResult",
-          "description": "Get the group created as a result of executing the task",
-          "parameters": "task: VRTask",
-          "returnType": "VRVcToVcSourceGroup"
-        },
-        {
-          "name": "resume",
-          "description": "Resume replication",
-          "parameters": "",
-          "returnType": "VRTask"
-        },
-        {
-          "name": "getStatus",
-          "description": "Get replication status",
-          "parameters": "",
-          "returnType": "String"
-        },
-        {
-          "name": "fullSync",
-          "description": "Full sync",
-          "parameters": "",
-          "returnType": "VRTask"
-        },
-        {
-          "name": "pause",
-          "description": "Pause replication",
-          "parameters": "",
-          "returnType": "VRTask"
-        },
-        {
-          "name": "getReplicationError",
-          "description": "Get replication error",
-          "parameters": "",
-          "returnType": "String"
-        },
-        {
-          "name": "getRecoveryState",
-          "description": "Get recovery state",
-          "parameters": "",
-          "returnType": "String"
-        },
-        {
-          "name": "getRecoveryError",
-          "description": "Get recovery error",
-          "parameters": "",
-          "returnType": "String"
-        },
-        {
-          "name": "getTestRecoveryState",
-          "description": "Get test recovery state",
-          "parameters": "",
-          "returnType": "String"
-        },
-        {
-          "name": "getTestRecoveryError",
-          "description": "Get test recovery error",
-          "parameters": "",
-          "returnType": "String"
-        },
-        {
-          "name": "getCurrentRpoViolation",
-          "description": "Get current RPO violation in minutes",
-          "parameters": "",
-          "returnType": "long"
-        },
-        {
-          "name": "onlineSync",
-          "description": "Online sync",
-          "parameters": "",
-          "returnType": "VRTask"
-        },
-        {
-          "name": "offlineSync",
-          "description": "Offline sync",
-          "parameters": "",
-          "returnType": "VRTask"
-        }
-      ]
-    },
-    {
-      "name": "VRVcToVcTargetGroup",
-      "description": "Represents VSphere Replication Group object",
-      "attributes": [
-        {
-          "name": "name",
-          "type": "String",
-          "description": "Display name of this Object",
-          "isReadonly": false
-        },
-        {
-          "name": "rpo",
-          "type": "long",
-          "description": "",
-          "isReadonly": true
-        }
-      ],
-      "methods": [
-        {
-          "name": "resume",
-          "description": "Resume replication",
-          "parameters": "",
-          "returnType": "VRTask"
-        },
-        {
-          "name": "getStatus",
-          "description": "Get replication status",
-          "parameters": "",
-          "returnType": "String"
-        },
-        {
-          "name": "fullSync",
-          "description": "Full sync",
-          "parameters": "",
-          "returnType": "VRTask"
-        },
-        {
-          "name": "pause",
-          "description": "Pause replication",
-          "parameters": "",
-          "returnType": "VRTask"
-        },
-        {
-          "name": "getReplicationError",
-          "description": "Get replication error",
-          "parameters": "",
-          "returnType": "String"
-        },
-        {
-          "name": "getRecoveryState",
-          "description": "Get recovery state",
-          "parameters": "",
-          "returnType": "String"
-        },
-        {
-          "name": "getRecoveryError",
-          "description": "Get recovery error",
-          "parameters": "",
-          "returnType": "String"
-        },
-        {
-          "name": "getTestRecoveryState",
-          "description": "Get test recovery state",
-          "parameters": "",
-          "returnType": "String"
-        },
-        {
-          "name": "getTestRecoveryError",
-          "description": "Get test recovery error",
-          "parameters": "",
-          "returnType": "String"
-        },
-        {
-          "name": "getCurrentRpoViolation",
-          "description": "Get current RPO violation in minutes",
-          "parameters": "",
-          "returnType": "long"
-        },
-        {
-          "name": "onlineSync",
-          "description": "Online sync",
-          "parameters": "",
-          "returnType": "VRTask"
-        },
-        {
-          "name": "offlineSync",
-          "description": "Offline sync",
-          "parameters": "",
-          "returnType": "VRTask"
-        }
-      ]
-    },
-    {
-      "name": "VRVmDisk",
-      "description": "Represents virtual machine replication disks",
-      "attributes": [
-        {
-          "name": "name",
-          "type": "String",
-          "description": "Display name of this Object",
-          "isReadonly": false
-        }
-      ],
-      "methods": [
-        {
-          "name": "getLabel",
-          "description": "",
-          "parameters": "",
-          "returnType": "String"
-        },
-        {
-          "name": "setLabel",
-          "description": "",
-          "parameters": "label: String",
-          "returnType": "void"
-        },
-        {
-          "name": "getDeviceKey",
-          "description": "",
-          "parameters": "",
-          "returnType": "int"
-        },
-        {
-          "name": "setDeviceKey",
-          "description": "",
-          "parameters": "deviceKey: int",
-          "returnType": "void"
-        },
-        {
-          "name": "getCapacityInKB",
-          "description": "",
-          "parameters": "",
-          "returnType": "long"
-        },
-        {
-          "name": "setCapacityInKB",
-          "description": "",
-          "parameters": "capacityInKB: long",
-          "returnType": "void"
-        },
-        {
-          "name": "getVmRef",
-          "description": "",
-          "parameters": "",
-          "returnType": "com.vmware.vim.binding.vmodl.ManagedObjectReference"
-        },
-        {
-          "name": "setVmRef",
-          "description": "",
-          "parameters": "vmRef: com.vmware.vim.binding.vmodl.ManagedObjectReference",
-          "returnType": "void"
-        },
-        {
-          "name": "setDestinationPath",
-          "description": "",
-          "parameters": "destinationPath: String",
-          "returnType": "void"
-        },
-        {
-          "name": "getDestinationPath",
-          "description": "",
-          "parameters": "",
-          "returnType": "String"
-        },
-        {
-          "name": "isReplicated",
-          "description": "",
-          "parameters": "",
-          "returnType": "boolean"
-        },
-        {
-          "name": "setReplicated",
-          "description": "",
-          "parameters": "replicated: boolean",
-          "returnType": "void"
-        },
-        {
-          "name": "isVmHome",
-          "description": "",
-          "parameters": "",
-          "returnType": "boolean"
-        },
-        {
-          "name": "setVmHome",
-          "description": "",
-          "parameters": "vmHome: boolean",
-          "returnType": "void"
-        },
-        {
-          "name": "getFoundSeeds",
-          "description": "",
-          "parameters": "",
-          "returnType": "Array/String"
-        },
-        {
-          "name": "setFoundSeeds",
-          "description": "",
-          "parameters": "foundSeeds: Array/String",
-          "returnType": "void"
-        },
-        {
-          "name": "getSourceDiskFormat",
-          "description": "",
-          "parameters": "",
-          "returnType": "com.vmware.hms.o11n.model.VirtualDiskFormat"
-        },
-        {
-          "name": "getSourceStoragePolicyName",
-          "description": "",
-          "parameters": "",
-          "returnType": "String"
-        },
-        {
-          "name": "getSourceStoragePolicyId",
-          "description": "",
-          "parameters": "",
-          "returnType": "String"
-        },
-        {
-          "name": "isEnabledForReplication",
-          "description": "",
-          "parameters": "",
-          "returnType": "boolean"
-        },
-        {
-          "name": "setEnabledForReplication",
-          "description": "",
-          "parameters": "enabledForReplication: boolean",
-          "returnType": "void"
-        },
-        {
-          "name": "isUseSeed",
-          "description": "",
-          "parameters": "",
-          "returnType": "boolean"
-        },
-        {
-          "name": "setUseSeed",
-          "description": "",
-          "parameters": "useSeed: boolean",
-          "returnType": "void"
-        },
-        {
-          "name": "getDestinationStoragePolicyId",
-          "description": "",
-          "parameters": "",
-          "returnType": "String"
-        },
-        {
-          "name": "setDestinationStoragePolicyId",
-          "description": "",
-          "parameters": "destinationStoragePolicyId: String",
-          "returnType": "void"
-        },
-        {
-          "name": "getDestinationStoragePolicyName",
-          "description": "",
-          "parameters": "",
-          "returnType": "String"
-        },
-        {
-          "name": "setDestinationStoragePolicyName",
-          "description": "",
-          "parameters": "destinationStoragePolicyName: String",
-          "returnType": "void"
-        },
-        {
-          "name": "getDestinationDatastoreRef",
-          "description": "",
-          "parameters": "",
-          "returnType": "com.vmware.vim.binding.vmodl.ManagedObjectReference"
-        },
-        {
-          "name": "setDestinationDatastoreRef",
-          "description": "",
-          "parameters": "destinationDatastoreRef: com.vmware.vim.binding.vmodl.ManagedObjectReference",
-          "returnType": "void"
-        },
-        {
-          "name": "getDestinationDiskFormat",
-          "description": "",
-          "parameters": "",
-          "returnType": "com.vmware.hms.o11n.model.VirtualDiskFormat"
-        },
-        {
-          "name": "setDestinationDiskFormat",
-          "description": "",
-          "parameters": "destinationDiskFormat: com.vmware.hms.o11n.model.VirtualDiskFormat",
-          "returnType": "void"
-        },
-        {
-          "name": "isSeedsAreConfigured",
-          "description": "",
-          "parameters": "",
-          "returnType": "boolean"
-        },
-        {
-          "name": "setSeedsAreConfigured",
-          "description": "",
-          "parameters": "seedsAreConfigured: boolean",
-          "returnType": "void"
-        },
-        {
-          "name": "isNewDisk",
-          "description": "",
-          "parameters": "",
-          "returnType": "boolean"
-        },
-        {
-          "name": "setNewDisk",
-          "description": "",
-          "parameters": "newDisk: boolean",
-          "returnType": "void"
-        },
-        {
-          "name": "setSourceDiskFormat",
-          "description": "",
-          "parameters": "sourceDiskFormat: com.vmware.hms.o11n.model.VirtualDiskFormat",
-          "returnType": "void"
-        },
-        {
-          "name": "setSourceStoragePolicyId",
-          "description": "",
-          "parameters": "sourceStoragePolicyId: String",
-          "returnType": "void"
-        },
-        {
-          "name": "setSourceStoragePolicyName",
-          "description": "",
-          "parameters": "sourceStoragePolicyName: String",
-          "returnType": "void"
-        }
-      ]
-    },
-    {
-      "name": "VRVrReplicationDetailsData",
-      "description": "Represents consolidated Replication information",
-      "attributes": [
-        {
-          "name": "name",
-          "type": "String",
-          "description": "Display name of this Object",
-          "isReadonly": false
-        }
-      ],
-      "methods": [
-        {
-          "name": "getVmRef",
-          "description": "getter for VM ref",
-          "parameters": "",
-          "returnType": "com.vmware.vim.binding.vmodl.ManagedObjectReference"
-        },
-        {
-          "name": "setVmRef",
-          "description": "Getter for vmRef",
-          "parameters": "vmRef: com.vmware.vim.binding.vmodl.ManagedObjectReference",
-          "returnType": "void"
-        },
-        {
-          "name": "getLastSyncTime",
-          "description": "",
-          "parameters": "",
-          "returnType": "String"
-        },
-        {
-          "name": "setLastSyncTime",
-          "description": "",
-          "parameters": "_lastSyncTime: String",
-          "returnType": "void"
-        },
-        {
-          "name": "isDataSetsReplicationEnabled",
-          "description": "Getter for isDataSetsReplicationEnabled",
-          "parameters": "",
-          "returnType": "boolean"
-        },
-        {
-          "name": "setDataSetsReplicationEnabled",
-          "description": "Setter for isDataSetsReplicationEnabled",
-          "parameters": "isDataSetsReplicationEnabled: boolean",
-          "returnType": "void"
-        },
-        {
-          "name": "getDatastores",
-          "description": "",
-          "parameters": "",
-          "returnType": "Array/VRRemoteDatastore"
-        },
-        {
-          "name": "setDatastores",
-          "description": "",
-          "parameters": "_datastores: Array/VRRemoteDatastore",
-          "returnType": "void"
-        },
-        {
-          "name": "getVmDisks",
-          "description": "Getter for all the VM disks configured in the replication",
-          "parameters": "",
-          "returnType": "Array/VRVmDisk"
-        },
-        {
-          "name": "getStorageProfiles",
-          "description": "",
-          "parameters": "",
-          "returnType": "Array/VRStorageProfile"
-        },
-        {
-          "name": "getDiskTypes",
-          "description": "",
-          "parameters": "",
-          "returnType": "Array/VRDiskType"
-        },
-        {
-          "name": "setTargetHmsRef",
-          "description": "",
-          "parameters": "targetHmsRef: com.vmware.vim.binding.vmodl.ManagedObjectReference",
-          "returnType": "void"
-        },
-        {
-          "name": "setHbrServerUuid",
-          "description": "",
-          "parameters": "hbrServerUuid: String",
-          "returnType": "void"
-        },
-        {
-          "name": "setHbrInternallyManaged",
-          "description": "",
-          "parameters": "hbrInternallyManaged: boolean",
-          "returnType": "void"
-        },
-        {
-          "name": "setVmDisks",
-          "description": "Setter for all the VM disks configured in the replication",
-          "parameters": "vmDisks: Array/VRVmDisk",
-          "returnType": "void"
-        },
-        {
-          "name": "setOriginalVmDisks",
-          "description": "Setter for all VM disks taken from the VC",
-          "parameters": "originalVmDisks: Array/VRVmDisk",
-          "returnType": "void"
-        },
-        {
-          "name": "getOriginalVmDisks",
-          "description": "Getter for all VM disks taken from the VC",
-          "parameters": "",
-          "returnType": "Array/VRVmDisk"
-        },
-        {
-          "name": "getTargetVcRef",
-          "description": "Getter for target VC ref",
-          "parameters": "",
-          "returnType": "com.vmware.vim.binding.vmodl.ManagedObjectReference"
-        },
-        {
-          "name": "setTargetVcRef",
-          "description": "Setter for target VC ref",
-          "parameters": "targetVcRef: com.vmware.vim.binding.vmodl.ManagedObjectReference",
-          "returnType": "void"
-        },
-        {
-          "name": "setHbrServerName",
-          "description": "Setter for HBR server name",
-          "parameters": "hbrServerName: String",
-          "returnType": "void"
-        },
-        {
-          "name": "setConfigurationError",
-          "description": "Setter for configuration error",
-          "parameters": "configurationError: java.lang.Exception",
-          "returnType": "void"
-        },
-        {
-          "name": "setLastGroupError",
-          "description": "Setter for last group error",
-          "parameters": "lastGroupError: java.lang.Exception",
-          "returnType": "void"
-        },
-        {
-          "name": "getTargetSiteName",
-          "description": "Getter for Target Site Name",
-          "parameters": "",
-          "returnType": "String"
-        },
-        {
-          "name": "setTargetSiteName",
-          "description": "Setter for Target Site Name",
-          "parameters": "targetSiteName: String",
-          "returnType": "void"
-        },
-        {
-          "name": "setRPO",
-          "description": "Setter for RPO",
-          "parameters": "RPO: long",
-          "returnType": "void"
-        },
-        {
-          "name": "getRPO",
-          "description": "",
-          "parameters": "",
-          "returnType": "long"
-        },
-        {
-          "name": "setQuiescingEnabled",
-          "description": "Setter for Quiescing Enabled",
-          "parameters": "quiescingEnabled: boolean",
-          "returnType": "void"
-        },
-        {
-          "name": "isQuiescingEnabled",
-          "description": "",
-          "parameters": "",
-          "returnType": "boolean"
-        },
-        {
-          "name": "setReplicationRef",
-          "description": "Setter for replication ref",
-          "parameters": "replicationRef: com.vmware.vim.binding.vmodl.ManagedObjectReference",
-          "returnType": "void"
-        },
-        {
-          "name": "getReplicationRef",
-          "description": "Getter for replication ref",
-          "parameters": "",
-          "returnType": "com.vmware.vim.binding.vmodl.ManagedObjectReference"
-        },
-        {
-          "name": "setNetworkCompressionEnabled",
-          "description": "Getter for isNetworkCompressionEnabled",
-          "parameters": "networkCompressionEnabled: boolean",
-          "returnType": "void"
-        },
-        {
-          "name": "isEncryptionEnabled",
-          "description": "",
-          "parameters": "",
-          "returnType": "boolean"
-        },
-        {
-          "name": "setEncryptionEnabled",
-          "description": "Getter for encryptionEnabled",
-          "parameters": "encryptionEnabled: boolean",
-          "returnType": "void"
-        },
-        {
-          "name": "isMpitEnabled",
-          "description": "Getter for isMpitEnabled",
-          "parameters": "",
-          "returnType": "boolean"
-        },
-        {
-          "name": "setMpitEnabled",
-          "description": "Setter for isMpitEnabled",
-          "parameters": "mpitEnabled: boolean",
-          "returnType": "void"
-        },
-        {
-          "name": "getMpitInstances",
-          "description": "",
-          "parameters": "",
-          "returnType": "int"
-        },
-        {
-          "name": "setMpitInstances",
-          "description": "Getter for mpitInstances",
-          "parameters": "mpitInstances: int",
-          "returnType": "void"
-        },
-        {
-          "name": "getMpitDays",
-          "description": "",
-          "parameters": "",
-          "returnType": "int"
-        },
-        {
-          "name": "setMpitDays",
-          "description": "Getter for mpitDays",
-          "parameters": "mpitDays: int",
-          "returnType": "void"
-        },
-        {
-          "name": "setDiskTypes",
-          "description": "",
-          "parameters": "_diskTypes: Array/VRDiskType",
-          "returnType": "void"
-        },
-        {
-          "name": "setStorageProfiles",
-          "description": "",
-          "parameters": "_storageProfiles: Array/VRStorageProfile",
-          "returnType": "void"
-        },
-        {
-          "name": "isAutoReplicateNewDisks",
-          "description": "",
-          "parameters": "",
-          "returnType": "boolean"
-        },
-        {
-          "name": "setAutoReplicateNewDisks",
-          "description": "",
-          "parameters": "_autoReplicateNewDisks: boolean",
-          "returnType": "void"
-        },
-        {
-          "name": "isNetworkCompressionEnabled",
-          "description": "",
-          "parameters": "",
-          "returnType": "boolean"
-        },
-        {
-          "name": "setRecoveryError",
-          "description": "Setter for RecoveryError",
-          "parameters": "recoveryError: String",
-          "returnType": "void"
-        },
-        {
-          "name": "isPerDisk",
-          "description": "",
-          "parameters": "",
-          "returnType": "boolean"
-        },
-        {
-          "name": "setPerDisk",
-          "description": "",
-          "parameters": "_perDisk: boolean",
-          "returnType": "void"
-        },
-        {
-          "name": "getLastSyncSize",
-          "description": "",
-          "parameters": "",
-          "returnType": "long"
-        },
-        {
-          "name": "setLastSyncSize",
-          "description": "",
-          "parameters": "_lastSyncSize: long",
-          "returnType": "void"
-        },
-        {
-          "name": "getLastSyncDuration",
-          "description": "",
-          "parameters": "",
-          "returnType": "long"
-        },
-        {
-          "name": "setLastSyncDuration",
-          "description": "",
-          "parameters": "_lastSyncDuration: long",
-          "returnType": "void"
-        },
-        {
-          "name": "getLastSyncDate",
-          "description": "",
-          "parameters": "",
-          "returnType": "java.util.Date"
-        },
-        {
-          "name": "setLastSyncDate",
-          "description": "",
-          "parameters": "_lastSyncDate: java.util.Date",
-          "returnType": "void"
-        },
-        {
-          "name": "setRpoViolationMinutes",
-          "description": "",
-          "parameters": "rpoViolationMinutes: long",
-          "returnType": "void"
-        },
-        {
-          "name": "getRpoViolationMinutes",
-          "description": "",
-          "parameters": "",
-          "returnType": "long"
-        }
-      ]
-    }
-  ]
+﻿{
+    "name":  "vSphere Replication",
+    "description":  "API Reference for VR",
+    "classes":  [
+                    {
+                        "name":  "VRConfigurationSettings",
+                        "description":  "Represents the connection settings for the HMS plugin",
+                        "attributes":  [
+                                           {
+                                               "name":  "name",
+                                               "type":  "String",
+                                               "description":  "Display name of this Object",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "maxConnections",
+                                               "type":  "Integer",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "sessionTimeout",
+                                               "type":  "Integer",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "connectTimeout",
+                                               "type":  "Integer",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           }
+                                       ],
+                        "methods":  [
+
+                                    ]
+                    },
+                    {
+                        "name":  "VRDiskType",
+                        "description":  "DiskType",
+                        "attributes":  [
+                                           {
+                                               "name":  "name",
+                                               "type":  "String",
+                                               "description":  "Display name of this Object",
+                                               "isReadonly":  false
+                                           }
+                                       ],
+                        "methods":  [
+
+                                    ]
+                    },
+                    {
+                        "name":  "VRFactoryLifecycleManager",
+                        "description":  "",
+                        "attributes":  [
+                                           {
+                                               "name":  "name",
+                                               "type":  "String",
+                                               "description":  "Display name of this Object",
+                                               "isReadonly":  false
+                                           }
+                                       ],
+                        "methods":  [
+
+                                    ]
+                    },
+                    {
+                        "name":  "VRPluginConfig",
+                        "description":  "Handles plugin connection configuration",
+                        "attributes":  [
+                                           {
+                                               "name":  "name",
+                                               "type":  "String",
+                                               "description":  "Display name of this Object",
+                                               "isReadonly":  false
+                                           }
+                                       ],
+                        "methods":  [
+                                        {
+                                            "name":  "getSites",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "Array/VRSite"
+                                        },
+                                        {
+                                            "name":  "registerRemoteVcSite",
+                                            "description":  "",
+                                            "parameters":  "remoteSite: VRVcRemoteSite, username: String, password: String",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "unregisterRemoteVcSite",
+                                            "description":  "",
+                                            "parameters":  "remoteSite: VRVcRemoteSite",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "listVCsForRemoteLS",
+                                            "description":  "",
+                                            "parameters":  "lsAddress: String",
+                                            "returnType":  "Array/VRVcEndpoint"
+                                        },
+                                        {
+                                            "name":  "getSupportedDiskFormats",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "Array/VRDiskType"
+                                        },
+                                        {
+                                            "name":  "refreshCache",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getConfigurationSettings",
+                                            "description":  "Retrieves the current configuration settings",
+                                            "parameters":  "",
+                                            "returnType":  "VRConfigurationSettings"
+                                        },
+                                        {
+                                            "name":  "saveConfigurationSettings",
+                                            "description":  "Saves the new configuration settings",
+                                            "parameters":  "newConfigurationSettings: VRConfigurationSettings",
+                                            "returnType":  "void"
+                                        }
+                                    ]
+                    },
+                    {
+                        "name":  "VRRemoteDatastore",
+                        "description":  "Represents Remote Datastore",
+                        "attributes":  [
+                                           {
+                                               "name":  "name",
+                                               "type":  "String",
+                                               "description":  "Display name of this Object",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "path",
+                                               "type":  "String",
+                                               "description":  "Path to this Scripting Object",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "morType",
+                                               "type":  "String",
+                                               "description":  "Type of this Scripting Object",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "vcUriHost",
+                                               "type":  "String",
+                                               "description":  "VC of this Scripting Object",
+                                               "isReadonly":  false
+                                           }
+                                       ],
+                        "methods":  [
+
+                                    ]
+                    },
+                    {
+                        "name":  "VRReplicationIssue",
+                        "description":  "Represents Replication Issue details",
+                        "attributes":  [
+                                           {
+                                               "name":  "name",
+                                               "type":  "String",
+                                               "description":  "Display name of this Object",
+                                               "isReadonly":  false
+                                           }
+                                       ],
+                        "methods":  [
+                                        {
+                                            "name":  "getSeverity",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "setFault",
+                                            "description":  "",
+                                            "parameters":  "fault: java.lang.Exception",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getFault",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "java.lang.Exception"
+                                        },
+                                        {
+                                            "name":  "setSeverity",
+                                            "description":  "",
+                                            "parameters":  "severity: String",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "setTargetObject",
+                                            "description":  "",
+                                            "parameters":  "targetObject: com.vmware.vim.binding.vmodl.ManagedObjectReference",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "setTargetObjectName",
+                                            "description":  "",
+                                            "parameters":  "targetObjectName: String",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "setTriggeredTime",
+                                            "description":  "",
+                                            "parameters":  "triggeredTime: java.util.Calendar",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getIssueType",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "setIssueType",
+                                            "description":  "",
+                                            "parameters":  "issueType: String",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "setSourceSiteUuid",
+                                            "description":  "",
+                                            "parameters":  "sourceSiteUuid: String",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "setDestinationSiteUuid",
+                                            "description":  "",
+                                            "parameters":  "destinationSiteUuid: String",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getTargetObject",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "com.vmware.vim.binding.vmodl.ManagedObjectReference"
+                                        },
+                                        {
+                                            "name":  "getTargetObjectName",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "getTriggeredTime",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "java.util.Calendar"
+                                        },
+                                        {
+                                            "name":  "getSourceSiteUuid",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "getDestinationSiteUuid",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        }
+                                    ]
+                    },
+                    {
+                        "name":  "VRReplicationSettings",
+                        "description":  "Replication settings",
+                        "attributes":  [
+                                           {
+                                               "name":  "name",
+                                               "type":  "String",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "newDisksDatastoreId",
+                                               "type":  "String",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "remoteDatastore",
+                                               "type":  "VRRemoteDatastore",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "rpo",
+                                               "type":  "long",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "quiesceGuestEnabled",
+                                               "type":  "boolean",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "networkCompressionEnabled",
+                                               "type":  "boolean",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "encryptionEnabled",
+                                               "type":  "boolean",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "perDiskEnabled",
+                                               "type":  "boolean",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "includedDisks",
+                                               "type":  "Array/Lcom.vmware.hms.o11n.model.VmDisk;",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "includeAllDisks",
+                                               "type":  "boolean",
+                                               "description":  "Whether to retrieve and include all existing disks. Ignores existingDisks property",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "useDefaultSeed",
+                                               "type":  "boolean",
+                                               "description":  "Whether to use existing disk seeds or create a new folder for replicated disk.",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "excludedDisks",
+                                               "type":  "Array/Lcom.vmware.hms.o11n.model.VmDisk;",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "retentionPolicyTiers",
+                                               "type":  "Array/VRRetentionPolicyTier",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "diskType",
+                                               "type":  "VRDiskType",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "diskTypes",
+                                               "type":  "Array/Lcom.vmware.hms.o11n.model.DiskType;",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "storageProfile",
+                                               "type":  "VRStorageProfile",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "storageProfiles",
+                                               "type":  "Array/Lcom.vmware.hms.o11n.model.StorageProfile;",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "remoteDatastores",
+                                               "type":  "Array/Lcom.vmware.hms.o11n.model.RemoteDatastore;",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "autoReplicateNewDisks",
+                                               "type":  "boolean",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "dataSetsReplicationEnabled",
+                                               "type":  "boolean",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           }
+                                       ],
+                        "methods":  [
+                                        {
+                                            "name":  "isDataSetsReplicationEnabled",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "boolean"
+                                        },
+                                        {
+                                            "name":  "setDataSetsReplicationEnabled",
+                                            "description":  "",
+                                            "parameters":  "dataSetsReplicationEnabled: boolean",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getDiskType",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "VRDiskType"
+                                        },
+                                        {
+                                            "name":  "setDiskType",
+                                            "description":  "",
+                                            "parameters":  "diskType: VRDiskType",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getStorageProfile",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "VRStorageProfile"
+                                        },
+                                        {
+                                            "name":  "setStorageProfile",
+                                            "description":  "",
+                                            "parameters":  "storageProfile: VRStorageProfile",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getStorageProfiles",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "Array/VRStorageProfile"
+                                        },
+                                        {
+                                            "name":  "isPerDiskEnabled",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "boolean"
+                                        },
+                                        {
+                                            "name":  "getIncludedDisks",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "Array/VRVmDisk"
+                                        },
+                                        {
+                                            "name":  "getDiskTypes",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "Array/VRDiskType"
+                                        },
+                                        {
+                                            "name":  "getRemoteDatastores",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "Array/VRRemoteDatastore"
+                                        },
+                                        {
+                                            "name":  "getRemoteDatastore",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "VRRemoteDatastore"
+                                        },
+                                        {
+                                            "name":  "setReplicationRef",
+                                            "description":  "",
+                                            "parameters":  "replicationRef: com.vmware.vim.binding.vmodl.ManagedObjectReference",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getReplicationRef",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "com.vmware.vim.binding.vmodl.ManagedObjectReference"
+                                        },
+                                        {
+                                            "name":  "setIncludedDisks",
+                                            "description":  "",
+                                            "parameters":  "includedDisks: Array/VRVmDisk",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getExcludedDisks",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "Array/VRVmDisk"
+                                        },
+                                        {
+                                            "name":  "setExcludedDisks",
+                                            "description":  "",
+                                            "parameters":  "excludedDisks: Array/VRVmDisk",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "isUseDefaultSeed",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "boolean"
+                                        },
+                                        {
+                                            "name":  "setUseDefaultSeed",
+                                            "description":  "",
+                                            "parameters":  "useDefaultSeed: boolean",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "isEncryptionEnabled",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "boolean"
+                                        },
+                                        {
+                                            "name":  "setEncryptionEnabled",
+                                            "description":  "",
+                                            "parameters":  "encryptionEnabled: boolean",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "isMpitEnabled",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "boolean"
+                                        },
+                                        {
+                                            "name":  "setMpitEnabled",
+                                            "description":  "",
+                                            "parameters":  "mpitEnabled: boolean",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getMpitInstances",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "int"
+                                        },
+                                        {
+                                            "name":  "setMpitInstances",
+                                            "description":  "",
+                                            "parameters":  "mpitInstances: int",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getMpitDays",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "int"
+                                        },
+                                        {
+                                            "name":  "setMpitDays",
+                                            "description":  "",
+                                            "parameters":  "mpitDays: int",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getNewDisksDatastoreId",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "setNewDisksDatastoreId",
+                                            "description":  "",
+                                            "parameters":  "newDisksDatastoreId: String",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "setPerDiskEnabled",
+                                            "description":  "",
+                                            "parameters":  "perDiskEnabled: boolean",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "setDiskTypes",
+                                            "description":  "",
+                                            "parameters":  "diskTypes: Array/VRDiskType",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "setStorageProfiles",
+                                            "description":  "",
+                                            "parameters":  "storageProfiles: Array/VRStorageProfile",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "setRemoteDatastores",
+                                            "description":  "",
+                                            "parameters":  "remoteDatastores: Array/VRRemoteDatastore",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "setRemoteDatastore",
+                                            "description":  "",
+                                            "parameters":  "remoteDatastore: VRRemoteDatastore",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "isAutoReplicateNewDisks",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "boolean"
+                                        },
+                                        {
+                                            "name":  "setAutoReplicateNewDisks",
+                                            "description":  "",
+                                            "parameters":  "autoReplicateNewDisks: boolean",
+                                            "returnType":  "void"
+                                        }
+                                    ]
+                    },
+                    {
+                        "name":  "VRRetentionPolicyTier",
+                        "description":  "Rettention policy for the replication",
+                        "attributes":  [
+                                           {
+                                               "name":  "granularityMinutes",
+                                               "type":  "int",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "numSlots",
+                                               "type":  "int",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           }
+                                       ],
+                        "methods":  [
+
+                                    ]
+                    },
+                    {
+                        "name":  "VRSite",
+                        "description":  "Represents HMS Site object",
+                        "attributes":  [
+                                           {
+                                               "name":  "name",
+                                               "type":  "String",
+                                               "description":  "Display name of this Object",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "vcInstanceUuid",
+                                               "type":  "String",
+                                               "description":  "",
+                                               "isReadonly":  true
+                                           }
+                                       ],
+                        "methods":  [
+                                        {
+                                            "name":  "getVcRemoteSites",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "Array/VRVcRemoteSite"
+                                        },
+                                        {
+                                            "name":  "pairWithVcRemoteSite",
+                                            "description":  "",
+                                            "parameters":  "vcUuid: String, username: String, password: String, remoteLsAddress: String, localLsAddress: String",
+                                            "returnType":  "VRTask"
+                                        },
+                                        {
+                                            "name":  "reconnectVcToVcPair",
+                                            "description":  "",
+                                            "parameters":  "pairVcUuid: String, username: String, password: String, remoteLsAddress: String, localLsAddress: String",
+                                            "returnType":  "VRTask"
+                                        },
+                                        {
+                                            "name":  "getReplicationIssues",
+                                            "description":  "",
+                                            "parameters":  "isOutgoing: boolean, remoteSite: VRVcRemoteSite",
+                                            "returnType":  "Array/VRReplicationIssue"
+                                        },
+                                        {
+                                            "name":  "getReplicationIds",
+                                            "description":  "",
+                                            "parameters":  "vmName: String",
+                                            "returnType":  "Array/String"
+                                        },
+                                        {
+                                            "name":  "getVmDisks",
+                                            "description":  "Gets VirtualMachine disks",
+                                            "parameters":  "vmId: String",
+                                            "returnType":  "Array/VRVmDisk"
+                                        }
+                                    ]
+                    },
+                    {
+                        "name":  "VRStorageProfile",
+                        "description":  "StorageProfile",
+                        "attributes":  [
+                                           {
+                                               "name":  "name",
+                                               "type":  "String",
+                                               "description":  "Display name of this Object",
+                                               "isReadonly":  false
+                                           }
+                                       ],
+                        "methods":  [
+
+                                    ]
+                    },
+                    {
+                        "name":  "VRTask",
+                        "description":  "Represents HMS Task",
+                        "attributes":  [
+                                           {
+                                               "name":  "name",
+                                               "type":  "String",
+                                               "description":  "Display name of this Object",
+                                               "isReadonly":  false
+                                           }
+                                       ],
+                        "methods":  [
+                                        {
+                                            "name":  "getState",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "getProgress",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "Integer"
+                                        },
+                                        {
+                                            "name":  "getErrotMessage",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        }
+                                    ]
+                    },
+                    {
+                        "name":  "VRVcEndpoint",
+                        "description":  "Service Endpoint description for a vCenter server",
+                        "attributes":  [
+                                           {
+                                               "name":  "name",
+                                               "type":  "String",
+                                               "description":  "Display name of this Object",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "uri",
+                                               "type":  "java.net.URI",
+                                               "description":  "",
+                                               "isReadonly":  true
+                                           },
+                                           {
+                                               "name":  "lsUri",
+                                               "type":  "java.net.URI",
+                                               "description":  "Lookup Service URI",
+                                               "isReadonly":  true
+                                           },
+                                           {
+                                               "name":  "uuid",
+                                               "type":  "String",
+                                               "description":  "",
+                                               "isReadonly":  true
+                                           },
+                                           {
+                                               "name":  "sslTrust",
+                                               "type":  "Array/Ljava.lang.String;",
+                                               "description":  "",
+                                               "isReadonly":  true
+                                           }
+                                       ],
+                        "methods":  [
+
+                                    ]
+                    },
+                    {
+                        "name":  "VRVcRemoteSite",
+                        "description":  "Represents VSphere Remote Site object",
+                        "attributes":  [
+                                           {
+                                               "name":  "name",
+                                               "type":  "String",
+                                               "description":  "Display name of this Object",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "uri",
+                                               "type":  "java.net.URI",
+                                               "description":  "URI of the remote VC server",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "lsUri",
+                                               "type":  "java.net.URI",
+                                               "description":  "URI of the remote Lookup Service",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "localSiteUri",
+                                               "type":  "java.net.URI",
+                                               "description":  "URI of the local VC server",
+                                               "isReadonly":  false
+                                           }
+                                       ],
+                        "methods":  [
+                                        {
+                                            "name":  "getDatastores",
+                                            "description":  "Retrieve datastores at this site",
+                                            "parameters":  "",
+                                            "returnType":  "Array/VRRemoteDatastore"
+                                        },
+                                        {
+                                            "name":  "loginSpbmServer",
+                                            "description":  "Login remote Spbm server",
+                                            "parameters":  "",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "loginRemoteSite",
+                                            "description":  "Login remote VSphere site",
+                                            "parameters":  "",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "loginRemoteSiteWithCredentials",
+                                            "description":  "Login remote vSphere site with user name and password",
+                                            "parameters":  "userName: String, password: String",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "logoutRemoteSite",
+                                            "description":  "Logout remote VC Site",
+                                            "parameters":  "",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getReplicationsTo",
+                                            "description":  "Retrieve replication groups targeting this site",
+                                            "parameters":  "",
+                                            "returnType":  "Array/VRVcToVcSourceGroup"
+                                        },
+                                        {
+                                            "name":  "getReplicationsFrom",
+                                            "description":  "Retrieve replication groups originating from this site",
+                                            "parameters":  "",
+                                            "returnType":  "Array/VRVcToVcTargetGroup"
+                                        },
+                                        {
+                                            "name":  "getDatastoresFilteredByProfile",
+                                            "description":  "Retrieve datastores at this site which support the provided storage profile",
+                                            "parameters":  "storageProfile: VRStorageProfile",
+                                            "returnType":  "Array/VRRemoteDatastore"
+                                        },
+                                        {
+                                            "name":  "getStorageProfiles",
+                                            "description":  "Retrieve storage profiles for this site",
+                                            "parameters":  "",
+                                            "returnType":  "Array/VRStorageProfile"
+                                        },
+                                        {
+                                            "name":  "configureReplicationTo",
+                                            "description":  "Create a new host based replication group",
+                                            "parameters":  "vmId: String, settings: VRReplicationSettings",
+                                            "returnType":  "VRTask"
+                                        },
+                                        {
+                                            "name":  "getConfigureReplicationTaskResult",
+                                            "description":  "Get the group created as a result of executing the task",
+                                            "parameters":  "task: VRTask",
+                                            "returnType":  "VRVcToVcSourceGroup"
+                                        },
+                                        {
+                                            "name":  "getVMReplicationData",
+                                            "description":  "Collects all replication data for given vm",
+                                            "parameters":  "vmId: String",
+                                            "returnType":  "VRVrReplicationDetailsData"
+                                        },
+                                        {
+                                            "name":  "getVMGroup",
+                                            "description":  "Gets VirtualMachine replication group",
+                                            "parameters":  "vmId: String",
+                                            "returnType":  "com.vmware.vim.binding.vmodl.ManagedObjectReference"
+                                        }
+                                    ]
+                    },
+                    {
+                        "name":  "VRVcToVcSourceGroup",
+                        "description":  "Represents VSphere Replication Group object",
+                        "attributes":  [
+                                           {
+                                               "name":  "name",
+                                               "type":  "String",
+                                               "description":  "Display name of this Object",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "rpo",
+                                               "type":  "long",
+                                               "description":  "",
+                                               "isReadonly":  true
+                                           }
+                                       ],
+                        "methods":  [
+                                        {
+                                            "name":  "unconfigure",
+                                            "description":  "Stop replication",
+                                            "parameters":  "leaveReplicaDisks: boolean",
+                                            "returnType":  "VRTask"
+                                        },
+                                        {
+                                            "name":  "getDatastores",
+                                            "description":  "Retrieve datastores at this site",
+                                            "parameters":  "storageProfile: VRStorageProfile",
+                                            "returnType":  "Array/VRRemoteDatastore"
+                                        },
+                                        {
+                                            "name":  "getTargetDatastoreVmHome",
+                                            "description":  "Retrieve VM home datastore",
+                                            "parameters":  "",
+                                            "returnType":  "VRRemoteDatastore"
+                                        },
+                                        {
+                                            "name":  "getCommonDiskType",
+                                            "description":  "Retrieve the common disk type.",
+                                            "parameters":  "",
+                                            "returnType":  "VRDiskType"
+                                        },
+                                        {
+                                            "name":  "getCommonStorageProfile",
+                                            "description":  "Retrieve the common storage profile.",
+                                            "parameters":  "",
+                                            "returnType":  "VRStorageProfile"
+                                        },
+                                        {
+                                            "name":  "getRecoverySolution",
+                                            "description":  "Retrieve the recovery solution of this replication.",
+                                            "parameters":  "userName: String, password: String",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "getReplicationTestBubbleStatus",
+                                            "description":  "",
+                                            "parameters":  "userName: String, password: String",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "reConfigureReplicationTo",
+                                            "description":  "Reconfigures a replication group",
+                                            "parameters":  "settings: VRReplicationSettings",
+                                            "returnType":  "VRTask"
+                                        },
+                                        {
+                                            "name":  "getReplicationData",
+                                            "description":  "Collects all data for given replication",
+                                            "parameters":  "",
+                                            "returnType":  "VRVrReplicationDetailsData"
+                                        },
+                                        {
+                                            "name":  "getConfigureReplicationTaskResult",
+                                            "description":  "Get the group created as a result of executing the task",
+                                            "parameters":  "task: VRTask",
+                                            "returnType":  "VRVcToVcSourceGroup"
+                                        },
+                                        {
+                                            "name":  "resume",
+                                            "description":  "Resume replication",
+                                            "parameters":  "",
+                                            "returnType":  "VRTask"
+                                        },
+                                        {
+                                            "name":  "getStatus",
+                                            "description":  "Get replication status",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "fullSync",
+                                            "description":  "Full sync",
+                                            "parameters":  "",
+                                            "returnType":  "VRTask"
+                                        },
+                                        {
+                                            "name":  "pause",
+                                            "description":  "Pause replication",
+                                            "parameters":  "",
+                                            "returnType":  "VRTask"
+                                        },
+                                        {
+                                            "name":  "getReplicationError",
+                                            "description":  "Get replication error",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "getRecoveryState",
+                                            "description":  "Get recovery state",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "getRecoveryError",
+                                            "description":  "Get recovery error",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "getTestRecoveryState",
+                                            "description":  "Get test recovery state",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "getTestRecoveryError",
+                                            "description":  "Get test recovery error",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "getCurrentRpoViolation",
+                                            "description":  "Get current RPO violation in minutes",
+                                            "parameters":  "",
+                                            "returnType":  "long"
+                                        },
+                                        {
+                                            "name":  "onlineSync",
+                                            "description":  "Online sync",
+                                            "parameters":  "",
+                                            "returnType":  "VRTask"
+                                        },
+                                        {
+                                            "name":  "offlineSync",
+                                            "description":  "Offline sync",
+                                            "parameters":  "",
+                                            "returnType":  "VRTask"
+                                        }
+                                    ]
+                    },
+                    {
+                        "name":  "VRVcToVcTargetGroup",
+                        "description":  "Represents VSphere Replication Group object",
+                        "attributes":  [
+                                           {
+                                               "name":  "name",
+                                               "type":  "String",
+                                               "description":  "Display name of this Object",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "rpo",
+                                               "type":  "long",
+                                               "description":  "",
+                                               "isReadonly":  true
+                                           }
+                                       ],
+                        "methods":  [
+                                        {
+                                            "name":  "resume",
+                                            "description":  "Resume replication",
+                                            "parameters":  "",
+                                            "returnType":  "VRTask"
+                                        },
+                                        {
+                                            "name":  "getStatus",
+                                            "description":  "Get replication status",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "fullSync",
+                                            "description":  "Full sync",
+                                            "parameters":  "",
+                                            "returnType":  "VRTask"
+                                        },
+                                        {
+                                            "name":  "pause",
+                                            "description":  "Pause replication",
+                                            "parameters":  "",
+                                            "returnType":  "VRTask"
+                                        },
+                                        {
+                                            "name":  "getReplicationError",
+                                            "description":  "Get replication error",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "getRecoveryState",
+                                            "description":  "Get recovery state",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "getRecoveryError",
+                                            "description":  "Get recovery error",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "getTestRecoveryState",
+                                            "description":  "Get test recovery state",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "getTestRecoveryError",
+                                            "description":  "Get test recovery error",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "getCurrentRpoViolation",
+                                            "description":  "Get current RPO violation in minutes",
+                                            "parameters":  "",
+                                            "returnType":  "long"
+                                        },
+                                        {
+                                            "name":  "onlineSync",
+                                            "description":  "Online sync",
+                                            "parameters":  "",
+                                            "returnType":  "VRTask"
+                                        },
+                                        {
+                                            "name":  "offlineSync",
+                                            "description":  "Offline sync",
+                                            "parameters":  "",
+                                            "returnType":  "VRTask"
+                                        }
+                                    ]
+                    },
+                    {
+                        "name":  "VRVmDisk",
+                        "description":  "Represents virtual machine replication disks",
+                        "attributes":  [
+                                           {
+                                               "name":  "name",
+                                               "type":  "String",
+                                               "description":  "Display name of this Object",
+                                               "isReadonly":  false
+                                           }
+                                       ],
+                        "methods":  [
+                                        {
+                                            "name":  "getLabel",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "setLabel",
+                                            "description":  "",
+                                            "parameters":  "label: String",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getDeviceKey",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "int"
+                                        },
+                                        {
+                                            "name":  "setDeviceKey",
+                                            "description":  "",
+                                            "parameters":  "deviceKey: int",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getCapacityInKB",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "long"
+                                        },
+                                        {
+                                            "name":  "setCapacityInKB",
+                                            "description":  "",
+                                            "parameters":  "capacityInKB: long",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getVmRef",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "com.vmware.vim.binding.vmodl.ManagedObjectReference"
+                                        },
+                                        {
+                                            "name":  "setVmRef",
+                                            "description":  "",
+                                            "parameters":  "vmRef: com.vmware.vim.binding.vmodl.ManagedObjectReference",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "setDestinationPath",
+                                            "description":  "",
+                                            "parameters":  "destinationPath: String",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getDestinationPath",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "isReplicated",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "boolean"
+                                        },
+                                        {
+                                            "name":  "setReplicated",
+                                            "description":  "",
+                                            "parameters":  "replicated: boolean",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "isVmHome",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "boolean"
+                                        },
+                                        {
+                                            "name":  "setVmHome",
+                                            "description":  "",
+                                            "parameters":  "vmHome: boolean",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getFoundSeeds",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "Array/String"
+                                        },
+                                        {
+                                            "name":  "setFoundSeeds",
+                                            "description":  "",
+                                            "parameters":  "foundSeeds: Array/String",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getSourceDiskFormat",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "com.vmware.hms.o11n.model.VirtualDiskFormat"
+                                        },
+                                        {
+                                            "name":  "getSourceStoragePolicyName",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "getSourceStoragePolicyId",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "isEnabledForReplication",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "boolean"
+                                        },
+                                        {
+                                            "name":  "setEnabledForReplication",
+                                            "description":  "",
+                                            "parameters":  "enabledForReplication: boolean",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "isUseSeed",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "boolean"
+                                        },
+                                        {
+                                            "name":  "setUseSeed",
+                                            "description":  "",
+                                            "parameters":  "useSeed: boolean",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getDestinationStoragePolicyId",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "setDestinationStoragePolicyId",
+                                            "description":  "",
+                                            "parameters":  "destinationStoragePolicyId: String",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getDestinationStoragePolicyName",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "setDestinationStoragePolicyName",
+                                            "description":  "",
+                                            "parameters":  "destinationStoragePolicyName: String",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getDestinationDatastoreRef",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "com.vmware.vim.binding.vmodl.ManagedObjectReference"
+                                        },
+                                        {
+                                            "name":  "setDestinationDatastoreRef",
+                                            "description":  "",
+                                            "parameters":  "destinationDatastoreRef: com.vmware.vim.binding.vmodl.ManagedObjectReference",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getDestinationDiskFormat",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "com.vmware.hms.o11n.model.VirtualDiskFormat"
+                                        },
+                                        {
+                                            "name":  "setDestinationDiskFormat",
+                                            "description":  "",
+                                            "parameters":  "destinationDiskFormat: com.vmware.hms.o11n.model.VirtualDiskFormat",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "isSeedsAreConfigured",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "boolean"
+                                        },
+                                        {
+                                            "name":  "setSeedsAreConfigured",
+                                            "description":  "",
+                                            "parameters":  "seedsAreConfigured: boolean",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "isNewDisk",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "boolean"
+                                        },
+                                        {
+                                            "name":  "setNewDisk",
+                                            "description":  "",
+                                            "parameters":  "newDisk: boolean",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "setSourceDiskFormat",
+                                            "description":  "",
+                                            "parameters":  "sourceDiskFormat: com.vmware.hms.o11n.model.VirtualDiskFormat",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "setSourceStoragePolicyId",
+                                            "description":  "",
+                                            "parameters":  "sourceStoragePolicyId: String",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "setSourceStoragePolicyName",
+                                            "description":  "",
+                                            "parameters":  "sourceStoragePolicyName: String",
+                                            "returnType":  "void"
+                                        }
+                                    ]
+                    },
+                    {
+                        "name":  "VRVrReplicationDetailsData",
+                        "description":  "Represents consolidated Replication information",
+                        "attributes":  [
+                                           {
+                                               "name":  "name",
+                                               "type":  "String",
+                                               "description":  "Display name of this Object",
+                                               "isReadonly":  false
+                                           }
+                                       ],
+                        "methods":  [
+                                        {
+                                            "name":  "getVmRef",
+                                            "description":  "getter for VM ref",
+                                            "parameters":  "",
+                                            "returnType":  "com.vmware.vim.binding.vmodl.ManagedObjectReference"
+                                        },
+                                        {
+                                            "name":  "setVmRef",
+                                            "description":  "Getter for vmRef",
+                                            "parameters":  "vmRef: com.vmware.vim.binding.vmodl.ManagedObjectReference",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getLastSyncTime",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "setLastSyncTime",
+                                            "description":  "",
+                                            "parameters":  "_lastSyncTime: String",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "isDataSetsReplicationEnabled",
+                                            "description":  "Getter for isDataSetsReplicationEnabled",
+                                            "parameters":  "",
+                                            "returnType":  "boolean"
+                                        },
+                                        {
+                                            "name":  "setDataSetsReplicationEnabled",
+                                            "description":  "Setter for isDataSetsReplicationEnabled",
+                                            "parameters":  "isDataSetsReplicationEnabled: boolean",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getDatastores",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "Array/VRRemoteDatastore"
+                                        },
+                                        {
+                                            "name":  "setDatastores",
+                                            "description":  "",
+                                            "parameters":  "_datastores: Array/VRRemoteDatastore",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getVmDisks",
+                                            "description":  "Getter for all the VM disks configured in the replication",
+                                            "parameters":  "",
+                                            "returnType":  "Array/VRVmDisk"
+                                        },
+                                        {
+                                            "name":  "getStorageProfiles",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "Array/VRStorageProfile"
+                                        },
+                                        {
+                                            "name":  "getDiskTypes",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "Array/VRDiskType"
+                                        },
+                                        {
+                                            "name":  "setTargetHmsRef",
+                                            "description":  "",
+                                            "parameters":  "targetHmsRef: com.vmware.vim.binding.vmodl.ManagedObjectReference",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "setHbrServerUuid",
+                                            "description":  "",
+                                            "parameters":  "hbrServerUuid: String",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "setHbrInternallyManaged",
+                                            "description":  "",
+                                            "parameters":  "hbrInternallyManaged: boolean",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "setVmDisks",
+                                            "description":  "Setter for all the VM disks configured in the replication",
+                                            "parameters":  "vmDisks: Array/VRVmDisk",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "setOriginalVmDisks",
+                                            "description":  "Setter for all VM disks taken from the VC",
+                                            "parameters":  "originalVmDisks: Array/VRVmDisk",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getOriginalVmDisks",
+                                            "description":  "Getter for all VM disks taken from the VC",
+                                            "parameters":  "",
+                                            "returnType":  "Array/VRVmDisk"
+                                        },
+                                        {
+                                            "name":  "getTargetVcRef",
+                                            "description":  "Getter for target VC ref",
+                                            "parameters":  "",
+                                            "returnType":  "com.vmware.vim.binding.vmodl.ManagedObjectReference"
+                                        },
+                                        {
+                                            "name":  "setTargetVcRef",
+                                            "description":  "Setter for target VC ref",
+                                            "parameters":  "targetVcRef: com.vmware.vim.binding.vmodl.ManagedObjectReference",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "setHbrServerName",
+                                            "description":  "Setter for HBR server name",
+                                            "parameters":  "hbrServerName: String",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "setConfigurationError",
+                                            "description":  "Setter for configuration error",
+                                            "parameters":  "configurationError: java.lang.Exception",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "setLastGroupError",
+                                            "description":  "Setter for last group error",
+                                            "parameters":  "lastGroupError: java.lang.Exception",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getTargetSiteName",
+                                            "description":  "Getter for Target Site Name",
+                                            "parameters":  "",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "setTargetSiteName",
+                                            "description":  "Setter for Target Site Name",
+                                            "parameters":  "targetSiteName: String",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "setRPO",
+                                            "description":  "Setter for RPO",
+                                            "parameters":  "RPO: long",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getRPO",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "long"
+                                        },
+                                        {
+                                            "name":  "setQuiescingEnabled",
+                                            "description":  "Setter for Quiescing Enabled",
+                                            "parameters":  "quiescingEnabled: boolean",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "isQuiescingEnabled",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "boolean"
+                                        },
+                                        {
+                                            "name":  "setReplicationRef",
+                                            "description":  "Setter for replication ref",
+                                            "parameters":  "replicationRef: com.vmware.vim.binding.vmodl.ManagedObjectReference",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getReplicationRef",
+                                            "description":  "Getter for replication ref",
+                                            "parameters":  "",
+                                            "returnType":  "com.vmware.vim.binding.vmodl.ManagedObjectReference"
+                                        },
+                                        {
+                                            "name":  "setNetworkCompressionEnabled",
+                                            "description":  "Getter for isNetworkCompressionEnabled",
+                                            "parameters":  "networkCompressionEnabled: boolean",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "isEncryptionEnabled",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "boolean"
+                                        },
+                                        {
+                                            "name":  "setEncryptionEnabled",
+                                            "description":  "Getter for encryptionEnabled",
+                                            "parameters":  "encryptionEnabled: boolean",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "isMpitEnabled",
+                                            "description":  "Getter for isMpitEnabled",
+                                            "parameters":  "",
+                                            "returnType":  "boolean"
+                                        },
+                                        {
+                                            "name":  "setMpitEnabled",
+                                            "description":  "Setter for isMpitEnabled",
+                                            "parameters":  "mpitEnabled: boolean",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getMpitInstances",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "int"
+                                        },
+                                        {
+                                            "name":  "setMpitInstances",
+                                            "description":  "Getter for mpitInstances",
+                                            "parameters":  "mpitInstances: int",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getMpitDays",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "int"
+                                        },
+                                        {
+                                            "name":  "setMpitDays",
+                                            "description":  "Getter for mpitDays",
+                                            "parameters":  "mpitDays: int",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "setDiskTypes",
+                                            "description":  "",
+                                            "parameters":  "_diskTypes: Array/VRDiskType",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "setStorageProfiles",
+                                            "description":  "",
+                                            "parameters":  "_storageProfiles: Array/VRStorageProfile",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "isAutoReplicateNewDisks",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "boolean"
+                                        },
+                                        {
+                                            "name":  "setAutoReplicateNewDisks",
+                                            "description":  "",
+                                            "parameters":  "_autoReplicateNewDisks: boolean",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "isNetworkCompressionEnabled",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "boolean"
+                                        },
+                                        {
+                                            "name":  "setRecoveryError",
+                                            "description":  "Setter for RecoveryError",
+                                            "parameters":  "recoveryError: String",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "isPerDisk",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "boolean"
+                                        },
+                                        {
+                                            "name":  "setPerDisk",
+                                            "description":  "",
+                                            "parameters":  "_perDisk: boolean",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getLastSyncSize",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "long"
+                                        },
+                                        {
+                                            "name":  "setLastSyncSize",
+                                            "description":  "",
+                                            "parameters":  "_lastSyncSize: long",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getLastSyncDuration",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "long"
+                                        },
+                                        {
+                                            "name":  "setLastSyncDuration",
+                                            "description":  "",
+                                            "parameters":  "_lastSyncDuration: long",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getLastSyncDate",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "java.util.Date"
+                                        },
+                                        {
+                                            "name":  "setLastSyncDate",
+                                            "description":  "",
+                                            "parameters":  "_lastSyncDate: java.util.Date",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "setRpoViolationMinutes",
+                                            "description":  "",
+                                            "parameters":  "rpoViolationMinutes: long",
+                                            "returnType":  "void"
+                                        },
+                                        {
+                                            "name":  "getRpoViolationMinutes",
+                                            "description":  "",
+                                            "parameters":  "",
+                                            "returnType":  "long"
+                                        }
+                                    ]
+                    }
+                ]
 }

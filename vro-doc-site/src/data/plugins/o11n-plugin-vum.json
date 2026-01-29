@@ -1,1036 +1,1058 @@
-{
-  "name": "vSphere Update Manager",
-  "classes": [
-    {
-      "name": "VumBaseline",
-      "description": "A baseline contains a collection of one or more patches, extensions, service packs, or bug fixes.",
-      "methods": [],
-      "attributes": [
-        {
-          "name": "id",
-          "type": "number",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "serverUri",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "name",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "description",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "lastUpdateTime",
-          "type": "Date",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "lastUpdateTimeAsStr",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "baselineType",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "contentType",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "targetType",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        }
-      ]
-    },
-    {
-      "name": "VumBaselineGroup",
-      "description": "A baseline group contains a collection of one or more baselines.",
-      "methods": [],
-      "attributes": [
-        {
-          "name": "id",
-          "type": "number",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "serverUri",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "name",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "description",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "lastUpdateTime",
-          "type": "Date",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "lastUpdateTimeAsStr",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "targetType",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        }
-      ]
-    },
-    {
-      "name": "VumBaselineSearchSpec",
-      "description": "A baseline search criteria for the Update Manager plug-in.",
-      "methods": [
-        {
-          "name": "setBaselineTypesByStringArray",
-          "parameters": "baselineTypes: string[]",
-          "returnType": "void",
-          "description": "Utility method to parse and set BaselineType from a string value"
-        },
-        {
-          "name": "setTargetTypesByStringArray",
-          "parameters": "targetTypes: string[]",
-          "returnType": "void",
-          "description": "Utility method to parse and set a target type from a string value"
-        },
-        {
-          "name": "setContentTypesByStringArray",
-          "parameters": "contentTypes: string[]",
-          "returnType": "void",
-          "description": "Utility method to parse and set a content type from a string value"
-        }
-      ],
-      "attributes": [
-        {
-          "name": "ids",
-          "type": "number",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "nameExpressions",
-          "type": "string[]",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "baselineTypes",
-          "type": "any[]",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "targetTypes",
-          "type": "any[]",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "contentTypes",
-          "type": "any[]",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "viInventories",
-          "type": "VumVIInventory[]",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "patch",
-          "type": "VumPatchInfo",
-          "description": "",
-          "isReadonly": false
-        }
-      ]
-    },
-    {
-      "name": "VumCompliance",
-      "description": "Compliance status for an entity.",
-      "methods": [],
-      "attributes": [
-        {
-          "name": "baselineId",
-          "type": "number",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "status",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "entity",
-          "type": "VumVIInventory",
-          "description": "",
-          "isReadonly": false
-        }
-      ]
-    },
-    {
-      "name": "VumGuestRemediationOption",
-      "description": "Configuration for a virtual machine remediation task.",
-      "methods": [],
-      "attributes": [
-        {
-          "name": "guestCreateSnapshot",
-          "type": "boolean",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "guestKeepSnapshotHours",
-          "type": "number",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "guestTakeMemoryDump",
-          "type": "boolean",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "guestSnapshotName",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "guestSnapshotDescription",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        }
-      ]
-    },
-    {
-      "name": "VumHost",
-      "description": "This object represents a vCenter Server system with which an Update Manager instance is registered.",
-      "methods": [],
-      "attributes": [
-        {
-          "name": "id",
-          "type": "number",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "serverUri",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "name",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "isActive",
-          "type": "boolean",
-          "description": "",
-          "isReadonly": false
-        }
-      ]
-    },
-    {
-      "name": "VumHostRemediationOption",
-      "description": "Configuration for a host remediation task.",
-      "methods": [],
-      "attributes": [
-        {
-          "name": "hostRetryDelaySeconds",
-          "type": "number",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "hostNumberOfRetries",
-          "type": "number",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "hostFailureAction",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "hostPreRemediationPowerAction",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "hostDisableMediaDevices",
-          "type": "boolean",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "hostIgnoreThirdPartyDrivers",
-          "type": "boolean",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "hostEnablePXEbootHostPatching",
-          "type": "boolean",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "clusterDisableDPM",
-          "type": "boolean",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "clusterDisableHAC",
-          "type": "boolean",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "clusterDisableFT",
-          "type": "boolean",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "clusterEnableParallelRemediation",
-          "type": "boolean",
-          "description": "",
-          "isReadonly": false
-        }
-      ]
-    },
-    {
-      "name": "VumObjectManager",
-      "description": "Update Manager Object Manager Type",
-      "methods": [
-        {
-          "name": "getDefaultVumHost",
-          "parameters": "",
-          "returnType": "VumHost[]",
-          "description": "Returns the default Update Manager host."
-        },
-        {
-          "name": "getBaselines",
-          "parameters": "vcUri: string, name: string",
-          "returnType": "VumBaseline[]",
-          "description": "Retrieves the baselines specified by the provided parameters. There are two default dynamic patch baselines\r\n(Critical Host Patches (Predefined) and Non-Critical Host Patches (Predefined)) and three upgrade baselines\r\n(VMware Tools Upgrade to Match Host (Predefined), VM Hardware Upgrade to Match Host (Predefined),\r\nand VA Upgrade to Latest (Predefined)). You cannot edit or delete the default baselines."
-        },
-        {
-          "name": "getAllBaselineGroups",
-          "parameters": "vcUri: string",
-          "returnType": "VumBaselineGroup[]",
-          "description": "Retrieves the baseline groups."
-        },
-        {
-          "name": "getEulasContent",
-          "parameters": "baselines: VumBaseline[]",
-          "returnType": "string",
-          "description": "Get EULA content related for the provided array of baselines."
-        },
-        {
-          "name": "getVirtualApplianceBaselines",
-          "parameters": "baselines: VumBaseline[]",
-          "returnType": "VumBaseline[]",
-          "description": "Filter baselines and return only those that are related to a Virtual Appliance update."
-        },
-        {
-          "name": "getVirutalApplicaneBaselines",
-          "parameters": "baselines: VumBaseline[]",
-          "returnType": "VumBaseline[]",
-          "description": ""
-        },
-        {
-          "name": "acceptAllEulaContracts",
-          "parameters": "baselines: VumBaseline[]",
-          "returnType": "void",
-          "description": "Accept all software update EULAs for specified virtual appliance related baselines."
-        },
-        {
-          "name": "getVumUri",
-          "parameters": "url: string",
-          "returnType": "string",
-          "description": "Get the Update Manager URL assigned to the vCenter Server instance.\r\nReturns null if there is no Update Manager instance assigned to vCenter Server.\r\nThe method throws an exception if there is no vCenter Server instance at the specified URL."
-        },
-        {
-          "name": "removeAllVcenterWithVum",
-          "parameters": "",
-          "returnType": "void",
-          "description": ""
-        },
-        {
-          "name": "getVumHosts",
-          "parameters": "",
-          "returnType": "VumHost[]",
-          "description": "Retrieves the registered vCenter Server instances with extensions from the Update Manager plug-in configuration."
-        },
-        {
-          "name": "getVumHostsURLs",
-          "parameters": "",
-          "returnType": "string[]",
-          "description": "Retrieves the URL of registered vCenter Server instances with extensions from the Update Manager plug-in configuration."
-        },
-        {
-          "name": "getFilteredBaselines",
-          "parameters": "searchSpec: VumBaselineSearchSpec",
-          "returnType": "VumBaseline[]",
-          "description": "Retrieves the baselines specified by the provided parameters."
-        },
-        {
-          "name": "getPatches",
-          "parameters": "vcUri: string, spec: VumPatchSearchSpec, patchIds: number[], baselineIds: number[], bundleType: string[], installationImpact: string[]",
-          "returnType": "VumPatch[]",
-          "description": "Retrieves patches specified by the provided parameters."
-        },
-        {
-          "name": "removeVcenterWithVum",
-          "parameters": "url: string",
-          "returnType": "void",
-          "description": ""
-        },
-        {
-          "name": "removeVcenterInstancesWithVum",
-          "parameters": "urls: string[]",
-          "returnType": "void",
-          "description": ""
-        },
-        {
-          "name": "changeDefaultServerTo",
-          "parameters": "url: string",
-          "returnType": "void",
-          "description": "Set default the default vCenter Server instance with assigned Update Manager server."
-        },
-        {
-          "name": "registerVcenterWithVum",
-          "parameters": "url: string",
-          "returnType": "void",
-          "description": "Register a vCenter Server instance with assigned Update Manager server."
-        },
-        {
-          "name": "registerVcenterInctencesWithVum",
-          "parameters": "urls: string[]",
-          "returnType": "void",
-          "description": ""
-        },
-        {
-          "name": "getDefaultVcUri",
-          "parameters": "",
-          "returnType": "string",
-          "description": "Utility method returning the default vCenter Server URI for the plug-in as set from its configuration."
-        },
-        {
-          "name": "getVcServerUri",
-          "parameters": "vcPluginVCs: string[]",
-          "returnType": "string[]",
-          "description": "Return a list of vCenter Server instances set in the plug-in configuration"
-        },
-        {
-          "name": "createPatchBaseline",
-          "parameters": "vcUri: string, name: string, desciption: string, contentType: string, targetType: string, includePatch: VumPatchInfo[], excludePatch: VumPatchInfo[], isExtension: boolean, searchSpec: VumPatchSearchSpec",
-          "returnType": "VumBaseline",
-          "description": "Creates a new patch baseline. Patch baselines can be applied to hosts or virtual machines.\r\nDepending on the patch criteria you select, patch baselines can be either dynamic or static (fixed).\r\nYou can specify the patches that you want to include in the baseline by using the includePatch parameter.\r\nYou can also use the searchSpec attribute to filter the patches that you want to include in a baseline.\r\nYou can filter patches by their properties, such as product, vendor, severity, and release date.\r\nThe patches that have been excluded by using the excludePatch parameter will never be included\r\neven if they correspond to the filter defined by the searchSpec attribute."
-        },
-        {
-          "name": "getEntities",
-          "parameters": "serverUri: string",
-          "returnType": "VumVIInventory[]",
-          "description": "Connect to a vCenter Server and retrieve all entities from it."
-        },
-        {
-          "name": "attachBaselines",
-          "parameters": "baselines: VumBaseline[], entities: VumVIInventory[]",
-          "returnType": "void",
-          "description": "Attaches baselines to a vSphere object that you select.\r\nThe object can be a template, virtual machine, vApp, ESX/ESXi host, folder, cluster, or a datacenter.\r\nAttaching a baseline to a container object such as a folder or datacenter transitively attaches the baseline to all objects in the container."
-        },
-        {
-          "name": "detachBaselines",
-          "parameters": "baselines: VumBaseline[], entities: VumVIInventory[]",
-          "returnType": "void",
-          "description": "Detaches baselines from the specified vSphere objects. To detach inherited baselines, you must detach them from the parent object."
-        },
-        {
-          "name": "getPatchProducts",
-          "parameters": "vcUri: string",
-          "returnType": "string[]",
-          "description": "Utility method to retrieve all patch products."
-        },
-        {
-          "name": "getPatchLanguages",
-          "parameters": "vcUri: string",
-          "returnType": "string[]",
-          "description": "Utility method to retrieve all patch languages."
-        },
-        {
-          "name": "getPatchVendors",
-          "parameters": "vcUri: string",
-          "returnType": "string[]",
-          "description": "Utility method to retrieve all patch vendors."
-        },
-        {
-          "name": "getBundleTypes",
-          "parameters": "vcUri: string",
-          "returnType": "string[]",
-          "description": "Utility method to retrieve all bundle types."
-        },
-        {
-          "name": "getPatchInstallationImpacts",
-          "parameters": "vcUri: string",
-          "returnType": "string[]",
-          "description": "Utility method to retrieve the installation impacts of all patches."
-        },
-        {
-          "name": "deleteBaseline",
-          "parameters": "baseline: VumBaseline",
-          "returnType": "boolean",
-          "description": "Deletes the specified baseline. Before the removal, the baseline is detached from all objects it has been attached to."
-        },
-        {
-          "name": "deleteBaselines",
-          "parameters": "baselines: VumBaseline[]",
-          "returnType": "boolean",
-          "description": "Deletes the specified baselines. Before the removal, the baselines are detached from all objects they have been attached to."
-        },
-        {
-          "name": "downloadPatchesByLanguages",
-          "parameters": "vcUri: string, languages: string[]",
-          "returnType": "boolean",
-          "description": "Checks for new patches and depending on the availability downloads them to the Update Manager repository."
-        },
-        {
-          "name": "downloadPatchesByLanguagesAsync",
-          "parameters": "vcUri: string, languages: string[]",
-          "returnType": "void",
-          "description": "Asynchronously checks for new patches and depending on the availability downloads them to the Update Manager repository."
-        },
-        {
-          "name": "createTrigger",
-          "parameters": "timeout: number, sdkType: string",
-          "returnType": "any",
-          "description": "Creates a trigger used by the asynchronous workflows."
-        },
-        {
-          "name": "updatePatchBaseline",
-          "parameters": "baseline: VumBaseline",
-          "returnType": "void",
-          "description": "Modifies the properties of a patch baseline."
-        },
-        {
-          "name": "scanInventory",
-          "parameters": "entities: VumVIInventory[], types: string[]",
-          "returnType": "void",
-          "description": "Scans vSphere objects against patches included in the baselines attached to them.\r\nThe object can be a template, virtual machine, vApp, ESX/ESXi host, folder, cluster, or a datacenter.\r\nIf the objects are of different types, the method starts a separate vCenter Server task for each object."
-        },
-        {
-          "name": "getCompliance",
-          "parameters": "entities: VumVIInventory[], complianceStatus: string, baselines: VumBaseline[]",
-          "returnType": "VumCompliance[]",
-          "description": "Retrieve baseline compliance data for the specified vSphere object of type template, virtual machine,\r\nvApp, ESX/ESXi host, folder, cluster, or a datacenter.\r\nThe method returns information about the compliance of the specified object against the baselines that are attached to it.\r\nIf the object is a container, the cmdlet returns compliance data for all objects in the container."
-        },
-        {
-          "name": "stage",
-          "parameters": "entities: VumVIInventory[], baselines: VumBaseline[], patches: VumPatchInfo[]",
-          "returnType": "boolean",
-          "description": "Stages patches. Staging allows you to download patches from the Update Manager server to the ESX/ESXi hosts,\r\nwithout applying the patches immediately. You can stage patches to hosts or container objects such as clusters or datacenters."
-        },
-        {
-          "name": "stageAsync",
-          "parameters": "entities: VumVIInventory[], baselines: VumBaseline[], patches: VumPatchInfo[]",
-          "returnType": "string[]",
-          "description": "Stages patches. Staging allows you to download patches from the Update Manager server to the ESX/ESXi hosts,\r\nwithout applying the patches immediately. You can stage patches to hosts or container objects such as clusters or datacenters.\r\nThe method returns array with task keys for all of the started vCenter Server tasks."
-        },
-        {
-          "name": "remediate",
-          "parameters": "entities: VumVIInventory[], baselines: VumBaseline[], excludedPatches: VumPatchInfo[], guestOption: VumGuestRemediationOption, hostOption: VumHostRemediationOption",
-          "returnType": "boolean",
-          "description": "Remediates an inventory object against the specified baselines.\r\nYou can remediate a template, virtual machine, vApp, ESX/ESXi host, folder, cluster, or a datacenter."
-        },
-        {
-          "name": "remediateAsync",
-          "parameters": "entities: VumVIInventory[], baselines: VumBaseline[], excludedPatches: VumPatchInfo[], guestOption: VumGuestRemediationOption, hostOption: VumHostRemediationOption",
-          "returnType": "string[]",
-          "description": "Remediates an inventory object against the specified baselines. Returns an array of vCenter Server task keys.\r\nYou can remediate a template, virtual machine, vApp, ESX/ESXi host, folder, cluster, or a datacenter."
-        },
-        {
-          "name": "exportBaselines",
-          "parameters": "baselines: VumBaseline[]",
-          "returnType": "string",
-          "description": "Export baselines in .xml format."
-        },
-        {
-          "name": "importBaselines",
-          "parameters": "vcUri: string, xml: string",
-          "returnType": "VumBaseline[]",
-          "description": "Import baselines from .xml that you have generated by using exportBaselines."
-        },
-        {
-          "name": "exportCompliance",
-          "parameters": "compliances: VumCompliance[], format: any, serverOutFile: string",
-          "returnType": "void",
-          "description": "Export Compliance report to external file."
-        },
-        {
-          "name": "formatAsVumObject",
-          "parameters": "vcObject: string, schema: string, port: number",
-          "returnType": "string",
-          "description": "Format a finder (dunesUri) from the vSphere plug-in as VIInventory finder."
-        },
-        {
-          "name": "validateTriggerSuccess",
-          "parameters": "trigger: any",
-          "returnType": "void",
-          "description": "Validates final state of a trigger. Should be called after the trigger is fired."
-        },
-        {
-          "name": "getEntitiesByBaselineGroup",
-          "parameters": "vcUri: string, baselineGroups: VumBaselineGroup[]",
-          "returnType": "VumBaselineGroup[]",
-          "description": "Retrieves the vCenter Server entities to which these baseline groups are attached."
-        },
-        {
-          "name": "getEntitiesByBaseline",
-          "parameters": "vcUri: string, baselines: VumBaseline[]",
-          "returnType": "VumBaseline[]",
-          "description": "Retrieves the vCenter Server entities to which these baselines are attached"
-        }
-      ],
-      "attributes": []
-    },
-    {
-      "name": "VumPatch",
-      "description": "Container object containing specific information and details about a patch.",
-      "methods": [],
-      "attributes": [
-        {
-          "name": "serverUri",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "detail",
-          "type": "VumPatchDetail",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "info",
-          "type": "VumPatchInfo",
-          "description": "",
-          "isReadonly": false
-        }
-      ]
-    },
-    {
-      "name": "VumPatchBaseline",
-      "description": "",
-      "methods": [
-        {
-          "name": "setContentTypeFromString",
-          "parameters": "contentType: string",
-          "returnType": "void",
-          "description": "Utility method to parse and set content type from string value."
-        }
-      ],
-      "attributes": [
-        {
-          "name": "id",
-          "type": "number",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "serverUri",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "name",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "description",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "lastUpdateTime",
-          "type": "Date",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "lastUpdateTimeAsStr",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "baselineType",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "contentType",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "targetType",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "inclPatches",
-          "type": "VumPatchInfo[]",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "exclPatches",
-          "type": "VumPatchInfo[]",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "currentPatches",
-          "type": "VumPatchInfo[]",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "patchSearchSpec",
-          "type": "VumPatchSearchSpec",
-          "description": "",
-          "isReadonly": false
-        }
-      ]
-    },
-    {
-      "name": "VumPatchDetail",
-      "description": "A patch detail from the Update Manager plug-in.",
-      "methods": [],
-      "attributes": [
-        {
-          "name": "status",
-          "type": "number",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "idByVendor",
-          "type": "string[]",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "detailsUrl",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "description",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "vendor",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "installSeparately",
-          "type": "boolean",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "affectedComponent",
-          "type": "string[]",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "binaryPath",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "installFlags",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "patchSize",
-          "type": "number",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "bugtraqId",
-          "type": "string[]",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "cveId",
-          "type": "string[]",
-          "description": "",
-          "isReadonly": false
-        }
-      ]
-    },
-    {
-      "name": "VumPatchInfo",
-      "description": "",
-      "methods": [],
-      "attributes": [
-        {
-          "name": "id",
-          "type": "number",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "serverUri",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "name",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "idByVendor",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "vendor",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "releaseDate",
-          "type": "Date",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "severity",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "targetType",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "impactLevel",
-          "type": "string[]",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "bundleType",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "updateType",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        }
-      ]
-    },
-    {
-      "name": "VumPatchSearchSpec",
-      "description": "A patch search criteria for the Update Manager plug-in.",
-      "methods": [
-        {
-          "name": "setSeverityFromStrings",
-          "parameters": "strSeverity: string[]",
-          "returnType": "void",
-          "description": "Utility method to parse and set severity from a string value."
-        },
-        {
-          "name": "setTargetTypeFromStrings",
-          "parameters": "strTargetType: string[]",
-          "returnType": "void",
-          "description": "Utility method to parse and set a target type from a string value."
-        },
-        {
-          "name": "setUpdateTypeFromStrings",
-          "parameters": "strUpdateType: string[]",
-          "returnType": "void",
-          "description": "Utility method to parse and set an update type from string value."
-        },
-        {
-          "name": "setHostUpdateCategoryFromStrings",
-          "parameters": "strHostUpdateCategory: string[]",
-          "returnType": "void",
-          "description": "Utility method to parse and set an host update category from string value."
-        }
-      ],
-      "attributes": [
-        {
-          "name": "serverUri",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "phrase",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "startDate",
-          "type": "Date",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "endDate",
-          "type": "Date",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "vendor",
-          "type": "string[]",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "product",
-          "type": "string[]",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "severity",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "targetType",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "updateType",
-          "type": "any",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "language",
-          "type": "string[]",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "failOnManyUpdates",
-          "type": "boolean",
-          "description": "",
-          "isReadonly": false
-        }
-      ]
-    },
-    {
-      "name": "VumVIInventory",
-      "description": "Represents a vSphere object used in the Update Manager plug-in.",
-      "methods": [],
-      "attributes": [
-        {
-          "name": "id",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "type",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        },
-        {
-          "name": "name",
-          "type": "string",
-          "description": "",
-          "isReadonly": false
-        }
-      ]
-    }
-  ]
+﻿{
+    "name":  "vCenter Update Manager",
+    "classes":  [
+                    {
+                        "name":  "VumBaseline",
+                        "description":  "A baseline contains a collection of one or more patches, extensions, service packs, or bug fixes.",
+                        "methods":  [
+
+                                    ],
+                        "attributes":  [
+                                           {
+                                               "name":  "id",
+                                               "type":  "number",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "serverUri",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "name",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "description",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "lastUpdateTime",
+                                               "type":  "Date",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "lastUpdateTimeAsStr",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "baselineType",
+                                               "type":  "any",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "contentType",
+                                               "type":  "any",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "targetType",
+                                               "type":  "any",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           }
+                                       ]
+                    },
+                    {
+                        "name":  "VumBaselineGroup",
+                        "description":  "A baseline group contains a collection of one or more baselines.",
+                        "methods":  [
+
+                                    ],
+                        "attributes":  [
+                                           {
+                                               "name":  "id",
+                                               "type":  "number",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "serverUri",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "name",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "description",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "lastUpdateTime",
+                                               "type":  "Date",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "lastUpdateTimeAsStr",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "targetType",
+                                               "type":  "any",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           }
+                                       ]
+                    },
+                    {
+                        "name":  "VumBaselineSearchSpec",
+                        "description":  "A baseline search criteria for the Update Manager plug-in.",
+                        "methods":  [
+                                        {
+                                            "name":  "setBaselineTypesByStringArray",
+                                            "parameters":  "baselineTypes: string[]",
+                                            "returnType":  "void",
+                                            "description":  "Utility method to parse and set BaselineType from a string value"
+                                        },
+                                        {
+                                            "name":  "setTargetTypesByStringArray",
+                                            "parameters":  "targetTypes: string[]",
+                                            "returnType":  "void",
+                                            "description":  "Utility method to parse and set a target type from a string value"
+                                        },
+                                        {
+                                            "name":  "setContentTypesByStringArray",
+                                            "parameters":  "contentTypes: string[]",
+                                            "returnType":  "void",
+                                            "description":  "Utility method to parse and set a content type from a string value"
+                                        }
+                                    ],
+                        "attributes":  [
+                                           {
+                                               "name":  "ids",
+                                               "type":  "number",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "nameExpressions",
+                                               "type":  "string[]",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "baselineTypes",
+                                               "type":  "any[]",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "targetTypes",
+                                               "type":  "any[]",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "contentTypes",
+                                               "type":  "any[]",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "viInventories",
+                                               "type":  "VumVIInventory[]",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "patch",
+                                               "type":  "VumPatchInfo",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           }
+                                       ]
+                    },
+                    {
+                        "name":  "VumCompliance",
+                        "description":  "Compliance status for an entity.",
+                        "methods":  [
+
+                                    ],
+                        "attributes":  [
+                                           {
+                                               "name":  "baselineId",
+                                               "type":  "number",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "status",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "entity",
+                                               "type":  "VumVIInventory",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           }
+                                       ]
+                    },
+                    {
+                        "name":  "VumGuestRemediationOption",
+                        "description":  "Configuration for a virtual machine remediation task.",
+                        "methods":  [
+
+                                    ],
+                        "attributes":  [
+                                           {
+                                               "name":  "guestCreateSnapshot",
+                                               "type":  "boolean",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "guestKeepSnapshotHours",
+                                               "type":  "number",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "guestTakeMemoryDump",
+                                               "type":  "boolean",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "guestSnapshotName",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "guestSnapshotDescription",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           }
+                                       ]
+                    },
+                    {
+                        "name":  "VumHost",
+                        "description":  "This object represents a vCenter Server system with which an Update Manager instance is registered.",
+                        "methods":  [
+
+                                    ],
+                        "attributes":  [
+                                           {
+                                               "name":  "id",
+                                               "type":  "number",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "serverUri",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "name",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "isActive",
+                                               "type":  "boolean",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           }
+                                       ]
+                    },
+                    {
+                        "name":  "VumHostRemediationOption",
+                        "description":  "Configuration for a host remediation task.",
+                        "methods":  [
+
+                                    ],
+                        "attributes":  [
+                                           {
+                                               "name":  "hostRetryDelaySeconds",
+                                               "type":  "number",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "hostNumberOfRetries",
+                                               "type":  "number",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "hostFailureAction",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "hostPreRemediationPowerAction",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "hostDisableMediaDevices",
+                                               "type":  "boolean",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "hostIgnoreThirdPartyDrivers",
+                                               "type":  "boolean",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "hostEnablePXEbootHostPatching",
+                                               "type":  "boolean",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "clusterDisableDPM",
+                                               "type":  "boolean",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "clusterDisableHAC",
+                                               "type":  "boolean",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "clusterDisableFT",
+                                               "type":  "boolean",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "clusterEnableParallelRemediation",
+                                               "type":  "boolean",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           }
+                                       ]
+                    },
+                    {
+                        "name":  "VumObjectManager",
+                        "description":  "Update Manager Object Manager Type",
+                        "methods":  [
+                                        {
+                                            "name":  "getDefaultVumHost",
+                                            "parameters":  "",
+                                            "returnType":  "VumHost[]",
+                                            "description":  "Returns the default Update Manager host."
+                                        },
+                                        {
+                                            "name":  "getBaselines",
+                                            "parameters":  "vcUri: string, name: string",
+                                            "returnType":  "VumBaseline[]",
+                                            "description":  "Retrieves the baselines specified by the provided parameters. There are two default dynamic patch baselines\r\n(Critical Host Patches (Predefined) and Non-Critical Host Patches (Predefined)) and three upgrade baselines\r\n(VMware Tools Upgrade to Match Host (Predefined), VM Hardware Upgrade to Match Host (Predefined),\r\nand VA Upgrade to Latest (Predefined)). You cannot edit or delete the default baselines."
+                                        },
+                                        {
+                                            "name":  "getAllBaselineGroups",
+                                            "parameters":  "vcUri: string",
+                                            "returnType":  "VumBaselineGroup[]",
+                                            "description":  "Retrieves the baseline groups."
+                                        },
+                                        {
+                                            "name":  "getEulasContent",
+                                            "parameters":  "baselines: VumBaseline[]",
+                                            "returnType":  "string",
+                                            "description":  "Get EULA content related for the provided array of baselines."
+                                        },
+                                        {
+                                            "name":  "getVirtualApplianceBaselines",
+                                            "parameters":  "baselines: VumBaseline[]",
+                                            "returnType":  "VumBaseline[]",
+                                            "description":  "Filter baselines and return only those that are related to a Virtual Appliance update."
+                                        },
+                                        {
+                                            "name":  "getVirutalApplicaneBaselines",
+                                            "parameters":  "baselines: VumBaseline[]",
+                                            "returnType":  "VumBaseline[]",
+                                            "description":  ""
+                                        },
+                                        {
+                                            "name":  "acceptAllEulaContracts",
+                                            "parameters":  "baselines: VumBaseline[]",
+                                            "returnType":  "void",
+                                            "description":  "Accept all software update EULAs for specified virtual appliance related baselines."
+                                        },
+                                        {
+                                            "name":  "getVumUri",
+                                            "parameters":  "url: string",
+                                            "returnType":  "string",
+                                            "description":  "Get the Update Manager URL assigned to the vCenter Server instance.\r\nReturns null if there is no Update Manager instance assigned to vCenter Server.\r\nThe method throws an exception if there is no vCenter Server instance at the specified URL."
+                                        },
+                                        {
+                                            "name":  "removeAllVcenterWithVum",
+                                            "parameters":  "",
+                                            "returnType":  "void",
+                                            "description":  ""
+                                        },
+                                        {
+                                            "name":  "getVumHosts",
+                                            "parameters":  "",
+                                            "returnType":  "VumHost[]",
+                                            "description":  "Retrieves the registered vCenter Server instances with extensions from the Update Manager plug-in configuration."
+                                        },
+                                        {
+                                            "name":  "getVumHostsURLs",
+                                            "parameters":  "",
+                                            "returnType":  "string[]",
+                                            "description":  "Retrieves the URL of registered vCenter Server instances with extensions from the Update Manager plug-in configuration."
+                                        },
+                                        {
+                                            "name":  "getFilteredBaselines",
+                                            "parameters":  "searchSpec: VumBaselineSearchSpec",
+                                            "returnType":  "VumBaseline[]",
+                                            "description":  "Retrieves the baselines specified by the provided parameters."
+                                        },
+                                        {
+                                            "name":  "getPatches",
+                                            "parameters":  "vcUri: string, spec: VumPatchSearchSpec, patchIds: number[], baselineIds: number[], bundleType: string[], installationImpact: string[]",
+                                            "returnType":  "VumPatch[]",
+                                            "description":  "Retrieves patches specified by the provided parameters."
+                                        },
+                                        {
+                                            "name":  "removeVcenterWithVum",
+                                            "parameters":  "url: string",
+                                            "returnType":  "void",
+                                            "description":  ""
+                                        },
+                                        {
+                                            "name":  "removeVcenterInstancesWithVum",
+                                            "parameters":  "urls: string[]",
+                                            "returnType":  "void",
+                                            "description":  ""
+                                        },
+                                        {
+                                            "name":  "changeDefaultServerTo",
+                                            "parameters":  "url: string",
+                                            "returnType":  "void",
+                                            "description":  "Set default the default vCenter Server instance with assigned Update Manager server."
+                                        },
+                                        {
+                                            "name":  "registerVcenterWithVum",
+                                            "parameters":  "url: string",
+                                            "returnType":  "void",
+                                            "description":  "Register a vCenter Server instance with assigned Update Manager server."
+                                        },
+                                        {
+                                            "name":  "registerVcenterInctencesWithVum",
+                                            "parameters":  "urls: string[]",
+                                            "returnType":  "void",
+                                            "description":  ""
+                                        },
+                                        {
+                                            "name":  "getDefaultVcUri",
+                                            "parameters":  "",
+                                            "returnType":  "string",
+                                            "description":  "Utility method returning the default vCenter Server URI for the plug-in as set from its configuration."
+                                        },
+                                        {
+                                            "name":  "getVcServerUri",
+                                            "parameters":  "vcPluginVCs: string[]",
+                                            "returnType":  "string[]",
+                                            "description":  "Return a list of vCenter Server instances set in the plug-in configuration"
+                                        },
+                                        {
+                                            "name":  "createPatchBaseline",
+                                            "parameters":  "vcUri: string, name: string, desciption: string, contentType: string, targetType: string, includePatch: VumPatchInfo[], excludePatch: VumPatchInfo[], isExtension: boolean, searchSpec: VumPatchSearchSpec",
+                                            "returnType":  "VumBaseline",
+                                            "description":  "Creates a new patch baseline. Patch baselines can be applied to hosts or virtual machines.\r\nDepending on the patch criteria you select, patch baselines can be either dynamic or static (fixed).\r\nYou can specify the patches that you want to include in the baseline by using the includePatch parameter.\r\nYou can also use the searchSpec attribute to filter the patches that you want to include in a baseline.\r\nYou can filter patches by their properties, such as product, vendor, severity, and release date.\r\nThe patches that have been excluded by using the excludePatch parameter will never be included\r\neven if they correspond to the filter defined by the searchSpec attribute."
+                                        },
+                                        {
+                                            "name":  "getEntities",
+                                            "parameters":  "serverUri: string",
+                                            "returnType":  "VumVIInventory[]",
+                                            "description":  "Connect to a vCenter Server and retrieve all entities from it."
+                                        },
+                                        {
+                                            "name":  "attachBaselines",
+                                            "parameters":  "baselines: VumBaseline[], entities: VumVIInventory[]",
+                                            "returnType":  "void",
+                                            "description":  "Attaches baselines to a vSphere object that you select.\r\nThe object can be a template, virtual machine, vApp, ESX/ESXi host, folder, cluster, or a datacenter.\r\nAttaching a baseline to a container object such as a folder or datacenter transitively attaches the baseline to all objects in the container."
+                                        },
+                                        {
+                                            "name":  "detachBaselines",
+                                            "parameters":  "baselines: VumBaseline[], entities: VumVIInventory[]",
+                                            "returnType":  "void",
+                                            "description":  "Detaches baselines from the specified vSphere objects. To detach inherited baselines, you must detach them from the parent object."
+                                        },
+                                        {
+                                            "name":  "getPatchProducts",
+                                            "parameters":  "vcUri: string",
+                                            "returnType":  "string[]",
+                                            "description":  "Utility method to retrieve all patch products."
+                                        },
+                                        {
+                                            "name":  "getPatchLanguages",
+                                            "parameters":  "vcUri: string",
+                                            "returnType":  "string[]",
+                                            "description":  "Utility method to retrieve all patch languages."
+                                        },
+                                        {
+                                            "name":  "getPatchVendors",
+                                            "parameters":  "vcUri: string",
+                                            "returnType":  "string[]",
+                                            "description":  "Utility method to retrieve all patch vendors."
+                                        },
+                                        {
+                                            "name":  "getBundleTypes",
+                                            "parameters":  "vcUri: string",
+                                            "returnType":  "string[]",
+                                            "description":  "Utility method to retrieve all bundle types."
+                                        },
+                                        {
+                                            "name":  "getPatchInstallationImpacts",
+                                            "parameters":  "vcUri: string",
+                                            "returnType":  "string[]",
+                                            "description":  "Utility method to retrieve the installation impacts of all patches."
+                                        },
+                                        {
+                                            "name":  "deleteBaseline",
+                                            "parameters":  "baseline: VumBaseline",
+                                            "returnType":  "boolean",
+                                            "description":  "Deletes the specified baseline. Before the removal, the baseline is detached from all objects it has been attached to."
+                                        },
+                                        {
+                                            "name":  "deleteBaselines",
+                                            "parameters":  "baselines: VumBaseline[]",
+                                            "returnType":  "boolean",
+                                            "description":  "Deletes the specified baselines. Before the removal, the baselines are detached from all objects they have been attached to."
+                                        },
+                                        {
+                                            "name":  "downloadPatchesByLanguages",
+                                            "parameters":  "vcUri: string, languages: string[]",
+                                            "returnType":  "boolean",
+                                            "description":  "Checks for new patches and depending on the availability downloads them to the Update Manager repository."
+                                        },
+                                        {
+                                            "name":  "downloadPatchesByLanguagesAsync",
+                                            "parameters":  "vcUri: string, languages: string[]",
+                                            "returnType":  "void",
+                                            "description":  "Asynchronously checks for new patches and depending on the availability downloads them to the Update Manager repository."
+                                        },
+                                        {
+                                            "name":  "createTrigger",
+                                            "parameters":  "timeout: number, sdkType: string",
+                                            "returnType":  "any",
+                                            "description":  "Creates a trigger used by the asynchronous workflows."
+                                        },
+                                        {
+                                            "name":  "updatePatchBaseline",
+                                            "parameters":  "baseline: VumBaseline",
+                                            "returnType":  "void",
+                                            "description":  "Modifies the properties of a patch baseline."
+                                        },
+                                        {
+                                            "name":  "scanInventory",
+                                            "parameters":  "entities: VumVIInventory[], types: string[]",
+                                            "returnType":  "void",
+                                            "description":  "Scans vSphere objects against patches included in the baselines attached to them.\r\nThe object can be a template, virtual machine, vApp, ESX/ESXi host, folder, cluster, or a datacenter.\r\nIf the objects are of different types, the method starts a separate vCenter Server task for each object."
+                                        },
+                                        {
+                                            "name":  "getCompliance",
+                                            "parameters":  "entities: VumVIInventory[], complianceStatus: string, baselines: VumBaseline[]",
+                                            "returnType":  "VumCompliance[]",
+                                            "description":  "Retrieve baseline compliance data for the specified vSphere object of type template, virtual machine,\r\nvApp, ESX/ESXi host, folder, cluster, or a datacenter.\r\nThe method returns information about the compliance of the specified object against the baselines that are attached to it.\r\nIf the object is a container, the cmdlet returns compliance data for all objects in the container."
+                                        },
+                                        {
+                                            "name":  "stage",
+                                            "parameters":  "entities: VumVIInventory[], baselines: VumBaseline[], patches: VumPatchInfo[]",
+                                            "returnType":  "boolean",
+                                            "description":  "Stages patches. Staging allows you to download patches from the Update Manager server to the ESX/ESXi hosts,\r\nwithout applying the patches immediately. You can stage patches to hosts or container objects such as clusters or datacenters."
+                                        },
+                                        {
+                                            "name":  "stageAsync",
+                                            "parameters":  "entities: VumVIInventory[], baselines: VumBaseline[], patches: VumPatchInfo[]",
+                                            "returnType":  "string[]",
+                                            "description":  "Stages patches. Staging allows you to download patches from the Update Manager server to the ESX/ESXi hosts,\r\nwithout applying the patches immediately. You can stage patches to hosts or container objects such as clusters or datacenters.\r\nThe method returns array with task keys for all of the started vCenter Server tasks."
+                                        },
+                                        {
+                                            "name":  "remediate",
+                                            "parameters":  "entities: VumVIInventory[], baselines: VumBaseline[], excludedPatches: VumPatchInfo[], guestOption: VumGuestRemediationOption, hostOption: VumHostRemediationOption",
+                                            "returnType":  "boolean",
+                                            "description":  "Remediates an inventory object against the specified baselines.\r\nYou can remediate a template, virtual machine, vApp, ESX/ESXi host, folder, cluster, or a datacenter."
+                                        },
+                                        {
+                                            "name":  "remediateAsync",
+                                            "parameters":  "entities: VumVIInventory[], baselines: VumBaseline[], excludedPatches: VumPatchInfo[], guestOption: VumGuestRemediationOption, hostOption: VumHostRemediationOption",
+                                            "returnType":  "string[]",
+                                            "description":  "Remediates an inventory object against the specified baselines. Returns an array of vCenter Server task keys.\r\nYou can remediate a template, virtual machine, vApp, ESX/ESXi host, folder, cluster, or a datacenter."
+                                        },
+                                        {
+                                            "name":  "exportBaselines",
+                                            "parameters":  "baselines: VumBaseline[]",
+                                            "returnType":  "string",
+                                            "description":  "Export baselines in .xml format."
+                                        },
+                                        {
+                                            "name":  "importBaselines",
+                                            "parameters":  "vcUri: string, xml: string",
+                                            "returnType":  "VumBaseline[]",
+                                            "description":  "Import baselines from .xml that you have generated by using exportBaselines."
+                                        },
+                                        {
+                                            "name":  "exportCompliance",
+                                            "parameters":  "compliances: VumCompliance[], format: any, serverOutFile: string",
+                                            "returnType":  "void",
+                                            "description":  "Export Compliance report to external file."
+                                        },
+                                        {
+                                            "name":  "formatAsVumObject",
+                                            "parameters":  "vcObject: string, schema: string, port: number",
+                                            "returnType":  "string",
+                                            "description":  "Format a finder (dunesUri) from the vSphere plug-in as VIInventory finder."
+                                        },
+                                        {
+                                            "name":  "validateTriggerSuccess",
+                                            "parameters":  "trigger: any",
+                                            "returnType":  "void",
+                                            "description":  "Validates final state of a trigger. Should be called after the trigger is fired."
+                                        },
+                                        {
+                                            "name":  "getEntitiesByBaselineGroup",
+                                            "parameters":  "vcUri: string, baselineGroups: VumBaselineGroup[]",
+                                            "returnType":  "VumBaselineGroup[]",
+                                            "description":  "Retrieves the vCenter Server entities to which these baseline groups are attached."
+                                        },
+                                        {
+                                            "name":  "getEntitiesByBaseline",
+                                            "parameters":  "vcUri: string, baselines: VumBaseline[]",
+                                            "returnType":  "VumBaseline[]",
+                                            "description":  "Retrieves the vCenter Server entities to which these baselines are attached"
+                                        }
+                                    ],
+                        "attributes":  [
+
+                                       ]
+                    },
+                    {
+                        "name":  "VumPatch",
+                        "description":  "Container object containing specific information and details about a patch.",
+                        "methods":  [
+
+                                    ],
+                        "attributes":  [
+                                           {
+                                               "name":  "serverUri",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "detail",
+                                               "type":  "VumPatchDetail",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "info",
+                                               "type":  "VumPatchInfo",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           }
+                                       ]
+                    },
+                    {
+                        "name":  "VumPatchBaseline",
+                        "description":  "",
+                        "methods":  [
+                                        {
+                                            "name":  "setContentTypeFromString",
+                                            "parameters":  "contentType: string",
+                                            "returnType":  "void",
+                                            "description":  "Utility method to parse and set content type from string value."
+                                        }
+                                    ],
+                        "attributes":  [
+                                           {
+                                               "name":  "id",
+                                               "type":  "number",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "serverUri",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "name",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "description",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "lastUpdateTime",
+                                               "type":  "Date",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "lastUpdateTimeAsStr",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "baselineType",
+                                               "type":  "any",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "contentType",
+                                               "type":  "any",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "targetType",
+                                               "type":  "any",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "inclPatches",
+                                               "type":  "VumPatchInfo[]",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "exclPatches",
+                                               "type":  "VumPatchInfo[]",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "currentPatches",
+                                               "type":  "VumPatchInfo[]",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "patchSearchSpec",
+                                               "type":  "VumPatchSearchSpec",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           }
+                                       ]
+                    },
+                    {
+                        "name":  "VumPatchDetail",
+                        "description":  "A patch detail from the Update Manager plug-in.",
+                        "methods":  [
+
+                                    ],
+                        "attributes":  [
+                                           {
+                                               "name":  "status",
+                                               "type":  "number",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "idByVendor",
+                                               "type":  "string[]",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "detailsUrl",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "description",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "vendor",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "installSeparately",
+                                               "type":  "boolean",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "affectedComponent",
+                                               "type":  "string[]",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "binaryPath",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "installFlags",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "patchSize",
+                                               "type":  "number",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "bugtraqId",
+                                               "type":  "string[]",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "cveId",
+                                               "type":  "string[]",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           }
+                                       ]
+                    },
+                    {
+                        "name":  "VumPatchInfo",
+                        "description":  "",
+                        "methods":  [
+
+                                    ],
+                        "attributes":  [
+                                           {
+                                               "name":  "id",
+                                               "type":  "number",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "serverUri",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "name",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "idByVendor",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "vendor",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "releaseDate",
+                                               "type":  "Date",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "severity",
+                                               "type":  "any",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "targetType",
+                                               "type":  "any",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "impactLevel",
+                                               "type":  "string[]",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "bundleType",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "updateType",
+                                               "type":  "any",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           }
+                                       ]
+                    },
+                    {
+                        "name":  "VumPatchSearchSpec",
+                        "description":  "A patch search criteria for the Update Manager plug-in.",
+                        "methods":  [
+                                        {
+                                            "name":  "setSeverityFromStrings",
+                                            "parameters":  "strSeverity: string[]",
+                                            "returnType":  "void",
+                                            "description":  "Utility method to parse and set severity from a string value."
+                                        },
+                                        {
+                                            "name":  "setTargetTypeFromStrings",
+                                            "parameters":  "strTargetType: string[]",
+                                            "returnType":  "void",
+                                            "description":  "Utility method to parse and set a target type from a string value."
+                                        },
+                                        {
+                                            "name":  "setUpdateTypeFromStrings",
+                                            "parameters":  "strUpdateType: string[]",
+                                            "returnType":  "void",
+                                            "description":  "Utility method to parse and set an update type from string value."
+                                        },
+                                        {
+                                            "name":  "setHostUpdateCategoryFromStrings",
+                                            "parameters":  "strHostUpdateCategory: string[]",
+                                            "returnType":  "void",
+                                            "description":  "Utility method to parse and set an host update category from string value."
+                                        }
+                                    ],
+                        "attributes":  [
+                                           {
+                                               "name":  "serverUri",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "phrase",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "startDate",
+                                               "type":  "Date",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "endDate",
+                                               "type":  "Date",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "vendor",
+                                               "type":  "string[]",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "product",
+                                               "type":  "string[]",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "severity",
+                                               "type":  "any",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "targetType",
+                                               "type":  "any",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "updateType",
+                                               "type":  "any",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "language",
+                                               "type":  "string[]",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "failOnManyUpdates",
+                                               "type":  "boolean",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           }
+                                       ]
+                    },
+                    {
+                        "name":  "VumVIInventory",
+                        "description":  "Represents a vSphere object used in the Update Manager plug-in.",
+                        "methods":  [
+
+                                    ],
+                        "attributes":  [
+                                           {
+                                               "name":  "id",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "type",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "name",
+                                               "type":  "string",
+                                               "description":  "",
+                                               "isReadonly":  false
+                                           }
+                                       ]
+                    }
+                ]
 }

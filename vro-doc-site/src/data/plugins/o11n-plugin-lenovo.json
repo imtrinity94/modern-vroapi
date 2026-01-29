@@ -1,360 +1,368 @@
-{
-  "name": "Lenovo",
-  "description": "API Reference for Lenovo",
-  "classes": [
-    {
-      "name": "XClarityAdministrator",
-      "description": "XClarity System Server",
-      "attributes": [
-        {
-          "name": "ip",
-          "type": "string",
-          "description": "ip of the XClarityAdministrator",
-          "isReadonly": false
-        },
-        {
-          "name": "name",
-          "type": "string",
-          "description": "Name of the XClarityAdministrator",
-          "isReadonly": false
-        }
-      ],
-      "methods": [
-        {
-          "name": "deployOSDHCP",
-          "description": "Deploy OS",
-          "parameters": "xclarityServer: com.lenovo.xclarity.XClarityServer, selectedImageProfileFullName: String, selectedStorage: String, selectHostMac: String, dns1: String, dns2: String, vLanId: Long",
-          "returnType": "com.lenovo.xclarity.XClarityTask"
-        },
-        {
-          "name": "performPowerAction",
-          "description": "Perform power action",
-          "parameters": "xclarityServer: com.lenovo.xclarity.XClarityServer, action: String",
-          "returnType": "com.lenovo.xclarity.XClarityTask"
-        },
-        {
-          "name": "deployOSStatic",
-          "description": "Deploy OS",
-          "parameters": "xclarityServer: com.lenovo.xclarity.XClarityServer, selectedImageProfileFullName: String, selectedStorage: String, selectHostMac: String, dns1: String, dns2: String, ipAddress: String, subnetMask: String, gateway: String, vLanId: Long",
-          "returnType": "com.lenovo.xclarity.XClarityTask"
-        },
-        {
-          "name": "getManagedServers",
-          "description": "Get managed servers of this XClarityAdministrator",
-          "parameters": "param0: number, param1: number",
-          "returnType": "Array/com.lenovo.xclarity.XClarityServer"
-        },
-        {
-          "name": "getAvailableOSImages",
-          "description": "Get OS Images that are available to be used to deploy of this XClarityAdministrator",
-          "parameters": "",
-          "returnType": "Array/com.lenovo.xclarity.XClarityOSImage"
-        },
-        {
-          "name": "getAvailableOSImageProfiles",
-          "description": "Get OS Image Profiles that are available to be used to deploy of this XClarityAdministrator",
-          "parameters": "",
-          "returnType": "Array/com.lenovo.xclarity.XClarityOSImage$Profile"
-        },
-        {
-          "name": "getAvailableOSImageProfileIds",
-          "description": "Get OS Image Profile Id List that are available to be used to deploy of this XClarityAdministrator",
-          "parameters": "",
-          "returnType": "Array/String"
-        },
-        {
-          "name": "getServerPatterns",
-          "description": "Get all configuration pattern related to a LXCA",
-          "parameters": "",
-          "returnType": "Array/com.lenovo.xclarity.XClarityServerPattern"
-        },
-        {
-          "name": "deployServerPattern",
-          "description": "Deploy a server pattern to a server",
-          "parameters": "xclarityServer: com.lenovo.xclarity.XClarityServer, serverPattern: String, restartPolicy: String",
-          "returnType": "com.lenovo.xclarity.XClarityTask"
-        },
-        {
-          "name": "deactivateServerPattern",
-          "description": "Deactivate a server pattern from a xclarityServer",
-          "parameters": "xclarityServer: com.lenovo.xclarity.XClarityServer",
-          "returnType": "String"
-        },
-        {
-          "name": "getCompatibleOSImagesOfAServer",
-          "description": "Get OS images that are compatible to the server, i.e. are supported to deploy to the server",
-          "parameters": "xclarityServer: com.lenovo.xclarity.XClarityServer",
-          "returnType": "Array/String"
-        },
-        {
-          "name": "changeGlobalSettings",
-          "description": "Change settings in LXCA's deploy OS global settings. The invocation of this method succeeds if no exception is raised, if it fails an Exception will be thrown.",
-          "parameters": "user: String, password: String, isStaticIP: String, isVLAN: String",
-          "returnType": "void"
-        }
-      ]
-    },
-    {
-      "name": "XClarityOSImage",
-      "description": "XClarity System OS Image",
-      "attributes": [
-        {
-          "name": "id",
-          "type": "string",
-          "description": "ID of the XClarityOSImage",
-          "isReadonly": false
-        },
-        {
-          "name": "description",
-          "type": "string",
-          "description": "Description of the XClarityOSImage",
-          "isReadonly": false
-        },
-        {
-          "name": "name",
-          "type": "string",
-          "description": "Name of the XClarityOSImage",
-          "isReadonly": false
-        }
-      ],
-      "methods": []
-    },
-    {
-      "name": "XClarityOSImageProfile",
-      "description": "XClarity System OS Image Profile",
-      "attributes": [
-        {
-          "name": "id",
-          "type": "string",
-          "description": "ID of the XClarityOSImage Profile",
-          "isReadonly": false
-        },
-        {
-          "name": "description",
-          "type": "string",
-          "description": "Description of the XClarityOSImage Profile",
-          "isReadonly": false
-        },
-        {
-          "name": "name",
-          "type": "string",
-          "description": "Name of the XClarityOSImage Profile",
-          "isReadonly": false
-        }
-      ],
-      "methods": []
-    },
-    {
-      "name": "XClarityRepository",
-      "description": "XClarity Repository",
-      "attributes": [],
-      "methods": [
-        {
-          "name": "getXClarityOSImageFromXClarityServer",
-          "description": "(Static) Get supported XClarityOSImage From an xClarity managed Server",
-          "parameters": "xClarityServer: com.lenovo.xclarity.XClarityServer",
-          "returnType": "Array/String"
-        },
-        {
-          "name": "registerLXCA",
-          "description": "(Static) Register LXCA",
-          "parameters": "userName: String, password: String, host: String",
-          "returnType": "Array/com.lenovo.xclarity.XClarityAdministrator"
-        },
-        {
-          "name": "unRegisterLXCA",
-          "description": "(Static) Unregister LXCA",
-          "parameters": "XClarityAdministrator: com.lenovo.xclarity.XClarityAdministrator",
-          "returnType": "boolean"
-        },
-        {
-          "name": "getAllInstancesAssociatedToSinglevCenter",
-          "description": "(Static) Get all XClarity systems associated to a single vCenter",
-          "parameters": "serviceUrl: String, uusUsr: String, uusPwd: String",
-          "returnType": "Array/com.lenovo.xclarity.XClarityAdministrator"
-        },
-        {
-          "name": "getLxcaList",
-          "description": "(Static) Get all XClarity Administrators",
-          "parameters": "",
-          "returnType": "Array/com.lenovo.xclarity.XClarityAdministrator"
-        },
-        {
-          "name": "getAvailableServers",
-          "description": "(Static) Get all available servers that have not been allocated to a vCenter",
-          "parameters": "XClarityAdministrator: com.lenovo.xclarity.XClarityAdministrator, param1: Array/string",
-          "returnType": "Array/com.lenovo.xclarity.XClarityServer"
-        },
-        {
-          "name": "getTask",
-          "description": "(Static) test task",
-          "parameters": "",
-          "returnType": "com.lenovo.xclarity.XClarityTask"
-        }
-      ]
-    },
-    {
-      "name": "XClarityServer",
-      "description": "XClarity System Managed Server",
-      "attributes": [
-        {
-          "name": "UUID",
-          "type": "string",
-          "description": "UUID of the XClarityServer",
-          "isReadonly": false
-        },
-        {
-          "name": "name",
-          "type": "string",
-          "description": "Name of the XClarityServer",
-          "isReadonly": false
-        },
-        {
-          "name": "ip",
-          "type": "string",
-          "description": "ip of the XClarityServer",
-          "isReadonly": false
-        },
-        {
-          "name": "type",
-          "type": "string",
-          "description": "shows type:flex or rack",
-          "isReadonly": false
-        },
-        {
-          "name": "machineModel",
-          "type": "string",
-          "description": "machine model",
-          "isReadonly": false
-        }
-      ],
-      "methods": [
-        {
-          "name": "getXClarityAdministrator",
-          "description": "Get its associated XClarity Administrator",
-          "parameters": "",
-          "returnType": "com.lenovo.xclarity.XClarityAdministrator"
-        },
-        {
-          "name": "getHostMacAddressList",
-          "description": "get Host Mac Address List",
-          "parameters": "",
-          "returnType": "Array/String"
-        }
-      ]
-    },
-    {
-      "name": "XClarityServerPattern",
-      "description": "XClarity System Configuration pattern",
-      "attributes": [
-        {
-          "name": "id",
-          "type": "string",
-          "description": "ID of the XClarityServerPattern",
-          "isReadonly": false
-        },
-        {
-          "name": "description",
-          "type": "string",
-          "description": "Description of the XClarityServerPattern",
-          "isReadonly": false
-        },
-        {
-          "name": "inUse",
-          "type": "string",
-          "description": "Server pattern usage status",
-          "isReadonly": false
-        },
-        {
-          "name": "name",
-          "type": "string",
-          "description": "Name of the XClarityServerPattern",
-          "isReadonly": false
-        }
-      ],
-      "methods": []
-    },
-    {
-      "name": "XClarityTask",
-      "description": "XClarity Task",
-      "attributes": [
-        {
-          "name": "id",
-          "type": "string",
-          "description": "ID of the XClarityTask",
-          "isReadonly": false
-        },
-        {
-          "name": "info",
-          "type": "com.lenovo.xclarity.XClarityTaskInfo",
-          "description": "XClarityTaskInfo",
-          "isReadonly": true
-        }
-      ],
-      "methods": [
-        {
-          "name": "getInfo",
-          "description": "Get task information",
-          "parameters": "",
-          "returnType": "com.lenovo.xclarity.XClarityTaskInfo"
-        }
-      ]
-    },
-    {
-      "name": "XClarityTaskInfo",
-      "description": "XClarity TaskInfo",
-      "attributes": [
-        {
-          "name": "taskId",
-          "type": "string",
-          "description": "ID of the XClarityTaskInfo(Jobid)",
-          "isReadonly": false
-        },
-        {
-          "name": "name",
-          "type": "string",
-          "description": "Name of the XClarityTaskInfo",
-          "isReadonly": false
-        },
-        {
-          "name": "category",
-          "type": "string",
-          "description": "Category of the XClarityTaskInfo",
-          "isReadonly": false
-        },
-        {
-          "name": "percentage",
-          "type": "string",
-          "description": "percentage of the XClarityTaskInfo",
-          "isReadonly": false
-        },
-        {
-          "name": "state",
-          "type": "string",
-          "description": "State of the XClarityTaskInfo",
-          "isReadonly": false
-        },
-        {
-          "name": "message",
-          "type": "string",
-          "description": "Message of the XClarityTaskInfo",
-          "isReadonly": false
-        },
-        {
-          "name": "shortMessage",
-          "type": "string",
-          "description": "Short Message of the XClarityTaskInfo",
-          "isReadonly": false
-        }
-      ],
-      "methods": [
-        {
-          "name": "getResult",
-          "description": "Get Result",
-          "parameters": "",
-          "returnType": "com.lenovo.xclarity.ManagedObject"
-        }
-      ]
-    }
-  ]
+﻿{
+    "name":  "Lenovo XClarity Integrator",
+    "description":  "API Reference for Lenovo",
+    "classes":  [
+                    {
+                        "name":  "XClarityAdministrator",
+                        "description":  "XClarity System Server",
+                        "attributes":  [
+                                           {
+                                               "name":  "ip",
+                                               "type":  "string",
+                                               "description":  "ip of the XClarityAdministrator",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "name",
+                                               "type":  "string",
+                                               "description":  "Name of the XClarityAdministrator",
+                                               "isReadonly":  false
+                                           }
+                                       ],
+                        "methods":  [
+                                        {
+                                            "name":  "deployOSDHCP",
+                                            "description":  "Deploy OS",
+                                            "parameters":  "xclarityServer: com.lenovo.xclarity.XClarityServer, selectedImageProfileFullName: String, selectedStorage: String, selectHostMac: String, dns1: String, dns2: String, vLanId: Long",
+                                            "returnType":  "com.lenovo.xclarity.XClarityTask"
+                                        },
+                                        {
+                                            "name":  "performPowerAction",
+                                            "description":  "Perform power action",
+                                            "parameters":  "xclarityServer: com.lenovo.xclarity.XClarityServer, action: String",
+                                            "returnType":  "com.lenovo.xclarity.XClarityTask"
+                                        },
+                                        {
+                                            "name":  "deployOSStatic",
+                                            "description":  "Deploy OS",
+                                            "parameters":  "xclarityServer: com.lenovo.xclarity.XClarityServer, selectedImageProfileFullName: String, selectedStorage: String, selectHostMac: String, dns1: String, dns2: String, ipAddress: String, subnetMask: String, gateway: String, vLanId: Long",
+                                            "returnType":  "com.lenovo.xclarity.XClarityTask"
+                                        },
+                                        {
+                                            "name":  "getManagedServers",
+                                            "description":  "Get managed servers of this XClarityAdministrator",
+                                            "parameters":  "param0: number, param1: number",
+                                            "returnType":  "Array/com.lenovo.xclarity.XClarityServer"
+                                        },
+                                        {
+                                            "name":  "getAvailableOSImages",
+                                            "description":  "Get OS Images that are available to be used to deploy of this XClarityAdministrator",
+                                            "parameters":  "",
+                                            "returnType":  "Array/com.lenovo.xclarity.XClarityOSImage"
+                                        },
+                                        {
+                                            "name":  "getAvailableOSImageProfiles",
+                                            "description":  "Get OS Image Profiles that are available to be used to deploy of this XClarityAdministrator",
+                                            "parameters":  "",
+                                            "returnType":  "Array/com.lenovo.xclarity.XClarityOSImage$Profile"
+                                        },
+                                        {
+                                            "name":  "getAvailableOSImageProfileIds",
+                                            "description":  "Get OS Image Profile Id List that are available to be used to deploy of this XClarityAdministrator",
+                                            "parameters":  "",
+                                            "returnType":  "Array/String"
+                                        },
+                                        {
+                                            "name":  "getServerPatterns",
+                                            "description":  "Get all configuration pattern related to a LXCA",
+                                            "parameters":  "",
+                                            "returnType":  "Array/com.lenovo.xclarity.XClarityServerPattern"
+                                        },
+                                        {
+                                            "name":  "deployServerPattern",
+                                            "description":  "Deploy a server pattern to a server",
+                                            "parameters":  "xclarityServer: com.lenovo.xclarity.XClarityServer, serverPattern: String, restartPolicy: String",
+                                            "returnType":  "com.lenovo.xclarity.XClarityTask"
+                                        },
+                                        {
+                                            "name":  "deactivateServerPattern",
+                                            "description":  "Deactivate a server pattern from a xclarityServer",
+                                            "parameters":  "xclarityServer: com.lenovo.xclarity.XClarityServer",
+                                            "returnType":  "String"
+                                        },
+                                        {
+                                            "name":  "getCompatibleOSImagesOfAServer",
+                                            "description":  "Get OS images that are compatible to the server, i.e. are supported to deploy to the server",
+                                            "parameters":  "xclarityServer: com.lenovo.xclarity.XClarityServer",
+                                            "returnType":  "Array/String"
+                                        },
+                                        {
+                                            "name":  "changeGlobalSettings",
+                                            "description":  "Change settings in LXCA\u0027s deploy OS global settings. The invocation of this method succeeds if no exception is raised, if it fails an Exception will be thrown.",
+                                            "parameters":  "user: String, password: String, isStaticIP: String, isVLAN: String",
+                                            "returnType":  "void"
+                                        }
+                                    ]
+                    },
+                    {
+                        "name":  "XClarityOSImage",
+                        "description":  "XClarity System OS Image",
+                        "attributes":  [
+                                           {
+                                               "name":  "id",
+                                               "type":  "string",
+                                               "description":  "ID of the XClarityOSImage",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "description",
+                                               "type":  "string",
+                                               "description":  "Description of the XClarityOSImage",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "name",
+                                               "type":  "string",
+                                               "description":  "Name of the XClarityOSImage",
+                                               "isReadonly":  false
+                                           }
+                                       ],
+                        "methods":  [
+
+                                    ]
+                    },
+                    {
+                        "name":  "XClarityOSImageProfile",
+                        "description":  "XClarity System OS Image Profile",
+                        "attributes":  [
+                                           {
+                                               "name":  "id",
+                                               "type":  "string",
+                                               "description":  "ID of the XClarityOSImage Profile",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "description",
+                                               "type":  "string",
+                                               "description":  "Description of the XClarityOSImage Profile",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "name",
+                                               "type":  "string",
+                                               "description":  "Name of the XClarityOSImage Profile",
+                                               "isReadonly":  false
+                                           }
+                                       ],
+                        "methods":  [
+
+                                    ]
+                    },
+                    {
+                        "name":  "XClarityRepository",
+                        "description":  "XClarity Repository",
+                        "attributes":  [
+
+                                       ],
+                        "methods":  [
+                                        {
+                                            "name":  "getXClarityOSImageFromXClarityServer",
+                                            "description":  "(Static) Get supported XClarityOSImage From an xClarity managed Server",
+                                            "parameters":  "xClarityServer: com.lenovo.xclarity.XClarityServer",
+                                            "returnType":  "Array/String"
+                                        },
+                                        {
+                                            "name":  "registerLXCA",
+                                            "description":  "(Static) Register LXCA",
+                                            "parameters":  "userName: String, password: String, host: String",
+                                            "returnType":  "Array/com.lenovo.xclarity.XClarityAdministrator"
+                                        },
+                                        {
+                                            "name":  "unRegisterLXCA",
+                                            "description":  "(Static) Unregister LXCA",
+                                            "parameters":  "XClarityAdministrator: com.lenovo.xclarity.XClarityAdministrator",
+                                            "returnType":  "boolean"
+                                        },
+                                        {
+                                            "name":  "getAllInstancesAssociatedToSinglevCenter",
+                                            "description":  "(Static) Get all XClarity systems associated to a single vCenter",
+                                            "parameters":  "serviceUrl: String, uusUsr: String, uusPwd: String",
+                                            "returnType":  "Array/com.lenovo.xclarity.XClarityAdministrator"
+                                        },
+                                        {
+                                            "name":  "getLxcaList",
+                                            "description":  "(Static) Get all XClarity Administrators",
+                                            "parameters":  "",
+                                            "returnType":  "Array/com.lenovo.xclarity.XClarityAdministrator"
+                                        },
+                                        {
+                                            "name":  "getAvailableServers",
+                                            "description":  "(Static) Get all available servers that have not been allocated to a vCenter",
+                                            "parameters":  "XClarityAdministrator: com.lenovo.xclarity.XClarityAdministrator, param1: Array/string",
+                                            "returnType":  "Array/com.lenovo.xclarity.XClarityServer"
+                                        },
+                                        {
+                                            "name":  "getTask",
+                                            "description":  "(Static) test task",
+                                            "parameters":  "",
+                                            "returnType":  "com.lenovo.xclarity.XClarityTask"
+                                        }
+                                    ]
+                    },
+                    {
+                        "name":  "XClarityServer",
+                        "description":  "XClarity System Managed Server",
+                        "attributes":  [
+                                           {
+                                               "name":  "UUID",
+                                               "type":  "string",
+                                               "description":  "UUID of the XClarityServer",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "name",
+                                               "type":  "string",
+                                               "description":  "Name of the XClarityServer",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "ip",
+                                               "type":  "string",
+                                               "description":  "ip of the XClarityServer",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "type",
+                                               "type":  "string",
+                                               "description":  "shows type:flex or rack",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "machineModel",
+                                               "type":  "string",
+                                               "description":  "machine model",
+                                               "isReadonly":  false
+                                           }
+                                       ],
+                        "methods":  [
+                                        {
+                                            "name":  "getXClarityAdministrator",
+                                            "description":  "Get its associated XClarity Administrator",
+                                            "parameters":  "",
+                                            "returnType":  "com.lenovo.xclarity.XClarityAdministrator"
+                                        },
+                                        {
+                                            "name":  "getHostMacAddressList",
+                                            "description":  "get Host Mac Address List",
+                                            "parameters":  "",
+                                            "returnType":  "Array/String"
+                                        }
+                                    ]
+                    },
+                    {
+                        "name":  "XClarityServerPattern",
+                        "description":  "XClarity System Configuration pattern",
+                        "attributes":  [
+                                           {
+                                               "name":  "id",
+                                               "type":  "string",
+                                               "description":  "ID of the XClarityServerPattern",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "description",
+                                               "type":  "string",
+                                               "description":  "Description of the XClarityServerPattern",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "inUse",
+                                               "type":  "string",
+                                               "description":  "Server pattern usage status",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "name",
+                                               "type":  "string",
+                                               "description":  "Name of the XClarityServerPattern",
+                                               "isReadonly":  false
+                                           }
+                                       ],
+                        "methods":  [
+
+                                    ]
+                    },
+                    {
+                        "name":  "XClarityTask",
+                        "description":  "XClarity Task",
+                        "attributes":  [
+                                           {
+                                               "name":  "id",
+                                               "type":  "string",
+                                               "description":  "ID of the XClarityTask",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "info",
+                                               "type":  "com.lenovo.xclarity.XClarityTaskInfo",
+                                               "description":  "XClarityTaskInfo",
+                                               "isReadonly":  true
+                                           }
+                                       ],
+                        "methods":  [
+                                        {
+                                            "name":  "getInfo",
+                                            "description":  "Get task information",
+                                            "parameters":  "",
+                                            "returnType":  "com.lenovo.xclarity.XClarityTaskInfo"
+                                        }
+                                    ]
+                    },
+                    {
+                        "name":  "XClarityTaskInfo",
+                        "description":  "XClarity TaskInfo",
+                        "attributes":  [
+                                           {
+                                               "name":  "taskId",
+                                               "type":  "string",
+                                               "description":  "ID of the XClarityTaskInfo(Jobid)",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "name",
+                                               "type":  "string",
+                                               "description":  "Name of the XClarityTaskInfo",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "category",
+                                               "type":  "string",
+                                               "description":  "Category of the XClarityTaskInfo",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "percentage",
+                                               "type":  "string",
+                                               "description":  "percentage of the XClarityTaskInfo",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "state",
+                                               "type":  "string",
+                                               "description":  "State of the XClarityTaskInfo",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "message",
+                                               "type":  "string",
+                                               "description":  "Message of the XClarityTaskInfo",
+                                               "isReadonly":  false
+                                           },
+                                           {
+                                               "name":  "shortMessage",
+                                               "type":  "string",
+                                               "description":  "Short Message of the XClarityTaskInfo",
+                                               "isReadonly":  false
+                                           }
+                                       ],
+                        "methods":  [
+                                        {
+                                            "name":  "getResult",
+                                            "description":  "Get Result",
+                                            "parameters":  "",
+                                            "returnType":  "com.lenovo.xclarity.ManagedObject"
+                                        }
+                                    ]
+                    }
+                ]
 }
