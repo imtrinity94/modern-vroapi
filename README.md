@@ -17,27 +17,42 @@
 
 ---
 
-## 🚀 Overview
+## 🚀 What is modernvroapi.in?
 
-**modernvroapi.in** is a community-driven, modern replacement for legacy vRO documentation sites. Built with **React 19**, **Vite**, and **Tailwind CSS**, it provides a blazing-fast user experience with instant search, dark mode support, and deep-linking for every class and method.
+**modernvroapi.in** is a community-driven API reference hub for **VMware Cloud Foundation Operations Orchestrator (vRO)** plugins. It serves as a modern, high-performance replacement for legacy documentation site (vroapi.com), designed specifically for automation engineers and developers working with the vRO JavaScript SDK.
 
-### ✨ Key Features
-- 🔍 **Universal Global Search**: Find any plugin, class, or method (over 14,000+ entries) instantly via `Ctrl+K` or `/`.
-- ⚡ **High Performance**: Pre-indexed metadata ensures lightning-fast navigation with zero lag.
-- 🌓 **Dark Mode**: Native support for dark and light themes with a premium glassmorphic UI.
-- 📱 **Fully Responsive**: Optimized for everything from mobile phones up to 4K monitors.
-- 🛠 **Community Registry**: Easy "Suggest Edit" buttons on every page to keep metadata accurate via GitHub.
-- 🐇 **HD Branding**: Support for high-definition custom logos for specialized plugins.
+Its primary goal is to provide **instant access** to the complete API surface of dozens of plugins, including in-built VCF components, certified integrations, and widely used 3rd-party community plugins.
+
+### 🎯 Key Capabilities
+- 🔍 **Universal Search**: Instantly find any plugin, class, method, or attribute (over 14,000+ entries) with sub-second latency.
+- 📚 **Comprehensive Coverage**: Aggregates documentation for standard plugins (vCenter, AD, SQL) and specialized integrations (F5, SRM, vSAN, Avi).
+- 🔗 **Deep Linking**: Every class and method has its own unique URL, making it easy to share specific API references in code comments or Slack.
+- ⬇️ **Download Hub**: Quick access to plugin binaries and official documentation links directly from each API page.
+- 🌓 **Developer-First UI**: Features like **Dark Mode**, **one-click method signature copying**, and a mobile-responsive layout designed for multi-tasking.
+- 🛠 **Open Contribution**: Built on an open JSON data structure, allowing the community to suggest fixes and add new plugins via GitHub.
 
 ---
 
-## 🛠 Tech Stack
+## 🔍 Global Intelligent Search
 
-- **Framework**: [React 19](https://react.dev/)
-- **Build Tool**: [Vite](https://vitejs.dev/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **State/Routing**: [React Router 7](https://reactrouter.com/)
+The cornerstone of the `modernvroapi.in` experience is its **unified search engine**, specifically engineered for speed and breadth:
+
+- **Unified Registry**: Simultaneously searches across **Plugins**, **Classes/Interfaces**, and **Member Methods/Attributes**.
+- **Blazing Performance**: All search operations happen client-side using a optimized `search-index.json`, providing results in milliseconds without any server-side roundtrips.
+- **Productivity Shortcuts**:
+  - `Ctrl + K` or `/`: Instantly focuses the global search bar from anywhere on the site.
+  - `Arrow Keys + Enter`: Rapidly navigate results without touching the mouse.
+- **Smart Filtering**: Results are categorized by type, allowing you to quickly jump directly to a method implementation even if you only remember part of its name.
+- **Deep Index**: Over **14,000 components** are currently indexed and searchable in real-time.
+
+---
+
+## 🏗 Project Structure
+
+- **vro-doc-site**: The main documentation web application.
+- **scripts**: Automation tools for scraping legacy data and re-indexing the API catalog.
+- **BTVA**: Source TypeScript definition files and extracted metadata for vRO plugins.
+- **Third-party Plugins**: A collection of community-contributed vRO plugin binaries and sources.
 
 ---
 

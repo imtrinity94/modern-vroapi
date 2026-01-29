@@ -34,17 +34,17 @@ export const PLUGIN_META: Record<string, PluginMetadata> = {
     'o11n-plugin-rest': { icon: Settings, color: 'green', tags: ['IN-BUILT'], version: '2.6.0.24114287' },
     'o11n-plugin-snmp': { icon: Waypoints, color: 'orange', tags: ['IN-BUILT'], version: '1.1.0.24114283' },
     'o11n-plugin-soap': { icon: Gauge, color: 'indigo', tags: ['IN-BUILT'], version: '2.1.0.24105054' },
-    'o11n-plugin-srm': { image: `${import.meta.env.BASE_URL}icons/SRM.png`, color: 'blue', tags: ['CERTIFIED'], downloadUrl: 'https://vcf.broadcom.com/vsc/services/details/vmware-cloud-foundation-orchestrator-plug-in-for-vmware-live-site-recovery-2?slug=true', version: '9.0.4.0.24920184' },
+    'o11n-plugin-srm': { image: `${import.meta.env.BASE_URL}icons/srm.png`, color: 'blue', tags: ['CERTIFIED'], downloadUrl: 'https://vcf.broadcom.com/vsc/services/details/vmware-cloud-foundation-orchestrator-plug-in-for-vmware-live-site-recovery-2?slug=true', version: '9.0.4.0.24920184' },
     'o11n-plugin-sql': { icon: Database, color: 'blue', tags: ['IN-BUILT'], version: '1.3.0.24105061' },
     'o11n-plugin-ssh': { icon: Terminal, color: 'slate', tags: ['IN-BUILT'], version: '8.0.1.24140733' },
     'o11n-plugin-support': { icon: Wrench, color: 'amber', tags: ['IN-BUILT'], version: '8.18.1.24266232' },
     'o11n-plugin-vapi': { image: `${import.meta.env.BASE_URL}icons/vapi.png`, color: 'yellow', tags: ['IN-BUILT'], version: '7.6.0.24140713' },
-    'o11n-plugin-vc': { image: `${import.meta.env.BASE_URL}icons/vCenter.png`, color: 'blue', tags: ['IN-BUILT'], version: '8.1.1.24147893' },
+    'o11n-plugin-vc': { image: `${import.meta.env.BASE_URL}icons/vcenter.png`, color: 'blue', tags: ['IN-BUILT'], version: '8.1.1.24147893' },
     'o11n-plugin-vcloud': { image: `${import.meta.env.BASE_URL}icons/cloud-director.png`, color: 'sky', tags: ['IN-BUILT'], version: '10.5.0' }, // Missing in list, approximating or leaving blank? User didn't provide vCloud. Let's leave it or guess. I'll omit version if unknown or guess based on similarly timed plugins if I had to, but I'll skip for now if not in list. Actually, I should probably stick to what's provided.
     'o11n-plugin-vco': { image: `${import.meta.env.BASE_URL}icons/vro.png`, color: 'orange', tags: ['IN-BUILT'], version: '8.18.1.24266232' },
     'o11n-plugin-vr': { image: `${import.meta.env.BASE_URL}icons/vr.png`, color: 'blue', tags: ['CERTIFIED'], downloadUrl: 'https://vcf.broadcom.com/vsc/services/details/vmware-cloud-foundation-orchestrator-plug-in-for-vmware-vsphere-replication-2?slug=true', version: '9.0.4.0.24920185' },
     'o11n-plugin-vra': { image: `${import.meta.env.BASE_URL}icons/vra.png`, color: 'cyan', tags: ['IN-BUILT'], version: '8.14.0.23221431' },
-    'o11n-plugin-vsan': { image: `${import.meta.env.BASE_URL}icons/vSAN.png`, color: 'blue', tags: ['CERTIFIED'], downloadUrl: 'https://vcf.broadcom.com/vsc/services/details/vmware-aria-automation-orchestrator-plug-in-for-vmware-vsan-2-2-0-2?slug=true', version: '2.2.0.23824262' },
+    'o11n-plugin-vsan': { image: `${import.meta.env.BASE_URL}icons/vsan.png`, color: 'blue', tags: ['CERTIFIED'], downloadUrl: 'https://vcf.broadcom.com/vsc/services/details/vmware-aria-automation-orchestrator-plug-in-for-vmware-vsan-2-2-0-2?slug=true', version: '2.2.0.23824262' },
     'o11n-plugin-vum': { icon: Download, color: 'green', tags: ['IN-BUILT'], version: '8.1.1.24105053' },
     'o11n-plugin-xml': { icon: FileCode, color: 'orange', tags: ['IN-BUILT'], version: '8.3.0.24114285' }
 };
