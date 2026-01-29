@@ -4,6 +4,7 @@ import { useDebounce } from '../hooks/useDebounce';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Layers } from 'lucide-react';
 import pluginIndex from '../data/index.json';
+import searchData from '../data/search-index.json';
 import { useViewMode } from '../hooks/useUIState';
 import { ViewToggle } from '../components/UIToggles';
 import { Search, ChevronRight, FileCode, ArrowRight, List as ListIcon, Edit3, Download } from 'lucide-react';
@@ -80,7 +81,8 @@ const PluginView: React.FC = () => {
     useEffect(() => {
         const loadData = async () => {
             if (!activeVersionId) return;
-            setLoading(true);
+            // Don't set loading=true if we already have initial stub data
+            // Just set a background loading state if needed
             try {
                 const modules = import.meta.glob('../data/plugins/*.json');
                 const path = `../data/plugins/${activeVersionId}.json`;
@@ -97,18 +99,37 @@ const PluginView: React.FC = () => {
         loadData();
     }, [activeVersionId]);
 
+    const initialClassesFromIndex = useMemo(() => {
+        return ((searchData as any).classes as any[])
+            .filter(c => c.p === pluginName)
+            .map(c => ({
+                name: c.n,
+                description: 'Pre-loading class metadata...',
+                methods: [],
+                attributes: [],
+                isStub: true
+            }));
+    }, [pluginName]);
+
+    const classes = useMemo(() => {
+        if (!data) return initialClassesFromIndex;
+        return data.classes;
+    }, [data, initialClassesFromIndex]);
+
     const filteredClasses = useMemo(() => {
-        if (!data) return [];
-        return data.classes.filter((c: any) =>
+        return classes.filter((c: any) =>
             c.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase())
         );
-    }, [data, debouncedSearchTerm]);
+    }, [classes, debouncedSearchTerm]);
 
     const displayedClasses = useMemo(() => {
-        return filteredClasses.slice(0, displayLimit);
-    }, [filteredClasses, displayLimit]);
+        // Use a higher limit for search to give more results immediately, 
+        // but not so many that it kills performance.
+        const limit = searchTerm ? 1000 : displayLimit;
+        return filteredClasses.slice(0, limit);
+    }, [filteredClasses, displayLimit, searchTerm]);
 
-    if (loading) return (
+    if (loading && !initialClassesFromIndex.length) return (
         <div className="flex flex-col items-center justify-center py-24 gap-4">
             <div className="w-12 h-12 border-4 border-indigo-500/20 border-t-indigo-500 rounded-full animate-spin" />
             <p className="text-slate-400 font-medium">Loading SDK definitions...</p>
@@ -116,7 +137,8 @@ const PluginView: React.FC = () => {
     );
 
     if (error) return <div className="text-center py-20 text-red-500 font-medium">Error: {error}</div>;
-    if (!data) return null;
+    // Don't return null if we have initial classes to show
+    if (!data && !initialClassesFromIndex.length) return null;
 
     return (
         <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
@@ -126,7 +148,7 @@ const PluginView: React.FC = () => {
                         Reference
                     </Link>
                     <ChevronRight size={14} />
-                    <span className="text-slate-900 dark:text-slate-200 font-medium">{data?.name || pluginName}</span>
+                    <span className="text-slate-900 dark:text-slate-200 font-medium">{data?.name || pluginEntry?.name || pluginName}</span>
                 </nav>
 
                 <div className="flex items-center gap-3">
@@ -163,7 +185,7 @@ const PluginView: React.FC = () => {
                     <div className="flex items-start gap-3 md:gap-5">
                         <div className={`p-3 md:p-4 rounded-2xl bg-${color}-50 dark:bg-${color}-500/10 text-${color}-600 dark:text-${color}-400 border border-${color}-100 dark:border-${color}-500/20 shadow-sm w-16 h-16 md:w-24 md:h-24 flex items-center justify-center overflow-hidden shrink-0`}>
                             {pluginMeta.image ? (
-                                <img src={pluginMeta.image} alt={data.name} className="w-full h-full object-contain" />
+                                <img src={pluginMeta.image} alt={data?.name || pluginName} className="w-full h-full object-contain" />
                             ) : (
                                 PluginIcon && <div className="scale-75 md:scale-110"><PluginIcon size={48} /></div>
                             )}
@@ -171,7 +193,7 @@ const PluginView: React.FC = () => {
                         <div className="min-w-0 flex-1">
                             <div className="flex flex-wrap items-center gap-2 md:gap-3">
                                 <h1 className="text-2xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight break-all">
-                                    {data.name}
+                                    {data?.name || pluginEntry?.name || pluginName}
                                 </h1>
                                 {pluginMeta.tags?.map(tag => {
                                     let tagColorClasses = "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400";
@@ -189,7 +211,8 @@ const PluginView: React.FC = () => {
                             <div className="mt-3 flex items-center gap-4 text-slate-500 dark:text-slate-400 text-sm">
                                 <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium border border-slate-200 dark:border-slate-700">
                                     <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                                    {data.classes.length} Classes & Interfaces
+                                    {classes.length} Classes & Interfaces
+                                    {loading && <div className="ml-2 w-3 h-3 border-2 border-indigo-500/20 border-t-indigo-500 rounded-full animate-spin" title="Loading full metadata..." />}
                                 </span>
                             </div>
                         </div>
@@ -305,7 +328,7 @@ const PluginView: React.FC = () => {
             )}
 
             {/* Intersection observer target for loading more items */}
-            {displayLimit < filteredClasses.length && (
+            {displayLimit < filteredClasses.length && !searchTerm && (
                 <div ref={observerTarget} className="py-12 flex flex-col items-center justify-center gap-4 border-t border-slate-100 dark:border-slate-800/50">
                     <div className="flex flex-col items-center gap-2">
                         <div className="w-8 h-8 border-3 border-indigo-500/20 border-t-indigo-500 rounded-full animate-spin" />
