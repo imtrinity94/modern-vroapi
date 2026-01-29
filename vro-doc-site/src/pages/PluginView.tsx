@@ -66,8 +66,8 @@ const PluginView: React.FC = () => {
 
     useEffect(() => {
         const observer = new IntersectionObserver(loadMore, {
-            rootMargin: '200px', // Start loading before reaching the end
-            threshold: 0.1
+            rootMargin: '800px', // Pre-load much earlier
+            threshold: 0
         });
 
         if (observerTarget.current) {
@@ -306,8 +306,19 @@ const PluginView: React.FC = () => {
 
             {/* Intersection observer target for loading more items */}
             {displayLimit < filteredClasses.length && (
-                <div ref={observerTarget} className="py-8 flex justify-center">
-                    <div className="w-8 h-8 border-3 border-indigo-500/20 border-t-indigo-500 rounded-full animate-spin" />
+                <div ref={observerTarget} className="py-12 flex flex-col items-center justify-center gap-4 border-t border-slate-100 dark:border-slate-800/50">
+                    <div className="flex flex-col items-center gap-2">
+                        <div className="w-8 h-8 border-3 border-indigo-500/20 border-t-indigo-500 rounded-full animate-spin" />
+                        <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">
+                            Showing {displayLimit} of {filteredClasses.length} classes
+                        </p>
+                    </div>
+                    <button
+                        onClick={() => setDisplayLimit(prev => prev + ITEMS_PER_PAGE)}
+                        className="px-6 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-xl text-sm font-bold shadow-lg shadow-indigo-500/20 transition-all transform hover:scale-105 active:scale-95"
+                    >
+                        Load More Classes
+                    </button>
                 </div>
             )}
 
