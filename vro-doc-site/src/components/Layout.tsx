@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { useTheme } from '../hooks/useUIState';
 import { ThemeToggle } from './UIToggles';
-import { Slack, Star, Github, ExternalLink, BookOpen, Mail } from 'lucide-react';
+import { Slack, Star, Github, ExternalLink, BookOpen, Mail, Info, X } from 'lucide-react';
 import GlobalSearch from './GlobalSearch';
 
 const Layout: React.FC = () => {
@@ -11,6 +11,20 @@ const Layout: React.FC = () => {
     const [starCount, setStarCount] = useState<number | null>(null);
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
+    const [showDisclaimer, setShowDisclaimer] = useState(false);
+
+    useEffect(() => {
+        // Check local storage for disclaimer dismissal
+        const dismissed = localStorage.getItem('vro-docs-disclaimer-dismissed');
+        if (!dismissed) {
+            setShowDisclaimer(true);
+        }
+    }, []);
+
+    const dismissDisclaimer = () => {
+        localStorage.setItem('vro-docs-disclaimer-dismissed', 'true');
+        setShowDisclaimer(false);
+    };
 
     useEffect(() => {
         // Fetch real-time GitHub stars
@@ -106,6 +120,24 @@ const Layout: React.FC = () => {
                     </div>
                 </div>
             </header>
+
+            {showDisclaimer && (
+                <div className="bg-indigo-500/10 dark:bg-indigo-500/5 border-b border-indigo-500/20 backdrop-blur-sm">
+                    <div className="container mx-auto px-4 py-3 flex items-start md:items-center gap-4 text-xs md:text-sm">
+                        <Info className="shrink-0 text-indigo-500 mt-0.5 md:mt-0" size={16} />
+                        <p className="flex-1 text-slate-600 dark:text-slate-300 leading-relaxed">
+                            <span className="font-bold text-indigo-600 dark:text-indigo-400">Note:</span> This site is hosted on GitHub Pages to keep it free and accessible. You might experience slight delays when loading large plugins for the first time. Thanks for your patience! 🚀
+                        </p>
+                        <button
+                            onClick={dismissDisclaimer}
+                            className="p-1 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+                            aria-label="Dismiss"
+                        >
+                            <X size={16} />
+                        </button>
+                    </div>
+                </div>
+            )}
 
             <main className="container mx-auto px-4 py-8">
                 <Outlet />

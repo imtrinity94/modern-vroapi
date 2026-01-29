@@ -77,7 +77,7 @@ const ClassView: React.FC = () => {
     if (!classData) return <div className="text-center py-20 text-slate-500">Class {className} not found.</div>;
 
     return (
-        <div className="max-w-6xl mx-auto space-y-10 animate-in fade-in duration-500">
+        <div className="w-[95%] max-w-[1920px] mx-auto space-y-10 animate-in fade-in duration-500">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <nav className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
                     <Link to="/" className="hover:text-indigo-500 dark:hover:text-indigo-400">Reference</Link>
@@ -204,7 +204,7 @@ const ClassView: React.FC = () => {
                         <div className="grid grid-cols-1 gap-4">
                             {classData.methods.map((method) => (
                                 <div key={method.name} className="group flex flex-col md:flex-row bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl hover:border-indigo-500/50 transition-all shadow-sm overflow-hidden">
-                                    <div className="md:w-1/3 p-5 bg-slate-50 dark:bg-slate-800/30 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800 relative group">
+                                    <div className="md:w-80 lg:w-96 shrink-0 p-5 bg-slate-50 dark:bg-slate-800/30 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800 relative group">
                                         <div className="flex items-start justify-between gap-2">
                                             <h4 className="font-mono font-bold text-indigo-600 dark:text-indigo-400 text-lg break-all group-hover:text-indigo-500">{method.name}</h4>
                                             <button
@@ -270,7 +270,7 @@ const ClassView: React.FC = () => {
                                             <td className="p-4 align-top whitespace-nowrap">
                                                 <span className="font-mono text-sm text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-500/10 border border-orange-200 dark:border-orange-500/20 px-2 py-0.5 rounded inline-block">{method.returnType}</span>
                                             </td>
-                                            <td className="p-4 align-top max-w-sm">
+                                            <td className="p-4 align-top max-w-2xl">
                                                 <div className="font-mono text-sm text-emerald-600 dark:text-emerald-500 leading-normal break-words">
                                                     {method.parameters || '-'}
                                                 </div>
