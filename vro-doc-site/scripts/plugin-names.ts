@@ -9,6 +9,7 @@ export const PLUGIN_NAMES: Record<string, string> = {
     'o11n-plugin-crypto': 'Crypto',
     'o11n-plugin-dynamictypes': 'Dynamic Types',
     'o11n-plugin-f5': 'F5 BIG-IP',
+    'o11n-plugin-infoblox': 'Infoblox IPAM',
     'o11n-plugin-jsonpath': 'JsonPath',
     'o11n-plugin-lenovo': 'Lenovo XClarity Integrator',
     'o11n-plugin-mail': 'Mail',

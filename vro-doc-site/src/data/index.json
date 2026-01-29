@@ -40,6 +40,10 @@
     "name": "F5 BIG-IP"
   },
   {
+    "id": "o11n-plugin-infoblox",
+    "name": "Infoblox IPAM"
+  },
+  {
     "id": "o11n-plugin-jsonpath",
     "name": "JsonPath"
   },

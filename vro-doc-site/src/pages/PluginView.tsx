@@ -27,6 +27,8 @@ interface ApiPluginIndexEntry {
 
 import { getPluginMeta } from '../data/plugin-meta';
 
+import { generateDts } from '../utils/dtsGenerator';
+
 const ITEMS_PER_PAGE = 500;
 
 const PluginView: React.FC = () => {
@@ -129,6 +131,20 @@ const PluginView: React.FC = () => {
         return filteredClasses.slice(0, limit);
     }, [filteredClasses, displayLimit, searchTerm]);
 
+    const handleDownloadDts = () => {
+        if (!data) return;
+        const dtsContent = generateDts(data as any);
+        const blob = new Blob([dtsContent], { type: 'application/typescript' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${pluginName}.d.ts`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    };
+
     if (loading && !initialClassesFromIndex.length) return (
         <div className="flex flex-col items-center justify-center py-24 gap-4">
             <div className="w-12 h-12 border-4 border-indigo-500/20 border-t-indigo-500 rounded-full animate-spin" />
@@ -166,6 +182,17 @@ const PluginView: React.FC = () => {
                             <Download size={14} />
                             <span>Download Plugin</span>
                         </a>
+                    )}
+
+                    {data && (
+                        <button
+                            onClick={handleDownloadDts}
+                            className="flex items-center gap-2 text-xs font-semibold px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-lg transition-colors border border-slate-200 dark:border-slate-700 w-fit"
+                            title="Download TypeScript definitions"
+                        >
+                            <FileCode size={14} />
+                            <span>Download .d.ts</span>
+                        </button>
                     )}
 
                     <a
