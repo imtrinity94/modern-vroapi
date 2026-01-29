@@ -251,13 +251,13 @@ const PluginView: React.FC = () => {
                                     key={cls.name}
                                     className="flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group"
                                 >
-                                    <div className="flex items-center gap-4">
-                                        <ListIcon className="text-slate-300 dark:text-slate-700" size={20} />
-                                        <span className={`text-slate-900 dark:text-slate-200 group-hover:text-${color}-600 dark:group-hover:text-${color}-400 font-bold text-lg truncate max-w-[200px] md:max-w-none`}>
+                                    <div className="flex items-center gap-4 min-w-0 flex-1">
+                                        <ListIcon className="text-slate-300 dark:text-slate-700 shrink-0" size={20} />
+                                        <span className={`text-slate-900 dark:text-slate-200 group-hover:text-${color}-600 dark:group-hover:text-${color}-400 font-bold text-lg truncate`}>
                                             {cls.name}
                                         </span>
                                     </div>
-                                    <div className="flex items-center gap-6">
+                                    <div className="flex items-center gap-6 shrink-0 ml-4">
                                         <div className="hidden md:flex gap-4 text-xs text-slate-400 uppercase font-black tracking-wider">
                                             <span>{cls.methods.length} Methods</span>
                                             <span>{cls.attributes.length} Attributes</span>

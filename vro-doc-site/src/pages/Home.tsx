@@ -129,7 +129,7 @@ const Home: React.FC = () => {
                                     key={plugin.id}
                                     className="flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group"
                                 >
-                                    <div className="flex items-center gap-4">
+                                    <div className="flex items-center gap-4 min-w-0 flex-1">
                                         <div className={`p-2 rounded-lg bg-${color}-50 dark:bg-${color}-500/10 text-${color}-600 dark:text-${color}-400 group-hover:scale-105 transition-transform w-10 h-10 flex items-center justify-center overflow-hidden shrink-0`}>
                                             {pluginMeta.image ? (
                                                 <img src={pluginMeta.image} alt={plugin.name} className="w-full h-full object-contain" />
@@ -137,8 +137,8 @@ const Home: React.FC = () => {
                                                 PluginIcon && <PluginIcon size={22} />
                                             )}
                                         </div>
-                                        <div>
-                                            <span className={`font-semibold text-slate-900 dark:text-slate-200 group-hover:text-${color}-600 dark:group-hover:text-${color}-400 block`}>
+                                        <div className="min-w-0 flex-1">
+                                            <span className={`font-semibold text-slate-900 dark:text-slate-200 group-hover:text-${color}-600 dark:group-hover:text-${color}-400 block truncate`}>
                                                 {plugin.name}
                                             </span>
                                             {pluginMeta.version && (
@@ -147,7 +147,7 @@ const Home: React.FC = () => {
                                                 </span>
                                             )}
                                         </div>
-                                        <div className="flex items-center gap-2 ml-2">
+                                        <div className="flex items-center gap-2 ml-2 shrink-0">
                                             {pluginMeta.tags?.map(tag => {
                                                 let tagColorClasses = "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400";
                                                 if (tag === 'IN-BUILT') tagColorClasses = "bg-blue-100 text-blue-700 dark:bg-blue-500/10 dark:text-blue-400 border-blue-200 dark:border-blue-500/20";
