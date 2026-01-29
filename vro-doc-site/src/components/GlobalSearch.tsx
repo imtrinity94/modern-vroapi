@@ -1,8 +1,7 @@
 
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, FileCode, X, Zap } from 'lucide-react';
-import searchData from '../data/search-index.json';
+import { Search, FileCode, X, Zap, Loader2 } from 'lucide-react';
 import { getPluginMeta } from '../data/plugin-meta';
 
 interface PluginEntry {
@@ -21,13 +20,41 @@ interface MethodEntry {
     p: string;
 }
 
+interface SearchIndex {
+    plugins: PluginEntry[];
+    classes: ClassEntry[];
+    methods: MethodEntry[];
+}
+
 const GlobalSearch: React.FC = () => {
     const [query, setQuery] = useState('');
     const [isOpen, setIsOpen] = useState(false);
     const [selectedIndex, setSelectedIndex] = useState(0);
+    const [searchData, setSearchData] = useState<SearchIndex | null>(null);
+    const [loading, setLoading] = useState(false);
+
     const containerRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        // Dynamic import to split chunk
+        const loadSearchIndex = async () => {
+            setLoading(true);
+            try {
+                const module = await import('../data/search-index.json');
+                setSearchData(module.default as unknown as SearchIndex);
+            } catch (e) {
+                console.error("Failed to load search index", e);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        // Load immediately on mount (non-blocking) or on first interaction?
+        // Loading on mount is safer for UX, but still separates it from main bundle.
+        loadSearchIndex();
+    }, []);
 
     useEffect(() => {
         const handleGlobalKeyDown = (e: KeyboardEvent) => {
@@ -42,19 +69,19 @@ const GlobalSearch: React.FC = () => {
     }, []);
 
     const results = useMemo(() => {
-        if (!query.trim()) return { plugins: [], classes: [], methods: [], total: 0 };
+        if (!query.trim() || !searchData) return { plugins: [], classes: [], methods: [], total: 0 };
 
         const q = query.toLowerCase();
 
-        const filteredPlugins = (searchData.plugins as PluginEntry[])
+        const filteredPlugins = (searchData.plugins)
             .filter(p => p.name.toLowerCase().includes(q) || p.id.toLowerCase().includes(q))
             .slice(0, 3);
 
-        const filteredClasses = (searchData.classes as ClassEntry[])
+        const filteredClasses = (searchData.classes)
             .filter(c => c.n.toLowerCase().includes(q))
             .slice(0, 5);
 
-        const filteredMethods = (searchData.methods as MethodEntry[])
+        const filteredMethods = (searchData.methods)
             .filter(m => m.n.toLowerCase().includes(q))
             .slice(0, 5);
 
@@ -64,7 +91,7 @@ const GlobalSearch: React.FC = () => {
             methods: filteredMethods,
             total: filteredPlugins.length + filteredClasses.length + filteredMethods.length
         };
-    }, [query]);
+    }, [query, searchData]);
 
     useEffect(() => {
         setSelectedIndex(0);
@@ -127,7 +154,7 @@ const GlobalSearch: React.FC = () => {
     return (
         <div className="relative group w-48 md:w-64" ref={containerRef}>
             <div className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-indigo-500 transition-colors pointer-events-none">
-                <Search size={16} />
+                {loading ? <Loader2 size={16} className="animate-spin" /> : <Search size={16} />}
             </div>
             <input
                 ref={inputRef}
