@@ -1,5 +1,5 @@
 
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, useRef, useCallback } from 'react';
 import { useDebounce } from '../hooks/useDebounce';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Layers } from 'lucide-react';
@@ -26,6 +26,8 @@ interface ApiPluginIndexEntry {
 
 import { getPluginMeta } from '../data/plugin-meta';
 
+const ITEMS_PER_PAGE = 500;
+
 const PluginView: React.FC = () => {
     const { pluginName, versionId } = useParams<{ pluginName: string; versionId?: string }>();
     const navigate = useNavigate();
@@ -47,6 +49,33 @@ const PluginView: React.FC = () => {
     const debouncedSearchTerm = useDebounce(searchTerm, 500); // 500ms debounce
     const isSearching = searchTerm !== debouncedSearchTerm;
     const { viewMode, toggleViewMode } = useViewMode();
+    const [displayLimit, setDisplayLimit] = useState(ITEMS_PER_PAGE);
+    const observerTarget = useRef<HTMLDivElement>(null);
+
+    // Reset display limit when search term or plugin changes
+    useEffect(() => {
+        setDisplayLimit(ITEMS_PER_PAGE);
+    }, [debouncedSearchTerm, activeVersionId]);
+
+    const loadMore = useCallback((entries: IntersectionObserverEntry[]) => {
+        const target = entries[0];
+        if (target.isIntersecting) {
+            setDisplayLimit(prev => prev + ITEMS_PER_PAGE);
+        }
+    }, []);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(loadMore, {
+            rootMargin: '200px', // Start loading before reaching the end
+            threshold: 0.1
+        });
+
+        if (observerTarget.current) {
+            observer.observe(observerTarget.current);
+        }
+
+        return () => observer.disconnect();
+    }, [loadMore]);
 
     useEffect(() => {
         const loadData = async () => {
@@ -74,6 +103,10 @@ const PluginView: React.FC = () => {
             c.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase())
         );
     }, [data, debouncedSearchTerm]);
+
+    const displayedClasses = useMemo(() => {
+        return filteredClasses.slice(0, displayLimit);
+    }, [filteredClasses, displayLimit]);
 
     if (loading) return (
         <div className="flex flex-col items-center justify-center py-24 gap-4">
@@ -211,7 +244,7 @@ const PluginView: React.FC = () => {
                             <div className="w-8 h-8 border-3 border-indigo-500/20 border-t-indigo-500 rounded-full animate-spin" />
                             <p className="text-slate-400 font-medium animate-pulse">Filtering classes...</p>
                         </div>
-                    ) : filteredClasses.map((cls: any) => (
+                    ) : displayedClasses.map((cls: any) => (
                         <Link
                             to={`/plugin/${pluginName}/class/${cls.name}${versionId ? `/v/${versionId}` : ''}`}
                             key={cls.name}
@@ -245,7 +278,7 @@ const PluginView: React.FC = () => {
                         </div>
                     ) : (
                         <div className="divide-y divide-slate-100 dark:divide-slate-800/50 font-mono text-base leading-none">
-                            {filteredClasses.map((cls: any) => (
+                            {displayedClasses.map((cls: any) => (
                                 <Link
                                     to={`/plugin/${pluginName}/class/${cls.name}${versionId ? `/v/${versionId}` : ''}`}
                                     key={cls.name}
@@ -268,6 +301,13 @@ const PluginView: React.FC = () => {
                             ))}
                         </div>
                     )}
+                </div>
+            )}
+
+            {/* Intersection observer target for loading more items */}
+            {displayLimit < filteredClasses.length && (
+                <div ref={observerTarget} className="py-8 flex justify-center">
+                    <div className="w-8 h-8 border-3 border-indigo-500/20 border-t-indigo-500 rounded-full animate-spin" />
                 </div>
             )}
 
