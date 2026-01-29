@@ -20,7 +20,8 @@ function reindex() {
 
     for (const file of files) {
         const id = file.replace('.json', '');
-        const pluginData = JSON.parse(fs.readFileSync(path.join(PLUGINS_DIR, file), 'utf8'));
+        const content = fs.readFileSync(path.join(PLUGINS_DIR, file), 'utf8').replace(/^\uFEFF/, '');
+        const pluginData = JSON.parse(content);
         const name = PLUGIN_NAMES[id] || id.replace('o11n-plugin-', '').replace(/-/g, ' ').toUpperCase();
 
         const pluginEntry = { id, name };
