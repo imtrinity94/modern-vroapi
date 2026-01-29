@@ -26,9 +26,9 @@ export const PLUGIN_NAMES: Record<string, string> = {
     'o11n-plugin-vapi': 'vAPI',
     'o11n-plugin-vc': 'vCenter',
     'o11n-plugin-vcloud': 'vCloud Director',
-    'o11n-plugin-vco': 'vRO Multi-Node',
+    'o11n-plugin-vco': 'Multi-Node',
     'o11n-plugin-vr': 'vSphere Replication',
-    'o11n-plugin-vra': 'vRealize Automation',
+    'o11n-plugin-vra': 'Aria Automation',
     'o11n-plugin-vsan': 'vSAN',
     'o11n-plugin-vum': 'vCenter Update Manager',
     'o11n-plugin-xml': 'XML'

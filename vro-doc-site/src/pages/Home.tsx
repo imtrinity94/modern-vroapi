@@ -69,14 +69,14 @@ const Home: React.FC = () => {
                             <Link
                                 to={`/plugin/${plugin.id}`}
                                 key={plugin.id}
-                                className="group bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/80 border border-slate-200 dark:border-slate-800 hover:border-indigo-500/50 rounded-2xl p-6 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-indigo-500/10 flex flex-col h-full"
+                                className="group bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/80 border border-slate-200 dark:border-slate-800 hover:border-indigo-500/50 rounded-2xl p-5 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-indigo-500/10 flex flex-col"
                             >
-                                <div className="flex items-start justify-between mb-4">
-                                    <div className={`p-2.5 rounded-xl bg-${color}-50 dark:bg-${color}-500/10 text-${color}-600 dark:text-${color}-400 group-hover:scale-110 transition-transform border border-${color}-100 dark:border-${color}-500/20 w-12 h-12 flex items-center justify-center overflow-hidden shrink-0`}>
+                                <div className="flex items-start justify-between mb-3">
+                                    <div className={`p-2 rounded-2xl bg-${color}-50 dark:bg-${color}-500/10 text-${color}-600 dark:text-${color}-400 group-hover:scale-110 transition-transform border border-${color}-100 dark:border-${color}-500/20 w-16 h-16 flex items-center justify-center overflow-hidden shrink-0`}>
                                         {pluginMeta.image ? (
                                             <img src={pluginMeta.image} alt={plugin.name} className="w-full h-full object-contain" />
                                         ) : (
-                                            PluginIcon && <PluginIcon size={24} />
+                                            PluginIcon && <PluginIcon size={40} />
                                         )}
                                     </div>
                                     <div className="flex flex-col items-end gap-2">
@@ -96,7 +96,7 @@ const Home: React.FC = () => {
                                 </div>
 
                                 <div>
-                                    <h2 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                                    <h2 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors truncate">
                                         {plugin.name}
                                     </h2>
                                     {pluginMeta.version && (
@@ -105,11 +105,13 @@ const Home: React.FC = () => {
                                         </div>
                                     )}
                                 </div>
-                                <p className="mt-2 text-slate-500 dark:text-slate-400 text-base line-clamp-2 leading-relaxed flex-grow">
-                                    Complete API reference for {plugin.name}.
-                                </p>
-                                <div className="mt-4 flex justify-end text-slate-300 dark:text-slate-700 group-hover:text-indigo-500 transition-colors">
-                                    <ArrowRight size={20} />
+                                <div className="mt-3 flex items-center justify-between">
+                                    <p className="text-slate-500 dark:text-slate-400 text-sm line-clamp-2 leading-relaxed h-10 flex-grow">
+                                        Complete API reference for {plugin.name}.
+                                    </p>
+                                    <div className="text-slate-300 dark:text-slate-700 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors shrink-0">
+                                        <ArrowRight size={18} />
+                                    </div>
                                 </div>
                             </Link>
                         );

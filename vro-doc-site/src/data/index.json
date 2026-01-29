@@ -8,6 +8,10 @@
     "name": "AMQP"
   },
   {
+    "id": "o11n-plugin-vra",
+    "name": "Aria Automation"
+  },
+  {
     "id": "o11n-plugin-autodeploy",
     "name": "AutoDeploy"
   },
@@ -46,6 +50,10 @@
   {
     "id": "o11n-plugin-mail",
     "name": "Mail"
+  },
+  {
+    "id": "o11n-plugin-vco",
+    "name": "Multi-Node"
   },
   {
     "id": "o11n-plugin-net",
@@ -106,24 +114,6 @@
   {
     "id": "o11n-plugin-vcloud",
     "name": "vCloud Director"
-  },
-  {
-    "id": "o11n-plugin-vra",
-    "name": "Aria Automation"
-  },
-  {
-    "id": "o11n-plugin-vco",
-    "name": "Multi-Node",
-    "versions": [
-      {
-        "id": "o11n-plugin-vco",
-        "version": "8.18.1"
-      },
-      {
-        "id": "o11n-plugin-vco-v817",
-        "version": "8.17.0"
-      }
-    ]
   },
   {
     "id": "o11n-plugin-vsan",

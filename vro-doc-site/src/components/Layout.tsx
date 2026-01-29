@@ -39,7 +39,7 @@ const Layout: React.FC = () => {
                         <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shrink-0">
                             <img src={`${import.meta.env.BASE_URL}logo.png`} alt="VCF Orchestrator Plugin" className="w-full h-full object-contain" />
                         </div>
-                        <span className="text-xl md:text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400 leading-tight transition-opacity hover:opacity-90">
+                        <span className="text-xl md:text-2xl font-extrabold text-white leading-tight transition-opacity hover:opacity-90">
                             modernvroapi.in
                         </span>
                     </Link>
