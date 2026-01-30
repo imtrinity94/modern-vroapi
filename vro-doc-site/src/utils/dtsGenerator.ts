@@ -34,7 +34,11 @@ const mapType = (type: string): string => {
     // Handle Array types (e.g., Array/string, Array/AD_User)
     if (trimmedType.startsWith('Array/')) {
         const innerType = trimmedType.replace('Array/', '').trim();
-        return `Array/${mapType(innerType)}`;
+        const mappedInner = mapType(innerType);
+
+        // Per user request: use Array<any> if inner type is any, otherwise use [] suffix
+        if (mappedInner === 'any') return 'any[]';
+        return `${mappedInner}[]`;
     }
 
     // Basic mappings
