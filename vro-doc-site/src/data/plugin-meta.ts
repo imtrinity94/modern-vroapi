@@ -25,7 +25,7 @@ export const PLUGIN_META: Record<string, PluginMetadata> = {
     'o11n-plugin-crypto': { icon: Leaf, color: 'emerald', tags: ['3RD PARTY'], downloadUrl: 'https://github.com/vmware-archive/o11n-plugin-crypto', version: '1.1.0.32' },
     'o11n-plugin-dynamictypes': { icon: Boxes, color: 'purple', tags: ['IN-BUILT'], version: '1.4.2.24140226' },
     'o11n-plugin-f5': { image: `${import.meta.env.BASE_URL}icons/f5.png`, color: 'red', tags: ['3RD PARTY', 'OFFICIAL'], downloadUrl: 'https://vcf.broadcom.com/vsc/services/details/vrealize-orchestrator-plug-in-for-f5-big-ip11-1-1?slug=true', version: '4.1.0.2' },
-    'o11n-plugin-infoblox': { image: `${import.meta.env.BASE_URL}icons/infoblox.png`, color: 'emerald', tags: ['3RD PARTY'], downloadUrl: 'https://docs.infoblox.com/space/ipamvmware8x/52048987/Introduction', version: '6.3.0.1351' },
+    'o11n-plugin-infoblox': { image: `${import.meta.env.BASE_URL}icons/infoblox.png`, color: 'emerald', tags: ['3RD PARTY', 'OFFICIAL'], downloadUrl: 'https://docs.infoblox.com/space/ipamvmware8x/52048987/Introduction', version: '6.3.0.1351' },
     'o11n-plugin-jsonpath': { icon: Leaf, color: 'emerald', tags: ['3RD PARTY'], downloadUrl: `${import.meta.env.BASE_URL}plugins/o11nplugin-jsonpath-1.0.2.zip`, version: '1.0.2' }, // Keeping previous version for JsonPath as not in list
     'o11n-plugin-lenovo': { image: `${import.meta.env.BASE_URL}icons/lenovo.png`, color: 'red', tags: ['3RD PARTY', 'OFFICIAL'], downloadUrl: 'https://vcf.broadcom.com/vsc/services/details/lenovo-xclarity-integrator-for-vmware-vrealize-orchestrator01?slug=true', version: '1.2.0.1' },
     'o11n-plugin-mail': { icon: Mail, color: 'amber', tags: ['IN-BUILT'], version: '8.3.0.24114285' },

@@ -18,7 +18,7 @@ function reindex() {
         methods: []
     };
 
-    const stats: Record<string, { classes: number }> = {};
+    const stats: Record<string, { classes: number; methods: number }> = {};
 
     for (const file of files) {
         const id = file.replace('.json', '');
@@ -30,8 +30,19 @@ function reindex() {
         plugins.push(pluginEntry);
         searchIndex.plugins.push(pluginEntry);
 
+        // Calculate counts
+        const classCount = pluginData.classes ? pluginData.classes.length : 0;
+        let methodCount = 0;
+        if (pluginData.classes) {
+            pluginData.classes.forEach((cls: any) => {
+                if (cls.methods) {
+                    methodCount += cls.methods.length;
+                }
+            });
+        }
+
         // Collect stats
-        stats[id] = { classes: pluginData.classes ? pluginData.classes.length : 0 };
+        stats[id] = { classes: classCount, methods: methodCount };
 
         // Add classes and methods to search index
         if (pluginData.classes) {

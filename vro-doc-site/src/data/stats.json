@@ -1,101 +1,134 @@
 {
   "o11n-core": {
-    "classes": 77
+    "classes": 77,
+    "methods": 286
   },
   "o11n-plugin-activedirectory": {
-    "classes": 32
+    "classes": 32,
+    "methods": 268
   },
   "o11n-plugin-amqp": {
-    "classes": 4
+    "classes": 4,
+    "methods": 23
   },
   "o11n-plugin-autodeploy": {
-    "classes": 13
+    "classes": 13,
+    "methods": 64
   },
   "o11n-plugin-avi": {
-    "classes": 1194
+    "classes": 1194,
+    "methods": 17135
   },
   "o11n-plugin-aws": {
-    "classes": 1954
+    "classes": 1954,
+    "methods": 22361
   },
   "o11n-plugin-configurator": {
-    "classes": 10
+    "classes": 10,
+    "methods": 35
   },
   "o11n-plugin-crypto": {
-    "classes": 6
+    "classes": 6,
+    "methods": 42
   },
   "o11n-plugin-dynamictypes": {
-    "classes": 7
+    "classes": 7,
+    "methods": 41
   },
   "o11n-plugin-f5": {
-    "classes": 1082
+    "classes": 1082,
+    "methods": 18969
   },
   "o11n-plugin-infoblox": {
-    "classes": 94
+    "classes": 94,
+    "methods": 140
   },
   "o11n-plugin-jsonpath": {
-    "classes": 1
+    "classes": 1,
+    "methods": 1
   },
   "o11n-plugin-lenovo": {
-    "classes": 8
+    "classes": 8,
+    "methods": 23
   },
   "o11n-plugin-mail": {
-    "classes": 6
+    "classes": 6,
+    "methods": 57
   },
   "o11n-plugin-net": {
-    "classes": 5
+    "classes": 5,
+    "methods": 74
   },
   "o11n-plugin-powershell": {
-    "classes": 16
+    "classes": 16,
+    "methods": 40
   },
   "o11n-plugin-redis": {
-    "classes": 13
+    "classes": 13,
+    "methods": 139
   },
   "o11n-plugin-rest": {
-    "classes": 12
+    "classes": 12,
+    "methods": 84
   },
   "o11n-plugin-snmp": {
-    "classes": 5
+    "classes": 5,
+    "methods": 30
   },
   "o11n-plugin-soap": {
-    "classes": 10
+    "classes": 10,
+    "methods": 39
   },
   "o11n-plugin-sql": {
-    "classes": 10
+    "classes": 10,
+    "methods": 60
   },
   "o11n-plugin-srm": {
-    "classes": 35
+    "classes": 35,
+    "methods": 98
   },
   "o11n-plugin-ssh": {
-    "classes": 8
+    "classes": 8,
+    "methods": 55
   },
   "o11n-plugin-support": {
-    "classes": 1
+    "classes": 1,
+    "methods": 5
   },
   "o11n-plugin-vapi": {
-    "classes": 2258
+    "classes": 2258,
+    "methods": 1369
   },
   "o11n-plugin-vc": {
-    "classes": 3685
+    "classes": 3685,
+    "methods": 6082
   },
   "o11n-plugin-vcloud": {
-    "classes": 907
+    "classes": 907,
+    "methods": 2579
   },
   "o11n-plugin-vco": {
-    "classes": 28
+    "classes": 28,
+    "methods": 43
   },
   "o11n-plugin-vr": {
-    "classes": 17
+    "classes": 17,
+    "methods": 209
   },
   "o11n-plugin-vra": {
-    "classes": 91
+    "classes": 91,
+    "methods": 319
   },
   "o11n-plugin-vsan": {
-    "classes": 1017
+    "classes": 1017,
+    "methods": 1264
   },
   "o11n-plugin-vum": {
-    "classes": 14
+    "classes": 14,
+    "methods": 56
   },
   "o11n-plugin-xml": {
-    "classes": 6
+    "classes": 6,
+    "methods": 44
   }
 }

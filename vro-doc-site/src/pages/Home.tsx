@@ -93,10 +93,16 @@ const Home: React.FC = () => {
                                                 </span>
                                             );
                                         })}
-                                        <span className="flex items-center gap-1.5 text-[10px] font-black text-slate-600 dark:text-slate-400 uppercase tracking-wider px-2 py-0.5">
-                                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                                            {(stats as any)[plugin.id]?.classes || 0} Classes
-                                        </span>
+                                        <div className="flex flex-col items-end gap-1">
+                                            <span className="flex items-center gap-1.5 text-[10px] font-black text-slate-600 dark:text-slate-400 uppercase tracking-wider px-2 py-0.5">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                                                {(stats as any)[plugin.id]?.classes || 0} Classes
+                                            </span>
+                                            <span className="flex items-center gap-1.5 text-[10px] font-black text-slate-600 dark:text-slate-400 uppercase tracking-wider px-2 py-0.5">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                                                {(stats as any)[plugin.id]?.methods || 0} Methods
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
 
