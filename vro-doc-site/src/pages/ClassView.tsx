@@ -27,6 +27,7 @@ const ClassView: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
     const [viewMode, setViewMode] = useState<'detailed' | 'compact'>('compact');
     const [copiedMethod, setCopiedMethod] = useState<string | null>(null);
+    const [copiedAttribute, setCopiedAttribute] = useState<string | null>(null);
 
     const formatMethodSnippet = (name: string, params: string) => {
         if (!params || params === '-' || params === '()') return `${name}()`;
@@ -48,6 +49,12 @@ const ClassView: React.FC = () => {
         navigator.clipboard.writeText(snippet);
         setCopiedMethod(method.name);
         setTimeout(() => setCopiedMethod(null), 2000);
+    };
+
+    const handleCopyAttribute = (attrName: string) => {
+        navigator.clipboard.writeText(attrName);
+        setCopiedAttribute(attrName);
+        setTimeout(() => setCopiedAttribute(null), 2000);
     };
 
     useEffect(() => {
@@ -151,7 +158,21 @@ const ClassView: React.FC = () => {
                             <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
                                 {classData.attributes.map((attr) => (
                                     <tr key={attr.name} className="hover:bg-slate-50 dark:hover:bg-indigo-500/[0.02] transition-colors group">
-                                        <td className="p-4 font-mono font-bold text-indigo-600 dark:text-indigo-300 text-base">{attr.name}</td>
+                                        <td className="p-4 font-mono font-bold text-indigo-600 dark:text-indigo-300 text-base">
+                                            <div className="flex items-center gap-2">
+                                                {attr.name}
+                                                <button
+                                                    onClick={() => handleCopyAttribute(attr.name)}
+                                                    className={`p-1 rounded-md transition-all ${copiedAttribute === attr.name
+                                                        ? 'bg-emerald-500 text-white'
+                                                        : 'bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-indigo-500 border border-slate-200 dark:border-slate-700 opacity-0 group-hover:opacity-100'
+                                                        }`}
+                                                    title="Copy Attribute Name"
+                                                >
+                                                    {copiedAttribute === attr.name ? <Check size={12} /> : <Copy size={12} />}
+                                                </button>
+                                            </div>
+                                        </td>
                                         <td className="p-4 font-mono text-emerald-600 dark:text-emerald-400 text-base whitespace-nowrap">{attr.type}</td>
                                         <td className="p-4 text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{attr.description}</td>
                                         <td className="p-4 text-center align-middle">

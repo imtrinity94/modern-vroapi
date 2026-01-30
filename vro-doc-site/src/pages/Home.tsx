@@ -3,6 +3,7 @@ import { useState, useMemo } from 'react';
 import { useDebounce } from '../hooks/useDebounce';
 import { Link } from 'react-router-dom';
 import pluginIndex from '../data/index.json';
+import searchIndex from '../data/search-index.json';
 import { useViewMode } from '../hooks/useUIState';
 import { ViewToggle } from '../components/UIToggles';
 import { getPluginMeta } from '../data/plugin-meta';
@@ -92,6 +93,9 @@ const Home: React.FC = () => {
                                                 </span>
                                             );
                                         })}
+                                        <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-2 py-0.5 bg-slate-50 dark:bg-slate-800/50 rounded border border-slate-100 dark:border-slate-800">
+                                            {(searchIndex as any).classes.filter((c: any) => c.p === plugin.id).length} Classes
+                                        </span>
                                     </div>
                                 </div>
 

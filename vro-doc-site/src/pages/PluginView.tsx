@@ -315,8 +315,8 @@ const PluginView: React.FC = () => {
                                 </p>
                             )}
                             <div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800/50 flex gap-4 text-[11px] uppercase tracking-wider text-slate-400 dark:text-slate-500 font-bold font-mono">
-                                <span>{cls.methods.length} Met</span>
-                                <span>{cls.attributes.length} Attr</span>
+                                <span>{cls.methods.length} Methods</span>
+                                <span>{cls.attributes.length} Attributes</span>
                             </div>
                         </Link>
                     ))}
