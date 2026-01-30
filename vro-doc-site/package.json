@@ -12,6 +12,7 @@
     "scrape": "tsx scripts/scrape-vroapi.ts"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.6.1",
     "lucide-react": "^0.563.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

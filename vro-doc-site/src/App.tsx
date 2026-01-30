@@ -1,5 +1,5 @@
-
 import { HashRouter, Routes, Route } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import PluginView from './pages/PluginView';
@@ -20,6 +20,7 @@ function App() {
           <Route path="plugin/:pluginName/class/:className/v/:versionId" element={<ClassView />} />
         </Route>
       </Routes>
+      <Analytics />
     </HashRouter>
   );
 }
