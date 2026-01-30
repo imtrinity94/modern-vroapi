@@ -18,6 +18,8 @@ function reindex() {
         methods: []
     };
 
+    const stats: Record<string, { classes: number }> = {};
+
     for (const file of files) {
         const id = file.replace('.json', '');
         const content = fs.readFileSync(path.join(PLUGINS_DIR, file), 'utf8').replace(/^\uFEFF/, '');
@@ -27,6 +29,9 @@ function reindex() {
         const pluginEntry = { id, name };
         plugins.push(pluginEntry);
         searchIndex.plugins.push(pluginEntry);
+
+        // Collect stats
+        stats[id] = { classes: pluginData.classes ? pluginData.classes.length : 0 };
 
         // Add classes and methods to search index
         if (pluginData.classes) {
@@ -53,8 +58,10 @@ function reindex() {
 
     fs.writeFileSync(INDEX_PATH, JSON.stringify(plugins, null, 2));
     fs.writeFileSync(path.resolve(process.cwd(), 'src/data/search-index.json'), JSON.stringify(searchIndex));
+    fs.writeFileSync(path.resolve(process.cwd(), 'src/data/stats.json'), JSON.stringify(stats, null, 2));
 
     console.log(`Successfully indexed ${plugins.length} plugins, ${searchIndex.classes.length} classes, and ${searchIndex.methods.length} methods.`);
+    console.log('Stats generated in src/data/stats.json');
 }
 
 reindex();

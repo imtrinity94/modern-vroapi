@@ -3,7 +3,7 @@ import { useState, useMemo } from 'react';
 import { useDebounce } from '../hooks/useDebounce';
 import { Link } from 'react-router-dom';
 import pluginIndex from '../data/index.json';
-import searchIndex from '../data/search-index.json';
+import stats from '../data/stats.json';
 import { useViewMode } from '../hooks/useUIState';
 import { ViewToggle } from '../components/UIToggles';
 import { getPluginMeta } from '../data/plugin-meta';
@@ -93,8 +93,9 @@ const Home: React.FC = () => {
                                                 </span>
                                             );
                                         })}
-                                        <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-2 py-0.5 bg-slate-50 dark:bg-slate-800/50 rounded border border-slate-100 dark:border-slate-800">
-                                            {(searchIndex as any).classes.filter((c: any) => c.p === plugin.id).length} Classes
+                                        <span className="flex items-center gap-1.5 text-[10px] font-black text-slate-600 dark:text-slate-400 uppercase tracking-wider px-2 py-0.5">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                                            {(stats as any)[plugin.id]?.classes || 0} Classes
                                         </span>
                                     </div>
                                 </div>
@@ -142,11 +143,11 @@ const Home: React.FC = () => {
                                             )}
                                         </div>
                                         <div className="min-w-0 flex-1">
-                                            <span className={`font-semibold text-slate-900 dark:text-slate-200 group-hover:text-${color}-600 dark:group-hover:text-${color}-400 block truncate`}>
+                                            <span className={`font-bold text-lg text-slate-900 dark:text-slate-200 group-hover:text-${color}-600 dark:group-hover:text-${color}-400 block truncate`}>
                                                 {plugin.name}
                                             </span>
                                             {pluginMeta.version && (
-                                                <span className="font-mono text-[10px] text-slate-400 dark:text-slate-500 block">
+                                                <span className="font-mono text-xs text-slate-400 dark:text-slate-500 block">
                                                     v{pluginMeta.version}
                                                 </span>
                                             )}
@@ -159,14 +160,14 @@ const Home: React.FC = () => {
                                                 if (tag === '3RD PARTY') tagColorClasses = "bg-orange-100 text-orange-700 dark:bg-orange-500/10 dark:text-orange-400 border-orange-200 dark:border-orange-500/20";
 
                                                 return (
-                                                    <span key={tag} className={`hidden md:inline-flex text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded border ${tagColorClasses}`}>
+                                                    <span key={tag} className={`hidden md:inline-flex text-[11px] font-black uppercase tracking-wider px-2.5 py-1 rounded border ${tagColorClasses}`}>
                                                         {tag}
                                                     </span>
                                                 );
                                             })}
                                         </div>
                                     </div>
-                                    <ArrowRight size={16} className="text-slate-300 dark:text-slate-700 group-hover:text-indigo-500" />
+                                    <ArrowRight size={16} className="ml-4 text-slate-300 dark:text-slate-700 group-hover:text-indigo-500" />
                                 </Link>
                             );
                         })}

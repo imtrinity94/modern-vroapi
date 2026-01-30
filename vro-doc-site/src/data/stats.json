@@ -1,0 +1,101 @@
+{
+  "o11n-core": {
+    "classes": 77
+  },
+  "o11n-plugin-activedirectory": {
+    "classes": 32
+  },
+  "o11n-plugin-amqp": {
+    "classes": 4
+  },
+  "o11n-plugin-autodeploy": {
+    "classes": 13
+  },
+  "o11n-plugin-avi": {
+    "classes": 1194
+  },
+  "o11n-plugin-aws": {
+    "classes": 1954
+  },
+  "o11n-plugin-configurator": {
+    "classes": 10
+  },
+  "o11n-plugin-crypto": {
+    "classes": 6
+  },
+  "o11n-plugin-dynamictypes": {
+    "classes": 7
+  },
+  "o11n-plugin-f5": {
+    "classes": 1082
+  },
+  "o11n-plugin-infoblox": {
+    "classes": 94
+  },
+  "o11n-plugin-jsonpath": {
+    "classes": 1
+  },
+  "o11n-plugin-lenovo": {
+    "classes": 8
+  },
+  "o11n-plugin-mail": {
+    "classes": 6
+  },
+  "o11n-plugin-net": {
+    "classes": 5
+  },
+  "o11n-plugin-powershell": {
+    "classes": 16
+  },
+  "o11n-plugin-redis": {
+    "classes": 13
+  },
+  "o11n-plugin-rest": {
+    "classes": 12
+  },
+  "o11n-plugin-snmp": {
+    "classes": 5
+  },
+  "o11n-plugin-soap": {
+    "classes": 10
+  },
+  "o11n-plugin-sql": {
+    "classes": 10
+  },
+  "o11n-plugin-srm": {
+    "classes": 35
+  },
+  "o11n-plugin-ssh": {
+    "classes": 8
+  },
+  "o11n-plugin-support": {
+    "classes": 1
+  },
+  "o11n-plugin-vapi": {
+    "classes": 2258
+  },
+  "o11n-plugin-vc": {
+    "classes": 3685
+  },
+  "o11n-plugin-vcloud": {
+    "classes": 907
+  },
+  "o11n-plugin-vco": {
+    "classes": 28
+  },
+  "o11n-plugin-vr": {
+    "classes": 17
+  },
+  "o11n-plugin-vra": {
+    "classes": 91
+  },
+  "o11n-plugin-vsan": {
+    "classes": 1017
+  },
+  "o11n-plugin-vum": {
+    "classes": 14
+  },
+  "o11n-plugin-xml": {
+    "classes": 6
+  }
+}
