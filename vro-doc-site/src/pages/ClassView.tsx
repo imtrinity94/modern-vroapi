@@ -4,6 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import pluginIndex from '../data/index.json';
 import { getPluginMeta } from '../data/plugin-meta';
 import { ChevronRight, Box, FunctionSquare, Info, Edit3, List, LayoutGrid, Copy, Check } from 'lucide-react';
+import SEO from '../components/SEO';
 
 interface ApiClass {
     name: string;
@@ -85,6 +86,11 @@ const ClassView: React.FC = () => {
 
     return (
         <div className="w-[95%] max-w-[1920px] mx-auto space-y-10 animate-in fade-in duration-500">
+            <SEO
+                title={`${classData.name} - ${pluginEntry?.name || pluginName}`}
+                description={`API reference for ${classData.name} class in ${pluginEntry?.name || pluginName} plugin. ${classData.description || ''}`}
+                keywords={[classData.name, pluginEntry?.name || '', pluginName || '', 'Class Reference']}
+            />
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <nav className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
                     <Link to="/" className="hover:text-indigo-500 dark:hover:text-indigo-400">Reference</Link>

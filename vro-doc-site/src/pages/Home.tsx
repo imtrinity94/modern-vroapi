@@ -8,6 +8,7 @@ import { useViewMode } from '../hooks/useUIState';
 import { ViewToggle } from '../components/UIToggles';
 import { getPluginMeta } from '../data/plugin-meta';
 import { Package, Search, ArrowRight } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const Home: React.FC = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -31,6 +32,10 @@ const Home: React.FC = () => {
 
     return (
         <div className="space-y-8 animate-in fade-in duration-500">
+            <SEO
+                title="vRO API Documentation"
+                description="Comprehensive generated documentation for vRealize Orchestrator (vRO) plugins, including classes, methods, and attributes."
+            />
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
                 <div>
                     <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">

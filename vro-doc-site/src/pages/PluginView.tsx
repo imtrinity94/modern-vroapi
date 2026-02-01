@@ -8,6 +8,7 @@ import searchData from '../data/search-index.json';
 import { useViewMode } from '../hooks/useUIState';
 import { ViewToggle } from '../components/UIToggles';
 import { Search, ChevronRight, FileCode, ArrowRight, List as ListIcon, Edit3, Download } from 'lucide-react';
+import SEO from '../components/SEO';
 
 interface Version {
     id: string;
@@ -158,6 +159,11 @@ const PluginView: React.FC = () => {
 
     return (
         <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <SEO
+                title={`${pluginEntry?.name || data?.name || pluginName} - API Documentation`}
+                description={`API documentation for ${pluginEntry?.name || data?.name || pluginName} plugin. Includes ${classes.length} classes and interfaces.`}
+                keywords={[pluginName || '', pluginEntry?.name || '', 'vRO Plugin', 'API Reference']}
+            />
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-2">
                 <nav className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
                     <Link to="/" className="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors flex items-center gap-1">
