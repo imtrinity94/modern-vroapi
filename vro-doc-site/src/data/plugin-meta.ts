@@ -31,7 +31,7 @@ export const PLUGIN_META: Record<string, PluginMetadata> = {
     'o11n-plugin-mail': { icon: Mail, color: 'amber', tags: ['IN-BUILT'], version: '8.3.0.24114285' },
     'o11n-plugin-net': { icon: Globe, color: 'blue', tags: ['IN-BUILT'], version: '8.3.0.24114285' },
     'o11n-plugin-powershell': { image: `${import.meta.env.BASE_URL}icons/powershell.png`, color: 'blue', tags: ['IN-BUILT'], version: '1.2.0.24105055' },
-    'o11n-plugin-redis': { image: `${import.meta.env.BASE_URL}icons/redis.png`, color: 'red', tags: ['3RD PARTY'], version: '1.0.0.1.0.0' },
+    'o11n-plugin-redis': { image: `${import.meta.env.BASE_URL}icons/redis.png`, color: 'red', tags: ['3RD PARTY'], downloadUrl: 'https://github.com/vmware-samples/vrealize-orchestrator-plug-in-for-redis', version: '1.0.0.1.0.0' },
     'o11n-plugin-rest': { icon: Settings, color: 'green', tags: ['IN-BUILT'], version: '2.6.0.24114287' },
     'o11n-plugin-snmp': { icon: Waypoints, color: 'orange', tags: ['IN-BUILT'], version: '1.1.0.24114283' },
     'o11n-plugin-soap': { icon: Gauge, color: 'indigo', tags: ['IN-BUILT'], version: '2.1.0.24105054' },

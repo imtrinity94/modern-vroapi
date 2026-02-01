@@ -88,6 +88,7 @@ export const generateDts = (plugin: PluginData): string => {
     const lines: string[] = [];
 
     lines.push(`/**`);
+    lines.push(` * Generated using https://modernvroapi.in`);
     lines.push(` * TypeScript definitions for ${plugin.name}`);
     lines.push(` * ${plugin.description || ''}`);
     lines.push(` */`);
