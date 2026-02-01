@@ -13,18 +13,20 @@
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
-    "highlight.js": "^11.11.1",
     "lucide-react": "^0.563.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+<<<<<<< HEAD
     "react-helmet-async": "^2.0.5",
     "react-markdown": "^10.1.0",
     "react-router-dom": "^7.12.0",
     "rehype-highlight": "^7.0.2"
+=======
+    "react-router-dom": "^7.12.0"
+>>>>>>> parent of 0bd1e02 (fixes)
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
-    "@tailwindcss/typography": "^0.5.19",
     "@types/axios": "^0.9.36",
     "@types/cheerio": "^0.22.35",
     "@types/node": "^24.10.9",
