@@ -169,7 +169,7 @@ const PluginView: React.FC = () => {
 
                 <div className="flex items-center gap-3">
                     {/* Show Download Button if NOT In-Built */}
-                    {pluginMeta.tags && !pluginMeta.tags.includes('IN-BUILT') && (
+                    {pluginMeta.tags && !pluginMeta.tags.includes('IN-BUILT') && pluginMeta.downloadUrl && (
                         <a
                             href={pluginMeta.downloadUrl || '#'}
                             target="_blank"
