@@ -4,7 +4,6 @@ import { useParams, Link } from 'react-router-dom';
 import pluginIndex from '../data/index.json';
 import { getPluginMeta } from '../data/plugin-meta';
 import { ChevronRight, Box, FunctionSquare, Info, Edit3, List, LayoutGrid, Copy, Check } from 'lucide-react';
-import SEO from '../components/SEO';
 
 interface ApiClass {
     name: string;
@@ -84,16 +83,8 @@ const ClassView: React.FC = () => {
     const classData = data?.classes.find((c: any) => c.name === className) as ApiClass;
     if (!classData) return <div className="text-center py-20 text-slate-500">Class {className} not found.</div>;
 
-    const seoTitle = `${classData.name} - ${pluginEntry?.name || pluginName} - Modern vRO API`;
-    const seoDesc = classData.description || `API documentation for class ${classData.name} in ${pluginEntry?.name || pluginName} plugin.`;
-
     return (
         <div className="w-[95%] max-w-[1920px] mx-auto space-y-10 animate-in fade-in duration-500">
-            <SEO
-                title={seoTitle}
-                description={seoDesc}
-                image={pluginMeta.image}
-            />
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <nav className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
                     <Link to="/" className="hover:text-indigo-500 dark:hover:text-indigo-400">Reference</Link>
