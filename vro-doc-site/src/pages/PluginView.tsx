@@ -8,6 +8,7 @@ import searchData from '../data/search-index.json';
 import { useViewMode } from '../hooks/useUIState';
 import { ViewToggle } from '../components/UIToggles';
 import { Search, ChevronRight, FileCode, ArrowRight, List as ListIcon, Edit3, Download } from 'lucide-react';
+import SEO from '../components/SEO';
 
 interface Version {
     id: string;
@@ -156,8 +157,16 @@ const PluginView: React.FC = () => {
     // Don't return null if we have initial classes to show
     if (!data && !initialClassesFromIndex.length) return null;
 
+    const seoTitle = `${pluginEntry?.name || data?.name || pluginName} - Modern vRO API`;
+    const seoDesc = `API documentation for ${pluginEntry?.name || data?.name || pluginName} in VMware Aria Orchestrator. View ${classes.length} classes and interfaces.`;
+
     return (
         <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <SEO
+                title={seoTitle}
+                description={seoDesc}
+                image={pluginMeta.image}
+            />
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-2">
                 <nav className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
                     <Link to="/" className="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors flex items-center gap-1">
