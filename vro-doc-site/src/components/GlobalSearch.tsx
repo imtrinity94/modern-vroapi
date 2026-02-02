@@ -152,7 +152,7 @@ const GlobalSearch: React.FC = () => {
     };
 
     return (
-        <div className="relative group w-48 md:w-64" ref={containerRef}>
+        <div className="relative group w-40 sm:w-48 lg:w-64" ref={containerRef}>
             <div className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-indigo-500 transition-colors pointer-events-none">
                 {loading ? <Loader2 size={16} className="animate-spin" /> : <Search size={16} />}
             </div>

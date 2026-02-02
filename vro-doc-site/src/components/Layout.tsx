@@ -47,12 +47,12 @@ const Layout: React.FC = () => {
     return (
         <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans selection:bg-indigo-500 selection:text-white transition-colors duration-300">
             <header className={`sticky top-0 z-50 w-full backdrop-blur-md border-b border-slate-800 bg-slate-950/95 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
-                <div className="container mx-auto px-4 md:px-6 h-14 md:h-16 flex items-center justify-between gap-4 md:gap-8">
+                <div className="container mx-auto px-4 md:px-6 h-14 md:h-16 flex items-center justify-between gap-4 lg:gap-8">
                     <Link to="/" className="flex items-center gap-2 md:gap-3 shrink-0">
                         <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shrink-0">
                             <img src={`${import.meta.env.BASE_URL}logo.png`} alt="VCF Orchestrator Plugin" className="w-full h-full object-contain" />
                         </div>
-                        <span className="text-xl md:text-2xl font-extrabold text-white leading-tight transition-opacity hover:opacity-90">
+                        <span className="text-xl md:hidden lg:block lg:text-2xl font-extrabold text-white leading-tight transition-opacity hover:opacity-90">
                             modernvroapi.in
                         </span>
                     </Link>
@@ -98,7 +98,7 @@ const Layout: React.FC = () => {
                                 className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white text-slate-900 hover:bg-slate-100 transition-all text-sm font-semibold shadow-sm group"
                             >
                                 <Star size={16} fill="currentColor" className="text-amber-500 group-hover:scale-110 transition-transform" />
-                                <span className="hidden sm:inline">Star</span>
+                                <span className="hidden lg:inline">Star</span>
                                 {starCount !== null && (
                                     <span className="ml-1 px-1.5 py-0.5 rounded-md bg-slate-100 text-slate-600 text-[10px] font-bold border border-slate-200">
                                         {starCount}
