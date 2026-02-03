@@ -393,6 +393,13 @@
       "constructors": []
     },
     {
+      "name": "Boolean",
+      "description": "",
+      "methods": [],
+      "attributes": [],
+      "constructors": []
+    },
+    {
       "name": "ByteBuffer",
       "description": "Wrapper around byte array. Used for passing references to binary content.",
       "methods": [],
@@ -1899,6 +1906,13 @@
       "constructors": []
     },
     {
+      "name": "Path",
+      "description": "",
+      "methods": [],
+      "attributes": [],
+      "constructors": []
+    },
+    {
       "name": "PluginModuleDescription",
       "description": "Description of a plug-in module",
       "methods": [],
@@ -2274,6 +2288,13 @@
           "isReadonly": true
         }
       ],
+      "constructors": []
+    },
+    {
+      "name": "Regexp",
+      "description": "",
+      "methods": [],
+      "attributes": [],
       "constructors": []
     },
     {
@@ -7182,6 +7203,42 @@
       "constructors": []
     },
     {
+      "name": "Trigger",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "moduleName",
+          "type": "string",
+          "description": "",
+          "isReadonly": false
+        },
+        {
+          "name": "timeout",
+          "type": "any",
+          "description": "",
+          "isReadonly": false
+        }
+      ],
+      "constructors": [
+        {
+          "name": "Trigger",
+          "description": "",
+          "parameters": [
+            {
+              "name": "any",
+              "type": "String moduleName"
+            },
+            {
+              "name": "any",
+              "type": "Object timeout)"
+            }
+          ],
+          "example": "var myTrigger = new Trigger(any, any);"
+        }
+      ]
+    },
+    {
       "name": "URL",
       "description": "Usable object to put/get Http requests",
       "methods": [
@@ -7346,6 +7403,38 @@
           "example": "var myURL = new URL(url);"
         }
       ]
+    },
+    {
+      "name": "VersionHistoryItem",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "comment",
+          "type": "string",
+          "description": "Returns the comment of the VersionHistoryItem.",
+          "isReadonly": false
+        },
+        {
+          "name": "date",
+          "type": "any",
+          "description": "Returns the date of the VersionHistoryItem.",
+          "isReadonly": false
+        },
+        {
+          "name": "user",
+          "type": "string",
+          "description": "Returns the user that entered this VersionHistoryItem.",
+          "isReadonly": false
+        },
+        {
+          "name": "version",
+          "type": "string",
+          "description": "Returns the version of the VersionHistoryItem.",
+          "isReadonly": false
+        }
+      ],
+      "constructors": []
     },
     {
       "name": "Workflow",
