@@ -84,12 +84,35 @@ const ClassView: React.FC = () => {
     const classData = data?.classes.find((c: any) => c.name === className) as ApiClass;
     if (!classData) return <div className="text-center py-20 text-slate-500">Class {className} not found.</div>;
 
+    // SEO Helper Data
+    const methodNames = classData.methods.map(m => m.name);
+    const topMethods = methodNames.slice(0, 5).join(', ');
+    const seoDescription = `API reference for ${classData.name} class in ${pluginEntry?.name || pluginName} plugin. ${classData.description || ''} Includes methods like ${topMethods}...`;
+    const seoKeywords = [classData.name, pluginEntry?.name || '', pluginName || '', 'Class Reference', ...methodNames.slice(0, 20)];
+
+    // Structured Data (JSON-LD)
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "APIReference",
+        "name": classData.name,
+        "description": classData.description,
+        "programmingLanguage": "JavaScript",
+        "targetPlatform": "vRealize Orchestrator",
+        "articleSection": "Classes",
+        "about": {
+            "@type": "SoftwareSourceCode",
+            "name": classData.name,
+            "programmingLanguage": "JavaScript"
+        }
+    };
+
     return (
         <div className="w-[95%] max-w-[1920px] mx-auto space-y-10 animate-in fade-in duration-500">
             <SEO
                 title={`${classData.name} - ${pluginEntry?.name || pluginName}`}
-                description={`API reference for ${classData.name} class in ${pluginEntry?.name || pluginName} plugin. ${classData.description || ''}`}
-                keywords={[classData.name, pluginEntry?.name || '', pluginName || '', 'Class Reference']}
+                description={seoDescription}
+                keywords={seoKeywords}
+                schema={JSON.stringify(structuredData)}
             />
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <nav className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">

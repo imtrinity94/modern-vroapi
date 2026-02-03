@@ -157,12 +157,37 @@ const PluginView: React.FC = () => {
     // Don't return null if we have initial classes to show
     if (!data && !initialClassesFromIndex.length) return null;
 
+    const pluginTitle = pluginEntry?.name || data?.name || pluginName;
+    const pluginDescription = `API documentation for ${pluginTitle} plugin. Includes ${classes.length} classes and interfaces such as ${classes.slice(0, 3).map((c: any) => c.name).join(', ')}...`;
+
+    // Structured Data (JSON-LD)
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": pluginTitle,
+        "operatingSystem": "vRealize Orchestrator",
+        "applicationCategory": "DeveloperApplication",
+        "description": pluginDescription,
+        "softwareVersion": pluginMeta.version || activeVersionId,
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "hasPart": classes.slice(0, 20).map((c: any) => ({
+            "@type": "SoftwareSourceCode",
+            "name": c.name,
+            "programmingLanguage": "JavaScript"
+        }))
+    };
+
     return (
         <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <SEO
-                title={`${pluginEntry?.name || data?.name || pluginName} - API Documentation`}
-                description={`API documentation for ${pluginEntry?.name || data?.name || pluginName} plugin. Includes ${classes.length} classes and interfaces.`}
-                keywords={[pluginName || '', pluginEntry?.name || '', 'vRO Plugin', 'API Reference']}
+                title={`${pluginTitle} - API Documentation`}
+                description={pluginDescription}
+                keywords={[pluginName || '', pluginEntry?.name || '', 'vRO Plugin', 'API Reference', ...classes.slice(0, 10).map((c: any) => c.name)]}
+                schema={JSON.stringify(structuredData)}
             />
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-2">
                 <nav className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">

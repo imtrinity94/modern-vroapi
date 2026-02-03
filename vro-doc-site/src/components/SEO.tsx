@@ -8,6 +8,7 @@ interface SEOProps {
     keywords?: string[];
     type?: string;
     image?: string;
+    schema?: string; // JSON-LD Structured Data
 }
 
 const SEO: React.FC<SEOProps> = ({
@@ -15,7 +16,8 @@ const SEO: React.FC<SEOProps> = ({
     description = 'Modern API documentation for vRealize Orchestrator (vRO) plugins.',
     keywords = [],
     type = 'website',
-    image = '/og-image.png'
+    image = '/og-image.png',
+    schema
 }) => {
     const siteTitle = 'modern-vroapi';
     const fullTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
@@ -47,6 +49,13 @@ const SEO: React.FC<SEOProps> = ({
             <meta name="twitter:title" content={fullTitle} />
             <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content={absoluteImageUrl} />
+
+            {/* JSON-LD Structured Data */}
+            {schema && (
+                <script type="application/ld+json">
+                    {schema}
+                </script>
+            )}
         </Helmet>
     );
 };
