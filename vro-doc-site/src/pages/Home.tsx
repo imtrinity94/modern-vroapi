@@ -35,6 +35,17 @@ const Home: React.FC = () => {
             <SEO
                 title="vRO API Documentation"
                 description="Comprehensive generated documentation for vRealize Orchestrator (vRO) plugins, including classes, methods, and attributes."
+                schema={JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "WebSite",
+                    "name": "vRO API Documentation",
+                    "url": "https://modernvroapi.in/",
+                    "potentialAction": {
+                        "@type": "SearchAction",
+                        "target": "https://modernvroapi.in/#/?q={search_term_string}",
+                        "query-input": "required name=search_term_string"
+                    }
+                })}
             />
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
                 <div>
