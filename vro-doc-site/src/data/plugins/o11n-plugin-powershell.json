@@ -345,7 +345,7 @@
           "name": "getErrors",
           "description": "Returns list of errors reported by powershell engine during script invocation.",
           "parameters": "",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "getResults",
@@ -388,7 +388,7 @@
           "name": "getTypes",
           "description": "Returns an array containing Types representing all the public classes and interfaces that object implements",
           "parameters": "",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "getToString",
@@ -412,7 +412,7 @@
           "name": "getPropertyAsPSObjectList",
           "description": "Returns the value of propName property as a list of PowerShellPSObject",
           "parameters": "propName: String",
-          "returnType": "Array/Any"
+          "returnType": "Any[]"
         }
       ]
     },

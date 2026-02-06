@@ -115,37 +115,37 @@
           "name": "findAll",
           "description": "Recursively search and return matching pattern file and directory. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session.",
           "parameters": "basePath: string, pattern: string",
-          "returnType": "Array/string"
+          "returnType": "string[]"
         },
         {
           "name": "findFile",
           "description": "Recursively search and return matching pattern file ONLY. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session.",
           "parameters": "basePath: string, pattern: string",
-          "returnType": "Array/string"
+          "returnType": "string[]"
         },
         {
           "name": "findDir",
           "description": "Recursively search and return matching pattern directory ONLY. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session.",
           "parameters": "basePath: string, pattern: string",
-          "returnType": "Array/string"
+          "returnType": "string[]"
         },
         {
           "name": "listAll",
           "description": "List files and directories in path. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session.",
           "parameters": "basePath: string",
-          "returnType": "Array/string"
+          "returnType": "string[]"
         },
         {
           "name": "listFile",
           "description": "List files ONLY in path. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session.",
           "parameters": "basePath: string",
-          "returnType": "Array/string"
+          "returnType": "string[]"
         },
         {
           "name": "listDir",
           "description": "List directories ONLY in path. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session.",
           "parameters": "basePath: string",
-          "returnType": "Array/string"
+          "returnType": "string[]"
         },
         {
           "name": "disconnect",
@@ -265,7 +265,7 @@
         },
         {
           "name": "rootFolders",
-          "type": "Array/String",
+          "type": "String[]",
           "description": "The Root Folders",
           "isReadonly": true
         },
@@ -326,7 +326,7 @@
         },
         {
           "name": "rootFolders",
-          "type": "Array/String",
+          "type": "String[]",
           "description": "The Root Folders",
           "isReadonly": false
         },
@@ -372,7 +372,7 @@
           "name": "getSshHosts",
           "description": "Gets all SSH Hosts",
           "parameters": "",
-          "returnType": "Array/SSHHost"
+          "returnType": "SSHHost[]"
         },
         {
           "name": "addRootFolderToHost",
@@ -584,37 +584,37 @@
           "name": "findAll",
           "description": "Recursively search and return matching pattern file and directory. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session.",
           "parameters": "basePath: Path, pattern: string",
-          "returnType": "Array/string"
+          "returnType": "string[]"
         },
         {
           "name": "findFile",
           "description": "Recursively search and return matching pattern file ONLY. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session.",
           "parameters": "basePath: Path, pattern: string",
-          "returnType": "Array/string"
+          "returnType": "string[]"
         },
         {
           "name": "findDir",
           "description": "Recursively search and return matching pattern directory ONLY. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session.",
           "parameters": "basePath: Path, pattern: string",
-          "returnType": "Array/string"
+          "returnType": "string[]"
         },
         {
           "name": "listAll",
           "description": "List files and directories in path. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session.",
           "parameters": "basePath: Path",
-          "returnType": "Array/string"
+          "returnType": "string[]"
         },
         {
           "name": "listFile",
           "description": "List files ONLY in path. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session.",
           "parameters": "basePath: Path",
-          "returnType": "Array/string"
+          "returnType": "string[]"
         },
         {
           "name": "listDir",
           "description": "List directories ONLY in path. This command will connect the session, request an execution channel, execute the command and close the execution channel. The session is open automatically if not opened yet, but will remain open after the command execution. Use disconnect to close the session.",
           "parameters": "basePath: Path",
-          "returnType": "Array/string"
+          "returnType": "string[]"
         },
         {
           "name": "disconnect",

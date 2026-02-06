@@ -14,32 +14,23 @@ let filesModified = 0;
 function isSuspicious(value) {
     if (typeof value !== 'string') return false;
     // Look for [Word (starts with [ followed by word char, and NOT followed by ])
-    // Actually the previous issue showed "[VersionHistoryItem" which had no closing bracket.
-    // Also "[string"
-    // But invalid ones like "[string" (case sensitive?) often appear.
-
-    // Regex: Matches a string containing "[" followed immediately by alphanumerics, 
-    // but checks to ensure it's likely a malformed array type.
-    // We want to catch "[String" or "[string" or "[Any" appearing at start or after a space/separator.
-    // But we must be careful not to catch valid things if any (e.g. regex usage).
-
-    // In the previous step we saw: "returnType": "[String"
-    // "parameters": "Object object, [string tags"
-
-    return /\[[a-zA-Z][a-zA-Z0-9_]*\b/.test(value) && !/\[[a-zA-Z][a-zA-Z0-9_]*\]/.test(value);
+    // OR Array/Prefix
+    if (/\[([a-zA-Z][a-zA-Z0-9_]*)\b(?![\]])/.test(value)) return true;
+    if (/Array\/([a-zA-Z0-9_.:]+)(\[\])?/.test(value)) return true;
+    return false;
 }
 
 function fixString(value) {
+    let newValue = value;
     // Replace [Word with Word[]
-    // Logic: Find occurrences of [Word where there isn't a closing ]
+    newValue = newValue.replace(/\[([a-zA-Z][a-zA-Z0-9_]*)\b(?![\]])/g, '$1[]');
 
-    // This regex looks for [Variable and replaces with Variable[]
-    // It purposefully avoids matching things that already have brackets like [nums].
-    // But wait, the issue is "[String" -> "String[]".
+    // Replace Array/Word or Array/Word[] with Word[]
+    // If it was Array/Word[], $2 catches [], we ignore it and append [] to $1
+    // If it was Array/Word, $2 is undefined, we append [] to $1
+    newValue = newValue.replace(/Array\/([a-zA-Z0-9_.:]+)(\[\])?/g, '$1[]');
 
-    // In parameters string: "Object object, [string tags" -> "Object object, string[] tags"
-
-    return value.replace(/\[([a-zA-Z][a-zA-Z0-9_]*)\b(?![\]])/g, '$1[]');
+    return newValue;
 }
 
 function scanAndFix(obj, filePath, fix = false) {

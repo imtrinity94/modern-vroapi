@@ -1,822 +1,810 @@
-﻿{
-    "name":  "REST API",
-    "description":  "API Reference for REST",
-    "classes":  [
-                    {
-                        "name":  "AuthorizationValue",
-                        "description":  "Authorization value util",
-                        "attributes":  [
-
-                                       ],
-                        "methods":  [
-                                        {
-                                            "name":  "setKeyName",
-                                            "description":  "",
-                                            "parameters":  "keyName: String",
-                                            "returnType":  "void"
-                                        },
-                                        {
-                                            "name":  "setType",
-                                            "description":  "",
-                                            "parameters":  "type: String",
-                                            "returnType":  "void"
-                                        },
-                                        {
-                                            "name":  "setValue",
-                                            "description":  "",
-                                            "parameters":  "value: String",
-                                            "returnType":  "void"
-                                        },
-                                        {
-                                            "name":  "getKeyName",
-                                            "description":  "",
-                                            "parameters":  "",
-                                            "returnType":  "String"
-                                        },
-                                        {
-                                            "name":  "getValue",
-                                            "description":  "",
-                                            "parameters":  "",
-                                            "returnType":  "String"
-                                        },
-                                        {
-                                            "name":  "getType",
-                                            "description":  "",
-                                            "parameters":  "",
-                                            "returnType":  "String"
-                                        },
-                                        {
-                                            "name":  "keyName",
-                                            "description":  "",
-                                            "parameters":  "keyName: String",
-                                            "returnType":  "AuthorizationValue"
-                                        },
-                                        {
-                                            "name":  "value",
-                                            "description":  "",
-                                            "parameters":  "value: String",
-                                            "returnType":  "AuthorizationValue"
-                                        },
-                                        {
-                                            "name":  "type",
-                                            "description":  "",
-                                            "parameters":  "type: String",
-                                            "returnType":  "AuthorizationValue"
-                                        }
-                                    ]
-                    },
-                    {
-                        "name":  "HTTPBasicAuthentication",
-                        "description":  "Contains server authentication properties.",
-                        "attributes":  [
-                                           {
-                                               "name":  "type",
-                                               "type":  "String",
-                                               "description":  "Type of this authentication object",
-                                               "isReadonly":  true
-                                           },
-                                           {
-                                               "name":  "rawAuthProperties",
-                                               "type":  "Array/String",
-                                               "description":  "The authentication properties returned as array",
-                                               "isReadonly":  true
-                                           }
-                                       ],
-                        "methods":  [
-                                        {
-                                            "name":  "getRawAuthProperty",
-                                            "description":  "Retrieves an authentication property by specified index.",
-                                            "parameters":  "index: Number",
-                                            "returnType":  "String"
-                                        },
-                                        {
-                                            "name":  "getBasicAuthHeaderValue",
-                                            "description":  "(Static) get Basic Auth Header Value",
-                                            "parameters":  "username: String, password: String",
-                                            "returnType":  "String"
-                                        }
-                                    ]
-                    },
-                    {
-                        "name":  "RESTAuthentication",
-                        "description":  "Contains server authentication properties.",
-                        "attributes":  [
-                                           {
-                                               "name":  "type",
-                                               "type":  "String",
-                                               "description":  "Type of this authentication object",
-                                               "isReadonly":  true
-                                           },
-                                           {
-                                               "name":  "rawAuthProperties",
-                                               "type":  "Array/String",
-                                               "description":  "The authentication properties returned as array",
-                                               "isReadonly":  true
-                                           }
-                                       ],
-                        "methods":  [
-                                        {
-                                            "name":  "getRawAuthProperty",
-                                            "description":  "Retrieves an authentication property by specified index.",
-                                            "parameters":  "index: Number",
-                                            "returnType":  "String"
-                                        }
-                                    ]
-                    },
-                    {
-                        "name":  "RESTAuthenticationManager",
-                        "description":  "Provides authentication types listing and creation.",
-                        "attributes":  [
-
-                                       ],
-                        "methods":  [
-                                        {
-                                            "name":  "getRESTAuthentications",
-                                            "description":  "Returns all available authentication types.",
-                                            "parameters":  "",
-                                            "returnType":  "Array/String"
-                                        },
-                                        {
-                                            "name":  "getSessionModes",
-                                            "description":  "Returns the supported session modes.",
-                                            "parameters":  "",
-                                            "returnType":  "Array/String"
-                                        },
-                                        {
-                                            "name":  "createAuthentication",
-                                            "description":  "Creates an authentication instance.",
-                                            "parameters":  "type: String, params: Array/String",
-                                            "returnType":  "Authentication"
-                                        }
-                                    ]
-                    },
-                    {
-                        "name":  "RESTCookie",
-                        "description":  "Wrapper around http cookie. RESTCookie objects are read-only.",
-                        "attributes":  [
-                                           {
-                                               "name":  "name",
-                                               "type":  "String",
-                                               "description":  "Cookie name.",
-                                               "isReadonly":  true
-                                           },
-                                           {
-                                               "name":  "value",
-                                               "type":  "String",
-                                               "description":  "Cookie value.",
-                                               "isReadonly":  true
-                                           },
-                                           {
-                                               "name":  "domain",
-                                               "type":  "String",
-                                               "description":  "Cookie domain.",
-                                               "isReadonly":  true
-                                           },
-                                           {
-                                               "name":  "path",
-                                               "type":  "String",
-                                               "description":  "Cookie path.",
-                                               "isReadonly":  true
-                                           },
-                                           {
-                                               "name":  "expiryDate",
-                                               "type":  "Date",
-                                               "description":  "Cookie expiry date.",
-                                               "isReadonly":  true
-                                           }
-                                       ],
-                        "methods":  [
-
-                                    ]
-                    },
-                    {
-                        "name":  "RESTHost",
-                        "description":  "REST plug-in host object",
-                        "attributes":  [
-                                           {
-                                               "name":  "id",
-                                               "type":  "String",
-                                               "description":  "id",
-                                               "isReadonly":  true
-                                           },
-                                           {
-                                               "name":  "name",
-                                               "type":  "String",
-                                               "description":  "name",
-                                               "isReadonly":  false
-                                           },
-                                           {
-                                               "name":  "url",
-                                               "type":  "String",
-                                               "description":  "url",
-                                               "isReadonly":  false
-                                           },
-                                           {
-                                               "name":  "authentication",
-                                               "type":  "Authentication",
-                                               "description":  "authentication",
-                                               "isReadonly":  false
-                                           },
-                                           {
-                                               "name":  "proxyAuthentication",
-                                               "type":  "Authentication",
-                                               "description":  "proxyAuthentication",
-                                               "isReadonly":  false
-                                           },
-                                           {
-                                               "name":  "connectionTimeout",
-                                               "type":  "Number",
-                                               "description":  "connectionTimeout",
-                                               "isReadonly":  false
-                                           },
-                                           {
-                                               "name":  "operationTimeout",
-                                               "type":  "Number",
-                                               "description":  "operationTimeout",
-                                               "isReadonly":  false
-                                           },
-                                           {
-                                               "name":  "hostVerification",
-                                               "type":  "Boolean",
-                                               "description":  "hostVerification",
-                                               "isReadonly":  false
-                                           },
-                                           {
-                                               "name":  "proxyHost",
-                                               "type":  "String",
-                                               "description":  "Proxy host",
-                                               "isReadonly":  false
-                                           },
-                                           {
-                                               "name":  "proxyPort",
-                                               "type":  "number",
-                                               "description":  "Proxy port",
-                                               "isReadonly":  false
-                                           },
-                                           {
-                                               "name":  "privateKeyId",
-                                               "type":  "String",
-                                               "description":  "The Id of the PrivateKeyEntry to use for client cerificate authentication.",
-                                               "isReadonly":  false
-                                           },
-                                           {
-                                               "name":  "cookies",
-                                               "type":  "Array/RESTCookie",
-                                               "description":  "Cookies",
-                                               "isReadonly":  true
-                                           }
-                                       ],
-                        "methods":  [
-                                        {
-                                            "name":  "getCookies",
-                                            "description":  "Retrieves cookies associated with this RESTHost.",
-                                            "parameters":  "",
-                                            "returnType":  "Array/RESTCookie"
-                                        },
-                                        {
-                                            "name":  "clearCookies",
-                                            "description":  "Clears the cookies associated with this RESTHost.",
-                                            "parameters":  "",
-                                            "returnType":  "Void"
-                                        },
-                                        {
-                                            "name":  "clearExpired",
-                                            "description":  "Clears cookies associated with this RESTHost expired by the given date.",
-                                            "parameters":  "date: Date",
-                                            "returnType":  "Boolean"
-                                        },
-                                        {
-                                            "name":  "clone",
-                                            "description":  "Creates a copy of the REST host.",
-                                            "parameters":  "",
-                                            "returnType":  "RESTHost"
-                                        },
-                                        {
-                                            "name":  "newHostFromThis",
-                                            "description":  "Creates a new host from this REST host.",
-                                            "parameters":  "",
-                                            "returnType":  "RESTHost"
-                                        },
-                                        {
-                                            "name":  "addOperation",
-                                            "description":  "Adds a new operation to the host.",
-                                            "parameters":  "operation: RESTOperation",
-                                            "returnType":  "RESTOperation"
-                                        },
-                                        {
-                                            "name":  "updateOperation",
-                                            "description":  "Updates a REST operation.",
-                                            "parameters":  "operation: RESTOperation",
-                                            "returnType":  "RESTOperation"
-                                        },
-                                        {
-                                            "name":  "getOperation",
-                                            "description":  "Retrieves an operation by id.",
-                                            "parameters":  "id: String",
-                                            "returnType":  "RESTOperation"
-                                        },
-                                        {
-                                            "name":  "removeOperation",
-                                            "description":  "Removes a REST operation from this host.",
-                                            "parameters":  "id: String",
-                                            "returnType":  "RESTOperation"
-                                        },
-                                        {
-                                            "name":  "getOperations",
-                                            "description":  "Retrieves all operation names.",
-                                            "parameters":  "",
-                                            "returnType":  "Array/String"
-                                        },
-                                        {
-                                            "name":  "addSchemaFromUrl",
-                                            "description":  "Adds an XSD schema from a given URL.",
-                                            "parameters":  "url: String",
-                                            "returnType":  "Array/String"
-                                        },
-                                        {
-                                            "name":  "addSchemaFromXmlString",
-                                            "description":  "Adds an XSD schema provided as a string.",
-                                            "parameters":  "xml: String",
-                                            "returnType":  "Array/String"
-                                        },
-                                        {
-                                            "name":  "removeAllSchemas",
-                                            "description":  "Removes all associated XSD schemas from this host.",
-                                            "parameters":  "",
-                                            "returnType":  "void"
-                                        },
-                                        {
-                                            "name":  "getSchemaElements",
-                                            "description":  "Retrieves all XML elements for a given namespace, from XSD files for this host.",
-                                            "parameters":  "namespace: String",
-                                            "returnType":  "Array/Any"
-                                        },
-                                        {
-                                            "name":  "getSchemaNamespaces",
-                                            "description":  "Retrieves all namespaces from XSD files for this host.",
-                                            "parameters":  "",
-                                            "returnType":  "Array/String"
-                                        },
-                                        {
-                                            "name":  "supportParallelRequests",
-                                            "description":  "Check if the current REST host instance supports parallel request executions",
-                                            "parameters":  "",
-                                            "returnType":  "boolean"
-                                        },
-                                        {
-                                            "name":  "createRequest",
-                                            "description":  "Creates a RESTRequest using the host data.",
-                                            "parameters":  "method: String, url: String, content: Any",
-                                            "returnType":  "Request"
-                                        },
-                                        {
-                                            "name":  "createRequestWithOptions",
-                                            "description":  "Creates a RESTRequest using the host data.",
-                                            "parameters":  "method: String, url: String, content: Any, options: RESTRequestOptions",
-                                            "returnType":  "Request"
-                                        },
-                                        {
-                                            "name":  "setAutoUrlRedirect",
-                                            "description":  "(DEPRECATED) Set automatic URL redirection. If set to true, the generated HTTP request will automatically follow the URL redirects (upon HTTP response status 301, 302 and 307). Return true if the value is propagated. setRedirectStrategy method is to be used.",
-                                            "parameters":  "autoRedirectEnabled: boolean",
-                                            "returnType":  "void"
-                                        },
-                                        {
-                                            "name":  "getAutoUrlRedirectEnabled",
-                                            "description":  "(DEPRECATED) Check if the automatically redirection is enabled. getRedirectStrategy method is to be used.",
-                                            "parameters":  "",
-                                            "returnType":  "boolean"
-                                        },
-                                        {
-                                            "name":  "setRedirectStrategy",
-                                            "description":  "The chosen redirect strategy. Possible values are defaultRedirect, neverRedirect, alwaysRedirect.",
-                                            "parameters":  "redirectStrategy: string",
-                                            "returnType":  "Object"
-                                        },
-                                        {
-                                            "name":  "getRedirectStrategy",
-                                            "description":  "Returns which redirect strategy is used",
-                                            "parameters":  "",
-                                            "returnType":  "String"
-                                        },
-                                        {
-                                            "name":  "executeRequestWithCredentials",
-                                            "description":  "Executes a request with provided credentials. Supported only for hosts created with RESTHostManager.createTransientHostFrom() with HTTP Basic Authentication.",
-                                            "parameters":  "method: String, url: String, content: Any, user: String, pass: String",
-                                            "returnType":  "Response"
-                                        }
-                                    ]
-                    },
-                    {
-                        "name":  "RESTHostManager",
-                        "description":  "Provides CRUD operations for RootElement objects.",
-                        "attributes":  [
-
-                                       ],
-                        "methods":  [
-                                        {
-                                            "name":  "createHost",
-                                            "description":  "Creates a RESTHost object.",
-                                            "parameters":  "name: String",
-                                            "returnType":  "RESTHost"
-                                        },
-                                        {
-                                            "name":  "createHostSupportingParallelRequests",
-                                            "description":  "Creates a RESTHost object with option to use new Http Context per request. With that setup the Rest Host supports parallel requests.",
-                                            "parameters":  "name: String",
-                                            "returnType":  "RESTHost"
-                                        },
-                                        {
-                                            "name":  "addHost",
-                                            "description":  "Adds a RESTHost object to the plug-in\u0027s inventory.",
-                                            "parameters":  "host: RESTHost",
-                                            "returnType":  "RESTHost"
-                                        },
-                                        {
-                                            "name":  "updateHost",
-                                            "description":  "Updates the specified RESTHost in the plug-in\u0027s inventory.",
-                                            "parameters":  "host: RESTHost",
-                                            "returnType":  "RESTHost"
-                                        },
-                                        {
-                                            "name":  "removeHost",
-                                            "description":  "Removes a RESTHost object from the plug-in\u0027s inventory.",
-                                            "parameters":  "id: String",
-                                            "returnType":  "RESTHost"
-                                        },
-                                        {
-                                            "name":  "getHost",
-                                            "description":  "Retrieves a RESTHost object by name.",
-                                            "parameters":  "id: String",
-                                            "returnType":  "RESTHost"
-                                        },
-                                        {
-                                            "name":  "getHosts",
-                                            "description":  "Retrieves an array of available host names.",
-                                            "parameters":  "",
-                                            "returnType":  "Array/String"
-                                        },
-                                        {
-                                            "name":  "reloadConfiguration",
-                                            "description":  "Reloads the plug-in configuration.",
-                                            "parameters":  "",
-                                            "returnType":  "Object"
-                                        },
-                                        {
-                                            "name":  "createWorkflow",
-                                            "description":  "Generates a workflow from a REST operation.",
-                                            "parameters":  "operation: RESTOperation, workflowName: String, category: WorkflowCategory, defaultContentType: String",
-                                            "returnType":  "Workflow"
-                                        },
-                                        {
-                                            "name":  "createWorkflowWithXsdInput",
-                                            "description":  "Generates a workflow from a REST operation.",
-                                            "parameters":  "operation: RESTOperation, workflowName: String, category: WorkflowCategory, namespace: String, elementName: String, defaultContentType: String",
-                                            "returnType":  "Workflow"
-                                        },
-                                        {
-                                            "name":  "createTransientHostFrom",
-                                            "description":  "Creates a new transient (not persisted) host.",
-                                            "parameters":  "restHostPrototype: RESTHost",
-                                            "returnType":  "RESTHost"
-                                        },
-                                        {
-                                            "name":  "createTransientOperationFrom",
-                                            "description":  "Creates a new transient RESTOperation. If Tthe base URL of operation\u0027s host is changed, all subsequent requests to the operation will be executed against the new base URL (new host).",
-                                            "parameters":  "restOperationPrototype: RESTOperation",
-                                            "returnType":  "RESTOperation"
-                                        },
-                                        {
-                                            "name":  "getOpenApiServiceUrl",
-                                            "description":  "Get the OpenAPI service URL from OpenAPI spec and the preferred protocol",
-                                            "parameters":  "openApiSpec: String, preferredUrl: String",
-                                            "returnType":  "String"
-                                        },
-                                        {
-                                            "name":  "createRESTHostFromOpenApiSpecString",
-                                            "description":  "Creates rest host from OpenAPI spec provided as string",
-                                            "parameters":  "hostName: String, openApiSpec: String, preferredUrl: String, params: java.util.Map",
-                                            "returnType":  "RESTHost"
-                                        },
-                                        {
-                                            "name":  "createRESTHostFromOpenApiUrl",
-                                            "description":  "Creates rest host from OpenAPI url provided as string",
-                                            "parameters":  "hostName: String, url: String, auths: Array/AuthorizationValue, preferredUrl: String, params: java.util.Map",
-                                            "returnType":  "RESTHost"
-                                        },
-                                        {
-                                            "name":  "getSwaggerServiceUrl",
-                                            "description":  "Get the Swagger service URL from Swagger spec and the preferred protocol",
-                                            "parameters":  "swaggerSpec: String, host: String, basePath: String, preferredCommunicationProtocol: String",
-                                            "returnType":  "String"
-                                        },
-                                        {
-                                            "name":  "createRESTHostFromSwaggerSpecUrl",
-                                            "description":  "Adds a new operation from a URL.",
-                                            "parameters":  "hostName: String, swaggerSpecUrl: String, auths: Array/AuthorizationValue, preferredCommunicationProtocol: String, params: java.util.Map",
-                                            "returnType":  "RESTHost"
-                                        },
-                                        {
-                                            "name":  "createRESTHostFromSwaggerSpecString",
-                                            "description":  "Adds a new operation from string definition",
-                                            "parameters":  "hostName: String, swaggerSpec: String, host: String, basePath: String, preferredCommunicationProtocol: String, params: java.util.Map",
-                                            "returnType":  "RESTHost"
-                                        }
-                                    ]
-                    },
-                    {
-                        "name":  "RESTOperation",
-                        "description":  "REST plug-in operation object",
-                        "attributes":  [
-                                           {
-                                               "name":  "id",
-                                               "type":  "String",
-                                               "description":  "id",
-                                               "isReadonly":  true
-                                           },
-                                           {
-                                               "name":  "name",
-                                               "type":  "string",
-                                               "description":  "Unique identifier of the operation",
-                                               "isReadonly":  false
-                                           },
-                                           {
-                                               "name":  "host",
-                                               "type":  "RESTHost",
-                                               "description":  "Parent RESTHost of this operation",
-                                               "isReadonly":  false
-                                           },
-                                           {
-                                               "name":  "inParametersCount",
-                                               "type":  "number",
-                                               "description":  "The count of the input parameters (all parameters defined in the URL template) for this operation",
-                                               "isReadonly":  true
-                                           },
-                                           {
-                                               "name":  "method",
-                                               "type":  "string",
-                                               "description":  "HTTP method of this operation (GET, HEAD, PATCH, POST, PUT, OPTIONS, TRACE or DELETE)",
-                                               "isReadonly":  false
-                                           },
-                                           {
-                                               "name":  "urlTemplate",
-                                               "type":  "string",
-                                               "description":  "The URL template for this operation (ex. /operation/{param1}?param2={param2})",
-                                               "isReadonly":  false
-                                           },
-                                           {
-                                               "name":  "defaultContentType",
-                                               "type":  "string",
-                                               "description":  "The default content type of the content input for this operation (meaningful for operations with method PUT or POST)",
-                                               "isReadonly":  false
-                                           }
-                                       ],
-                        "methods":  [
-                                        {
-                                            "name":  "clone",
-                                            "description":  "Creates a copy of the REST operation.",
-                                            "parameters":  "",
-                                            "returnType":  "RESTOperation"
-                                        },
-                                        {
-                                            "name":  "newOperationFromThis",
-                                            "description":  "Creates a new operation from this REST operation.",
-                                            "parameters":  "",
-                                            "returnType":  "RESTOperation"
-                                        },
-                                        {
-                                            "name":  "createRequest",
-                                            "description":  "Creates a RESTRequest by using the information contained in this operation and its parent host.",
-                                            "parameters":  "params: Array/String, content: Any",
-                                            "returnType":  "Request"
-                                        },
-                                        {
-                                            "name":  "createRequestWithOptions",
-                                            "description":  "Creates a RESTRequest by using the information contained in this operation and its parent host.",
-                                            "parameters":  "params: Array/String, content: Any, options: RESTRequestOptions",
-                                            "returnType":  "Request"
-                                        },
-                                        {
-                                            "name":  "getInParameters",
-                                            "description":  "Retrieves the names of URL template input parameters.",
-                                            "parameters":  "",
-                                            "returnType":  "Array/String"
-                                        },
-                                        {
-                                            "name":  "getHeaderParameters",
-                                            "description":  "Retrieves the names of HTTP request headers.",
-                                            "parameters":  "",
-                                            "returnType":  "Array/String"
-                                        },
-                                        {
-                                            "name":  "getPathParamsCount",
-                                            "description":  "The path parameters count.",
-                                            "parameters":  "",
-                                            "returnType":  "Number"
-                                        },
-                                        {
-                                            "name":  "getDefaultContentType",
-                                            "description":  "Get the default content type",
-                                            "parameters":  "",
-                                            "returnType":  "String"
-                                        },
-                                        {
-                                            "name":  "getSupportedContentTypes",
-                                            "description":  "Get the supported request body content type",
-                                            "parameters":  "",
-                                            "returnType":  "Set"
-                                        },
-                                        {
-                                            "name":  "addSupportedContentType",
-                                            "description":  "Add a supported content type",
-                                            "parameters":  "supportedContentType: String",
-                                            "returnType":  "void"
-                                        },
-                                        {
-                                            "name":  "getSupportedAcceptHeaderMediaTypes",
-                                            "description":  "Get supportet Accept header media types",
-                                            "parameters":  "",
-                                            "returnType":  "Array/String"
-                                        },
-                                        {
-                                            "name":  "addPreferredAcceptHeaderMediaType",
-                                            "description":  "Add preferred media type for the Accept header",
-                                            "parameters":  "mediaType: String",
-                                            "returnType":  "void"
-                                        },
-                                        {
-                                            "name":  "addSupportedAcceptHeaderMediaType",
-                                            "description":  "Add supported media type for the Accept header]",
-                                            "parameters":  "mediaType: String",
-                                            "returnType":  "void"
-                                        },
-                                        {
-                                            "name":  "isPathParamMandatory",
-                                            "description":  "Is a mandatory path parameter.",
-                                            "parameters":  "pathParamName: String",
-                                            "returnType":  "boolean"
-                                        },
-                                        {
-                                            "name":  "addMandatoryPathParameter",
-                                            "description":  "Marks an existing path parameter as mandatory.",
-                                            "parameters":  "mandatoryPathParamName: String",
-                                            "returnType":  "void"
-                                        },
-                                        {
-                                            "name":  "isQueryParamMandatory",
-                                            "description":  "Check if query param is mandatory]",
-                                            "parameters":  "queryParamName: String",
-                                            "returnType":  "boolean"
-                                        },
-                                        {
-                                            "name":  "addMandatoryQueryParameter",
-                                            "description":  "Marks an existing query parameter as mandatory.",
-                                            "parameters":  "mandatoryQueryParamName: String",
-                                            "returnType":  "void"
-                                        },
-                                        {
-                                            "name":  "isHeaderParamMandatory",
-                                            "description":  "Is a mandatory header parameter.",
-                                            "parameters":  "headerParamName: String",
-                                            "returnType":  "boolean"
-                                        },
-                                        {
-                                            "name":  "addMandatoryHeaderParameter",
-                                            "description":  "Marks an existing header parameter as mandatory.",
-                                            "parameters":  "mandatoryHeaderParamName: String",
-                                            "returnType":  "void"
-                                        }
-                                    ]
-                    },
-                    {
-                        "name":  "RESTRequest",
-                        "description":  "Utility class created from REST operation (or host), used to make the actual HTTP request.",
-                        "attributes":  [
-                                           {
-                                               "name":  "fullUrl",
-                                               "type":  "String",
-                                               "description":  "Retrieves the full request URL - the one combining the host base URL and operation URL template with filled in input parameters",
-                                               "isReadonly":  true
-                                           },
-                                           {
-                                               "name":  "contentType",
-                                               "type":  "String",
-                                               "description":  "The content type of the request",
-                                               "isReadonly":  false
-                                           }
-                                       ],
-                        "methods":  [
-                                        {
-                                            "name":  "execute",
-                                            "description":  "Runs the HTTP request.",
-                                            "parameters":  "",
-                                            "returnType":  "Response"
-                                        },
-                                        {
-                                            "name":  "executeWithCredentials",
-                                            "description":  "Runs the HTTP request with provided Basic HTTP Authentication credentials. This operation is supported only for requests executed against RESTHost that supports Basic HTTP Authentication.",
-                                            "parameters":  "user: String, pass: String",
-                                            "returnType":  "Response"
-                                        },
-                                        {
-                                            "name":  "setHeader",
-                                            "description":  "Sets an additional HTTP header to this request.",
-                                            "parameters":  "header: String, value: String",
-                                            "returnType":  "Response"
-                                        },
-                                        {
-                                            "name":  "getMethod",
-                                            "description":  "Get HTTP method of the request.",
-                                            "parameters":  "",
-                                            "returnType":  "String"
-                                        }
-                                    ]
-                    },
-                    {
-                        "name":  "RESTRequestOptions",
-                        "description":  "Options for a request",
-                        "attributes":  [
-                                           {
-                                               "name":  "operationTimeout",
-                                               "type":  "Number",
-                                               "description":  "The operation timeout",
-                                               "isReadonly":  false
-                                           },
-                                           {
-                                               "name":  "connectionTimeout",
-                                               "type":  "Number",
-                                               "description":  "The connection timeout",
-                                               "isReadonly":  false
-                                           }
-                                       ],
-                        "methods":  [
-
-                                    ]
-                    },
-                    {
-                        "name":  "RESTResponse",
-                        "description":  "Utility class used for HTTP server response.",
-                        "attributes":  [
-                                           {
-                                               "name":  "contentAsString",
-                                               "type":  "string",
-                                               "description":  "The server\u0027s response content as a string",
-                                               "isReadonly":  true
-                                           },
-                                           {
-                                               "name":  "statusCode",
-                                               "type":  "number",
-                                               "description":  "The server\u0027s response status code",
-                                               "isReadonly":  true
-                                           },
-                                           {
-                                               "name":  "contentLength",
-                                               "type":  "number",
-                                               "description":  "The server\u0027s response content length",
-                                               "isReadonly":  true
-                                           }
-                                       ],
-                        "methods":  [
-                                        {
-                                            "name":  "getHeaderValues",
-                                            "description":  "Retrieves the server\u0027s response header values per header with specified name",
-                                            "parameters":  "headerName: String",
-                                            "returnType":  "Array/String"
-                                        },
-                                        {
-                                            "name":  "getAllHeaders",
-                                            "description":  "Retrieves the server\u0027s response headers as a Properties object.",
-                                            "parameters":  "",
-                                            "returnType":  "Properties"
-                                        }
-                                    ]
-                    },
-                    {
-                        "name":  "RESTUtils",
-                        "description":  "Various utility functions.",
-                        "attributes":  [
-
-                                       ],
-                        "methods":  [
-                                        {
-                                            "name":  "xml2json",
-                                            "description":  "",
-                                            "parameters":  "xmlString: String",
-                                            "returnType":  "String"
-                                        },
-                                        {
-                                            "name":  "xmlDate",
-                                            "description":  "",
-                                            "parameters":  "date: Date",
-                                            "returnType":  "String"
-                                        },
-                                        {
-                                            "name":  "xmlInt",
-                                            "description":  "",
-                                            "parameters":  "number: Number",
-                                            "returnType":  "String"
-                                        }
-                                    ]
-                    }
-                ]
+{
+  "name": "REST API",
+  "description": "API Reference for REST",
+  "classes": [
+    {
+      "name": "AuthorizationValue",
+      "description": "Authorization value util",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "setKeyName",
+          "description": "",
+          "parameters": "keyName: String",
+          "returnType": "void"
+        },
+        {
+          "name": "setType",
+          "description": "",
+          "parameters": "type: String",
+          "returnType": "void"
+        },
+        {
+          "name": "setValue",
+          "description": "",
+          "parameters": "value: String",
+          "returnType": "void"
+        },
+        {
+          "name": "getKeyName",
+          "description": "",
+          "parameters": "",
+          "returnType": "String"
+        },
+        {
+          "name": "getValue",
+          "description": "",
+          "parameters": "",
+          "returnType": "String"
+        },
+        {
+          "name": "getType",
+          "description": "",
+          "parameters": "",
+          "returnType": "String"
+        },
+        {
+          "name": "keyName",
+          "description": "",
+          "parameters": "keyName: String",
+          "returnType": "AuthorizationValue"
+        },
+        {
+          "name": "value",
+          "description": "",
+          "parameters": "value: String",
+          "returnType": "AuthorizationValue"
+        },
+        {
+          "name": "type",
+          "description": "",
+          "parameters": "type: String",
+          "returnType": "AuthorizationValue"
+        }
+      ]
+    },
+    {
+      "name": "HTTPBasicAuthentication",
+      "description": "Contains server authentication properties.",
+      "attributes": [
+        {
+          "name": "type",
+          "type": "String",
+          "description": "Type of this authentication object",
+          "isReadonly": true
+        },
+        {
+          "name": "rawAuthProperties",
+          "type": "String[]",
+          "description": "The authentication properties returned as array",
+          "isReadonly": true
+        }
+      ],
+      "methods": [
+        {
+          "name": "getRawAuthProperty",
+          "description": "Retrieves an authentication property by specified index.",
+          "parameters": "index: Number",
+          "returnType": "String"
+        },
+        {
+          "name": "getBasicAuthHeaderValue",
+          "description": "(Static) get Basic Auth Header Value",
+          "parameters": "username: String, password: String",
+          "returnType": "String"
+        }
+      ]
+    },
+    {
+      "name": "RESTAuthentication",
+      "description": "Contains server authentication properties.",
+      "attributes": [
+        {
+          "name": "type",
+          "type": "String",
+          "description": "Type of this authentication object",
+          "isReadonly": true
+        },
+        {
+          "name": "rawAuthProperties",
+          "type": "String[]",
+          "description": "The authentication properties returned as array",
+          "isReadonly": true
+        }
+      ],
+      "methods": [
+        {
+          "name": "getRawAuthProperty",
+          "description": "Retrieves an authentication property by specified index.",
+          "parameters": "index: Number",
+          "returnType": "String"
+        }
+      ]
+    },
+    {
+      "name": "RESTAuthenticationManager",
+      "description": "Provides authentication types listing and creation.",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "getRESTAuthentications",
+          "description": "Returns all available authentication types.",
+          "parameters": "",
+          "returnType": "String[]"
+        },
+        {
+          "name": "getSessionModes",
+          "description": "Returns the supported session modes.",
+          "parameters": "",
+          "returnType": "String[]"
+        },
+        {
+          "name": "createAuthentication",
+          "description": "Creates an authentication instance.",
+          "parameters": "type: String, params: String[]",
+          "returnType": "Authentication"
+        }
+      ]
+    },
+    {
+      "name": "RESTCookie",
+      "description": "Wrapper around http cookie. RESTCookie objects are read-only.",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "description": "Cookie name.",
+          "isReadonly": true
+        },
+        {
+          "name": "value",
+          "type": "String",
+          "description": "Cookie value.",
+          "isReadonly": true
+        },
+        {
+          "name": "domain",
+          "type": "String",
+          "description": "Cookie domain.",
+          "isReadonly": true
+        },
+        {
+          "name": "path",
+          "type": "String",
+          "description": "Cookie path.",
+          "isReadonly": true
+        },
+        {
+          "name": "expiryDate",
+          "type": "Date",
+          "description": "Cookie expiry date.",
+          "isReadonly": true
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "RESTHost",
+      "description": "REST plug-in host object",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "String",
+          "description": "id",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "description": "name",
+          "isReadonly": false
+        },
+        {
+          "name": "url",
+          "type": "String",
+          "description": "url",
+          "isReadonly": false
+        },
+        {
+          "name": "authentication",
+          "type": "Authentication",
+          "description": "authentication",
+          "isReadonly": false
+        },
+        {
+          "name": "proxyAuthentication",
+          "type": "Authentication",
+          "description": "proxyAuthentication",
+          "isReadonly": false
+        },
+        {
+          "name": "connectionTimeout",
+          "type": "Number",
+          "description": "connectionTimeout",
+          "isReadonly": false
+        },
+        {
+          "name": "operationTimeout",
+          "type": "Number",
+          "description": "operationTimeout",
+          "isReadonly": false
+        },
+        {
+          "name": "hostVerification",
+          "type": "Boolean",
+          "description": "hostVerification",
+          "isReadonly": false
+        },
+        {
+          "name": "proxyHost",
+          "type": "String",
+          "description": "Proxy host",
+          "isReadonly": false
+        },
+        {
+          "name": "proxyPort",
+          "type": "number",
+          "description": "Proxy port",
+          "isReadonly": false
+        },
+        {
+          "name": "privateKeyId",
+          "type": "String",
+          "description": "The Id of the PrivateKeyEntry to use for client cerificate authentication.",
+          "isReadonly": false
+        },
+        {
+          "name": "cookies",
+          "type": "RESTCookie[]",
+          "description": "Cookies",
+          "isReadonly": true
+        }
+      ],
+      "methods": [
+        {
+          "name": "getCookies",
+          "description": "Retrieves cookies associated with this RESTHost.",
+          "parameters": "",
+          "returnType": "RESTCookie[]"
+        },
+        {
+          "name": "clearCookies",
+          "description": "Clears the cookies associated with this RESTHost.",
+          "parameters": "",
+          "returnType": "Void"
+        },
+        {
+          "name": "clearExpired",
+          "description": "Clears cookies associated with this RESTHost expired by the given date.",
+          "parameters": "date: Date",
+          "returnType": "Boolean"
+        },
+        {
+          "name": "clone",
+          "description": "Creates a copy of the REST host.",
+          "parameters": "",
+          "returnType": "RESTHost"
+        },
+        {
+          "name": "newHostFromThis",
+          "description": "Creates a new host from this REST host.",
+          "parameters": "",
+          "returnType": "RESTHost"
+        },
+        {
+          "name": "addOperation",
+          "description": "Adds a new operation to the host.",
+          "parameters": "operation: RESTOperation",
+          "returnType": "RESTOperation"
+        },
+        {
+          "name": "updateOperation",
+          "description": "Updates a REST operation.",
+          "parameters": "operation: RESTOperation",
+          "returnType": "RESTOperation"
+        },
+        {
+          "name": "getOperation",
+          "description": "Retrieves an operation by id.",
+          "parameters": "id: String",
+          "returnType": "RESTOperation"
+        },
+        {
+          "name": "removeOperation",
+          "description": "Removes a REST operation from this host.",
+          "parameters": "id: String",
+          "returnType": "RESTOperation"
+        },
+        {
+          "name": "getOperations",
+          "description": "Retrieves all operation names.",
+          "parameters": "",
+          "returnType": "String[]"
+        },
+        {
+          "name": "addSchemaFromUrl",
+          "description": "Adds an XSD schema from a given URL.",
+          "parameters": "url: String",
+          "returnType": "String[]"
+        },
+        {
+          "name": "addSchemaFromXmlString",
+          "description": "Adds an XSD schema provided as a string.",
+          "parameters": "xml: String",
+          "returnType": "String[]"
+        },
+        {
+          "name": "removeAllSchemas",
+          "description": "Removes all associated XSD schemas from this host.",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "getSchemaElements",
+          "description": "Retrieves all XML elements for a given namespace, from XSD files for this host.",
+          "parameters": "namespace: String",
+          "returnType": "Any[]"
+        },
+        {
+          "name": "getSchemaNamespaces",
+          "description": "Retrieves all namespaces from XSD files for this host.",
+          "parameters": "",
+          "returnType": "String[]"
+        },
+        {
+          "name": "supportParallelRequests",
+          "description": "Check if the current REST host instance supports parallel request executions",
+          "parameters": "",
+          "returnType": "boolean"
+        },
+        {
+          "name": "createRequest",
+          "description": "Creates a RESTRequest using the host data.",
+          "parameters": "method: String, url: String, content: Any",
+          "returnType": "Request"
+        },
+        {
+          "name": "createRequestWithOptions",
+          "description": "Creates a RESTRequest using the host data.",
+          "parameters": "method: String, url: String, content: Any, options: RESTRequestOptions",
+          "returnType": "Request"
+        },
+        {
+          "name": "setAutoUrlRedirect",
+          "description": "(DEPRECATED) Set automatic URL redirection. If set to true, the generated HTTP request will automatically follow the URL redirects (upon HTTP response status 301, 302 and 307). Return true if the value is propagated. setRedirectStrategy method is to be used.",
+          "parameters": "autoRedirectEnabled: boolean",
+          "returnType": "void"
+        },
+        {
+          "name": "getAutoUrlRedirectEnabled",
+          "description": "(DEPRECATED) Check if the automatically redirection is enabled. getRedirectStrategy method is to be used.",
+          "parameters": "",
+          "returnType": "boolean"
+        },
+        {
+          "name": "setRedirectStrategy",
+          "description": "The chosen redirect strategy. Possible values are defaultRedirect, neverRedirect, alwaysRedirect.",
+          "parameters": "redirectStrategy: string",
+          "returnType": "Object"
+        },
+        {
+          "name": "getRedirectStrategy",
+          "description": "Returns which redirect strategy is used",
+          "parameters": "",
+          "returnType": "String"
+        },
+        {
+          "name": "executeRequestWithCredentials",
+          "description": "Executes a request with provided credentials. Supported only for hosts created with RESTHostManager.createTransientHostFrom() with HTTP Basic Authentication.",
+          "parameters": "method: String, url: String, content: Any, user: String, pass: String",
+          "returnType": "Response"
+        }
+      ]
+    },
+    {
+      "name": "RESTHostManager",
+      "description": "Provides CRUD operations for RootElement objects.",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "createHost",
+          "description": "Creates a RESTHost object.",
+          "parameters": "name: String",
+          "returnType": "RESTHost"
+        },
+        {
+          "name": "createHostSupportingParallelRequests",
+          "description": "Creates a RESTHost object with option to use new Http Context per request. With that setup the Rest Host supports parallel requests.",
+          "parameters": "name: String",
+          "returnType": "RESTHost"
+        },
+        {
+          "name": "addHost",
+          "description": "Adds a RESTHost object to the plug-in's inventory.",
+          "parameters": "host: RESTHost",
+          "returnType": "RESTHost"
+        },
+        {
+          "name": "updateHost",
+          "description": "Updates the specified RESTHost in the plug-in's inventory.",
+          "parameters": "host: RESTHost",
+          "returnType": "RESTHost"
+        },
+        {
+          "name": "removeHost",
+          "description": "Removes a RESTHost object from the plug-in's inventory.",
+          "parameters": "id: String",
+          "returnType": "RESTHost"
+        },
+        {
+          "name": "getHost",
+          "description": "Retrieves a RESTHost object by name.",
+          "parameters": "id: String",
+          "returnType": "RESTHost"
+        },
+        {
+          "name": "getHosts",
+          "description": "Retrieves an array of available host names.",
+          "parameters": "",
+          "returnType": "String[]"
+        },
+        {
+          "name": "reloadConfiguration",
+          "description": "Reloads the plug-in configuration.",
+          "parameters": "",
+          "returnType": "Object"
+        },
+        {
+          "name": "createWorkflow",
+          "description": "Generates a workflow from a REST operation.",
+          "parameters": "operation: RESTOperation, workflowName: String, category: WorkflowCategory, defaultContentType: String",
+          "returnType": "Workflow"
+        },
+        {
+          "name": "createWorkflowWithXsdInput",
+          "description": "Generates a workflow from a REST operation.",
+          "parameters": "operation: RESTOperation, workflowName: String, category: WorkflowCategory, namespace: String, elementName: String, defaultContentType: String",
+          "returnType": "Workflow"
+        },
+        {
+          "name": "createTransientHostFrom",
+          "description": "Creates a new transient (not persisted) host.",
+          "parameters": "restHostPrototype: RESTHost",
+          "returnType": "RESTHost"
+        },
+        {
+          "name": "createTransientOperationFrom",
+          "description": "Creates a new transient RESTOperation. If Tthe base URL of operation's host is changed, all subsequent requests to the operation will be executed against the new base URL (new host).",
+          "parameters": "restOperationPrototype: RESTOperation",
+          "returnType": "RESTOperation"
+        },
+        {
+          "name": "getOpenApiServiceUrl",
+          "description": "Get the OpenAPI service URL from OpenAPI spec and the preferred protocol",
+          "parameters": "openApiSpec: String, preferredUrl: String",
+          "returnType": "String"
+        },
+        {
+          "name": "createRESTHostFromOpenApiSpecString",
+          "description": "Creates rest host from OpenAPI spec provided as string",
+          "parameters": "hostName: String, openApiSpec: String, preferredUrl: String, params: java.util.Map",
+          "returnType": "RESTHost"
+        },
+        {
+          "name": "createRESTHostFromOpenApiUrl",
+          "description": "Creates rest host from OpenAPI url provided as string",
+          "parameters": "hostName: String, url: String, auths: AuthorizationValue[], preferredUrl: String, params: java.util.Map",
+          "returnType": "RESTHost"
+        },
+        {
+          "name": "getSwaggerServiceUrl",
+          "description": "Get the Swagger service URL from Swagger spec and the preferred protocol",
+          "parameters": "swaggerSpec: String, host: String, basePath: String, preferredCommunicationProtocol: String",
+          "returnType": "String"
+        },
+        {
+          "name": "createRESTHostFromSwaggerSpecUrl",
+          "description": "Adds a new operation from a URL.",
+          "parameters": "hostName: String, swaggerSpecUrl: String, auths: AuthorizationValue[], preferredCommunicationProtocol: String, params: java.util.Map",
+          "returnType": "RESTHost"
+        },
+        {
+          "name": "createRESTHostFromSwaggerSpecString",
+          "description": "Adds a new operation from string definition",
+          "parameters": "hostName: String, swaggerSpec: String, host: String, basePath: String, preferredCommunicationProtocol: String, params: java.util.Map",
+          "returnType": "RESTHost"
+        }
+      ]
+    },
+    {
+      "name": "RESTOperation",
+      "description": "REST plug-in operation object",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "String",
+          "description": "id",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Unique identifier of the operation",
+          "isReadonly": false
+        },
+        {
+          "name": "host",
+          "type": "RESTHost",
+          "description": "Parent RESTHost of this operation",
+          "isReadonly": false
+        },
+        {
+          "name": "inParametersCount",
+          "type": "number",
+          "description": "The count of the input parameters (all parameters defined in the URL template) for this operation",
+          "isReadonly": true
+        },
+        {
+          "name": "method",
+          "type": "string",
+          "description": "HTTP method of this operation (GET, HEAD, PATCH, POST, PUT, OPTIONS, TRACE or DELETE)",
+          "isReadonly": false
+        },
+        {
+          "name": "urlTemplate",
+          "type": "string",
+          "description": "The URL template for this operation (ex. /operation/{param1}?param2={param2})",
+          "isReadonly": false
+        },
+        {
+          "name": "defaultContentType",
+          "type": "string",
+          "description": "The default content type of the content input for this operation (meaningful for operations with method PUT or POST)",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "clone",
+          "description": "Creates a copy of the REST operation.",
+          "parameters": "",
+          "returnType": "RESTOperation"
+        },
+        {
+          "name": "newOperationFromThis",
+          "description": "Creates a new operation from this REST operation.",
+          "parameters": "",
+          "returnType": "RESTOperation"
+        },
+        {
+          "name": "createRequest",
+          "description": "Creates a RESTRequest by using the information contained in this operation and its parent host.",
+          "parameters": "params: String[], content: Any",
+          "returnType": "Request"
+        },
+        {
+          "name": "createRequestWithOptions",
+          "description": "Creates a RESTRequest by using the information contained in this operation and its parent host.",
+          "parameters": "params: String[], content: Any, options: RESTRequestOptions",
+          "returnType": "Request"
+        },
+        {
+          "name": "getInParameters",
+          "description": "Retrieves the names of URL template input parameters.",
+          "parameters": "",
+          "returnType": "String[]"
+        },
+        {
+          "name": "getHeaderParameters",
+          "description": "Retrieves the names of HTTP request headers.",
+          "parameters": "",
+          "returnType": "String[]"
+        },
+        {
+          "name": "getPathParamsCount",
+          "description": "The path parameters count.",
+          "parameters": "",
+          "returnType": "Number"
+        },
+        {
+          "name": "getDefaultContentType",
+          "description": "Get the default content type",
+          "parameters": "",
+          "returnType": "String"
+        },
+        {
+          "name": "getSupportedContentTypes",
+          "description": "Get the supported request body content type",
+          "parameters": "",
+          "returnType": "Set"
+        },
+        {
+          "name": "addSupportedContentType",
+          "description": "Add a supported content type",
+          "parameters": "supportedContentType: String",
+          "returnType": "void"
+        },
+        {
+          "name": "getSupportedAcceptHeaderMediaTypes",
+          "description": "Get supportet Accept header media types",
+          "parameters": "",
+          "returnType": "String[]"
+        },
+        {
+          "name": "addPreferredAcceptHeaderMediaType",
+          "description": "Add preferred media type for the Accept header",
+          "parameters": "mediaType: String",
+          "returnType": "void"
+        },
+        {
+          "name": "addSupportedAcceptHeaderMediaType",
+          "description": "Add supported media type for the Accept header]",
+          "parameters": "mediaType: String",
+          "returnType": "void"
+        },
+        {
+          "name": "isPathParamMandatory",
+          "description": "Is a mandatory path parameter.",
+          "parameters": "pathParamName: String",
+          "returnType": "boolean"
+        },
+        {
+          "name": "addMandatoryPathParameter",
+          "description": "Marks an existing path parameter as mandatory.",
+          "parameters": "mandatoryPathParamName: String",
+          "returnType": "void"
+        },
+        {
+          "name": "isQueryParamMandatory",
+          "description": "Check if query param is mandatory]",
+          "parameters": "queryParamName: String",
+          "returnType": "boolean"
+        },
+        {
+          "name": "addMandatoryQueryParameter",
+          "description": "Marks an existing query parameter as mandatory.",
+          "parameters": "mandatoryQueryParamName: String",
+          "returnType": "void"
+        },
+        {
+          "name": "isHeaderParamMandatory",
+          "description": "Is a mandatory header parameter.",
+          "parameters": "headerParamName: String",
+          "returnType": "boolean"
+        },
+        {
+          "name": "addMandatoryHeaderParameter",
+          "description": "Marks an existing header parameter as mandatory.",
+          "parameters": "mandatoryHeaderParamName: String",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "RESTRequest",
+      "description": "Utility class created from REST operation (or host), used to make the actual HTTP request.",
+      "attributes": [
+        {
+          "name": "fullUrl",
+          "type": "String",
+          "description": "Retrieves the full request URL - the one combining the host base URL and operation URL template with filled in input parameters",
+          "isReadonly": true
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "description": "The content type of the request",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "execute",
+          "description": "Runs the HTTP request.",
+          "parameters": "",
+          "returnType": "Response"
+        },
+        {
+          "name": "executeWithCredentials",
+          "description": "Runs the HTTP request with provided Basic HTTP Authentication credentials. This operation is supported only for requests executed against RESTHost that supports Basic HTTP Authentication.",
+          "parameters": "user: String, pass: String",
+          "returnType": "Response"
+        },
+        {
+          "name": "setHeader",
+          "description": "Sets an additional HTTP header to this request.",
+          "parameters": "header: String, value: String",
+          "returnType": "Response"
+        },
+        {
+          "name": "getMethod",
+          "description": "Get HTTP method of the request.",
+          "parameters": "",
+          "returnType": "String"
+        }
+      ]
+    },
+    {
+      "name": "RESTRequestOptions",
+      "description": "Options for a request",
+      "attributes": [
+        {
+          "name": "operationTimeout",
+          "type": "Number",
+          "description": "The operation timeout",
+          "isReadonly": false
+        },
+        {
+          "name": "connectionTimeout",
+          "type": "Number",
+          "description": "The connection timeout",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "RESTResponse",
+      "description": "Utility class used for HTTP server response.",
+      "attributes": [
+        {
+          "name": "contentAsString",
+          "type": "string",
+          "description": "The server's response content as a string",
+          "isReadonly": true
+        },
+        {
+          "name": "statusCode",
+          "type": "number",
+          "description": "The server's response status code",
+          "isReadonly": true
+        },
+        {
+          "name": "contentLength",
+          "type": "number",
+          "description": "The server's response content length",
+          "isReadonly": true
+        }
+      ],
+      "methods": [
+        {
+          "name": "getHeaderValues",
+          "description": "Retrieves the server's response header values per header with specified name",
+          "parameters": "headerName: String",
+          "returnType": "String[]"
+        },
+        {
+          "name": "getAllHeaders",
+          "description": "Retrieves the server's response headers as a Properties object.",
+          "parameters": "",
+          "returnType": "Properties"
+        }
+      ]
+    },
+    {
+      "name": "RESTUtils",
+      "description": "Various utility functions.",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "xml2json",
+          "description": "",
+          "parameters": "xmlString: String",
+          "returnType": "String"
+        },
+        {
+          "name": "xmlDate",
+          "description": "",
+          "parameters": "date: Date",
+          "returnType": "String"
+        },
+        {
+          "name": "xmlInt",
+          "description": "",
+          "parameters": "number: Number",
+          "returnType": "String"
+        }
+      ]
+    }
+  ]
 }

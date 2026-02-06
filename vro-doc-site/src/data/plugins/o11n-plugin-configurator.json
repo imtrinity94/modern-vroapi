@@ -392,13 +392,13 @@
           "name": "getKeys",
           "description": "Gets the list of Keystores.",
           "parameters": "",
-          "returnType": "Array/ConfiguratorKey"
+          "returnType": "ConfiguratorKey[]"
         },
         {
           "name": "getCAs",
           "description": "Gets the list of Certificates.",
           "parameters": "",
-          "returnType": "Array/ConfiguratorCertificate"
+          "returnType": "ConfiguratorCertificate[]"
         },
         {
           "name": "getAddEntryToKeystoreAction",
@@ -472,7 +472,7 @@
           "name": "getKeystores",
           "description": "Gets the list of Keystores.",
           "parameters": "",
-          "returnType": "Array/ConfiguratorKeystore"
+          "returnType": "ConfiguratorKeystore[]"
         }
       ]
     }

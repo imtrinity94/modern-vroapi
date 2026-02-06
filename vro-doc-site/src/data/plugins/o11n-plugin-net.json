@@ -114,19 +114,19 @@
           "name": "listAll",
           "description": "List files and directories in path.",
           "parameters": "basePath: String",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "listFile",
           "description": "List files ONLY in path.",
           "parameters": "basePath: String",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "listDir",
           "description": "List directories ONLY in path.",
           "parameters": "basePath: String",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "disconnect",
@@ -337,7 +337,7 @@
         {
           "name": "status",
           "description": "Send a STATUS command to the server.",
-          "parameters": "mailboxName: String, itemNames: Array/String",
+          "parameters": "mailboxName: String, itemNames: String[]",
           "returnType": "boolean"
         },
         {
@@ -380,7 +380,7 @@
           "name": "getReplyLines",
           "description": "Returns an array of lines received as a reply to the last command sent to the server. The lines have end of lines truncated.",
           "parameters": "",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         }
       ]
     },
@@ -460,7 +460,7 @@
           "name": "listMessages",
           "description": "List all messages. If there are no messages, this method returns a zero length array. If the list attempt fails, it returns null.",
           "parameters": "",
-          "returnType": "Array/POP3Message"
+          "returnType": "POP3Message[]"
         },
         {
           "name": "logout",
@@ -607,7 +607,7 @@
         {
           "name": "sendBinary",
           "description": "Get an OID value in the current session",
-          "parameters": "val: Array/Object",
+          "parameters": "val: Object[]",
           "returnType": "Object"
         },
         {
@@ -632,7 +632,7 @@
           "name": "receiveAsBinary",
           "description": "Get a response as an arrayof number",
           "parameters": "",
-          "returnType": "Array/Object"
+          "returnType": "Object[]"
         },
         {
           "name": "isAvailable",

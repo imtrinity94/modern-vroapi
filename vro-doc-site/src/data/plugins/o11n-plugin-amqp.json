@@ -101,7 +101,7 @@
         {
           "name": "subscribe",
           "description": "Subscribes to one or more queues.",
-          "parameters": "queues: Array/String, props: Any",
+          "parameters": "queues: String[], props: Any",
           "returnType": "AMQPSubscription"
         },
         {
@@ -197,7 +197,7 @@
         },
         {
           "name": "body",
-          "type": "Array/byte",
+          "type": "byte[]",
           "description": "Message body as byte array",
           "isReadonly": false
         },
@@ -240,7 +240,7 @@
         },
         {
           "name": "queues",
-          "type": "Array/String",
+          "type": "String[]",
           "description": "Array of the queue names to which this subscription is subscribed",
           "isReadonly": true
         }

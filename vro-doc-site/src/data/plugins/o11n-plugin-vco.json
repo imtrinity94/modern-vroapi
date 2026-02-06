@@ -28,14 +28,14 @@
         {
           "name": "deployPackage",
           "description": "Deploy specified package on list of target servers.Package information is exported from local server.",
-          "parameters": "pkg: ch.dunes.model.pkg.Package, servers: Array/VCORemoteServer, override: boolean",
-          "returnType": "Array/VCODeploymentStatus"
+          "parameters": "pkg: ch.dunes.model.pkg.Package, servers: VCORemoteServer[], override: boolean",
+          "returnType": "VCODeploymentStatus[]"
         },
         {
           "name": "deployRemotePackage",
           "description": "Deploys a specified package on s list of target servers. The package information is exported from the provided remote package.",
-          "parameters": "pkg: VCORemotePackage, targets: Array/VCORemoteServer, override: boolean",
-          "returnType": "Array/VCODeploymentStatus"
+          "parameters": "pkg: VCORemotePackage, targets: VCORemoteServer[], override: boolean",
+          "returnType": "VCODeploymentStatus[]"
         },
         {
           "name": "deployWorkflow",
@@ -66,7 +66,7 @@
           "name": "getMessages",
           "description": "Retrieves any additional information about the status of the deployment.",
           "parameters": "",
-          "returnType": "Array/com.vmware.o11n.plugin.vcoconn.model.deploy.Message"
+          "returnType": "com.vmware.o11n.plugin.vcoconn.model.deploy.Message[]"
         },
         {
           "name": "getTargetName",
@@ -135,19 +135,19 @@
           "name": "getRemoteServers",
           "description": "Retrieves a list of configured remote servers.",
           "parameters": "",
-          "returnType": "Array/VCORemoteServer"
+          "returnType": "VCORemoteServer[]"
         },
         {
           "name": "getAvailableRemoteServers",
           "description": "Retrieves a list of accessible remote servers.",
           "parameters": "",
-          "returnType": "Array/VCORemoteServer"
+          "returnType": "VCORemoteServer[]"
         },
         {
           "name": "findRemoteServersByHost",
           "description": "Retrieves a remote server by host.",
           "parameters": "host: String",
-          "returnType": "Array/VCORemoteServer"
+          "returnType": "VCORemoteServer[]"
         },
         {
           "name": "findRemoteServerByName",
@@ -196,7 +196,7 @@
           "name": "executeAsynchronousProxies",
           "description": "Used for running an asynchronous workflow proxies. Starts an asynchronous run of the remote workflow. Validates that the remote workflow and the parameters are from the same remote Automation Orchestrator server, and ensures that the arguments are of the correct type.",
           "parameters": "workflowId: String, params: java.util.Map",
-          "returnType": "Array/VCORemoteWorkflowToken"
+          "returnType": "VCORemoteWorkflowToken[]"
         },
         {
           "name": "createProxyActionForRemote",
@@ -596,13 +596,13 @@
           "name": "findAllWorkflows",
           "description": "Retrieves a list of available remote workflows.",
           "parameters": "",
-          "returnType": "Array/VCORemoteWorkflow"
+          "returnType": "VCORemoteWorkflow[]"
         },
         {
           "name": "findAllPackages",
           "description": "Retrieves a list of available remote packages.",
           "parameters": "",
-          "returnType": "Array/VCORemotePackage"
+          "returnType": "VCORemotePackage[]"
         }
       ]
     },

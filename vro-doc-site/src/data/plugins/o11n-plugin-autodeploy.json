@@ -23,7 +23,7 @@
           "name": "getUserInputParameters",
           "description": "Gets a list with all user input parameters of the answer file.",
           "parameters": "",
-          "returnType": "Array/UserInputParameter"
+          "returnType": "UserInputParameter[]"
         },
         {
           "name": "getId",
@@ -141,13 +141,13 @@
           "name": "getDeployRules",
           "description": "Returns deploy rules from the Rule Engine.",
           "parameters": "",
-          "returnType": "Array/DeployRule"
+          "returnType": "DeployRule[]"
         },
         {
           "name": "getHiddenRules",
           "description": "Returns all hidden rules from the rule engine.",
           "parameters": "",
-          "returnType": "Array/DeployRule"
+          "returnType": "DeployRule[]"
         },
         {
           "name": "getDeployRule",
@@ -159,13 +159,13 @@
           "name": "getWorkingDeployRules",
           "description": "Returns the deploy rules from the working rule set.",
           "parameters": "",
-          "returnType": "Array/DeployRule"
+          "returnType": "DeployRule[]"
         },
         {
           "name": "getActiveDeployRules",
           "description": "Returns deploy rules from the active rule set.",
           "parameters": "",
-          "returnType": "Array/DeployRule"
+          "returnType": "DeployRule[]"
         },
         {
           "name": "getActiveRuleSetSize",
@@ -237,13 +237,13 @@
           "name": "getHostMatchingRules",
           "description": "Retrieves all rules that apply to an ESXi host for a specific rule set.",
           "parameters": "esxHost: AutoDeployItem, ruleSetType: String",
-          "returnType": "Array/DelpoyRule"
+          "returnType": "DelpoyRule[]"
         },
         {
           "name": "testRuleSetCompliance",
           "description": "Checks whether the items associated with a specified ESXi host are in compliance with a specified rule set.",
           "parameters": "esxHost: AutoDeployItem, ruleSetType: String",
-          "returnType": "Array/CheckItemResult"
+          "returnType": "CheckItemResult[]"
         },
         {
           "name": "repairRuleSetCompliance",
@@ -284,7 +284,7 @@
         {
           "name": "applyImageProfile",
           "description": "Associates the specified image profile with the specified ESXi hosts.",
-          "parameters": "esxHosts: Array/AutoDeployItem, imageProfile: SoftwareImageProfile",
+          "parameters": "esxHosts: AutoDeployItem[], imageProfile: SoftwareImageProfile",
           "returnType": "Object"
         }
       ]
@@ -324,7 +324,7 @@
           "name": "getAutoDeploys",
           "description": "Returns a list of Auto Deploy hosts from the plug-in's repository.",
           "parameters": "",
-          "returnType": "Array/AutoDeploy"
+          "returnType": "AutoDeploy[]"
         },
         {
           "name": "getAutoDeploy",
@@ -449,7 +449,7 @@
         },
         {
           "name": "pxeProfilePackages",
-          "type": "Array/String",
+          "type": "String[]",
           "description": "PXE profile packages of the rule",
           "isReadonly": false
         },
@@ -493,7 +493,7 @@
         },
         {
           "name": "imageProfiles",
-          "type": "Array/SoftwareImageProfile",
+          "type": "SoftwareImageProfile[]",
           "description": "Image profiles of the software channel",
           "isReadonly": false
         }
@@ -525,7 +525,7 @@
         },
         {
           "name": "vendors",
-          "type": "Array/SoftwareVendor",
+          "type": "SoftwareVendor[]",
           "description": "Software vendors defined by the software depot.",
           "isReadonly": false
         }
@@ -569,7 +569,7 @@
         },
         {
           "name": "vibs",
-          "type": "Array/Vib",
+          "type": "Vib[]",
           "description": "List of VIBs of the image profile",
           "isReadonly": false
         }
@@ -594,7 +594,7 @@
         },
         {
           "name": "channels",
-          "type": "Array/SoftwareChannel",
+          "type": "SoftwareChannel[]",
           "description": "Software channels defined by the software vendor.",
           "isReadonly": false
         }
@@ -648,7 +648,7 @@
           "name": "getParameterKeys",
           "description": "Returns all the keys of the user input parameter.",
           "parameters": "",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "getKeyValue",

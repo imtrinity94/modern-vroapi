@@ -147,7 +147,7 @@
         },
         {
           "name": "queries",
-          "type": "Array/SNMPSnmpQuery",
+          "type": "SNMPSnmpQuery[]",
           "description": "",
           "isReadonly": false
         }
@@ -283,7 +283,7 @@
         },
         {
           "name": "arrayValue",
-          "type": "Array/Lcom.vmware.o11n.plugin.snmp.model.SnmpResult;",
+          "type": "Lcom.vmware.o11n.plugin.snmp.model.SnmpResult[];",
           "description": "",
           "isReadonly": false
         },

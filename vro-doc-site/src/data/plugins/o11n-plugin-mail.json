@@ -194,19 +194,19 @@
           "name": "getSubFolders",
           "description": "Returns a list of subfolders of the current folder.",
           "parameters": "",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "getSubscribedSubFolders",
           "description": "Returns a list of subfolders of the current folder.",
           "parameters": "",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "getUserNamespaces",
           "description": "Returns a set of folders representing the namespaces for a user.",
           "parameters": "userName: String",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "closeFolder",
@@ -218,61 +218,61 @@
           "name": "getMessage",
           "description": "Returns a message from the mail server.",
           "parameters": "msgNumber: String",
-          "returnType": "Array/ReceivedMessage"
+          "returnType": "ReceivedMessage[]"
         },
         {
           "name": "getMessagesBetween",
           "description": "Returns a list of messages from the mail server which have message numbers within a certain range.",
           "parameters": "startMsgNumber: String, endMsgNumber: String",
-          "returnType": "Array/ReceivedMessage"
+          "returnType": "ReceivedMessage[]"
         },
         {
           "name": "getMessages",
           "description": "Returns all messages in the current folder.",
           "parameters": "",
-          "returnType": "Array/ReceivedMessage"
+          "returnType": "ReceivedMessage[]"
         },
         {
           "name": "getUnseenMessages",
           "description": "Returns all unread messages in the current folder.",
           "parameters": "",
-          "returnType": "Array/ReceivedMessage"
+          "returnType": "ReceivedMessage[]"
         },
         {
           "name": "getRecentMessages",
           "description": "Returns all recent messages of the current folder.",
           "parameters": "",
-          "returnType": "Array/ReceivedMessage"
+          "returnType": "ReceivedMessage[]"
         },
         {
           "name": "getDeletedMessages",
           "description": "Returns all deleted messages from the current folder.",
           "parameters": "",
-          "returnType": "Array/ReceivedMessage"
+          "returnType": "ReceivedMessage[]"
         },
         {
           "name": "searchFromAddress",
           "description": "Returns all messages that contain a specific string in the \"From\" address attribute.",
           "parameters": "pattern: String",
-          "returnType": "Array/ReceivedMessage"
+          "returnType": "ReceivedMessage[]"
         },
         {
           "name": "searchRecipientAddress",
           "description": "Returns all messages that contain a specific string in the \"To\", \"Cc\" or \"Bcc\" address attributes.",
           "parameters": "pattern: String",
-          "returnType": "Array/ReceivedMessage"
+          "returnType": "ReceivedMessage[]"
         },
         {
           "name": "searchBodyMessage",
           "description": "Returns all messages that contain a specific string in the message body.",
           "parameters": "pattern: String",
-          "returnType": "Array/ReceivedMessage"
+          "returnType": "ReceivedMessage[]"
         },
         {
           "name": "searchSubjectMessage",
           "description": "Returns all messages that contain a specific string in the message subject.",
           "parameters": "pattern: String",
-          "returnType": "Array/ReceivedMessage"
+          "returnType": "ReceivedMessage[]"
         },
         {
           "name": "getMessageCount",
@@ -295,14 +295,14 @@
         {
           "name": "deleteMessages",
           "description": "Mark messages for deletion. Messages marked for deletion are deleted by the server only when the folder is closed or by explicitly invoking an 'expunge' method.",
-          "parameters": "msgNumbers: Array/String",
+          "parameters": "msgNumbers: String[]",
           "returnType": "void"
         },
         {
           "name": "expungeMessages",
           "description": "Expunge (permanently remove) all messages marked for deletion.",
           "parameters": "",
-          "returnType": "Array/ReceivedMessage"
+          "returnType": "ReceivedMessage[]"
         },
         {
           "name": "setMaxBodyPartSize",
@@ -417,13 +417,13 @@
       "attributes": [
         {
           "name": "from",
-          "type": "Array/String",
+          "type": "String[]",
           "description": "\"From\" attribute of the message as array of strings",
           "isReadonly": true
         },
         {
           "name": "to",
-          "type": "Array/String",
+          "type": "String[]",
           "description": "\"To\" attribute of the message as array of strings",
           "isReadonly": true
         },
@@ -435,19 +435,19 @@
         },
         {
           "name": "cc",
-          "type": "Array/String",
+          "type": "String[]",
           "description": "\"Cc\" attribute of the message as array of strings",
           "isReadonly": true
         },
         {
           "name": "bcc",
-          "type": "Array/String",
+          "type": "String[]",
           "description": "\"Bcc\" attribute of the message as array of strings",
           "isReadonly": true
         },
         {
           "name": "replyTo",
-          "type": "Array/String",
+          "type": "String[]",
           "description": "\"ReplyTo\" attribute of the message as array of strings",
           "isReadonly": true
         },

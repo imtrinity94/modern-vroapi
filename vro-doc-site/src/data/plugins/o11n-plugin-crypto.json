@@ -80,7 +80,7 @@
         },
         {
           "name": "subjectAlternativeNames",
-          "type": "Array/String",
+          "type": "String[]",
           "description": "A list of subject alternative names found in the certificate. Each will have a colon delimited prefix for the type of SAN found. ex: \"dns:\"",
           "isReadonly": true
         }
@@ -133,7 +133,7 @@
           "name": "getHttpsCertificate",
           "description": "Returns array of certificates presented by an https server",
           "parameters": "urlString: String",
-          "returnType": "Array/CryptoCertificate"
+          "returnType": "CryptoCertificate[]"
         }
       ]
     },
@@ -248,7 +248,7 @@
         {
           "name": "base64EncodeBytes",
           "description": "Base64 Encoder",
-          "parameters": "data: Array/byte",
+          "parameters": "data: byte[]",
           "returnType": "String"
         },
         {

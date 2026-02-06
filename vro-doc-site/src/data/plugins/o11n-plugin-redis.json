@@ -8,7 +8,7 @@
       "attributes": [
         {
           "name": "params",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "",
           "isReadonly": true
         }
@@ -21,7 +21,7 @@
       "attributes": [
         {
           "name": "databases",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "",
           "isReadonly": true
         },
@@ -142,13 +142,13 @@
           "name": "hvals",
           "description": "",
           "parameters": "key: String",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "geopos",
           "description": "",
-          "parameters": "key: String, members: Array/String",
-          "returnType": "Array/RedisGeoCoordinate"
+          "parameters": "key: String, members: String[]",
+          "returnType": "RedisGeoCoordinate[]"
         },
         {
           "name": "scriptFlush",
@@ -226,7 +226,7 @@
           "name": "zrevrangeByScore",
           "description": "",
           "parameters": "key: String, max: Number, min: Number, offset: Number, count: Number",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "zcard",
@@ -250,7 +250,7 @@
           "name": "zrangeByScore",
           "description": "",
           "parameters": "key: String, min: Number, max: Number, offset: Number, count: Number",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "pttl",
@@ -268,7 +268,7 @@
           "name": "zrange",
           "description": "",
           "parameters": "key: String, start: Number, end: Number",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "echo",
@@ -279,13 +279,13 @@
         {
           "name": "rpush",
           "description": "",
-          "parameters": "key: String, strings: Array/String",
+          "parameters": "key: String, strings: String[]",
           "returnType": "Number"
         },
         {
           "name": "lpushx",
           "description": "",
-          "parameters": "key: String, strings: Array/String",
+          "parameters": "key: String, strings: String[]",
           "returnType": "Number"
         },
         {
@@ -297,26 +297,26 @@
         {
           "name": "srem",
           "description": "",
-          "parameters": "key: String, members: Array/String",
+          "parameters": "key: String, members: String[]",
           "returnType": "Number"
         },
         {
           "name": "zrangeWithScores",
           "description": "",
           "parameters": "key: String, start: Number, end: Number",
-          "returnType": "Array/RedisTuple"
+          "returnType": "RedisTuple[]"
         },
         {
           "name": "hmget",
           "description": "",
-          "parameters": "key: String, fields: Array/String",
-          "returnType": "Array/String"
+          "parameters": "key: String, fields: String[]",
+          "returnType": "String[]"
         },
         {
           "name": "zrangeByScoreWithScores",
           "description": "",
           "parameters": "key: String, min: Number, max: Number, offset: Number, count: Number",
-          "returnType": "Array/RedisTuple"
+          "returnType": "RedisTuple[]"
         },
         {
           "name": "scard",
@@ -334,7 +334,7 @@
           "name": "zrevrangeByLex",
           "description": "",
           "parameters": "key: String, max: String, min: String, offset: Number, count: Number",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "move",
@@ -346,7 +346,7 @@
           "name": "sort",
           "description": "",
           "parameters": "key: String, sortingParams: RedisSortingParams",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "hset",
@@ -417,14 +417,14 @@
         {
           "name": "hdel",
           "description": "",
-          "parameters": "key: String, fields: Array/String",
+          "parameters": "key: String, fields: String[]",
           "returnType": "Number"
         },
         {
           "name": "zrevrangeByScoreWithScores",
           "description": "",
           "parameters": "key: String, max: Number, min: Number, offset: Number, count: Number",
-          "returnType": "Array/RedisTuple"
+          "returnType": "RedisTuple[]"
         },
         {
           "name": "hexists",
@@ -435,7 +435,7 @@
         {
           "name": "evalsha",
           "description": "",
-          "parameters": "sha1: String, keys: Array/String, args: Array/String",
+          "parameters": "sha1: String, keys: String[], args: String[]",
           "returnType": "Object"
         },
         {
@@ -483,8 +483,8 @@
         {
           "name": "geohash",
           "description": "",
-          "parameters": "key: String, members: Array/String",
-          "returnType": "Array/String"
+          "parameters": "key: String, members: String[]",
+          "returnType": "String[]"
         },
         {
           "name": "getSet",
@@ -495,7 +495,7 @@
         {
           "name": "lpush",
           "description": "",
-          "parameters": "key: String, strings: Array/String",
+          "parameters": "key: String, strings: String[]",
           "returnType": "Number"
         },
         {
@@ -513,7 +513,7 @@
         {
           "name": "eval",
           "description": "",
-          "parameters": "script: String, keys: Array/String, args: Array/String",
+          "parameters": "script: String, keys: String[], args: String[]",
           "returnType": "Object"
         },
         {
@@ -526,7 +526,7 @@
           "name": "smembers",
           "description": "",
           "parameters": "key: String",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "zremrangeByScore",
@@ -568,7 +568,7 @@
           "name": "hkeys",
           "description": "",
           "parameters": "key: String",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "expire",
@@ -580,12 +580,12 @@
           "name": "zrevrangeWithScores",
           "description": "",
           "parameters": "key: String, start: Number, end: Number",
-          "returnType": "Array/RedisTuple"
+          "returnType": "RedisTuple[]"
         },
         {
           "name": "rpushx",
           "description": "",
-          "parameters": "key: String, strings: Array/String",
+          "parameters": "key: String, strings: String[]",
           "returnType": "Number"
         },
         {
@@ -640,13 +640,13 @@
           "name": "lrange",
           "description": "",
           "parameters": "key: String, start: Number, end: Number",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "zrevrange",
           "description": "",
           "parameters": "key: String, start: Number, end: Number",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "hscan",
@@ -664,12 +664,12 @@
           "name": "zrangeByLex",
           "description": "",
           "parameters": "key: String, min: String, max: String, offset: Number, count: Number",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "pfadd",
           "description": "",
-          "parameters": "key: String, elements: Array/String",
+          "parameters": "key: String, elements: String[]",
           "returnType": "Number"
         },
         {
@@ -687,7 +687,7 @@
         {
           "name": "zrem",
           "description": "",
-          "parameters": "key: String, members: Array/String",
+          "parameters": "key: String, members: String[]",
           "returnType": "Number"
         },
         {
@@ -705,14 +705,14 @@
         {
           "name": "sadd",
           "description": "",
-          "parameters": "key: String, members: Array/String",
+          "parameters": "key: String, members: String[]",
           "returnType": "Number"
         },
         {
           "name": "brpop",
           "description": "",
           "parameters": "timeout: Number, key: String",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         }
       ]
     },
@@ -744,7 +744,7 @@
           "name": "values",
           "description": "",
           "parameters": "",
-          "returnType": "Array/RedisGeoUnit"
+          "returnType": "RedisGeoUnit[]"
         },
         {
           "name": "name",
@@ -791,7 +791,7 @@
       "attributes": [
         {
           "name": "params",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "",
           "isReadonly": true
         }
@@ -806,7 +806,7 @@
         {
           "name": "match",
           "description": "",
-          "parameters": "pattern: Array/Number",
+          "parameters": "pattern: Number[]",
           "returnType": "RedisScanParams"
         },
         {
@@ -829,13 +829,13 @@
         },
         {
           "name": "result",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "",
           "isReadonly": true
         },
         {
           "name": "cursorAsBytes",
-          "type": "Array/Number",
+          "type": "Number[]",
           "description": "",
           "isReadonly": true
         },
@@ -854,7 +854,7 @@
       "attributes": [
         {
           "name": "params",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "",
           "isReadonly": true
         }
@@ -893,7 +893,7 @@
         {
           "name": "get",
           "description": "",
-          "parameters": "patterns: Array/String",
+          "parameters": "patterns: String[]",
           "returnType": "RedisSortingParams"
         },
         {
@@ -937,7 +937,7 @@
         {
           "name": "RedisTuple",
           "description": "",
-          "parameters": "element: Array/Number, score: Number",
+          "parameters": "element: Number[], score: Number",
           "returnType": "void"
         },
         {
@@ -960,7 +960,7 @@
       "attributes": [
         {
           "name": "byteParams",
-          "type": "Array/[Number",
+          "type": "Number[]",
           "description": "",
           "isReadonly": true
         }
@@ -993,8 +993,8 @@
         {
           "name": "getByteParams",
           "description": "",
-          "parameters": "key: Array/Number, args: Array/[Number",
-          "returnType": "Array/[Number"
+          "parameters": "key: Number[], args: Number[]",
+          "returnType": "Number[]"
         },
         {
           "name": "getParam",
@@ -1028,7 +1028,7 @@
       "attributes": [
         {
           "name": "byteParams",
-          "type": "Array/[Number",
+          "type": "Number[]",
           "description": "",
           "isReadonly": true
         }
@@ -1049,8 +1049,8 @@
         {
           "name": "getByteParams",
           "description": "",
-          "parameters": "key: Array/Number, args: Array/[Number",
-          "returnType": "Array/[Number"
+          "parameters": "key: Number[], args: Number[]",
+          "returnType": "Number[]"
         },
         {
           "name": "getParam",

@@ -56,7 +56,7 @@
         },
         {
           "name": "tags",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of tag keys and optional values that were set on this resource.",
           "isReadonly": false
         },
@@ -68,7 +68,7 @@
         },
         {
           "name": "cloudAccountIds",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "Set of ids of the cloud accounts this resource belongs to.",
           "isReadonly": false
         },
@@ -196,7 +196,7 @@
         },
         {
           "name": "content",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "List of content items",
           "isReadonly": true
         },
@@ -263,7 +263,7 @@
         },
         {
           "name": "constraints",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "Constraints that are used to drive placement policies for the block device that is produced from this specification. Constraint expressions are matched against tags on existing placement targets.",
           "isReadonly": false
         },
@@ -275,7 +275,7 @@
         },
         {
           "name": "tags",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of tag keys and optional values that should be set on any resource that is produced from this specification.",
           "isReadonly": false
         }
@@ -325,7 +325,7 @@
         },
         {
           "name": "networkInterfaceSpecifications",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of network interface controller specifications for this machine. If not specified, then no reconfiguration will be performed.",
           "isReadonly": false
         },
@@ -423,7 +423,7 @@
         },
         {
           "name": "tags",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of tag keys and optional values that were set on the Cloud Account",
           "isReadonly": false
         },
@@ -435,7 +435,7 @@
         },
         {
           "name": "enabledRegions",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A list of regions that are enabled for provisioning on this cloud account",
           "isReadonly": false
         },
@@ -557,7 +557,7 @@
         },
         {
           "name": "tags",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of tag keys and optional values that were set on the Cloud Account",
           "isReadonly": false
         },
@@ -655,7 +655,7 @@
         },
         {
           "name": "content",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "List of content items",
           "isReadonly": true
         },
@@ -698,7 +698,7 @@
         },
         {
           "name": "tags",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of tag keys and optional values that were set on the Cloud Account",
           "isReadonly": false
         },
@@ -790,7 +790,7 @@
         },
         {
           "name": "content",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "List of content items",
           "isReadonly": true
         },
@@ -809,7 +809,7 @@
       "attributes": [
         {
           "name": "externalRegions",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of regions that can be enabled for this cloud account.",
           "isReadonly": false
         }
@@ -841,7 +841,7 @@
         },
         {
           "name": "content",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "List of content items",
           "isReadonly": true
         },
@@ -951,7 +951,7 @@
         },
         {
           "name": "tags",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of tag keys and optional values that were set on the Cloud Account",
           "isReadonly": false
         },
@@ -963,7 +963,7 @@
         },
         {
           "name": "enabledRegions",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A list of regions that are enabled for provisioning on this cloud account",
           "isReadonly": false
         },
@@ -1110,7 +1110,7 @@
         },
         {
           "name": "content",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "List of content items",
           "isReadonly": true
         },
@@ -1153,13 +1153,13 @@
         },
         {
           "name": "associatedCloudAccountIds",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "NSX-V or NSX-T account to associate with this vSphere cloud account. vSphere cloud account can be a single NSX-V cloud account or a single NSX-T cloud account.",
           "isReadonly": false
         },
         {
           "name": "regions",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of regions to enable provisioning on.Refer to /iaas/api/cloud-accounts/region-enumeration.",
           "isReadonly": false
         },
@@ -1189,7 +1189,7 @@
         },
         {
           "name": "tags",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of tag keys and optional values to set on the Cloud Account",
           "isReadonly": false
         }
@@ -1344,7 +1344,7 @@
         },
         {
           "name": "content",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "List of content items",
           "isReadonly": true
         },
@@ -1565,7 +1565,7 @@
         },
         {
           "name": "tags",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of tag keys and optional values that have to be set on the snapshot in the cloud. Currently supported for Azure Snapshots",
           "isReadonly": false
         }
@@ -1615,7 +1615,7 @@
         },
         {
           "name": "tags",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of tag keys and optional values that have to be set on the snapshot in the cloud. Currently supported for Azure Snapshots",
           "isReadonly": false
         }
@@ -1650,7 +1650,7 @@
           "name": "getTags",
           "description": "Get all tags.",
           "parameters": "vRAHost: VraHost, filter: String",
-          "returnType": "Array/VraTag"
+          "returnType": "VraTag[]"
         },
         {
           "name": "getCloudZone",
@@ -1662,19 +1662,19 @@
           "name": "getFabricNetworks",
           "description": "Get all FabricNetwork for a given Host.",
           "parameters": "vRAHost: VraHost, filter: String",
-          "returnType": "Array/VraFabricNetwork"
+          "returnType": "VraFabricNetwork[]"
         },
         {
           "name": "getCloudZones",
           "description": "Get all CloudZones for the given Host.",
           "parameters": "vRAHost: VraHost, filter: String",
-          "returnType": "Array/VraZone"
+          "returnType": "VraZone[]"
         },
         {
           "name": "getFlavorProfiles",
           "description": "Get all FlavorProfile objects for a given Host.",
           "parameters": "vRAHost: VraHost",
-          "returnType": "Array/VraFlavorProfile"
+          "returnType": "VraFlavorProfile[]"
         },
         {
           "name": "getStorageProfile",
@@ -1710,13 +1710,13 @@
           "name": "getDataCollectors",
           "description": "Get all Data Collectors/Cloud Proxies.",
           "parameters": "vRAHost: VraHost, isDisabledDataCollector: Boolean",
-          "returnType": "Array/VraDataCollector"
+          "returnType": "VraDataCollector[]"
         },
         {
           "name": "getAllImageMapping",
           "description": "Get all image mapping keys for a given Host.",
           "parameters": "vRAHost: VraHost",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "getNsxVCloudAccount",
@@ -1734,19 +1734,19 @@
           "name": "getAllImageReferencesByImage",
           "description": "Get all image reference keys for a given Host and Image.",
           "parameters": "vRAHost: VraHost, image: String",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "getRequestTrackers",
           "description": "Get all RequestTracker objects.",
           "parameters": "vRAHost: VraHost",
-          "returnType": "Array/VraRequestTracker"
+          "returnType": "VraRequestTracker[]"
         },
         {
           "name": "getNsxVCloudAccounts",
           "description": "Get all NSX-V Cloud Account.",
           "parameters": "vRAHost: VraHost",
-          "returnType": "Array/VraCloudAccountNsxV"
+          "returnType": "VraCloudAccountNsxV[]"
         },
         {
           "name": "getVsphereCloudAccountRegions",
@@ -1758,13 +1758,13 @@
           "name": "getBlockDeviceSnapshots",
           "description": "Get all BlockDevice/Disk snapshots for a given BlockDevice/Disk Id.",
           "parameters": "vRAHost: VraHost, blockDeviceId: String",
-          "returnType": "Array/VraDiskSnapshot"
+          "returnType": "VraDiskSnapshot[]"
         },
         {
           "name": "getImageProfiles",
           "description": "Get all ImageProfile objects for a given Host.",
           "parameters": "vRAHost: VraHost",
-          "returnType": "Array/VraImageProfile"
+          "returnType": "VraImageProfile[]"
         },
         {
           "name": "getBlockDeviceSnapshot",
@@ -1788,19 +1788,19 @@
           "name": "getMachineDisksByMachineId",
           "description": "Get all Machine Disks for a given machine.",
           "parameters": "vRAHost: VraHost, machineId: String",
-          "returnType": "Array/VraBlockDevice"
+          "returnType": "VraBlockDevice[]"
         },
         {
           "name": "getAvailableBlockDevices",
           "description": "Get Available BlockDevices for a given Host.",
           "parameters": "vRAHost: VraHost, filter: String",
-          "returnType": "Array/VraBlockDevice"
+          "returnType": "VraBlockDevice[]"
         },
         {
           "name": "getNetworks",
           "description": "Get all Networks.",
           "parameters": "vRAHost: VraHost",
-          "returnType": "Array/VraNetwork"
+          "returnType": "VraNetwork[]"
         },
         {
           "name": "getMachineDisk",
@@ -1812,19 +1812,19 @@
           "name": "getTagsByKey",
           "description": "Get tags by key.",
           "parameters": "vRAHost: VraHost, key: String, filter: String",
-          "returnType": "Array/VraTag"
+          "returnType": "VraTag[]"
         },
         {
           "name": "getVsphereCloudAccounts",
           "description": "Get all vSphere Cloud Accounts.",
           "parameters": "vRAHost: VraHost",
-          "returnType": "Array/VraCloudAccountVsphere"
+          "returnType": "VraCloudAccountVsphere[]"
         },
         {
           "name": "getAllFlavorMapping",
           "description": "Get all flavor mapping keys for a given Host.",
           "parameters": "vRAHost: VraHost",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "getMachineNetworkInterface",
@@ -1842,7 +1842,7 @@
           "name": "getMachineSnapshots",
           "description": "Get all Snapshots for a given Machine.",
           "parameters": "vRAHost: VraHost, machineId: String",
-          "returnType": "Array/VraSnapshot"
+          "returnType": "VraSnapshot[]"
         },
         {
           "name": "getCloudAccount",
@@ -1854,7 +1854,7 @@
           "name": "getMachines",
           "description": "Get all Machines for a given Host.",
           "parameters": "vRAHost: VraHost, filter: String",
-          "returnType": "Array/VraMachine"
+          "returnType": "VraMachine[]"
         },
         {
           "name": "getRequestTracker",
@@ -1866,19 +1866,19 @@
           "name": "getNsxTCloudAccounts",
           "description": "Get all NSX-T Cloud Account.",
           "parameters": "vRAHost: VraHost",
-          "returnType": "Array/VraCloudAccountNsxT"
+          "returnType": "VraCloudAccountNsxT[]"
         },
         {
           "name": "getProjects",
           "description": "Get all projects with specified paging parameters for the given Host.",
           "parameters": "vRAHost: VraHost, filter: String",
-          "returnType": "Array/VraProject"
+          "returnType": "VraProject[]"
         },
         {
           "name": "getMachineNetworkInterfaces",
           "description": "Get all Network Interfaces for a given Machine.",
           "parameters": "vRAHost: VraHost, machineId: String",
-          "returnType": "Array/VraNetworkInterface"
+          "returnType": "VraNetworkInterface[]"
         },
         {
           "name": "getNsxTCloudAccount",
@@ -1896,7 +1896,7 @@
           "name": "getNetworkProfiles",
           "description": "Get all NetworkProfile objects for a given Host.",
           "parameters": "vRAHost: VraHost",
-          "returnType": "Array/VraNetworkProfile"
+          "returnType": "VraNetworkProfile[]"
         },
         {
           "name": "getCloudZoneRegion",
@@ -1914,13 +1914,13 @@
           "name": "getStorageProfiles",
           "description": "Get all StorageProfile objects for a given Host.",
           "parameters": "vRAHost: VraHost",
-          "returnType": "Array/VraStorageProfile"
+          "returnType": "VraStorageProfile[]"
         },
         {
           "name": "getCloudZoneRegions",
           "description": "Get all Cloud zone Region.",
           "parameters": "vRAHost: VraHost",
-          "returnType": "Array/VraRegion"
+          "returnType": "VraRegion[]"
         },
         {
           "name": "getDataCollector",
@@ -1932,7 +1932,7 @@
           "name": "getAllFlavorReferencesByFlavor",
           "description": "Get all flavor references for a given Host and flavor.",
           "parameters": "vRAHost: VraHost, flavor: String",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "getBlockDevice",
@@ -1944,13 +1944,13 @@
           "name": "getCloudAccounts",
           "description": "Get all Cloud Accounts - Vsphere, NSXT, NXTV, AWS, Azure, GCP etc.",
           "parameters": "vRAHost: VraHost, filter: String",
-          "returnType": "Array/VraCloudAccount"
+          "returnType": "VraCloudAccount[]"
         },
         {
           "name": "getBlockDevices",
           "description": "Get all BlockDevice for a given Host.",
           "parameters": "vRAHost: VraHost, filter: String",
-          "returnType": "Array/VraBlockDevice"
+          "returnType": "VraBlockDevice[]"
         },
         {
           "name": "getFlavorProfile",
@@ -2075,13 +2075,13 @@
         },
         {
           "name": "tags",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of tag keys and optional values that were set on this resource instance.",
           "isReadonly": false
         },
         {
           "name": "cloudAccountIds",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "Set of ids of the cloud accounts this entity belongs to.",
           "isReadonly": false
         },
@@ -2203,7 +2203,7 @@
         },
         {
           "name": "content",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "List of content items",
           "isReadonly": true
         },
@@ -2370,7 +2370,7 @@
         },
         {
           "name": "content",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "List of content items",
           "isReadonly": true
         },
@@ -2590,7 +2590,7 @@
           "name": "findHostsByType",
           "description": "Get All Automation Host by ConnectionType.",
           "parameters": "connectionType: String",
-          "returnType": "Array/VraHost"
+          "returnType": "VraHost[]"
         },
         {
           "name": "delete",
@@ -2618,7 +2618,7 @@
       "attributes": [
         {
           "name": "hrefs",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "Get hrefs",
           "isReadonly": false
         },
@@ -2724,7 +2724,7 @@
         },
         {
           "name": "constraints",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "Constraints that are used to drive placement policies for the image that is produced from this mapping.Constraint expressions are matched against tags on existing placement targets.",
           "isReadonly": false
         },
@@ -2736,7 +2736,7 @@
         },
         {
           "name": "cloudAccountIds",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "Set of ids of the cloud accounts this entity belongs to.",
           "isReadonly": false
         },
@@ -2920,7 +2920,7 @@
         },
         {
           "name": "content",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "List of content items",
           "isReadonly": true
         },
@@ -3092,7 +3092,7 @@
         },
         {
           "name": "cloudAccountIds",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "Set of ids of the cloud accounts this resource belongs to.",
           "isReadonly": false
         },
@@ -3176,7 +3176,7 @@
         },
         {
           "name": "tags",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of tag keys and optional values that were set on this resource.",
           "isReadonly": false
         },
@@ -3306,7 +3306,7 @@
         },
         {
           "name": "content",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "List of content items",
           "isReadonly": true
         },
@@ -3453,13 +3453,13 @@
         },
         {
           "name": "disks",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of disk specifications for this machine.",
           "isReadonly": false
         },
         {
           "name": "imageDiskConstraints",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "Constraints that are used to drive placement policies for the image disk. Constraint expressions are matched against tags on existing placement targets.",
           "isReadonly": false
         },
@@ -3471,7 +3471,7 @@
         },
         {
           "name": "constraints",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "Constraints that are used to drive placement policies for the virtual machine that is produced from this specification. Constraint expressions are matched against tags on existing placement targets.",
           "isReadonly": false
         },
@@ -3483,7 +3483,7 @@
         },
         {
           "name": "tags",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of tag keys and optional values that should be set on any resource that is produced from this specification.",
           "isReadonly": false
         },
@@ -3519,7 +3519,7 @@
         },
         {
           "name": "nics",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of network interface controller specifications for this machine. If not specified, then a default network connection will be created.",
           "isReadonly": false
         },
@@ -3653,13 +3653,13 @@
         },
         {
           "name": "tags",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of tag keys and optional values that were set on this resource.",
           "isReadonly": false
         },
         {
           "name": "cloudAccountIds",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "Set of ids of the cloud accounts this resource belongs to.",
           "isReadonly": false
         },
@@ -3781,7 +3781,7 @@
         },
         {
           "name": "addresses",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A list of IP addresses allocated or in use by this network interface.",
           "isReadonly": false
         },
@@ -3817,13 +3817,13 @@
         },
         {
           "name": "tags",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of tag keys and optional values that were set on this network interface.",
           "isReadonly": false
         },
         {
           "name": "cloudAccountIds",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "Set of ids of the cloud accounts this entity belongs to.",
           "isReadonly": false
         },
@@ -3835,7 +3835,7 @@
         },
         {
           "name": "securityGroupIds",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A list of security group ids this network interface is associated with",
           "isReadonly": false
         },
@@ -3921,7 +3921,7 @@
       "attributes": [
         {
           "name": "addresses",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A list of IP addresses allocated or in use by this network interface.",
           "isReadonly": false
         },
@@ -3933,7 +3933,7 @@
         },
         {
           "name": "securityGroupIds",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A list of security group ids which this network interface will be assigned to.",
           "isReadonly": false
         },
@@ -4043,7 +4043,7 @@
         },
         {
           "name": "tags",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of tag keys and optional values that were set on this Network Profile.",
           "isReadonly": false
         },
@@ -4141,7 +4141,7 @@
         },
         {
           "name": "content",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "List of content items",
           "isReadonly": true
         },
@@ -4240,7 +4240,7 @@
         },
         {
           "name": "constraints",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "Constraints that are used to drive placement policies for the network that is produced from this specification, related with the network profile. Constraint expressions are matched against tags on existing placement targets.",
           "isReadonly": false
         },
@@ -4252,7 +4252,7 @@
         },
         {
           "name": "tags",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of tag keys and optional values that should be set on any resource that is produced from this specification.",
           "isReadonly": false
         }
@@ -4332,7 +4332,7 @@
         },
         {
           "name": "zones",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "List of Cloud Zones assigned to this project. You can limit deployment to a single region or allow multi-region placement by adding more than one cloud zone to a project. A cloud zone lists available resources. Use tags on resources to control workload placement.",
           "isReadonly": false
         },
@@ -4356,7 +4356,7 @@
         },
         {
           "name": "viewers",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "List of viewer users associated with the project.",
           "isReadonly": false
         },
@@ -4374,7 +4374,7 @@
         },
         {
           "name": "members",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "List of member users associated with the project.",
           "isReadonly": false
         },
@@ -4416,7 +4416,7 @@
         },
         {
           "name": "administrators",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "List of administrator users associated with the project. Only administrators can manage project's configuration.",
           "isReadonly": false
         },
@@ -4479,7 +4479,7 @@
         {
           "name": "putConstraintsItem",
           "description": "",
-          "parameters": "key: String, constraintsItem: Array/VraConstraint",
+          "parameters": "key: String, constraintsItem: VraConstraint[]",
           "returnType": "VraProject"
         }
       ]
@@ -4502,7 +4502,7 @@
         },
         {
           "name": "tags",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A list of keys and optional values to be applied to compute resources provisioned in a project",
           "isReadonly": false
         }
@@ -4528,7 +4528,7 @@
       "attributes": [
         {
           "name": "tags",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A list of keys and optional values to be applied to compute resources provisioned in a project",
           "isReadonly": false
         }
@@ -4560,7 +4560,7 @@
         },
         {
           "name": "content",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "List of content items",
           "isReadonly": true
         },
@@ -4628,7 +4628,7 @@
       "attributes": [
         {
           "name": "viewers",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "List of viewer users associated with the project.",
           "isReadonly": false
         },
@@ -4652,13 +4652,13 @@
         },
         {
           "name": "members",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "List of member users associated with the project.",
           "isReadonly": false
         },
         {
           "name": "zoneAssignmentConfigurations",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "List of configurations for zone assignment to a project.",
           "isReadonly": false
         },
@@ -4682,7 +4682,7 @@
         },
         {
           "name": "administrators",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "List of administrator users associated with the project. Only administrators can manage project's configuration.",
           "isReadonly": false
         }
@@ -4697,7 +4697,7 @@
         {
           "name": "putConstraintsItem",
           "description": "",
-          "parameters": "key: String, constraintsItem: Array/VraConstraint",
+          "parameters": "key: String, constraintsItem: VraConstraint[]",
           "returnType": "VraProjectSpecification"
         },
         {
@@ -4824,7 +4824,7 @@
         },
         {
           "name": "content",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "List of content items",
           "isReadonly": true
         },
@@ -4954,7 +4954,7 @@
         },
         {
           "name": "resources",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "Collection of resources.",
           "isReadonly": false
         },
@@ -5028,7 +5028,7 @@
         },
         {
           "name": "content",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "List of content items",
           "isReadonly": true
         },
@@ -5119,7 +5119,7 @@
           "name": "getHeaderValues",
           "description": "Retrieves the server's response header values per header with specific name.",
           "parameters": "headerName: String",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         }
       ]
     },
@@ -5153,7 +5153,7 @@
         },
         {
           "name": "stateFiles",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "List of state files to run on the deployed minion.",
           "isReadonly": false
         },
@@ -5411,7 +5411,7 @@
         },
         {
           "name": "tags",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A list of tags that represent the capabilities of this storage profile",
           "isReadonly": false
         },
@@ -5521,7 +5521,7 @@
         },
         {
           "name": "content",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "List of content items",
           "isReadonly": true
         },
@@ -5602,7 +5602,7 @@
         },
         {
           "name": "content",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "List of content items",
           "isReadonly": true
         },
@@ -5664,13 +5664,13 @@
         },
         {
           "name": "associatedCloudAccountIds",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "NSX-V or NSX-T account to associate with this vSphere cloud account. vSphere cloud account can be a single NSX-V cloud account or a single NSX-T cloud account.",
           "isReadonly": false
         },
         {
           "name": "regions",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of regions to enable provisioning on.Refer to /iaas/api/cloud-accounts/region-enumeration.",
           "isReadonly": false
         },
@@ -5700,7 +5700,7 @@
         },
         {
           "name": "tags",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of tag keys and optional values to set on the Cloud Account",
           "isReadonly": false
         }
@@ -5744,7 +5744,7 @@
         },
         {
           "name": "tags",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of tag keys and optional values that should be set on any resource that is produced from this specification.",
           "isReadonly": false
         }
@@ -5831,7 +5831,7 @@
         },
         {
           "name": "tags",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of tag keys and optional values that were set on this placement.",
           "isReadonly": false
         },
@@ -5849,7 +5849,7 @@
         },
         {
           "name": "tagsToMatch",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of tag keys and optional values for compute resource filtering.",
           "isReadonly": false
         },
@@ -6063,7 +6063,7 @@
         },
         {
           "name": "content",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "List of content items",
           "isReadonly": true
         },
@@ -6088,13 +6088,13 @@
         },
         {
           "name": "computeIds",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "The ids of the compute resources that will be explicitly assigned to this zone",
           "isReadonly": false
         },
         {
           "name": "tagsToMatch",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of tag keys and optional values that will be used",
           "isReadonly": false
         },
@@ -6124,7 +6124,7 @@
         },
         {
           "name": "tags",
-          "type": "Array/Object",
+          "type": "Object[]",
           "description": "A set of tag keys and optional values that are effectively applied to all compute resources in this zone, but only in the context of this zone.",
           "isReadonly": false
         }

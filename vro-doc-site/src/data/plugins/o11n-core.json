@@ -1135,7 +1135,7 @@
         {
           "name": "list",
           "description": "List files / directories that end with the specified extension.",
-          "returnType": "[String",
+          "returnType": "String[]",
           "parameters": "Object extension"
         },
         {
@@ -1511,7 +1511,7 @@
         {
           "name": "retrieveAll",
           "description": "Retrieve all locks.",
-          "returnType": "[string",
+          "returnType": "string[]",
           "parameters": ""
         }
       ],
@@ -2001,7 +2001,7 @@
         {
           "name": "getEventsByTag",
           "description": "Returns all tags and their corresponding events.",
-          "returnType": "[Properties",
+          "returnType": "Properties[]",
           "parameters": ""
         },
         {
@@ -2509,13 +2509,13 @@
         {
           "name": "query",
           "description": "Return all the objects of the given type and matching the query expression.",
-          "returnType": "[Object",
+          "returnType": "Object[]",
           "parameters": "string type, string queryExp, number maxCount"
         },
         {
           "name": "findAllForType",
           "description": "Return all the objects of the given type.",
-          "returnType": "[Object",
+          "returnType": "Object[]",
           "parameters": "string type, string query"
         },
         {
@@ -2563,13 +2563,13 @@
         {
           "name": "searchLdapUsers",
           "description": "Return all ldap users matching the query's name",
-          "returnType": "[LdapUser",
+          "returnType": "LdapUser[]",
           "parameters": "string query, Number limit"
         },
         {
           "name": "searchLdapGroups",
           "description": "Return all ldap groups matching the query's name",
-          "returnType": "[LdapGroup",
+          "returnType": "LdapGroup[]",
           "parameters": "string query, Number limit"
         },
         {
@@ -2587,25 +2587,25 @@
         {
           "name": "getAllPluginTypes",
           "description": "Return list of all registered plugin types in the server.",
-          "returnType": "[Object",
+          "returnType": "Object[]",
           "parameters": ""
         },
         {
           "name": "getAllNamesForType",
           "description": "Return list of all attribute names for the given type.",
-          "returnType": "[string",
+          "returnType": "string[]",
           "parameters": "string type"
         },
         {
           "name": "getAllDisplayNamesForType",
           "description": "Return list of all attribute display name for the given type.",
-          "returnType": "[string",
+          "returnType": "string[]",
           "parameters": "string type"
         },
         {
           "name": "getAllDescriptionsForType",
           "description": "Return list of all attribute description for the given type.",
-          "returnType": "[string",
+          "returnType": "string[]",
           "parameters": "string type"
         },
         {
@@ -2617,7 +2617,7 @@
         {
           "name": "getAllWorkflowCategories",
           "description": "Return all workflow categories.",
-          "returnType": "[WorkflowCategory",
+          "returnType": "WorkflowCategory[]",
           "parameters": ""
         },
         {
@@ -2653,13 +2653,13 @@
         {
           "name": "getAllPolicyTemplateCategories",
           "description": "Return all policy template categories.",
-          "returnType": "[PolicyTemplateCategory",
+          "returnType": "PolicyTemplateCategory[]",
           "parameters": ""
         },
         {
           "name": "getAllPluginInfo",
           "description": "Return all Plugin modules information.",
-          "returnType": "[PluginModuleDescription",
+          "returnType": "PluginModuleDescription[]",
           "parameters": ""
         },
         {
@@ -2689,19 +2689,19 @@
         {
           "name": "getCustomPropertyKeys",
           "description": "Return all custom property keys available for a plugn object.",
-          "returnType": "[string",
+          "returnType": "string[]",
           "parameters": "object target"
         },
         {
           "name": "getObjectsWithCustomPropertyKey",
           "description": "Return all plugin objects with a given key.",
-          "returnType": "[object",
+          "returnType": "object[]",
           "parameters": "string key"
         },
         {
           "name": "getObjectsURIWithCustomPropertyKey",
           "description": "Return all plugin objects with a given key.",
-          "returnType": "[string",
+          "returnType": "string[]",
           "parameters": "string key"
         },
         {
@@ -2731,13 +2731,13 @@
         {
           "name": "getAllConfigurationElementCategories",
           "description": "Returns all configuration element categories.",
-          "returnType": "[ConfigurationElementCategory",
+          "returnType": "ConfigurationElementCategory[]",
           "parameters": ""
         },
         {
           "name": "getAllResourceElementCategories",
           "description": "Returns all resource element categories.",
-          "returnType": "[ResourceElementCategory",
+          "returnType": "ResourceElementCategory[]",
           "parameters": ""
         },
         {
@@ -2749,7 +2749,7 @@
         {
           "name": "getAuthorizationElementsForLdapElement",
           "description": "Returns authorization elements for the given ldap element.",
-          "returnType": "[AuthorizationElement",
+          "returnType": "AuthorizationElement[]",
           "parameters": "Any ldapElement"
         },
         {
@@ -2821,7 +2821,7 @@
         {
           "name": "fetchLogEvents",
           "description": "Returns the log events matching the query.",
-          "returnType": "[LogEvent",
+          "returnType": "LogEvent[]",
           "parameters": "LogQuery query"
         },
         {
@@ -2840,24 +2840,24 @@
           "name": "untag",
           "description": "Removes a private tag from an object.",
           "returnType": "void",
-          "parameters": "Object object, [string tags"
+          "parameters": "Object object, string[] tags"
         },
         {
           "name": "untagGlobally",
           "description": "Removes a global tag from an object.  Global tags can be removed only by users with administrator privileges.",
           "returnType": "void",
-          "parameters": "Object object, [string tags"
+          "parameters": "Object object, string[] tags"
         },
         {
           "name": "findTagsInUse",
           "description": "Get the distinct tag names. Including tags names created by other users.",
-          "returnType": "[string",
+          "returnType": "string[]",
           "parameters": ""
         },
         {
           "name": "queryByTags",
           "description": "Return objects of the given type that are tagged with provided tags. To search for global tags prefix the tag name with \":\".",
-          "returnType": "[object",
+          "returnType": "object[]",
           "parameters": "object tagQuery, string type"
         },
         {
@@ -2901,7 +2901,7 @@
         {
           "name": "match",
           "description": "Searches for substrings within the string that match the regular expression and returns them in an array.",
-          "returnType": "[string",
+          "returnType": "string[]",
           "parameters": "string regexp"
         },
         {
@@ -2913,7 +2913,7 @@
         {
           "name": "split",
           "description": "Splits the string at each occurrence of the specified character and puts them into an array (alternatively you can specify a regular expression instead of the char).",
-          "returnType": "[string",
+          "returnType": "string[]",
           "parameters": "string regexp"
         },
         {
@@ -3105,7 +3105,7 @@
         {
           "name": "getAllModules",
           "description": "Return all action modules.",
-          "returnType": "[Module",
+          "returnType": "Module[]",
           "parameters": ""
         },
         {
