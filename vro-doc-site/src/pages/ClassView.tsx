@@ -23,24 +23,34 @@ const TypeReference = ({ type }: { type: string }) => {
     const baseType = isArray ? type.slice(0, -2) : type;
     const pluginId = classMap.get(baseType);
 
+    // Shared styling for the "Orange" look (reverted from neon pink)
+    const typeClass = "font-mono font-medium text-orange-600 dark:text-orange-400";
+
     if (pluginId) {
         return (
             <Link
                 to={`/plugin/${pluginId}/class/${baseType}`}
-                className="hover:underline hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors cursor-pointer flex items-center gap-1"
+                className={`${typeClass} hover:underline hover:text-orange-500 dark:hover:text-orange-300 transition-colors cursor-pointer flex items-center gap-0.5`}
             >
                 {baseType}
-                {isArray && <span className="text-slate-400">[]</span>}
+                {isArray && <span className="opacity-70">[]</span>}
             </Link>
         );
     }
 
+    // Standard Javascript/Typescript primitives that don't have class definitions but are valid
+    const primitives = ['string', 'number', 'boolean', 'void', 'any', 'object', 'undefined', 'null', 'function', 'never', 'unknown'];
+
+    if (primitives.includes(baseType.toLowerCase())) {
+        return <span className={`${typeClass} opacity-90`}>{type}</span>;
+    }
+
     return (
         <div className="group relative flex items-center gap-1.5 cursor-help">
-            <span className="opacity-80">{type}</span>
-            <AlertCircle size={12} className="text-slate-400 dark:text-slate-500 opacity-50 group-hover:opacity-100 transition-opacity" />
-            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-slate-900 text-white text-xs rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap z-50 pointer-events-none">
-                Not a vRO Class
+            <span className={`${typeClass} opacity-80 border-b border-dotted border-orange-400/50`}>{type}</span>
+            <AlertCircle size={12} className="text-orange-400/50 opacity-50 group-hover:opacity-100 transition-opacity" />
+            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-slate-900 text-white text-xs rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap z-50 pointer-events-none shadow-lg font-sans">
+                Type definition not found
                 <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900"></div>
             </div>
         </div>
