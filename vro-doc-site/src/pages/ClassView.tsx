@@ -18,10 +18,24 @@ interface ApiClass {
 const classMap = new Map((searchIndex.classes as { n: string, p: string }[]).map(c => [c.n, c.p]));
 
 const TypeReference = ({ type }: { type: string }) => {
+    const { pluginName } = useParams();
+
     // Handle array types
     const isArray = type.endsWith('[]');
     const baseType = isArray ? type.slice(0, -2) : type;
-    const pluginId = classMap.get(baseType);
+
+    let targetClass = baseType;
+    let pluginId = classMap.get(baseType);
+
+    // Special handling for F5 plugin: Prepend "F5Networks" if the simple name isn't found
+    if (!pluginId && pluginName === 'o11n-plugin-f5') {
+        const f5Candidate = `F5Networks${baseType}`;
+        const f5PluginId = classMap.get(f5Candidate);
+        if (f5PluginId) {
+            targetClass = f5Candidate;
+            pluginId = f5PluginId;
+        }
+    }
 
     // Shared styling for the "Orange" look (reverted from neon pink)
     const typeClass = "font-mono font-medium text-orange-600 dark:text-orange-400";
@@ -29,7 +43,7 @@ const TypeReference = ({ type }: { type: string }) => {
     if (pluginId) {
         return (
             <Link
-                to={`/plugin/${pluginId}/class/${baseType}`}
+                to={`/plugin/${pluginId}/class/${targetClass}`}
                 className={`${typeClass} hover:underline hover:text-orange-500 dark:hover:text-orange-300 transition-colors cursor-pointer flex items-center gap-0.5`}
             >
                 {baseType}
