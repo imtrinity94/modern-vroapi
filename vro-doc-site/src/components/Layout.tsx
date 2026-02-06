@@ -5,6 +5,7 @@ import { useTheme } from '../hooks/useUIState';
 import { ThemeToggle } from './UIToggles';
 import { Slack, Star, Github, ExternalLink, BookOpen, Mail } from 'lucide-react';
 import GlobalSearch from './GlobalSearch';
+import BackToTopButton from './BackToTopButton';
 
 const Layout: React.FC = () => {
     const { theme, toggleTheme } = useTheme();
@@ -187,6 +188,7 @@ const Layout: React.FC = () => {
                     </div>
                 </div>
             </footer>
+            <BackToTopButton />
         </div>
     );
 };
