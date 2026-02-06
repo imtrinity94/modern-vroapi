@@ -2,8 +2,9 @@
 import { useEffect, useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import pluginIndex from '../data/index.json';
+import searchIndex from '../data/search-index.json';
 import { getPluginMeta } from '../data/plugin-meta';
-import { ChevronRight, Box, FunctionSquare, Info, Edit3, List, LayoutGrid, Copy, Check } from 'lucide-react';
+import { ChevronRight, Box, FunctionSquare, Info, Edit3, List, LayoutGrid, Copy, Check, AlertCircle } from 'lucide-react';
 import SEO from '../components/SEO';
 
 interface ApiClass {
@@ -12,6 +13,39 @@ interface ApiClass {
     methods: any[];
     attributes: any[];
 }
+
+// Create a map for fast lookup of class -> plugin
+const classMap = new Map((searchIndex.classes as { n: string, p: string }[]).map(c => [c.n, c.p]));
+
+const TypeReference = ({ type }: { type: string }) => {
+    // Handle array types
+    const isArray = type.endsWith('[]');
+    const baseType = isArray ? type.slice(0, -2) : type;
+    const pluginId = classMap.get(baseType);
+
+    if (pluginId) {
+        return (
+            <Link
+                to={`/plugin/${pluginId}/class/${baseType}`}
+                className="hover:underline hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors cursor-pointer flex items-center gap-1"
+            >
+                {baseType}
+                {isArray && <span className="text-slate-400">[]</span>}
+            </Link>
+        );
+    }
+
+    return (
+        <div className="group relative flex items-center gap-1.5 cursor-help">
+            <span className="opacity-80">{type}</span>
+            <AlertCircle size={12} className="text-slate-400 dark:text-slate-500 opacity-50 group-hover:opacity-100 transition-opacity" />
+            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-slate-900 text-white text-xs rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap z-50 pointer-events-none">
+                Not a vRO Class
+                <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900"></div>
+            </div>
+        </div>
+    );
+};
 
 const ClassView: React.FC = () => {
     const { pluginName, className, versionId } = useParams<{ pluginName: string; className: string; versionId?: string }>();
@@ -202,7 +236,9 @@ const ClassView: React.FC = () => {
                                                 </button>
                                             </div>
                                         </td>
-                                        <td className="p-4 font-mono text-emerald-600 dark:text-emerald-400 text-base whitespace-nowrap">{attr.type}</td>
+                                        <td className="p-4 font-mono text-emerald-600 dark:text-emerald-400 text-base whitespace-nowrap">
+                                            <TypeReference type={attr.type} />
+                                        </td>
                                         <td className="p-4 text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{attr.description}</td>
                                         <td className="p-4 text-center align-middle">
                                             {attr.isReadonly ? (
@@ -269,7 +305,9 @@ const ClassView: React.FC = () => {
                                             </button>
                                         </div>
                                         <div className="mt-3 text-xs font-black uppercase tracking-wider text-slate-400 dark:text-slate-600">Return Type</div>
-                                        <div className="font-mono text-sm text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-500/10 border border-orange-200 dark:border-orange-500/20 px-3 py-1 rounded inline-block mt-2 truncate">{method.returnType}</div>
+                                        <div className="font-mono text-sm text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-500/10 border border-orange-200 dark:border-orange-500/20 px-3 py-1 rounded inline-block mt-2 truncate max-w-full">
+                                            <TypeReference type={method.returnType} />
+                                        </div>
                                     </div>
                                     <div className="flex-1 p-5 space-y-3">
                                         <div className="flex gap-2">
@@ -318,7 +356,9 @@ const ClassView: React.FC = () => {
                                                 </div>
                                             </td>
                                             <td className="p-4 align-top whitespace-nowrap">
-                                                <span className="font-mono text-sm text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-500/10 border border-orange-200 dark:border-orange-500/20 px-2 py-0.5 rounded inline-block">{method.returnType}</span>
+                                                <span className="font-mono text-sm text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-500/10 border border-orange-200 dark:border-orange-500/20 px-2 py-0.5 rounded inline-block">
+                                                    <TypeReference type={method.returnType} />
+                                                </span>
                                             </td>
                                             <td className="p-4 align-top max-w-2xl">
                                                 <div className="font-mono text-sm text-emerald-600 dark:text-emerald-500 leading-normal break-words">
