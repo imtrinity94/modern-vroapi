@@ -22,6 +22,7 @@ export const PLUGIN_META: Record<string, PluginMetadata> = {
     'o11n-plugin-avi': { image: `${import.meta.env.BASE_URL}icons/avi.png`, color: 'orange', tags: ['OFFICIAL'], downloadUrl: 'https://github.com/vmware/vrealize-orchestrator-plugin-for-alb', version: '30.2.6.RELEASE.50' },
     'o11n-plugin-aws': { image: `${import.meta.env.BASE_URL}icons/aws-ec2.png`, color: 'orange', tags: ['3RD PARTY', 'OFFICIAL'], downloadUrl: 'https://vcf.broadcom.com/vsc/services/details/vmware-aria-automation-orchestrator-plug-in-for-amazon-ec2?slug=true', version: '1.3.1.21665162' },
     'o11n-plugin-configurator': { icon: Settings, color: 'slate', tags: ['IN-BUILT'], version: '8.18.1.24266232' },
+    'o11n-plugin-cohesity': { image: `${import.meta.env.BASE_URL}icons/cohesity.png`, color: 'lime', tags: ['3RD PARTY'], downloadUrl: 'https://github.com/cohesity/cohesity-vra-blueprints/releases' },
     'o11n-plugin-crypto': { icon: Leaf, color: 'emerald', tags: ['3RD PARTY'], downloadUrl: 'https://github.com/vmware-archive/o11n-plugin-crypto', version: '1.1.0.32' },
     'o11n-plugin-dynamictypes': { icon: Boxes, color: 'purple', tags: ['IN-BUILT'], version: '1.4.2.24140226' },
     'o11n-plugin-f5': { image: `${import.meta.env.BASE_URL}icons/f5.png`, color: 'red', tags: ['3RD PARTY', 'OFFICIAL'], downloadUrl: 'https://vcf.broadcom.com/vsc/services/details/vrealize-orchestrator-plug-in-for-f5-big-ip11-1-1?slug=true', version: '4.1.0.2' },

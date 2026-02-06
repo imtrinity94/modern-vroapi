@@ -1,0 +1,6807 @@
+{
+  "name": "Cohesity",
+  "description": "API Reference for Cohesity",
+  "classes": [
+    {
+      "name": "CSAagGroup",
+      "description": "Provides POJO for AagGroup",
+      "attributes": [
+        {
+          "name": "fciClusters",
+          "description": "",
+          "type": "CSFciCluster[]",
+          "isReadonly": false
+        },
+        {
+          "name": "resourceInfo",
+          "description": "",
+          "type": "CSResourceInfo",
+          "isReadonly": false
+        },
+        {
+          "name": "servers",
+          "description": "",
+          "type": "CSSQLServer[]",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSAAGNodesAndDatabases",
+      "description": "Provides POJO for AAGNodesAndDatabases",
+      "attributes": [
+        {
+          "name": "applicationNode",
+          "description": "",
+          "type": "CSNode",
+          "isReadonly": false
+        },
+        {
+          "name": "aagDatabases",
+          "description": "",
+          "type": "com.cohesity.plugin.model.AAGDatabases[]",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSAgentInfo",
+      "description": "Provides POJO for AgentInfo",
+      "attributes": [
+        {
+          "name": "connectionStatus",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "supportStatus",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "agentSwVersion",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "lastFetchedTimeInUsecs",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSAgentInformation",
+      "description": "Provides POJO for AgentInformation.",
+      "attributes": [
+        {
+          "name": "upgradability",
+          "description": "Agent upgradability",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "upgradeStatus",
+          "description": "Agent upgradeStatus",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "upgradeStatusMessage",
+          "description": "Agent upgradeStatusMessage",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "status",
+          "description": "Agent Status",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "version",
+          "description": "Agent Version",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "Agent Name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "Agent Id",
+          "type": "long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSAlertingConfig",
+      "description": "Provides POJO for AlertingConfig.",
+      "attributes": [
+        {
+          "name": "emailAddresses",
+          "description": "emailAddresses",
+          "type": "String[]",
+          "isReadonly": false
+        },
+        {
+          "name": "raiseObjectLevelFailureAlert",
+          "description": "raiseObjectLevelFailureAlert",
+          "type": "Boolean",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSAlertPolicy",
+      "description": "Provides POJO for AlertPolicy.",
+      "attributes": [
+        {
+          "name": "backupRunStatus",
+          "description": "",
+          "type": "String[]",
+          "isReadonly": false
+        },
+        {
+          "name": "alertTargets",
+          "description": "",
+          "type": "CSAlertTarget[]",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "CSAlertPolicy",
+          "description": "",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "addAlertTarget",
+          "description": "Add an alert target",
+          "parameters": "alertTarget: CSAlertTarget",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "CSAlertTarget",
+      "description": "Provides POJO for AlertTarget.",
+      "attributes": [
+        {
+          "name": "emailAddress",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "recipientType",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "language",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSAlternateLocationParams",
+      "description": "Provides POJO for AlternateLocationParams",
+      "attributes": [],
+      "methods": []
+    },
+    {
+      "name": "CSAppEntity",
+      "description": "Provides POJO for AppEntity",
+      "attributes": [
+        {
+          "name": "parentId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSApplicationParameters",
+      "description": "Provides POJO for ApplicationParameters.",
+      "attributes": [
+        {
+          "name": "truncateExchangeLog",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSApplicationRestoreObjects",
+      "description": "Provides POJO for ApplicationRestoreObjects",
+      "attributes": [
+        {
+          "name": "sqlRestoreParameters",
+          "description": "",
+          "type": "CSSqlRestoreParameters",
+          "isReadonly": false
+        },
+        {
+          "name": "targetHostId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "applicationServerId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSArchivalTarget",
+      "description": "Provides POJO for ArchivalTarget.",
+      "attributes": [],
+      "methods": []
+    },
+    {
+      "name": "CSBGMappingConfigManager",
+      "description": "Provides operations to manage business group config.",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "getConfigForBGAndTenant",
+          "description": "Return the configuration for a BG in a vRA tenant.",
+          "parameters": "bgName: String, tenantMappingConfigId: String",
+          "returnType": "CSBGMappingConfiguration"
+        },
+        {
+          "name": "getAllBGMappings",
+          "description": "Return all the business group mapping information",
+          "parameters": "",
+          "returnType": "CSBGMappingConfiguration[]"
+        },
+        {
+          "name": "deleteConfiguration",
+          "description": "Delete a bg mapping configuration.",
+          "parameters": "config: CSBGMappingConfiguration",
+          "returnType": "void"
+        },
+        {
+          "name": "getAllMappingsForTenantConfig",
+          "description": "For a given tenant mapping config, fetch the BG meta's mapped.",
+          "parameters": "tenantMappingConfigId: String",
+          "returnType": "CSBGMappingConfiguration[]"
+        },
+        {
+          "name": "addBGMappingConfiguration",
+          "description": "Add Business Group mapping.",
+          "parameters": "config: CSBGMappingConfiguration",
+          "returnType": "CSBGMappingConfiguration"
+        }
+      ]
+    },
+    {
+      "name": "CSBGMappingConfigManager",
+      "description": "Provides operations to manage business group config.",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "getConfigForBGAndTenant",
+          "description": "Return the configuration for a BG in a vRA tenant.",
+          "parameters": "bgName: String, tenantMappingConfigId: String",
+          "returnType": "CSBGMappingConfiguration"
+        },
+        {
+          "name": "getAllBGMappings",
+          "description": "Return all the business group mapping information",
+          "parameters": "",
+          "returnType": "CSBGMappingConfiguration[]"
+        },
+        {
+          "name": "deleteConfiguration",
+          "description": "Delete a bg mapping configuration.",
+          "parameters": "config: CSBGMappingConfiguration",
+          "returnType": "void"
+        },
+        {
+          "name": "getAllMappingsForTenantConfig",
+          "description": "For a given tenant mapping config, fetch the BG meta's mapped.",
+          "parameters": "tenantMappingConfigId: String",
+          "returnType": "CSBGMappingConfiguration[]"
+        },
+        {
+          "name": "addBGMappingConfiguration",
+          "description": "Add Business Group mapping.",
+          "parameters": "config: CSBGMappingConfiguration",
+          "returnType": "CSBGMappingConfiguration"
+        }
+      ]
+    },
+    {
+      "name": "CSBifrostConnection",
+      "description": "Provides POJO for Bifrost Connection instance.",
+      "attributes": [
+        {
+          "name": "connectors",
+          "description": "",
+          "type": "Long[]",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSCloneTaskRequest",
+      "description": "Provides POJO for CloneTaskRequest objects.",
+      "attributes": [
+        {
+          "name": "jobRunId",
+          "description": "Job Run Id",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "startedTimeUsecs",
+          "description": "Started Time Usecs",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "protectionSourceId",
+          "description": "Protection Source Id",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "vmName",
+          "description": "Virtual Machine name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "networkId",
+          "description": "Network Id",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "newParentId",
+          "description": "vCenter Id",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "resourcePoolId",
+          "description": "Resource Pool Id",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "targetViewName",
+          "description": "Target View Name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "prefix",
+          "description": "Prefix",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "Type",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "suffix",
+          "description": "Suffix",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSClusterComputeResource",
+      "description": "Provides Object for clusters in a dataCenter.",
+      "attributes": [
+        {
+          "name": "environment",
+          "description": "environment",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "parentId",
+          "description": "parentId",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "morItem",
+          "description": "morItem",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "morType",
+          "description": "morType",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "connectionConfigId",
+          "description": "connectionConfigId",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "Name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "id",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "type",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSClusterInfo",
+      "description": "Provides POJO for Cluster info",
+      "attributes": [
+        {
+          "name": "clusterType",
+          "description": "Cohesity Cluster type",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "languageLocale",
+          "description": "Cohesity Cluster language",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "authenticationType",
+          "description": "Cohesity Cluster authentication type",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "domains",
+          "description": "Cohesity Cluster domains",
+          "type": "String[]",
+          "isReadonly": false
+        },
+        {
+          "name": "mcmMode",
+          "description": "Cohesity Cluster MCM mode",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "clusterSoftwareVersion",
+          "description": "Cohesity Cluster software version",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "Cohesity Cluster name",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSClusterPartition",
+      "description": "Provides POJO on ViewBox",
+      "attributes": [
+        {
+          "name": "nodeIds",
+          "description": "nodeIds",
+          "type": "Long[]",
+          "isReadonly": false
+        },
+        {
+          "name": "removalState",
+          "description": "removalState",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "Name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "id",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "hostName",
+          "description": "hostName",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSClusterResource",
+      "description": "Provides basic operations for Root Resource.",
+      "attributes": [
+        {
+          "name": "displayName",
+          "description": "Object name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "Object Id",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSClusterResource",
+      "description": "Provides basic operations for Root Resource.",
+      "attributes": [
+        {
+          "name": "displayName",
+          "description": "Object name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "Object Id",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSCohesityConnectionFolder",
+      "description": "Virtual Folder for endpoint configurations in inventory.",
+      "attributes": [
+        {
+          "name": "displayName",
+          "description": "Cohesity Endpoint connections",
+          "type": "String",
+          "isReadonly": true
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSCohesityConnectionManager",
+      "description": "Provides CRUD operations for CohesityConnection objects.",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "getCohesityConnection",
+          "description": "",
+          "parameters": "name: String",
+          "returnType": "CSCohesityConnection"
+        },
+        {
+          "name": "addCohesityConnection",
+          "description": "Adds a new Cohesity connection instance.",
+          "parameters": "connection: CSCohesityConnection",
+          "returnType": "CSCohesityConnection"
+        },
+        {
+          "name": "updateCohesityConnection",
+          "description": "",
+          "parameters": "name: String, connection: CSCohesityConnection",
+          "returnType": "CSCohesityConnection"
+        },
+        {
+          "name": "removeCohesityConnection",
+          "description": "",
+          "parameters": "name: String",
+          "returnType": "void"
+        },
+        {
+          "name": "getCohesityConnections",
+          "description": "Fetch all the cohesity connection instances",
+          "parameters": "",
+          "returnType": "CSCohesityConnection[]"
+        },
+        {
+          "name": "getAllChildConnections",
+          "description": "Fetch list of all Connection instances which are child of the given connection (Tenant/BGUser instances)",
+          "parameters": "parentConnectionConfigId: String",
+          "returnType": "CSCohesityConnection[]"
+        },
+        {
+          "name": "removeConfiguration",
+          "description": "Delete a configuration instance.",
+          "parameters": "connection: CSCohesityConnection",
+          "returnType": "void"
+        },
+        {
+          "name": "getParentConnectionInstance",
+          "description": "Returns the parent connection instance (ORG_USER-> ADMIN, BG_USER -> TENANT CONFIG)",
+          "parameters": "connection: CSCohesityConnection",
+          "returnType": "CSCohesityConnection"
+        },
+        {
+          "name": "getCohesityConnectionById",
+          "description": "",
+          "parameters": "connectionId: String",
+          "returnType": "CSCohesityConnection"
+        }
+      ]
+    },
+    {
+      "name": "CSCopyRun",
+      "description": "Provides POJO for CopyRun.",
+      "attributes": [
+        {
+          "name": "expiryTimeUsecs",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "runStartTimeUsecs",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "getExpiryTimeAsString",
+          "description": "Returns the expiry time of the run",
+          "parameters": "",
+          "returnType": "String"
+        }
+      ]
+    },
+    {
+      "name": "CSCredentials",
+      "description": "Provides POJO for Credentials",
+      "attributes": [
+        {
+          "name": "username",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "password",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSDataCenterResource",
+      "description": "Provides basic operations for Root Resource.",
+      "attributes": [
+        {
+          "name": "displayName",
+          "description": "Object name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "Object Id",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSDatastore",
+      "description": "Provides POJO for Datastore",
+      "attributes": [
+        {
+          "name": "parentId",
+          "description": "Parent Id",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "vmwareEntity",
+          "description": "VMware Entity",
+          "type": "com.cohesity.plugin.model.VmwareEntity",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "Id",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "Type",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "Display Name",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "CSDatastore",
+          "description": "",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "getCapacity",
+          "description": "Returns the capacity of the Datastore.",
+          "parameters": "",
+          "returnType": "Long"
+        },
+        {
+          "name": "getFreeSpace",
+          "description": "Returns the free space in the Datastore.",
+          "parameters": "",
+          "returnType": "Long"
+        }
+      ]
+    },
+    {
+      "name": "CSDiskLocation",
+      "description": "Provides POJO for DiskLocation",
+      "attributes": [
+        {
+          "name": "environment",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "parentId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSDiskToOverwrite",
+      "description": "Provides POJO for DiskToOverwrite.",
+      "attributes": [
+        {
+          "name": "diskId",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "unitNumber",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "controllerBusNumber",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "controllerType",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSEmailConfiguration",
+      "description": "Provides CRUD operations for EmailConfiguration objects.",
+      "attributes": [
+        {
+          "name": "fromName",
+          "description": "From (User Name)",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "smtpHost",
+          "description": "SMTP Host",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "smtpPort",
+          "description": "SMTP Port",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "fromAddress",
+          "description": "From Address",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "userName",
+          "description": "User name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "Cohesity Email Configuration Name",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSEmailConfigurationFolder",
+      "description": "Virtual Folder for Email configurations in inventory.",
+      "attributes": [
+        {
+          "name": "displayName",
+          "description": "Email Configurations",
+          "type": "String",
+          "isReadonly": true
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSEmailConfigurationManager",
+      "description": "Provides CRUD operations for EMail Configuration objects.",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "addEmailConfiguration",
+          "description": "",
+          "parameters": "config: CSEmailConfiguration",
+          "returnType": "CSEmailConfiguration"
+        },
+        {
+          "name": "updateEmailConfiguration",
+          "description": "",
+          "parameters": "currentName: String, newConf: CSEmailConfiguration",
+          "returnType": "CSEmailConfiguration"
+        },
+        {
+          "name": "deleteConfiguration",
+          "description": "",
+          "parameters": "config: CSEmailConfiguration",
+          "returnType": "void"
+        },
+        {
+          "name": "getConfigurationByName",
+          "description": "",
+          "parameters": "configName: String",
+          "returnType": "CSEmailConfiguration"
+        },
+        {
+          "name": "getAllEmailConfigurations",
+          "description": "",
+          "parameters": "",
+          "returnType": "CSEmailConfiguration[]"
+        }
+      ]
+    },
+    {
+      "name": "CSEndpoint",
+      "description": "Provides POJO for Endpoint",
+      "attributes": [
+        {
+          "name": "ipv4addr",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "ipv6addr",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "subnetIp4addr",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "preferredAddress",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "isPreferredEndpoint",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "fqdn",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSEndpointSelectionConfiguration",
+      "description": "Provides POJO for endpoint selection config",
+      "attributes": [
+        {
+          "name": "morItem",
+          "description": "Mor Item",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "clusterComputeName",
+          "description": "Cluster Name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "clusterConfigMetaDataId",
+          "description": "Admin CohesityConnection instance",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "Name (Id)",
+          "type": "String",
+          "isReadonly": true
+        },
+        {
+          "name": "id",
+          "description": "Id",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSEndpointSelectionManager",
+      "description": "Provides operations to manage the endpoint selection.",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "getEndpointSelectionConfigForComputeCluster",
+          "description": "Find the configuration entity for a cluster compute",
+          "parameters": "clusterName: String, morItem: String",
+          "returnType": "CSEndpointSelectionConfiguration"
+        },
+        {
+          "name": "getConfigById",
+          "description": "",
+          "parameters": "configId: String",
+          "returnType": "CSEndpointSelectionConfiguration"
+        },
+        {
+          "name": "deleteConfiguration",
+          "description": "Delete a endpoint selection configuration.",
+          "parameters": "config: CSEndpointSelectionConfiguration",
+          "returnType": "void"
+        },
+        {
+          "name": "addEndpointSelectionConfig",
+          "description": "Define a new endpoint selection configuration.",
+          "parameters": "config: CSEndpointSelectionConfiguration",
+          "returnType": "CSEndpointSelectionConfiguration"
+        },
+        {
+          "name": "getAllEndpointSelectionConfigs",
+          "description": "Return all the selection configs",
+          "parameters": "",
+          "returnType": "CSEndpointSelectionConfiguration[]"
+        }
+      ]
+    },
+    {
+      "name": "CSEntity",
+      "description": "Provides POJO for Entity.",
+      "attributes": [
+        {
+          "name": "parentId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSEnvironmentParameters",
+      "description": "Provides POJO for EnvironmentParameters.",
+      "attributes": [
+        {
+          "name": "sqlParameters",
+          "description": "",
+          "type": "CSSqlParameters",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSExcludedDisk",
+      "description": "Provides POJO for ExcludedDisk.",
+      "attributes": [
+        {
+          "name": "unitNumber",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "controllerType",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "busNumber",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSFciCluster",
+      "description": "Provides POJO for FciCluster",
+      "attributes": [
+        {
+          "name": "resourceInfo",
+          "description": "",
+          "type": "CSResourceInfo",
+          "isReadonly": false
+        },
+        {
+          "name": "isSelectedByDefault",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "servers",
+          "description": "",
+          "type": "CSSQLServer[]",
+          "isReadonly": false
+        },
+        {
+          "name": "error",
+          "description": "",
+          "type": "CSSQLError",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSFilePaths",
+      "description": "Provides POJO for filePath objects.",
+      "attributes": [
+        {
+          "name": "backupFilePath",
+          "description": "Backup file path.",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "excludedFilePaths",
+          "description": "Excluded file paths.",
+          "type": "String[]",
+          "isReadonly": false
+        },
+        {
+          "name": "skipNestedVolumes",
+          "description": "Skip nested volume?",
+          "type": "Boolean",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSFilesOrFoldersResource",
+      "description": "Provides basic operations for Root Resource.",
+      "attributes": [
+        {
+          "name": "internalID",
+          "description": "End point property",
+          "type": "String",
+          "isReadonly": true
+        },
+        {
+          "name": "jobId",
+          "description": "Job Id",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "File name",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSGlobalId",
+      "description": "Provides POJO for Global Id.",
+      "attributes": [
+        {
+          "name": "clusterId",
+          "description": "Cluster Id",
+          "type": "long",
+          "isReadonly": false
+        },
+        {
+          "name": "clusterIncarnationId",
+          "description": "Cluster Incarnation Id",
+          "type": "long",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "Global ID",
+          "type": "int",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSHost",
+      "description": "Provides POJO for Host.",
+      "attributes": [
+        {
+          "name": "name",
+          "description": "Specifies the name of the object.",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "Specifies the id of the object.",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSHostingProtectionSource",
+      "description": "Provides POJO for HostingProtectionSource",
+      "attributes": [
+        {
+          "name": "environment",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "jobRunId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "startedTimeUsecs",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "jobUid",
+          "description": "",
+          "type": "CSJobUid",
+          "isReadonly": false
+        },
+        {
+          "name": "protectionSourceId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "jobId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSIncrementalProtectionStartTime",
+      "description": "Provides POJO for IncrementalProtectionStartTime.",
+      "attributes": [
+        {
+          "name": "hour",
+          "description": "Hour",
+          "type": "int",
+          "isReadonly": false
+        },
+        {
+          "name": "minute",
+          "description": "Minute",
+          "type": "int",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSIndexingPolicy",
+      "description": "Provides POJO for IndexingPolicy.",
+      "attributes": [
+        {
+          "name": "disableIndexing",
+          "description": "disableIndexing",
+          "type": "boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "allowPrefixes",
+          "description": "allowPrefixes",
+          "type": "String[]",
+          "isReadonly": false
+        },
+        {
+          "name": "denyPrefixes",
+          "description": "denyPrefixes",
+          "type": "String[]",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSIndexingPolicy",
+      "description": "Provides POJO for IndexingPolicy.",
+      "attributes": [
+        {
+          "name": "disableIndexing",
+          "description": "disableIndexing",
+          "type": "boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "allowPrefixes",
+          "description": "allowPrefixes",
+          "type": "String[]",
+          "isReadonly": false
+        },
+        {
+          "name": "denyPrefixes",
+          "description": "denyPrefixes",
+          "type": "String[]",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSInstance",
+      "description": "Provides POJO for Instance",
+      "attributes": [
+        {
+          "name": "endpoints",
+          "description": "",
+          "type": "CSEndpoint[]",
+          "isReadonly": false
+        },
+        {
+          "name": "isOnline",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "isPartofFCI",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSJobUid",
+      "description": "Provides POJO for JobUid objects.",
+      "attributes": [
+        {
+          "name": "clusterId",
+          "description": "Cluster Id",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "clusterIncarnationId",
+          "description": "Cluster Incarnation Id",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "Id",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSMssqlConnectionResponseParams",
+      "description": "Provides POJO for MssqlConnectionResponseParams",
+      "attributes": [
+        {
+          "name": "hostIdentifier",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "fciClusters",
+          "description": "",
+          "type": "CSFciCluster[]",
+          "isReadonly": false
+        },
+        {
+          "name": "aagGroups",
+          "description": "",
+          "type": "CSAagGroup[]",
+          "isReadonly": false
+        },
+        {
+          "name": "servers",
+          "description": "",
+          "type": "CSSQLServer[]",
+          "isReadonly": false
+        },
+        {
+          "name": "error",
+          "description": "",
+          "type": "java.lang.Error",
+          "isReadonly": false
+        },
+        {
+          "name": "skipConnectionDiscovery",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSMTManager",
+      "description": "Provides operations to manage MT workFlows.",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "deleteClusterMeta",
+          "description": "Delete a cluster config & all associated connections/meta info",
+          "parameters": "connection: CSCohesityConnection",
+          "returnType": "void"
+        },
+        {
+          "name": "deleteSelectionMeta",
+          "description": "Delete a selection configuration.",
+          "parameters": "clusterConfigMetaDataId: String",
+          "returnType": "void"
+        },
+        {
+          "name": "createOrgForVRATenant",
+          "description": "Create a CS Org for a vRA tenant",
+          "parameters": "connection: CSCohesityConnection, vRATenantId: String, vRATenantName: String",
+          "returnType": "CSTenant"
+        },
+        {
+          "name": "getBGEndpointForTheVM",
+          "description": "Return the default endpoint for the business group request.",
+          "parameters": "tenantId: String, bgName: String, computeClusterName: String, computeClusterMorItemName: String",
+          "returnType": "CSCohesityConnection"
+        },
+        {
+          "name": "createBGUserForTenant",
+          "description": "Randomly create a user for BG.",
+          "parameters": "tenantMappingConfigId: String, bgName: String",
+          "returnType": "CSCohesityConnection"
+        },
+        {
+          "name": "createLocalUserForTenant",
+          "description": "Create a new LOCAL account for the cohesity tenant.",
+          "parameters": "connection: CSCohesityConnection, cohesityTenant: CSTenant",
+          "returnType": "CSCohesityConnection"
+        },
+        {
+          "name": "createBGMappingMetaData",
+          "description": "Create a business group mapping meta data.",
+          "parameters": "businessGroupName: String, tenantMappingConfigId: String, bgUserConfiguration: CSCohesityConnection",
+          "returnType": "CSBGMappingConfiguration"
+        },
+        {
+          "name": "deleteTenantMappingConfiguration",
+          "description": "Delete a tenant meta & all associated configurations",
+          "parameters": "tenantMapConf: CSTenantMappingConfiguration",
+          "returnType": "void"
+        },
+        {
+          "name": "deleteBGMappingConfiguration",
+          "description": "Delete a BG Mapping metadata configuration.",
+          "parameters": "bgConfig: CSBGMappingConfiguration",
+          "returnType": "void"
+        },
+        {
+          "name": "createTenantMappingMetaData",
+          "description": "Create a tenant mapping meta data.",
+          "parameters": "vRATenantId: String, cohesityTenantId: String, clusterConnection: CSCohesityConnection, tenantConnection: CSCohesityConnection",
+          "returnType": "CSTenantMappingConfiguration"
+        },
+        {
+          "name": "updateServiceUserPassword",
+          "description": "Update service user password",
+          "parameters": "connection: CSCohesityConnection, tenantId: String, userName: String, newPassword: String",
+          "returnType": "com.cohesity.plugin.model.User"
+        }
+      ]
+    },
+    {
+      "name": "CSNetworkEntities",
+      "description": "Provides POJO for Network Entities",
+      "attributes": [
+        {
+          "name": "parentId",
+          "description": "Parent Id",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "Id",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "Type",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "Display Name",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSNetworkResource",
+      "description": "Provides basic operations for Root Resource.",
+      "attributes": [
+        {
+          "name": "displayName",
+          "description": "Object name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "Object Id",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSNewSourceConfig",
+      "description": "Provides POJO for New Source Config.",
+      "attributes": [
+        {
+          "name": "recoveryTarget",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "recoverDatabaseParams",
+          "description": "",
+          "type": "CSRecoverDatabaseParams",
+          "isReadonly": false
+        },
+        {
+          "name": "host",
+          "description": "",
+          "type": "CSHost",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSNewUserParam",
+      "description": "Provides POJO for creation on new user in cohesity.",
+      "attributes": [
+        {
+          "name": "restricted",
+          "description": "Is Restricted",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "emailAddress",
+          "description": "Email",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "passwordConfirm",
+          "description": "PasswordConfirm",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "username",
+          "description": "Username",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "password",
+          "description": "Password",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "roles",
+          "description": "Roles",
+          "type": "String[]",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "Type",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "domain",
+          "description": "Domain name",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSNode",
+      "description": "Provides POJO for Node objects.",
+      "attributes": [
+        {
+          "name": "applicationNodes",
+          "description": "applicationNodes",
+          "type": "CSNode[]",
+          "isReadonly": false
+        },
+        {
+          "name": "protectionSource",
+          "description": "protectionSource",
+          "type": "CSProtectionSource",
+          "isReadonly": false
+        },
+        {
+          "name": "logicalSize",
+          "description": "logicalSize",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "protectedSourcesSummary",
+          "description": "protectedSourcesSummary",
+          "type": "com.cohesity.plugin.model.ProtectedSourcesSummary[]",
+          "isReadonly": false
+        },
+        {
+          "name": "unprotectedSourcesSummary",
+          "description": "unprotectedSourcesSummary",
+          "type": "com.cohesity.plugin.model.UnprotectedSourcesSummary[]",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "Name of the Node",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSNotificationMailData",
+      "description": "Provides POJO for NotificationMailData objects.",
+      "attributes": [
+        {
+          "name": "fromName",
+          "description": "fromName",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "smtpHost",
+          "description": "Name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "smtpPort",
+          "description": "smtpPort",
+          "type": "Integer",
+          "isReadonly": false
+        },
+        {
+          "name": "fromAddress",
+          "description": "Job Id",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "vmName",
+          "description": "Target Source Id",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "jobStatus",
+          "description": "jobStatus",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "mailUserName",
+          "description": "mailUserName",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "toAddressList",
+          "description": "toAddressList",
+          "type": "String",
+          "isReadonly": true
+        },
+        {
+          "name": "mailPassword",
+          "description": "Job Run Id",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "filesOrFoldersType",
+          "description": "Started Time Usecs",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "filesOrFoldersName",
+          "description": "filesOrFoldersName",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "recoverToLocation",
+          "description": "recoverToLocation",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "userName",
+          "description": "userName",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "snapshot",
+          "description": "snapshot",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "content",
+          "description": "Target Parent Source Id",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "subject",
+          "description": "Protection Source Id",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSObjectResource",
+      "description": "Provides basic operations for Root Resource.",
+      "attributes": [
+        {
+          "name": "environment",
+          "description": "Type of system (kVMWare/kPhysical/kPhysicalFiles)",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "parentId",
+          "description": "ParentId",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "dbAagEntityId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "dbAagName",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "protectionJobs",
+          "description": "protectionJobs",
+          "type": "CSProtectionJobNameResource[]",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "Object name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "Object Id",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSObjectSnapshot",
+      "description": "Provides POJO for Snapshot information (v2).",
+      "attributes": [
+        {
+          "name": "snapshotTargetType",
+          "description": "snapshotTargetType",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "ownershipContext",
+          "description": "ownershipContext",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "protectionGroupId",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "snapshotTimestampUsecs",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "objectId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "snapshot time",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "id",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSObjectSnapshots",
+      "description": "Provides POJO for Snapshot information (v2).",
+      "attributes": [
+        {
+          "name": "snapshots",
+          "description": "snapshots",
+          "type": "CSObjectSnapshot[]",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSOracleManager",
+      "description": "Provides basic operations for Oracle workflows",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "restoreOracleDatabase",
+          "description": "Recover a Oracle application Database",
+          "parameters": "connection: CSCohesityConnection, requestParam: CSRecoverRequestParamsV2",
+          "returnType": "String"
+        },
+        {
+          "name": "getAllOracleDatabases",
+          "description": "Get all the Oracle databases in a Oracle instance.",
+          "parameters": "connection: CSCohesityConnection, rootNodeId: Long",
+          "returnType": "CSNode[]"
+        }
+      ]
+    },
+    {
+      "name": "CSOracleProtectionGroupDatabaseParams",
+      "description": "Provides POJO for OracleProtectionGroupDatabaseParams",
+      "attributes": [
+        {
+          "name": "databaseName",
+          "description": "Specifies the name of the Oracle database.",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "databaseId",
+          "description": "Specifies the id of the Oracle database.",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSOracleProtectionGroupObject",
+      "description": "Provides POJO for OracleProtectionGroupObject",
+      "attributes": [
+        {
+          "name": "sourceId",
+          "description": "Specifies the id of the host on which databases are hosted.",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "dbParams",
+          "description": "Specifies the properties of the Oracle databases.",
+          "type": "CSOracleProtectionGroupDatabaseParams[]",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "addDbParams",
+          "description": "Add a SLA path instance.",
+          "parameters": "object: CSOracleProtectionGroupDatabaseParams",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "CSOracleProtectionGroupParams",
+      "description": "Provides POJO for OracleProtectionGroupParams",
+      "attributes": [
+        {
+          "name": "persistMountpoints",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "objects",
+          "description": "",
+          "type": "CSOracleProtectionGroupObject[]",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "addObject",
+          "description": "Add an object instance",
+          "parameters": "object: CSOracleProtectionGroupObject",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "CSOracleProtectionSource",
+      "description": "Provides POJO for OracleProtectionSource.",
+      "attributes": [
+        {
+          "name": "dbType",
+          "description": "dbType",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "databaseUniqueName",
+          "description": "databaseUniqueName",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "archiveLogEnabled",
+          "description": "archiveLogEnabled",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "bctEnabled",
+          "description": "bctEnabled",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "tempFilesCount",
+          "description": "tempFilesCount",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "fraSize",
+          "description": "fraSize",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "tdeEncryptedTsCount",
+          "description": "tdeEncryptedTsCount",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "sgaTargetSize",
+          "description": "sgaTargetSize",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "sharedPoolSize",
+          "description": "sharedPoolSize",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "ownerId",
+          "description": "ownerId",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "uuid",
+          "description": "uuid",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "version",
+          "description": "version",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "Protection Source Name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "Protection Source Type",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "size",
+          "description": "size",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "domain",
+          "description": "domain",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSOracleSource",
+      "description": "Provides POJO for Oracle Source.",
+      "attributes": [
+        {
+          "name": "environment",
+          "description": "Environment",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "oracleProtectionSource",
+          "description": "Oracle Protection Source",
+          "type": "CSOracleProtectionSource",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "Oracle Source Name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "Oracle Source ID",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSOracleSpecialParameters",
+      "description": "Provides POJO for OracleSpecialParameters.",
+      "attributes": [
+        {
+          "name": "persistMountpoints",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "applicationEntityIds",
+          "description": "",
+          "type": "Long[]",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "addApplicationEntityIds",
+          "description": "Add an application entity ids.",
+          "parameters": "applicationEntityIds: Long",
+          "returnType": "void"
+        },
+        {
+          "name": "removeApplicationEntityId",
+          "description": "Remove an application entity id.",
+          "parameters": "id: Long",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "CSOracleTargetParams",
+      "description": "Provides POJO for Oracle Target Params.",
+      "attributes": [
+        {
+          "name": "recoverToNewSource",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "newSourceConfig",
+          "description": "",
+          "type": "CSNewSourceConfig",
+          "isReadonly": false
+        },
+        {
+          "name": "originalSourceConfig",
+          "description": "",
+          "type": "CSOriginalSourceConfig",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSOriginalSourceConfig",
+      "description": "Provides POJO for Original Source Config.",
+      "attributes": [
+        {
+          "name": "restoreTimeUsecs",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSOwnerObject",
+      "description": "Provides POJO for OwnerObject",
+      "attributes": [
+        {
+          "name": "jobUid",
+          "description": "",
+          "type": "CSRestoreRequestJobUid",
+          "isReadonly": false
+        },
+        {
+          "name": "jobInstanceId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "startTimeUsecs",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "entity",
+          "description": "",
+          "type": "CSEntity",
+          "isReadonly": false
+        },
+        {
+          "name": "jobId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSOwnerRestoreInfo",
+      "description": "Provides POJO for OwnerRestoreInfo",
+      "attributes": [
+        {
+          "name": "ownerObject",
+          "description": "",
+          "type": "CSOwnerObject",
+          "isReadonly": false
+        },
+        {
+          "name": "ownerRestoreParams",
+          "description": "",
+          "type": "CSOwnerRestoreParams",
+          "isReadonly": false
+        },
+        {
+          "name": "performRestore",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSOwnerRestoreParams",
+      "description": "Provides POJO for OwnerRestoreParams",
+      "attributes": [
+        {
+          "name": "powerStateConfig",
+          "description": "",
+          "type": "com.cohesity.plugin.model.PowerStateConfig",
+          "isReadonly": false
+        },
+        {
+          "name": "action",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSPhysicalFileBackupPathParams",
+      "description": "Provides POJO for PhysicalFileBackupPathParams",
+      "attributes": [
+        {
+          "name": "includedPath",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "excludedPaths",
+          "description": "",
+          "type": "String[]",
+          "isReadonly": false
+        },
+        {
+          "name": "skipNestedVolumes",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSPhysicalFileProtectionGroupObjectParams",
+      "description": "Provides POJO for PhysicalFileProtectionGroupObjectParams",
+      "attributes": [
+        {
+          "name": "metadataFilePath",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "filePaths",
+          "description": "",
+          "type": "CSPhysicalFileBackupPathParams[]",
+          "isReadonly": false
+        },
+        {
+          "name": "usesPathLevelSkipNestedVolumeSetting",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "nestedVolumeTypesToSkip",
+          "description": "",
+          "type": "String[]",
+          "isReadonly": false
+        },
+        {
+          "name": "followNasSymlinkTarget",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "CSPhysicalFileProtectionGroupObjectParams",
+          "description": "",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "addFilePath",
+          "description": "Add a SLA path instance.",
+          "parameters": "object: CSPhysicalFileBackupPathParams",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "CSPhysicalFileProtectionGroupParams",
+      "description": "Provides POJO for PhysicalFileProtectionGroupParams",
+      "attributes": [
+        {
+          "name": "indexingPolicy",
+          "description": "",
+          "type": "CSIndexingPolicyV2",
+          "isReadonly": false
+        },
+        {
+          "name": "quiesce",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "globalExcludePaths",
+          "description": "",
+          "type": "String[]",
+          "isReadonly": false
+        },
+        {
+          "name": "globalExcludeFS",
+          "description": "",
+          "type": "String[]",
+          "isReadonly": false
+        },
+        {
+          "name": "ignorableErrors",
+          "description": "",
+          "type": "String[]",
+          "isReadonly": false
+        },
+        {
+          "name": "objects",
+          "description": "",
+          "type": "CSPhysicalFileProtectionGroupObjectParams[]",
+          "isReadonly": false
+        },
+        {
+          "name": "performSourceSideDeduplication",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "performBrickBasedDeduplication",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "continueOnQuiesceFailure",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "dedupExclusionSourceIds",
+          "description": "",
+          "type": "Long[]",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "CSPhysicalFileProtectionGroupParams",
+          "description": "",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "addObject",
+          "description": "Add an object instance",
+          "parameters": "object: CSPhysicalFileProtectionGroupObjectParams",
+          "returnType": "void"
+        },
+        {
+          "name": "addDedupExclusionSourceId",
+          "description": "Add a dedup sourceId to exclude",
+          "parameters": "id: Long",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "CSPhysicalMachine",
+      "description": "Provides POJO for Physical Machines.",
+      "attributes": [
+        {
+          "name": "environment",
+          "description": "Environment",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "physicalProtectionSource",
+          "description": "Physical Protection Source",
+          "type": "CSPhysicalProtectionSource",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "Physical Machine Name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "Physical Machine ID",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSPhysicalParams",
+      "description": "Provides POJO for PhysicalParams",
+      "attributes": [
+        {
+          "name": "applications",
+          "description": "",
+          "type": "String[]",
+          "isReadonly": false
+        },
+        {
+          "name": "username",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "password",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "CSPhysicalParams",
+          "description": "",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "addApplication",
+          "description": "Add a new application type.",
+          "parameters": "applicationType: String",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "CSPhysicalProtectionGroupParams",
+      "description": "Provides POJO for PhysicalProtectionGroupParams",
+      "attributes": [
+        {
+          "name": "protectionType",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "volumeProtectionTypeParams",
+          "description": "",
+          "type": "CSPhysicalVolumeProtectionGroupParams",
+          "isReadonly": false
+        },
+        {
+          "name": "fileProtectionTypeParams",
+          "description": "",
+          "type": "CSPhysicalFileProtectionGroupParams",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSPhysicalProtectionSource",
+      "description": "Provides POJO for PhysicalProtectionSource.",
+      "attributes": [
+        {
+          "name": "hostType",
+          "description": "Protection Source hostType",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "osName",
+          "description": "Protection Source osName",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "volumes",
+          "description": "Protection Source volumes",
+          "type": "com.cohesity.plugin.model.PhysicalServerVolume[]",
+          "isReadonly": false
+        },
+        {
+          "name": "agents",
+          "description": "Protection Source agents",
+          "type": "CSAgentInformation[]",
+          "isReadonly": true
+        },
+        {
+          "name": "name",
+          "description": "Protection Source Name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "Protection Source Id",
+          "type": "com.cohesity.plugin.model.Id",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "Protection Source Type",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSPhysicalSpecialParameters",
+      "description": "Provides POJO for PhysicalSpecialParameters.",
+      "attributes": [
+        {
+          "name": "filePaths",
+          "description": "",
+          "type": "CSFilePaths[]",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "addFilePatch",
+          "description": "Add a file path instance.",
+          "parameters": "filePath: CSFilePaths",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "CSPhysicalVolumeProtectionGroupObjectParams",
+      "description": "Provides POJO for PhysicalVolumeProtectionGroupObjectParams",
+      "attributes": [
+        {
+          "name": "volumeGuids",
+          "description": "",
+          "type": "String[]",
+          "isReadonly": false
+        },
+        {
+          "name": "enableSystemBackup",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSPhysicalVolumeProtectionGroupParams",
+      "description": "Provides POJO for PhysicalVolumeProtectionGroupParams",
+      "attributes": [
+        {
+          "name": "excludedVssWriters",
+          "description": "",
+          "type": "String[]",
+          "isReadonly": false
+        },
+        {
+          "name": "indexingPolicy",
+          "description": "",
+          "type": "CSIndexingPolicyV2",
+          "isReadonly": false
+        },
+        {
+          "name": "quiesce",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "objects",
+          "description": "",
+          "type": "CSPhysicalVolumeProtectionGroupObjectParams[]",
+          "isReadonly": false
+        },
+        {
+          "name": "performSourceSideDeduplication",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "continueOnQuiesceFailure",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "dedupExclusionSourceIds",
+          "description": "",
+          "type": "Long[]",
+          "isReadonly": false
+        },
+        {
+          "name": "incrementalBackupAfterRestart",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "CSPhysicalVolumeProtectionGroupParams",
+          "description": "",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "addObject",
+          "description": "Add an object instance",
+          "parameters": "object: CSPhysicalVolumeProtectionGroupObjectParams",
+          "returnType": "void"
+        },
+        {
+          "name": "addDedupExclusionSourceId",
+          "description": "Add a dedup sourceId to exclude",
+          "parameters": "id: Long",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "CSPrincipalManager",
+      "description": "Provides operations to manage users in Cohesity.",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "assignVMObjectToUser",
+          "description": "Assign a VM object to a user. (Restricted User)",
+          "parameters": "connection: CSCohesityConnection, username: String, objectId: Long",
+          "returnType": "void"
+        },
+        {
+          "name": "deleteUser",
+          "description": "",
+          "parameters": "connection: CSCohesityConnection, userNames: String[], domain: String, tenantId: String",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "CSProtectedNode",
+      "description": "Provides POJO for ProtectedNode",
+      "attributes": [
+        {
+          "name": "protectionSource",
+          "description": "",
+          "type": "CSProtectionSource",
+          "isReadonly": false
+        },
+        {
+          "name": "protectionJobs",
+          "description": "",
+          "type": "CSProtectionJob[]",
+          "isReadonly": false
+        },
+        {
+          "name": "protectionPolicies",
+          "description": "",
+          "type": "CSProtectionPolicy[]",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSProtectionGroup",
+      "description": "Provides POJO for Protection Group.",
+      "attributes": [
+        {
+          "name": "alertPolicy",
+          "description": "",
+          "type": "CSAlertPolicy",
+          "isReadonly": false
+        },
+        {
+          "name": "qosPolicy",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "abortInBlackouts",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "isPaused",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "udaParams",
+          "description": "",
+          "type": "CSUdaParamsInfo",
+          "isReadonly": false
+        },
+        {
+          "name": "regionId",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "pauseInBlackouts",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "isActive",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "isDeleted",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "environment",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "clusterId",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "policyId",
+          "description": "Policy Id",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "physicalParams",
+          "description": "",
+          "type": "CSPhysicalProtectionGroupParams",
+          "isReadonly": false
+        },
+        {
+          "name": "oracleParams",
+          "description": "",
+          "type": "CSOracleProtectionGroupParams",
+          "isReadonly": false
+        },
+        {
+          "name": "storageDomainId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "endTimeUsecs",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "startTime",
+          "description": "",
+          "type": "CSStartTime",
+          "isReadonly": false
+        },
+        {
+          "name": "sla",
+          "description": "",
+          "type": "CSSla[]",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "Protection Group Name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "priority",
+          "description": "Priority",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "CSProtectionGroup",
+          "description": "",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "addSlaObject",
+          "description": "Add an SLA object",
+          "parameters": "slaObj: CSSla",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "CSProtectionGroupManager",
+      "description": "Provides basic operations for Protection Groups (v2).",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "getSnapshotsForInstance",
+          "description": "Get snapshots for a given object instance.",
+          "parameters": "connection: CSCohesityConnection, objectName: String, objectId: Long, protectionJobId: String",
+          "returnType": "CSSnapshotVersion[]"
+        },
+        {
+          "name": "createProtectionGroup",
+          "description": "Creates a new protection group and protects instances using v2 APIs.",
+          "parameters": "connection: CSCohesityConnection, pGroup: CSProtectionGroup",
+          "returnType": "CSProtectionGroup"
+        },
+        {
+          "name": "getAllProtectionGroups",
+          "description": "Get all protection groups.",
+          "parameters": "connection: CSCohesityConnection",
+          "returnType": "CSProtectionGroup[]"
+        },
+        {
+          "name": "getProtectionGroupById",
+          "description": "Get protection group instance identified by its id.",
+          "parameters": "connection: CSCohesityConnection, protectionGroupId: String",
+          "returnType": "CSProtectionGroup"
+        },
+        {
+          "name": "patchProtectionGroup",
+          "description": "Update a protection group (v2)",
+          "parameters": "connection: CSCohesityConnection, protectionGroupId: String, payload: CSProtectionGroup",
+          "returnType": "CSProtectionGroup"
+        },
+        {
+          "name": "addOracleDBsToGroup",
+          "description": "Add oracle dbs to protection group(v2).",
+          "parameters": "connection: CSCohesityConnection, protectionGroupId: String, sourceId: Long, oracleDbParams: CSOracleProtectionGroupDatabaseParams[]",
+          "returnType": "CSProtectionGroup"
+        },
+        {
+          "name": "deleteProtectionGroup",
+          "description": "Delete a protection group(v2).",
+          "parameters": "connection: CSCohesityConnection, protectionGroupId: String, deleteSnapshots: Boolean",
+          "returnType": "void"
+        },
+        {
+          "name": "getObjectSnapshots",
+          "description": "Get list of snapshots for a given object.",
+          "parameters": "connection: CSCohesityConnection, objectId: String, protectionGroupId: String",
+          "returnType": "CSObjectSnapshot[]"
+        },
+        {
+          "name": "removePhysicalSourceFromProtectionGroup",
+          "description": "Remove physical source from protection (v2)",
+          "parameters": "connection: CSCohesityConnection, machine: CSPhysicalMachine, protectionGroupId: String",
+          "returnType": "CSProtectionGroup"
+        },
+        {
+          "name": "addMachineToVolumeBasedGroup",
+          "description": "Add physical machine to volume based protection group(v2).",
+          "parameters": "connection: CSCohesityConnection, machine: CSPhysicalMachine, protectionGroupId: String, volumeObjectInstance: CSPhysicalVolumeProtectionGroupObjectParams",
+          "returnType": "CSProtectionGroup"
+        },
+        {
+          "name": "addMachineToFileBasedGroup",
+          "description": "Add physical machine to file based protection group(v2).",
+          "parameters": "connection: CSCohesityConnection, machine: CSPhysicalMachine, protectionGroupId: String, fileObjectInstance: CSPhysicalFileProtectionGroupObjectParams",
+          "returnType": "CSProtectionGroup"
+        }
+      ]
+    },
+    {
+      "name": "CSProtectionJob",
+      "description": "Provides POJO for Protection Job.",
+      "attributes": [
+        {
+          "name": "isDeleted",
+          "description": "Is Deleted",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "environment",
+          "description": "Environment",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "sourceIds",
+          "description": "Source Ids",
+          "type": "Long[]",
+          "isReadonly": false
+        },
+        {
+          "name": "parentSourceId",
+          "description": "Parent Source Id",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "indexingPolicy",
+          "description": "Indexing Policy",
+          "type": "CSIndexingPolicy",
+          "isReadonly": false
+        },
+        {
+          "name": "quiesce",
+          "description": "Quiesce",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "policyId",
+          "description": "Policy Id",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "viewBoxId",
+          "description": "ViewBox Id",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "alertingPolicy",
+          "description": "Alerting Policy",
+          "type": "String[]",
+          "isReadonly": false
+        },
+        {
+          "name": "modificationTimeUsecs",
+          "description": "Modification TimeUsecs",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "modifiedByUser",
+          "description": "Modified By User",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "creationTimeUsecs",
+          "description": "Creation TimeUsecs",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "isActive",
+          "description": "Is Active",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "qosType",
+          "description": "qosType",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "alertingConfig",
+          "description": "alertingConfig",
+          "type": "CSAlertingConfig",
+          "isReadonly": false
+        },
+        {
+          "name": "lastRun",
+          "description": "Last Run",
+          "type": "CSProtectionRun",
+          "isReadonly": false
+        },
+        {
+          "name": "environmentParameters",
+          "description": "SQL Env Parameters",
+          "type": "CSEnvironmentParameters",
+          "isReadonly": false
+        },
+        {
+          "name": "endTimeUsecs",
+          "description": "End Time Usec",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "description": "PJob Description",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "startTime",
+          "description": "Start Time",
+          "type": "CSIncrementalProtectionStartTime",
+          "isReadonly": false
+        },
+        {
+          "name": "timezone",
+          "description": "Timezone",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "uid",
+          "description": "UID",
+          "type": "CSJobUid",
+          "isReadonly": false
+        },
+        {
+          "name": "sourceSpecialParameters",
+          "description": "sourceSpecialParameters",
+          "type": "CSSourceSpecialParameters[]",
+          "isReadonly": false
+        },
+        {
+          "name": "incrementalProtectionSlaTimeMins",
+          "description": "Incremental Protection SlaTimeMins",
+          "type": "Integer",
+          "isReadonly": false
+        },
+        {
+          "name": "fullProtectionSlaTimeMins",
+          "description": "Full Protection SlaTimeMins",
+          "type": "Integer",
+          "isReadonly": false
+        },
+        {
+          "name": "policyAppliedTimeMsecs",
+          "description": "Policy Applied TimeMsecs",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "performSourceSideDedup",
+          "description": "performSourceSideDedup",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "Protection Job Name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "priority",
+          "description": "Priority",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "Protection Job ID",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "CSProtectionJob",
+          "description": "",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "addSourceIds",
+          "description": "Add a source to protection job. (Used in scripting obj to overcome typecast issue)",
+          "parameters": "sourceId: Long",
+          "returnType": "void"
+        },
+        {
+          "name": "removeSourceIds",
+          "description": "Remove a source id. (Used in scripting obj to overcome typecast issue)",
+          "parameters": "sourceId: Long",
+          "returnType": "void"
+        },
+        {
+          "name": "addSourceSpecialParameter",
+          "description": "Add a source special param.",
+          "parameters": "ssParam: CSSourceSpecialParameters",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "CSProtectionJobFolder",
+      "description": "Virtual Folder Protection Job object.",
+      "attributes": [
+        {
+          "name": "displayName",
+          "description": "Protection Job",
+          "type": "String",
+          "isReadonly": true
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSProtectionJobManager",
+      "description": "Provides basic operations for Protection Jobs.",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "removePhyMachineFromFileBasedProtectionJob",
+          "description": "Remove a physical server from file based protection job.",
+          "parameters": "connection: CSCohesityConnection, machine: CSPhysicalMachine, pJob: CSProtectionJob",
+          "returnType": "CSProtectionJob"
+        },
+        {
+          "name": "getProtectionJobList",
+          "description": "Lists all Protection Jobs",
+          "parameters": "connection: CSCohesityConnection, includeLastRunAndStats: Boolean",
+          "returnType": "CSProtectionJob[]"
+        },
+        {
+          "name": "getProtectionJobById",
+          "description": "Get a protection job instance by its ID.",
+          "parameters": "connection: CSCohesityConnection, id: Long",
+          "returnType": "CSProtectionJob"
+        },
+        {
+          "name": "runProtectionJob",
+          "description": "Runs a protection job instance.",
+          "parameters": "connection: CSCohesityConnection, protectionJobId: Long, runRequest: com.cohesity.plugin.model.InstantRunRequest",
+          "returnType": "boolean"
+        },
+        {
+          "name": "addVMToProtectionJob",
+          "description": "Adds Virtual Machine to the Protection Job",
+          "parameters": "connection: CSCohesityConnection, vms: CSVirtualMachine[], pJob: CSProtectionJob",
+          "returnType": "CSProtectionJob"
+        },
+        {
+          "name": "addTagsToProtectionJob",
+          "description": "Add VMTags to Protection Job",
+          "parameters": "connection: CSCohesityConnection, pJob: CSProtectionJob, nodeObj: CSNode[]",
+          "returnType": "CSProtectionJob"
+        },
+        {
+          "name": "addSQLDbToProtectionJob",
+          "description": "Add a SQL database to a protection job",
+          "parameters": "connection: CSCohesityConnection, job: CSProtectionJob, sqlHost: CSSourceRootNode, sqlDbs: CSNode[]",
+          "returnType": "CSProtectionJob"
+        },
+        {
+          "name": "createNewProtectionJob",
+          "description": "Create a new protection job with the input variables.",
+          "parameters": "connection: CSCohesityConnection, jobInput: CSProtectionJob, tagNodes: CSNode[]",
+          "returnType": "CSProtectionJob"
+        },
+        {
+          "name": "patchProtectionJob",
+          "description": "Update a protection job object instance.",
+          "parameters": "connection: CSCohesityConnection, pJob: CSProtectionJob",
+          "returnType": "CSProtectionJob"
+        },
+        {
+          "name": "deleteProtectionJob",
+          "description": "Delete a protection job.",
+          "parameters": "connection: CSCohesityConnection, jobId: Integer, deleteSnapshots: Boolean",
+          "returnType": "boolean"
+        },
+        {
+          "name": "runProtectionJobForSources",
+          "description": "Run the Protection Job for given sources.",
+          "parameters": "connection: CSCohesityConnection, job: CSProtectionJob, runType: String, vms: CSVirtualMachine[]",
+          "returnType": "boolean"
+        },
+        {
+          "name": "runProtectionJobForSQLSources",
+          "description": "Run the Protection job for the SQL sources.",
+          "parameters": "connection: CSCohesityConnection, job: CSProtectionJob, runType: String, runNowList: CSRunNowParameter[]",
+          "returnType": "boolean"
+        },
+        {
+          "name": "runProtectionJobForOracleDatabases",
+          "description": "Run the Protection job for the oracle databases.",
+          "parameters": "connection: CSCohesityConnection, job: CSProtectionJob, runType: String, runNowList: CSRunNowParameter[]",
+          "returnType": "boolean"
+        },
+        {
+          "name": "removeVMFromProtectionJob",
+          "description": "Removes Virtual Machine from the Protection Job",
+          "parameters": "connection: CSCohesityConnection, vm: CSVirtualMachine, pJob: CSProtectionJob",
+          "returnType": "CSProtectionJob"
+        },
+        {
+          "name": "removeTagsFromProtectionJob",
+          "description": "Remove VMTags from Protection Job",
+          "parameters": "connection: CSCohesityConnection, pJob: CSProtectionJob, nodeObj: CSNode[]",
+          "returnType": "CSProtectionJob"
+        },
+        {
+          "name": "updateSourceForProtectionJob",
+          "description": "Update source for a given protection job.",
+          "parameters": "connection: CSCohesityConnection, sourceIds: Long[], pJob: CSProtectionJob",
+          "returnType": "CSProtectionJob"
+        },
+        {
+          "name": "addPhyMachineToFileBasedProtectionJob",
+          "description": "Add a physical server to file based protection job.",
+          "parameters": "connection: CSCohesityConnection, machine: CSPhysicalMachine, paths: CSFilePaths[], pJob: CSProtectionJob",
+          "returnType": "CSProtectionJob"
+        },
+        {
+          "name": "addSQLDBIdsToProtectionJob",
+          "description": "Add SQL databases identified by its ID to a job.",
+          "parameters": "connection: CSCohesityConnection, job: CSProtectionJob, sqlHost: CSSourceRootNode, sqlDbIds: String[]",
+          "returnType": "CSProtectionJob"
+        },
+        {
+          "name": "removeSQLDbFromProtectionJob",
+          "description": "Remove a SQL instance from protection job",
+          "parameters": "connection: CSCohesityConnection, job: CSProtectionJob, sqlHost: CSSourceRootNode, sqlDb: CSNode",
+          "returnType": "CSProtectionJob"
+        },
+        {
+          "name": "getProtectionJobsProtectingVM",
+          "description": "Returns list of all protection jobs protecting a given VM.",
+          "parameters": "connection: CSCohesityConnection, vm: CSVirtualMachine, includeLastRunAndStats: Boolean",
+          "returnType": "CSProtectionJob[]"
+        },
+        {
+          "name": "fetchProtectionSummaryForVM",
+          "description": "Fetch the Protection Job Summary for the VM.",
+          "parameters": "connection: CSCohesityConnection, vm: CSVirtualMachine",
+          "returnType": "CSProtectionJobSummary[]"
+        },
+        {
+          "name": "getAllVirtualMachinesFromProtectionJob",
+          "description": "Returns All Virtual Machines from the Protection Job",
+          "parameters": "connection: CSCohesityConnection, pJob: CSProtectionJob",
+          "returnType": "CSVirtualMachine[]"
+        }
+      ]
+    },
+    {
+      "name": "CSProtectionJobNameResource",
+      "description": "Provides basic operations for Root Resource.",
+      "attributes": [
+        {
+          "name": "jobUid",
+          "description": "Job UId",
+          "type": "CSJobUid",
+          "isReadonly": false
+        },
+        {
+          "name": "parentSourceId",
+          "description": "Parent Id",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "objectId",
+          "description": "Object Id",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "Object name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "Job Id",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "CSProtectionJobNameResource",
+          "description": "",
+          "parameters": "name: String, id: String, objectId: Long",
+          "returnType": "void"
+        },
+        {
+          "name": "setInternalID",
+          "description": "",
+          "parameters": "",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "CSProtectionJobSummary",
+      "description": "Provides POJO for Protection Job Summary.",
+      "attributes": [
+        {
+          "name": "jobName",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "clusterId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "clusterIncarnationId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "policyId",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "isRpoJob",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "jobId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "lastProtectionJobRunStatus",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSProtectionPolicy",
+      "description": "Provides POJO for protection policies.",
+      "attributes": [
+        {
+          "name": "displayName",
+          "description": "Name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "daysToKeep",
+          "description": "DaysToKeep",
+          "type": "Integer",
+          "isReadonly": false
+        },
+        {
+          "name": "retries",
+          "description": "Retries",
+          "type": "Integer",
+          "isReadonly": false
+        },
+        {
+          "name": "retryIntervalMins",
+          "description": "RetryIntervalMins",
+          "type": "Integer",
+          "isReadonly": false
+        },
+        {
+          "name": "snapshotReplicationCopyPolicies",
+          "description": "",
+          "type": "CSSnapshotReplicationCopyPolicies[]",
+          "isReadonly": false
+        },
+        {
+          "name": "snapshotArchivalCopyPolicies",
+          "description": "",
+          "type": "com.cohesity.plugin.model.SnapshotArchivalCopyPolicies[]",
+          "isReadonly": false
+        },
+        {
+          "name": "incrementalSchedulingPolicy",
+          "description": "IncrementalSchedulingPolicy",
+          "type": "com.cohesity.plugin.model.IncrementalSchedulingPolicy",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "Name of the policy",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "Id",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSProtectionPolicyManager",
+      "description": "Provides basic operations on Protection Policy.",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "getProtectionPolicies",
+          "description": "Get list of protection policies",
+          "parameters": "connection: CSCohesityConnection",
+          "returnType": "CSProtectionPolicy[]"
+        },
+        {
+          "name": "getProtectionPolicyById",
+          "description": "Get a protection policy by its ID.",
+          "parameters": "connection: CSCohesityConnection, id: String",
+          "returnType": "CSProtectionPolicy"
+        }
+      ]
+    },
+    {
+      "name": "CSProtectionRun",
+      "description": "Provides POJO for Protection Run.",
+      "attributes": [
+        {
+          "name": "jobName",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "jobUid",
+          "description": "",
+          "type": "CSJobUid",
+          "isReadonly": false
+        },
+        {
+          "name": "copyRun",
+          "description": "",
+          "type": "CSCopyRun[]",
+          "isReadonly": false
+        },
+        {
+          "name": "viewBoxId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "backupRun",
+          "description": "",
+          "type": "com.cohesity.plugin.model.BackupRun",
+          "isReadonly": false
+        },
+        {
+          "name": "jobId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSProtectionSource",
+      "description": "Provides POJO for Protection Source objects.",
+      "attributes": [
+        {
+          "name": "environment",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "parentId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSProtectionSourceManager",
+      "description": "Provides basic operations for Protection Source.",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "getAllSourceNodes",
+          "description": "Return all the registration sources node object.",
+          "parameters": "connection: CSCohesityConnection, environments: String[]",
+          "returnType": "CSSourceRootNode[]"
+        },
+        {
+          "name": "getProtectedNodes",
+          "description": "Get all the protected nodes in Cohesity cluster.",
+          "parameters": "connection: CSCohesityConnection, environment: String, sourceId: Long",
+          "returnType": "CSProtectedNode[]"
+        },
+        {
+          "name": "getAAGHostsAndDatabases",
+          "description": "Get AAG Hosts",
+          "parameters": "connection: CSCohesityConnection, sourceId: Long",
+          "returnType": "CSAAGNodesAndDatabases[]"
+        },
+        {
+          "name": "getAllVirtualMachines",
+          "description": "Returns all the virtual machines in a cluster filtered by vcenterId and protection status.",
+          "parameters": "connection: CSCohesityConnection, vCenterId: Long, getProtected: Boolean",
+          "returnType": "CSVirtualMachine[]"
+        },
+        {
+          "name": "getVirtualMachineByUUID",
+          "description": "Get CSVirtualMachine instance by UUID.",
+          "parameters": "connection: CSCohesityConnection, vmName: String, uuid: String, getProtected: Boolean, vCenterId: Long, refreshProtectionSourceIfRequired: Boolean",
+          "returnType": "CSVirtualMachine"
+        },
+        {
+          "name": "getVirtualMachinesByUUID",
+          "description": "Returns list of virtual machines identified by its UUID.",
+          "parameters": "connection: CSCohesityConnection, uuids: String[], getProtected: Boolean, vCenterId: Long",
+          "returnType": "CSVirtualMachine[]"
+        },
+        {
+          "name": "getPhysicalMachineById",
+          "description": "Get physical machine instance by its id.",
+          "parameters": "connection: CSCohesityConnection, id: String",
+          "returnType": "CSPhysicalMachine"
+        },
+        {
+          "name": "refreshProtectionSources",
+          "description": "Refresh all protection sources.",
+          "parameters": "connection: CSCohesityConnection",
+          "returnType": "void"
+        },
+        {
+          "name": "refreshProtectionSource",
+          "description": "Refresh a protection source.",
+          "parameters": "connection: CSCohesityConnection, protectionSourceId: Long",
+          "returnType": "boolean"
+        },
+        {
+          "name": "getClusterNetwork",
+          "description": "Get the available networks for the cluster",
+          "parameters": "connection: CSCohesityConnection, protectionSourceId: String, dataCenterId: String, clusterId: String",
+          "returnType": "CSNetworkResource[]"
+        },
+        {
+          "name": "getViewNames",
+          "description": "Get available Cohesity Views",
+          "parameters": "connection: CSCohesityConnection",
+          "returnType": "String[]"
+        },
+        {
+          "name": "getSnapshotsForInstance",
+          "description": "Get snapshots for a given object instance.",
+          "parameters": "connection: CSCohesityConnection, objectName: String, objectId: Long, protectionJobId: String",
+          "returnType": "CSSnapshotVersion[]"
+        },
+        {
+          "name": "getArchivalData",
+          "description": "Get agetVirtualDisksrchival data for a given snapshot",
+          "parameters": "snapShotVersion: CSSnapshotVersion",
+          "returnType": "CSArchivalTarget"
+        },
+        {
+          "name": "getVCenterNamesAndIDs",
+          "description": "method to get vCenter Names and IDs",
+          "parameters": "connection: CSCohesityConnection",
+          "returnType": "CSVCenterResource[]"
+        },
+        {
+          "name": "cloneVirtualMachine",
+          "description": "Clones a VM of a given connection",
+          "parameters": "cohesityConnection: CSCohesityConnection, cloneTaskRequest: CSCloneTaskRequest",
+          "returnType": "com.cohesity.plugin.model.RestoreTask"
+        },
+        {
+          "name": "searchVMRestoreObject",
+          "description": "Search VM Restore Objects",
+          "parameters": "connection: CSCohesityConnection, query: String, sourceIds: String[], environments: String[], ownerEntityId: Long",
+          "returnType": "CSObjectResource[]"
+        },
+        {
+          "name": "restoreFilesOrFolders",
+          "description": "Restores a File of a given connection",
+          "parameters": "cohesityConnection: CSCohesityConnection, restoreFileRequest: CSRestoreFileRequest",
+          "returnType": "com.cohesity.plugin.model.RestoreTask"
+        },
+        {
+          "name": "restoreVirtualMachine",
+          "description": "Restores a VM of a given connection",
+          "parameters": "cohesityConnection: CSCohesityConnection, restoreTaskRequest: CSRestoreTaskRequest",
+          "returnType": "com.cohesity.plugin.model.RestoreTask"
+        },
+        {
+          "name": "sendMailNotification",
+          "description": "send a notification mail to user",
+          "parameters": "jobStatus: String, emailConfig: CSEmailConfiguration, recipients: String, content: String, vmName: String, filesOrFoldersType: String, snapshot: String, userName: String, filesOrFoldersName: String, recoverToLocation: String, subject: String, error: String",
+          "returnType": "com.cohesity.plugin.model.RestoreError"
+        },
+        {
+          "name": "watchRestoreStatus",
+          "description": "Gets status of a restore job",
+          "parameters": "cohesityConnection: CSCohesityConnection, restoreJobId: int",
+          "returnType": "String"
+        },
+        {
+          "name": "registerProtectionSource",
+          "description": "Register a new protection source.",
+          "parameters": "connection: CSCohesityConnection, protectionSourceParams: CSProtectionSourceParameter",
+          "returnType": "CSSourceRootNode"
+        },
+        {
+          "name": "upgradeAgents",
+          "description": "Upgrade cohesity agents.",
+          "parameters": "connection: CSCohesityConnection, agentIds: String[]",
+          "returnType": "void"
+        },
+        {
+          "name": "registerUDASource",
+          "description": "Register UDA Source",
+          "parameters": "connection: CSCohesityConnection, params: CSUDASourceRegistrationParams",
+          "returnType": "void"
+        },
+        {
+          "name": "getServerTimezone",
+          "description": "Returns the current server timezone.",
+          "parameters": "",
+          "returnType": "String"
+        },
+        {
+          "name": "recoverVirtualDisk",
+          "description": "Recover Virtual Disks in cohesity.",
+          "parameters": "connection: CSCohesityConnection, request: CSRecoverDiskRequest",
+          "returnType": "Long"
+        },
+        {
+          "name": "getVirtualDisks",
+          "description": "Fetch all the virtual disks.",
+          "parameters": "connection: CSCohesityConnection, clusterId: String, clusterIncarnationId: String, jobId: Long, jobRunId: Long, sourceId: Long, startTimeUsecs: String",
+          "returnType": "CSVirtualDiskInformation[]"
+        },
+        {
+          "name": "deleteProtectionRun",
+          "description": "Deletes a protection run instance.",
+          "parameters": "connection: CSCohesityConnection, protectionJobId: Integer, startedTimeUsecs: Long, deleteArchivalSnapshots: Boolean",
+          "returnType": "void"
+        },
+        {
+          "name": "getAllTimezones",
+          "description": "Fetch all the timezones.",
+          "parameters": "",
+          "returnType": "String[]"
+        },
+        {
+          "name": "getDatastores",
+          "description": "Return all the datastores.",
+          "parameters": "connection: CSCohesityConnection, vCenterId: Integer, resourcePoolId: Integer",
+          "returnType": "CSDatastore[]"
+        },
+        {
+          "name": "getResourcePools",
+          "description": "Return all the resource pools in a vCenter.",
+          "parameters": "connection: CSCohesityConnection, vCenterId: Integer",
+          "returnType": "CSResourcePool[]"
+        },
+        {
+          "name": "getNetworkEntities",
+          "description": "Return all the port groups in a vcenter & rp.",
+          "parameters": "connection: CSCohesityConnection, vCenterId: Integer, resourcePoolId: Integer",
+          "returnType": "CSNetworkEntities[]"
+        },
+        {
+          "name": "getCurrentTime",
+          "description": "Get current time in a timezone.",
+          "parameters": "timezone: String",
+          "returnType": "String"
+        },
+        {
+          "name": "getProtectionRuns",
+          "description": "Get recent protection runs.",
+          "parameters": "connection: CSCohesityConnection, startedTimeUsecs: Long, jobId: Integer, sourceId: Integer, startTimeUsecs: Long, endTimeUsecs: Long, runTypes: String[], numRuns: Long",
+          "returnType": "CSProtectionRun[]"
+        },
+        {
+          "name": "getBifrostConnections",
+          "description": "Fetch all the Bifrost connection information.",
+          "parameters": "connection: CSCohesityConnection, fetchDefaults: Boolean",
+          "returnType": "CSBifrostConnection[]"
+        },
+        {
+          "name": "getAllProtectionSourcePhysicalMachines",
+          "description": "Get all registered physical machines in a given cluster.",
+          "parameters": "connection: CSCohesityConnection",
+          "returnType": "CSPhysicalMachine[]"
+        },
+        {
+          "name": "getAllProtectionSourceRootNodes",
+          "description": "Get all the protection source root nodes.",
+          "parameters": "connection: CSCohesityConnection",
+          "returnType": "CSRootNode[]"
+        },
+        {
+          "name": "getSnapshotForSelectedFile",
+          "description": "Get the snapshots from the selected files and folders",
+          "parameters": "connection: CSCohesityConnection, filesOrFoldersName: String, clusterIncarnationId: Long, clusterId: Long, jobId: Integer, sourceId: Integer",
+          "returnType": "CSSnapshotVersion[]"
+        },
+        {
+          "name": "getRecoverySourcesTypeForSnapshot",
+          "description": "Returns the types of recovery targets supported for a snapshot.",
+          "parameters": "snapShotVersion: CSSnapshotVersion",
+          "returnType": "String[]"
+        },
+        {
+          "name": "getDatacenterByVCenterName",
+          "description": "method to get Datacenters for a specific vCenter protection source",
+          "parameters": "connection: CSCohesityConnection, protectionSourceId: int",
+          "returnType": "CSDataCenterResource[]"
+        },
+        {
+          "name": "getAllComputeClustersInCohesityCluster",
+          "description": "Get all VM-Clusters registered as source in Cohesity",
+          "parameters": "connection: CSCohesityConnection",
+          "returnType": "CSClusterComputeResource[]"
+        },
+        {
+          "name": "getClustersByDatacenterVCenter",
+          "description": "method to get Clusters for a specific dataCenter and vCenter protection source",
+          "parameters": "connection: CSCohesityConnection, protectionSourceId: int, dataCenterId: String",
+          "returnType": "CSClusterResource[]"
+        },
+        {
+          "name": "getResourcePoolsForCluster",
+          "description": "method to get resource pools for clusters",
+          "parameters": "connection: CSCohesityConnection, protectionSourceId: int, dataCenterId: String, clusterId: String",
+          "returnType": "CSResourcePoolResource[]"
+        },
+        {
+          "name": "filesOrFoldersSearchFindByName",
+          "description": "Get files or folders by name",
+          "parameters": "cohesityConnection: CSCohesityConnection, filesOrFoldersName: String, protectionJobId: String, sourceId: Integer, folderOnly: String",
+          "returnType": "CSFilesOrFoldersResource[]"
+        },
+        {
+          "name": "restoreVirtualMachineToAlternateLocation",
+          "description": "Restores a VM to an alternate location.",
+          "parameters": "cohesityConnection: CSCohesityConnection, restoreTaskRequest: CSRestoreTaskRequest, vCenterResource: CSVCenterResource, resourcePool: CSResourcePool, datastore: CSDatastore, networkEntity: CSNetworkEntities",
+          "returnType": "Long"
+        },
+        {
+          "name": "watchRestoreStatusForFilesorFolders",
+          "description": "Gets status of a restore job for files or folders",
+          "parameters": "cohesityConnection: CSCohesityConnection, restoreJobId: int",
+          "returnType": "com.cohesity.plugin.model.RestoreTask"
+        },
+        {
+          "name": "unRegisterProtectionSource",
+          "description": "Remove/unregister a protection source.",
+          "parameters": "connection: CSCohesityConnection, sourceId: int",
+          "returnType": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "CSProtectionSourceParameter",
+      "description": "Provides POJO for Protection Source Registration Parameters.",
+      "attributes": [
+        {
+          "name": "connectionId",
+          "description": "Specifies the Bifrost realm to be associated with the source root.",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "hostType",
+          "description": "Protection source hostType.",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "vmwareType",
+          "description": "Protection source vmwareType.",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "forceRegister",
+          "description": "Force Register",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "environment",
+          "description": "Protection source environment.",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "endpoint",
+          "description": "Protection source endpoint.",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "physicalParams",
+          "description": "",
+          "type": "CSPhysicalParams",
+          "isReadonly": false
+        },
+        {
+          "name": "userName",
+          "description": "Protection source userName.",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "password",
+          "description": "Protection source password.",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSRecoverDatabaseParams",
+      "description": "Provides POJO for Recover Database Params.",
+      "attributes": [
+        {
+          "name": "databaseName",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "oracleBaseFolder",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "oracleHomeFolder",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "dbFilesDestination",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "dbConfigFilePath",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "enableArchiveLogMode",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "bctFilePath",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "numTempfiles",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "redoLogConfig",
+          "description": "",
+          "type": "CSRedoLogConfig",
+          "isReadonly": false
+        },
+        {
+          "name": "noFilenameCheck",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "recoveryMode",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSRecoverDiskRequest",
+      "description": "Provides POJO for RecoverDiskRequests.",
+      "attributes": [
+        {
+          "name": "objects",
+          "description": "",
+          "type": "CSRecoveryObject[]",
+          "isReadonly": false
+        },
+        {
+          "name": "recoverVirtualDiskParams",
+          "description": "",
+          "type": "CSRecoverVirtualDiskParams",
+          "isReadonly": false
+        },
+        {
+          "name": "continueRestoreOnError",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSRecoverOracleDatabaseSnapshotParams",
+      "description": "Provides POJO for Recover Oracle Database Snapshot Params.",
+      "attributes": [
+        {
+          "name": "snapshotId",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "pointInTimeUsecs",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "protectionGroupName",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "protectionGroupId",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "snapshotCreationTimeUsecs",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSRecoverOracleDbParams",
+      "description": "Provides POJO for Recover Oracle Database Params.",
+      "attributes": [
+        {
+          "name": "targetEnvironment",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "oracleTargetParams",
+          "description": "",
+          "type": "CSOracleTargetParams",
+          "isReadonly": false
+        },
+        {
+          "name": "vlanConfig",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSRecoverOracleEnvironmentParams",
+      "description": "Provides POJO for Recover Oracle Environment Params.",
+      "attributes": [
+        {
+          "name": "recoveryAction",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "recoverAppParams",
+          "description": "",
+          "type": "CSRecoverOracleDbParams",
+          "isReadonly": false
+        },
+        {
+          "name": "objects",
+          "description": "",
+          "type": "CSRecoverOracleDatabaseSnapshotParams[]",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "CSRecoverOracleEnvironmentParams",
+          "description": "",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "addObjects",
+          "description": "Add a list of objects to be recovered.",
+          "parameters": "object: CSRecoverOracleDatabaseSnapshotParams",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "CSRecoverRequestParamsV2",
+      "description": "Provides POJO for RecoverRequestParamsV2",
+      "attributes": [
+        {
+          "name": "oracleParams",
+          "description": "",
+          "type": "CSRecoverOracleEnvironmentParams",
+          "isReadonly": false
+        },
+        {
+          "name": "snapshotEnvironment",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSRecoverSQLApplicationRequest",
+      "description": "Provides POJO for RecoverApplicationRequest",
+      "attributes": [
+        {
+          "name": "restoreAppParams",
+          "description": "",
+          "type": "CSRestoreAppParams",
+          "isReadonly": false
+        },
+        {
+          "name": "action",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSRecoverSQLDatabaseRequest",
+      "description": "Provides POJO for RecoverSQLDatabaseRequest",
+      "attributes": [
+        {
+          "name": "applicationEnvironment",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "applicationRestoreObjects",
+          "description": "",
+          "type": "CSApplicationRestoreObjects[]",
+          "isReadonly": false
+        },
+        {
+          "name": "hostingProtectionSource",
+          "description": "",
+          "type": "CSHostingProtectionSource",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "CSRecoverSQLDatabaseRequest",
+          "description": "",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "addApplicationRestoreObjects",
+          "description": "Add an instance of application restore object.",
+          "parameters": "applicationRestoreObjects: CSApplicationRestoreObjects",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "CSRecoverVirtualDiskParams",
+      "description": "Provides POJO for RecoverVirtualDiskParams.",
+      "attributes": [
+        {
+          "name": "targetEntity",
+          "description": "",
+          "type": "CSTargetEntity",
+          "isReadonly": false
+        },
+        {
+          "name": "virtualDiskMappings",
+          "description": "",
+          "type": "CSVirtualDiskMapping[]",
+          "isReadonly": false
+        },
+        {
+          "name": "powerOffVmBeforeRecovery",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "powerOnVmAfterRecovery",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSRecoveryObject",
+      "description": "Provides POJO for RecoveryObject.",
+      "attributes": [
+        {
+          "name": "archivalTarget",
+          "description": "",
+          "type": "CSArchivalTarget",
+          "isReadonly": false
+        },
+        {
+          "name": "jobUid",
+          "description": "",
+          "type": "CSRestoreRequestJobUid",
+          "isReadonly": false
+        },
+        {
+          "name": "jobInstanceId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "attemptNum",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "startTimeUsecs",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "entity",
+          "description": "",
+          "type": "CSEntity",
+          "isReadonly": false
+        },
+        {
+          "name": "jobId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSRecoveryObject",
+      "description": "Provides POJO for RecoveryObject.",
+      "attributes": [
+        {
+          "name": "archivalTarget",
+          "description": "",
+          "type": "CSArchivalTarget",
+          "isReadonly": false
+        },
+        {
+          "name": "jobUid",
+          "description": "",
+          "type": "CSRestoreRequestJobUid",
+          "isReadonly": false
+        },
+        {
+          "name": "jobInstanceId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "attemptNum",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "startTimeUsecs",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "entity",
+          "description": "",
+          "type": "CSEntity",
+          "isReadonly": false
+        },
+        {
+          "name": "jobId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSReplicaInfoList",
+      "description": "Provides POJO for ReplicaInfoList",
+      "attributes": [
+        {
+          "name": "expiryTimeUsecs",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "snapshotTargetSettings",
+          "description": "",
+          "type": "CSSnapshotTargetSettings",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "getExpiryTimeAsString",
+          "description": "Returns the expiry time as string.",
+          "parameters": "",
+          "returnType": "String"
+        }
+      ]
+    },
+    {
+      "name": "CSReplicationTarget",
+      "description": "Provides POJO for ReplicationTarget.",
+      "attributes": [
+        {
+          "name": "clusterId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "clusterName",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSReport",
+      "description": "Provides POJO for Report objects.",
+      "attributes": [
+        {
+          "name": "outputFormat",
+          "description": "outputFormat",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "type",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "parameters",
+          "description": "parameters",
+          "type": "CSReportParameters",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSReportJobParameter",
+      "description": "Provides POJO for ReportJobParameter objects.",
+      "attributes": [
+        {
+          "name": "receiverEmails",
+          "description": "receiverEmails",
+          "type": "String[]",
+          "isReadonly": false
+        },
+        {
+          "name": "reports",
+          "description": "reports",
+          "type": "CSReport[]",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSReportManager",
+      "description": "Provides basic operations for ReportManager",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "generateReport",
+          "description": "Generate a report request.",
+          "parameters": "connection: CSCohesityConnection, reportRequest: CSReportRequest, sourceIds: String[]",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "CSReportParameters",
+      "description": "Provides POJO for ReportParameters objects.",
+      "attributes": [
+        {
+          "name": "lastNDays",
+          "description": "lastNDays",
+          "type": "Integer",
+          "isReadonly": false
+        },
+        {
+          "name": "registeredSourceIds",
+          "description": "registeredSourceIds",
+          "type": "Integer[]",
+          "isReadonly": false
+        },
+        {
+          "name": "runStatus",
+          "description": "runStatus",
+          "type": "String[]",
+          "isReadonly": false
+        },
+        {
+          "name": "allUnderHierarchy",
+          "description": "allUnderHierarchy",
+          "type": "boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "timezone",
+          "description": "timezone",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "jobId",
+          "description": "jobId",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSReportRequest",
+      "description": "Provides POJO for ReportRequest objects.",
+      "attributes": [
+        {
+          "name": "scheduleJobParameters",
+          "description": "scheduleJobParameters",
+          "type": "CSScheduleJobParameters",
+          "isReadonly": false
+        },
+        {
+          "name": "enableRecurringEmail",
+          "description": "enableRecurringEmail",
+          "type": "boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "type",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSResourceInfo",
+      "description": "Provides POJO for ResourceInfo",
+      "attributes": [
+        {
+          "name": "endpoints",
+          "description": "",
+          "type": "CSEndpoint[]",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSResourcePool",
+      "description": "Provides POJO for ResourcePool",
+      "attributes": [
+        {
+          "name": "parentId",
+          "description": "Parent Id",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "clusterName",
+          "description": "Cluster Name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "Resource Pool Name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "Id",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "Type",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "Display Name",
+          "type": "String",
+          "isReadonly": true
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSResourcePoolResource",
+      "description": "Provides basic operations for Root Resource.",
+      "attributes": [
+        {
+          "name": "displayName",
+          "description": "Object name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "Object Id",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSRestoreAppObjectVec",
+      "description": "Provides POJO for RestoreAppObjectVec",
+      "attributes": [
+        {
+          "name": "appEntity",
+          "description": "",
+          "type": "CSAppEntity",
+          "isReadonly": false
+        },
+        {
+          "name": "restoreParams",
+          "description": "",
+          "type": "CSRestoreParams",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSRestoreAppParams",
+      "description": "Provides POJO for RestoreAppParams",
+      "attributes": [
+        {
+          "name": "ownerRestoreInfo",
+          "description": "",
+          "type": "CSOwnerRestoreInfo",
+          "isReadonly": false
+        },
+        {
+          "name": "restoreAppObjectVec",
+          "description": "",
+          "type": "CSRestoreAppObjectVec[]",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "CSRestoreAppParams",
+          "description": "",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "addRestoreAppObjectVec",
+          "description": "Add RestoreAppObjectVec",
+          "parameters": "vector: CSRestoreAppObjectVec",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "CSRestoreFileRequest",
+      "description": "Provides POJO for RestoreFileRequest objects.",
+      "attributes": [
+        {
+          "name": "newBaseDirectory",
+          "description": "Base Directory",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "filenames",
+          "description": "filenames",
+          "type": "String[]",
+          "isReadonly": false
+        },
+        {
+          "name": "targetHostType",
+          "description": "targetHostType",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "targetParentSourceId",
+          "description": "Target Parent Source Id",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "targetSourceId",
+          "description": "Target Source Id",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "overwrite",
+          "description": "overwrite",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "sourceObjectInfo",
+          "description": "Restore Object",
+          "type": "CSRestoreObject",
+          "isReadonly": false
+        },
+        {
+          "name": "fileRecoveryMethod",
+          "description": "Recovery Method",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "username",
+          "description": "username",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "password",
+          "description": "password",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "Name",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSRestoreObject",
+      "description": "Provides POJO for RestoreObject Properties.",
+      "attributes": [
+        {
+          "name": "sourceName",
+          "description": "sourceName",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "environment",
+          "description": "Environment",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "jobRunId",
+          "description": "Job Run ID",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "startedTimeUsecs",
+          "description": "startedTimeUsecs",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "archivalTarget",
+          "description": "archivalTarget",
+          "type": "CSArchivalTarget",
+          "isReadonly": false
+        },
+        {
+          "name": "jobUid",
+          "description": "Job UID",
+          "type": "CSJobUid",
+          "isReadonly": false
+        },
+        {
+          "name": "protectionSourceId",
+          "description": "protectionSourceId",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "jobId",
+          "description": "Job ID",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSRestoreParams",
+      "description": "Provides POJO for RestoreParams",
+      "attributes": [
+        {
+          "name": "sqlRestoreParams",
+          "description": "",
+          "type": "CSSqlRestoreParams",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSRestoreRequestJobUid",
+      "description": "Provides POJO for JobUid objects in Restore Request.",
+      "attributes": [
+        {
+          "name": "clusterId",
+          "description": "Cluster Id",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "clusterIncarnationId",
+          "description": "Cluster Incarnation Id",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "objectId",
+          "description": "objectId",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSRestoreTaskRequest",
+      "description": "Provides POJO for RestoreTaskRequest objects.",
+      "attributes": [
+        {
+          "name": "jobRunId",
+          "description": "Job Run Id",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "startedTimeUsecs",
+          "description": "Started Time Usecs",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "poweredOn",
+          "description": "Powered On",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "protectionSourceId",
+          "description": "Protection Source Id",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "prefix",
+          "description": "Prefix",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "Name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "suffix",
+          "description": "Suffix",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSRootNode",
+      "description": "Provides POJO for RootNode",
+      "attributes": [
+        {
+          "name": "protectionSource",
+          "description": "Protection Source",
+          "type": "CSSourceRootNode",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "Name of the protection source",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSRunNowParameter",
+      "description": "Provides POJO for RunNowParameter",
+      "attributes": [
+        {
+          "name": "sourceId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "databaseIds",
+          "description": "",
+          "type": "Long[]",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "CSRunNowParameter",
+          "description": "",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "addDatabaseId",
+          "description": "Add dbIds to the list.",
+          "parameters": "dbId: Long",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "CSScheduleJobParameters",
+      "description": "Provides POJO for ScheduleJobParameters objects.",
+      "attributes": [
+        {
+          "name": "reportJobParameter",
+          "description": "reportJobParameter",
+          "type": "CSReportJobParameter",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSSla",
+      "description": "Provides POJO for Sla.",
+      "attributes": [
+        {
+          "name": "backupRunType",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "slaMinutes",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSSnapshotReplicationCopyPolicies",
+      "description": "Provides POJO for SnapshotReplicationCopyPolicies.",
+      "attributes": [
+        {
+          "name": "periodicity",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "daysToKeep",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "copyPartial",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "multiplier",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "target",
+          "description": "",
+          "type": "CSReplicationTarget",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSSnapshotResource",
+      "description": "Provides basic operations for Root Resource.",
+      "attributes": [
+        {
+          "name": "displayName",
+          "description": "Object name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "Object Id",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSSnapshotTargetSettings",
+      "description": "Provides POJO for SnapshotTargetSettings",
+      "attributes": [
+        {
+          "name": "archivalTarget",
+          "description": "",
+          "type": "CSArchivalTarget",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSSnapshotVersion",
+      "description": "Provides POJO for Snapshot information.",
+      "attributes": [
+        {
+          "name": "jobRunId",
+          "description": "jobRunId",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "startedTimeUsecs",
+          "description": "startedTimeUsecs",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "logicalSizeBytes",
+          "description": "logicalSizeBytes",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "replicaInfoList",
+          "description": "",
+          "type": "CSReplicaInfoList[]",
+          "isReadonly": false
+        },
+        {
+          "name": "isFullBackup",
+          "description": "isFullBackup",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "snapshot time",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "CSSnapshotVersion",
+          "description": "",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "getHumanReadableByteCountBin",
+          "description": "Returns the Logical size in readable format.",
+          "parameters": "",
+          "returnType": "String"
+        }
+      ]
+    },
+    {
+      "name": "CSSourceBackupstatus",
+      "description": "Provides POJO for SourceBackupStatus.",
+      "attributes": [
+        {
+          "name": "isFullBackup",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "parentSourceId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "numRestarts",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "slaViolated",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "quiesced",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "source",
+          "description": "",
+          "type": "CSProtectionSource",
+          "isReadonly": false
+        },
+        {
+          "name": "status",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "stats",
+          "description": "",
+          "type": "com.cohesity.plugin.model.Stats",
+          "isReadonly": false
+        },
+        {
+          "name": "error",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "progressMonitorTaskPath",
+          "description": "",
+          "type": "Any",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSSourceRootNode",
+      "description": "Provides POJO for RootNode objects.",
+      "attributes": [
+        {
+          "name": "environment",
+          "description": "Source node environment",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "oracleProtectionSource",
+          "description": "Source node oracleProtectionSource",
+          "type": "CSOracleProtectionSource",
+          "isReadonly": false
+        },
+        {
+          "name": "physicalProtectionSource",
+          "description": "Source node physicalProtectionSource",
+          "type": "CSPhysicalProtectionSource",
+          "isReadonly": false
+        },
+        {
+          "name": "vmWareProtectionSource",
+          "description": "Source node vmWareProtectionSource",
+          "type": "CSVmWareProtectionSource",
+          "isReadonly": true
+        },
+        {
+          "name": "displayName",
+          "description": "Source node name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "ID",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSSourceSpecialParameters",
+      "description": "Provides POJO for SourceSpecialParameters.",
+      "attributes": [
+        {
+          "name": "sourceId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "sqlSpecialParameters",
+          "description": "",
+          "type": "CSSQLSpecialParameters",
+          "isReadonly": false
+        },
+        {
+          "name": "oracleSpecialParameters",
+          "description": "",
+          "type": "CSOracleSpecialParameters",
+          "isReadonly": false
+        },
+        {
+          "name": "physicalSpecialParameters",
+          "description": "",
+          "type": "CSPhysicalSpecialParameters",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSSQLError",
+      "description": "Provides POJO for SQLError",
+      "attributes": [
+        {
+          "name": "errorCode",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "message",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSSQLManager",
+      "description": "Provides basic operations for MS-SQL workflows",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "registerSQLApplication",
+          "description": "Register a physical server as MSSQL application instance",
+          "parameters": "connection: CSCohesityConnection, physicalServerId: Long",
+          "returnType": "void"
+        },
+        {
+          "name": "restoreSQLDatabase",
+          "description": "Recover a MSSQL application Database",
+          "parameters": "connection: CSCohesityConnection, requestParam: CSRecoverSQLDatabaseRequest",
+          "returnType": "Long"
+        },
+        {
+          "name": "restoreSQL",
+          "description": "Recover a MSSQL application (DB/instance)",
+          "parameters": "connection: CSCohesityConnection, requestParam: CSRecoverSQLApplicationRequest",
+          "returnType": "Long"
+        },
+        {
+          "name": "getAllSQLInstances",
+          "description": "Returns all the SQL instances in a SQL host",
+          "parameters": "connection: CSCohesityConnection, rootNodeId: Long",
+          "returnType": "CSNode[]"
+        },
+        {
+          "name": "getAllSQLDatabases",
+          "description": "Get all the SQL databases in a SQL instance.",
+          "parameters": "connection: CSCohesityConnection, rootNodeId: Long, instanceId: Long",
+          "returnType": "CSNode[]"
+        },
+        {
+          "name": "getTopology",
+          "description": "Fetch the MSSQL topology for the input host.",
+          "parameters": "connection: CSCohesityConnection, connectionIp: String",
+          "returnType": "CSTestConnectionResponse"
+        }
+      ]
+    },
+    {
+      "name": "CSSqlParameters",
+      "description": "Provides POJO for SqlParameters.",
+      "attributes": [
+        {
+          "name": "aagPreference",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "backupSystemDatabases",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "backupVolumesOnly",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "backupType",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "numStreams",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "isCopyOnlyFull",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "userDatabasePreference",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "aagPreferenceFromSqlServer",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "incrementalSnapshotUponRestart",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSSQLProtectionSource",
+      "description": "Provides POJO for SQLProtectionSource object.",
+      "attributes": [
+        {
+          "name": "databaseName",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "dbAagEntityId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "dbAagName",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "recoveryModel",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "createdTimestamp",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "sqlServerDbState",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "dbFileGroups",
+          "description": "",
+          "type": "String[]",
+          "isReadonly": false
+        },
+        {
+          "name": "dbOwnerUsername",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "dbCompatibilityLevel",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "isAvailableForVssBackup",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "ownerId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "com.cohesity.plugin.model.SQLId",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSSqlRestoreParameters",
+      "description": "Provides POJO for SqlRestoreParameters",
+      "attributes": [
+        {
+          "name": "captureTailLogs",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "keepOffline",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "newDatabaseName",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "newInstanceName",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "restoreTimeSecs",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "keepCdc",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "overwritePolicy",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "targetDataFilesDirectory",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "targetLogFilesDirectory",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSSqlRestoreParams",
+      "description": "Provides POJO for SqlRestoreParams",
+      "attributes": [
+        {
+          "name": "isMultiStageRestore",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "dataFileDestination",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "logFileDestination",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "withNoRecovery",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "captureTailLogs",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "newDatabaseName",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "keepCdc",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "secondaryDataFileDestinationVec",
+          "description": "",
+          "type": "Any[]",
+          "isReadonly": false
+        },
+        {
+          "name": "alternateLocationParams",
+          "description": "",
+          "type": "CSAlternateLocationParams",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSSQLServer",
+      "description": "Provides POJO for SQLServer",
+      "attributes": [
+        {
+          "name": "agentInfo",
+          "description": "",
+          "type": "CSAgentInfo",
+          "isReadonly": false
+        },
+        {
+          "name": "isPrimary",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "instances",
+          "description": "",
+          "type": "CSInstance[]",
+          "isReadonly": false
+        },
+        {
+          "name": "resourceInfo",
+          "description": "",
+          "type": "CSResourceInfo",
+          "isReadonly": false
+        },
+        {
+          "name": "isSelectedByDefault",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "error",
+          "description": "",
+          "type": "CSSQLError",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSSQLSpecialParameters",
+      "description": "Provides POJO for SQLSpecialParameters.",
+      "attributes": [
+        {
+          "name": "applicationEntityIds",
+          "description": "",
+          "type": "Long[]",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "CSSQLSpecialParameters",
+          "description": "",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "addApplicationEntityId",
+          "description": "Add an Application entity id.",
+          "parameters": "id: Long",
+          "returnType": "void"
+        },
+        {
+          "name": "removeApplicationEntityId",
+          "description": "Remove an application entity id.",
+          "parameters": "id: Long",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "CSSrcDisk",
+      "description": "Provides POJO for SrcDisk.",
+      "attributes": [
+        {
+          "name": "diskId",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "unitNumber",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "controllerBusNumber",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "controllerType",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSStartTime",
+      "description": "Provides POJO for StartTime.",
+      "attributes": [
+        {
+          "name": "timezone",
+          "description": "Timezone",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "hour",
+          "description": "Hour",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "minute",
+          "description": "Minute",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSStorageDomainManager",
+      "description": "Provides basic operations on storage domains.",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "getAllViewBoxes",
+          "description": "Get all the viewBoxes/storeDomains in the cluster.",
+          "parameters": "connection: CSCohesityConnection",
+          "returnType": "_CSViewBox[]"
+        },
+        {
+          "name": "getViewBoxById",
+          "description": "Get the view box entity by its ID",
+          "parameters": "connection: CSCohesityConnection, id: String",
+          "returnType": "_CSViewBox"
+        },
+        {
+          "name": "createStorageDomain",
+          "description": "Create a storage domain.",
+          "parameters": "connection: CSCohesityConnection, requestParam: CSViewBoxCreate",
+          "returnType": "_CSViewBox"
+        },
+        {
+          "name": "getAllPartitions",
+          "description": "Get all the cluster partitions.",
+          "parameters": "connection: CSCohesityConnection",
+          "returnType": "_CSClusterPartition[]"
+        }
+      ]
+    },
+    {
+      "name": "CSStoragePolicy",
+      "description": "Provides POJO for StoragePolicy",
+      "attributes": [
+        {
+          "name": "deduplicationEnabled",
+          "description": "Is deduplicationEnabled?",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "inlineDeduplicate",
+          "description": "Is inlineDeduplicate enabled?",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "compressionPolicy",
+          "description": "compressionPolicy",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "inlineCompress",
+          "description": "inlineCompress",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "encryptionPolicy",
+          "description": "encryptionPolicy",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "numFailuresTolerated",
+          "description": "numFailuresTolerated",
+          "type": "Integer",
+          "isReadonly": false
+        },
+        {
+          "name": "erasureCodingInfo",
+          "description": "erasureCodingInfo",
+          "type": "com.cohesity.plugin.model.ErasureCodingInfo",
+          "isReadonly": false
+        },
+        {
+          "name": "numNodeFailuresTolerated",
+          "description": "numNodeFailuresTolerated",
+          "type": "Integer",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSTagManager",
+      "description": "Provides basic operations for VMware Tags",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "getAllProtectionTagsForSource",
+          "description": "Returns all kTag type node objects.",
+          "parameters": "connection: CSCohesityConnection, parentSourceId: Integer",
+          "returnType": "CSNode[]"
+        }
+      ]
+    },
+    {
+      "name": "CSTargetEntity",
+      "description": "Provides POJO for TargetEntity.",
+      "attributes": [
+        {
+          "name": "parentId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSTargetLocation",
+      "description": "Provides POJO for TargetLocation.",
+      "attributes": [
+        {
+          "name": "id",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSTenant",
+      "description": "Provides Object for Tenants.",
+      "attributes": [
+        {
+          "name": "viewBoxIds",
+          "description": "Tenant viewBoxIds",
+          "type": "Long[]",
+          "isReadonly": false
+        },
+        {
+          "name": "policyIds",
+          "description": "Tenant policyIds",
+          "type": "String[]",
+          "isReadonly": false
+        },
+        {
+          "name": "entityIds",
+          "description": "Tenant Entities",
+          "type": "Long[]",
+          "isReadonly": false
+        },
+        {
+          "name": "createdTimeMsecs",
+          "description": "createdTimeMsecs",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "lastUpdatedTimeMsecs",
+          "description": "lastUpdatedTimeMsecs",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "tenantId",
+          "description": "Tenant Id",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "description": "Tenant Description",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "Tenant Name",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSTenantCreateParameters",
+      "description": "Provides Object for Tenant creation.",
+      "attributes": [
+        {
+          "name": "orgSuffix",
+          "description": "Org Suffix",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "description": "Description",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "Tenant Name",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSTenantManager",
+      "description": "Provides basic operations for Tenant Management",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "getAllTenants",
+          "description": "",
+          "parameters": "connection: CSCohesityConnection, ids: String[], properties: String[], status: String[]",
+          "returnType": "CSTenant[]"
+        },
+        {
+          "name": "createTenant",
+          "description": "",
+          "parameters": "connection: CSCohesityConnection, parameters: CSTenantCreateParameters",
+          "returnType": "CSTenant"
+        },
+        {
+          "name": "updateTenantUser",
+          "description": "",
+          "parameters": "connection: CSCohesityConnection, tenantId: String, sids: String[]",
+          "returnType": "void"
+        },
+        {
+          "name": "updateTenantViewBoxId",
+          "description": "",
+          "parameters": "connection: CSCohesityConnection, tenantId: String, viewBoxIds: String[]",
+          "returnType": "void"
+        },
+        {
+          "name": "deleteTenant",
+          "description": "Delete a tenant in Cohesity.",
+          "parameters": "connection: CSCohesityConnection, tenantId: String",
+          "returnType": "void"
+        },
+        {
+          "name": "updateTenantSource",
+          "description": "",
+          "parameters": "connection: CSCohesityConnection, tenantId: String, sSourceIds: String[]",
+          "returnType": "void"
+        },
+        {
+          "name": "updateTenantProtectionPolicies",
+          "description": "",
+          "parameters": "connection: CSCohesityConnection, tenantId: String, policyIds: String[]",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "CSTenantMappingConfigManager",
+      "description": "Provides operations to manage tenant mapping config data.",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "getAllTenantMappings",
+          "description": "Return all the mapping meta information",
+          "parameters": "",
+          "returnType": "CSTenantMappingConfiguration[]"
+        },
+        {
+          "name": "getTenantMappingById",
+          "description": "",
+          "parameters": "id: String",
+          "returnType": "CSTenantMappingConfiguration"
+        },
+        {
+          "name": "deleteConfiguration",
+          "description": "Delete a tenant mapping configuration.",
+          "parameters": "config: CSTenantMappingConfiguration",
+          "returnType": "void"
+        },
+        {
+          "name": "getAllMappingsForVRATenant",
+          "description": "For a given vRA Tenant return all the tenant mapping meta data.",
+          "parameters": "vraTenantId: String",
+          "returnType": "CSTenantMappingConfiguration[]"
+        },
+        {
+          "name": "getAllMappingsForCSTenantAndConfigId",
+          "description": "For all a CSTenantId in a cluster, return the configs",
+          "parameters": "csTenantId: String, clusterConfigMetaDataId: String",
+          "returnType": "CSTenantMappingConfiguration[]"
+        },
+        {
+          "name": "getAllMappingsForACluster",
+          "description": "For a given cohesity cluster, find all the tenant mappings.",
+          "parameters": "clusterConfigMetaDataId: String",
+          "returnType": "CSTenantMappingConfiguration[]"
+        },
+        {
+          "name": "getAllMappingsForVRATenantAndConfigId",
+          "description": "For a given vRA Tenant + cluster return all the tenant mapping meta data.",
+          "parameters": "vraTenantId: String, clusterConfigMetaDataId: String",
+          "returnType": "CSTenantMappingConfiguration[]"
+        },
+        {
+          "name": "addTenantMappingConfiguration",
+          "description": "",
+          "parameters": "config: CSTenantMappingConfiguration",
+          "returnType": "CSTenantMappingConfiguration"
+        }
+      ]
+    },
+    {
+      "name": "CSTenantMappingConfiguration",
+      "description": "Provides POJO for tenant configs",
+      "attributes": [
+        {
+          "name": "vraTenantId",
+          "description": "VRA Tenant Id",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "tenantConnectionId",
+          "description": "Connection Id",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "cohesityTenantId",
+          "description": "CS Org Id",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "clusterConfigMetaDataId",
+          "description": "Cluster MetaData Id (ADMIN-CohesityConnection) Instance",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "Config Name",
+          "type": "String",
+          "isReadonly": true
+        },
+        {
+          "name": "id",
+          "description": "Config ID",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "Config Type",
+          "type": "String",
+          "isReadonly": true
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSTestConnectionResponse",
+      "description": "Provides POJO for TestConnectionResponse.",
+      "attributes": [
+        {
+          "name": "connectionId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "environment",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "mssqlConnectionResponseParams",
+          "description": "",
+          "type": "CSMssqlConnectionResponseParams",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSUdaParams",
+      "description": "Provides POJO for UdaParams",
+      "attributes": [
+        {
+          "name": "sourceType",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "osType",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "scriptDir",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "mountView",
+          "description": "",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "viewParams",
+          "description": "",
+          "type": "CSViewParams",
+          "isReadonly": false
+        },
+        {
+          "name": "credentials",
+          "description": "",
+          "type": "CSCredentials",
+          "isReadonly": false
+        },
+        {
+          "name": "hosts",
+          "description": "",
+          "type": "String[]",
+          "isReadonly": false
+        },
+        {
+          "name": "sourceRegistrationArgs",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSUdaParamsInfo",
+      "description": "Provides POJO for UdaParams.",
+      "attributes": [
+        {
+          "name": "sourceId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "fullBackupArgs",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "incrBackupArgs",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "logBackupArgs",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "concurrency",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "mounts",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "objects",
+          "description": "",
+          "type": "CSUdaParamsObject[]",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "CSUdaParamsInfo",
+          "description": "",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "addUdaParamObject",
+          "description": "Add an instance of UDA source",
+          "parameters": "obj: CSUdaParamsObject",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "CSUdaParamsObject",
+      "description": "Provides POJO for Protection Group.",
+      "attributes": [
+        {
+          "name": "name",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSUDASourceRegistrationParams",
+      "description": "Provides POJO for UDASourceRegistrationParams",
+      "attributes": [
+        {
+          "name": "udaParams",
+          "description": "",
+          "type": "CSUdaParams",
+          "isReadonly": false
+        },
+        {
+          "name": "environment",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSUDASourceRegistrationResp",
+      "description": "Provides POJO for UDASourceRegistrationParams",
+      "attributes": [
+        {
+          "name": "udaParams",
+          "description": "",
+          "type": "CSUdaParams",
+          "isReadonly": false
+        },
+        {
+          "name": "connectionId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "environment",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "sourceId",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSUnprotectedSourcesFolder",
+      "description": "Virtual Folder Protection Job object.",
+      "attributes": [
+        {
+          "name": "displayName",
+          "description": "Protection Job",
+          "type": "String",
+          "isReadonly": true
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSVCenterResource",
+      "description": "Provides basic operations for Root Resource.",
+      "attributes": [
+        {
+          "name": "displayEndpoint",
+          "description": "Object endpoint",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "Object name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "Object Id",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSViewBox",
+      "description": "Provides POJO on ViewBox",
+      "attributes": [
+        {
+          "name": "clusterPartitionName",
+          "description": "clusterPartitionName",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "storagePolicy",
+          "description": "storagePolicy",
+          "type": "CSStoragePolicy",
+          "isReadonly": false
+        },
+        {
+          "name": "clusterPartitionId",
+          "description": "clusterPartitionId",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "s3BucketsAllowed",
+          "description": "s3BucketsAllowed",
+          "type": "Boolean",
+          "isReadonly": false
+        },
+        {
+          "name": "adDomainName",
+          "description": "adDomainName",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "ldapProviderId",
+          "description": "ldapProviderId",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "removalState",
+          "description": "removalState",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "Name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "Id",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSViewBoxCreate",
+      "description": "Provides POJO for StoreDomainCreate Req",
+      "attributes": [
+        {
+          "name": "storagePolicy",
+          "description": "storagePolicy",
+          "type": "CSStoragePolicy",
+          "isReadonly": false
+        },
+        {
+          "name": "clusterPartitionId",
+          "description": "Cluster Partition Id",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "Storage Domain name",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSViewParams",
+      "description": "Provides POJO for ViewParams",
+      "attributes": [
+        {
+          "name": "mountDir",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSVirtualDisk",
+      "description": "Provides POJO for VirtualDisks",
+      "attributes": [
+        {
+          "name": "unitNumber",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "controllerType",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "busNumber",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "CSVirtualDisk",
+          "description": "",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "setInternalId",
+          "description": "Set the internal id for presentation.",
+          "parameters": "",
+          "returnType": "void"
+        }
+      ]
+    },
+    {
+      "name": "CSVirtualDiskInformation",
+      "description": "Provides POJO for VirtualDiskInformation",
+      "attributes": [
+        {
+          "name": "diskId",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "unitNumber",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "controllerType",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "filePath",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "mountPoints",
+          "description": "",
+          "type": "String[]",
+          "isReadonly": false
+        },
+        {
+          "name": "busNumber",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "diskSizeInBytes",
+          "description": "",
+          "type": "Long",
+          "isReadonly": false
+        },
+        {
+          "name": "diskLocation",
+          "description": "",
+          "type": "CSDiskLocation",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "File path name",
+          "type": "String",
+          "isReadonly": true
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSVirtualDiskMapping",
+      "description": "Provides POJO for VirtualDiskMapping.",
+      "attributes": [
+        {
+          "name": "srcDisk",
+          "description": "",
+          "type": "CSSrcDisk",
+          "isReadonly": false
+        },
+        {
+          "name": "targetLocation",
+          "description": "",
+          "type": "CSTargetLocation",
+          "isReadonly": false
+        },
+        {
+          "name": "diskToOverwrite",
+          "description": "",
+          "type": "CSDiskToOverwrite",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSVirtualMachine",
+      "description": "Provides POJO for Virtual Machines.",
+      "attributes": [
+        {
+          "name": "environment",
+          "description": "Environment",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "parentId",
+          "description": "Virtual Machine Parent ID",
+          "type": "int",
+          "isReadonly": false
+        },
+        {
+          "name": "vmWareProtectionSource",
+          "description": "VMWare Protection Source",
+          "type": "CSVmWareProtectionSource",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "Virtual Machine Name",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "Virtual Machine ID",
+          "type": "int",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSVirtualMachineManager",
+      "description": "Provides basic operations on Virtual Machine objects.",
+      "attributes": [],
+      "methods": []
+    },
+    {
+      "name": "CSVmWareProtectionSource",
+      "description": "Provides POJO for VmWareProtectionSource.",
+      "attributes": [
+        {
+          "name": "hostType",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "virtualDisks",
+          "description": "",
+          "type": "CSVirtualDisk[]",
+          "isReadonly": false
+        },
+        {
+          "name": "connectionState",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "toolsRunningStatus",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "com.cohesity.plugin.model.Id",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "",
+          "type": "String",
+          "isReadonly": false
+        }
+      ],
+      "methods": []
+    },
+    {
+      "name": "CSVmwareSpecialParameters",
+      "description": "Provides POJO for VmwareSpecialParameters.",
+      "attributes": [
+        {
+          "name": "applicationParameters",
+          "description": "",
+          "type": "CSApplicationParameters",
+          "isReadonly": false
+        },
+        {
+          "name": "excludedDisks",
+          "description": "",
+          "type": "CSExcludedDisk[]",
+          "isReadonly": false
+        },
+        {
+          "name": "vmCredentials",
+          "description": "",
+          "type": "com.cohesity.plugin.model.VmCredentials",
+          "isReadonly": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "addExcludedDisk",
+          "description": "Add excluded disk for a VM.",
+          "parameters": "disk: CSExcludedDisk",
+          "returnType": "void"
+        }
+      ]
+    }
+  ]
+}

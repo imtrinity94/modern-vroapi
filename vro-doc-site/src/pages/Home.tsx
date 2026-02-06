@@ -53,7 +53,7 @@ const Home: React.FC = () => {
                         VCF Orchestrator Plugin APIs
                     </h1>
                     <p className="text-slate-500 dark:text-slate-400 mt-2 text-lg">
-                        Explore JavaScript SDK documentation for {pluginIndex.length} Orchestrator plugins.
+                        Explore JavaScript SDK documentation for {pluginIndex.length} Orchestrator (version 8 & above) plugins.
                     </p>
                 </div>
 

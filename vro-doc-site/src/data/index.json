@@ -24,6 +24,10 @@
     "name": "AWS EC2"
   },
   {
+    "id": "o11n-plugin-cohesity",
+    "name": "Cohesity"
+  },
+  {
     "id": "o11n-plugin-configurator",
     "name": "Configurator"
   },

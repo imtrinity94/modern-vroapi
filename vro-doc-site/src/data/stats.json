@@ -23,6 +23,10 @@
     "classes": 1954,
     "methods": 22361
   },
+  "o11n-plugin-cohesity": {
+    "classes": 174,
+    "methods": 200
+  },
   "o11n-plugin-configurator": {
     "classes": 10,
     "methods": 35
