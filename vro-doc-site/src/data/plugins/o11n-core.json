@@ -38,13 +38,13 @@
         },
         {
           "name": "versionHistoryItems",
-          "type": "[VersionHistoryItem",
+          "type": "VersionHistoryItem[]",
           "description": "Returns the versionHistoryItem list of the Action.",
           "isReadonly": true
         },
         {
           "name": "parameters",
-          "type": "[Parameter",
+          "type": "Parameter[]",
           "description": "Returns the parameter list of the Action.",
           "isReadonly": true
         },
@@ -334,7 +334,7 @@
         },
         {
           "name": "references",
-          "type": "[AuthorizationReference]",
+          "type": "AuthorizationReference[]",
           "description": "Returns all Authorization references for this authorization element.",
           "isReadonly": true
         }
@@ -543,13 +543,13 @@
         },
         {
           "name": "versionHistoryItems",
-          "type": "[VersionHistoryItem",
+          "type": "VersionHistoryItem[]",
           "description": "Returns the versionHistoryItem list of the configuration element.",
           "isReadonly": true
         },
         {
           "name": "attributes",
-          "type": "[Attribute",
+          "type": "Attribute[]",
           "description": "Returns the attribute list of the configuration element.",
           "isReadonly": true
         },
@@ -587,13 +587,13 @@
         },
         {
           "name": "configurationElements",
-          "type": "[ConfigurationElement",
+          "type": "ConfigurationElement[]",
           "description": "",
           "isReadonly": true
         },
         {
           "name": "subCategories",
-          "type": "[ConfigurationElementCategory",
+          "type": "ConfigurationElementCategory[]",
           "description": "",
           "isReadonly": true
         },
@@ -605,7 +605,7 @@
         },
         {
           "name": "allConfigurationElements",
-          "type": "[ConfigurationElement",
+          "type": "ConfigurationElement[]",
           "description": "",
           "isReadonly": true
         }
@@ -1386,19 +1386,19 @@
         },
         {
           "name": "parentGroups",
-          "type": "[LdapGroup",
+          "type": "LdapGroup[]",
           "description": "",
           "isReadonly": true
         },
         {
           "name": "subGroups",
-          "type": "[LdapGroup",
+          "type": "LdapGroup[]",
           "description": "",
           "isReadonly": true
         },
         {
           "name": "users",
-          "type": "[LdapUser",
+          "type": "LdapUser[]",
           "description": "",
           "isReadonly": true
         },
@@ -1461,7 +1461,7 @@
         },
         {
           "name": "groups",
-          "type": "[LdapGroup",
+          "type": "LdapGroup[]",
           "description": "",
           "isReadonly": true
         },
@@ -1473,7 +1473,7 @@
         },
         {
           "name": "allGroups",
-          "type": "[LdapGroup",
+          "type": "LdapGroup[]",
           "description": "",
           "isReadonly": true
         }
@@ -1751,13 +1751,13 @@
       "attributes": [
         {
           "name": "actions",
-          "type": "[Action",
+          "type": "Action[]",
           "description": "Return all action modules.",
           "isReadonly": true
         },
         {
           "name": "actionDescriptions",
-          "type": "[Action",
+          "type": "Action[]",
           "description": "Return all action modules.",
           "isReadonly": true
         },
@@ -1836,31 +1836,31 @@
         },
         {
           "name": "policyTemplates",
-          "type": "[PolicyTemplate",
+          "type": "PolicyTemplate[]",
           "description": "",
           "isReadonly": true
         },
         {
           "name": "actions",
-          "type": "[Action",
+          "type": "Action[]",
           "description": "",
           "isReadonly": true
         },
         {
           "name": "workflows",
-          "type": "[Workflow",
+          "type": "Workflow[]",
           "description": "",
           "isReadonly": true
         },
         {
           "name": "resourceElements",
-          "type": "[ResourceElement",
+          "type": "ResourceElement[]",
           "description": "",
           "isReadonly": true
         },
         {
           "name": "configurationElements",
-          "type": "[ConfigurationElement",
+          "type": "ConfigurationElement[]",
           "description": "",
           "isReadonly": true
         },
@@ -1937,7 +1937,7 @@
         },
         {
           "name": "types",
-          "type": "[Any",
+          "type": "Any[]",
           "description": "",
           "isReadonly": true
         }
@@ -2038,13 +2038,13 @@
         },
         {
           "name": "taggedObjects",
-          "type": "[Any",
+          "type": "Any[]",
           "description": "Returns all tagged object in the policy.",
           "isReadonly": true
         },
         {
           "name": "tags",
-          "type": "[String",
+          "type": "String[]",
           "description": "Returns all tags in the policy.",
           "isReadonly": true
         },
@@ -2086,7 +2086,7 @@
         },
         {
           "name": "logEvents",
-          "type": "[LogEvent",
+          "type": "LogEvent[]",
           "description": "Returns the log events",
           "isReadonly": true
         }
@@ -2137,7 +2137,7 @@
         },
         {
           "name": "versionHistoryItems",
-          "type": "[VersionHistoryItem",
+          "type": "VersionHistoryItem[]",
           "description": "Returns the versionHistoryItem list of the PolicyTemplate.",
           "isReadonly": true
         },
@@ -2187,13 +2187,13 @@
         },
         {
           "name": "policyTemplates",
-          "type": "[PolicyTemplate",
+          "type": "PolicyTemplate[]",
           "description": "",
           "isReadonly": true
         },
         {
           "name": "subCategories",
-          "type": "[PolicyTemplateCategory",
+          "type": "PolicyTemplateCategory[]",
           "description": "",
           "isReadonly": true
         },
@@ -2205,7 +2205,7 @@
         },
         {
           "name": "allPolicyTemplates",
-          "type": "[PolicyTemplate",
+          "type": "PolicyTemplate[]",
           "description": "",
           "isReadonly": true
         }
@@ -2244,7 +2244,7 @@
       "attributes": [
         {
           "name": "keys",
-          "type": "[String",
+          "type": "String[]",
           "description": "Returns the list of keys in the property list.",
           "isReadonly": true
         }
@@ -2377,7 +2377,7 @@
         },
         {
           "name": "versionHistoryItems",
-          "type": "[VersionHistoryItem",
+          "type": "VersionHistoryItem[]",
           "description": "Returns the versionHistoryItem list of the resource element.",
           "isReadonly": true
         }
@@ -2409,13 +2409,13 @@
         },
         {
           "name": "resourceElements",
-          "type": "[ResourceElement",
+          "type": "ResourceElement[]",
           "description": "",
           "isReadonly": true
         },
         {
           "name": "subCategories",
-          "type": "[ResourceElementCategory",
+          "type": "ResourceElementCategory[]",
           "description": "",
           "isReadonly": true
         },
@@ -2427,7 +2427,7 @@
         },
         {
           "name": "allResourceElements",
-          "type": "[ResourceElement",
+          "type": "ResourceElement[]",
           "description": "",
           "isReadonly": true
         }
@@ -3394,7 +3394,7 @@
         },
         {
           "name": "executions",
-          "type": "[WorkflowToken",
+          "type": "WorkflowToken[]",
           "description": "Return the execution.",
           "isReadonly": true
         }
@@ -7528,31 +7528,31 @@
         },
         {
           "name": "items",
-          "type": "[WorkflowItem",
+          "type": "WorkflowItem[]",
           "description": "Returns the item list of the workflow.",
           "isReadonly": true
         },
         {
           "name": "inParameters",
-          "type": "[Parameter",
+          "type": "Parameter[]",
           "description": "Returns the input parameter list of the workflow.",
           "isReadonly": true
         },
         {
           "name": "outParameters",
-          "type": "[Parameter",
+          "type": "Parameter[]",
           "description": "Returns the output parameter list of the workflow.",
           "isReadonly": true
         },
         {
           "name": "attributes",
-          "type": "[Attribute",
+          "type": "Attribute[]",
           "description": "Returns the attribute list of the workflow.",
           "isReadonly": true
         },
         {
           "name": "versionHistoryItems",
-          "type": "[VersionHistoryItem",
+          "type": "VersionHistoryItem[]",
           "description": "Returns the versionHistoryItem list of the workflow.",
           "isReadonly": true
         },
@@ -7570,13 +7570,13 @@
         },
         {
           "name": "executions",
-          "type": "[WorkflowToken",
+          "type": "WorkflowToken[]",
           "description": "Get all execution of a given workflow",
           "isReadonly": true
         },
         {
           "name": "logEvents",
-          "type": "[LogEvent",
+          "type": "LogEvent[]",
           "description": "Returns the log events",
           "isReadonly": true
         }
@@ -7608,19 +7608,19 @@
         },
         {
           "name": "workflows",
-          "type": "[Workflow",
+          "type": "Workflow[]",
           "description": "",
           "isReadonly": true
         },
         {
           "name": "allWorkflows",
-          "type": "[Workflow",
+          "type": "Workflow[]",
           "description": "",
           "isReadonly": true
         },
         {
           "name": "subCategories",
-          "type": "[WorkflowCategory",
+          "type": "WorkflowCategory[]",
           "description": "",
           "isReadonly": true
         },
@@ -7965,7 +7965,7 @@
         },
         {
           "name": "linkedWorkflows",
-          "type": "[Workflow",
+          "type": "Workflow[]",
           "description": "Returns the linked workflows",
           "isReadonly": true
         }
@@ -8168,7 +8168,7 @@
         },
         {
           "name": "logEvents",
-          "type": "[LogEvent",
+          "type": "LogEvent[]",
           "description": "Returns the log events",
           "isReadonly": true
         },
@@ -8180,7 +8180,7 @@
         },
         {
           "name": "attributesStack",
-          "type": "[Array of Attribute",
+          "type": "Attribute[]",
           "description": "Returns the attributes' stack of the workflow token. The stack is ordered : the last item in the stack is the current one.",
           "isReadonly": true
         }
