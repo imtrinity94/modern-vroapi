@@ -59,6 +59,13 @@ const Layout: React.FC = () => {
                     </Link>
 
                     <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+                        <Link
+                            to="/guides/vercel-analytics"
+                            className="hover:text-white transition-colors flex items-center gap-1"
+                        >
+                            <BookOpen size={14} />
+                            Guides
+                        </Link>
                         <a
                             href="https://vroapi.com"
                             target="_blank"
