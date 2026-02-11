@@ -3,8 +3,9 @@ import { useEffect, useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import pluginIndex from '../data/index.json';
 import searchIndex from '../data/search-index.json';
+import xrefData from '../data/xref.json';
 import { getPluginMeta } from '../data/plugin-meta';
-import { ChevronRight, Box, FunctionSquare, Info, Edit3, List, LayoutGrid, Copy, Check, AlertCircle } from 'lucide-react';
+import { ChevronRight, Box, FunctionSquare, Info, Edit3, List, LayoutGrid, Copy, Check, AlertCircle, Link as LinkIcon, ArrowLeftCircle } from 'lucide-react';
 import SEO from '../components/SEO';
 
 interface ApiClass {
@@ -71,6 +72,29 @@ const TypeReference = ({ type }: { type: string }) => {
     );
 };
 
+const MethodLink = ({ signature }: { signature: string }) => {
+    // signature format: pluginId:ClassName:methodName
+    const parts = signature.split(':');
+    if (parts.length !== 3) return <span>{signature}</span>;
+
+    const [pId, cName, mName] = parts;
+
+    return (
+        <Link
+            to={`/plugin/${pId}/class/${cName}`}
+            className="group flex items-center gap-1.5 p-2 rounded hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+        >
+            <span className="text-xs font-bold text-slate-500 dark:text-slate-400 font-mono">
+                {cName}
+            </span>
+            <ChevronRight size={12} className="text-slate-300 dark:text-slate-600" />
+            <span className="text-sm font-mono font-bold text-indigo-600 dark:text-indigo-400 group-hover:underline">
+                {mName}()
+            </span>
+        </Link>
+    );
+};
+
 const ClassView: React.FC = () => {
     const { pluginName, className, versionId } = useParams<{ pluginName: string; className: string; versionId?: string }>();
     const pluginEntry = useMemo(() =>
@@ -87,6 +111,9 @@ const ClassView: React.FC = () => {
     const [viewMode, setViewMode] = useState<'detailed' | 'compact'>('compact');
     const [copiedMethod, setCopiedMethod] = useState<string | null>(null);
     const [copiedAttribute, setCopiedAttribute] = useState<string | null>(null);
+
+    // Get Cross-Reference Data
+    const classXref = (xrefData as any)[className as string];
 
     const formatMethodSnippet = (name: string, params: string) => {
         if (!params || params === '-' || params === '()') return `${name}()`;
@@ -226,6 +253,7 @@ const ClassView: React.FC = () => {
                 </div>
             </header>
 
+
             {/* Attributes Section */}
             <section className="space-y-6">
                 <h2 className="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
@@ -280,6 +308,7 @@ const ClassView: React.FC = () => {
                     <div className="py-8 text-center text-slate-400 dark:text-slate-600 italic border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-2xl">No attributes defined for this class.</div>
                 )}
             </section>
+
 
             {/* Methods Section */}
             <section className="space-y-6">
@@ -402,6 +431,41 @@ const ClassView: React.FC = () => {
                     <div className="py-8 text-center text-slate-400 dark:text-slate-600 italic border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-2xl">Invokable methods are not available for this component.</div>
                 )}
             </section>
+
+            {/* Cross-Reference Sections */}
+            {classXref && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 border-t border-slate-200 dark:border-slate-800">
+                    {/* Reference (Used By) Section */}
+                    {classXref.u && classXref.u.length > 0 && (
+                        <section className="space-y-3">
+                            <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                <LinkIcon className="text-blue-500" size={18} />
+                                Reference <span className="text-sm font-normal text-slate-500">({classXref.u.length} usages)</span>
+                            </h2>
+                            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm max-h-60 overflow-y-auto custom-scrollbar p-2">
+                                {classXref.u.map((sig: string) => (
+                                    <MethodLink key={sig} signature={sig} />
+                                ))}
+                            </div>
+                        </section>
+                    )}
+
+                    {/* Returned By Section */}
+                    {classXref.r && classXref.r.length > 0 && (
+                        <section className="space-y-3">
+                            <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                <ArrowLeftCircle className="text-purple-500" size={18} />
+                                Returned By <span className="text-sm font-normal text-slate-500">({classXref.r.length} sources)</span>
+                            </h2>
+                            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm max-h-60 overflow-y-auto custom-scrollbar p-2">
+                                {classXref.r.map((sig: string) => (
+                                    <MethodLink key={sig} signature={sig} />
+                                ))}
+                            </div>
+                        </section>
+                    )}
+                </div>
+            )}
         </div>
     );
 };

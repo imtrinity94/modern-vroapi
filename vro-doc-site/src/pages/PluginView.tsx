@@ -7,7 +7,7 @@ import pluginIndex from '../data/index.json';
 import searchData from '../data/search-index.json';
 import { useViewMode } from '../hooks/useUIState';
 import { ViewToggle } from '../components/UIToggles';
-import { Search, ChevronRight, FileCode, ArrowRight, List as ListIcon, Edit3, Download } from 'lucide-react';
+import { Search, ChevronRight, FileCode, ArrowRight, List as ListIcon, Edit3, Download, Pin } from 'lucide-react';
 import SEO from '../components/SEO';
 
 interface Version {
@@ -114,10 +114,30 @@ const PluginView: React.FC = () => {
             }));
     }, [pluginName]);
 
+    const pinnedClasses = useMemo(() => {
+        if (pluginName === 'o11n-plugin-vapi') {
+            return ['VAPIClient', 'VAPIEndpoint', 'VAPIManager', 'VAPIMetamodel'];
+        }
+        return [];
+    }, [pluginName]);
+
     const classes = useMemo(() => {
-        if (!data) return initialClassesFromIndex;
-        return data.classes;
-    }, [data, initialClassesFromIndex]);
+        const baseList = data ? data.classes : initialClassesFromIndex;
+
+        if (pinnedClasses.length > 0) {
+            return [...baseList].sort((a: any, b: any) => {
+                const idxA = pinnedClasses.indexOf(a.name);
+                const idxB = pinnedClasses.indexOf(b.name);
+
+                if (idxA !== -1 && idxB !== -1) return idxA - idxB;
+                if (idxA !== -1) return -1;
+                if (idxB !== -1) return 1;
+                return 0;
+            });
+        }
+
+        return baseList;
+    }, [data, initialClassesFromIndex, pinnedClasses]);
 
     const filteredClasses = useMemo(() => {
         return classes.filter((c: any) =>
@@ -337,8 +357,9 @@ const PluginView: React.FC = () => {
                                     <ArrowRight size={16} />
                                 </div>
                             </div>
-                            <h3 className={`mt-3 text-lg font-mono font-bold text-slate-900 dark:text-slate-200 group-hover:text-${color}-600 dark:group-hover:text-${color}-300 truncate transition-colors`}>
-                                {cls.name}
+                            <h3 className={`mt-3 text-lg font-mono font-bold text-slate-900 dark:text-slate-200 group-hover:text-${color}-600 dark:group-hover:text-${color}-300 truncate transition-colors flex items-center gap-2`}>
+                                {pinnedClasses.includes(cls.name) && <Pin size={16} className="text-indigo-500 shrink-0" />}
+                                <span className="truncate">{cls.name}</span>
                             </h3>
                             {classes.length <= 500 && (
                                 <p className="mt-2 text-base text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed h-12">
@@ -369,7 +390,8 @@ const PluginView: React.FC = () => {
                                 >
                                     <div className="flex items-center gap-4 min-w-0 flex-1">
                                         <ListIcon className="text-slate-300 dark:text-slate-700 shrink-0" size={20} />
-                                        <span className={`text-slate-900 dark:text-slate-200 group-hover:text-${color}-600 dark:group-hover:text-${color}-400 font-bold text-lg truncate`}>
+                                        <span className={`text-slate-900 dark:text-slate-200 group-hover:text-${color}-600 dark:group-hover:text-${color}-400 font-bold text-lg truncate flex items-center gap-2`}>
+                                            {pinnedClasses.includes(cls.name) && <Pin size={16} className="text-indigo-500 shrink-0" />}
                                             {cls.name}
                                         </span>
                                     </div>
