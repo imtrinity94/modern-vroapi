@@ -16,7 +16,7 @@ interface ApiClass {
 }
 
 // Create a map for fast lookup of class -> plugin
-const classMap = new Map((searchIndex.classes as { n: string, p: string }[]).map(c => [c.n, c.p]));
+const classMap = new Map(((searchIndex as any).classes as { n: string, p: string }[]).map(c => [c.n, c.p]));
 
 const TypeReference = ({ type }: { type: string }) => {
     const { pluginName } = useParams();
