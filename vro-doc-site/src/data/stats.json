@@ -127,6 +127,10 @@
     "classes": 1017,
     "methods": 1264
   },
+  "o11n-plugin-vcfautomation": {
+    "classes": 13,
+    "methods": 35
+  },
   "o11n-plugin-vum": {
     "classes": 14,
     "methods": 56

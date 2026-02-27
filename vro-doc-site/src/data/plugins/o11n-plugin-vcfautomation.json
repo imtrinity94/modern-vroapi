@@ -1,0 +1,614 @@
+{
+    "name": "VCF Automation",
+    "description": "API Reference for VMware Cloud Foundation Automation Plugin",
+    "classes": [
+        {
+            "name": "VCFACatalogResourceService",
+            "description": "",
+            "attributes": [
+                {
+                    "name": "allSupervisorResources_internal",
+                    "type": "Array/Object",
+                    "description": "",
+                    "isReadonly": true
+                }
+            ],
+            "methods": [
+                {
+                    "name": "VCFACatalogResourceService",
+                    "description": "",
+                    "parameters": "host: VCFAHost",
+                    "returnType": "void"
+                },
+                {
+                    "name": "getSupervisorResource_internal",
+                    "description": "",
+                    "parameters": "id: String",
+                    "returnType": "VCFASupervisorResource"
+                },
+                {
+                    "name": "getSupervisorResource",
+                    "description": "",
+                    "parameters": "id: String",
+                    "returnType": "VCFASupervisorResource"
+                },
+                {
+                    "name": "getSupervisorNamespaceResources_internal",
+                    "description": "",
+                    "parameters": "namespaceName: String",
+                    "returnType": "Array/VCFASupervisorResource"
+                }
+            ]
+        },
+        {
+            "name": "VCFACciService",
+            "description": "",
+            "attributes": [
+                {
+                    "name": "allSupervisorNamespaces_internal",
+                    "type": "Array/Object",
+                    "description": "",
+                    "isReadonly": true
+                },
+                {
+                    "name": "allSupervisorNamespaces",
+                    "type": "Array/Object",
+                    "description": "",
+                    "isReadonly": true
+                }
+            ],
+            "methods": [
+                {
+                    "name": "VCFACciService",
+                    "description": "",
+                    "parameters": "host: VCFAHost",
+                    "returnType": "void"
+                },
+                {
+                    "name": "getSupervisorNamespacesForProject",
+                    "description": "",
+                    "parameters": "projectName: String",
+                    "returnType": "Array/VCFASupervisorNamespace"
+                },
+                {
+                    "name": "createSupervisorNamespace",
+                    "description": "",
+                    "parameters": "projectName: String, jsonSpec: String",
+                    "returnType": "VCFASupervisorNamespace"
+                },
+                {
+                    "name": "getSupervisorNamespace",
+                    "description": "",
+                    "parameters": "projectName: String, name: String",
+                    "returnType": "VCFASupervisorNamespace"
+                },
+                {
+                    "name": "getSupervisorNamespacesForProject_internal",
+                    "description": "",
+                    "parameters": "projectName: String",
+                    "returnType": "Array/VCFASupervisorNamespace"
+                },
+                {
+                    "name": "getSupervisorNamespace_internal",
+                    "description": "",
+                    "parameters": "projectName: String, name: String",
+                    "returnType": "VCFASupervisorNamespace"
+                }
+            ]
+        },
+        {
+            "name": "VCFAEntitiesFinder",
+            "description": "VMware Cloud Foundation Automation Entity finder to search for an entity",
+            "attributes": [],
+            "methods": []
+        },
+        {
+            "name": "VCFAGenericRestClient",
+            "description": "A generic VMware Cloud Foundation Automation Rest client for executing REST operations",
+            "attributes": [
+                {
+                    "name": "host",
+                    "type": "VCFAHost",
+                    "description": "",
+                    "isReadonly": false
+                }
+            ],
+            "methods": [
+                {
+                    "name": "VCFAGenericRestClient",
+                    "description": "Automation GenericRestClient No Argument Constructor.",
+                    "parameters": "",
+                    "returnType": "void"
+                },
+                {
+                    "name": "get",
+                    "description": "Get Method to execute rest operation by setting Request object. Request object can hold information (http method, resource url, request payload)",
+                    "parameters": "request: VCFARestRequest",
+                    "returnType": "VCFARestResponse"
+                },
+                {
+                    "name": "execute",
+                    "description": "Method to execute rest operation by setting Request object. Request object can hold information (http method, resource url, request payload)",
+                    "parameters": "restRequest: VCFARestRequest",
+                    "returnType": "VCFARestResponse"
+                },
+                {
+                    "name": "put",
+                    "description": "Put Method to execute rest operation by setting Request object. Request object can hold information (http method, resource url, request payload)",
+                    "parameters": "request: VCFARestRequest",
+                    "returnType": "VCFARestResponse"
+                },
+                {
+                    "name": "delete",
+                    "description": "Delete Method (Http Delete) to execute rest operation by setting Request object. Request object can hold information (http method, resource url, request payload)",
+                    "parameters": "request: VCFARestRequest",
+                    "returnType": "VCFARestResponse"
+                },
+                {
+                    "name": "post",
+                    "description": "Post Method to execute rest operation by setting Request object. Request object can hold information (http method, resource url, request payload)",
+                    "parameters": "request: VCFARestRequest",
+                    "returnType": "VCFARestResponse"
+                },
+                {
+                    "name": "createRequest",
+                    "description": "Method to create HTTP rest Request. It holds parameter (HTTP Method (GET/PUT/POST/DELETE/PATCH), Resource Path URI, Request Payload (Stringified JSON)).",
+                    "parameters": "method: String, path: String, requestPayload: String",
+                    "returnType": "VCFARestRequest"
+                },
+                {
+                    "name": "patch",
+                    "description": "Patch Method (Http Patch) to execute rest operation by setting Request object. Request object can hold information (http method, resource url, request payload)",
+                    "parameters": "request: VCFARestRequest",
+                    "returnType": "VCFARestResponse"
+                }
+            ]
+        },
+        {
+            "name": "VCFAHost",
+            "description": "VMware Cloud Foundation Automation Host provides access to connection host properties & validation access.",
+            "attributes": [
+                {
+                    "name": "apiToken",
+                    "type": "String",
+                    "description": "",
+                    "isReadonly": true
+                },
+                {
+                    "name": "projectService",
+                    "type": "VCFAProjectService",
+                    "description": "",
+                    "isReadonly": true
+                },
+                {
+                    "name": "displayName",
+                    "type": "String",
+                    "description": "DisplayName for the Connection Host.",
+                    "isReadonly": true
+                },
+                {
+                    "name": "name",
+                    "type": "String",
+                    "description": "Host Connection Name",
+                    "isReadonly": true
+                },
+                {
+                    "name": "host",
+                    "type": "String",
+                    "description": "Host URL for the Automation Host Connection.",
+                    "isReadonly": true
+                },
+                {
+                    "name": "cciService",
+                    "type": "VCFACciService",
+                    "description": "",
+                    "isReadonly": true
+                },
+                {
+                    "name": "id",
+                    "type": "String",
+                    "description": "Host Id.",
+                    "isReadonly": true
+                },
+                {
+                    "name": "sessionMode",
+                    "type": "String",
+                    "description": "Session Mode of the Automation Host Connection (Shared Session or Per User Session).",
+                    "isReadonly": true
+                },
+                {
+                    "name": "catalogResourceService",
+                    "type": "VCFACatalogResourceService",
+                    "description": "",
+                    "isReadonly": true
+                },
+                {
+                    "name": "tenant",
+                    "type": "String",
+                    "description": "",
+                    "isReadonly": true
+                },
+                {
+                    "name": "k8sApiVersion",
+                    "type": "String",
+                    "description": "",
+                    "isReadonly": true
+                }
+            ],
+            "methods": [
+                {
+                    "name": "VCFAHost",
+                    "description": "Automation Host No Argument Constructor.",
+                    "parameters": "",
+                    "returnType": "void"
+                },
+                {
+                    "name": "destroy",
+                    "description": "Destroys the connection object",
+                    "parameters": "",
+                    "returnType": "void"
+                },
+                {
+                    "name": "validate",
+                    "description": "Validates the Host Connection",
+                    "parameters": "",
+                    "returnType": "Boolean"
+                },
+                {
+                    "name": "createRestClient",
+                    "description": "Creates a generic REST client for Automation Host",
+                    "parameters": "",
+                    "returnType": "VCFAGenericRestClient"
+                }
+            ]
+        },
+        {
+            "name": "VCFAHostManager",
+            "description": "HostManager provides all the CRUD operations for VMware Cloud Foundation Automation Plugin along with Generic Rest Client support.",
+            "attributes": [
+                {
+                    "name": "defaultHostData",
+                    "type": "VCFAHost",
+                    "description": "Default Host Connection.",
+                    "isReadonly": true
+                }
+            ],
+            "methods": [
+                {
+                    "name": "save",
+                    "description": "Save Automation Host object.",
+                    "parameters": "props: Object",
+                    "returnType": "String"
+                },
+                {
+                    "name": "update",
+                    "description": "Update Automation Host object.",
+                    "parameters": "props: Object, host: VCFAHost",
+                    "returnType": "void"
+                },
+                {
+                    "name": "createHost",
+                    "description": "Creates a dynamic Automation Host.",
+                    "parameters": "properties: Object",
+                    "returnType": "VCFAHost"
+                },
+                {
+                    "name": "createHostForCurrentUser",
+                    "description": "Creates a temporary host with the current user host and credentials.",
+                    "parameters": "",
+                    "returnType": "VCFAHost"
+                },
+                {
+                    "name": "delete",
+                    "description": "Delete Automation Host.",
+                    "parameters": "host: VCFAHost",
+                    "returnType": "void"
+                },
+                {
+                    "name": "validate",
+                    "description": "Validate Automation Host.",
+                    "parameters": "host: VCFAHost",
+                    "returnType": "Boolean"
+                },
+                {
+                    "name": "getHostBySid",
+                    "description": "Get Automation Host by Sid.",
+                    "parameters": "sid: String",
+                    "returnType": "VCFAHost"
+                }
+            ]
+        },
+        {
+            "name": "VCFAPrincipal",
+            "description": "",
+            "attributes": [
+                {
+                    "name": "type",
+                    "type": "String",
+                    "description": "",
+                    "isReadonly": false
+                },
+                {
+                    "name": "email",
+                    "type": "String",
+                    "description": "",
+                    "isReadonly": false
+                }
+            ],
+            "methods": []
+        },
+        {
+            "name": "VCFAProject",
+            "description": "",
+            "attributes": [
+                {
+                    "name": "sharedResources",
+                    "type": "Boolean",
+                    "description": "",
+                    "isReadonly": false
+                },
+                {
+                    "name": "internalIdString",
+                    "type": "String",
+                    "description": "",
+                    "isReadonly": true
+                },
+                {
+                    "name": "host",
+                    "type": "VCFAHost",
+                    "description": "",
+                    "isReadonly": false
+                },
+                {
+                    "name": "name",
+                    "type": "String",
+                    "description": "",
+                    "isReadonly": false
+                },
+                {
+                    "name": "description",
+                    "type": "String",
+                    "description": "",
+                    "isReadonly": false
+                },
+                {
+                    "name": "id",
+                    "type": "String",
+                    "description": "",
+                    "isReadonly": false
+                },
+                {
+                    "name": "administrators",
+                    "type": "Array/VCFAPrincipal",
+                    "description": "",
+                    "isReadonly": false
+                }
+            ],
+            "methods": []
+        },
+        {
+            "name": "VCFAProjectService",
+            "description": "",
+            "attributes": [
+                {
+                    "name": "projects",
+                    "type": "Array/Object",
+                    "description": "",
+                    "isReadonly": true
+                },
+                {
+                    "name": "projects_internal",
+                    "type": "Array/Object",
+                    "description": "",
+                    "isReadonly": true
+                }
+            ],
+            "methods": [
+                {
+                    "name": "VCFAProjectService",
+                    "description": "",
+                    "parameters": "host: VCFAHost",
+                    "returnType": "void"
+                },
+                {
+                    "name": "getProject_internal",
+                    "description": "",
+                    "parameters": "id: String",
+                    "returnType": "VCFAProject"
+                },
+                {
+                    "name": "getProject",
+                    "description": "",
+                    "parameters": "id: String",
+                    "returnType": "VCFAProject"
+                }
+            ]
+        },
+        {
+            "name": "VCFARestRequest",
+            "description": "Represents a request object for VMware Cloud Foundation Automation API.",
+            "attributes": [
+                {
+                    "name": "path",
+                    "type": "String",
+                    "description": "",
+                    "isReadonly": false
+                },
+                {
+                    "name": "method",
+                    "type": "String",
+                    "description": "",
+                    "isReadonly": false
+                },
+                {
+                    "name": "payload",
+                    "type": "String",
+                    "description": "",
+                    "isReadonly": false
+                }
+            ],
+            "methods": [
+                {
+                    "name": "getHeader",
+                    "description": "Gets Http Header value for the key from the Http Request.",
+                    "parameters": "header: String",
+                    "returnType": "String"
+                },
+                {
+                    "name": "setHeader",
+                    "description": "Sets Headers to the Http Request Object.",
+                    "parameters": "key: String, value: String",
+                    "returnType": "void"
+                }
+            ]
+        },
+        {
+            "name": "VCFARestResponse",
+            "description": "Utility class used for VMware Cloud Foundation Automation API server response.",
+            "attributes": [
+                {
+                    "name": "contentAsString",
+                    "type": "String",
+                    "description": "The Server's response body as string.",
+                    "isReadonly": true
+                },
+                {
+                    "name": "allHeaders",
+                    "type": "Properties",
+                    "description": "Retrieves the server's response headers as a Properties object.",
+                    "isReadonly": true
+                },
+                {
+                    "name": "contentLength",
+                    "type": "Number",
+                    "description": "The Server's response content length.",
+                    "isReadonly": true
+                },
+                {
+                    "name": "statusMessage",
+                    "type": "String",
+                    "description": "The Server's response status message.",
+                    "isReadonly": true
+                },
+                {
+                    "name": "statusCode",
+                    "type": "Number",
+                    "description": "The Server's response status code.",
+                    "isReadonly": true
+                }
+            ],
+            "methods": [
+                {
+                    "name": "getHeaderValues",
+                    "description": "Retrieves the server's response header values per header with specific name.",
+                    "parameters": "headerName: String",
+                    "returnType": "Array/String"
+                }
+            ]
+        },
+        {
+            "name": "VCFASupervisorNamespace",
+            "description": "",
+            "attributes": [
+                {
+                    "name": "internalIdString",
+                    "type": "String",
+                    "description": "",
+                    "isReadonly": true
+                },
+                {
+                    "name": "host",
+                    "type": "VCFAHost",
+                    "description": "",
+                    "isReadonly": false
+                },
+                {
+                    "name": "name",
+                    "type": "String",
+                    "description": "",
+                    "isReadonly": true
+                },
+                {
+                    "name": "projectName",
+                    "type": "String",
+                    "description": "",
+                    "isReadonly": true
+                },
+                {
+                    "name": "projectId",
+                    "type": "String",
+                    "description": "",
+                    "isReadonly": true
+                },
+                {
+                    "name": "k8sId",
+                    "type": "String",
+                    "description": "",
+                    "isReadonly": true
+                }
+            ],
+            "methods": []
+        },
+        {
+            "name": "VCFASupervisorResource",
+            "description": "",
+            "attributes": [
+                {
+                    "name": "apiVersion",
+                    "type": "String",
+                    "description": "",
+                    "isReadonly": false
+                },
+                {
+                    "name": "kind",
+                    "type": "String",
+                    "description": "",
+                    "isReadonly": false
+                },
+                {
+                    "name": "internalIdString",
+                    "type": "String",
+                    "description": "",
+                    "isReadonly": true
+                },
+                {
+                    "name": "host",
+                    "type": "VCFAHost",
+                    "description": "",
+                    "isReadonly": false
+                },
+                {
+                    "name": "name",
+                    "type": "String",
+                    "description": "",
+                    "isReadonly": true
+                },
+                {
+                    "name": "namespace",
+                    "type": "String",
+                    "description": "",
+                    "isReadonly": true
+                },
+                {
+                    "name": "id",
+                    "type": "String",
+                    "description": "",
+                    "isReadonly": false
+                },
+                {
+                    "name": "projectName",
+                    "type": "String",
+                    "description": "",
+                    "isReadonly": true
+                },
+                {
+                    "name": "projectId",
+                    "type": "String",
+                    "description": "",
+                    "isReadonly": true
+                }
+            ],
+            "methods": []
+        }
+    ]
+}

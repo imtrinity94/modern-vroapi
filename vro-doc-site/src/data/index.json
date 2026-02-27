@@ -112,6 +112,10 @@
     "name": "vAPI"
   },
   {
+    "id": "o11n-plugin-vcfautomation",
+    "name": "VCF Automation"
+  },
+  {
     "id": "o11n-plugin-vc",
     "name": "vCenter"
   },
