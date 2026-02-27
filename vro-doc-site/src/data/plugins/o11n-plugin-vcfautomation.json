@@ -8,7 +8,7 @@
             "attributes": [
                 {
                     "name": "allSupervisorResources_internal",
-                    "type": "Array/Object",
+                    "type": "Object[]",
                     "description": "",
                     "isReadonly": true
                 }
@@ -36,7 +36,7 @@
                     "name": "getSupervisorNamespaceResources_internal",
                     "description": "",
                     "parameters": "namespaceName: String",
-                    "returnType": "Array/VCFASupervisorResource"
+                    "returnType": "VCFASupervisorResource[]"
                 }
             ]
         },
@@ -46,13 +46,13 @@
             "attributes": [
                 {
                     "name": "allSupervisorNamespaces_internal",
-                    "type": "Array/Object",
+                    "type": "Object[]",
                     "description": "",
                     "isReadonly": true
                 },
                 {
                     "name": "allSupervisorNamespaces",
-                    "type": "Array/Object",
+                    "type": "Object[]",
                     "description": "",
                     "isReadonly": true
                 }
@@ -68,7 +68,7 @@
                     "name": "getSupervisorNamespacesForProject",
                     "description": "",
                     "parameters": "projectName: String",
-                    "returnType": "Array/VCFASupervisorNamespace"
+                    "returnType": "VCFASupervisorNamespace[]"
                 },
                 {
                     "name": "createSupervisorNamespace",
@@ -86,7 +86,7 @@
                     "name": "getSupervisorNamespacesForProject_internal",
                     "description": "",
                     "parameters": "projectName: String",
-                    "returnType": "Array/VCFASupervisorNamespace"
+                    "returnType": "VCFASupervisorNamespace[]"
                 },
                 {
                     "name": "getSupervisorNamespace_internal",
@@ -379,7 +379,7 @@
                 },
                 {
                     "name": "administrators",
-                    "type": "Array/VCFAPrincipal",
+                    "type": "VCFAPrincipal[]",
                     "description": "",
                     "isReadonly": false
                 }
@@ -392,13 +392,13 @@
             "attributes": [
                 {
                     "name": "projects",
-                    "type": "Array/Object",
+                    "type": "Object[]",
                     "description": "",
                     "isReadonly": true
                 },
                 {
                     "name": "projects_internal",
-                    "type": "Array/Object",
+                    "type": "Object[]",
                     "description": "",
                     "isReadonly": true
                 }
@@ -502,7 +502,7 @@
                     "name": "getHeaderValues",
                     "description": "Retrieves the server's response header values per header with specific name.",
                     "parameters": "headerName: String",
-                    "returnType": "Array/String"
+                    "returnType": "String[]"
                 }
             ]
         },
