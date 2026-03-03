@@ -11,7 +11,6 @@ This repository contains the source code for the documentation website.
 - **`vro-doc-site/`**: The main React application (Vite + TypeScript + Tailwind CSS).
 - **`vro-doc-site/src/data/plugins/`**: Raw JSON files containing the API definitions for each plugin.
 - **`vro-doc-site/src/data/index.json`**: The central registry of all available plugins.
-- **`BTVA/`**: (Legacy/Source) Original TypeScript definition files used for parsing.
 
 ## 🚀 Getting Started
 

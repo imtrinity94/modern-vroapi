@@ -243,6 +243,7 @@ const PluginView: React.FC = () => {
                         >
                             <FileCode size={14} />
                             <span>Download .d.ts</span>
+                            <span className="text-[9px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded bg-amber-100 dark:bg-amber-500/20 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-500/30 leading-none">Beta</span>
                         </button>
                     )}
 

@@ -8,8 +8,8 @@ To run the documentation site on your machine:
 4.  **View Site**: Open [http://localhost:5173/](http://localhost:5173/) in your browser.
 
 > [!TIP]
-> If you add new plugins to the `BTVA` folder, update the documentation data by running:
-> `npx tsx scripts/generate-docs.ts`
+> To add a new plugin, place its JSON file in `vro-doc-site/src/data/plugins/` and run:
+> `npm run reindex`
 
 ---
 
