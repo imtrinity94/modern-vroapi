@@ -9,68 +9,68 @@
       "attributes": [
         {
           "name": "resourceGroup",
-          "description": "`AzureResourceGroup`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureResourceGroup",
+          "isReadonly": true
         },
         {
           "name": "platformFaultDomainCount",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "displayName",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "platformUpdateDomainCount",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "internalIdString",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "connection",
-          "description": "`AzureConnection`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureConnection",
+          "isReadonly": true
         },
         {
           "name": "azureId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "id",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "type",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "region",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         }
       ],
@@ -84,7 +84,7 @@
           "name": "getAvailabilitySetByResourceGroup",
           "description": "",
           "parameters": "resourceGroup: AzureResourceGroup",
-          "returnType": "Array/AzureAvailabilitySet"
+          "returnType": "AzureAvailabilitySet[]"
         },
         {
           "name": "delete",
@@ -102,7 +102,7 @@
           "name": "listTags",
           "description": "",
           "parameters": "availabilitySet: AzureAvailabilitySet",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "getAvailabilitySetById",
@@ -132,7 +132,7 @@
           "name": "getAllAvailabilitySetByTag",
           "description": "",
           "parameters": "resourceGroup: AzureResourceGroup, key: String, value: String",
-          "returnType": "Array/AzureAvailabilitySet"
+          "returnType": "AzureAvailabilitySet[]"
         },
         {
           "name": "addTag",
@@ -164,81 +164,81 @@
       "attributes": [
         {
           "name": "clientId",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "serviceUri",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "proxyUsername",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "displayName",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "azureEnvironment",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "proxyHost",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "proxyPort",
-          "description": "`Number`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "Number",
+          "isReadonly": true
         },
         {
           "name": "customProperties",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "loginUrl",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "tenantId",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "storageUri",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "subscriptionId",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         }
       ],
       "hasAttributesSection": true
@@ -331,13 +331,13 @@
           "name": "listTagsForSqlServer",
           "description": "",
           "parameters": "sqlServer: AzureSqlServer",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "getDatabaseInElasticPool",
           "description": "",
           "parameters": "sqlServer: AzureSqlServer, elasticPoolName: String",
-          "returnType": "Array/AzureSqlDatabase"
+          "returnType": "AzureSqlDatabase[]"
         },
         {
           "name": "deleteElasticPool",
@@ -373,7 +373,7 @@
           "name": "listTags",
           "description": "",
           "parameters": "sqlDatabase: AzureSqlDatabase, sqlServer: AzureSqlServer",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "removeDatabaseFromElasticPool",
@@ -434,32 +434,32 @@
       "attributes": [
         {
           "name": "resourceGroup",
-          "description": "`AzureResourceGroup`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureResourceGroup",
+          "isReadonly": true
         },
         {
           "name": "internalIdString",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "connection",
-          "description": "`AzureConnection`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureConnection",
+          "isReadonly": true
         },
         {
           "name": "azureId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         }
       ],
@@ -472,68 +472,68 @@
       "attributes": [
         {
           "name": "resourceGroup",
-          "description": "`AzureResourceGroup`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureResourceGroup",
+          "isReadonly": true
         },
         {
           "name": "attachedToVirtualMachine",
-          "description": "`Boolean`",
-          "type": "No",
+          "description": "",
+          "type": "Boolean",
           "isReadonly": false
         },
         {
           "name": "sizeInGB",
-          "description": "`Number`",
-          "type": "No",
+          "description": "",
+          "type": "Number",
           "isReadonly": false
         },
         {
           "name": "internalIdString",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "osType",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "connection",
-          "description": "`AzureConnection`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureConnection",
+          "isReadonly": true
         },
         {
           "name": "timeCreated",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "azureId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "type",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "region",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         }
       ],
@@ -565,7 +565,7 @@
           "name": "listTags",
           "description": "",
           "parameters": "disk: AzureDisk",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "createDiskFromSnapshot",
@@ -602,50 +602,50 @@
       "attributes": [
         {
           "name": "resourceGroup",
-          "description": "`AzureResourceGroup`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureResourceGroup",
+          "isReadonly": true
         },
         {
           "name": "internalIdString",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "connection",
-          "description": "`AzureConnection`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureConnection",
+          "isReadonly": true
         },
         {
           "name": "azureId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "nameServers",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "type",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "region",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         }
       ],
@@ -658,7 +658,7 @@
         {
           "name": "runCustomScriptExtPublicConfig",
           "description": "",
-          "parameters": "virtualMachine: AzureVirtualMachine, extensionName: String, scriptPaths: Array/String, command: String, minorUpgrade: Boolean",
+          "parameters": "virtualMachine: AzureVirtualMachine, extensionName: String, scriptPaths: String[], command: String, minorUpgrade: Boolean",
           "returnType": "void"
         },
         {
@@ -676,7 +676,7 @@
         {
           "name": "runCustomScriptExtProtectedConfig",
           "description": "",
-          "parameters": "virtualMachine: AzureVirtualMachine, extensionName: String, scriptPaths: Array/String, command: String, storageAccountName: String, storageAccountKey: String, minorUpgrade: Boolean",
+          "parameters": "virtualMachine: AzureVirtualMachine, extensionName: String, scriptPaths: String[], command: String, storageAccountName: String, storageAccountKey: String, minorUpgrade: Boolean",
           "returnType": "void"
         }
       ],
@@ -690,68 +690,68 @@
       "attributes": [
         {
           "name": "resourceGroup",
-          "description": "`AzureResourceGroup`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureResourceGroup",
+          "isReadonly": true
         },
         {
           "name": "publicIpAddress",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "resourceGuid",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "internalIdString",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "connection",
-          "description": "`AzureConnection`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureConnection",
+          "isReadonly": true
         },
         {
           "name": "etag",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "azureId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "provisioningState",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "type",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "region",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         }
       ],
@@ -771,7 +771,7 @@
           "name": "getLoadBalancerByResourceGroup",
           "description": "",
           "parameters": "resourceGroup: AzureResourceGroup",
-          "returnType": "Array/AzureLoadBalancer"
+          "returnType": "AzureLoadBalancer[]"
         },
         {
           "name": "removeFrontEnd",
@@ -783,7 +783,7 @@
           "name": "getAllLoadBalancerByResourceGroup",
           "description": "",
           "parameters": "resourceGroup: AzureResourceGroup",
-          "returnType": "Array/AzureLoadBalancer"
+          "returnType": "AzureLoadBalancer[]"
         },
         {
           "name": "addLoadBalancerInboundNatRule",
@@ -825,7 +825,7 @@
           "name": "getLoadBalancerBackendPool",
           "description": "",
           "parameters": "loadBalancer: AzureLoadBalancer",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "deleteLoadBalancer",
@@ -873,7 +873,7 @@
           "name": "listTags",
           "description": "",
           "parameters": "loadBalancer: AzureLoadBalancer",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "addTag",
@@ -905,7 +905,7 @@
           "name": "getLocks",
           "description": "",
           "parameters": "connection: AzureConnection, azureId: String",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "addLock",
@@ -930,170 +930,170 @@
       "attributes": [
         {
           "name": "resourceGroup",
-          "description": "`AzureResourceGroup`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureResourceGroup",
+          "isReadonly": true
         },
         {
           "name": "displayName",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "regionName",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "dnsName",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "type",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "primaryVirtualNetworkId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "attachedToVm",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "dnsServerIps",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "isPrimary",
-          "description": "`Boolean`",
-          "type": "No",
+          "description": "",
+          "type": "Boolean",
           "isReadonly": false
         },
         {
           "name": "internalIdString",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "connection",
-          "description": "`AzureConnection`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureConnection",
+          "isReadonly": true
         },
         {
           "name": "azureId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "acceleratedNetworkEnabled",
-          "description": "`Boolean`",
-          "type": "No",
+          "description": "",
+          "type": "Boolean",
           "isReadonly": false
         },
         {
           "name": "networkSecurityGroup",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "publicIpAddressName",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "resourceGroupName",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "fqdn",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "publicIpAddress",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "privateAllocationMethod",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "ipForwardingEnabled",
-          "description": "`Boolean`",
-          "type": "No",
+          "description": "",
+          "type": "Boolean",
           "isReadonly": false
         },
         {
           "name": "provisioningState",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "privateIpAddress",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "tags",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "appliedDnsServers",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "macAddress",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "primarySubnet",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "domainNameSuffix",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         }
       ],
@@ -1107,7 +1107,7 @@
           "name": "getAllVirtualNetworkByTag",
           "description": "",
           "parameters": "resourceGroup: AzureResourceGroup, key: String, value: String",
-          "returnType": "Array/AzureNetworkInterface"
+          "returnType": "AzureNetworkInterface[]"
         },
         {
           "name": "removeTag",
@@ -1149,13 +1149,13 @@
           "name": "listTags",
           "description": "",
           "parameters": "networkInterface: AzureNetworkInterface",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "getNetworkInterfaceByResourceGroup",
           "description": "",
           "parameters": "resourceGroup: AzureResourceGroup",
-          "returnType": "Array/AzureNetworkInterface"
+          "returnType": "AzureNetworkInterface[]"
         },
         {
           "name": "getPrimaryNetworkInterfaceByVirtualMachine",
@@ -1197,7 +1197,7 @@
           "name": "getAllSecondaryNetworkInterfaceByVirtualMachine",
           "description": "",
           "parameters": "virtualMachine: AzureVirtualMachine",
-          "returnType": "Array/AzureNetworkInterface"
+          "returnType": "AzureNetworkInterface[]"
         }
       ],
       "attributes": [],
@@ -1210,62 +1210,62 @@
       "attributes": [
         {
           "name": "resourceGroup",
-          "description": "`AzureResourceGroup`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureResourceGroup",
+          "isReadonly": true
         },
         {
           "name": "resourceGuid",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "internalIdString",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "connection",
-          "description": "`AzureConnection`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureConnection",
+          "isReadonly": true
         },
         {
           "name": "etag",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "azureId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "provisioningState",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "type",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "region",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         }
       ],
@@ -1279,13 +1279,13 @@
           "name": "getNetworkSecurityGroupByResourceGroup",
           "description": "",
           "parameters": "resourceGroup: AzureResourceGroup",
-          "returnType": "Array/AzureNetworkSecurityGroup"
+          "returnType": "AzureNetworkSecurityGroup[]"
         },
         {
           "name": "listTags",
           "description": "",
           "parameters": "nsg: AzureNetworkSecurityGroup",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "create",
@@ -1328,122 +1328,122 @@
       "attributes": [
         {
           "name": "resourceGroup",
-          "description": "`AzureResourceGroup`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureResourceGroup",
+          "isReadonly": true
         },
         {
           "name": "resourceGroupName",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "leafDomain",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "fqdn",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "displayName",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "regionName",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "ipAddress",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "provisioningState",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "type",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "zones",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "tags",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "reverseFqdn",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "ipAllocationType",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "ipVersion",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "availableToUse",
-          "description": "`Boolean`",
-          "type": "No",
+          "description": "",
+          "type": "Boolean",
           "isReadonly": false
         },
         {
           "name": "internalIdString",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "idleTimeoutMinutes",
-          "description": "`Number`",
-          "type": "No",
+          "description": "",
+          "type": "Number",
           "isReadonly": false
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "connection",
-          "description": "`AzureConnection`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureConnection",
+          "isReadonly": true
         },
         {
           "name": "azureId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         }
       ],
@@ -1481,13 +1481,13 @@
           "name": "getPublicIpAddressesByResourceGroup",
           "description": "",
           "parameters": "resourceGroup: AzureResourceGroup",
-          "returnType": "Array/AzurePublicIPAddress"
+          "returnType": "AzurePublicIPAddress[]"
         },
         {
           "name": "listTags",
           "description": "",
           "parameters": "publicIPAddress: AzurePublicIPAddress",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "attachPublicIpToVm",
@@ -1499,7 +1499,7 @@
           "name": "getAllAvailablePublicIpAddresses",
           "description": "",
           "parameters": "connection: AzureConnection",
-          "returnType": "Array/AzurePublicIPAddress"
+          "returnType": "AzurePublicIPAddress[]"
         },
         {
           "name": "create",
@@ -1511,7 +1511,7 @@
           "name": "getAvailablePublicIpAddressesByResourceGroup",
           "description": "",
           "parameters": "resourceGroup: AzureResourceGroup",
-          "returnType": "Array/AzurePublicIPAddress"
+          "returnType": "AzurePublicIPAddress[]"
         },
         {
           "name": "delete",
@@ -1536,38 +1536,38 @@
       "attributes": [
         {
           "name": "resourceGroup",
-          "description": "`AzureResourceGroup`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureResourceGroup",
+          "isReadonly": true
         },
         {
           "name": "displayName",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "internalIdString",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "connection",
-          "description": "`AzureConnection`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureConnection",
+          "isReadonly": true
         },
         {
           "name": "azureId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         }
       ],
@@ -1587,7 +1587,7 @@
           "name": "getRegionByConnection",
           "description": "",
           "parameters": "connection: AzureConnection",
-          "returnType": "Array/AzureRegion"
+          "returnType": "AzureRegion[]"
         }
       ],
       "attributes": [],
@@ -1600,50 +1600,50 @@
       "attributes": [
         {
           "name": "resourceGroup",
-          "description": "`AzureResourceGroup`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureResourceGroup",
+          "isReadonly": true
         },
         {
           "name": "provisiongState",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "displayName",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "internalIdString",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "regionName",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "connection",
-          "description": "`AzureConnection`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureConnection",
+          "isReadonly": true
         },
         {
           "name": "azureId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         }
       ],
@@ -1687,7 +1687,7 @@
           "name": "listTags",
           "description": "",
           "parameters": "resourceGroup: AzureResourceGroup",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "addTag",
@@ -1699,7 +1699,7 @@
           "name": "getAllResourceGroupByTag",
           "description": "",
           "parameters": "connection: AzureConnection, key: String, value: String",
-          "returnType": "Array/AzureResourceGroup"
+          "returnType": "AzureResourceGroup[]"
         },
         {
           "name": "create",
@@ -1723,7 +1723,7 @@
           "name": "getResourceGroupByConnection",
           "description": "",
           "parameters": "connection: AzureConnection",
-          "returnType": "Array/AzureResourceGroup"
+          "returnType": "AzureResourceGroup[]"
         }
       ],
       "attributes": [],
@@ -1736,56 +1736,56 @@
       "attributes": [
         {
           "name": "resourceGroup",
-          "description": "`AzureResourceGroup`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureResourceGroup",
+          "isReadonly": true
         },
         {
           "name": "nextHopAddress",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "routeTable",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "addressPrefix",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "nextHopType",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "internalIdString",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "connection",
-          "description": "`AzureConnection`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureConnection",
+          "isReadonly": true
         },
         {
           "name": "azureId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         }
       ],
@@ -1798,56 +1798,56 @@
       "attributes": [
         {
           "name": "routes",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "resourceGroup",
-          "description": "`AzureResourceGroup`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureResourceGroup",
+          "isReadonly": true
         },
         {
           "name": "internalIdString",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "location",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "connection",
-          "description": "`AzureConnection`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureConnection",
+          "isReadonly": true
         },
         {
           "name": "subnets",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "azureId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "type",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         }
       ],
@@ -1873,7 +1873,7 @@
           "name": "listTags",
           "description": "",
           "parameters": "routeTable: AzureRouteTable",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "addTag",
@@ -1910,98 +1910,98 @@
       "attributes": [
         {
           "name": "resourceGroup",
-          "description": "`AzureResourceGroup`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureResourceGroup",
+          "isReadonly": true
         },
         {
           "name": "access",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "description",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "provisioningState",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "priority",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "destinationAddressPrefix",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "protocol",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "sourcePortRange",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "sourceAddressPrefix",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "destinationPortRange",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "internalIdString",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "connection",
-          "description": "`AzureConnection`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureConnection",
+          "isReadonly": true
         },
         {
           "name": "etag",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "azureId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "direction",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         }
       ],
@@ -2014,80 +2014,80 @@
       "attributes": [
         {
           "name": "sourceDisk",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "resourceGroup",
-          "description": "`AzureResourceGroup`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureResourceGroup",
+          "isReadonly": true
         },
         {
           "name": "displayName",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "accountType",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "type",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "sizeInGB",
-          "description": "`Number`",
-          "type": "No",
+          "description": "",
+          "type": "Number",
           "isReadonly": false
         },
         {
           "name": "internalIdString",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "osType",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "connection",
-          "description": "`AzureConnection`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureConnection",
+          "isReadonly": true
         },
         {
           "name": "state",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "azureId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "region",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         }
       ],
@@ -2125,7 +2125,7 @@
           "name": "listTags",
           "description": "",
           "parameters": "snapshot: AzureSnapshot",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "addTag",
@@ -2137,7 +2137,7 @@
           "name": "createVMSnapshot",
           "description": "Snapshot a VM. You can snapshot only managed VM. Determines all disk associated with VM and snapshots them.",
           "parameters": "resourceGroup: AzureResourceGroup, region: AzureRegion, virtualMachine: AzureVirtualMachine, snapshotName: String, accountType: String, IsDataDiskSnapshotIncluded: Boolean",
-          "returnType": "Array/AzureSnapshot"
+          "returnType": "AzureSnapshot[]"
         }
       ],
       "attributes": [],
@@ -2150,86 +2150,86 @@
       "attributes": [
         {
           "name": "resourceGroup",
-          "description": "`AzureResourceGroup`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureResourceGroup",
+          "isReadonly": true
         },
         {
           "name": "elasticPoolName",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "resourceGroupName",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "secondaryLocation",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "displayName",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "sqlServerName",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "regionName",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "internalIdString",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "connection",
-          "description": "`AzureConnection`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureConnection",
+          "isReadonly": true
         },
         {
           "name": "azureId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "collation",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "databaseId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "status",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         }
       ],
@@ -2242,98 +2242,98 @@
       "attributes": [
         {
           "name": "databases",
-          "description": "`Array/Object`",
-          "type": "No",
+          "description": "",
+          "type": "Object[]",
           "isReadonly": false
         },
         {
           "name": "resourceGroup",
-          "description": "`AzureResourceGroup`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureResourceGroup",
+          "isReadonly": true
         },
         {
           "name": "resourceGroupName",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "fqdn",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "displayName",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "kind",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "elasticPools",
-          "description": "`Array/Object`",
-          "type": "No",
+          "description": "",
+          "type": "Object[]",
           "isReadonly": false
         },
         {
           "name": "regionName",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "admin",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "type",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "version",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "internalIdString",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "connection",
-          "description": "`AzureConnection`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureConnection",
+          "isReadonly": true
         },
         {
           "name": "azureId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "state",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         }
       ],
@@ -2346,104 +2346,104 @@
       "attributes": [
         {
           "name": "resourceGroup",
-          "description": "`AzureResourceGroup`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureResourceGroup",
+          "isReadonly": true
         },
         {
           "name": "creationTime",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "lastGeoFailoverTime",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "displayName",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "secondaryLocation",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "accountType",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "provisioningState",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "type",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "statusOfSecondary",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "target",
-          "description": "`AzureStorageAccount`",
-          "type": "No",
+          "description": "",
+          "type": "AzureStorageAccount",
           "isReadonly": false
         },
         {
           "name": "primaryLocation",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "internalIdString",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "statusOfPrimary",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "connection",
-          "description": "`AzureConnection`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureConnection",
+          "isReadonly": true
         },
         {
           "name": "azureId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "region",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         }
       ],
@@ -2523,19 +2523,19 @@
           "name": "listAllStorageAccount",
           "description": "",
           "parameters": "connection: AzureConnection",
-          "returnType": "Array/AzureStorageAccount"
+          "returnType": "AzureStorageAccount[]"
         },
         {
           "name": "listStorageAccountByResourceGroup",
           "description": "",
           "parameters": "resourceGroup: AzureResourceGroup",
-          "returnType": "Array/AzureStorageAccount"
+          "returnType": "AzureStorageAccount[]"
         },
         {
           "name": "listTags",
           "description": "",
           "parameters": "storageAccount: AzureStorageAccount",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "toggleAccessByIPAddress",
@@ -2584,44 +2584,44 @@
       "attributes": [
         {
           "name": "resourceGroup",
-          "description": "`AzureResourceGroup`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureResourceGroup",
+          "isReadonly": true
         },
         {
           "name": "displayName",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "addressPrefix",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "internalIdString",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "connection",
-          "description": "`AzureConnection`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureConnection",
+          "isReadonly": true
         },
         {
           "name": "azureId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         }
       ],
@@ -2641,7 +2641,7 @@
           "name": "getSubnetByVirtualNetwork",
           "description": "",
           "parameters": "virtualNetwork: AzureVirtualNetwork",
-          "returnType": "Array/AzureSubnet"
+          "returnType": "AzureSubnet[]"
         },
         {
           "name": "delete",
@@ -2666,128 +2666,128 @@
       "attributes": [
         {
           "name": "virtualMachineMaxDiskCount",
-          "description": "`Number`",
-          "type": "No",
+          "description": "",
+          "type": "Number",
           "isReadonly": false
         },
         {
           "name": "resourceGroup",
-          "description": "`AzureResourceGroup`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureResourceGroup",
+          "isReadonly": true
         },
         {
           "name": "resourceGroupName",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "publicIpAddress",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "osDiskUri",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "displayName",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "provisioningState",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "type",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "primaryPrivateIP",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "operatingSystem",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "licenseType",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "powerState",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "virtualMachineSize",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "internalIdString",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "connection",
-          "description": "`AzureConnection`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureConnection",
+          "isReadonly": true
         },
         {
           "name": "managedDiskEnabled",
-          "description": "`Boolean`",
-          "type": "No",
+          "description": "",
+          "type": "Boolean",
           "isReadonly": false
         },
         {
           "name": "azureId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "subscriptionId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "region",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "virtualMachineResourceDiskSizeMb",
-          "description": "`Number`",
-          "type": "No",
+          "description": "",
+          "type": "Number",
           "isReadonly": false
         }
       ],
@@ -2800,50 +2800,50 @@
       "attributes": [
         {
           "name": "resourceGroup",
-          "description": "`AzureResourceGroup`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureResourceGroup",
+          "isReadonly": true
         },
         {
           "name": "sourceVirtualMachine",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "internalIdString",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "osType",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "connection",
-          "description": "`AzureConnection`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureConnection",
+          "isReadonly": true
         },
         {
           "name": "azureId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "region",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         }
       ],
@@ -2856,80 +2856,80 @@
       "attributes": [
         {
           "name": "resourceGroup",
-          "description": "`AzureResourceGroup`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureResourceGroup",
+          "isReadonly": true
         },
         {
           "name": "product",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "displayName",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "version",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "operatingSystem",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "offer",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "internalIdString",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "publisher",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "connection",
-          "description": "`AzureConnection`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureConnection",
+          "isReadonly": true
         },
         {
           "name": "azureId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "sku",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "region",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         }
       ],
@@ -2942,38 +2942,38 @@
       "attributes": [
         {
           "name": "resourceGroup",
-          "description": "`AzureResourceGroup`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureResourceGroup",
+          "isReadonly": true
         },
         {
           "name": "internalIdString",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "connection",
-          "description": "`AzureConnection`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureConnection",
+          "isReadonly": true
         },
         {
           "name": "azureId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "region",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         }
       ],
@@ -2986,38 +2986,38 @@
       "attributes": [
         {
           "name": "resourceGroup",
-          "description": "`AzureResourceGroup`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureResourceGroup",
+          "isReadonly": true
         },
         {
           "name": "internalIdString",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "connection",
-          "description": "`AzureConnection`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureConnection",
+          "isReadonly": true
         },
         {
           "name": "azureId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "region",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         }
       ],
@@ -3030,38 +3030,38 @@
       "attributes": [
         {
           "name": "resourceGroup",
-          "description": "`AzureResourceGroup`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureResourceGroup",
+          "isReadonly": true
         },
         {
           "name": "internalIdString",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "connection",
-          "description": "`AzureConnection`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureConnection",
+          "isReadonly": true
         },
         {
           "name": "azureId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "region",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         }
       ],
@@ -3129,13 +3129,13 @@
           "name": "getAllVirtualMachineByTag",
           "description": "",
           "parameters": "resourceGroup: AzureResourceGroup, key: String, value: String",
-          "returnType": "Array/AzureVirtualMachine"
+          "returnType": "AzureVirtualMachine[]"
         },
         {
           "name": "getVmDiskDiskForData",
           "description": "",
           "parameters": "virtualMachine: AzureVirtualMachine",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "getPublicIpAddress",
@@ -3159,7 +3159,7 @@
           "name": "getVirtualMachineSizesByRegion",
           "description": "",
           "parameters": "region: AzureRegion",
-          "returnType": "Array/AzureVirtualMachineSize"
+          "returnType": "AzureVirtualMachineSize[]"
         },
         {
           "name": "deallocateAsync",
@@ -3189,7 +3189,7 @@
           "name": "listTags",
           "description": "",
           "parameters": "virtualMachine: AzureVirtualMachine",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "getVmVhdUriForOs",
@@ -3237,7 +3237,7 @@
           "name": "getVmVhdUriForData",
           "description": "",
           "parameters": "virtualMachine: AzureVirtualMachine",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "powerOffAsync",
@@ -3364,56 +3364,56 @@
       "attributes": [
         {
           "name": "resourceDiskSizeInMB",
-          "description": "`Number`",
-          "type": "No",
+          "description": "",
+          "type": "Number",
           "isReadonly": false
         },
         {
           "name": "resourceGroup",
-          "description": "`AzureResourceGroup`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureResourceGroup",
+          "isReadonly": true
         },
         {
           "name": "maxDataDiskCount",
-          "description": "`Number`",
-          "type": "No",
+          "description": "",
+          "type": "Number",
           "isReadonly": false
         },
         {
           "name": "memoryInMB",
-          "description": "`Number`",
-          "type": "No",
+          "description": "",
+          "type": "Number",
           "isReadonly": false
         },
         {
           "name": "internalIdString",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "connection",
-          "description": "`AzureConnection`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureConnection",
+          "isReadonly": true
         },
         {
           "name": "azureId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "numberOfCores",
-          "description": "`Number`",
-          "type": "No",
+          "description": "",
+          "type": "Number",
           "isReadonly": false
         }
       ],
@@ -3426,74 +3426,74 @@
       "attributes": [
         {
           "name": "resourceGroup",
-          "description": "`AzureResourceGroup`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureResourceGroup",
+          "isReadonly": true
         },
         {
           "name": "resourceGuid",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "displayName",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "internalIdString",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "addressSpace",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "connection",
-          "description": "`AzureConnection`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureConnection",
+          "isReadonly": true
         },
         {
           "name": "etag",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "azureId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "provisioningState",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "type",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "region",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         }
       ],
@@ -3507,19 +3507,19 @@
           "name": "getAllVirtualNetworkByTag",
           "description": "",
           "parameters": "resourceGroup: AzureResourceGroup, key: String, value: String",
-          "returnType": "Array/AzureVirtualNetwork"
+          "returnType": "AzureVirtualNetwork[]"
         },
         {
           "name": "getVirtualNetworkByResourceGroup",
           "description": "",
           "parameters": "resourceGroup: AzureResourceGroup",
-          "returnType": "Array/AzureVirtualNetwork"
+          "returnType": "AzureVirtualNetwork[]"
         },
         {
           "name": "listTags",
           "description": "",
           "parameters": "virtualNetwork: AzureVirtualNetwork",
-          "returnType": "Array/String"
+          "returnType": "String[]"
         },
         {
           "name": "removeTag",
@@ -3568,98 +3568,98 @@
       "attributes": [
         {
           "name": "resourceGroup",
-          "description": "`AzureResourceGroup`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureResourceGroup",
+          "isReadonly": true
         },
         {
           "name": "displayName",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "repositorySiteName",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "osName",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "type",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "publishingProfile",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "clientCertEnabled",
-          "description": "`Boolean`",
-          "type": "No",
+          "description": "",
+          "type": "Boolean",
           "isReadonly": false
         },
         {
           "name": "internalIdString",
-          "description": "`String`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "String",
+          "isReadonly": true
         },
         {
           "name": "clientAffinityEnabled",
-          "description": "`Boolean`",
-          "type": "No",
+          "description": "",
+          "type": "Boolean",
           "isReadonly": false
         },
         {
           "name": "name",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "appServerPlanId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "connection",
-          "description": "`AzureConnection`",
-          "type": "Yes",
-          "isReadonly": false
+          "description": "",
+          "type": "AzureConnection",
+          "isReadonly": true
         },
         {
           "name": "azureId",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "state",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "region",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         },
         {
           "name": "defaultHostName",
-          "description": "`String`",
-          "type": "No",
+          "description": "",
+          "type": "String",
           "isReadonly": false
         }
       ],

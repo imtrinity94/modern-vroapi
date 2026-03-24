@@ -4,9 +4,17 @@ const path = require('path');
 const mappings = [
     {
         md: "c:\\Users\\M.Goyal\\OneDrive - Midis services - FZ LLC\\Documents\\GitHub\\modern-vroapi\\Azure_Docs_Generated.md",
-        json: "c:\\Users\\M.Goyal\\OneDrive - Midis services - FZ LLC\\Documents\\GitHub\\modern-vroapi\\vro-doc-site\\src\\data\\plugins\\azure.json"
+        json: "c:\\Users\\M.Goyal\\OneDrive - Midis services - FZ LLC\\Documents\\GitHub\\modern-vroapi\\vro-doc-site\\src\\data\\plugins\\o11n-plugin-azure.json"
     }
 ];
+
+function cleanType(t) {
+    if (!t) return t;
+    if (t.startsWith('Array/')) {
+        return t.replace('Array/', '') + '[]';
+    }
+    return t;
+}
 
 function parseMarkdown(mdContent) {
     const classes = {};
@@ -45,13 +53,15 @@ function parseMarkdown(mdContent) {
                 // Standard order seems to be Name, Description, Type, Read-only
                 
                 for (let i = 1; i < tableLines.length; i++) {
-                    const row = tableLines[i].split('|').map(s => s.trim()).filter(Boolean); // filter Boolean removes empty strings from leading/trailing |
+                    const parts = tableLines[i].split('|').map(s => s.trim());
+                    const row = parts.slice(1, parts.length - 1); // remove leading and trailing empty items from pipe split
                     // row[0] is name, row[1] description, row[2] type, row[3] readonly
                      if (row.length >= 3) {
                          // remove backticks from name and type
                          const name = row[0].replace(/`/g, '');
                          const desc = row[1] || "";
-                         const type = row[2].replace(/`/g, '');
+                         let type = row[2] ? row[2].replace(/`/g, '') : '';
+                         type = cleanType(type);
                          const readOnly = row[3] ? row[3].toLowerCase() === 'yes' : false;
 
                          classObj.attributes.push({
@@ -100,10 +110,13 @@ function parseMarkdown(mdContent) {
                     if (pLines.length > 1) { // Header exists
                          const params = [];
                          for(let i=1; i<pLines.length; i++) {
-                             const row = pLines[i].split('|').map(s=>s.trim()).filter(Boolean);
+                             const parts = pLines[i].split('|').map(s=>s.trim());
+                             const row = parts.slice(1, parts.length - 1);
                              if (row.length >= 2) {
                                  const pName = row[0].replace(/`/g, '');
-                                 const pType = row[1].replace(/`/g, '');
+                                 let pType = (row[1] || '').replace(/`/g, '');
+                                 pType = cleanType(pType);
+                                 const pDesc = row.length > 2 ? row[2] : "";
                                  params.push(`${pName}: ${pType}`);
                              }
                         }
@@ -114,7 +127,7 @@ function parseMarkdown(mdContent) {
                 // Returns
                 const retMatch = mChunk.match(/\*\*Returns:\*\* `([^`]+)`/);
                 if (retMatch) {
-                    methodObj.returnType = retMatch[1];
+                    methodObj.returnType = cleanType(retMatch[1]);
                 }
 
                 classObj.methods.push(methodObj);
