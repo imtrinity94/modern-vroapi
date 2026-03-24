@@ -9,7 +9,7 @@
   },
   {
     "id": "o11n-plugin-vra",
-    "name": "Aria Automation"
+    "name": "Aria Automation or VM Apps"
   },
   {
     "id": "o11n-plugin-autodeploy",
@@ -112,16 +112,16 @@
     "name": "vAPI"
   },
   {
-    "id": "o11n-plugin-vcfautomation",
-    "name": "VCF Automation for All Apps"
-  },
-  {
     "id": "o11n-plugin-vc",
     "name": "vCenter"
   },
   {
     "id": "o11n-plugin-vum",
     "name": "vCenter Update Manager"
+  },
+  {
+    "id": "o11n-plugin-vcfautomation",
+    "name": "VCF Automation for All Apps"
   },
   {
     "id": "o11n-plugin-vcloud",

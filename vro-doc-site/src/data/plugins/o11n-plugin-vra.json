@@ -1,6 +1,6 @@
 {
-  "name": "Aria Automation",
-  "description": "API Reference for Aria Automation",
+  "name": "Aria Automation or VM Apps",
+  "description": "API Reference for Aria Automation or VM Apps",
   "classes": [
     {
       "name": "VraBlockDevice",
