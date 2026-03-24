@@ -138,5 +138,9 @@
   "o11n-plugin-xml": {
     "classes": 6,
     "methods": 44
+  },
+  "azure": {
+    "classes": 47,
+    "methods": 221
   }
 }

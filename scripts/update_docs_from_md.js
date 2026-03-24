@@ -3,16 +3,8 @@ const path = require('path');
 
 const mappings = [
     {
-        md: "C:\\Users\\mayank\\Documents\\GitHub\\API Explorer to table\\AD_Docs_Generated.md",
-        json: "c:\\Users\\mayank\\Documents\\GitHub\\modern-vroapi\\vro-doc-site\\src\\data\\plugins\\o11n-plugin-activedirectory.json"
-    },
-    {
-        md: "C:\\Users\\mayank\\Documents\\GitHub\\API Explorer to table\\AMQP_Docs_Generated.md",
-        json: "c:\\Users\\mayank\\Documents\\GitHub\\modern-vroapi\\vro-doc-site\\src\\data\\plugins\\o11n-plugin-amqp.json"
-    },
-    {
-        md: "C:\\Users\\mayank\\Documents\\GitHub\\API Explorer to table\\XML_Docs_Generated.md",
-        json: "c:\\Users\\mayank\\Documents\\GitHub\\modern-vroapi\\vro-doc-site\\src\\data\\plugins\\o11n-plugin-xml.json"
+        md: "c:\\Users\\M.Goyal\\OneDrive - Midis services - FZ LLC\\Documents\\GitHub\\modern-vroapi\\Azure_Docs_Generated.md",
+        json: "c:\\Users\\M.Goyal\\OneDrive - Midis services - FZ LLC\\Documents\\GitHub\\modern-vroapi\\vro-doc-site\\src\\data\\plugins\\azure.json"
     }
 ];
 
@@ -141,41 +133,51 @@ mappings.forEach(entry => {
         console.error(`Markdown file not found: ${entry.md}`);
         return;
     }
-    if (!fs.existsSync(entry.json)) {
-        console.error(`JSON file not found: ${entry.json}`);
-        return;
+
+    let pluginData = {
+        name: "Azure", // Update this as necessary
+        description: "API Reference for Azure",
+        classes: []
+    };
+
+    if (fs.existsSync(entry.json)) {
+        const jsonContent = fs.readFileSync(entry.json, 'utf8');
+        try {
+            pluginData = JSON.parse(jsonContent);
+        } catch(e) {}
     }
 
     const mdContent = fs.readFileSync(entry.md, 'utf8');
-    const jsonContent = fs.readFileSync(entry.json, 'utf8');
-    const pluginData = JSON.parse(jsonContent);
-
     const parsedClasses = parseMarkdown(mdContent);
 
-    // Update classes
-    pluginData.classes.forEach(cls => {
-        const parsed = parsedClasses[cls.name];
-        if (parsed) {
-            console.log(`Updating class: ${cls.name}`);
-            
-            // Update Description
-            if (parsed.description) {
-                cls.description = parsed.description;
-            }
+    if (!pluginData.classes || pluginData.classes.length === 0) {
+        pluginData.classes = Object.values(parsedClasses);
+    } else {
+        // Update classes
+        pluginData.classes.forEach(cls => {
+            const parsed = parsedClasses[cls.name];
+            if (parsed) {
+                console.log(`Updating class: ${cls.name}`);
+                
+                // Update Description
+                if (parsed.description) {
+                    cls.description = parsed.description;
+                }
 
-            // Update Methods
-            if (parsed.methods.length > 0) {
-                 cls.methods = parsed.methods;
-            }
+                // Update Methods
+                if (parsed.methods.length > 0) {
+                     cls.methods = parsed.methods;
+                }
 
-            // Update Attributes
-            if (parsed.hasAttributesSection) {
-                cls.attributes = parsed.attributes;
-            } else {
-                 console.log(`  Keeping existing attributes for ${cls.name} (No attributes in MD)`);
+                // Update Attributes
+                if (parsed.hasAttributesSection) {
+                    cls.attributes = parsed.attributes;
+                } else {
+                     console.log(`  Keeping existing attributes for ${cls.name} (No attributes in MD)`);
+                }
             }
-        }
-    });
+        });
+    }
 
     // Write back
     fs.writeFileSync(entry.json, JSON.stringify(pluginData, null, 2));

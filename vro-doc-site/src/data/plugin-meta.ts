@@ -15,6 +15,7 @@ export interface PluginMetadata {
 }
 
 export const PLUGIN_META: Record<string, PluginMetadata> = {
+    'azure': { image: `${import.meta.env.BASE_URL}icons/azure.png`, color: 'blue', tags: ['OFFICIAL'] },
     'o11n-core': { image: `${import.meta.env.BASE_URL}icons/vro.png`, color: 'orange', tags: ['IN-BUILT'], version: '8.18.1.24266232' }, // Assuming core matches build version like Configurator/Support/vCO
     'o11n-plugin-activedirectory': { image: `${import.meta.env.BASE_URL}icons/active-directory.png`, color: 'blue', tags: ['IN-BUILT'], version: '3.1.0.24105059' },
     'o11n-plugin-amqp': { image: `${import.meta.env.BASE_URL}icons/amqp.png`, color: 'orange', tags: ['IN-BUILT'], version: '1.1.0.24105062' },

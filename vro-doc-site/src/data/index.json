@@ -1,5 +1,9 @@
 [
   {
+    "id": "o11n-plugin-azure",
+    "name": "Azure"
+  },
+  {
     "id": "o11n-plugin-activedirectory",
     "name": "Active Directory"
   },

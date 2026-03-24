@@ -1,0 +1,3683 @@
+{
+  "name": "Azure",
+  "description": "API Reference for Azure",
+  "classes": [
+    {
+      "name": "AzureAvailabilitySet",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "resourceGroup",
+          "description": "`AzureResourceGroup`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "platformFaultDomainCount",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "platformUpdateDomainCount",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "connection",
+          "description": "`AzureConnection`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "azureId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "id",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "region",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzureAvailabilitySetManager",
+      "description": "",
+      "methods": [
+        {
+          "name": "getAvailabilitySetByResourceGroup",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup",
+          "returnType": "Array/AzureAvailabilitySet"
+        },
+        {
+          "name": "delete",
+          "description": "",
+          "parameters": "availabilitySet: AzureAvailabilitySet",
+          "returnType": "void"
+        },
+        {
+          "name": "create",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, region: AzureRegion, availabilitySetName: String, isManaged: Boolean, faultDomain: Number, updateDomain: Number",
+          "returnType": "AzureAvailabilitySet"
+        },
+        {
+          "name": "listTags",
+          "description": "",
+          "parameters": "availabilitySet: AzureAvailabilitySet",
+          "returnType": "Array/String"
+        },
+        {
+          "name": "getAvailabilitySetById",
+          "description": "",
+          "parameters": "connection: AzureConnection, azureId: String",
+          "returnType": "AzureAvailabilitySet"
+        },
+        {
+          "name": "getAvailabilitySetByResourceGroupAndName",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, name: String",
+          "returnType": "AzureAvailabilitySet"
+        },
+        {
+          "name": "toggleSkuType",
+          "description": "",
+          "parameters": "availabilitySet: AzureAvailabilitySet",
+          "returnType": "AzureAvailabilitySet"
+        },
+        {
+          "name": "removeTag",
+          "description": "",
+          "parameters": "availabilitySet: AzureAvailabilitySet, key: String",
+          "returnType": "void"
+        },
+        {
+          "name": "getAllAvailabilitySetByTag",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, key: String, value: String",
+          "returnType": "Array/AzureAvailabilitySet"
+        },
+        {
+          "name": "addTag",
+          "description": "",
+          "parameters": "availabilitySet: AzureAvailabilitySet, key: String, value: String",
+          "returnType": "void"
+        }
+      ],
+      "attributes": [],
+      "hasAttributesSection": false
+    },
+    {
+      "name": "AzureConnection",
+      "description": "",
+      "methods": [
+        {
+          "name": "destroy",
+          "description": "",
+          "parameters": "",
+          "returnType": "void"
+        },
+        {
+          "name": "validate",
+          "description": "Uses the azure connection to get a resource group to validate the connection.",
+          "parameters": "",
+          "returnType": "void"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "clientId",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "serviceUri",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "proxyUsername",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "azureEnvironment",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "proxyHost",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "proxyPort",
+          "description": "`Number`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "customProperties",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "loginUrl",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "tenantId",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "storageUri",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "subscriptionId",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzureConnectionManager",
+      "description": "",
+      "methods": [
+        {
+          "name": "putCall",
+          "description": "",
+          "parameters": "connection: AzureConnection, urlPath: String, body: String",
+          "returnType": "String"
+        },
+        {
+          "name": "delete",
+          "description": "",
+          "parameters": "connection: AzureConnection",
+          "returnType": "void"
+        },
+        {
+          "name": "getCall",
+          "description": "",
+          "parameters": "connection: AzureConnection, urlPath: String",
+          "returnType": "String"
+        },
+        {
+          "name": "saveFromResource",
+          "description": "",
+          "parameters": "props: Object, resource: ResourceElement",
+          "returnType": "String"
+        },
+        {
+          "name": "getConnectionBySid",
+          "description": "",
+          "parameters": "sid: String",
+          "returnType": "AzureConnection"
+        },
+        {
+          "name": "deleteCall",
+          "description": "",
+          "parameters": "connection: AzureConnection, urlPath: String",
+          "returnType": "String"
+        },
+        {
+          "name": "save",
+          "description": "",
+          "parameters": "props: Object, keystoreLocation: String",
+          "returnType": "String"
+        },
+        {
+          "name": "postCall",
+          "description": "",
+          "parameters": "connection: AzureConnection, urlPath: String, body: String",
+          "returnType": "String"
+        },
+        {
+          "name": "patchCall",
+          "description": "",
+          "parameters": "connection: AzureConnection, urlPath: String, body: String",
+          "returnType": "String"
+        },
+        {
+          "name": "saveFromPem",
+          "description": "",
+          "parameters": "props: Object, privateKey: String, certificate: String",
+          "returnType": "String"
+        },
+        {
+          "name": "update",
+          "description": "",
+          "parameters": "props: Object, connection: AzureConnection",
+          "returnType": "void"
+        }
+      ],
+      "attributes": [],
+      "hasAttributesSection": false
+    },
+    {
+      "name": "AzureDatabaseManager",
+      "description": "",
+      "methods": [
+        {
+          "name": "createDatabaseFromSourceDb",
+          "description": "",
+          "parameters": "sqlServer: AzureSqlServer, databaseName: String, sourceDatabase: AzureSqlDatabase, createMode: String",
+          "returnType": "AzureSqlDatabase"
+        },
+        {
+          "name": "listTagsForSqlServer",
+          "description": "",
+          "parameters": "sqlServer: AzureSqlServer",
+          "returnType": "Array/String"
+        },
+        {
+          "name": "getDatabaseInElasticPool",
+          "description": "",
+          "parameters": "sqlServer: AzureSqlServer, elasticPoolName: String",
+          "returnType": "Array/AzureSqlDatabase"
+        },
+        {
+          "name": "deleteElasticPool",
+          "description": "",
+          "parameters": "sqlServer: AzureSqlServer, elasticPoolName: String, propsJson: String",
+          "returnType": "void"
+        },
+        {
+          "name": "deleteSQLServer",
+          "description": "",
+          "parameters": "sqlServer: AzureSqlServer",
+          "returnType": "void"
+        },
+        {
+          "name": "addTag",
+          "description": "",
+          "parameters": "sqlDatabase: AzureSqlDatabase, sqlServer: AzureSqlServer, key: String, value: String",
+          "returnType": "void"
+        },
+        {
+          "name": "addTagForSqlServer",
+          "description": "",
+          "parameters": "sqlServer: AzureSqlServer, key: String, value: String",
+          "returnType": "void"
+        },
+        {
+          "name": "getSqlServerById",
+          "description": "",
+          "parameters": "connection: AzureConnection, azureId: String",
+          "returnType": "AzureSqlServer"
+        },
+        {
+          "name": "listTags",
+          "description": "",
+          "parameters": "sqlDatabase: AzureSqlDatabase, sqlServer: AzureSqlServer",
+          "returnType": "Array/String"
+        },
+        {
+          "name": "removeDatabaseFromElasticPool",
+          "description": "",
+          "parameters": "sqlServer: AzureSqlServer, database: AzureSqlDatabase",
+          "returnType": "void"
+        },
+        {
+          "name": "removeTag",
+          "description": "",
+          "parameters": "sqlDatabase: AzureSqlDatabase, sqlServer: AzureSqlServer, key: String",
+          "returnType": "void"
+        },
+        {
+          "name": "deleteDatabase",
+          "description": "",
+          "parameters": "database: AzureSqlDatabase",
+          "returnType": "void"
+        },
+        {
+          "name": "toggleAccessFromAzureServices",
+          "description": "",
+          "parameters": "sqlServer: AzureSqlServer, enable: Boolean",
+          "returnType": "void"
+        },
+        {
+          "name": "createSQLServer",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, region: AzureRegion, sqlServerName: String, administratorLogin: String, administratorPassword: String",
+          "returnType": "AzureSqlServer"
+        },
+        {
+          "name": "changeSQLServerAdminPwd",
+          "description": "",
+          "parameters": "sqlServer: AzureSqlServer, administratorPassword: String",
+          "returnType": "void"
+        },
+        {
+          "name": "createDatabase",
+          "description": "",
+          "parameters": "sqlServer: AzureSqlServer, databaseName: String, databaseEdition: String, serviceObject: String, storageSize: String, collation: String",
+          "returnType": "AzureSqlDatabase"
+        },
+        {
+          "name": "removeTagForSqlServer",
+          "description": "",
+          "parameters": "sqlServer: AzureSqlServer, key: String",
+          "returnType": "void"
+        }
+      ],
+      "attributes": [],
+      "hasAttributesSection": false
+    },
+    {
+      "name": "AzureDeployment",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "resourceGroup",
+          "description": "`AzureResourceGroup`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "connection",
+          "description": "`AzureConnection`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "azureId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzureDisk",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "resourceGroup",
+          "description": "`AzureResourceGroup`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "attachedToVirtualMachine",
+          "description": "`Boolean`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "sizeInGB",
+          "description": "`Number`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "osType",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "connection",
+          "description": "`AzureConnection`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "timeCreated",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "azureId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "region",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzureDiskManager",
+      "description": "",
+      "methods": [
+        {
+          "name": "removeTag",
+          "description": "",
+          "parameters": "disk: AzureDisk, key: String",
+          "returnType": "void"
+        },
+        {
+          "name": "delete",
+          "description": "",
+          "parameters": "disk: AzureDisk",
+          "returnType": "void"
+        },
+        {
+          "name": "addTag",
+          "description": "",
+          "parameters": "disk: AzureDisk, key: String, value: String",
+          "returnType": "void"
+        },
+        {
+          "name": "listTags",
+          "description": "",
+          "parameters": "disk: AzureDisk",
+          "returnType": "Array/String"
+        },
+        {
+          "name": "createDiskFromSnapshot",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, region: AzureRegion, diskName: String, diskSizeInGB: Number, snapshot: AzureSnapshot, accountType: String",
+          "returnType": "AzureDisk"
+        },
+        {
+          "name": "getDiskById",
+          "description": "",
+          "parameters": "connection: AzureConnection, azureId: String",
+          "returnType": "AzureDisk"
+        },
+        {
+          "name": "createEmptyDisk",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, region: AzureRegion, diskName: String, diskSizeInGB: Number, accountType: String",
+          "returnType": "AzureDisk"
+        },
+        {
+          "name": "createDiskFromVhd",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, region: AzureRegion, diskName: String, diskSizeInGB: Number, osType: String, vhdURI: String, accountType: String, storageAccountName: String",
+          "returnType": "AzureDisk"
+        }
+      ],
+      "attributes": [],
+      "hasAttributesSection": false
+    },
+    {
+      "name": "AzureDnsZone",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "resourceGroup",
+          "description": "`AzureResourceGroup`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "connection",
+          "description": "`AzureConnection`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "azureId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "nameServers",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "region",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzureExtensionManager",
+      "description": "",
+      "methods": [
+        {
+          "name": "runCustomScriptExtPublicConfig",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine, extensionName: String, scriptPaths: Array/String, command: String, minorUpgrade: Boolean",
+          "returnType": "void"
+        },
+        {
+          "name": "detachCustomScriptExtension",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine, extensionName: String",
+          "returnType": "void"
+        },
+        {
+          "name": "runVMAccess",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine, extensionName: String, props: String",
+          "returnType": "void"
+        },
+        {
+          "name": "runCustomScriptExtProtectedConfig",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine, extensionName: String, scriptPaths: Array/String, command: String, storageAccountName: String, storageAccountKey: String, minorUpgrade: Boolean",
+          "returnType": "void"
+        }
+      ],
+      "attributes": [],
+      "hasAttributesSection": false
+    },
+    {
+      "name": "AzureLoadBalancer",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "resourceGroup",
+          "description": "`AzureResourceGroup`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "publicIpAddress",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "resourceGuid",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "connection",
+          "description": "`AzureConnection`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "etag",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "azureId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "provisioningState",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "region",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzureLoadBalancerManager",
+      "description": "",
+      "methods": [
+        {
+          "name": "removeNatRule",
+          "description": "Remove inbound NAT rule.",
+          "parameters": "loadBalancer: AzureLoadBalancer, natRuleName: String",
+          "returnType": "void"
+        },
+        {
+          "name": "getLoadBalancerByResourceGroup",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup",
+          "returnType": "Array/AzureLoadBalancer"
+        },
+        {
+          "name": "removeFrontEnd",
+          "description": "Remove frontend.",
+          "parameters": "loadBalancer: AzureLoadBalancer, frontendName: String",
+          "returnType": "void"
+        },
+        {
+          "name": "getAllLoadBalancerByResourceGroup",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup",
+          "returnType": "Array/AzureLoadBalancer"
+        },
+        {
+          "name": "addLoadBalancerInboundNatRule",
+          "description": "Add inbound nat rule.",
+          "parameters": "loadBalancer: AzureLoadBalancer, natRuleName: String, natFrontEndport: Number, natBackendPort: Number, frontEndName: String, floatingIpEnabled: Boolean, idleTimeoutInMinutes: Number",
+          "returnType": "AzureLoadBalancer"
+        },
+        {
+          "name": "addTcpProbe",
+          "description": "",
+          "parameters": "loadBalancer: AzureLoadBalancer, probeName: String, interval: Number, port: Number, probes: Number",
+          "returnType": "void"
+        },
+        {
+          "name": "createExternalFacingLoadBalancer",
+          "description": "Create external load balancer.",
+          "parameters": "resourceGroup: AzureResourceGroup, region: AzureRegion, lbName: String, lbRuleName: String, transportProtocol: String, frontEndport: Number, backendPort: Number, probeName: String, requestPath: String, probeInterval: Number, probeThreshold: Number, floatingIpEnabled: Boolean, idleTimeoutInMinutes: Number, loadDistributionMode: String, publicIp: AzurePublicIPAddress, frontEndName: String, backendName: String",
+          "returnType": "AzureLoadBalancer"
+        },
+        {
+          "name": "attachNicToLoadBalancerBackendPool",
+          "description": "Ensure that availability set and virtual network are same.",
+          "parameters": "loadBalancer: AzureLoadBalancer, backendPoolName: String, vNic: AzureNetworkInterface",
+          "returnType": "void"
+        },
+        {
+          "name": "removeProbe",
+          "description": "",
+          "parameters": "loadBalancer: AzureLoadBalancer, probeName: String",
+          "returnType": "void"
+        },
+        {
+          "name": "addHttpProbe",
+          "description": "",
+          "parameters": "loadBalancer: AzureLoadBalancer, probeName: String, requestPath: String, interval: Number, port: Number, probes: Number",
+          "returnType": "void"
+        },
+        {
+          "name": "getLoadBalancerBackendPool",
+          "description": "",
+          "parameters": "loadBalancer: AzureLoadBalancer",
+          "returnType": "Array/String"
+        },
+        {
+          "name": "deleteLoadBalancer",
+          "description": "Delete load balancer.",
+          "parameters": "loadBalancer: AzureLoadBalancer",
+          "returnType": "void"
+        },
+        {
+          "name": "addLoadBalancerPublicFrontEnd",
+          "description": "Add public frontend.",
+          "parameters": "loadBalancer: AzureLoadBalancer, frontEndName: String, publicIp: AzurePublicIPAddress",
+          "returnType": "AzureLoadBalancer"
+        },
+        {
+          "name": "createInternalFacingLoadBalancer",
+          "description": "Create internal load balancer.",
+          "parameters": "resourceGroup: AzureResourceGroup, region: AzureRegion, lbName: String, lbRuleName: String, natRuleName: String, transportProtocol: String, frontEndport: Number, backendPort: Number, natFrontEndport: Number, natBackendPort: Number, probeName: String, requestPath: String, probeInterval: Number, probeThreshold: Number, floatingIpEnabled: Boolean, idleTimeoutInMinutes: Number, loadDistributionMode: String, frontEndName: String, backendName: String, network: AzureVirtualNetwork, subnet: AzureSubnet, privateIp: String",
+          "returnType": "AzureLoadBalancer"
+        },
+        {
+          "name": "removeBackend",
+          "description": "Remove backend.",
+          "parameters": "loadBalancer: AzureLoadBalancer, backendName: String",
+          "returnType": "void"
+        },
+        {
+          "name": "removeLoadBalancerRule",
+          "description": "Remove load balancing rule.",
+          "parameters": "loadBalancer: AzureLoadBalancer, ruleName: String",
+          "returnType": "void"
+        },
+        {
+          "name": "addLoadBalancerPrivateFrontEnd",
+          "description": "Add private front end.",
+          "parameters": "loadBalancer: AzureLoadBalancer, frontEndName: String, network: AzureVirtualNetwork, subnetName: String, privateIp: String",
+          "returnType": "AzureLoadBalancer"
+        },
+        {
+          "name": "removeTag",
+          "description": "",
+          "parameters": "loadBalancer: AzureLoadBalancer, key: String",
+          "returnType": "void"
+        },
+        {
+          "name": "listTags",
+          "description": "",
+          "parameters": "loadBalancer: AzureLoadBalancer",
+          "returnType": "Array/String"
+        },
+        {
+          "name": "addTag",
+          "description": "",
+          "parameters": "loadBalancer: AzureLoadBalancer, key: String, value: String",
+          "returnType": "void"
+        },
+        {
+          "name": "addLoadBalancerRule",
+          "description": "Add loadbalancing rule.",
+          "parameters": "loadBalancer: AzureLoadBalancer, lbRuleName: String, transportProtocol: String, frontEndport: Number, backendPort: Number, probeName: String, requestPath: String, probeInterval: Number, probeThreshold: Number, floatingIpEnabled: Boolean, idleTimeoutInMinutes: Number, loadDistributionMode: String, frontEndName: String, backendName: String",
+          "returnType": "AzureLoadBalancer"
+        },
+        {
+          "name": "getLoadBalancerByResourceGroupAndName",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, name: String",
+          "returnType": "AzureLoadBalancer"
+        }
+      ],
+      "attributes": [],
+      "hasAttributesSection": false
+    },
+    {
+      "name": "AzureLockManager",
+      "description": "",
+      "methods": [
+        {
+          "name": "getLocks",
+          "description": "",
+          "parameters": "connection: AzureConnection, azureId: String",
+          "returnType": "Array/String"
+        },
+        {
+          "name": "addLock",
+          "description": "",
+          "parameters": "connection: AzureConnection, azureId: String, lockName: String, lockType: String",
+          "returnType": "String"
+        },
+        {
+          "name": "removeLock",
+          "description": "",
+          "parameters": "connection: AzureConnection, lockId: String",
+          "returnType": "void"
+        }
+      ],
+      "attributes": [],
+      "hasAttributesSection": false
+    },
+    {
+      "name": "AzureNetworkInterface",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "resourceGroup",
+          "description": "`AzureResourceGroup`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "regionName",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "dnsName",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "primaryVirtualNetworkId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "attachedToVm",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "dnsServerIps",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "isPrimary",
+          "description": "`Boolean`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "connection",
+          "description": "`AzureConnection`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "azureId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "acceleratedNetworkEnabled",
+          "description": "`Boolean`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "networkSecurityGroup",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "publicIpAddressName",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "resourceGroupName",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "fqdn",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "publicIpAddress",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "privateAllocationMethod",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "ipForwardingEnabled",
+          "description": "`Boolean`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "provisioningState",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "privateIpAddress",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "tags",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "appliedDnsServers",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "macAddress",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "primarySubnet",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "domainNameSuffix",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzureNetworkInterfaceManager",
+      "description": "",
+      "methods": [
+        {
+          "name": "getAllVirtualNetworkByTag",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, key: String, value: String",
+          "returnType": "Array/AzureNetworkInterface"
+        },
+        {
+          "name": "removeTag",
+          "description": "",
+          "parameters": "networkInterface: AzureNetworkInterface, key: String",
+          "returnType": "void"
+        },
+        {
+          "name": "create",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, region: AzureRegion, vNetwork: AzureVirtualNetwork, subnet: AzureSubnet, publicIPAddress: AzurePublicIPAddress, networkInterfaceName: String, staticPrivateIPAddress: String",
+          "returnType": "AzureNetworkInterface"
+        },
+        {
+          "name": "attachNetworkSecurityGroup",
+          "description": "",
+          "parameters": "networkInterface: AzureNetworkInterface, networkSecurityGroup: AzureNetworkSecurityGroup",
+          "returnType": "AzureNetworkInterface"
+        },
+        {
+          "name": "attachPublicIpAddress",
+          "description": "",
+          "parameters": "networkInterface: AzureNetworkInterface, publicIpAddress: AzurePublicIPAddress",
+          "returnType": "AzureNetworkInterface"
+        },
+        {
+          "name": "toggleNicIpAllocationType",
+          "description": "",
+          "parameters": "networkInterface: AzureNetworkInterface, staticAllocation: Boolean",
+          "returnType": "void"
+        },
+        {
+          "name": "addTag",
+          "description": "",
+          "parameters": "networkInterface: AzureNetworkInterface, key: String, value: String",
+          "returnType": "void"
+        },
+        {
+          "name": "listTags",
+          "description": "",
+          "parameters": "networkInterface: AzureNetworkInterface",
+          "returnType": "Array/String"
+        },
+        {
+          "name": "getNetworkInterfaceByResourceGroup",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup",
+          "returnType": "Array/AzureNetworkInterface"
+        },
+        {
+          "name": "getPrimaryNetworkInterfaceByVirtualMachine",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine",
+          "returnType": "AzureNetworkInterface"
+        },
+        {
+          "name": "getVirtualNetworkById",
+          "description": "",
+          "parameters": "connection: AzureConnection, azureId: String",
+          "returnType": "AzureNetworkInterface"
+        },
+        {
+          "name": "getNetworkInterfaceByResourceGroupAndName",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, name: String",
+          "returnType": "AzureNetworkInterface"
+        },
+        {
+          "name": "delete",
+          "description": "",
+          "parameters": "networkInterface: AzureNetworkInterface",
+          "returnType": "void"
+        },
+        {
+          "name": "createWithoutPublicIp",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, region: AzureRegion, vNetwork: AzureVirtualNetwork, subnet: AzureSubnet, networkInterfaceName: String, staticPrivateIPAddress: String",
+          "returnType": "AzureNetworkInterface"
+        },
+        {
+          "name": "detachPublicIpAddress",
+          "description": "",
+          "parameters": "networkInterface: AzureNetworkInterface",
+          "returnType": "AzureNetworkInterface"
+        },
+        {
+          "name": "getAllSecondaryNetworkInterfaceByVirtualMachine",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine",
+          "returnType": "Array/AzureNetworkInterface"
+        }
+      ],
+      "attributes": [],
+      "hasAttributesSection": false
+    },
+    {
+      "name": "AzureNetworkSecurityGroup",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "resourceGroup",
+          "description": "`AzureResourceGroup`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "resourceGuid",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "connection",
+          "description": "`AzureConnection`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "etag",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "azureId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "provisioningState",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "region",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzureNetworkSecurityGroupManager",
+      "description": "",
+      "methods": [
+        {
+          "name": "getNetworkSecurityGroupByResourceGroup",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup",
+          "returnType": "Array/AzureNetworkSecurityGroup"
+        },
+        {
+          "name": "listTags",
+          "description": "",
+          "parameters": "nsg: AzureNetworkSecurityGroup",
+          "returnType": "Array/String"
+        },
+        {
+          "name": "create",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, region: AzureRegion, networkSecurityGroupName: String",
+          "returnType": "AzureNetworkSecurityGroup"
+        },
+        {
+          "name": "addTag",
+          "description": "",
+          "parameters": "nsg: AzureNetworkSecurityGroup, key: String, value: String",
+          "returnType": "void"
+        },
+        {
+          "name": "getNetworkSecurityGroupByResourceGroupAndName",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, name: String",
+          "returnType": "AzureNetworkSecurityGroup"
+        },
+        {
+          "name": "removeTag",
+          "description": "",
+          "parameters": "nsg: AzureNetworkSecurityGroup, key: String",
+          "returnType": "void"
+        },
+        {
+          "name": "delete",
+          "description": "",
+          "parameters": "networkSecurityGroup: AzureNetworkSecurityGroup",
+          "returnType": "void"
+        }
+      ],
+      "attributes": [],
+      "hasAttributesSection": false
+    },
+    {
+      "name": "AzurePublicIPAddress",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "resourceGroup",
+          "description": "`AzureResourceGroup`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "resourceGroupName",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "leafDomain",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "fqdn",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "regionName",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "ipAddress",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "provisioningState",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "zones",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "tags",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "reverseFqdn",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "ipAllocationType",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "ipVersion",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "availableToUse",
+          "description": "`Boolean`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "idleTimeoutMinutes",
+          "description": "`Number`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "connection",
+          "description": "`AzureConnection`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "azureId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzurePublicIPAddressManager",
+      "description": "",
+      "methods": [
+        {
+          "name": "addTag",
+          "description": "",
+          "parameters": "publicIpAddress: AzurePublicIPAddress, key: String, value: String",
+          "returnType": "void"
+        },
+        {
+          "name": "detachPublicIpOfVm",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine",
+          "returnType": "void"
+        },
+        {
+          "name": "create_v2",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, region: AzureRegion, publicIPAddressName: String, propsJson: String",
+          "returnType": "AzurePublicIPAddress"
+        },
+        {
+          "name": "getPublicIpAddressByResourceGroupAndName",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, name: String",
+          "returnType": "AzurePublicIPAddress"
+        },
+        {
+          "name": "getPublicIpAddressesByResourceGroup",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup",
+          "returnType": "Array/AzurePublicIPAddress"
+        },
+        {
+          "name": "listTags",
+          "description": "",
+          "parameters": "publicIPAddress: AzurePublicIPAddress",
+          "returnType": "Array/String"
+        },
+        {
+          "name": "attachPublicIpToVm",
+          "description": "",
+          "parameters": "publicIPAddress: AzurePublicIPAddress, virtualMachine: AzureVirtualMachine",
+          "returnType": "void"
+        },
+        {
+          "name": "getAllAvailablePublicIpAddresses",
+          "description": "",
+          "parameters": "connection: AzureConnection",
+          "returnType": "Array/AzurePublicIPAddress"
+        },
+        {
+          "name": "create",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, region: AzureRegion, publicIPAddressName: String",
+          "returnType": "AzurePublicIPAddress"
+        },
+        {
+          "name": "getAvailablePublicIpAddressesByResourceGroup",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup",
+          "returnType": "Array/AzurePublicIPAddress"
+        },
+        {
+          "name": "delete",
+          "description": "",
+          "parameters": "publicIPAddress: AzurePublicIPAddress",
+          "returnType": "void"
+        },
+        {
+          "name": "removeTag",
+          "description": "",
+          "parameters": "publicIpAddress: AzurePublicIPAddress, key: String",
+          "returnType": "void"
+        }
+      ],
+      "attributes": [],
+      "hasAttributesSection": false
+    },
+    {
+      "name": "AzureRegion",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "resourceGroup",
+          "description": "`AzureResourceGroup`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "connection",
+          "description": "`AzureConnection`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "azureId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzureRegionManager",
+      "description": "",
+      "methods": [
+        {
+          "name": "getRegionByConnectionAndName",
+          "description": "",
+          "parameters": "connection: AzureConnection, regionName: String",
+          "returnType": "AzureRegion"
+        },
+        {
+          "name": "getRegionByConnection",
+          "description": "",
+          "parameters": "connection: AzureConnection",
+          "returnType": "Array/AzureRegion"
+        }
+      ],
+      "attributes": [],
+      "hasAttributesSection": false
+    },
+    {
+      "name": "AzureResourceGroup",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "resourceGroup",
+          "description": "`AzureResourceGroup`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "provisiongState",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "regionName",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "connection",
+          "description": "`AzureConnection`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "azureId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzureResourceGroupManager",
+      "description": "",
+      "methods": [
+        {
+          "name": "getResourceGroupByConnectionAndName",
+          "description": "",
+          "parameters": "connection: AzureConnection, name: String",
+          "returnType": "AzureResourceGroup"
+        },
+        {
+          "name": "getDeploymentState",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, deploymentName: String",
+          "returnType": "String"
+        },
+        {
+          "name": "deployArmTemplate",
+          "description": "",
+          "parameters": "deploymentName: String, resourceGroup: AzureResourceGroup, template: String, parameters: String, mode: String",
+          "returnType": "void"
+        },
+        {
+          "name": "deployArmTemplateViaUri",
+          "description": "",
+          "parameters": "deploymentName: String, resourceGroup: AzureResourceGroup, templateLink: String, templateLinkVersion: String, parametersLink: String, parametersLinkVersion: String, mode: String",
+          "returnType": "void"
+        },
+        {
+          "name": "removeTag",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, key: String",
+          "returnType": "void"
+        },
+        {
+          "name": "listTags",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup",
+          "returnType": "Array/String"
+        },
+        {
+          "name": "addTag",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, key: String, value: String",
+          "returnType": "void"
+        },
+        {
+          "name": "getAllResourceGroupByTag",
+          "description": "",
+          "parameters": "connection: AzureConnection, key: String, value: String",
+          "returnType": "Array/AzureResourceGroup"
+        },
+        {
+          "name": "create",
+          "description": "",
+          "parameters": "region: AzureRegion, rgName: String",
+          "returnType": "AzureResourceGroup"
+        },
+        {
+          "name": "deleteInBackground",
+          "description": "To avoid holding the vro thread on long running task.",
+          "parameters": "resourceGroup: AzureResourceGroup",
+          "returnType": "void"
+        },
+        {
+          "name": "delete",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup",
+          "returnType": "void"
+        },
+        {
+          "name": "getResourceGroupByConnection",
+          "description": "",
+          "parameters": "connection: AzureConnection",
+          "returnType": "Array/AzureResourceGroup"
+        }
+      ],
+      "attributes": [],
+      "hasAttributesSection": false
+    },
+    {
+      "name": "AzureRoute",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "resourceGroup",
+          "description": "`AzureResourceGroup`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "nextHopAddress",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "routeTable",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "addressPrefix",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "nextHopType",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "connection",
+          "description": "`AzureConnection`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "azureId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzureRouteTable",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "routes",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "resourceGroup",
+          "description": "`AzureResourceGroup`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "location",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "connection",
+          "description": "`AzureConnection`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "subnets",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "azureId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzureRouteTableManager",
+      "description": "",
+      "methods": [
+        {
+          "name": "deleteRouteTable",
+          "description": "",
+          "parameters": "routeTable: AzureRouteTable",
+          "returnType": "void"
+        },
+        {
+          "name": "removeTag",
+          "description": "",
+          "parameters": "routeTable: AzureRouteTable, key: String",
+          "returnType": "void"
+        },
+        {
+          "name": "listTags",
+          "description": "",
+          "parameters": "routeTable: AzureRouteTable",
+          "returnType": "Array/String"
+        },
+        {
+          "name": "addTag",
+          "description": "",
+          "parameters": "routeTable: AzureRouteTable, key: String, value: String",
+          "returnType": "void"
+        },
+        {
+          "name": "createRouteTable",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, region: AzureRegion, routeTableName: String",
+          "returnType": "AzureRouteTable"
+        },
+        {
+          "name": "createRoute",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, routeTable: AzureRouteTable, routeName: String, addressPerfix: String, nextHopType: String, applianceIpAddress: String",
+          "returnType": "AzureRoute"
+        },
+        {
+          "name": "deleteRoute",
+          "description": "",
+          "parameters": "routeTable: AzureRouteTable, route: AzureRoute",
+          "returnType": "void"
+        }
+      ],
+      "attributes": [],
+      "hasAttributesSection": false
+    },
+    {
+      "name": "AzureSecurityRule",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "resourceGroup",
+          "description": "`AzureResourceGroup`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "access",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "description",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "provisioningState",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "priority",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "destinationAddressPrefix",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "protocol",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "sourcePortRange",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "sourceAddressPrefix",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "destinationPortRange",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "connection",
+          "description": "`AzureConnection`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "etag",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "azureId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "direction",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzureSnapshot",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "sourceDisk",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "resourceGroup",
+          "description": "`AzureResourceGroup`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "accountType",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "sizeInGB",
+          "description": "`Number`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "osType",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "connection",
+          "description": "`AzureConnection`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "state",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "azureId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "region",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzureSnapshotManager",
+      "description": "",
+      "methods": [
+        {
+          "name": "create",
+          "description": "Create a snaphot from disk. Disk cant be attached to VM. You can pass OS or Data disks.",
+          "parameters": "resourceGroup: AzureResourceGroup, region: AzureRegion, snapshotName: String, sourceDisk: AzureDisk, accountType: String",
+          "returnType": "AzureSnapshot"
+        },
+        {
+          "name": "removeTag",
+          "description": "",
+          "parameters": "snapshot: AzureSnapshot, key: String",
+          "returnType": "void"
+        },
+        {
+          "name": "delete",
+          "description": "Deletes a snapshot.",
+          "parameters": "snapshot: AzureSnapshot",
+          "returnType": "void"
+        },
+        {
+          "name": "getSnapshotById",
+          "description": "",
+          "parameters": "connection: AzureConnection, azureId: String",
+          "returnType": "AzureSnapshot"
+        },
+        {
+          "name": "listTags",
+          "description": "",
+          "parameters": "snapshot: AzureSnapshot",
+          "returnType": "Array/String"
+        },
+        {
+          "name": "addTag",
+          "description": "",
+          "parameters": "snapshot: AzureSnapshot, key: String, value: String",
+          "returnType": "void"
+        },
+        {
+          "name": "createVMSnapshot",
+          "description": "Snapshot a VM. You can snapshot only managed VM. Determines all disk associated with VM and snapshots them.",
+          "parameters": "resourceGroup: AzureResourceGroup, region: AzureRegion, virtualMachine: AzureVirtualMachine, snapshotName: String, accountType: String, IsDataDiskSnapshotIncluded: Boolean",
+          "returnType": "Array/AzureSnapshot"
+        }
+      ],
+      "attributes": [],
+      "hasAttributesSection": false
+    },
+    {
+      "name": "AzureSqlDatabase",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "resourceGroup",
+          "description": "`AzureResourceGroup`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "elasticPoolName",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "resourceGroupName",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "secondaryLocation",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "sqlServerName",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "regionName",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "connection",
+          "description": "`AzureConnection`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "azureId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "collation",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "databaseId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "status",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzureSqlServer",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "databases",
+          "description": "`Array/Object`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "resourceGroup",
+          "description": "`AzureResourceGroup`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "resourceGroupName",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "fqdn",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "kind",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "elasticPools",
+          "description": "`Array/Object`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "regionName",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "admin",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "version",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "connection",
+          "description": "`AzureConnection`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "azureId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "state",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzureStorageAccount",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "resourceGroup",
+          "description": "`AzureResourceGroup`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "creationTime",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "lastGeoFailoverTime",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "secondaryLocation",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "accountType",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "provisioningState",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "statusOfSecondary",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "target",
+          "description": "`AzureStorageAccount`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "primaryLocation",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "statusOfPrimary",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "connection",
+          "description": "`AzureConnection`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "azureId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "region",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzureStorageManager",
+      "description": "",
+      "methods": [
+        {
+          "name": "deleteVhdByUri",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, vhdUri: String",
+          "returnType": "void"
+        },
+        {
+          "name": "restrictAccessByIPRange",
+          "description": "",
+          "parameters": "storageAccount: AzureStorageAccount, ipAddressCidr: String, restrict: Boolean",
+          "returnType": "void"
+        },
+        {
+          "name": "toggleFileEncryption",
+          "description": "",
+          "parameters": "storageAccount: AzureStorageAccount, enable: Boolean",
+          "returnType": "void"
+        },
+        {
+          "name": "toggleBlobEncryption",
+          "description": "",
+          "parameters": "storageAccount: AzureStorageAccount, enable: Boolean",
+          "returnType": "void"
+        },
+        {
+          "name": "toggleReadAccessToLoggingFromAnyNetwork",
+          "description": "",
+          "parameters": "storageAccount: AzureStorageAccount, restrict: Boolean",
+          "returnType": "void"
+        },
+        {
+          "name": "addTag",
+          "description": "",
+          "parameters": "storageAccount: AzureStorageAccount, key: String, value: String",
+          "returnType": "void"
+        },
+        {
+          "name": "toggleAccessBySubnet",
+          "description": "",
+          "parameters": "storageAccount: AzureStorageAccount, vNetwork: AzureVirtualNetwork, subnet: AzureSubnet, restrict: Boolean",
+          "returnType": "void"
+        },
+        {
+          "name": "restrictHttpsAndHttpTraffice",
+          "description": "",
+          "parameters": "storageAccount: AzureStorageAccount, httpsOnly: Boolean",
+          "returnType": "void"
+        },
+        {
+          "name": "toggleReadAccessToMetricsFromAnyNetwork",
+          "description": "",
+          "parameters": "storageAccount: AzureStorageAccount, restrict: Boolean",
+          "returnType": "void"
+        },
+        {
+          "name": "allowAllAccess",
+          "description": "",
+          "parameters": "storageAccount: AzureStorageAccount",
+          "returnType": "void"
+        },
+        {
+          "name": "toggleAccessWithinAzureServices",
+          "description": "",
+          "parameters": "storageAccount: AzureStorageAccount, restrict: Boolean",
+          "returnType": "void"
+        },
+        {
+          "name": "listAllStorageAccount",
+          "description": "",
+          "parameters": "connection: AzureConnection",
+          "returnType": "Array/AzureStorageAccount"
+        },
+        {
+          "name": "listStorageAccountByResourceGroup",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup",
+          "returnType": "Array/AzureStorageAccount"
+        },
+        {
+          "name": "listTags",
+          "description": "",
+          "parameters": "storageAccount: AzureStorageAccount",
+          "returnType": "Array/String"
+        },
+        {
+          "name": "toggleAccessByIPAddress",
+          "description": "",
+          "parameters": "storageAccount: AzureStorageAccount, ipAddress: String, restrict: Boolean",
+          "returnType": "void"
+        },
+        {
+          "name": "create",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, region: AzureRegion, storageAccountName: String, propsJson: String",
+          "returnType": "AzureStorageAccount"
+        },
+        {
+          "name": "getById",
+          "description": "",
+          "parameters": "connection: AzureConnection, azureId: String",
+          "returnType": "AzureStorageAccount"
+        },
+        {
+          "name": "checkNameAvailability",
+          "description": "",
+          "parameters": "connection: AzureConnection, name: String",
+          "returnType": "Boolean"
+        },
+        {
+          "name": "removeTag",
+          "description": "",
+          "parameters": "storageAccount: AzureStorageAccount, key: String",
+          "returnType": "void"
+        },
+        {
+          "name": "delete",
+          "description": "",
+          "parameters": "storageAccount: AzureStorageAccount",
+          "returnType": "void"
+        }
+      ],
+      "attributes": [],
+      "hasAttributesSection": false
+    },
+    {
+      "name": "AzureSubnet",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "resourceGroup",
+          "description": "`AzureResourceGroup`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "addressPrefix",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "connection",
+          "description": "`AzureConnection`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "azureId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzureSubnetManager",
+      "description": "",
+      "methods": [
+        {
+          "name": "create",
+          "description": "Ensure address range is different else existing subnet will be returned.",
+          "parameters": "virtualNetwork: AzureVirtualNetwork, subnetName: String, addressPrefix: String",
+          "returnType": "AzureSubnet"
+        },
+        {
+          "name": "getSubnetByVirtualNetwork",
+          "description": "",
+          "parameters": "virtualNetwork: AzureVirtualNetwork",
+          "returnType": "Array/AzureSubnet"
+        },
+        {
+          "name": "delete",
+          "description": "",
+          "parameters": "virtualNetwork: AzureVirtualNetwork, subnet: AzureSubnet",
+          "returnType": "void"
+        },
+        {
+          "name": "getSubnetByVirtualNetworkAndName",
+          "description": "",
+          "parameters": "subnetName: String, virtualNetwork: AzureVirtualNetwork",
+          "returnType": "AzureSubnet"
+        }
+      ],
+      "attributes": [],
+      "hasAttributesSection": false
+    },
+    {
+      "name": "AzureVirtualMachine",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "virtualMachineMaxDiskCount",
+          "description": "`Number`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "resourceGroup",
+          "description": "`AzureResourceGroup`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "resourceGroupName",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "publicIpAddress",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "osDiskUri",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "provisioningState",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "primaryPrivateIP",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "operatingSystem",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "licenseType",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "powerState",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "virtualMachineSize",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "connection",
+          "description": "`AzureConnection`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "managedDiskEnabled",
+          "description": "`Boolean`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "azureId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "subscriptionId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "region",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "virtualMachineResourceDiskSizeMb",
+          "description": "`Number`",
+          "type": "No",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzureVirtualMachineCustomImage",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "resourceGroup",
+          "description": "`AzureResourceGroup`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "sourceVirtualMachine",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "osType",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "connection",
+          "description": "`AzureConnection`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "azureId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "region",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzureVirtualMachineImage",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "resourceGroup",
+          "description": "`AzureResourceGroup`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "product",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "version",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "operatingSystem",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "offer",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "publisher",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "connection",
+          "description": "`AzureConnection`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "azureId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "sku",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "region",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzureVirtualMachineImageOffer",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "resourceGroup",
+          "description": "`AzureResourceGroup`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "connection",
+          "description": "`AzureConnection`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "azureId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "region",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzureVirtualMachineImagePublisher",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "resourceGroup",
+          "description": "`AzureResourceGroup`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "connection",
+          "description": "`AzureConnection`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "azureId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "region",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzureVirtualMachineImageSku",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "resourceGroup",
+          "description": "`AzureResourceGroup`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "connection",
+          "description": "`AzureConnection`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "azureId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "region",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzureVirtualMachineManager",
+      "description": "",
+      "methods": [
+        {
+          "name": "createCustomImage",
+          "description": "Create custom image from VM. Either a unmanagedvm or managed vm can be passed. The resulting image is always managed image. Capturing a virtual machine image will make the virtual machine unusable. This action cannot be undone. If you create an image from a virtual machine that hasn't been generalized, any virtual machines created from that image won't start. De-provision,deallocate,generalize before invoking.",
+          "parameters": "virtualMachine: AzureVirtualMachine, imageName: String",
+          "returnType": "AzureVirtualMachineCustomImage"
+        },
+        {
+          "name": "getAvailabilitySetOfVm",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine",
+          "returnType": "AzureAvailabilitySet"
+        },
+        {
+          "name": "addTag",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine, key: String, value: String",
+          "returnType": "void"
+        },
+        {
+          "name": "attachNewManagedDisk",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine, diskName: String, diskSizeInGB: Number, lun: Number, cachingType: String, skuType: String",
+          "returnType": "void"
+        },
+        {
+          "name": "delete",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine",
+          "returnType": "void"
+        },
+        {
+          "name": "getVmDiskForOs",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine",
+          "returnType": "String"
+        },
+        {
+          "name": "powerOff",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine",
+          "returnType": "void"
+        },
+        {
+          "name": "restart",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine",
+          "returnType": "void"
+        },
+        {
+          "name": "capture",
+          "description": "Captures VHD of unamanged VM. Choose this option instead of deleting a VM to release its VHD file. De-provision,deallocate,generalize before invoking",
+          "parameters": "virtualMachine: AzureVirtualMachine, containerName: String, vhdPrefix: String, overwriteVhd: Boolean",
+          "returnType": "String"
+        },
+        {
+          "name": "getAllVirtualMachineByTag",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, key: String, value: String",
+          "returnType": "Array/AzureVirtualMachine"
+        },
+        {
+          "name": "getVmDiskDiskForData",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine",
+          "returnType": "Array/String"
+        },
+        {
+          "name": "getPublicIpAddress",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine",
+          "returnType": "AzurePublicIPAddress"
+        },
+        {
+          "name": "restartAsync",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine",
+          "returnType": "void"
+        },
+        {
+          "name": "create",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, region: AzureRegion, vmName: String, storageAccount: AzureStorageAccount, networkInterface: AzureNetworkInterface, isManagedDiskVM: Boolean, userName: String, passKey: String, vmSize: AzureVirtualMachineSize, vmImage: AzureVirtualMachineImage, availabilitySet: AzureAvailabilitySet, osDiskSkuType: String",
+          "returnType": "AzureVirtualMachine"
+        },
+        {
+          "name": "getVirtualMachineSizesByRegion",
+          "description": "",
+          "parameters": "region: AzureRegion",
+          "returnType": "Array/AzureVirtualMachineSize"
+        },
+        {
+          "name": "deallocateAsync",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine",
+          "returnType": "void"
+        },
+        {
+          "name": "convertToManaged",
+          "description": "Migrate the virtual machine to use managed disk. deallocate before invoking.",
+          "parameters": "virtualMachine: AzureVirtualMachine",
+          "returnType": "void"
+        },
+        {
+          "name": "deprovisionAgentInLinuxVM",
+          "description": "",
+          "parameters": "host: String, port: Number, userName: String, password: String",
+          "returnType": "void"
+        },
+        {
+          "name": "generalize",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine",
+          "returnType": "void"
+        },
+        {
+          "name": "listTags",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine",
+          "returnType": "Array/String"
+        },
+        {
+          "name": "getVmVhdUriForOs",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine",
+          "returnType": "String"
+        },
+        {
+          "name": "deployFromUnmanagedDisk",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, region: AzureRegion, vmName: String, vmSize: AzureVirtualMachineSize, networkInterface: AzureNetworkInterface, availabilitySet: AzureAvailabilitySet, osType: String, diskvHdURI: String",
+          "returnType": "AzureVirtualMachine"
+        },
+        {
+          "name": "start",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine",
+          "returnType": "void"
+        },
+        {
+          "name": "getCustomImageByName",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, imageName: String",
+          "returnType": "AzureVirtualMachineCustomImage"
+        },
+        {
+          "name": "deployFromImage",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, region: AzureRegion, vmName: String, userName: String, passKey: String, networkInterface: AzureNetworkInterface, availabilitySet: AzureAvailabilitySet, vmCustomImage: AzureVirtualMachineCustomImage, vmSize: AzureVirtualMachineSize",
+          "returnType": "AzureVirtualMachine"
+        },
+        {
+          "name": "deleteAsync",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine",
+          "returnType": "void"
+        },
+        {
+          "name": "deployFromManagedDisk",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, region: AzureRegion, vmName: String, vmSize: AzureVirtualMachineSize, networkInterface: AzureNetworkInterface, availabilitySet: AzureAvailabilitySet, disk: AzureDisk",
+          "returnType": "AzureVirtualMachine"
+        },
+        {
+          "name": "getVmVhdUriForData",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine",
+          "returnType": "Array/String"
+        },
+        {
+          "name": "powerOffAsync",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine",
+          "returnType": "void"
+        },
+        {
+          "name": "attachBootDiagnosticStorage",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine, storageAccount: AzureStorageAccount",
+          "returnType": "void"
+        },
+        {
+          "name": "detachBootDiagnosticStorage",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine",
+          "returnType": "void"
+        },
+        {
+          "name": "detachDataDisk",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine, lun: Number",
+          "returnType": "void"
+        },
+        {
+          "name": "deleteCustomImage",
+          "description": "",
+          "parameters": "vmCustomImage: AzureVirtualMachineCustomImage",
+          "returnType": "void"
+        },
+        {
+          "name": "startAsync",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine",
+          "returnType": "void"
+        },
+        {
+          "name": "attachUnmanagedDiskWithExistingVhd",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine, diskName: String, lun: Number, cachingType: String, storageAccountName: String, containerName: String, vhdName: String",
+          "returnType": "void"
+        },
+        {
+          "name": "getAzureVMSizeByRegionAndSizeName",
+          "description": "",
+          "parameters": "regionName: String, vmSizeName: String, connection: AzureConnection",
+          "returnType": "AzureVirtualMachineSize"
+        },
+        {
+          "name": "attachUnmanagedDiskWithNewVhd",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine, diskName: String, diskSizeInGB: Number, lun: Number, cachingType: String, existingStorageAccountName: String, existingContainerName: String, vhdName: String",
+          "returnType": "void"
+        },
+        {
+          "name": "createCustomImageFromVhd",
+          "description": "Create custom image from VHD. De-provision,deallocate,generalize before invoking",
+          "parameters": "virtualMachine: AzureVirtualMachine, imageName: String, includeDataDisks: Boolean, isGeneralized: Boolean",
+          "returnType": "AzureVirtualMachineCustomImage"
+        },
+        {
+          "name": "removeTag",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine, key: String",
+          "returnType": "void"
+        },
+        {
+          "name": "getVirtualMachineByResourceGroupAndVmName",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, vmName: String",
+          "returnType": "AzureVirtualMachine"
+        },
+        {
+          "name": "cloneFromUnmanagedDisk",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, region: AzureRegion, vmName: String, vmSize: AzureVirtualMachineSize, networkInterface: AzureNetworkInterface, availabilitySet: AzureAvailabilitySet, osType: String, diskVhdUri: String, userName: String, passKey: String",
+          "returnType": "AzureVirtualMachine"
+        },
+        {
+          "name": "generalizeAsync",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine",
+          "returnType": "void"
+        },
+        {
+          "name": "getAzureVirtualMachineImage",
+          "description": "",
+          "parameters": "region: AzureRegion, publisher: String, offer: String, sku: String, version: String",
+          "returnType": "AzureVirtualMachineImage"
+        },
+        {
+          "name": "attachExistingManagedDisk",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine, disk: AzureDisk",
+          "returnType": "void"
+        },
+        {
+          "name": "deallocate",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine",
+          "returnType": "void"
+        },
+        {
+          "name": "attachExistingSecondaryNetworkInterface",
+          "description": "",
+          "parameters": "virtualMachine: AzureVirtualMachine, networkInterface: AzureNetworkInterface",
+          "returnType": "AzureVirtualMachine"
+        },
+        {
+          "name": "getVirtualMachineById",
+          "description": "",
+          "parameters": "connection: AzureConnection, azureId: String",
+          "returnType": "AzureVirtualMachine"
+        }
+      ],
+      "attributes": [],
+      "hasAttributesSection": false
+    },
+    {
+      "name": "AzureVirtualMachineSize",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "resourceDiskSizeInMB",
+          "description": "`Number`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "resourceGroup",
+          "description": "`AzureResourceGroup`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "maxDataDiskCount",
+          "description": "`Number`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "memoryInMB",
+          "description": "`Number`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "connection",
+          "description": "`AzureConnection`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "azureId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "numberOfCores",
+          "description": "`Number`",
+          "type": "No",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzureVirtualNetwork",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "resourceGroup",
+          "description": "`AzureResourceGroup`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "resourceGuid",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "addressSpace",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "connection",
+          "description": "`AzureConnection`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "etag",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "azureId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "provisioningState",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "region",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzureVirtualNetworkManager",
+      "description": "",
+      "methods": [
+        {
+          "name": "getAllVirtualNetworkByTag",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, key: String, value: String",
+          "returnType": "Array/AzureVirtualNetwork"
+        },
+        {
+          "name": "getVirtualNetworkByResourceGroup",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup",
+          "returnType": "Array/AzureVirtualNetwork"
+        },
+        {
+          "name": "listTags",
+          "description": "",
+          "parameters": "virtualNetwork: AzureVirtualNetwork",
+          "returnType": "Array/String"
+        },
+        {
+          "name": "removeTag",
+          "description": "",
+          "parameters": "virtualNetwork: AzureVirtualNetwork, key: String",
+          "returnType": "void"
+        },
+        {
+          "name": "getVirtualNetworkByResourceGroupAndName",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, name: String",
+          "returnType": "AzureVirtualNetwork"
+        },
+        {
+          "name": "create",
+          "description": "",
+          "parameters": "resourceGroup: AzureResourceGroup, region: AzureRegion, vnetwork: String, addressSpace: String, subnetName: String, subnetAddressSpace: String",
+          "returnType": "AzureVirtualNetwork"
+        },
+        {
+          "name": "getVirtualNetworkById",
+          "description": "",
+          "parameters": "connection: AzureConnection, azureId: String",
+          "returnType": "AzureVirtualNetwork"
+        },
+        {
+          "name": "addTag",
+          "description": "",
+          "parameters": "virtualNetwork: AzureVirtualNetwork, key: String, value: String",
+          "returnType": "void"
+        },
+        {
+          "name": "delete",
+          "description": "",
+          "parameters": "virtualNetwork: AzureVirtualNetwork",
+          "returnType": "void"
+        }
+      ],
+      "attributes": [],
+      "hasAttributesSection": false
+    },
+    {
+      "name": "AzureWebApp",
+      "description": "",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "resourceGroup",
+          "description": "`AzureResourceGroup`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "displayName",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "repositorySiteName",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "osName",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "type",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "publishingProfile",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "clientCertEnabled",
+          "description": "`Boolean`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "internalIdString",
+          "description": "`String`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "clientAffinityEnabled",
+          "description": "`Boolean`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "name",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "appServerPlanId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "connection",
+          "description": "`AzureConnection`",
+          "type": "Yes",
+          "isReadonly": false
+        },
+        {
+          "name": "azureId",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "state",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "region",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        },
+        {
+          "name": "defaultHostName",
+          "description": "`String`",
+          "type": "No",
+          "isReadonly": false
+        }
+      ],
+      "hasAttributesSection": true
+    },
+    {
+      "name": "AzureWebAppManager",
+      "description": "",
+      "methods": [
+        {
+          "name": "delete",
+          "description": "",
+          "parameters": "webApp: AzureWebApp",
+          "returnType": "void"
+        }
+      ],
+      "attributes": [],
+      "hasAttributesSection": false
+    }
+  ]
+}
