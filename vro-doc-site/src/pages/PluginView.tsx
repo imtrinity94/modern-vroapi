@@ -7,7 +7,7 @@ import pluginIndex from '../data/index.json';
 import searchData from '../data/search-index.json';
 import { useViewMode } from '../hooks/useUIState';
 import { ViewToggle } from '../components/UIToggles';
-import { Search, ChevronRight, FileCode, ArrowRight, List as ListIcon, Edit3, Download, Pin } from 'lucide-react';
+import { Search, ChevronRight, FileCode, ArrowRight, List as ListIcon, Edit3, Download, Pin, BookOpen } from 'lucide-react';
 import SEO from '../components/SEO';
 
 interface Version {
@@ -209,8 +209,8 @@ const PluginView: React.FC = () => {
                 keywords={[pluginName || '', pluginEntry?.name || '', 'vRO Plugin', 'API Reference', ...classes.slice(0, 10).map((c: any) => c.name)]}
                 schema={JSON.stringify(structuredData)}
             />
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-2">
-                <nav className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+            <div className="flex flex-col xl:flex-row md:items-center justify-between gap-4 mb-2">
+                <nav className="flex flex-wrap items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
                     <Link to="/" className="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors flex items-center gap-1">
                         Reference
                     </Link>
@@ -218,21 +218,32 @@ const PluginView: React.FC = () => {
                     <span className="text-slate-900 dark:text-slate-200 font-medium">{pluginEntry?.name || data?.name || pluginName}</span>
                 </nav>
 
-                <div className="flex items-center gap-3">
-                    {/* Show Download Button if NOT In-Built */}
+                <div className="flex flex-wrap items-center gap-2 md:gap-3">
+                    {/* Show Download & Install Buttons if NOT In-Built */}
                     {pluginMeta.tags && !pluginMeta.tags.includes('IN-BUILT') && (
-                        <a
-                            href={pluginMeta.downloadUrl || '#'}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`flex items-center gap-2 text-xs font-bold px-4 py-2 rounded-lg transition-colors border shadow-sm ${pluginMeta.tags.includes('3RD PARTY')
-                                ? 'bg-orange-50 dark:bg-orange-500/10 text-orange-700 dark:text-orange-400 border-orange-200 dark:border-orange-500/20 hover:bg-orange-100 dark:hover:bg-orange-500/20'
-                                : 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-500/20 hover:bg-emerald-100 dark:hover:bg-emerald-500/20'
-                                }`}
-                        >
-                            <Download size={14} />
-                            <span>Download Plugin</span>
-                        </a>
+                        <>
+                            <a
+                                href={pluginMeta.downloadUrl || '#'}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`flex items-center gap-2 text-xs font-bold px-4 py-2 rounded-lg transition-colors border shadow-sm ${pluginMeta.tags.includes('3RD PARTY')
+                                    ? 'bg-orange-50 dark:bg-orange-500/10 text-orange-700 dark:text-orange-400 border-orange-200 dark:border-orange-500/20 hover:bg-orange-100 dark:hover:bg-orange-500/20'
+                                    : 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-500/20 hover:bg-emerald-100 dark:hover:bg-emerald-500/20'
+                                    }`}
+                            >
+                                <Download size={14} />
+                                <span>Download Plugin</span>
+                            </a>
+                            <a
+                                href="https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-9-0-and-later/9-0/configuration-of-vmware-cloud-foundation-operations-orchestrator/vcf-ochestrator-plugins-overview/manage-the-orchestrator-plug-ins/install-update-or-delete-a-plug-in.html"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2 text-xs font-bold px-4 py-2 bg-blue-50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-500/20 hover:bg-blue-100 dark:hover:bg-blue-500/20 rounded-lg transition-colors shadow-sm"
+                            >
+                                <BookOpen size={14} />
+                                <span>Install Guide</span>
+                            </a>
+                        </>
                     )}
 
                     {data && (
