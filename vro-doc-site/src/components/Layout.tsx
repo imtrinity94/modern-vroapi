@@ -53,9 +53,14 @@ const Layout: React.FC = () => {
                         <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shrink-0">
                             <img src={`${import.meta.env.BASE_URL}logo.png`} alt="VCF Orchestrator Plugin" className="w-full h-full object-contain" />
                         </div>
-                        <span className="text-xl md:hidden lg:block lg:text-2xl font-extrabold text-white leading-tight transition-opacity hover:opacity-90">
-                            modernvroapi.in
-                        </span>
+                        <div className="flex items-center gap-3">
+                            <span className="text-xl md:hidden lg:block lg:text-2xl font-extrabold text-white leading-tight transition-opacity hover:opacity-90">
+                                modernvroapi.in
+                            </span>
+                            <span className="hidden md:inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold tracking-widest uppercase bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                                1.1.0
+                            </span>
+                        </div>
                     </Link>
 
                     <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
