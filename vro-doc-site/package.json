@@ -4,12 +4,15 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predev": "node scripts/build-ai-api.mjs",
     "dev": "vite",
+    "prebuild": "node scripts/build-ai-api.mjs",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "reindex": "tsx scripts/reindex.ts",
-    "scrape": "tsx scripts/scrape-vroapi.ts"
+    "scrape": "tsx scripts/scrape-vroapi.ts",
+    "ai-api": "node scripts/build-ai-api.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",

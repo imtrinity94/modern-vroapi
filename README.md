@@ -29,6 +29,22 @@ Its primary goal is to provide **instant access** to the complete API surface of
 - 🔗 **Deep Linking**: Every class and method has its own unique URL, making it easy to share specific API references in code comments or Slack.
 - ⬇️ **TypeScript Definition Files**: Quick access to TypeScript Definition files for Build Tools for Aria\vRBT.
 - 🌓 **Developer-First UI**: Features like **Dark Mode**, **one-click method signature copying**, and a mobile-responsive layout designed for multi-tasking.
+- 🤖 **AI-Ready API**: The same reference as plain JSON for AI agents and tools, so they look up real method signatures instead of guessing them.
+
+### 🤖 For AI agents and tools
+
+Point your agent at **[modernvroapi.in/llms.txt](https://modernvroapi.in/llms.txt)**. It explains the lookup flow and lists every plugin. The JSON endpoints are static, need no auth and allow cross-origin requests:
+
+| Endpoint | What it returns |
+|---|---|
+| `/api/v1/plugins.json` | Every plugin with class and method counts |
+| `/api/v1/classes.json` | Class name → the plugin(s) it's in, with the class file URL |
+| `/api/v1/plugins/{pluginId}.json` | One plugin's classes with one-line descriptions |
+| `/api/v1/plugins/{pluginId}/{ClassName}.json` | One class: attributes, constructors and methods, each with a ready signature |
+
+Example: [`/api/v1/plugins/o11n-core/System.json`](https://modernvroapi.in/api/v1/plugins/o11n-core/System.json)
+
+These files are generated from `vro-doc-site/src/data/plugins` by `scripts/build-ai-api.mjs` before every `npm run build` and `npm run dev`, so they stay in sync with the site automatically.
 
 ---
 
