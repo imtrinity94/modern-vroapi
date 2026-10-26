@@ -1,6 +1,6 @@
 {
   "o11n-core": {
-    "classes": 80,
+    "classes": 79,
     "methods": 287
   },
   "o11n-plugin-activedirectory": {
@@ -44,8 +44,8 @@
     "methods": 18969
   },
   "o11n-plugin-infoblox": {
-    "classes": 94,
-    "methods": 140
+    "classes": 47,
+    "methods": 94
   },
   "o11n-plugin-jsonpath": {
     "classes": 1,

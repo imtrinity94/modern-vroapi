@@ -393,13 +393,6 @@
       "constructors": []
     },
     {
-      "name": "Boolean",
-      "description": "",
-      "methods": [],
-      "attributes": [],
-      "constructors": []
-    },
-    {
       "name": "ByteBuffer",
       "description": "Wrapper around byte array. Used for passing references to binary content.",
       "methods": [],
