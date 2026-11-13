@@ -1,0 +1,10 @@
+# Cloudflare Pages response headers (same as the "headers" block in vercel.json).
+# Pages serves index.html for unknown paths on its own (no 404.html in the build),
+# which matches the SPA rewrite in vercel.json.
+/api/*
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=3600
+
+/llms.txt
+  Access-Control-Allow-Origin: *
+  Content-Type: text/plain; charset=utf-8
