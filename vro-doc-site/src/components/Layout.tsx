@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { useTheme } from '../hooks/useUIState';
 import { ThemeToggle } from './UIToggles';
-import { Slack, Star, Github, ExternalLink, BookOpen, Mail } from 'lucide-react';
+import { Slack, Star, Github, ExternalLink, BookOpen, Mail, Bot } from 'lucide-react';
 import GlobalSearch from './GlobalSearch';
 import BackToTopButton from './BackToTopButton';
 
@@ -58,12 +58,18 @@ const Layout: React.FC = () => {
                                 modernvroapi.in
                             </span>
                             <span className="hidden md:inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold tracking-widest uppercase bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
-                                1.2.0
+                                1.2.1
                             </span>
                         </div>
                     </Link>
 
                     <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-300">
+                        <Link
+                            to="/mcp"
+                            className="hover:text-white transition-colors flex items-center gap-1"
+                        >
+                            <Bot size={15} /> MCP for AI
+                        </Link>
                         <a
                             href="https://vroapi.com"
                             target="_blank"
@@ -88,6 +94,13 @@ const Layout: React.FC = () => {
                         </div>
 
                         <div className="flex items-center gap-2">
+                            <Link
+                                to="/mcp"
+                                className="lg:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-all"
+                                title="MCP server for AI assistants"
+                            >
+                                <Bot size={20} />
+                            </Link>
                             <a
                                 href="https://modernvroapi.slack.com/"
                                 target="_blank"

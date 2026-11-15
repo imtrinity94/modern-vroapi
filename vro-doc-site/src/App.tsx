@@ -2,6 +2,7 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
 import Layout from './components/Layout';
 import Home from './pages/Home';
+import McpPage from './pages/McpPage';
 import PluginView from './pages/PluginView';
 import ClassView from './pages/ClassView';
 
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path="mcp" element={<McpPage />} />
           <Route path="plugin/:pluginName" element={<PluginView />} />
           <Route path="plugin/:pluginName/v/:versionId" element={<PluginView />} />
           <Route path="plugin/:pluginName/class/:className" element={<ClassView />} />
