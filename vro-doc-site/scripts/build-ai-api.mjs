@@ -6,6 +6,7 @@
 //   public/api/v1/classes.json                     class name -> [{ plugin, url }], for lookup by name
 //   public/api/v1/plugins/<pluginId>.json          one plugin: its classes with short descriptions
 //   public/api/v1/plugins/<pluginId>/<Class>.json  one class: attributes, constructors, methods
+//   public/api/v1/search-index.json                compact rows of every class, method and attribute (used by the MCP server)
 //
 // Run: node scripts/build-ai-api.mjs   (also runs automatically before `npm run build`)
 
@@ -84,6 +85,8 @@ function build() {
     const files = fs.readdirSync(PLUGINS_DIR).filter((f) => f.endsWith('.json')).sort();
     const plugins = [];
     const classIndex = {};
+    const searchPlugins = [];
+    const searchRows = []; // [kind, pluginIndex, className, memberName, detail] kind: c=class, m=method, a=attribute
     let classTotal = 0;
     let methodTotal = 0;
 
@@ -92,6 +95,7 @@ function build() {
         const data = readJson(path.join(PLUGINS_DIR, file));
         const name = displayNames[id] || data.name || id;
         const classes = mergeDuplicates(data.classes || []);
+        const pluginIndex = searchPlugins.push(id) - 1;
         const usedFileNames = new Set(); // lower-cased, so Mac/Windows file systems don't overwrite
         let methodCount = 0;
         const classSummaries = [];
@@ -132,6 +136,10 @@ function build() {
                 url,
             });
             (classIndex[cls.name] ||= []).push({ plugin: id, url });
+
+            searchRows.push(['c', pluginIndex, cls.name, '', short(cls.description, 100)]);
+            for (const m of methods) searchRows.push(['m', pluginIndex, cls.name, m.name, `(${m.parameters}): ${m.returnType}`]);
+            for (const a of cls.attributes || []) searchRows.push(['a', pluginIndex, cls.name, a.name, a.type || '']);
         }
 
         writeJson(path.join(API_DIR, 'plugins', `${id}.json`), {
@@ -159,6 +167,12 @@ function build() {
         plugins,
     });
     writeJson(path.join(API_DIR, 'classes.json'), classIndex);
+    writeJson(path.join(API_DIR, 'search-index.json'), {
+        generated: new Date().toISOString(),
+        rowFormat: ['kind (c=class, m=method, a=attribute)', 'plugin index', 'class', 'member', 'detail'],
+        plugins: searchPlugins,
+        rows: searchRows,
+    });
 
     fs.writeFileSync(path.join(PUBLIC_DIR, 'llms.txt'), llmsTxt(plugins, classTotal, methodTotal));
 
@@ -186,6 +200,8 @@ function llmsTxt(plugins, classTotal, methodTotal) {
         `4. Full plugin list with counts: ${API_BASE}/plugins.json`,
         '',
         `Example: ${API_BASE}/plugins/o11n-core/System.json`,
+        '',
+        `MCP server: ${SITE}/api/mcp (Streamable HTTP, read-only, no auth). Tools: search_api, get_class, list_plugins, get_method_signature.`,
         '',
         'Some class names exist in more than one plugin; classes.json then lists each one. Pick the plugin that matches what the script is working with.',
         '',

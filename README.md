@@ -46,6 +46,21 @@ Example: [`/api/v1/plugins/o11n-core/System.json`](https://modernvroapi.in/api/v
 
 These files are generated from `vro-doc-site/src/data/plugins` by `scripts/build-ai-api.mjs` before every `npm run build` and `npm run dev`, so they stay in sync with the site automatically.
 
+### 🔌 MCP server
+
+The same reference is available as a remote **MCP server** at **`https://modernvroapi.in/api/mcp`** (Streamable HTTP, read-only, no auth, free). Add it to Claude, Cursor, VS Code or any MCP client as a URL / custom connector.
+
+| Tool | What it does |
+| --- | --- |
+| `search_api` | Search classes, methods and attributes by words, a name or `Class.member` |
+| `get_class` | One class in full: attributes, constructors, every method with its signature |
+| `list_plugins` | All plugins with counts, or the classes in one plugin |
+| `get_method_signature` | Exact signature, parameters and return type of a method, with all overloads |
+
+Clients that only speak stdio can bridge with `npx mcp-remote https://modernvroapi.in/api/mcp`.
+
+The server lives in `vro-doc-site/mcp/server.mjs` (no dependencies) with the Vercel function in `vro-doc-site/api/mcp.js`; test it locally with `npm run mcp:test`.
+
 ---
 
 ## 🏁 Running it locally

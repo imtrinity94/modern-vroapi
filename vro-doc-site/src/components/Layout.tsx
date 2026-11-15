@@ -58,7 +58,7 @@ const Layout: React.FC = () => {
                                 modernvroapi.in
                             </span>
                             <span className="hidden md:inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold tracking-widest uppercase bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
-                                1.1.0
+                                1.2.0
                             </span>
                         </div>
                     </Link>

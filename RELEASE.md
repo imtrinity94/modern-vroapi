@@ -1,5 +1,16 @@
 # modernvroapi.in - Release Notes
 
+## [v1.2.0] - 2026-11-15 - MCP Server
+
+### ✨ New Features
+- **MCP server (1.0.0)**: `https://modernvroapi.in/api/mcp`, a remote, read-only Model Context Protocol endpoint (Streamable HTTP, stateless, no auth) with four tools: `search_api`, `get_class`, `list_plugins` and `get_method_signature`.
+- **Search index**: `scripts/build-ai-api.mjs` now also writes `/api/v1/search-index.json`, a compact list of every class, method and attribute (used by the MCP search).
+- **llms.txt** mentions the MCP endpoint.
+
+### 🔧 Improvements
+- The `/api/` CORS and cache headers in `vercel.json` now apply to `/api/v1/` only, so MCP responses are never cached.
+- `npm run mcp:test` runs a local smoke test of every tool.
+
 ## [v1.1.0] - Azure Plugin Integration & Engine Update
 
 ### ✨ New Features
