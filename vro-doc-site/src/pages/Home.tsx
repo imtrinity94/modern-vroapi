@@ -7,7 +7,7 @@ import stats from '../data/stats.json';
 import { useViewMode } from '../hooks/useUIState';
 import { ViewToggle } from '../components/UIToggles';
 import { getPluginMeta } from '../data/plugin-meta';
-import { Package, Search, ArrowRight } from 'lucide-react';
+import { Package, Search, ArrowRight, Bot } from 'lucide-react';
 import SEO from '../components/SEO';
 
 const Home: React.FC = () => {
@@ -55,6 +55,9 @@ const Home: React.FC = () => {
                     <p className="text-slate-500 dark:text-slate-400 mt-2 text-lg">
                         Explore JavaScript SDK documentation for {pluginIndex.length} Orchestrator (version 8 & above) plugins.
                     </p>
+                    <Link to="/mcp" className="inline-flex items-center gap-1.5 mt-3 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline">
+                        <Bot size={16} /> New: use this reference from Claude, ChatGPT, Cursor or VS Code with our MCP server
+                    </Link>
                 </div>
 
                 <div className="flex items-center gap-3">

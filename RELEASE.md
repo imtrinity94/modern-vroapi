@@ -1,5 +1,11 @@
 # modernvroapi.in - Release Notes
 
+## [v1.2.1] - 2026-11-15 - MCP page on the site
+
+### ✨ New Features
+- **MCP page** at `/#/mcp`: server URL with copy button, setup for Claude, ChatGPT, Claude Code, Cursor, VS Code and stdio clients, the four tools and a test prompt.
+- **Discoverability**: "MCP for AI" link in the header (icon on smaller screens) and a one-line notice on the home page.
+
 ## [v1.2.0] - 2026-11-15 - MCP Server
 
 ### ✨ New Features
