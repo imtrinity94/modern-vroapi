@@ -14,7 +14,7 @@
     "reindex": "tsx scripts/reindex.ts",
     "scrape": "tsx scripts/scrape-vroapi.ts",
     "ai-api": "node scripts/build-ai-api.mjs",
-    "mcp:test": "node scripts/build-ai-api.mjs && node mcp/smoke-test.mjs"
+    "mcp:test": "node scripts/build-ai-api.mjs && node mcp/smoke-test.mjs && node mcp/report-test.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",

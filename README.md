@@ -48,7 +48,7 @@ These files are generated from `vro-doc-site/src/data/plugins` by `scripts/build
 
 ### 🔌 MCP server
 
-The same reference is available as a remote **MCP server** at **`https://modernvroapi.in/api/mcp`** (Streamable HTTP, read-only, no auth, free). Add it to Claude, Cursor, VS Code or any MCP client as a URL / custom connector.
+The same reference is available as a remote **MCP server** at **`https://modernvroapi.in/api/mcp`** (Streamable HTTP, no auth, free; lookups are read-only). Add it to Claude, Cursor, VS Code or any MCP client as a URL / custom connector.
 
 | Tool | What it does |
 | --- | --- |
@@ -56,6 +56,7 @@ The same reference is available as a remote **MCP server** at **`https://modernv
 | `get_class` | One class in full: attributes, constructors, every method with its signature |
 | `list_plugins` | All plugins with counts, or the classes in one plugin |
 | `get_method_signature` | Exact signature, parameters and return type of a method, with all overloads |
+| `report_inaccuracy` | Report an entry that a real Orchestrator contradicts. Sent only after the user agrees; it becomes a public GitHub issue labelled `agent-report` |
 
 Clients that only speak stdio can bridge with `npx mcp-remote https://modernvroapi.in/api/mcp`.
 

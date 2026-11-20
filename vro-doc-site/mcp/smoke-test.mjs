@@ -43,7 +43,7 @@ const init = await rpc('initialize', { protocolVersion: '2025-06-18', capabiliti
 check('initialize', init.result && init.result.serverInfo.name === 'modernvroapi', init);
 
 const list = await rpc('tools/list', {});
-check('tools/list has 4 tools', list.result && list.result.tools.length === 4, list);
+check('tools/list has 5 tools', list.result && list.result.tools.length === 5, list);
 
 const t0 = Date.now();
 const search = await rpc('tools/call', { name: 'search_api', arguments: { query: 'System.getModule' } });

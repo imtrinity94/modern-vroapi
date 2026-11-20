@@ -35,6 +35,7 @@ const TOOLS = [
     { name: 'get_class', text: 'One class in full: attributes, constructors and every method with its signature.' },
     { name: 'list_plugins', text: 'All plugins with class and method counts, or the classes in one plugin.' },
     { name: 'get_method_signature', text: 'Exact parameters and return type of a method, with all overloads.' },
+    { name: 'report_inaccuracy', text: 'Report an entry that a real Orchestrator contradicts. Sent only after you agree; it becomes a public GitHub issue.' },
 ];
 
 const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
@@ -61,7 +62,7 @@ const McpPage: React.FC = () => (
             </h1>
             <p className="text-slate-600 dark:text-slate-400 mt-3 text-lg">
                 Let your AI assistant look up real Orchestrator classes, methods and attributes from this site instead of guessing them.
-                Free, read-only, no sign-in.
+                Free, no sign-in. Lookups are read-only; a problem report is sent only when you agree to it.
             </p>
         </div>
 

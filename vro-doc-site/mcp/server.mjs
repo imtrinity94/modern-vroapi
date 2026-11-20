@@ -4,10 +4,13 @@
 // scripts/build-ai-api.mjs publishes under /api/v1/. It is stateless: every JSON-RPC request is
 // answered on its own, so it runs on any serverless host. The Vercel adapter is api/mcp.js.
 //
-// Tools: search_api, get_class, list_plugins, get_method_signature (all read-only).
+// Tools: search_api, get_class, list_plugins, get_method_signature (read-only) and
+// report_inaccuracy (files a public problem report, see report.mjs).
+
+import { REPORT_KINDS, ReportError, fileReport, normaliseReport } from './report.mjs';
 
 export const SERVER_NAME = 'modernvroapi';
-export const SERVER_VERSION = '1.0.0';
+export const SERVER_VERSION = '1.1.0';
 
 const SUPPORTED_PROTOCOL_VERSIONS = ['2025-11-25', '2025-06-18', '2025-03-26', '2024-11-05'];
 const DEFAULT_PROTOCOL_VERSION = '2025-06-18';
@@ -18,6 +21,7 @@ const INSTRUCTIONS = [
     'Use it to check that a class, method or attribute exists and how to call it before writing Orchestrator JavaScript.',
     'Typical flow: search_api to find names, then get_method_signature or get_class for exact details.',
     'Orchestrator scripts run on Rhino: write plain ES5 (var, function(){}); no arrow functions, let/const, template literals, classes or other ES6+ syntax.',
+    'If a real Orchestrator contradicts this reference (a listed method is missing, a signature or type is wrong, an unlisted member exists), tell the person you are working for and offer to report it with report_inaccuracy. Only send a report after they agree; it becomes a public GitHub issue.',
 ].join(' ');
 
 const READ_ONLY = { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false };
@@ -90,6 +94,36 @@ const TOOLS = [
             additionalProperties: false,
         },
         annotations: { title: 'Get a method signature', ...READ_ONLY },
+    },
+    {
+        name: 'report_inaccuracy',
+        title: 'Report a problem in the reference',
+        description: 'Report that this reference is wrong or incomplete for a class, method or attribute, after a real Orchestrator behaved differently. '
+            + 'The report becomes a PUBLIC GitHub issue for the maintainer to verify. Before calling: show the person you are working for what you will send and get their agreement, then set user_approved to true. '
+            + 'Never include passwords, tokens, host names, IP addresses, user names or customer names; keep code and logs to the few lines that show the problem. '
+            + 'Do not use it for general questions, for problems in your own script, or when you have not run the code on a real Orchestrator.',
+        inputSchema: {
+            type: 'object',
+            properties: {
+                class: { type: 'string', description: 'Class the problem is in, e.g. WorkflowSwitchItem. Must exist in this reference.' },
+                plugin: { type: 'string', description: 'Plugin id when the class exists in more than one plugin.' },
+                member: { type: 'string', description: 'Method or attribute name. Leave out when the report is about the whole class.' },
+                kind: { type: 'string', enum: REPORT_KINDS, description: 'missing_member: exists on the server, not in the reference. does_not_exist: listed here, not on the server. wrong_signature, wrong_type, wrong_description: the entry is incorrect. behaviour: correct but behaves in a way worth a note.' },
+                reference_says: { type: 'string', description: 'What this reference states (the signature, type or sentence in question).' },
+                actual_behaviour: { type: 'string', description: 'What the real Orchestrator did instead. Required.' },
+                orchestrator_version: { type: 'string', description: 'Orchestrator version the code ran on, e.g. 9.1.1.0 or 8.18.1. Required.' },
+                orchestrator_build: { type: 'string', description: 'Build number, if known.' },
+                plugin_version: { type: 'string', description: 'Version of the plugin, if known.' },
+                code: { type: 'string', description: 'Shortest script that shows the problem (plain ES5).' },
+                error_log: { type: 'string', description: 'The error message or the few relevant log lines.' },
+                suggested_fix: { type: 'string', description: 'What the reference entry should say instead, if you know.' },
+                reporter: { type: 'string', description: 'Name of the agent or client sending the report, e.g. "Claude Code".' },
+                user_approved: { type: 'boolean', description: 'true only when the person you are working for has seen the report and agreed to send it.' },
+            },
+            required: ['class', 'actual_behaviour', 'orchestrator_version', 'user_approved'],
+            additionalProperties: false,
+        },
+        annotations: { title: 'Report a problem in the reference', readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: true },
     },
 ];
 
@@ -315,11 +349,28 @@ async function getMethodSignature(baseUrl, args) {
     }, null, 1);
 }
 
+// Shared by the MCP tool and POST /api/report. ctx = { source, caller }.
+export async function reportInaccuracy(baseUrl, args, ctx = {}) {
+    if (!args || !args.class) throw new ToolError('class is required.');
+    let report;
+    try {
+        if (args.user_approved !== true) normaliseReport(args, {}); // refuse before any lookup
+        const cls = await loadClass(baseUrl, String(args.class).trim(), args.plugin);
+        report = normaliseReport(args, { plugin: cls.plugin, class: cls.name, docUrl: cls.docUrl });
+    } catch (err) {
+        if (err instanceof ReportError) throw new ToolError(err.message);
+        throw err;
+    }
+    const result = await fileReport(report, { source: ctx.source || 'MCP tool', caller: ctx.caller });
+    return JSON.stringify({ status: result.status, message: result.message, url: result.url }, null, 1);
+}
+
 const HANDLERS = {
     search_api: searchApi,
     get_class: getClass,
     list_plugins: listPlugins,
     get_method_signature: getMethodSignature,
+    report_inaccuracy: reportInaccuracy,
 };
 
 // ---------------------------------------------------------------------------
@@ -329,7 +380,7 @@ const HANDLERS = {
 const rpcError = (id, code, message) => ({ jsonrpc: '2.0', id: id ?? null, error: { code, message } });
 const rpcResult = (id, result) => ({ jsonrpc: '2.0', id, result });
 
-async function handleMessage(msg, baseUrl) {
+async function handleMessage(msg, baseUrl, ctx) {
     if (!msg || msg.jsonrpc !== '2.0' || typeof msg.method !== 'string') {
         return rpcError(msg && msg.id, -32600, 'Invalid Request');
     }
@@ -355,10 +406,10 @@ async function handleMessage(msg, baseUrl) {
             const handler = HANDLERS[params.name];
             if (!handler) return rpcError(id, -32602, `Unknown tool: ${params.name}`);
             try {
-                const text = await handler(baseUrl, params.arguments || {});
+                const text = await handler(baseUrl, params.arguments || {}, ctx);
                 return rpcResult(id, { content: [{ type: 'text', text }] });
             } catch (err) {
-                const text = err instanceof ToolError ? err.message : `Lookup failed: ${err.message}`;
+                const text = err instanceof ToolError ? err.message : `Request failed: ${err.message}`;
                 return rpcResult(id, { content: [{ type: 'text', text }], isError: true });
             }
         }
@@ -373,13 +424,13 @@ async function handleMessage(msg, baseUrl) {
 
 // Handles one POST body (a JSON-RPC message or a batch). Returns the response body, or null
 // when everything was a notification (the HTTP layer then answers 202 with no body).
-export async function handleRpcBody(body, baseUrl) {
+export async function handleRpcBody(body, baseUrl, ctx = {}) {
     if (Array.isArray(body)) {
         if (!body.length) return rpcError(null, -32600, 'Invalid Request');
-        const out = (await Promise.all(body.map((m) => handleMessage(m, baseUrl)))).filter(Boolean);
+        const out = (await Promise.all(body.map((m) => handleMessage(m, baseUrl, ctx)))).filter(Boolean);
         return out.length ? out : null;
     }
-    return handleMessage(body, baseUrl);
+    return handleMessage(body, baseUrl, ctx);
 }
 
-export { rpcError };
+export { rpcError, ToolError };

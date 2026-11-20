@@ -22,10 +22,15 @@ const json = (body, status = 200) => new Response(JSON.stringify(body), {
 
 // Where to read /api/v1 data from. Production reads itself; anything else (preview deployments,
 // which may sit behind Vercel deployment protection) reads production unless MCP_DATA_BASE_URL is set.
-function dataBaseUrl(request) {
+export function dataBaseUrl(request) {
     if (process.env.MCP_DATA_BASE_URL) return process.env.MCP_DATA_BASE_URL.replace(/\/+$/, '');
     const { origin, hostname } = new URL(request.url);
     return hostname === 'modernvroapi.in' || hostname.endsWith('.modernvroapi.in') ? origin : PRODUCTION;
+}
+
+// Used only to slow down one caller sending many problem reports.
+export function callerOf(request) {
+    return (request.headers.get('x-forwarded-for') || '').split(',')[0].trim() || 'unknown';
 }
 
 export async function POST(request) {
@@ -35,7 +40,7 @@ export async function POST(request) {
     } catch {
         return json(rpcError(null, -32700, 'Parse error'), 400);
     }
-    const result = await handleRpcBody(body, dataBaseUrl(request));
+    const result = await handleRpcBody(body, dataBaseUrl(request), { source: 'MCP tool', caller: callerOf(request) });
     if (result === null) return new Response(null, { status: 202, headers: CORS });
     return json(result);
 }
@@ -51,7 +56,7 @@ export function GET(request) {
         name: SERVER_NAME,
         version: SERVER_VERSION,
         transport: 'streamable-http (stateless, POST JSON-RPC to this URL)',
-        tools: ['search_api', 'get_class', 'list_plugins', 'get_method_signature'],
+        tools: ['search_api', 'get_class', 'list_plugins', 'get_method_signature', 'report_inaccuracy'],
         docs: 'https://modernvroapi.in/llms.txt',
     });
 }

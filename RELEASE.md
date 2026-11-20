@@ -1,5 +1,21 @@
 # modernvroapi.in - Release Notes
 
+## [v1.4.0] - 2026-11-20 - Problem reports from AI agents and readers
+
+### ✨ New Features
+- **MCP tool `report_inaccuracy`** (MCP server 1.1.0): when a real Orchestrator contradicts the reference, an agent can send a report in a fixed pattern (plugin, class, member, kind, what the reference says, what happened, Orchestrator version and build, code, error log, suggested fix). The agent must first get the agreement of the person it works for (`user_approved: true`).
+- **`POST /api/report`**: the same report over plain HTTP for agents and scripts that do not use MCP. `GET /api/report` lists the fields. Described in `llms.txt`.
+- **Reports become public GitHub issues** labelled `agent-report`, titled `[agent-report] <plugin> / <Class>.<member>`. A repeat report for the same target is added as a comment on the open issue.
+- **"Report a problem" link on every class page** opens a GitHub issue with the same fields laid out.
+
+### 🔧 Safeguards
+- The class must exist in the reference; free text is length-capped, placed in code blocks, and scrubbed of tokens, passwords, host names, IP addresses and e-mail addresses.
+- Limits: 5 reports an hour per caller, 40 automatic issues a day site-wide, 10 comments per issue.
+- Without the `GITHUB_REPORT_TOKEN` environment variable, or when a limit is hit, nothing is sent and the caller gets a pre-filled GitHub link instead.
+
+### ⚠️ Setup
+- Set `GITHUB_REPORT_TOKEN` in the Vercel project: a fine-grained GitHub token limited to this repository with Issues read and write.
+
 ## [v1.3.0] - 2026-11-20 - Real URLs and pre-built pages for search engines
 
 ### ✨ New Features

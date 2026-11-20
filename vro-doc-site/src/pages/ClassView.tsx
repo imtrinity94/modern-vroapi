@@ -8,6 +8,7 @@ import { getPluginMeta } from '../data/plugin-meta';
 import { ChevronRight, Box, FunctionSquare, Info, Edit3, List, LayoutGrid, Copy, Check, AlertCircle, Link as LinkIcon, ArrowLeftCircle } from 'lucide-react';
 import SEO from '../components/SEO';
 import { SITE_URL, classDescription, classPath, classTitle } from '../lib/seoText';
+import { reportProblemUrl } from '../lib/reportLink';
 
 interface ApiClass {
     name: string;
@@ -214,15 +215,26 @@ const ClassView: React.FC = () => {
                     <span className="text-slate-900 dark:text-white font-mono font-bold bg-slate-200 dark:bg-slate-800 px-2 py-0.5 rounded">{className}</span>
                 </nav>
 
-                <a
-                    href={`https://github.com/imtrinity94/modern-vroapi/blob/main/vro-doc-site/src/data/plugins/${activeVersionId}.json`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-xs font-semibold px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-lg transition-colors border border-slate-200 dark:border-slate-700 w-fit"
-                >
-                    <Edit3 size={14} />
-                    <span>Suggest Edit</span>
-                </a>
+                <div className="flex flex-wrap items-center gap-2">
+                    <a
+                        href={reportProblemUrl(pluginName || '', classData.name, `${SITE_URL}${seoPath}`)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-xs font-semibold px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-lg transition-colors border border-slate-200 dark:border-slate-700 w-fit"
+                    >
+                        <AlertCircle size={14} />
+                        <span>Report a problem</span>
+                    </a>
+                    <a
+                        href={`https://github.com/imtrinity94/modern-vroapi/blob/main/vro-doc-site/src/data/plugins/${activeVersionId}.json`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-xs font-semibold px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-lg transition-colors border border-slate-200 dark:border-slate-700 w-fit"
+                    >
+                        <Edit3 size={14} />
+                        <span>Suggest Edit</span>
+                    </a>
+                </div>
             </div>
 
             <header className="space-y-6">
