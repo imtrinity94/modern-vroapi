@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Bot, Copy, Check, ArrowLeft } from 'lucide-react';
 import SEO from '../components/SEO';
+import { MCP_DESCRIPTION, MCP_TITLE } from '../lib/seoText';
 
 const MCP_URL = 'https://modernvroapi.in/api/mcp';
 
@@ -46,8 +47,8 @@ const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title
 const McpPage: React.FC = () => (
     <div className="max-w-3xl mx-auto space-y-10">
         <SEO
-            title="MCP server for AI assistants"
-            description="Connect Claude, ChatGPT, Cursor or VS Code to the modernvroapi.in MCP server so your AI assistant looks up real VCF Orchestrator API signatures."
+            title={MCP_TITLE}
+            description={MCP_DESCRIPTION}
             keywords={['MCP', 'Model Context Protocol', 'AI', 'Claude', 'Cursor', 'Copilot']}
         />
 

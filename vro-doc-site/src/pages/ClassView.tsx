@@ -7,6 +7,7 @@ import xrefData from '../data/xref.json';
 import { getPluginMeta } from '../data/plugin-meta';
 import { ChevronRight, Box, FunctionSquare, Info, Edit3, List, LayoutGrid, Copy, Check, AlertCircle, Link as LinkIcon, ArrowLeftCircle } from 'lucide-react';
 import SEO from '../components/SEO';
+import { SITE_URL, classDescription, classPath, classTitle } from '../lib/seoText';
 
 interface ApiClass {
     name: string;
@@ -171,8 +172,9 @@ const ClassView: React.FC = () => {
 
     // SEO Helper Data
     const methodNames = classData.methods.map(m => m.name);
-    const topMethods = methodNames.slice(0, 5).join(', ');
-    const seoDescription = `API reference for ${classData.name} class in ${pluginEntry?.name || pluginName} plugin. ${classData.description || ''} Includes methods like ${topMethods}...`;
+    const seoPluginName = pluginEntry?.name || pluginName || '';
+    const seoPath = classPath(pluginName || '', classData.name);
+    const seoDescription = classDescription(classData.name, seoPluginName, classData.description, methodNames, classData.attributes.map(a => a.name));
     const seoKeywords = [classData.name, pluginEntry?.name || '', pluginName || '', 'Class Reference', ...methodNames.slice(0, 20)];
 
     // Structured Data (JSON-LD)
@@ -180,9 +182,10 @@ const ClassView: React.FC = () => {
         "@context": "https://schema.org",
         "@type": "APIReference",
         "name": classData.name,
+        "url": `${SITE_URL}${seoPath}`,
         "description": classData.description,
         "programmingLanguage": "JavaScript",
-        "targetPlatform": "vRealize Orchestrator",
+        "targetPlatform": "VCF Operations Orchestrator (vRealize Orchestrator)",
         "articleSection": "Classes",
         "about": {
             "@type": "SoftwareSourceCode",
@@ -194,8 +197,9 @@ const ClassView: React.FC = () => {
     return (
         <div className="w-[95%] max-w-[1920px] mx-auto space-y-10 animate-in fade-in duration-500">
             <SEO
-                title={`${classData.name} - ${pluginEntry?.name || pluginName}`}
+                title={classTitle(classData.name, seoPluginName)}
                 description={seoDescription}
+                path={seoPath}
                 keywords={seoKeywords}
                 schema={JSON.stringify(structuredData)}
             />

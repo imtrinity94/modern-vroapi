@@ -5,33 +5,44 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="/logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>modernvroapi.in</title>
-
-  <!-- Primary Meta Tags -->
-  <meta name="title" content="vRO API Documentation | modernvroapi.in" />
-  <meta name="description"
-    content="Modern, searchable API documentation for vRealize Orchestrator (vRO) plugins. Browse classes, methods, and attributes with ease." />
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://modernvroapi.in/" />
-  <meta property="og:title" content="vRO API Documentation | modernvroapi.in" />
-  <meta property="og:description"
-    content="Modern, searchable API documentation for vRealize Orchestrator (vRO) plugins. Browse classes, methods, and attributes with ease." />
-  <meta property="og:image" content="https://modernvroapi.in/og-image.png" />
-  <meta property="og:site_name" content="modernvroapi" />
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://modernvroapi.in/" />
-  <meta property="twitter:title" content="vRO API Documentation | modernvroapi.in" />
-  <meta property="twitter:description"
-    content="Modern, searchable API documentation for vRealize Orchestrator (vRO) plugins. Browse classes, methods, and attributes with ease." />
-  <meta property="twitter:image" content="https://modernvroapi.in/og-image.png" />
+  <script>
+    // Old links used /#/plugin/...; send them to the real address before the app starts.
+    (function () {
+      try {
+        var h = window.location.hash;
+        if (h.indexOf('#/') === 0) {
+          window.history.replaceState(null, '', h.slice(1));
+        }
+        // Apply the saved theme early so the page does not flash light before dark.
+        var t = window.localStorage.getItem('theme');
+        if (t === 'dark' || (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) { /* ignore */ }
+    })();
+  </script>
+  <!--seo:start-->
+  <title>vRO API Documentation | modernvroapi.in</title>
+  <meta name="description" data-rh="true"
+    content="Searchable JavaScript API reference for VCF Operations Orchestrator (vRO) plugins: classes, methods and attributes for vCenter, NSX, REST, Aria Automation and more." />
+  <link rel="canonical" data-rh="true" href="https://modernvroapi.in/" />
+  <meta property="og:type" data-rh="true" content="website" />
+  <meta property="og:url" data-rh="true" content="https://modernvroapi.in/" />
+  <meta property="og:title" data-rh="true" content="vRO API Documentation | modernvroapi.in" />
+  <meta property="og:description" data-rh="true"
+    content="Searchable JavaScript API reference for VCF Operations Orchestrator (vRO) plugins: classes, methods and attributes for vCenter, NSX, REST, Aria Automation and more." />
+  <meta property="og:site_name" data-rh="true" content="modernvroapi.in" />
+  <meta property="og:image" data-rh="true" content="https://modernvroapi.in/og-image.png" />
+  <meta name="twitter:card" data-rh="true" content="summary_large_image" />
+  <meta name="twitter:title" data-rh="true" content="vRO API Documentation | modernvroapi.in" />
+  <meta name="twitter:description" data-rh="true"
+    content="Searchable JavaScript API reference for VCF Operations Orchestrator (vRO) plugins: classes, methods and attributes for vCenter, NSX, REST, Aria Automation and more." />
+  <meta name="twitter:image" data-rh="true" content="https://modernvroapi.in/og-image.png" />
+  <!--seo:end-->
 </head>
 
 <body>
-  <div id="root"></div>
+  <div id="root"><!--prerender--></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>
 

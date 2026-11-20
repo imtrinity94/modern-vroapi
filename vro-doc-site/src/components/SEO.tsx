@@ -1,6 +1,8 @@
 
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
+import { SITE_NAME, SITE_URL, fullTitle as buildFullTitle } from '../lib/seoText';
 
 interface SEOProps {
     title: string;
@@ -9,6 +11,7 @@ interface SEOProps {
     type?: string;
     image?: string;
     schema?: string; // JSON-LD Structured Data
+    path?: string; // Canonical path, when it differs from the current URL
 }
 
 const SEO: React.FC<SEOProps> = ({
@@ -17,18 +20,22 @@ const SEO: React.FC<SEOProps> = ({
     keywords = [],
     type = 'website',
     image = '/og-image.png',
-    schema
+    schema,
+    path
 }) => {
-    const siteTitle = 'modern-vroapi';
-    const fullTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
+    const { pathname } = useLocation();
+    const fullTitle = buildFullTitle(title);
 
     // Default keywords
-    const defaultKeywords = ['vRO', 'vRealize Orchestrator', 'API', 'Documentation', 'VMware', 'Aria Automation'];
+    const defaultKeywords = ['vRO', 'vRealize Orchestrator', 'VCF Operations Orchestrator', 'API', 'Documentation', 'VMware', 'Aria Automation'];
     const allKeywords = [...new Set([...defaultKeywords, ...keywords])].join(', ');
 
     // Ensure absolute URL for social images
-    const siteUrl = 'https://modernvroapi.in';
-    const absoluteImageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
+    const absoluteImageUrl = image.startsWith('http') ? image : `${SITE_URL}${image}`;
+
+    // One address per page: no trailing slash except on the home page
+    const canonicalPath = (path || pathname).replace(/\/+$/, '') || '/';
+    const canonicalUrl = `${SITE_URL}${canonicalPath}`;
 
     return (
         <Helmet>
@@ -36,12 +43,14 @@ const SEO: React.FC<SEOProps> = ({
             <title>{fullTitle}</title>
             <meta name="description" content={description} />
             <meta name="keywords" content={allKeywords} />
+            <link rel="canonical" href={canonicalUrl} />
 
             {/* Open Graph / Facebook */}
             <meta property="og:type" content={type} />
+            <meta property="og:url" content={canonicalUrl} />
             <meta property="og:title" content={fullTitle} />
             <meta property="og:description" content={description} />
-            <meta property="og:site_name" content={siteTitle} />
+            <meta property="og:site_name" content={SITE_NAME} />
             <meta property="og:image" content={absoluteImageUrl} />
 
             {/* Twitter */}

@@ -1,5 +1,6 @@
 
 import { useState, useMemo } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useDebounce } from '../hooks/useDebounce';
 import { Link } from 'react-router-dom';
 import pluginIndex from '../data/index.json';
@@ -9,9 +10,12 @@ import { ViewToggle } from '../components/UIToggles';
 import { getPluginMeta } from '../data/plugin-meta';
 import { Package, Search, ArrowRight, Bot } from 'lucide-react';
 import SEO from '../components/SEO';
+import { HOME_DESCRIPTION, HOME_TITLE } from '../lib/seoText';
 
 const Home: React.FC = () => {
-    const [searchTerm, setSearchTerm] = useState('');
+    const [searchParams] = useSearchParams();
+    // /?q=term opens the home page with the plugin filter already filled in
+    const [searchTerm, setSearchTerm] = useState(() => searchParams.get('q') || '');
     const debouncedSearchTerm = useDebounce(searchTerm, 300); // 300ms is enough for home page
     const isSearching = searchTerm !== debouncedSearchTerm;
     const { viewMode, toggleViewMode } = useViewMode();
@@ -33,8 +37,8 @@ const Home: React.FC = () => {
     return (
         <div className="space-y-8 animate-in fade-in duration-500">
             <SEO
-                title="vRO API Documentation"
-                description="Comprehensive generated documentation for vRealize Orchestrator (vRO) plugins, including classes, methods, and attributes."
+                title={HOME_TITLE}
+                description={HOME_DESCRIPTION}
                 schema={JSON.stringify({
                     "@context": "https://schema.org",
                     "@type": "WebSite",
@@ -42,7 +46,7 @@ const Home: React.FC = () => {
                     "url": "https://modernvroapi.in/",
                     "potentialAction": {
                         "@type": "SearchAction",
-                        "target": "https://modernvroapi.in/#/?q={search_term_string}",
+                        "target": "https://modernvroapi.in/?q={search_term_string}",
                         "query-input": "required name=search_term_string"
                     }
                 })}

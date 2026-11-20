@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
 import Layout from './components/Layout';
 import Home from './pages/Home';
@@ -10,7 +10,7 @@ import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -23,7 +23,7 @@ function App() {
         </Route>
       </Routes>
       <Analytics />
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 

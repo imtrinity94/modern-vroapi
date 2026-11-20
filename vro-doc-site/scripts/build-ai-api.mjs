@@ -125,7 +125,7 @@ function build() {
                 attributes: cls.attributes || [],
                 constructors: cls.constructors || [],
                 methods,
-                docUrl: `${SITE}/#/plugin/${id}/class/${encodeURIComponent(cls.name)}`,
+                docUrl: `${SITE}/plugin/${id}/class/${encodeURIComponent(cls.name)}`,
             });
 
             classSummaries.push({

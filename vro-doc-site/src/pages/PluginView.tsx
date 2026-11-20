@@ -9,6 +9,7 @@ import { useViewMode } from '../hooks/useUIState';
 import { ViewToggle } from '../components/UIToggles';
 import { Search, ChevronRight, FileCode, ArrowRight, List as ListIcon, Edit3, Download, Pin, BookOpen } from 'lucide-react';
 import SEO from '../components/SEO';
+import { pluginDescription as buildPluginDescription, pluginPath, pluginTitle as buildPluginTitle } from '../lib/seoText';
 
 interface Version {
     id: string;
@@ -178,7 +179,7 @@ const PluginView: React.FC = () => {
     if (!data && !initialClassesFromIndex.length) return null;
 
     const pluginTitle = pluginEntry?.name || data?.name || pluginName;
-    const pluginDescription = `API documentation for ${pluginTitle} plugin. Includes ${classes.length} classes and interfaces such as ${classes.slice(0, 3).map((c: any) => c.name).join(', ')}...`;
+    const pluginDescription = buildPluginDescription(String(pluginTitle), classes.map((c: any) => c.name));
 
     // Structured Data (JSON-LD)
     const structuredData = {
@@ -204,8 +205,9 @@ const PluginView: React.FC = () => {
     return (
         <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <SEO
-                title={`${pluginTitle} - API Documentation`}
+                title={buildPluginTitle(String(pluginTitle))}
                 description={pluginDescription}
+                path={pluginPath(pluginName || '')}
                 keywords={[pluginName || '', pluginEntry?.name || '', 'vRO Plugin', 'API Reference', ...classes.slice(0, 10).map((c: any) => c.name)]}
                 schema={JSON.stringify(structuredData)}
             />

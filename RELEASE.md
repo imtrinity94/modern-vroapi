@@ -1,5 +1,24 @@
 # modernvroapi.in - Release Notes
 
+## [v1.3.0] - 2026-11-20 - Real URLs and pre-built pages for search engines
+
+### ✨ New Features
+- **Real page addresses**: pages moved from `/#/plugin/<id>/class/<Class>` to `/plugin/<id>/class/<Class>`, so every plugin and class has its own URL that search engines can index.
+- **Pre-built HTML**: the build now writes a static page for the home page, the MCP page, each plugin and each class (12,845 pages) with the class description, attributes and methods in the HTML, its own title, description, canonical link and structured data. The React app takes over when it loads.
+- **`sitemap.xml` and `robots.txt`** are generated on every build.
+- **`/?q=term`** opens the home page with the plugin filter filled in.
+
+### 🔧 Improvements
+- **Old links keep working**: any `/#/...` link is sent to the new address when the page opens.
+- **Titles and descriptions** now mention vRO and VCF Operations Orchestrator and come from one shared module (`src/lib/seoText.ts`) used by both the pages and the pre-render step.
+- **No duplicate head tags**: each page has one description, one canonical link and one set of social tags.
+- **Saved dark theme is applied before the page paints.**
+- **MCP and `/api/v1` `docUrl` values** point to the new addresses.
+
+### ⚠️ Notes
+- Asset paths are now absolute (`base: '/'`), so the site must be served from the domain root.
+- `vercel.json` sends unknown addresses to `app.html` (the plain app shell) instead of `index.html`.
+
 ## [v1.2.3] - 2026-11-20 - Reindex script fixed
 
 ### 🐛 Bug Fixes
