@@ -1,5 +1,12 @@
 # modernvroapi.in - Release Notes
 
+## [v1.2.2] - 2026-11-20 - Three more workflow item classes
+
+### ✨ New Features
+- **New core classes**: `WorkflowDecisionActivityItem`, `WorkflowForeachItem` and `WorkflowSwitchItem` added to System (Core Classes). They are not listed in the API Explorer.
+- **Lab-verified attributes**: every attribute was read on VCF Operations Orchestrator 9.1.1.0 (build 25643527) across 1,236 workflows; behaviour seen in the lab is noted in the attribute descriptions.
+- **Switch item note**: `outItems` and `conditions` are Java arrays that must be read with `.length` and `[i]`; passing or returning the array itself throws `InternalError: Invalid JavaScript value`.
+
 ## [v1.2.1] - 2026-11-15 - MCP page on the site
 
 ### ✨ New Features

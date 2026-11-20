@@ -7671,6 +7671,100 @@
       "constructors": []
     },
     {
+      "name": "WorkflowDecisionActivityItem",
+      "description": "Workflow item for decisions made by an action or workflow (Decision activity). Not listed in the API Explorer. Verified on VCF Operations Orchestrator 9.1.1.0 (build 25643527).",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Returns the name of the DecisionActivityItem.",
+          "isReadonly": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "Returns the description of the DecisionActivityItem, or null if none is set.",
+          "isReadonly": true
+        },
+        {
+          "name": "nextItem",
+          "type": "WorkflowItem",
+          "description": "Returns the next item. In lab tests this was always the same item as nextItemTrue.",
+          "isReadonly": true
+        },
+        {
+          "name": "nextItemTrue",
+          "type": "WorkflowItem",
+          "description": "Returns the next item if condition is true.",
+          "isReadonly": true
+        },
+        {
+          "name": "nextItemFalse",
+          "type": "WorkflowItem",
+          "description": "Returns the next item if condition is false.",
+          "isReadonly": true
+        },
+        {
+          "name": "script",
+          "type": "string",
+          "description": "Returns the script of the DecisionActivityItem.",
+          "isReadonly": true
+        },
+        {
+          "name": "referencedWorkflow",
+          "type": "Workflow",
+          "description": "Returns the referenced workflow. In lab tests this was null whenever the decision references an action.",
+          "isReadonly": true
+        },
+        {
+          "name": "referencedAction",
+          "type": "Action",
+          "description": "Returns the referenced action.",
+          "isReadonly": true
+        }
+      ],
+      "constructors": []
+    },
+    {
+      "name": "WorkflowForeachItem",
+      "description": "Workflow item iterating a workflow over an array (Foreach element). Not listed in the API Explorer. Verified on VCF Operations Orchestrator 9.1.1.0 (build 25643527).",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Returns the name of the ForeachItem.",
+          "isReadonly": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "Returns the description of the ForeachItem, or null if none is set.",
+          "isReadonly": true
+        },
+        {
+          "name": "nextItem",
+          "type": "WorkflowItem",
+          "description": "Returns the next item.",
+          "isReadonly": true
+        },
+        {
+          "name": "loopInnerCatchBlock",
+          "type": "string",
+          "description": "Returns the script of the iteration error handler, or null if no handler is set.",
+          "isReadonly": true
+        },
+        {
+          "name": "iterationElement",
+          "type": "Workflow",
+          "description": "Returns the workflow to be iterated.",
+          "isReadonly": true
+        }
+      ],
+      "constructors": []
+    },
+    {
       "name": "WorkflowGenericConditionItem",
       "description": "Workflow item for conditions (Generic)",
       "methods": [],
@@ -7960,6 +8054,44 @@
           "name": "linkedWorkflows",
           "type": "Workflow[]",
           "description": "Returns the linked workflows",
+          "isReadonly": true
+        }
+      ],
+      "constructors": []
+    },
+    {
+      "name": "WorkflowSwitchItem",
+      "description": "Workflow item for switch cases (Switch). Not listed in the API Explorer. Verified on VCF Operations Orchestrator 9.1.1.0 (build 25643527). outItems and conditions are index-aligned Java arrays: read them with .length and [i]; passing or returning the array itself throws InternalError: Invalid JavaScript value.",
+      "methods": [],
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Returns the name of the SwitchItem.",
+          "isReadonly": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "Returns the description of the SwitchItem, or null if none is set.",
+          "isReadonly": true
+        },
+        {
+          "name": "nextItem",
+          "type": "WorkflowItem",
+          "description": "Always null in lab tests. Use outItems for the targets.",
+          "isReadonly": true
+        },
+        {
+          "name": "outItems",
+          "type": "WorkflowItem[]",
+          "description": "Returns the go-to targets of the switch cases, in the same order as conditions. Read with outItems.length and outItems[i] only.",
+          "isReadonly": true
+        },
+        {
+          "name": "conditions",
+          "type": "string[]",
+          "description": "Returns the conditions of the switch cases, e.g. (status == \"done\"). The last entry is (true), the default case. Read with conditions.length and conditions[i], or copy with Array.prototype.slice.call(item.conditions).",
           "isReadonly": true
         }
       ],
