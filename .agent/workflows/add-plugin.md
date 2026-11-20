@@ -61,7 +61,7 @@ Create `vro-doc-site/src/data/plugins/<PLUGIN_ID>.json` with this structure:
 
 - `parameters` is a comma-separated string: `"param: Type, param2: Type2"` (empty string `""` if none)
 - `isReadonly` is `true`/`false` based on the "Read-only" column (`Yes` → `true`)
-- Count total classes and methods for Step 5
+- Class and method counts are calculated by `npm run reindex` in Step 4
 
 ---
 
@@ -83,97 +83,42 @@ Add an entry to the `PLUGIN_META` object (keep alphabetical order by plugin ID):
 
 ---
 
-## Step 3 — Add to `index.json`
+## Step 3 — Add the display name to `plugin-names.ts`
 
-File: `vro-doc-site/src/data/index.json`
+File: `vro-doc-site/scripts/plugin-names.ts`
 
-Insert a new entry in alphabetical order by `name`:
+Add an entry to `PLUGIN_NAMES` (keep alphabetical order by plugin ID):
 
-```json
-{
-  "id": "<PLUGIN_ID>",
-  "name": "<PLUGIN_NAME>"
-}
+```typescript
+'<PLUGIN_ID>': '<PLUGIN_NAME>',
 ```
+
+Without this entry the plugin shows on the site under an upper-cased fallback name, and the reindex prints a warning.
 
 ---
 
-## Step 4 — Add to `search-index.json` (enables clickable type links)
+## Step 4 — Rebuild the index files
 
-File: `vro-doc-site/src/data/search-index.json`
+Run inside `vro-doc-site/`:
 
-Run the following Node.js snippet (or replicate the logic manually):
-
-```js
-const fs = require('fs');
-const P = '<PLUGIN_ID>';
-const plugin = JSON.parse(fs.readFileSync('vro-doc-site/src/data/plugins/<PLUGIN_ID>.json', 'utf8'));
-const idx = JSON.parse(fs.readFileSync('vro-doc-site/src/data/search-index.json', 'utf8'));
-
-plugin.classes.forEach(cls => {
-  idx.classes.push({ n: cls.name, p: P });
-  cls.methods.forEach(m => {
-    idx.methods.push({ n: m.name, c: cls.name, p: P });
-  });
-});
-
-fs.writeFileSync('vro-doc-site/src/data/search-index.json', JSON.stringify(idx));
+```bash
+npm run reindex
 ```
 
-This makes every class name a clickable hyperlink wherever it appears as a type (return type, attribute type, parameter type) across the entire site.
+This regenerates all four index files from the plugin JSON files. Do **not** edit them by hand; the next reindex overwrites manual edits.
+
+| File | What it holds |
+|---|---|
+| `src/data/index.json` | Plugin ID and display name |
+| `src/data/search-index.json` | Every plugin, class and method (site search and clickable type links) |
+| `src/data/stats.json` | Class and method counts per plugin |
+| `src/data/xref.json` | **Reference** and **Returned By** cross-links per class |
+
+The run must end without a `WARNING` about missing display names.
 
 ---
 
-## Step 5 — Add to `stats.json`
-
-File: `vro-doc-site/src/data/stats.json`
-
-Add an entry (count classes and methods from the plugin JSON):
-
-```json
-"<PLUGIN_ID>": {
-  "classes": <N_CLASSES>,
-  "methods": <N_METHODS>
-}
-```
-
----
-
-## Step 6 — Update `xref.json` (Reference / Returned By cross-links)
-
-File: `vro-doc-site/src/data/xref.json`
-
-For each plugin-specific class that is **used as a parameter** or **returned** by methods in the same plugin, add entries using this Node.js snippet:
-
-```js
-const fs = require('fs');
-const xref = JSON.parse(fs.readFileSync('vro-doc-site/src/data/xref.json', 'utf8'));
-const P = '<PLUGIN_ID>';
-
-// For each class that appears as a type in parameters or return values:
-xref['ClassName'] = {
-  u: [   // "used by" — signatures of methods that accept this class as a PARAMETER
-    `${P}:CallerClass:methodName`,
-  ],
-  r: [   // "returned by" — signatures of methods that RETURN this class
-    `${P}:CallerClass:methodName`,
-  ]
-};
-
-// Classes with no cross-references still need an empty entry:
-xref['StandaloneClass'] = { u: [], r: [] };
-
-fs.writeFileSync('vro-doc-site/src/data/xref.json', JSON.stringify(xref));
-```
-
-**How to identify relationships from the plugin JSON:**
-- A class appears in `u[]` (used by) when it appears as a **parameter type** in a method of another class
-- A class appears in `r[]` (returned by) when it appears as a **return type** of a method in another class
-- Signature format: `pluginId:ClassName:methodName` (no spaces)
-
----
-
-## Step 7 — Verify
+## Step 5 — Verify
 
 1. Check the dev server (if running: `npm run dev` inside `vro-doc-site/`) reflects:
    - Plugin tile appears on home page with correct icon, color, and tags
@@ -189,8 +134,6 @@ fs.writeFileSync('vro-doc-site/src/data/xref.json', JSON.stringify(xref));
 |---|---|
 | `vro-doc-site/src/data/plugins/<PLUGIN_ID>.json` | **NEW** — full class/method data |
 | `vro-doc-site/src/data/plugin-meta.ts` | Add icon, color, tags, version entry |
-| `vro-doc-site/src/data/index.json` | Add display name entry |
-| `vro-doc-site/src/data/search-index.json` | Add all classes + methods for type linking |
-| `vro-doc-site/src/data/stats.json` | Add class/method counts |
-| `vro-doc-site/src/data/xref.json` | Add Reference / Returned By cross-links |
+| `vro-doc-site/scripts/plugin-names.ts` | Add display name entry |
+| `vro-doc-site/src/data/index.json`, `search-index.json`, `stats.json`, `xref.json` | Regenerated by `npm run reindex` (never edited by hand) |
 | `vro-doc-site/public/icons/<ICON_FILE>` | Place icon here **before** running (not created by this workflow) |

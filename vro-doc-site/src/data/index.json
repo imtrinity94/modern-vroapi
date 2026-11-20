@@ -1,9 +1,5 @@
 [
   {
-    "id": "o11n-plugin-azure",
-    "name": "Azure"
-  },
-  {
     "id": "o11n-plugin-activedirectory",
     "name": "Active Directory"
   },
@@ -26,6 +22,10 @@
   {
     "id": "o11n-plugin-aws",
     "name": "AWS EC2"
+  },
+  {
+    "id": "o11n-plugin-azure",
+    "name": "Azure"
   },
   {
     "id": "o11n-plugin-cohesity",
